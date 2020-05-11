@@ -198,7 +198,7 @@ class Mage_Core_Model_Email_Template extends Mage_Core_Model_Email_Template_Abst
      *
      * @return array
      */
-    static public function getDefaultTemplates()
+    public static function getDefaultTemplates()
     {
         if(is_null(self::$_defaultTemplates)) {
             self::$_defaultTemplates = Mage::getConfig()->getNode(self::XML_PATH_TEMPLATE_EMAIL)->asArray();
@@ -212,7 +212,7 @@ class Mage_Core_Model_Email_Template extends Mage_Core_Model_Email_Template_Abst
      *
      * @return array
      */
-    static public function getDefaultTemplatesAsOptionsArray()
+    public static function getDefaultTemplatesAsOptionsArray()
     {
         $options = array(
             array('value'=>'', 'label'=> '')

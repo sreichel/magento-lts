@@ -96,7 +96,7 @@ class Mage_GiftMessage_Model_Message extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    static public function getAllowedEntityTypes()
+    public static function getAllowedEntityTypes()
     {
         return self::$_allowedEntityTypes;
     }

@@ -134,7 +134,7 @@ class Mage_Catalog_Model_Product_Status extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    static public function getOptionArray()
+    public static function getOptionArray()
     {
         return array(
             self::STATUS_ENABLED    => Mage::helper('catalog')->__('Enabled'),
@@ -147,7 +147,7 @@ class Mage_Catalog_Model_Product_Status extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    static public function toOptionArray()
+    public static function toOptionArray()
     {
         return self::getOptionArray();
     }
@@ -157,7 +157,7 @@ class Mage_Catalog_Model_Product_Status extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    static public function getAllOption()
+    public static function getAllOption()
     {
         $options = self::getOptionArray();
         array_unshift($options, array('value'=>'', 'label'=>''));
@@ -169,7 +169,7 @@ class Mage_Catalog_Model_Product_Status extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    static public function getAllOptions()
+    public static function getAllOptions()
     {
         $res = array(
             array(
@@ -192,7 +192,7 @@ class Mage_Catalog_Model_Product_Status extends Mage_Core_Model_Abstract
      * @param string $optionId
      * @return string
      */
-    static public function getOptionText($optionId)
+    public static function getOptionText($optionId)
     {
         $options = self::getOptionArray();
         return isset($options[$optionId]) ? $options[$optionId] : null;

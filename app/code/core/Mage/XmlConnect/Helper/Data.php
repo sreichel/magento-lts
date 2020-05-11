@@ -315,7 +315,7 @@ class Mage_XmlConnect_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return array
      */
-    static public function getSupportedDevices()
+    public static function getSupportedDevices()
     {
         $devices = array (
             self::DEVICE_TYPE_IPAD      => Mage::helper('xmlconnect')->__('iPad'),
@@ -414,7 +414,7 @@ class Mage_XmlConnect_Helper_Data extends Mage_Core_Helper_Abstract
      * @param mixed $changes
      * @return array
      */
-    static public function arrayMergeRecursive($target, $changes)
+    public static function arrayMergeRecursive($target, $changes)
     {
         if (!is_array($target)) {
             $target = empty($target) ? array() : array($target);
@@ -541,7 +541,7 @@ EOT;
      *
      * @return array
      */
-    static public function getSupportedMessageTypes()
+    public static function getSupportedMessageTypes()
     {
         $messages = array (
             Mage_XmlConnect_Model_Queue::MESSAGE_TYPE_PUSH      => Mage::helper('xmlconnect')->__('Push message'),

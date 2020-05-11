@@ -216,7 +216,7 @@ class Mage_Core_Model_Resource_Setup
      *
      * @return boolean
      */
-    static public function applyAllUpdates()
+    public static function applyAllUpdates()
     {
         Mage::app()->setUpdateMode(true);
         self::$_hadUpdates = false;
@@ -251,7 +251,7 @@ class Mage_Core_Model_Resource_Setup
      * Apply database data updates whenever needed
      *
      */
-    static public function applyAllDataUpdates()
+    public static function applyAllDataUpdates()
     {
         if (!self::$_schemaUpdatesChecked) {
             return;

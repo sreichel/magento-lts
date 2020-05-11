@@ -39,7 +39,7 @@ class Mage_Api2_Model_Auth_User
      * @param boolean $asOptionArray OPTIONAL If TRUE - return an options array, plain array - otherwise
      * @return array
      */
-    static public function getUserTypes($asOptionArray = false)
+    public static function getUserTypes($asOptionArray = false)
     {
         $userTypes = array();
 

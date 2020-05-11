@@ -105,7 +105,7 @@ class Mage_Catalog_Model_Product_Type
         return self::$_priceModels[$productType];
     }
 
-    static public function getOptionArray()
+    public static function getOptionArray()
     {
         $options = array();
         foreach(self::getTypes() as $typeId=>$type) {
@@ -120,19 +120,19 @@ class Mage_Catalog_Model_Product_Type
      *
      * @return array
      */
-    static public function toOptionArray()
+    public static function toOptionArray()
     {
         return self::getOptionArray();
     }
 
-    static public function getAllOption()
+    public static function getAllOption()
     {
         $options = self::getOptionArray();
         array_unshift($options, array('value'=>'', 'label'=>''));
         return $options;
     }
 
-    static public function getAllOptions()
+    public static function getAllOptions()
     {
         $res = array();
         $res[] = array('value'=>'', 'label'=>'');
@@ -145,7 +145,7 @@ class Mage_Catalog_Model_Product_Type
         return $res;
     }
 
-    static public function getOptions()
+    public static function getOptions()
     {
         $res = array();
         foreach (self::getOptionArray() as $index => $value) {
@@ -157,13 +157,13 @@ class Mage_Catalog_Model_Product_Type
         return $res;
     }
 
-    static public function getOptionText($optionId)
+    public static function getOptionText($optionId)
     {
         $options = self::getOptionArray();
         return isset($options[$optionId]) ? $options[$optionId] : null;
     }
 
-    static public function getTypes()
+    public static function getTypes()
     {
         if (is_null(self::$_types)) {
             $productTypes = Mage::getConfig()->getNode('global/catalog/product/type')->asArray();
@@ -186,7 +186,7 @@ class Mage_Catalog_Model_Product_Type
      *
      * @return array
      */
-    static public function getCompositeTypes()
+    public static function getCompositeTypes()
     {
         if (is_null(self::$_compositeTypes)) {
             self::$_compositeTypes = array();
