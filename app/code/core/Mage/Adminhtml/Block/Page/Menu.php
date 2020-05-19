@@ -127,9 +127,9 @@ class Mage_Adminhtml_Block_Page_Menu extends Mage_Adminhtml_Block_Template
      * @param int $level
      * @return array
      */
-    protected function _buildMenuArray(Varien_Simplexml_Element $parent=null, $path='', $level=0)
+    protected function _buildMenuArray(Varien_Simplexml_Element $parent = null, $path = '', $level = 0)
     {
-        if (is_null($parent)) {
+        if ($parent === null) {
             $parent = Mage::getSingleton('admin/config')->getAdminhtmlConfig()->getNode('menu');
         }
 
@@ -177,7 +177,7 @@ class Mage_Adminhtml_Block_Page_Menu extends Mage_Adminhtml_Block_Template
 
         uasort($parentArr, array($this, '_sortMenu'));
 
-        foreach($parentArr as $key => $value) {
+        foreach ($parentArr as $key => $value) {
             $last = $key;
         }
         if (isset($last)) {

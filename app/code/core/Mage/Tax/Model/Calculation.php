@@ -359,7 +359,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * @param type $store
      * @return \Varien_Object
      */
-    public function getDefaultRateRequest($store =null)
+    public function getDefaultRateRequest($store = null)
     {
         if ($this->_taxHelper->isCrossBorderTradeEnabled($store)) {
             //If cross border trade is enabled, we will use customer tax rate as store tax rate
@@ -388,8 +388,8 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
         $shippingAddress = null,
         $billingAddress = null,
         $customerTaxClass = null,
-        $store = null)
-    {
+        $store = null
+    ) {
         if ($shippingAddress === false && $billingAddress === false && $customerTaxClass === false) {
             return $this->getRateOriginRequest($store);
         }
@@ -402,9 +402,9 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
         ) {
             $basedOn = 'default';
         } else {
-            if ((($billingAddress === false || is_null($billingAddress) || !$billingAddress->getCountryId())
+            if ((($billingAddress === false || $billingAddress === null || !$billingAddress->getCountryId())
                 && $basedOn == 'billing')
-                || (($shippingAddress === false || is_null($shippingAddress) || !$shippingAddress->getCountryId())
+                || (($shippingAddress === false || $shippingAddress === null || !$shippingAddress->getCountryId())
                     && $basedOn == 'shipping')
             ) {
                 if ($customer) {
@@ -437,16 +437,18 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
             case 'default':
                 $address
                     ->setCountryId(Mage::getStoreConfig(
-                    Mage_Tax_Model_Config::CONFIG_XML_PATH_DEFAULT_COUNTRY,
-                    $store))
+                        Mage_Tax_Model_Config::CONFIG_XML_PATH_DEFAULT_COUNTRY,
+                        $store
+                    ))
                     ->setRegionId(Mage::getStoreConfig(Mage_Tax_Model_Config::CONFIG_XML_PATH_DEFAULT_REGION, $store))
                     ->setPostcode(Mage::getStoreConfig(
-                    Mage_Tax_Model_Config::CONFIG_XML_PATH_DEFAULT_POSTCODE,
-                    $store));
+                        Mage_Tax_Model_Config::CONFIG_XML_PATH_DEFAULT_POSTCODE,
+                        $store
+                    ));
                 break;
         }
 
-        if (is_null($customerTaxClass) && $customer) {
+        if ($customerTaxClass === null && $customer) {
             $customerTaxClass = $customer->getTaxClassId();
         } elseif (($customerTaxClass === false) || !$customer) {
             $customerTaxClass = Mage::getModel('customer/group')

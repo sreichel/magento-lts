@@ -32,8 +32,7 @@
  * @author     Magento Core Team <core@magentocommerce.com>
  */
 
-class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Date
-    extends Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Abstract
+class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Date extends Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Abstract
 {
     protected $_defaultWidth = 160;
     /**
@@ -50,13 +49,12 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Date
     {
         $format = $this->getColumn()->getFormat();
         if (!$format) {
-            if (is_null(self::$_format)) {
+            if (self::$_format === null) {
                 try {
                     self::$_format = Mage::app()->getLocale()->getDateFormat(
                         Mage_Core_Model_Locale::FORMAT_TYPE_MEDIUM
                     );
-                }
-                catch (Exception $e) {
+                } catch (Exception $e) {
                     Mage::logException($e);
                 }
             }
@@ -76,17 +74,15 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Date
         if ($data = $row->getData($this->getColumn()->getIndex())) {
             $format = $this->_getFormat();
             try {
-                if($this->getColumn()->getGmtoffset()) {
+                if ($this->getColumn()->getGmtoffset()) {
                     $data = Mage::app()->getLocale()
                         ->date($data, Varien_Date::DATETIME_INTERNAL_FORMAT)->toString($format);
                 } else {
                     $data = Mage::getSingleton('core/locale')
                         ->date($data, Zend_Date::ISO_8601, null, false)->toString($format);
                 }
-            }
-            catch (Exception $e)
-            {
-                if($this->getColumn()->getTimezone()) {
+            } catch (Exception $e) {
+                if ($this->getColumn()->getTimezone()) {
                     $data = Mage::app()->getLocale()
                         ->date($data, Varien_Date::DATETIME_INTERNAL_FORMAT)->toString($format);
                 } else {

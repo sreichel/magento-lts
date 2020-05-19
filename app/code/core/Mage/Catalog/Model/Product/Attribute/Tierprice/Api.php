@@ -79,7 +79,7 @@ class Mage_Catalog_Model_Product_Attribute_Tierprice_Api extends Mage_Catalog_Mo
         $product = $this->_initProduct($productId, $identifierType);
 
         $updatedTierPrices = $this->prepareTierPrices($product, $tierPrices);
-        if (is_null($updatedTierPrices)) {
+        if ($updatedTierPrices === null) {
             $this->_fault('data_invalid', Mage::helper('catalog')->__('Invalid Tier Prices'));
         }
 
@@ -91,7 +91,7 @@ class Mage_Catalog_Model_Product_Attribute_Tierprice_Api extends Mage_Catalog_Mo
              */
             if (is_array($errors = $product->validate())) {
                 $strErrors = array();
-                foreach($errors as $code=>$error) {
+                foreach ($errors as $code => $error) {
                     $strErrors[] = ($error === true)? Mage::helper('catalog')->__('Value for "%s" is invalid.', $code) : Mage::helper('catalog')->__('Value for "%s" is invalid: %s', $code, $error);
                 }
                 $this->_fault('data_invalid', implode("\n", $strErrors));

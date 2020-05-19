@@ -181,7 +181,7 @@ class Mage_Directory_Model_Currency extends Mage_Core_Model_Abstract
      */
     public function convert($price, $toCurrency = null)
     {
-        if (is_null($toCurrency)) {
+        if ($toCurrency === null) {
             return $price;
         } else {
             $rate = $this->getRate($toCurrency);
@@ -190,8 +190,11 @@ class Mage_Directory_Model_Currency extends Mage_Core_Model_Abstract
             }
         }
 
-        throw new Exception(Mage::helper('directory')->__('Undefined rate from "%s-%s".', $this->getCode(),
-            $toCurrency instanceof Mage_Directory_Model_Currency ? $toCurrency->getCode() : $toCurrency));
+        throw new Exception(Mage::helper('directory')->__(
+            'Undefined rate from "%s-%s".',
+            $this->getCode(),
+            $toCurrency instanceof Mage_Directory_Model_Currency ? $toCurrency->getCode() : $toCurrency
+        ));
     }
 
     /**
@@ -232,9 +235,13 @@ class Mage_Directory_Model_Currency extends Mage_Core_Model_Abstract
      * @param   bool $addBrackets
      * @return  string
      */
-    public function formatPrecision($price, $precision, $options = array(), $includeContainer = true,
-                                    $addBrackets = false)
-    {
+    public function formatPrecision(
+        $price,
+        $precision,
+        $options = array(),
+        $includeContainer = true,
+        $addBrackets = false
+    ) {
         if (!isset($options['precision'])) {
             $options['precision'] = $precision;
         }

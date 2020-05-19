@@ -68,7 +68,10 @@ class Mage_Reports_Model_Resource_Report_Product_Viewed extends Mage_Sales_Model
         if ($from !== null || $to !== null) {
             $subSelect = $this->_getTableDateRangeSelect(
                 $this->getTable('reports/event'),
-                'logged_at', 'logged_at', $from, $to
+                'logged_at',
+                'logged_at',
+                $from,
+                $to
             );
         } else {
             $subSelect = null;
@@ -78,7 +81,9 @@ class Mage_Reports_Model_Resource_Report_Product_Viewed extends Mage_Sales_Model
         $periodExpr = $adapter->getDatePartSql(
             $this->getStoreTZOffsetQuery(
                 array('source_table' => $this->getTable('reports/event')),
-                'source_table.logged_at', $from, $to
+                'source_table.logged_at',
+                $from,
+                $to
             )
         );
 
@@ -98,16 +103,21 @@ class Mage_Reports_Model_Resource_Report_Product_Viewed extends Mage_Sales_Model
             'store_id'               => 'source_table.store_id',
             'product_id'             => 'source_table.object_id',
             'product_name'           => new Zend_Db_Expr(
-                sprintf('MIN(%s)',
-                    $adapter->getIfNullSql('product_name.value','product_default_name.value')
+                sprintf(
+                    'MIN(%s)',
+                    $adapter->getIfNullSql('product_name.value', 'product_default_name.value')
                 )
             ),
             'product_price'          => new Zend_Db_Expr(
-                sprintf('%s',
+                sprintf(
+                    '%s',
                     $helper->prepareColumn(
-                        sprintf('MIN(%s)',
+                        sprintf(
+                            'MIN(%s)',
                             $adapter->getIfNullSql(
-                                $adapter->getIfNullSql('product_price.value','product_default_price.value'), 0)
+                                $adapter->getIfNullSql('product_price.value', 'product_default_price.value'),
+                                0
+                            )
                         ),
                         $select->getPart(Zend_Db_Select::GROUP)
                     )
@@ -120,7 +130,8 @@ class Mage_Reports_Model_Resource_Report_Product_Viewed extends Mage_Sales_Model
             ->from(
                 array(
                     'source_table' => $this->getTable('reports/event')),
-                $columns)
+                $columns
+            )
             ->where('source_table.event_type_id = ?', Mage_Reports_Model_Event::EVENT_PRODUCT_VIEW);
 
         /** @var Mage_Catalog_Model_Resource_Product $product */
@@ -185,7 +196,7 @@ class Mage_Reports_Model_Resource_Report_Product_Viewed extends Mage_Sales_Model
         );
 
         $havingPart = array($adapter->prepareSqlCondition($viewsNumExpr, array('gt' => 0)));
-        if (!is_null($subSelect)) {
+        if ($subSelect !== null) {
             $subSelectHavingPart = $this->_makeConditionFromDateRangeSelect($subSelect, 'period');
             if ($subSelectHavingPart) {
                 $havingPart[] = '(' . $subSelectHavingPart . ')';
@@ -194,8 +205,11 @@ class Mage_Reports_Model_Resource_Report_Product_Viewed extends Mage_Sales_Model
         $select->having(implode(' AND ', $havingPart));
 
         $select->useStraightJoin();
-        $insertQuery = $helper->getInsertFromSelectUsingAnalytic($select, $this->getMainTable(),
-            array_keys($columns));
+        $insertQuery = $helper->getInsertFromSelectUsingAnalytic(
+            $select,
+            $this->getMainTable(),
+            array_keys($columns)
+        );
         $adapter->query($insertQuery);
 
         Mage::getResourceHelper('reports')

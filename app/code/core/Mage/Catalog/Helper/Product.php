@@ -65,8 +65,7 @@ class Mage_Catalog_Helper_Product extends Mage_Core_Helper_Url
     {
         if ($product instanceof Mage_Catalog_Model_Product) {
             return $product->getProductUrl();
-        }
-        elseif (is_numeric($product)) {
+        } elseif (is_numeric($product)) {
             return Mage::getModel('catalog/product')->load($product)->getProductUrl();
         }
         return false;
@@ -122,8 +121,7 @@ class Mage_Catalog_Helper_Product extends Mage_Core_Helper_Url
         $url = false;
         if (!$product->getImage()) {
             $url = Mage::getDesign()->getSkinUrl('images/no_image.jpg');
-        }
-        elseif ($attribute = $product->getResource()->getAttribute('image')) {
+        } elseif ($attribute = $product->getResource()->getAttribute('image')) {
             $url = $attribute->getFrontend()->getUrl($product);
         }
         return $url;
@@ -140,8 +138,7 @@ class Mage_Catalog_Helper_Product extends Mage_Core_Helper_Url
         $url = false;
         if (!$product->getSmallImage()) {
             $url = Mage::getDesign()->getSkinUrl('images/no_image.jpg');
-        }
-        elseif ($attribute = $product->getResource()->getAttribute('small_image')) {
+        } elseif ($attribute = $product->getResource()->getAttribute('small_image')) {
             $url = $attribute->getFrontend()->getUrl($product);
         }
         return $url;
@@ -158,8 +155,7 @@ class Mage_Catalog_Helper_Product extends Mage_Core_Helper_Url
         $url = false;
         if (!$product->getThumbnail()) {
             $url = Mage::getDesign()->getSkinUrl('images/no_image.jpg');
-        }
-        elseif ($attribute = $product->getResource()->getAttribute('thumbnail')) {
+        } elseif ($attribute = $product->getResource()->getAttribute('thumbnail')) {
             $url = $attribute->getFrontend()->getUrl($product);
         }
         return $url;
@@ -179,7 +175,7 @@ class Mage_Catalog_Helper_Product extends Mage_Core_Helper_Url
 
     public function getStatuses()
     {
-        if(is_null($this->_statuses)) {
+        if ($this->_statuses === null) {
             $this->_statuses = array();//Mage::getModel('catalog/product_status')->getResourceCollection()->load();
         }
 
@@ -215,7 +211,7 @@ class Mage_Catalog_Helper_Product extends Mage_Core_Helper_Url
      */
     public function getProductUrlSuffix($storeId = null)
     {
-        if (is_null($storeId)) {
+        if ($storeId === null) {
             $storeId = Mage::app()->getStore()->getId();
         }
 
@@ -258,7 +254,7 @@ class Mage_Catalog_Helper_Product extends Mage_Core_Helper_Url
             )
         );
 
-        if (is_null($inputType)) {
+        if ($inputType === null) {
             return $inputTypes;
         } else if (isset($inputTypes[$inputType])) {
             return $inputTypes[$inputType];
@@ -359,8 +355,9 @@ class Mage_Catalog_Helper_Product extends Mage_Core_Helper_Url
 
         try {
             Mage::dispatchEvent('catalog_controller_product_init', array('product' => $product));
-            Mage::dispatchEvent('catalog_controller_product_init_after',
-                            array('product' => $product,
+            Mage::dispatchEvent(
+                'catalog_controller_product_init_after',
+                array('product' => $product,
                                 'controller_action' => $controller
                             )
             );
@@ -529,7 +526,7 @@ class Mage_Catalog_Helper_Product extends Mage_Core_Helper_Url
             $qty = $configQty;
         }
 
-        if (is_null($qty)) {
+        if ($qty === null) {
             $qty = self::DEFAULT_QTY;
         }
 
@@ -546,8 +543,7 @@ class Mage_Catalog_Helper_Product extends Mage_Core_Helper_Url
     public function getDefaultProductValue($fieldName, $productType)
     {
         $fieldData = $this->getFieldset($fieldName) ? (array) $this->getFieldset($fieldName) : null;
-        if (
-            count($fieldData)
+        if (count($fieldData)
             && array_key_exists($productType, $fieldData['product_type'])
             && (bool)$fieldData['use_config']
         ) {

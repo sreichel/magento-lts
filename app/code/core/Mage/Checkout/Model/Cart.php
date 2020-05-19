@@ -98,7 +98,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
     public function getQuoteProductIds()
     {
         $products = $this->getData('product_ids');
-        if (is_null($products)) {
+        if ($products === null) {
             $products = array();
             foreach ($this->getQuote()->getAllItems() as $item) {
                 $products[$item->getProductId()] = $item->getProductId();
@@ -162,10 +162,10 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      * @param mixed $qtyFlag if is null set product qty like in order
      * @return $this
      */
-    public function addOrderItem($orderItem, $qtyFlag=null)
+    public function addOrderItem($orderItem, $qtyFlag = null)
     {
         /* @var $orderItem Mage_Sales_Model_Order_Item */
-        if (is_null($orderItem->getParentItem())) {
+        if ($orderItem->getParentItem() === null) {
             $product = Mage::getModel('catalog/product')
                 ->setStoreId(Mage::app()->getStore()->getId())
                 ->load($orderItem->getProductId());
@@ -175,7 +175,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
 
             $info = $orderItem->getProductOptionByCode('info_buyRequest');
             $info = new Varien_Object($info);
-            if (is_null($qtyFlag)) {
+            if ($qtyFlag === null) {
                 $info->setQty($orderItem->getQtyOrdered());
             } else {
                 $info->setQty(1);
@@ -239,7 +239,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      * @param   mixed $requestInfo
      * @return  Mage_Checkout_Model_Cart
      */
-    public function addProduct($productInfo, $requestInfo=null)
+    public function addProduct($productInfo, $requestInfo = null)
     {
         $product = $this->_getProduct($productInfo);
         $request = $this->_getProductRequest($requestInfo);
@@ -318,7 +318,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
                 if ($product->getId() && $product->isVisibleInCatalog()) {
                     try {
                         $this->getQuote()->addProduct($product);
-                    } catch (Exception $e){
+                    } catch (Exception $e) {
                         $allAdded = false;
                     }
                 } else {
@@ -495,9 +495,9 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
         if (null === $this->_productIds) {
             $this->_productIds = array();
             if ($this->getSummaryQty()>0) {
-               foreach ($this->getQuote()->getAllItems() as $item) {
-                   $this->_productIds[] = $item->getProductId();
-               }
+                foreach ($this->getQuote()->getAllItems() as $item) {
+                    $this->_productIds[] = $item->getProductId();
+                }
             }
             $this->_productIds = array_unique($this->_productIds);
         }

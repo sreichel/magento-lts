@@ -238,7 +238,7 @@ class Mage_XmlConnect_CustomerController extends Mage_XmlConnect_Controller_Acti
 
             /** @var $customer Mage_Customer_Model_Customer */
             $customer = Mage::registry('current_customer');
-            if (is_null($customer)) {
+            if ($customer === null) {
                 $customer = Mage::getModel('customer/customer');
             }
 
@@ -355,7 +355,8 @@ class Mage_XmlConnect_CustomerController extends Mage_XmlConnect_Controller_Acti
                 }
             } else {
                 $this->_message(
-                    $this->__('This email address was not found in our records.'), self::MESSAGE_STATUS_ERROR
+                    $this->__('This email address was not found in our records.'),
+                    self::MESSAGE_STATUS_ERROR
                 );
             }
         } else {
@@ -824,14 +825,18 @@ class Mage_XmlConnect_CustomerController extends Mage_XmlConnect_Controller_Acti
         if ($isCustomerLogged) {
             if (!$this->_getSession()->isLoggedIn()) {
                 $this->_message(
-                    $this->__('Customer not logged in.'), self::MESSAGE_STATUS_ERROR, array('logged_in' => '0')
+                    $this->__('Customer not logged in.'),
+                    self::MESSAGE_STATUS_ERROR,
+                    array('logged_in' => '0')
                 );
                 return false;
             }
         } else {
             if ($this->_getSession()->isLoggedIn()) {
                 $this->_message(
-                    $this->__('You are already logged in.'), self::MESSAGE_STATUS_ERROR, array('logged_in' => '1')
+                    $this->__('You are already logged in.'),
+                    self::MESSAGE_STATUS_ERROR,
+                    array('logged_in' => '1')
                 );
                 return false;
             }

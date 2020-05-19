@@ -117,13 +117,13 @@ class Mage_Core_Model_Url_Rewrite extends Mage_Core_Model_Abstract implements Ma
         $loadTags = is_array($tags) ? $tags : explode(',', $tags);
 
         $search = $this->getResourceCollection();
-        foreach ($loadTags as $k=>$t) {
+        foreach ($loadTags as $k => $t) {
             if (!is_numeric($k)) {
                 $t = $k.'='.$t;
             }
             $search->addTagsFilter($t);
         }
-        if (!is_null($this->getStoreId())) {
+        if ($this->getStoreId() !== null) {
             $search->addStoreFilter($this->getStoreId());
         }
 
@@ -151,7 +151,7 @@ class Mage_Core_Model_Url_Rewrite extends Mage_Core_Model_Abstract implements Ma
 
         $addTags = is_array($tags) ? $tags : explode(',', $tags);
 
-        foreach ($addTags as $k=>$t) {
+        foreach ($addTags as $k => $t) {
             if (!is_numeric($k)) {
                 $t = $k.'='.$t;
             }
@@ -171,7 +171,7 @@ class Mage_Core_Model_Url_Rewrite extends Mage_Core_Model_Abstract implements Ma
 
         $removeTags = is_array($tags) ? $tags : explode(',', $tags);
 
-        foreach ($removeTags as $k=>$t) {
+        foreach ($removeTags as $k => $t) {
             if (!is_numeric($k)) {
                 $t = $k.'='.$t;
             }
@@ -193,18 +193,18 @@ class Mage_Core_Model_Url_Rewrite extends Mage_Core_Model_Abstract implements Ma
      * @return  Mage_Core_Model_Url
      * @deprecated since 1.7.0.2. Refactored and moved to Mage_Core_Controller_Request_Rewrite
      */
-    public function rewrite(Zend_Controller_Request_Http $request=null, Zend_Controller_Response_Http $response=null)
+    public function rewrite(Zend_Controller_Request_Http $request = null, Zend_Controller_Response_Http $response = null)
     {
         if (!Mage::isInstalled()) {
             return false;
         }
-        if (is_null($request)) {
+        if ($request === null) {
             $request = Mage::app()->getFrontController()->getRequest();
         }
-        if (is_null($response)) {
+        if ($response === null) {
             $response = Mage::app()->getFrontController()->getResponse();
         }
-        if (is_null($this->getStoreId()) || false===$this->getStoreId()) {
+        if ($this->getStoreId() === null || false===$this->getStoreId()) {
             $this->setStoreId(Mage::app()->getStore()->getId());
         }
 
@@ -237,8 +237,7 @@ class Mage_Core_Model_Url_Rewrite extends Mage_Core_Model_Abstract implements Ma
         if (!$this->getId() && isset($_GET['___from_store'])) {
             try {
                 $fromStoreId = Mage::app()->getStore($_GET['___from_store'])->getId();
-            }
-            catch (Exception $e) {
+            } catch (Exception $e) {
                 return false;
             }
 
@@ -282,7 +281,7 @@ class Mage_Core_Model_Url_Rewrite extends Mage_Core_Model_Abstract implements Ma
 
         if (Mage::getStoreConfig('web/url/use_store') && $storeCode = Mage::app()->getStore()->getCode()) {
                 $targetUrl = $request->getBaseUrl(). '/' . $storeCode . '/' .$this->getTargetPath();
-            }
+        }
 
         $queryString = $this->_getQueryString();
         if ($queryString) {
@@ -307,7 +306,7 @@ class Mage_Core_Model_Url_Rewrite extends Mage_Core_Model_Abstract implements Ma
             $queryParams = array();
             parse_str($_SERVER['QUERY_STRING'], $queryParams);
             $hasChanges = false;
-            foreach ($queryParams as $key=>$value) {
+            foreach ($queryParams as $key => $value) {
                 if (substr($key, 0, 3) === '___') {
                     unset($queryParams[$key]);
                     $hasChanges = true;
@@ -315,8 +314,7 @@ class Mage_Core_Model_Url_Rewrite extends Mage_Core_Model_Abstract implements Ma
             }
             if ($hasChanges) {
                 return http_build_query($queryParams);
-            }
-            else {
+            } else {
                 return $_SERVER['QUERY_STRING'];
             }
         }

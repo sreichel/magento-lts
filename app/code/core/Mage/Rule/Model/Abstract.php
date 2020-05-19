@@ -235,7 +235,7 @@ abstract class Mage_Rule_Model_Abstract extends Mage_Core_Model_Abstract
      */
     protected function _resetConditions($conditions = null)
     {
-        if (is_null($conditions)) {
+        if ($conditions === null) {
             $conditions = $this->getConditionsInstance();
         }
         $conditions->setRule($this)->setId('1')->setPrefix('conditions');
@@ -253,7 +253,7 @@ abstract class Mage_Rule_Model_Abstract extends Mage_Core_Model_Abstract
      */
     protected function _resetActions($actions = null)
     {
-        if (is_null($actions)) {
+        if ($actions === null) {
             $actions = $this->getActionsInstance();
         }
         $actions->setRule($this)->setId('1')->setPrefix('actions');
@@ -309,7 +309,7 @@ abstract class Mage_Rule_Model_Abstract extends Mage_Core_Model_Abstract
         $arr = array();
         foreach ($data as $key => $value) {
             if (($key === 'conditions' || $key === 'actions') && is_array($value)) {
-                foreach ($value as $id=>$data) {
+                foreach ($value as $id => $data) {
                     $path = explode('--', $id);
                     $node =& $arr;
                     for ($i=0, $l=sizeof($path); $i<$l; $i++) {
@@ -465,7 +465,7 @@ abstract class Mage_Rule_Model_Abstract extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function asString($format='')
+    public function asString($format = '')
     {
         return '';
     }

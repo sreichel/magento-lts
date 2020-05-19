@@ -57,12 +57,11 @@ class Mage_Reports_Model_Event_Observer
      */
     protected function _event($eventTypeId, $objectId, $subjectId = null, $subtype = 0)
     {
-        if (is_null($subjectId)) {
+        if ($subjectId === null) {
             if (Mage::getSingleton('customer/session')->isLoggedIn()) {
                 $customer = Mage::getSingleton('customer/session')->getCustomer();
                 $subjectId = $customer->getId();
-            }
-            else {
+            } else {
                 $subjectId = Mage::getSingleton('log/visitor')->getId();
                 $subtype = 1;
             }
@@ -162,7 +161,8 @@ class Mage_Reports_Model_Event_Observer
             return $this;
         }
 
-        return $this->_event(Mage_Reports_Model_Event::EVENT_PRODUCT_SEND,
+        return $this->_event(
+            Mage_Reports_Model_Event::EVENT_PRODUCT_SEND,
             $observer->getEvent()->getProduct()->getId()
         );
     }
@@ -256,7 +256,8 @@ class Mage_Reports_Model_Event_Observer
             return $this;
         }
 
-        return $this->_event(Mage_Reports_Model_Event::EVENT_PRODUCT_TO_WISHLIST,
+        return $this->_event(
+            Mage_Reports_Model_Event::EVENT_PRODUCT_TO_WISHLIST,
             $observer->getEvent()->getProduct()->getId()
         );
     }
@@ -273,7 +274,8 @@ class Mage_Reports_Model_Event_Observer
             return $this;
         }
 
-        return $this->_event(Mage_Reports_Model_Event::EVENT_WISHLIST_SHARE,
+        return $this->_event(
+            Mage_Reports_Model_Event::EVENT_WISHLIST_SHARE,
             $observer->getEvent()->getWishlist()->getId()
         );
     }

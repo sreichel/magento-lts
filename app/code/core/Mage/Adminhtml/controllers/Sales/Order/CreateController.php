@@ -115,8 +115,10 @@ class Mage_Adminhtml_Sales_Order_CreateController extends Mage_Adminhtml_Control
         }
 
         //Notify other modules about the session quote
-        Mage::dispatchEvent('create_order_session_quote_initialized',
-                array('session_quote' => $this->_getSession()));
+        Mage::dispatchEvent(
+            'create_order_session_quote_initialized',
+            array('session_quote' => $this->_getSession())
+        );
 
         return $this;
     }
@@ -151,8 +153,7 @@ class Mage_Adminhtml_Sales_Order_CreateController extends Mage_Adminhtml_Control
          * Saving order data
          */
         if ($data = $this->getRequest()->getPost('order')) {
-            if (
-                array_key_exists('comment', $data)
+            if (array_key_exists('comment', $data)
                 && array_key_exists('reserved_order_id', $data['comment'])
             ) {
                 unset($data['comment']['reserved_order_id']);
@@ -177,7 +178,7 @@ class Mage_Adminhtml_Sales_Order_CreateController extends Mage_Adminhtml_Control
         if (!$this->_getOrderCreateModel()->getQuote()->isVirtual()) {
             $syncFlag = $this->getRequest()->getPost('shipping_as_billing');
             $shippingMethod = $this->_getOrderCreateModel()->getShippingAddress()->getShippingMethod();
-            if (is_null($syncFlag)
+            if ($syncFlag === null
                 && $this->_getOrderCreateModel()->getShippingAddress()->getSameAsBilling()
                 && empty($shippingMethod)
             ) {
@@ -305,7 +306,8 @@ class Mage_Adminhtml_Sales_Order_CreateController extends Mage_Adminhtml_Control
         if (!empty($couponCode)) {
             if ($this->_getQuote()->getCouponCode() !== $couponCode) {
                 $this->_getSession()->addError(
-                    $this->__('"%s" coupon code is not valid.', $this->_getHelper()->escapeHtml($couponCode)));
+                    $this->__('"%s" coupon code is not valid.', $this->_getHelper()->escapeHtml($couponCode))
+                );
             } else {
                 $this->_getSession()->addSuccess($this->__('The coupon code has been accepted.'));
             }
@@ -364,8 +366,7 @@ class Mage_Adminhtml_Sales_Order_CreateController extends Mage_Adminhtml_Control
             $this->_getOrderCreateModel()->initFromOrder($order);
 
             $this->_redirect('*/*');
-        }
-        else {
+        } else {
             $this->_redirect('*/sales_order/');
         }
     }
@@ -386,12 +387,10 @@ class Mage_Adminhtml_Sales_Order_CreateController extends Mage_Adminhtml_Control
         try {
             $this->_initSession()
                 ->_processData();
-        }
-        catch (Mage_Core_Exception $e){
+        } catch (Mage_Core_Exception $e) {
             $this->_reloadQuote();
             $this->_getSession()->addError($e->getMessage());
-        }
-        catch (Exception $e){
+        } catch (Exception $e) {
             $this->_reloadQuote();
             $this->_getSession()->addException($e, $e->getMessage());
         }
@@ -436,8 +435,7 @@ class Mage_Adminhtml_Sales_Order_CreateController extends Mage_Adminhtml_Control
         try {
             $this->_initSession()
                 ->_processData();
-        }
-        catch (Exception $e){
+        } catch (Exception $e) {
             $this->_reloadQuote();
             $errorMessage = $e->getMessage();
         }
@@ -479,7 +477,6 @@ class Mage_Adminhtml_Sales_Order_CreateController extends Mage_Adminhtml_Control
             $this->_getSession()->clear();
             $this->_redirect('*/*');
         }
-
     }
 
     /**
@@ -491,8 +488,7 @@ class Mage_Adminhtml_Sales_Order_CreateController extends Mage_Adminhtml_Control
     {
         try {
             $orderData = $this->getRequest()->getPost('order');
-            if (
-                array_key_exists('reserved_order_id', $orderData['comment'])
+            if (array_key_exists('reserved_order_id', $orderData['comment'])
                 && Mage::helper('adminhtml/sales')->hasTags($orderData['comment']['reserved_order_id'])
             ) {
                 Mage::throwException($this->__('Invalid order data.'));
@@ -525,18 +521,17 @@ class Mage_Adminhtml_Sales_Order_CreateController extends Mage_Adminhtml_Control
         } catch (Mage_Payment_Model_Info_Exception $e) {
             $this->_getOrderCreateModel()->saveQuote();
             $message = $e->getMessage();
-            if( !empty($message) ) {
+            if (!empty($message)) {
                 $this->_getSession()->addError($message);
             }
             $this->_redirect('*/*/');
-        } catch (Mage_Core_Exception $e){
+        } catch (Mage_Core_Exception $e) {
             $message = $e->getMessage();
-            if( !empty($message) ) {
+            if (!empty($message)) {
                 $this->_getSession()->addError($message);
             }
             $this->_redirect('*/*/');
-        }
-        catch (Exception $e){
+        } catch (Exception $e) {
             $this->_getSession()->addException($e, $this->__('Order saving error: %s', $e->getMessage()));
             $this->_redirect('*/*/');
         }
@@ -636,7 +631,6 @@ class Mage_Adminhtml_Sales_Order_CreateController extends Mage_Adminhtml_Control
             $configureResult->setProductId($quoteItem->getProductId());
             $sessionQuote = Mage::getSingleton('adminhtml/session_quote');
             $configureResult->setCurrentCustomerId($sessionQuote->getCustomerId());
-
         } catch (Exception $e) {
             $configureResult->setError(true);
             $configureResult->setMessage($e->getMessage());
@@ -659,7 +653,7 @@ class Mage_Adminhtml_Sales_Order_CreateController extends Mage_Adminhtml_Control
     public function showUpdateResultAction()
     {
         $session = Mage::getSingleton('adminhtml/session');
-        if ($session->hasUpdateResult() && is_scalar($session->getUpdateResult())){
+        if ($session->hasUpdateResult() && is_scalar($session->getUpdateResult())) {
             $this->getResponse()->setBody($session->getUpdateResult());
             $session->unsUpdateResult();
         } else {

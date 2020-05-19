@@ -79,7 +79,8 @@ class Mage_Sales_Model_Entity_Sale_Collection extends Varien_Object implements I
         $paidTable  = $this->getAttribute('grand_total')->getBackend()->getTable();
         $idField    = $this->getEntity()->getIdFieldName();
         $this->getSelect()
-            ->from(array('sales' => $entityTable),
+            ->from(
+                array('sales' => $entityTable),
                 array(
                     'store_id',
                     'lifetime'  => 'sum(sales.base_grand_total)',
@@ -130,13 +131,14 @@ class Mage_Sales_Model_Entity_Sale_Collection extends Varien_Object implements I
      * @param boolean $logQuery
      * @return  Mage_Sales_Model_Entity_Order_Attribute_Collection_Paid
      */
-    public function printLogQuery($printQuery = false, $logQuery = false, $sql = null) {
+    public function printLogQuery($printQuery = false, $logQuery = false, $sql = null)
+    {
         if ($printQuery) {
-            echo is_null($sql) ? $this->getSelect()->__toString() : $sql;
+            echo $sql === null ? $this->getSelect()->__toString() : $sql;
         }
 
-        if ($logQuery){
-            Mage::log(is_null($sql) ? $this->getSelect()->__toString() : $sql);
+        if ($logQuery) {
+            Mage::log($sql === null ? $this->getSelect()->__toString() : $sql);
         }
         return $this;
     }
@@ -200,5 +202,4 @@ class Mage_Sales_Model_Entity_Sale_Collection extends Varien_Object implements I
     {
         return new Varien_Object($this->_totals);
     }
-
 }

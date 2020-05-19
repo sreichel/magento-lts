@@ -31,7 +31,7 @@
  */
 class Mage_Install_Block_Admin extends Mage_Install_Block_Abstract
 {
-    public function __construct() 
+    public function __construct()
     {
         parent::__construct();
         $this->setTemplate('install/create_admin.phtml');
@@ -45,7 +45,7 @@ class Mage_Install_Block_Admin extends Mage_Install_Block_Abstract
     public function getFormData()
     {
         $data = $this->getData('form_data');
-        if (is_null($data)) {
+        if ($data === null) {
             $data = new Varien_Object(Mage::getSingleton('install/session')->getAdminData(true));
             $this->setData('form_data', $data);
         }

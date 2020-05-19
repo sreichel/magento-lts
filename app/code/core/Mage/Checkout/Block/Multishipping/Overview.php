@@ -98,7 +98,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
     public function getShippingAddressCount()
     {
         $count = $this->getData('shipping_address_count');
-        if (is_null($count)) {
+        if ($count === null) {
             $count = count($this->getShippingAddresses());
             $this->setData('shipping_address_count', $count);
         }
@@ -142,8 +142,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
             if ($total->getCode()=='grand_total') {
                 if ($address->getAddressType() == Mage_Sales_Model_Quote_Address::TYPE_BILLING) {
                     $total->setTitle($this->__('Total'));
-                }
-                else {
+                } else {
                     $total->setTitle($this->__('Total for this address'));
                 }
             }
@@ -237,7 +236,7 @@ class Mage_Checkout_Block_Multishipping_Overview extends Mage_Sales_Block_Items_
     }
 
 
-    public function renderTotals($totals, $colspan=null)
+    public function renderTotals($totals, $colspan = null)
     {
         if ($colspan === null) {
             $colspan = $this->helper('tax')->displayCartBothPrices() ? 5 : 3;

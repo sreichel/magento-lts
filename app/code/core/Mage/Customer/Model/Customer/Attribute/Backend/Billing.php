@@ -36,15 +36,14 @@ class Mage_Customer_Model_Customer_Attribute_Backend_Billing extends Mage_Eav_Mo
     public function beforeSave($object)
     {
         $defaultBilling = $object->getDefaultBilling();
-        if (is_null($defaultBilling)) {
+        if ($defaultBilling === null) {
             $object->unsetDefaultBilling();
         }
     }
     
     public function afterSave($object)
     {
-        if ($defaultBilling = $object->getDefaultBilling()) 
-        {
+        if ($defaultBilling = $object->getDefaultBilling()) {
             $addressId = false;
             /**
              * post_index set in customer save action for address

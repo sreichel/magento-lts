@@ -146,7 +146,7 @@ class Mage_Catalog_Model_Resource_Category_Flat_Collection extends Mage_Core_Mod
      */
     public function getStoreId()
     {
-        if (is_null($this->_storeId)) {
+        if ($this->_storeId === null) {
             return Mage::app()->getStore()->getId();
         }
         return $this->_storeId;
@@ -199,8 +199,10 @@ class Mage_Catalog_Model_Resource_Category_Flat_Collection extends Mage_Core_Mod
     public function addIsActiveFilter()
     {
         $this->addFieldToFilter('is_active', 1);
-        Mage::dispatchEvent($this->_eventPrefix . '_add_is_active_filter',
-                            array($this->_eventObject => $this));
+        Mage::dispatchEvent(
+            $this->_eventPrefix . '_add_is_active_filter',
+            array($this->_eventObject => $this)
+        );
         return $this;
     }
 

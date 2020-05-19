@@ -121,8 +121,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
             }
 
             $value = $store->convertPrice($value, $format, $includeContainer);
-        }
-        catch (Exception $e){
+        } catch (Exception $e) {
             $value = $e->getMessage();
         }
 
@@ -169,7 +168,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
         if (!($date instanceof Zend_Date) && $date && !strtotime($date)) {
             return '';
         }
-        if (is_null($date)) {
+        if ($date === null) {
             $date = Mage::app()->getLocale()->date(Mage::getSingleton('core/date')->gmtTimestamp(), null, null);
         } else if (!$date instanceof Zend_Date) {
             $date = Mage::app()->getLocale()->date(strtotime($date), null, null);
@@ -198,7 +197,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
             return $time;
         }
 
-        if (is_null($time)) {
+        if ($time === null) {
             $date = Mage::app()->getLocale()->date(time());
         } else if ($time instanceof Zend_Date) {
             $date = $time;
@@ -250,7 +249,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
 
     public function getRandomString($len, $chars = null)
     {
-        if (is_null($chars)) {
+        if ($chars === null) {
             $chars = self::CHARS_LOWERS . self::CHARS_UPPERS . self::CHARS_DIGITS;
         }
         for ($i = 0, $str = '', $lc = strlen($chars)-1; $i < $len; $i++) {
@@ -311,12 +310,12 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
      * @param   mixed $store
      * @return  int
      */
-    public function getStoreId($store=null)
+    public function getStoreId($store = null)
     {
         return Mage::app()->getStore($store)->getId();
     }
 
-    public function removeAccents($string, $german=false)
+    public function removeAccents($string, $german = false)
     {
         static $replacements;
 
@@ -353,7 +352,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
             }
 
             $replacements[$german] = array();
-            foreach ($subst as $k=>$v) {
+            foreach ($subst as $k => $v) {
                 $replacements[$german][$k<256 ? chr($k) : '&#'.$k.';'] = $v;
             }
         }
@@ -370,7 +369,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
         return $string;
     }
 
-    public function isDevAllowed($storeId=null)
+    public function isDevAllowed($storeId = null)
     {
         $allow = true;
 
@@ -396,7 +395,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
     {
         $types = array();
         $config = Mage::getConfig()->getNode(Mage_Core_Model_Cache::XML_PATH_TYPES);
-        foreach ($config->children() as $type=>$node) {
+        foreach ($config->children() as $type => $node) {
             $types[$type] = (string)$node->label;
         }
         return $types;
@@ -412,7 +411,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
         $types = array();
         $config = Mage::getConfig()->getNode(self::XML_PATH_CACHE_BETA_TYPES);
         if ($config) {
-            foreach ($config->children() as $type=>$node) {
+            foreach ($config->children() as $type => $node) {
                 $types[$type] = (string)$node->label;
             }
         }
@@ -433,11 +432,10 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
      * @param string $root
      * @return boolean
      */
-    public function copyFieldset($fieldset, $aspect, $source, $target, $root='global')
+    public function copyFieldset($fieldset, $aspect, $source, $target, $root = 'global')
     {
         if (!(is_array($source) || $source instanceof Varien_Object)
             || !(is_array($target) || $target instanceof Varien_Object)) {
-
             return false;
         }
         $fields = Mage::getConfig()->getFieldset($fieldset, $root);
@@ -449,7 +447,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
         $targetIsArray = is_array($target);
 
         $result = false;
-        foreach ($fields as $code=>$node) {
+        foreach ($fields as $code => $node) {
             if (empty($node->$aspect)) {
                 continue;
             }
@@ -525,8 +523,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
                 $isEven = !$isEven;
                 $i++;
                 $this->_decorateArrayObject($element, $keyIsLast, ($i === $count), $forceSetAll || ($i === $count));
-            }
-            elseif (is_array($element)) {
+            } elseif (is_array($element)) {
                 if ($forceSetAll || (0 === $i)) {
                     $array[$key][$keyIsFirst] = (0 === $i);
                 }
@@ -547,12 +544,12 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
         return $array;
     }
 
-    private function _decorateArrayObject($element, $key, $value, $dontSkip) {
+    private function _decorateArrayObject($element, $key, $value, $dontSkip)
+    {
         if ($dontSkip) {
             if ($element instanceof Varien_Object) {
                 $element->setData($key, $value);
-            }
-            else {
+            } else {
                 $element->$key = $value;
             }
         }
@@ -607,13 +604,11 @@ XML;
                     }
                     $hasStringKey = true;
                     $xml->$key = $value;
-                }
-                elseif (is_int($key)) {
+                } elseif (is_int($key)) {
                     $hasNumericKey = true;
                     $xml->{$rootName}[$key] = $value;
                 }
-            }
-            else {
+            } else {
                 self::_assocToXml($value, $key, $xml->$key);
             }
         }
@@ -639,8 +634,7 @@ XML;
                 foreach ($value->$key as $v) {
                     $array[$key][$i++] = (string)$v;
                 }
-            }
-            else {
+            } else {
                 // try to transform it into string value, trimming spaces between elements
                 $array[$key] = trim((string)$value);
                 if (empty($array[$key]) && !empty($value)) {
@@ -737,9 +731,13 @@ XML;
      * @param array|string $extensionsFilter
      * @return bool|string
      */
-    public function mergeFiles(array $srcFiles, $targetFile = false, $mustMerge = false,
-        $beforeMergeCallback = null, $extensionsFilter = array())
-    {
+    public function mergeFiles(
+        array $srcFiles,
+        $targetFile = false,
+        $mustMerge = false,
+        $beforeMergeCallback = null,
+        $extensionsFilter = array()
+    ) {
         try {
             // check whether merger is required
             $shouldMerge = $mustMerge || !$targetFile;
@@ -769,7 +767,7 @@ XML;
                     if (!is_array($extensionsFilter)) {
                         $extensionsFilter = array($extensionsFilter);
                     }
-                    if (!empty($srcFiles)){
+                    if (!empty($srcFiles)) {
                         foreach ($srcFiles as $key => $file) {
                             $fileExt = strtolower(pathinfo($file, PATHINFO_EXTENSION));
                             if (!in_array($fileExt, $extensionsFilter)) {
@@ -959,7 +957,6 @@ XML;
     public function unEscapeCSVData($data)
     {
         if (is_array($data) && Mage::getStoreConfigFlag(Mage_ImportExport_Model_Export_Adapter_Csv::CONFIG_ESCAPING_FLAG)) {
-
             foreach ($data as $key => $value) {
                 $value = (string)$value;
 

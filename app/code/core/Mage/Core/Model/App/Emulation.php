@@ -71,10 +71,12 @@ class Mage_Core_Model_App_Emulation extends Varien_Object
      *
      * @return Varien_Object information about environment of the initial store
      */
-    public function startEnvironmentEmulation($storeId, $area = Mage_Core_Model_App_Area::AREA_FRONTEND,
-                                              $emulateStoreInlineTranslation = false)
-    {
-        if (is_null($area)) {
+    public function startEnvironmentEmulation(
+        $storeId,
+        $area = Mage_Core_Model_App_Area::AREA_FRONTEND,
+        $emulateStoreInlineTranslation = false
+    ) {
+        if ($area === null) {
             $area = Mage_Core_Model_App_Area::AREA_FRONTEND;
         }
         if ($emulateStoreInlineTranslation) {
@@ -129,7 +131,7 @@ class Mage_Core_Model_App_Emulation extends Varien_Object
      */
     protected function _emulateInlineTranslation($storeId = null, $area = Mage_Core_Model_App_Area::AREA_FRONTEND)
     {
-        if (is_null($storeId)) {
+        if ($storeId === null) {
             $newTranslateInline = false;
         } else {
             if ($area == Mage_Core_Model_App_Area::AREA_ADMINHTML) {
@@ -232,9 +234,10 @@ class Mage_Core_Model_App_Emulation extends Varien_Object
      *
      * @return $this
      */
-    protected function _restoreInitialLocale($initialLocaleCode,
-                                             $initialArea = Mage_Core_Model_App_Area::AREA_ADMINHTML)
-    {
+    protected function _restoreInitialLocale(
+        $initialLocaleCode,
+        $initialArea = Mage_Core_Model_App_Area::AREA_ADMINHTML
+    ) {
         $currentLocaleCode = $this->_app->getLocale()->getLocaleCode();
         if ($currentLocaleCode != $initialLocaleCode) {
             $this->_app->getLocale()->setLocaleCode($initialLocaleCode);

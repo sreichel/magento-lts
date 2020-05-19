@@ -98,18 +98,17 @@ class Mage_GiftMessage_Block_Message_Helper extends Mage_Core_Block_Template
     protected function _initMessage()
     {
         $this->_giftMessage = $this->helper('giftmessage/message')->getGiftMessage(
-                                            $this->getEntity()->getGiftMessageId()
-                              );
+            $this->getEntity()->getGiftMessageId()
+        );
         return $this;
     }
 
     public function getMessage()
     {
-        if(is_null($this->_giftMessage)) {
+        if ($this->_giftMessage === null) {
             $this->_initMessage();
         }
 
         return $this->_giftMessage;
     }
-
 }

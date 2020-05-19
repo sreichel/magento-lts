@@ -81,7 +81,7 @@ class Mage_Index_Model_Indexer
      */
     public function getProcessesCollection()
     {
-        if (is_null($this->_processesCollection)) {
+        if ($this->_processesCollection === null) {
             $this->_processesCollection = Mage::getResourceModel('index/process_collection');
         }
         return $this->_processesCollection;
@@ -129,7 +129,7 @@ class Mage_Index_Model_Indexer
     {
         $processes = array();
         $this->_errors = array();
-        foreach($codes as $code) {
+        foreach ($codes as $code) {
             $process = $this->getProcessByCode($code);
             if (!$process) {
                 $this->_errors[] = sprintf('Warning: Unknown indexer with code %s', trim($code));
@@ -204,7 +204,7 @@ class Mage_Index_Model_Indexer
      * @throws Exception
      * @return  Mage_Index_Model_Indexer
      */
-    public function indexEvents($entity=null, $type=null)
+    public function indexEvents($entity = null, $type = null)
     {
         Mage::dispatchEvent('start_index_events' . $this->_getEventTypeName($entity, $type));
 
@@ -268,7 +268,7 @@ class Mage_Index_Model_Indexer
      * @param   bool $doSave
      * @return  Mage_Index_Model_Event
      */
-    public function logEvent(Varien_Object $entity, $entityType, $eventType, $doSave=true)
+    public function logEvent(Varien_Object $entity, $entityType, $eventType, $doSave = true)
     {
         $event = Mage::getModel('index/event')
             ->setEntity($entityType)
@@ -428,7 +428,7 @@ class Mage_Index_Model_Indexer
         if ($process instanceof Mage_Index_Model_Process
             && $process->getMode() !== Mage_Index_Model_Process::MODE_MANUAL
             && !$process->isLocked()
-            && (is_null($event)
+            && ($event === null
                 || ($event instanceof Mage_Index_Model_Event && $process->matchEvent($event))
                 || (is_array($event) && $process->matchEntityAndType($event[0], $event[1]))
         )) {

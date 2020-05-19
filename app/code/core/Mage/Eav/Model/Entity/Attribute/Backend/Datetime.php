@@ -47,7 +47,7 @@ class Mage_Eav_Model_Entity_Attribute_Backend_Datetime extends Mage_Eav_Model_En
                 throw Mage::exception('Mage_Eav', Mage::helper('eav')->__('Invalid date'));
             }
 
-            if (is_null($value)) {
+            if ($value === null) {
                 $value = $object->getData($attributeName);
             }
 
@@ -83,9 +83,11 @@ class Mage_Eav_Model_Entity_Attribute_Backend_Datetime extends Mage_Eav_Model_En
         }
         // parse this date in current locale, do not apply GMT offset
         else {
-            $date = Mage::app()->getLocale()->date($date,
-               Mage::app()->getLocale()->getDateFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT),
-               null, false
+            $date = Mage::app()->getLocale()->date(
+                $date,
+                Mage::app()->getLocale()->getDateFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT),
+                null,
+                false
             );
         }
         return $date->toString(Varien_Date::DATETIME_INTERNAL_FORMAT);

@@ -240,29 +240,29 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
         /*
         * for specific countries, the flag will be 1
         */
-        if ($speCountriesAllow && $speCountriesAllow == 1){
+        if ($speCountriesAllow && $speCountriesAllow == 1) {
              $showMethod = $this->getConfigData('showmethod');
              $availableCountries = array();
-             if($this->getConfigData('specificcountry')) {
-                $availableCountries = explode(',',$this->getConfigData('specificcountry'));
-             }
-             if ($availableCountries && in_array($request->getDestCountryId(), $availableCountries)) {
-                 return $this;
-             } elseif ($showMethod && (!$availableCountries || ($availableCountries
+            if ($this->getConfigData('specificcountry')) {
+                $availableCountries = explode(',', $this->getConfigData('specificcountry'));
+            }
+            if ($availableCountries && in_array($request->getDestCountryId(), $availableCountries)) {
+                return $this;
+            } elseif ($showMethod && (!$availableCountries || ($availableCountries
                  && !in_array($request->getDestCountryId(), $availableCountries)))
-             ){
-                   $error = Mage::getModel('shipping/rate_result_error');
-                   $error->setCarrier($this->_code);
-                   $error->setCarrierTitle($this->getConfigData('title'));
-                   $errorMsg = $this->getConfigData('specificerrmsg');
-                   $error->setErrorMessage($errorMsg ? $errorMsg : Mage::helper('shipping')->__('The shipping module is not available for selected delivery country.'));
-                   return $error;
-             } else {
-                 /*
+             ) {
+                  $error = Mage::getModel('shipping/rate_result_error');
+                  $error->setCarrier($this->_code);
+                  $error->setCarrierTitle($this->getConfigData('title'));
+                  $errorMsg = $this->getConfigData('specificerrmsg');
+                  $error->setErrorMessage($errorMsg ? $errorMsg : Mage::helper('shipping')->__('The shipping module is not available for selected delivery country.'));
+                  return $error;
+            } else {
+                /*
                 * The admin set not to show the shipping module if the devliery country is not within specific countries
                 */
                 return false;
-             }
+            }
         }
         return $this;
     }
@@ -347,7 +347,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
         $freeRateId = false;
 
         if (is_object($this->_result)) {
-            foreach ($this->_result->getAllRates() as $i=>$item) {
+            foreach ($this->_result->getAllRates() as $i => $item) {
                 if ($item->getMethod() == $freeMethod) {
                     $freeRateId = $i;
                     break;
@@ -388,7 +388,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
         /**
          * if we did not get our free shipping method in response we must use its old price
          */
-        if (!is_null($price)) {
+        if ($price !== null) {
             $this->_result->getRateById($freeRateId)->setPrice($price);
         }
     }

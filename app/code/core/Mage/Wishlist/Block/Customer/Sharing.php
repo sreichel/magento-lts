@@ -39,7 +39,7 @@ class Mage_Wishlist_Block_Customer_Sharing extends Mage_Core_Block_Template
      *
      * @param array
      */
-    protected  $_enteredData = null;
+    protected $_enteredData = null;
 
     /**
      * Prepare Global Layout
@@ -72,15 +72,14 @@ class Mage_Wishlist_Block_Customer_Sharing extends Mage_Core_Block_Template
      */
     public function getEnteredData($key)
     {
-        if (is_null($this->_enteredData)) {
+        if ($this->_enteredData === null) {
             $this->_enteredData = Mage::getSingleton('wishlist/session')
                 ->getData('sharing_form', true);
         }
 
         if (!$this->_enteredData || !isset($this->_enteredData[$key])) {
             return null;
-        }
-        else {
+        } else {
             return $this->escapeHtml($this->_enteredData[$key]);
         }
     }

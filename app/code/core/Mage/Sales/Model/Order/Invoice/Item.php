@@ -167,11 +167,10 @@ class Mage_Sales_Model_Order_Invoice_Item extends Mage_Core_Model_Abstract
      */
     public function getOrderItem()
     {
-        if (is_null($this->_orderItem)) {
+        if ($this->_orderItem === null) {
             if ($this->getInvoice()) {
                 $this->_orderItem = $this->getInvoice()->getOrder()->getItemById($this->getOrderItemId());
-            }
-            else {
+            } else {
                 $this->_orderItem = Mage::getModel('sales/order_item')
                     ->load($this->getOrderItemId());
             }
@@ -189,8 +188,7 @@ class Mage_Sales_Model_Order_Invoice_Item extends Mage_Core_Model_Abstract
     {
         if ($this->getOrderItem()->getIsQtyDecimal()) {
             $qty = (float) $qty;
-        }
-        else {
+        } else {
             $qty = (int) $qty;
         }
         $qty = $qty > 0 ? $qty : 0;
@@ -201,8 +199,7 @@ class Mage_Sales_Model_Order_Invoice_Item extends Mage_Core_Model_Abstract
         $qty = sprintf("%F", $qty);
         if ($qty <= $qtyToInvoice || $this->getOrderItem()->isDummy()) {
             $this->setData('qty', $qty);
-        }
-        else {
+        } else {
             Mage::throwException(
                 Mage::helper('sales')->__('Invalid qty to invoice item "%s"', $this->getName())
             );

@@ -111,7 +111,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext extends Mage_Core_Model_Resourc
      */
     public function rebuildIndex($storeId = null, $productIds = null)
     {
-        if (is_null($storeId)) {
+        if ($storeId === null) {
             $storeIds = array_keys(Mage::app()->getStores());
             foreach ($storeIds as $storeId) {
                 $this->_rebuildStoreIndex($storeId, $productIds);
@@ -166,8 +166,11 @@ class Mage_CatalogSearch_Model_Resource_Fulltext extends Mage_Core_Model_Resourc
             foreach ($products as $productData) {
                 $lastProductId = $productData['entity_id'];
                 $productAttributes[$productData['entity_id']] = $productData['entity_id'];
-                $productChildren = $this->_getProductChildrenIds($productData['entity_id'],
-                        $productData['type_id'], $websiteId);
+                $productChildren = $this->_getProductChildrenIds(
+                    $productData['entity_id'],
+                    $productData['type_id'],
+                    $websiteId
+                );
                 $productRelations[$productData['entity_id']] = $productChildren;
                 if ($productChildren) {
                     foreach ($productChildren as $productChildId) {
@@ -213,7 +216,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext extends Mage_Core_Model_Resourc
                         }
                     }
                 }
-                if (!is_null($productChildren) && !$hasChildren) {
+                if ($productChildren !== null && !$hasChildren) {
                     continue;
                 }
 
@@ -240,9 +243,13 @@ class Mage_CatalogSearch_Model_Resource_Fulltext extends Mage_Core_Model_Resourc
      * @param int $limit
      * @return array
      */
-    protected function _getSearchableProducts($storeId, array $staticFields, $productIds = null, $lastProductId = 0,
-        $limit = 100)
-    {
+    protected function _getSearchableProducts(
+        $storeId,
+        array $staticFields,
+        $productIds = null,
+        $lastProductId = 0,
+        $limit = 100
+    ) {
         $websiteId      = Mage::app()->getStore($storeId)->getWebsiteId();
         $writeAdapter   = $this->_getWriteAdapter();
 
@@ -269,7 +276,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext extends Mage_Core_Model_Resourc
                 array('in_stock' => 'stock_status')
             );
 
-        if (!is_null($productIds)) {
+        if ($productIds !== null) {
             $select->where('e.entity_id IN(?)', $productIds);
         }
 
@@ -357,9 +364,11 @@ class Mage_CatalogSearch_Model_Resource_Fulltext extends Mage_Core_Model_Resourc
 
         $select = $adapter->select()
             ->from(array($mainTableAlias => $this->getMainTable()), $fields)
-            ->joinInner(array('e' => $this->getTable('catalog/product')),
+            ->joinInner(
+                array('e' => $this->getTable('catalog/product')),
                 'e.entity_id = s.product_id',
-                array())
+                array()
+            )
             ->where($mainTableAlias . '.store_id = ?', (int)$query->getStoreId());
 
         $where = "";
@@ -414,7 +423,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext extends Mage_Core_Model_Resourc
      */
     protected function _getSearchableAttributes($backendType = null)
     {
-        if (is_null($this->_searchableAttributes)) {
+        if ($this->_searchableAttributes === null) {
             $this->_searchableAttributes = array();
 
             $productAttributeCollection = Mage::getResourceModel('catalog/product_attribute_collection');
@@ -442,7 +451,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext extends Mage_Core_Model_Resourc
             $this->_searchableAttributes = $attributes;
         }
 
-        if (!is_null($backendType)) {
+        if ($backendType !== null) {
             $attributes = array();
             foreach ($this->_searchableAttributes as $attributeId => $attribute) {
                 if ($attribute->getBackendType() == $backendType) {
@@ -491,7 +500,8 @@ class Mage_CatalogSearch_Model_Resource_Fulltext extends Mage_Core_Model_Resourc
     {
         if ($backendType == 'datetime') {
             $expr = Mage::getResourceHelper('catalogsearch')->castField(
-                $this->_getReadAdapter()->getDateFormatSql($field, '%Y-%m-%d %H:%i:%s'));
+                $this->_getReadAdapter()->getDateFormatSql($field, '%Y-%m-%d %H:%i:%s')
+            );
         } else {
             $expr = Mage::getResourceHelper('catalogsearch')->castField($field);
         }
@@ -519,15 +529,18 @@ class Mage_CatalogSearch_Model_Resource_Fulltext extends Mage_Core_Model_Resourc
                 $select = $adapter->select()
                     ->from(
                         array('t_default' => $tableName),
-                        array('entity_id', 'attribute_id'))
+                        array('entity_id', 'attribute_id')
+                    )
                     ->joinLeft(
                         array('t_store' => $tableName),
                         $adapter->quoteInto(
                             't_default.entity_id=t_store.entity_id' .
                                 ' AND t_default.attribute_id=t_store.attribute_id' .
                                 ' AND t_store.store_id=?',
-                            $storeId),
-                        array('value' => $this->_unifyField($ifStoreValue, $backendType)))
+                            $storeId
+                        ),
+                        array('value' => $this->_unifyField($ifStoreValue, $backendType))
+                    )
                     ->where('t_default.store_id=?', 0)
                     ->where('t_default.attribute_id IN (?)', $attributeIds)
                     ->where('t_default.entity_id IN (?)', $productIds);
@@ -594,9 +607,10 @@ class Mage_CatalogSearch_Model_Resource_Fulltext extends Mage_Core_Model_Resourc
             $select = $this->_getReadAdapter()->select()
                 ->from(
                     array('main' => $this->getTable($relation->getTable())),
-                    array($relation->getChildFieldName()))
+                    array($relation->getChildFieldName())
+                )
                 ->where("main.{$relation->getParentFieldName()} = ?", $productId);
-            if (!is_null($relation->getWhere())) {
+            if ($relation->getWhere() !== null) {
                 $select->where($relation->getWhere());
             }
 
@@ -673,7 +687,7 @@ class Mage_CatalogSearch_Model_Resource_Fulltext extends Mage_Core_Model_Resourc
         foreach ($indexData as $entityId => $attributeData) {
             foreach ($attributeData as $attributeId => $attributeValue) {
                 $value = $this->_getAttributeValue($attributeId, $attributeValue, $storeId);
-                if (!is_null($value) && $value !== false) {
+                if ($value !== null && $value !== false) {
                     $attributeCode = $this->_getSearchableAttribute($attributeId)->getAttributeCode();
 
                     if (isset($index[$attributeCode])) {

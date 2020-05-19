@@ -84,15 +84,14 @@ class Mage_Core_Model_App_Area
      * @param   string|null $part
      * @return  Mage_Core_Model_App_Area
      */
-    public function load($part=null)
+    public function load($part = null)
     {
-        if (is_null($part)) {
+        if ($part === null) {
             $this->_loadPart(self::PART_CONFIG)
                 ->_loadPart(self::PART_EVENTS)
                 ->_loadPart(self::PART_DESIGN)
                 ->_loadPart(self::PART_TRANSLATE);
-        }
-        else {
+        } else {
             $this->_loadPart($part);
         }
         return $this;
@@ -131,7 +130,6 @@ class Mage_Core_Model_App_Area
 
     protected function _initConfig()
     {
-
     }
 
     protected function _initEvents()
@@ -153,8 +151,9 @@ class Mage_Core_Model_App_Area
             return $this;
         }
         $designPackage = Mage::getSingleton('core/design_package');
-        if ($designPackage->getArea() != self::AREA_FRONTEND)
+        if ($designPackage->getArea() != self::AREA_FRONTEND) {
             return;
+        }
 
         $currentStore = Mage::app()->getStore()->getStoreId();
 

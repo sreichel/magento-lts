@@ -55,7 +55,7 @@ class Mage_Catalog_Block_Product_List extends Mage_Catalog_Block_Product_Abstrac
      */
     protected function _getProductCollection()
     {
-        if (is_null($this->_productCollection)) {
+        if ($this->_productCollection === null) {
             $layer = $this->getLayer();
             /* @var $layer Mage_Catalog_Model_Layer */
             if ($this->getShowRootCategory()) {
@@ -234,7 +234,8 @@ class Mage_Catalog_Block_Product_List extends Mage_Catalog_Block_Product_Abstrac
      * @param Mage_Catalog_Model_Category $category
      * @return $this
      */
-    public function prepareSortableFieldsByCategory($category) {
+    public function prepareSortableFieldsByCategory($category)
+    {
         if (!$this->getAvailableOrders()) {
             $this->setAvailableOrders($category->getAvailableSortByOptions());
         }

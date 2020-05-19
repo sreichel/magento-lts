@@ -492,8 +492,9 @@ class Mage_Wishlist_Model_Resource_Item_Collection extends Mage_Core_Model_Resou
      *
      * @return int
      */
-    public function getItemsQty(){
-        if (is_null($this->_itemsQty)) {
+    public function getItemsQty()
+    {
+        if ($this->_itemsQty === null) {
             $this->_itemsQty = 0;
             foreach ($this as $wishlistItem) {
                 $qty = $wishlistItem->getQty();

@@ -60,11 +60,13 @@ class Mage_XmlConnect_Block_Customer_Order_Totals_Tax extends Mage_Tax_Block_Sal
                 foreach ((array)$info['rates'] as $rate) {
                     if (isset($info['amount'])) {
                         $config = array('label' => $rate['title']);
-                        if (!is_null($rate['percent'])) {
+                        if ($rate['percent'] !== null) {
                             $config['percent'] = sprintf('(%0.2f%%)', $rate['percent']);
                         }
                         $taxesXmlObj->addCustomChild(
-                            'item', is_null($rate['percent']) ? '' : $this->_formatPrice($info['amount']), $config
+                            'item',
+                            $rate['percent'] === null ? '' : $this->_formatPrice($info['amount']),
+                            $config
                         );
                     }
                 }
@@ -95,11 +97,13 @@ class Mage_XmlConnect_Block_Customer_Order_Totals_Tax extends Mage_Tax_Block_Sal
                 foreach ((array)$info['rates'] as $rate) {
                     if (isset($info['amount'])) {
                         $config = array('id' => 'tax_rate_' . $i, 'label' => $rate['title']);
-                        if (!is_null($rate['percent'])) {
+                        if ($rate['percent'] !== null) {
                             $config['percent'] = sprintf('(%0.2f%%)', $rate['percent']);
                         }
                         $totalsXmlObj->addCustomChild(
-                            'item', is_null($rate['percent']) ? '' : $this->_formatPrice($info['amount']), $config
+                            'item',
+                            $rate['percent'] === null ? '' : $this->_formatPrice($info['amount']),
+                            $config
                         );
                         ++$i;
                     }

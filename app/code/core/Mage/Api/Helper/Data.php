@@ -368,7 +368,7 @@ class Mage_Api_Helper_Data extends Mage_Core_Helper_Abstract
     {
         $request = Mage::app()->getRequest();
 
-        if (is_null($routeParams)) {
+        if ($routeParams === null) {
             $routeParams = array();
         }
 

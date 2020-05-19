@@ -40,9 +40,9 @@ class Mage_Downloadable_Model_Product_Price extends Mage_Catalog_Model_Product_T
      * @param Mage_Catalog_Model_Product $product
      * @return float
      */
-    public function getFinalPrice($qty=null, $product)
+    public function getFinalPrice($qty = null, $product)
     {
-        if (is_null($qty) && !is_null($product->getCalculatedFinalPrice())) {
+        if ($qty === null && $product->getCalculatedFinalPrice() !== null) {
             return $product->getCalculatedFinalPrice();
         }
 

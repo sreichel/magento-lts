@@ -98,7 +98,8 @@ class Mage_Oauth_Helper_Data extends Mage_Core_Helper_Abstract
             /** @var $helper Mage_Core_Helper_Data */
             $helper = Mage::helper('core');
             $randomString = $helper->getRandomString(
-                $length, Mage_Core_Helper_Data::CHARS_DIGITS . Mage_Core_Helper_Data::CHARS_LOWERS
+                $length,
+                Mage_Core_Helper_Data::CHARS_DIGITS . Mage_Core_Helper_Data::CHARS_LOWERS
             );
         }
 
@@ -261,7 +262,7 @@ class Mage_Oauth_Helper_Data extends Mage_Core_Helper_Abstract
     {
         $simple = false;
         if (stristr($this->_getRequest()->getActionName(), 'simple')
-            || !is_null($this->_getRequest()->getParam('simple', null))
+            || $this->_getRequest()->getParam('simple', null) !== null
         ) {
             $simple = true;
         }

@@ -32,8 +32,7 @@
  * @package    Mage_Adminhtml
  * @author     Magento Core Team <core@magentocommerce.com>
  */
-class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Store
-    extends Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Abstract
+class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Store extends Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Abstract
 {
     protected $_skipAllStoresLabel = false;
     protected $_skipEmptyStoresLabel = false;
@@ -85,7 +84,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Store
         $skipEmptyStoresLabel = $this->_getShowEmptyStoresLabelFlag();
         $origStores = $row->getData($this->getColumn()->getIndex());
 
-        if (is_null($origStores) && $row->getStoreName()) {
+        if ($origStores === null && $row->getStoreName()) {
             $scopes = array();
             foreach (explode("\n", $row->getStoreName()) as $k => $label) {
                 $scopes[] = str_repeat('&nbsp;', $k * 3) . $label;
@@ -103,8 +102,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Store
 
         if (empty($origStores)) {
             return '';
-        }
-        elseif (in_array(0, $origStores) && count($origStores) == 1 && !$skipAllStoresLabel) {
+        } elseif (in_array(0, $origStores) && count($origStores) == 1 && !$skipAllStoresLabel) {
             return Mage::helper('adminhtml')->__('All Store Views');
         }
 
@@ -135,7 +133,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Store
         $skipAllStoresLabel = $this->_getShowAllStoresLabelFlag();
         $origStores = $row->getData($this->getColumn()->getIndex());
 
-        if (is_null($origStores) && $row->getStoreName()) {
+        if ($origStores === null && $row->getStoreName()) {
             $scopes = array();
             foreach (explode("\n", $row->getStoreName()) as $k => $label) {
                 $scopes[] = str_repeat(' ', $k * 3) . $label;

@@ -181,18 +181,16 @@ abstract class Mage_Core_Controller_Varien_Action
      * @param   string $flag
      * @return  bool
      */
-    public function getFlag($action, $flag='')
+    public function getFlag($action, $flag = '')
     {
         if (''===$action) {
             $action = $this->getRequest()->getActionName();
         }
         if (''===$flag) {
             return $this->_flags;
-        }
-        elseif (isset($this->_flags[$action][$flag])) {
+        } elseif (isset($this->_flags[$action][$flag])) {
             return $this->_flags[$action][$flag];
-        }
-        else {
+        } else {
             return false;
         }
     }
@@ -221,7 +219,7 @@ abstract class Mage_Core_Controller_Varien_Action
      * @param   string $delimiter
      * @return  string
      */
-    public function getFullActionName($delimiter='_')
+    public function getFullActionName($delimiter = '_')
     {
         return $this->getRequest()->getRequestedRouteName().$delimiter.
             $this->getRequest()->getRequestedControllerName().$delimiter.
@@ -313,7 +311,7 @@ abstract class Mage_Core_Controller_Varien_Action
     {
         $_profilerKey = self::PROFILER_KEY . '::' . $this->getFullActionName();
         // dispatch event for adding text layouts
-        if(!$this->getFlag('', self::FLAG_NO_DISPATCH_BLOCK_EVENT)) {
+        if (!$this->getFlag('', self::FLAG_NO_DISPATCH_BLOCK_EVENT)) {
             Mage::dispatchEvent(
                 'controller_action_layout_generate_xml_before',
                 array('action'=>$this, 'layout'=>$this->getLayout())
@@ -332,7 +330,7 @@ abstract class Mage_Core_Controller_Varien_Action
     {
         $_profilerKey = self::PROFILER_KEY . '::' . $this->getFullActionName();
         // dispatch event for adding xml layout elements
-        if(!$this->getFlag('', self::FLAG_NO_DISPATCH_BLOCK_EVENT)) {
+        if (!$this->getFlag('', self::FLAG_NO_DISPATCH_BLOCK_EVENT)) {
             Mage::dispatchEvent(
                 'controller_action_layout_generate_blocks_before',
                 array('action'=>$this, 'layout'=>$this->getLayout())
@@ -344,7 +342,7 @@ abstract class Mage_Core_Controller_Varien_Action
         $this->getLayout()->generateBlocks();
         Varien_Profiler::stop("$_profilerKey::layout_generate_blocks");
 
-        if(!$this->getFlag('', self::FLAG_NO_DISPATCH_BLOCK_EVENT)) {
+        if (!$this->getFlag('', self::FLAG_NO_DISPATCH_BLOCK_EVENT)) {
             Mage::dispatchEvent(
                 'controller_action_layout_generate_blocks_after',
                 array('action'=>$this, 'layout'=>$this->getLayout())
@@ -360,7 +358,7 @@ abstract class Mage_Core_Controller_Varien_Action
      * @param   string $output
      * @return  Mage_Core_Controller_Varien_Action
      */
-    public function renderLayout($output='')
+    public function renderLayout($output = '')
     {
         $_profilerKey = self::PROFILER_KEY . '::' . $this->getFullActionName();
 
@@ -423,8 +421,7 @@ abstract class Mage_Core_Controller_Varien_Action
                     Varien_Profiler::stop(self::PROFILER_KEY.'::postdispatch');
                 }
             }
-        }
-        catch (Mage_Core_Controller_Varien_Exception $e) {
+        } catch (Mage_Core_Controller_Varien_Exception $e) {
             // set prepared flags
             foreach ($e->getResultFlags() as $flagData) {
                 list($action, $flag, $value) = $flagData;
@@ -523,10 +520,14 @@ abstract class Mage_Core_Controller_Varien_Action
         }
 
         Mage::dispatchEvent('controller_action_predispatch', array('controller_action' => $this));
-        Mage::dispatchEvent('controller_action_predispatch_' . $this->getRequest()->getRouteName(),
-            array('controller_action' => $this));
-        Mage::dispatchEvent('controller_action_predispatch_' . $this->getFullActionName(),
-            array('controller_action' => $this));
+        Mage::dispatchEvent(
+            'controller_action_predispatch_' . $this->getRequest()->getRouteName(),
+            array('controller_action' => $this)
+        );
+        Mage::dispatchEvent(
+            'controller_action_predispatch_' . $this->getFullActionName(),
+            array('controller_action' => $this)
+        );
     }
 
     /**
@@ -558,7 +559,7 @@ abstract class Mage_Core_Controller_Varien_Action
         Mage::dispatchEvent('controller_action_noroute', array('action'=>$this, 'status'=>$status));
         if ($status->getLoaded() !== true
             || $status->getForwarded() === true
-            || !is_null($coreRoute) ) {
+            || $coreRoute !== null) {
             $this->loadLayout(array('default', 'noRoute'));
             $this->renderLayout();
         } else {
@@ -567,7 +568,8 @@ abstract class Mage_Core_Controller_Varien_Action
                 $status->getForwardAction(),
                 $status->getForwardController(),
                 $status->getForwardModule(),
-                array('__status__' => $status));
+                array('__status__' => $status)
+            );
         }
     }
 
@@ -581,11 +583,9 @@ abstract class Mage_Core_Controller_Varien_Action
 
         if ($url = $redirect->getRedirectUrl()) {
             $this->_redirectUrl($url);
-        }
-        elseif ($redirect->getRedirect()) {
+        } elseif ($redirect->getRedirect()) {
             $this->_redirect($redirect->getPath(), $redirect->getArguments());
-        }
-        else {
+        } else {
             $this->loadLayout(array('default', 'noCookie'));
             $this->renderLayout();
         }
@@ -642,10 +642,9 @@ abstract class Mage_Core_Controller_Varien_Action
                 $block->addMessages($storage->getMessages(true));
                 $block->setEscapeMessageFlag($storage->getEscapeMessages(true));
                 $block->addStorageType($storageName);
-            }
-            else {
+            } else {
                 Mage::throwException(
-                     Mage::helper('core')->__('Invalid messages storage "%s" for layout messages initialization', (string) $storageName)
+                    Mage::helper('core')->__('Invalid messages storage "%s" for layout messages initialization', (string) $storageName)
                 );
             }
         }
@@ -755,7 +754,7 @@ abstract class Mage_Core_Controller_Varien_Action
      * @param   string $defaultUrl
      * @return  Mage_Core_Controller_Varien_Action
      */
-    protected function _redirectReferer($defaultUrl=null)
+    protected function _redirectReferer($defaultUrl = null)
     {
 
         $refererUrl = $this->_getRefererUrl();
@@ -1037,8 +1036,8 @@ abstract class Mage_Core_Controller_Varien_Action
         $fileName,
         $content,
         $contentType = 'application/octet-stream',
-        $contentLength = null)
-    {
+        $contentLength = null
+    ) {
         $session = Mage::getSingleton('admin/session');
         if ($session->isFirstPageAfterLogin()) {
             $this->_redirect($session->getUser()->getStartupPageUrl());
@@ -1064,11 +1063,11 @@ abstract class Mage_Core_Controller_Varien_Action
             ->setHeader('Pragma', 'public', true)
             ->setHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0', true)
             ->setHeader('Content-type', $contentType, true)
-            ->setHeader('Content-Length', is_null($contentLength) ? strlen($content) : $contentLength, true)
+            ->setHeader('Content-Length', $contentLength === null ? strlen($content) : $contentLength, true)
             ->setHeader('Content-Disposition', 'attachment; filename="'.$fileName.'"', true)
             ->setHeader('Last-Modified', date('r'), true);
 
-        if (!is_null($content)) {
+        if ($content !== null) {
             if ($isFile) {
                 $this->getResponse()->clearBody();
                 $this->getResponse()->sendHeaders();

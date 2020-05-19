@@ -95,7 +95,7 @@ class Mage_Paypal_Block_Express_Shortcut extends Mage_Core_Block_Template
         if ($isInCatalog) {
             /** @var Mage_Catalog_Model_Product $currentProduct */
             $currentProduct = Mage::registry('current_product');
-            if (!is_null($currentProduct)) {
+            if ($currentProduct !== null) {
                 $price = (float)$currentProduct->getFinalPrice();
                 $typeInstance = $currentProduct->getTypeInstance();
                 if (empty($price) && !$currentProduct->isSuper() && !$typeInstance->canConfigure($currentProduct)) {
@@ -138,7 +138,8 @@ class Mage_Paypal_Block_Express_Shortcut extends Mage_Core_Block_Template
         // ask whether to create a billing agreement
         $customerId = Mage::getSingleton('customer/session')->getCustomerId(); // potential issue for caching
         if (Mage::helper('paypal')->shouldAskToCreateBillingAgreement($config, $customerId)) {
-            $this->setConfirmationUrl($this->getUrl($this->_startAction,
+            $this->setConfirmationUrl($this->getUrl(
+                $this->_startAction,
                 array(Mage_Paypal_Model_Express_Checkout::PAYMENT_INFO_TRANSPORT_BILLING_AGREEMENT => 1)
             ));
             $this->setConfirmationMessage(Mage::helper('paypal')->__('Would you like to sign a billing agreement to streamline further purchases with PayPal?'));
@@ -188,7 +189,6 @@ class Mage_Paypal_Block_Express_Shortcut extends Mage_Core_Block_Template
     {
         return ($this->getIsInCatalogProduct() && !$this->getShowOrPosition())
             || ($this->getShowOrPosition() && $this->getShowOrPosition() == self::POSITION_BEFORE);
-
     }
 
     /**

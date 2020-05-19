@@ -64,7 +64,7 @@ abstract class Mage_Catalog_Model_Resource_Product_Indexer_Abstract extends Mage
         $attributeId    = $attribute->getAttributeId();
         $attributeTable = $attribute->getBackend()->getTable();
         $adapter        = $this->_getReadAdapter();
-        $joinType       = !is_null($condition) || $required ? 'join' : 'joinLeft';
+        $joinType       = $condition !== null || $required ? 'join' : 'joinLeft';
 
         if ($attribute->isScopeGlobal()) {
             $alias = 'ta_' . $attrCode;
@@ -91,11 +91,14 @@ abstract class Mage_Catalog_Model_Resource_Product_Indexer_Abstract extends Mage
                     . " AND {$sAlias}.store_id = {$store}",
                 array()
             );
-            $expression = $adapter->getCheckSql($adapter->getIfNullSql("{$sAlias}.value_id", -1) . ' > 0',
-                "{$sAlias}.value", "{$dAlias}.value");
+            $expression = $adapter->getCheckSql(
+                $adapter->getIfNullSql("{$sAlias}.value_id", -1) . ' > 0',
+                "{$sAlias}.value",
+                "{$dAlias}.value"
+            );
         }
 
-        if (!is_null($condition)) {
+        if ($condition !== null) {
             $select->where("{$expression}{$condition}");
         }
 
@@ -117,7 +120,7 @@ abstract class Mage_Catalog_Model_Resource_Product_Indexer_Abstract extends Mage
      */
     protected function _addWebsiteJoinToSelect($select, $store = true, $joinCondition = null)
     {
-        if (!is_null($joinCondition)) {
+        if ($joinCondition !== null) {
             $joinCondition = 'cw.website_id = ' . $joinCondition;
         }
 
@@ -131,11 +134,13 @@ abstract class Mage_Catalog_Model_Resource_Product_Indexer_Abstract extends Mage
             $select->join(
                 array('csg' => $this->getTable('core/store_group')),
                 'csg.group_id = cw.default_group_id',
-                array())
+                array()
+            )
             ->join(
                 array('cs' => $this->getTable('core/store')),
                 'cs.store_id = csg.default_store_id',
-                array());
+                array()
+            );
         }
 
         return $this;

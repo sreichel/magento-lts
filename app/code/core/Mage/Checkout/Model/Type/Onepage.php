@@ -130,7 +130,7 @@ class Mage_Checkout_Model_Type_Onepage
         $checkout = $this->getCheckout();
         $customerSession = $this->getCustomerSession();
         if (is_array($checkout->getStepData())) {
-            foreach ($checkout->getStepData() as $step=>$data) {
+            foreach ($checkout->getStepData() as $step => $data) {
                 if (!($step==='login' || $customerSession->isLoggedIn() && $step==='billing')) {
                     $checkout->setStepData($step, 'allow', false);
                 }
@@ -298,7 +298,7 @@ class Mage_Checkout_Model_Type_Onepage
             //unset billing address attributes which were not shown in form
             foreach ($addressForm->getAttributes() as $attribute) {
                 if (!isset($data[$attribute->getAttributeCode()])) {
-                    $address->setData($attribute->getAttributeCode(), NULL);
+                    $address->setData($attribute->getAttributeCode(), null);
                 }
             }
             $address->setCustomerAddressId(null);
@@ -350,7 +350,7 @@ class Mage_Checkout_Model_Type_Onepage
 
                     // don't reset original shipping data, if it was not changed by customer
                     foreach ($shipping->getData() as $shippingKey => $shippingValue) {
-                        if (!is_null($shippingValue) && !is_null($billing->getData($shippingKey))
+                        if ($shippingValue !== null && $billing->getData($shippingKey) !== null
                             && !isset($data[$shippingKey]) && !in_array($shippingKey, $requiredBillingAttributes)
                         ) {
                             $billing->unsetData($shippingKey);
@@ -576,7 +576,7 @@ class Mage_Checkout_Model_Type_Onepage
             // unset shipping address attributes which were not shown in form
             foreach ($addressForm->getAttributes() as $attribute) {
                 if (!isset($data[$attribute->getAttributeCode()])) {
-                    $address->setData($attribute->getAttributeCode(), NULL);
+                    $address->setData($attribute->getAttributeCode(), null);
                 }
             }
 
@@ -832,8 +832,10 @@ class Mage_Checkout_Model_Type_Onepage
 
         $order = $service->getOrder();
         if ($order) {
-            Mage::dispatchEvent('checkout_type_onepage_save_order_after',
-                array('order'=>$order, 'quote'=>$this->getQuote()));
+            Mage::dispatchEvent(
+                'checkout_type_onepage_save_order_after',
+                array('order'=>$order, 'quote'=>$this->getQuote())
+            );
 
             /**
              * a flag to set that there will be redirect to third party after confirmation

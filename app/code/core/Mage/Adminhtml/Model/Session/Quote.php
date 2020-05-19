@@ -78,13 +78,12 @@ class Mage_Adminhtml_Model_Session_Quote extends Mage_Core_Model_Session_Abstrac
      */
     public function getQuote()
     {
-        if (is_null($this->_quote)) {
+        if ($this->_quote === null) {
             $this->_quote = Mage::getModel('sales/quote');
             if ($this->getStoreId() && $this->getQuoteId()) {
                 $this->_quote->setStoreId($this->getStoreId())
                     ->load($this->getQuoteId());
-            }
-            elseif($this->getStoreId() && $this->hasCustomerId()) {
+            } elseif ($this->getStoreId() && $this->hasCustomerId()) {
                 $this->_quote->setStoreId($this->getStoreId())
                     ->setCustomerGroupId(Mage::getStoreConfig(self::XML_PATH_DEFAULT_CREATEACCOUNT_GROUP))
                     ->assignCustomer($this->getCustomer())
@@ -116,9 +115,9 @@ class Mage_Adminhtml_Model_Session_Quote extends Mage_Core_Model_Session_Abstrac
      * @param bool $useSetStore
      * @return Mage_Customer_Model_Customer
      */
-    public function getCustomer($forceReload=false, $useSetStore=false)
+    public function getCustomer($forceReload = false, $useSetStore = false)
     {
-        if (is_null($this->_customer) || $forceReload) {
+        if ($this->_customer === null || $forceReload) {
             $this->_customer = Mage::getModel('customer/customer');
             if ($useSetStore && $this->getStore()->getId()) {
                 $this->_customer->setStore($this->getStore());
@@ -137,7 +136,7 @@ class Mage_Adminhtml_Model_Session_Quote extends Mage_Core_Model_Session_Abstrac
      */
     public function getStore()
     {
-        if (is_null($this->_store)) {
+        if ($this->_store === null) {
             $this->_store = Mage::app()->getStore($this->getStoreId());
             if ($currencyId = $this->getCurrencyId()) {
                 $this->_store->setCurrentCurrencyCode($currencyId);
@@ -153,7 +152,7 @@ class Mage_Adminhtml_Model_Session_Quote extends Mage_Core_Model_Session_Abstrac
      */
     public function getOrder()
     {
-        if (is_null($this->_order)) {
+        if ($this->_order === null) {
             $this->_order = Mage::getModel('sales/order');
             if ($this->getOrderId()) {
                 $this->_order->load($this->getOrderId());

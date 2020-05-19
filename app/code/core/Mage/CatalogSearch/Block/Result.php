@@ -134,8 +134,7 @@ class Mage_CatalogSearch_Block_Result extends Mage_Core_Block_Template
         $this->getListBlock()
             ->setModes(array(
                 'grid' => $this->__('Grid'),
-                'list' => $this->__('List'))
-            );
+                'list' => $this->__('List')));
         return $this;
     }
 
@@ -148,7 +147,7 @@ class Mage_CatalogSearch_Block_Result extends Mage_Core_Block_Template
     {
 //        $this->getListBlock()
 //           ->setCollection($this->_getProductCollection());
-       return $this;
+        return $this;
     }
 
     /**
@@ -168,7 +167,7 @@ class Mage_CatalogSearch_Block_Result extends Mage_Core_Block_Template
      */
     protected function _getProductCollection()
     {
-        if (is_null($this->_productCollection)) {
+        if ($this->_productCollection === null) {
             $this->_productCollection = $this->getListBlock()->getLoadedProductCollection();
         }
 

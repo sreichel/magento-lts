@@ -69,7 +69,7 @@ class Mage_Install_Model_Installer_Console extends Mage_Install_Model_Installer_
      */
     protected function _getOptions()
     {
-        if (is_null($this->_options)) {
+        if ($this->_options === null) {
             $this->_options = array(
                 'license_agreement_accepted'    => array('required' => true, 'comment' => ''),
                 'locale'              => array('required' => true, 'comment' => ''),
@@ -231,7 +231,7 @@ class Mage_Install_Model_Installer_Console extends Mage_Install_Model_Installer_
      */
     protected function _getDataModel()
     {
-        if (is_null($this->_dataModel)) {
+        if ($this->_dataModel === null) {
             $this->_dataModel = Mage::getModel('install/installer_data');
         }
         return $this->_dataModel;
@@ -436,7 +436,6 @@ class Mage_Install_Model_Installer_Console extends Mage_Install_Model_Installer_
              */
             @chmod('var/cache', 0777);
             @chmod('var/session', 0777);
-
         } catch (Exception $e) {
             $this->addError('ERROR: ' . $e->getMessage());
             return false;
@@ -467,17 +466,16 @@ class Mage_Install_Model_Installer_Console extends Mage_Install_Model_Installer_
      * @param string $url fallback url to redirect to
      * @return boolean
      */
-    public function checkConsole($url=null)
+    public function checkConsole($url = null)
     {
         if (defined('STDIN') && defined('STDOUT') && (defined('STDERR'))) {
             return true;
         }
-        if (is_null($url)) {
+        if ($url === null) {
             $url = preg_replace('/install\.php/i', '', Mage::getBaseUrl());
             $url = preg_replace('/\/\/$/', '/', $url);
         }
         header('Location: ' . $url);
         return false;
     }
-
 }

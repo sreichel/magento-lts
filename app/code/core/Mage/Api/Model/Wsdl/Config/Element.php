@@ -79,7 +79,7 @@ class Mage_Api_Model_Wsdl_Config_Element extends Varien_Simplexml_Element
         if (!$source->hasChildren()) {
             // handle string node
             $elm = $this->getElementByName($source, $elmNamespace);
-            if (!is_null($elm)) {
+            if ($elm !== null) {
                 // if target already has children return without regard
                 if ($this->getChildren($elm)) {
                     return $this;
@@ -109,10 +109,10 @@ class Mage_Api_Model_Wsdl_Config_Element extends Varien_Simplexml_Element
         }
 
         $elm = $this->getElementByName($source, $elmNamespace);
-        if (!is_null($elm)) {
+        if ($elm !== null) {
             $targetChild = $elm;
         }
-        if (is_null($targetChild)) {
+        if ($targetChild === null) {
             // if child target is not found create new and descend
             $targetChild = $this->addChild($sourceName, null, $elmNamespace);
             $targetChild->setParent($this);
@@ -155,7 +155,7 @@ class Mage_Api_Model_Wsdl_Config_Element extends Varien_Simplexml_Element
     public function getAttributes($source, $namespace = null)
     {
         $attributes = array();
-        if (!is_null($namespace)) {
+        if ($namespace !== null) {
             $attributes[$namespace] = $source->attributes($namespace);
             return $attributes;
         }
@@ -239,7 +239,7 @@ class Mage_Api_Model_Wsdl_Config_Element extends Varien_Simplexml_Element
 //                        }
 //                    }
                     foreach ($attributes as $key => $value) {
-                        if (is_null($child->getAttribute($key, $namespace)) || $child->getAttribute($key, $namespace) != $value) {
+                        if ($child->getAttribute($key, $namespace) === null || $child->getAttribute($key, $namespace) != $value) {
                             $elm = false;
                         }
                     }

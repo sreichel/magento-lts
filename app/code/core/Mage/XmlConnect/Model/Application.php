@@ -321,11 +321,11 @@ class Mage_XmlConnect_Model_Application extends Mage_Core_Model_Abstract
      * @param string $prefix
      * @return array
      */
-    protected function _flatArray($subTree, $prefix=null)
+    protected function _flatArray($subTree, $prefix = null)
     {
         $result = array();
         foreach ($subTree as $key => $value) {
-            if (is_null($prefix)) {
+            if ($prefix === null) {
                 $name = $key;
             } else {
                 $name = $prefix . '[' . $key . ']';
@@ -586,7 +586,8 @@ class Mage_XmlConnect_Model_Application extends Mage_Core_Model_Abstract
     public function isGuestBuyDownloadableProduct()
     {
         return (bool)Mage::getStoreConfigFlag(
-            Mage_Downloadable_Model_Observer::XML_PATH_DISABLE_GUEST_CHECKOUT, $this->getStoreId()
+            Mage_Downloadable_Model_Observer::XML_PATH_DISABLE_GUEST_CHECKOUT,
+            $this->getStoreId()
         );
     }
 
@@ -741,7 +742,9 @@ class Mage_XmlConnect_Model_Application extends Mage_Core_Model_Abstract
         $deprecatedConfig = $this->getData('conf');
         if (is_array($deprecatedConfig)) {
             $this->getConfigModel()->saveConfig(
-                $this->getId(), $this->convertOldConfing($deprecatedConfig), self::DEPRECATED_CONFIG_FLAG
+                $this->getId(),
+                $this->convertOldConfing($deprecatedConfig),
+                self::DEPRECATED_CONFIG_FLAG
             );
         }
         return $this;
@@ -1042,7 +1045,6 @@ class Mage_XmlConnect_Model_Application extends Mage_Core_Model_Abstract
     {
         $params = array();
         if (isset($data['conf']) && is_array($data['conf'])) {
-
             if (isset($data['conf']['submit_text']) && is_array($data['conf']['submit_text'])) {
                 $params = $data['conf']['submit_text'];
             }

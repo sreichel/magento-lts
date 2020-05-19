@@ -95,7 +95,7 @@ class Mage_Review_Model_Resource_Review_Product_Collection extends Mage_Catalog_
      */
     public function addStoreFilter($storeId = null)
     {
-        if (is_null($storeId)) {
+        if ($storeId === null) {
             $storeId = $this->getStoreId();
         }
 
@@ -126,11 +126,11 @@ class Mage_Review_Model_Resource_Review_Product_Collection extends Mage_Catalog_
             $storeId = array_shift($storeId);
         }
 
-        if (!is_array($storeId)){
+        if (!is_array($storeId)) {
             $storeId = array($storeId);
         }
 
-        if (!empty($this->_storesIds)){
+        if (!empty($this->_storesIds)) {
             $this->_storesIds = array_intersect($this->_storesIds, $storeId);
         } else {
             $this->_storesIds = $storeId;
@@ -149,7 +149,7 @@ class Mage_Review_Model_Resource_Review_Product_Collection extends Mage_Catalog_
     {
         $adapter = $this->getConnection();
         $storesIds = $this->_storesIds;
-        if (is_null($select)){
+        if ($select === null) {
             $select = $this->getSelect();
         }
 
@@ -159,16 +159,20 @@ class Mage_Review_Model_Resource_Review_Product_Collection extends Mage_Catalog_
 
         if (is_array($storesIds) && !empty($storesIds)) {
             $inCond = $adapter->prepareSqlCondition('store.store_id', array('in' => $storesIds));
-            $select->join(array('store' => $this->_reviewStoreTable),
+            $select->join(
+                array('store' => $this->_reviewStoreTable),
                 'rt.review_id=store.review_id AND ' . $inCond,
-                array())
+                array()
+            )
             ->group('rt.review_id');
 
             $this->_useAnalyticFunction = true;
         } else {
-            $select->join(array('store' => $this->_reviewStoreTable),
+            $select->join(
+                array('store' => $this->_reviewStoreTable),
                 $adapter->quoteInto('rt.review_id=store.review_id AND store.store_id = ?', (int)$storesIds),
-                array());
+                array()
+            );
         }
 
         return $this;
@@ -283,12 +287,16 @@ class Mage_Review_Model_Resource_Review_Product_Collection extends Mage_Catalog_
             ->addAttributeToSelect('sku');
 
         $this->getSelect()
-            ->join(array('rt' => $reviewTable),
+            ->join(
+                array('rt' => $reviewTable),
                 'rt.entity_pk_value = e.entity_id',
-                array('rt.review_id', 'review_created_at'=> 'rt.created_at', 'rt.entity_pk_value', 'rt.status_id'))
-            ->join(array('rdt' => $reviewDetailTable),
+                array('rt.review_id', 'review_created_at'=> 'rt.created_at', 'rt.entity_pk_value', 'rt.status_id')
+            )
+            ->join(
+                array('rdt' => $reviewDetailTable),
                 'rdt.review_id = rt.review_id',
-                array('rdt.title','rdt.nickname', 'rdt.detail', 'rdt.customer_id', 'rdt.store_id'));
+                array('rdt.title','rdt.nickname', 'rdt.detail', 'rdt.customer_id', 'rdt.store_id')
+            );
         return $this;
     }
 
@@ -334,7 +342,7 @@ class Mage_Review_Model_Resource_Review_Product_Collection extends Mage_Catalog_
      */
     public function setOrder($attribute, $dir = 'DESC')
     {
-        switch($attribute) {
+        switch ($attribute) {
             case 'rt.review_id':
             case 'rt.created_at':
             case 'rt.status_id':
@@ -365,7 +373,7 @@ class Mage_Review_Model_Resource_Review_Product_Collection extends Mage_Catalog_
      */
     public function addAttributeToFilter($attribute, $condition = null, $joinType = 'inner')
     {
-        switch($attribute) {
+        switch ($attribute) {
             case 'rt.review_id':
             case 'rt.created_at':
             case 'rt.status_id':
@@ -465,7 +473,6 @@ class Mage_Review_Model_Resource_Review_Product_Collection extends Mage_Catalog_
             } else {
                 $item->setData('stores', array());
             }
-
         }
     }
 

@@ -240,7 +240,7 @@ class Mage_Core_Model_Url extends Varien_Object
      */
     public function getUseSession()
     {
-        if (is_null($this->_useSession)) {
+        if ($this->_useSession === null) {
             $this->_useSession = Mage::app()->getUseSessionInUrl();
         }
         return $this->_useSession;
@@ -265,7 +265,7 @@ class Mage_Core_Model_Url extends Varien_Object
      */
     public function getConfigData($key, $prefix = null)
     {
-        if (is_null($prefix)) {
+        if ($prefix === null) {
             $prefix = 'web/' . ($this->getSecure() ? 'secure' : 'unsecure').'/';
         }
         $path = $prefix . $key;
@@ -501,7 +501,7 @@ class Mage_Core_Model_Url extends Varien_Object
             $routePath = $this->getActionPath();
             if ($this->getRouteParams()) {
                 foreach ($this->getRouteParams() as $key => $value) {
-                    if (is_null($value) || false === $value || '' === $value || !is_scalar($value)) {
+                    if ($value === null || false === $value || '' === $value || !is_scalar($value)) {
                         continue;
                     }
                     $routePath .= $key . '/' . $value . '/';
@@ -753,7 +753,7 @@ class Mage_Core_Model_Url extends Varien_Object
             return $this->getBaseUrl() . $routeParams['_direct'];
         }
 
-        if (!is_null($routePath)) {
+        if ($routePath !== null) {
             $this->setRoutePath($routePath);
         }
         if (is_array($routeParams)) {
@@ -1128,7 +1128,8 @@ class Mage_Core_Model_Url extends Varien_Object
      * @param array $params
      * @return string
      */
-    public function getDirectUrl($url, $params = array()) {
+    public function getDirectUrl($url, $params = array())
+    {
         $params['_direct'] = $url;
         return $this->getUrl('', $params);
     }
@@ -1144,8 +1145,11 @@ class Mage_Core_Model_Url extends Varien_Object
         if (strpos($html, '__SID') === false) {
             return $html;
         } else {
-            return preg_replace_callback('#(\?|&amp;|&)___SID=([SU])(&amp;|&)?#',
-                array($this, "sessionVarCallback"), $html);
+            return preg_replace_callback(
+                '#(\?|&amp;|&)___SID=([SU])(&amp;|&)?#',
+                array($this, "sessionVarCallback"),
+                $html
+            );
         }
     }
 
@@ -1158,10 +1162,12 @@ class Mage_Core_Model_Url extends Varien_Object
     public function useSessionIdForUrl($secure = false)
     {
         $key = 'use_session_id_for_url_' . (int) $secure;
-        if (is_null($this->getData($key))) {
+        if ($this->getData($key) === null) {
             $httpHost = Mage::app()->getFrontController()->getRequest()->getHttpHost();
-            $urlHost = parse_url(Mage::app()->getStore()->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK, $secure),
-                PHP_URL_HOST);
+            $urlHost = parse_url(
+                Mage::app()->getStore()->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK, $secure),
+                PHP_URL_HOST
+            );
 
             if ($httpHost != $urlHost) {
                 $this->setData($key, true);

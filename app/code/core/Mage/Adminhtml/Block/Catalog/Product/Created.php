@@ -127,7 +127,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Created extends Mage_Adminhtml_Block_
      */
     public function getConfigurableProduct()
     {
-        if (is_null($this->_configurableProduct)) {
+        if ($this->_configurableProduct === null) {
             $this->_configurableProduct = Mage::getModel('catalog/product')
                 ->setStore(0)
                 ->load($this->getRequest()->getParam('product'));
@@ -142,7 +142,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Created extends Mage_Adminhtml_Block_
      */
     public function getProduct()
     {
-        if (is_null($this->_product)) {
+        if ($this->_product === null) {
             $this->_product = Mage::getModel('catalog/product')
                 ->setStore(0)
                 ->load($this->getRequest()->getParam('id'));

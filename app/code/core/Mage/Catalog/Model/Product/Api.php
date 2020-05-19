@@ -148,7 +148,8 @@ class Mage_Catalog_Model_Product_Api extends Mage_Catalog_Model_Api_Resource
         foreach ($product->getTypeInstance(true)->getEditableAttributes($product) as $attribute) {
             if ($this->_isAllowedAttribute($attribute, $attributes)) {
                 $result[$attribute->getAttributeCode()] = $product->getData(
-                                                                $attribute->getAttributeCode());
+                    $attribute->getAttributeCode()
+                );
             }
         }
 
@@ -200,7 +201,7 @@ class Mage_Catalog_Model_Product_Api extends Mage_Catalog_Model_Api_Resource
              */
             if (is_array($errors = $product->validate())) {
                 $strErrors = array();
-                foreach($errors as $code => $error) {
+                foreach ($errors as $code => $error) {
                     if ($error === true) {
                         $error = Mage::helper('catalog')->__('Attribute "%s" is invalid.', $code);
                     }
@@ -238,7 +239,7 @@ class Mage_Catalog_Model_Product_Api extends Mage_Catalog_Model_Api_Resource
              */
             if (is_array($errors = $product->validate())) {
                 $strErrors = array();
-                foreach($errors as $code => $error) {
+                foreach ($errors as $code => $error) {
                     if ($error === true) {
                         $error = Mage::helper('catalog')->__('Value for "%s" is invalid.', $code);
                     } else {
@@ -308,7 +309,8 @@ class Mage_Catalog_Model_Product_Api extends Mage_Catalog_Model_Api_Resource
                 if (is_string($website)) {
                     try {
                         $website = Mage::app()->getWebsite($website)->getId();
-                    } catch (Exception $e) { }
+                    } catch (Exception $e) {
+                    }
                 }
             }
             $product->setWebsiteIds($productData['websites']);
@@ -411,7 +413,6 @@ class Mage_Catalog_Model_Product_Api extends Mage_Catalog_Model_Api_Resource
             /* @var $attribute Mage_Catalog_Model_Resource_Eav_Attribute */
             if ($attribute->isInSet($attributeSetId) && $this->_isAllowedAttribute($attribute)
                 && !in_array($attribute->getAttributeCode(), $this->_defaultProductAttributeList)) {
-
                 if ($attribute->isScopeGlobal()) {
                     $scope = 'global';
                 } elseif ($attribute->isScopeWebsite()) {
@@ -457,7 +458,7 @@ class Mage_Catalog_Model_Product_Api extends Mage_Catalog_Model_Api_Resource
     protected function _checkProductAttributeSet($attributeSetId)
     {
         $attributeSet = Mage::getModel('eav/entity_attribute_set')->load($attributeSetId);
-        if (is_null($attributeSet->getId())) {
+        if ($attributeSet->getId() === null) {
             $this->_fault('product_attribute_set_not_exists');
         }
         if (Mage::getModel('catalog/product')->getResource()->getTypeId() != $attributeSet->getEntityTypeId()) {

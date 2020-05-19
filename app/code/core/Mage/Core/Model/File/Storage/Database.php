@@ -77,10 +77,11 @@ class Mage_Core_Model_File_Storage_Database extends Mage_Core_Model_File_Storage
      */
     public function getDirectoryModel()
     {
-        if (is_null($this->_directoryModel)) {
+        if ($this->_directoryModel === null) {
             $this->_directoryModel = Mage::getModel(
                 'core/file_storage_directory_database',
-                array('connection' => $this->getConnectionName()));
+                array('connection' => $this->getConnectionName())
+            );
         }
 
         return $this->_directoryModel;
@@ -152,7 +153,8 @@ class Mage_Core_Model_File_Storage_Database extends Mage_Core_Model_File_Storage
      * @param  int $count
      * @return bool|array
      */
-    public function exportDirectories($offset = 0, $count = 100) {
+    public function exportDirectories($offset = 0, $count = 100)
+    {
         return $this->getDirectoryModel()->exportDirectories($offset, $count);
     }
 
@@ -162,7 +164,8 @@ class Mage_Core_Model_File_Storage_Database extends Mage_Core_Model_File_Storage
      * @param  array $dirs
      * @return Mage_Core_Model_File_Storage_Directory_Database
      */
-    public function importDirectories($dirs) {
+    public function importDirectories($dirs)
+    {
         return $this->getDirectoryModel()->importDirectories($dirs);
     }
 
@@ -209,7 +212,8 @@ class Mage_Core_Model_File_Storage_Database extends Mage_Core_Model_File_Storage
                 $file['directory_id'] = (isset($file['directory']) && strlen($file['directory']))
                     ? Mage::getModel(
                         'core/file_storage_directory_database',
-                        array('connection' => $this->getConnectionName()))
+                        array('connection' => $this->getConnectionName())
+                    )
                             ->loadByPath($file['directory'])->getId()
                     : null;
 

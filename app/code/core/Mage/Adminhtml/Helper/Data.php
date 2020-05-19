@@ -65,7 +65,7 @@ class Mage_Adminhtml_Helper_Data extends Mage_Adminhtml_Helper_Help_Mapping
      */
     public function setPageHelpUrl($url = null, $suffix = null)
     {
-        if (is_null($url)) {
+        if ($url === null) {
             $request = Mage::app()->getRequest();
             $frontModule = $request->getControllerModule();
             if (!$frontModule) {
@@ -81,7 +81,7 @@ class Mage_Adminhtml_Helper_Data extends Mage_Adminhtml_Helper_Help_Mapping
 
             $moduleName = $frontModule;
             $controllerName = $request->getControllerName();
-            $actionName = $request->getActionName() . (!is_null($suffix) ? $suffix : '');
+            $actionName = $request->getActionName() . ($suffix !== null ? $suffix : '');
 
             if ($mappingUrl = $this->findInMapping($moduleName, $controllerName, $actionName)) {
                 $url .= $mappingUrl;
@@ -108,7 +108,7 @@ class Mage_Adminhtml_Helper_Data extends Mage_Adminhtml_Helper_Help_Mapping
         return $this;
     }
 
-    public static function getUrl($route='', $params=array())
+    public static function getUrl($route = '', $params = array())
     {
         return Mage::getModel('adminhtml/url')->getUrl($route, $params);
     }

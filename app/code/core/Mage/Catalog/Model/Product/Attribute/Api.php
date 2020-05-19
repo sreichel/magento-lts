@@ -69,7 +69,6 @@ class Mage_Catalog_Model_Product_Attribute_Api extends Mage_Catalog_Model_Api_Re
             /* @var $attribute Mage_Catalog_Model_Resource_Eav_Attribute */
             if ((!$attribute->getId() || $attribute->isInSet($setId))
                     && $this->_isAllowedAttribute($attribute)) {
-
                 if (!$attribute->getId() || $attribute->isScopeGlobal()) {
                     $scope = 'global';
                 } elseif ($attribute->isScopeWebsite()) {
@@ -170,7 +169,7 @@ class Mage_Catalog_Model_Product_Attribute_Api extends Mage_Catalog_Model_Api_Re
 
         $data['source_model'] = $helper->getAttributeSourceModelByInputType($data['frontend_input']);
         $data['backend_model'] = $helper->getAttributeBackendModelByInputType($data['frontend_input']);
-        if (is_null($model->getIsUserDefined()) || $model->getIsUserDefined() != 0) {
+        if ($model->getIsUserDefined() === null || $model->getIsUserDefined() != 0) {
             $data['backend_type'] = $model->getBackendTypeByInput($data['frontend_input']);
         }
 
@@ -305,26 +304,26 @@ class Mage_Catalog_Model_Product_Attribute_Api extends Mage_Catalog_Model_Api_Re
                         'is_html_allowed_on_front' => $model->getIsHtmlAllowedOnFront(),
                         'used_for_sort_by' => $model->getUsedForSortBy()
                     );
-                    break;
+                break;
             case 'textarea':
                     $result['additional_fields'] = array(
                         'is_wysiwyg_enabled' => $model->getIsWysiwygEnabled(),
                         'is_html_allowed_on_front' => $model->getIsHtmlAllowedOnFront(),
                     );
-                    break;
+                break;
             case 'date':
             case 'boolean':
                     $result['additional_fields'] = array(
                         'used_for_sort_by' => $model->getUsedForSortBy()
                     );
-                    break;
+                break;
             case 'multiselect':
                     $result['additional_fields'] = array(
                         'is_filterable' => $model->getIsFilterable(),
                         'is_filterable_in_search' => $model->getIsFilterableInSearch(),
                         'position' => $model->getPosition()
                     );
-                    break;
+                break;
             case 'select':
             case 'price':
                     $result['additional_fields'] = array(
@@ -333,10 +332,10 @@ class Mage_Catalog_Model_Product_Attribute_Api extends Mage_Catalog_Model_Api_Re
                         'position' => $model->getPosition(),
                         'used_for_sort_by' => $model->getUsedForSortBy()
                     );
-                    break;
+                break;
             default:
                     $result['additional_fields'] = array();
-                    break;
+                break;
         }
 
         // set options
@@ -522,5 +521,4 @@ class Mage_Catalog_Model_Product_Attribute_Api extends Mage_Catalog_Model_Api_Re
 
         return $model;
     }
-
 } // Class Mage_Catalog_Model_Product_Attribute_Api End

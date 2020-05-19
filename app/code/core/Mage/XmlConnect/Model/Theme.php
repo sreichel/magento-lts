@@ -65,8 +65,10 @@ class Mage_XmlConnect_Model_Theme
         $io = new Varien_Io_File();
         $this->_file = $file;
         if (!file_exists($file)) {
-            Mage::throwException(Mage::helper('xmlconnect')->__('File doesn\'t exist "%s".',
-                $io->getFilteredPath($file)));
+            Mage::throwException(Mage::helper('xmlconnect')->__(
+                'File doesn\'t exist "%s".',
+                $io->getFilteredPath($file)
+            ));
         }
         if (!is_readable($file)) {
             Mage::throwException(Mage::helper('xmlconnect')->__('Can\'t read file "%s".', $io->getFilteredPath($file)));
@@ -192,8 +194,11 @@ class Mage_XmlConnect_Model_Theme
         $ioFile = new Varien_Io_File();
         if (!$ioFile->cp($currentThemeFileName, $filePath)) {
             Mage::throwException(
-                Mage::helper('xmlconnect')->__('Can\'t copy file "%s" to "%s".',
-                    $ioFile->getFilteredPath($currentThemeFileName), $ioFile->getFilteredPath($filePath))
+                Mage::helper('xmlconnect')->__(
+                    'Can\'t copy file "%s" to "%s".',
+                    $ioFile->getFilteredPath($currentThemeFileName),
+                    $ioFile->getFilteredPath($filePath)
+                )
             );
         } else {
             $ioFile->chmod($filePath, 0755);
@@ -244,7 +249,7 @@ class Mage_XmlConnect_Model_Theme
     {
         $result = array();
         foreach ($subTree as $key => $value) {
-            if (is_null($prefix)) {
+            if ($prefix === null) {
                 $name = $key;
             } else {
                 $name = $prefix . '[' . $key . ']';
@@ -270,7 +275,7 @@ class Mage_XmlConnect_Model_Theme
     {
         $root = false;
         $result = array();
-        if (is_null($xml)) {
+        if ($xml === null) {
             $root = true;
             $data = array('configuration' => $data);
             $xml = $this->_xml->configuration;
@@ -324,8 +329,10 @@ class Mage_XmlConnect_Model_Theme
             file_put_contents($this->_file, $xml->asXML());
         } else {
             $io = new Varien_Io_File();
-            Mage::throwException(Mage::helper('xmlconnect')->__('Can\'t write to file "%s".',
-                $io->getFilteredPath($this->_file)));
+            Mage::throwException(Mage::helper('xmlconnect')->__(
+                'Can\'t write to file "%s".',
+                $io->getFilteredPath($this->_file)
+            ));
         }
     }
 }

@@ -106,7 +106,7 @@ class Mage_Catalog_Model_Product_Option_Value extends Mage_Core_Model_Abstract
 
     public function getProduct()
     {
-        if (is_null($this->_product)) {
+        if ($this->_product === null) {
             $this->_product = $this->getOption()->getProduct();
         }
         return $this->_product;
@@ -144,7 +144,7 @@ class Mage_Catalog_Model_Product_Option_Value extends Mage_Core_Model_Abstract
      * @param bool $flag
      * @return float|int
      */
-    public function getPrice($flag=false)
+    public function getPrice($flag = false)
     {
         if ($flag && $this->getPriceType() == 'percent') {
             $basePrice = $this->getOption()->getProduct()->getFinalPrice();

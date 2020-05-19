@@ -179,7 +179,7 @@ class Mage_Catalog_Model_Category extends Mage_Catalog_Model_Abstract
      */
     public function getTreeModelInstance()
     {
-        if (is_null($this->_treeModel)) {
+        if ($this->_treeModel === null) {
             $this->_treeModel = Mage::getResourceSingleton('catalog/category_tree');
         }
         return $this->_treeModel;
@@ -259,7 +259,9 @@ class Mage_Catalog_Model_Category extends Mage_Catalog_Model_Abstract
         if ($moveComplete) {
             Mage::dispatchEvent('category_move', $eventParams);
             Mage::getSingleton('index/indexer')->processEntityAction(
-                $this, self::ENTITY, Mage_Index_Model_Event::TYPE_SAVE
+                $this,
+                self::ENTITY,
+                Mage_Index_Model_Event::TYPE_SAVE
             );
             Mage::app()->cleanCache(array(self::CACHE_TAG));
         }
@@ -302,8 +304,8 @@ class Mage_Catalog_Model_Category extends Mage_Catalog_Model_Abstract
             ->loadAllAttributes($this)
             ->getSortedAttributes();
 
-        if ($noDesignAttributes){
-            foreach ($result as $k=>$a){
+        if ($noDesignAttributes) {
+            foreach ($result as $k => $a) {
                 if (in_array($k, $this->_designAttributes)) {
                     unset($result[$k]);
                 }
@@ -327,7 +329,7 @@ class Mage_Catalog_Model_Category extends Mage_Catalog_Model_Abstract
         }
 
         $array = $this->getData('products_position');
-        if (is_null($array)) {
+        if ($array === null) {
             $array = $this->getResource()->getProductsPosition($this);
             $this->setData('products_position', $array);
         }
@@ -386,8 +388,7 @@ class Mage_Catalog_Model_Category extends Mage_Catalog_Model_Abstract
         $layout = 'catalog_category_';
         if ($this->getIsAnchor()) {
             $layout .= 'layered';
-        }
-        else {
+        } else {
             $layout .= 'default';
         }
         return $layout;
@@ -589,8 +590,7 @@ class Mage_Catalog_Model_Category extends Mage_Catalog_Model_Abstract
     {
         if (!$this->_useFlatResource) {
             $attribute = $this->getResource()->getAttribute($attributeCode);
-        }
-        else {
+        } else {
             $attribute = Mage::getSingleton('catalog/config')
                 ->getAttribute(self::ENTITY, $attributeCode);
         }
@@ -608,8 +608,7 @@ class Mage_Catalog_Model_Category extends Mage_Catalog_Model_Abstract
         $children = $this->getResource()->getAllChildren($this);
         if ($asArray) {
             return $children;
-        }
-        else {
+        } else {
             return implode(',', $children);
         }
 
@@ -681,7 +680,7 @@ class Mage_Catalog_Model_Category extends Mage_Catalog_Model_Abstract
     public function getPathIds()
     {
         $ids = $this->getData('path_ids');
-        if (is_null($ids)) {
+        if ($ids === null) {
             $ids = explode('/', $this->getPath());
             $this->setData('path_ids', $ids);
         }
@@ -775,8 +774,7 @@ class Mage_Catalog_Model_Category extends Mage_Catalog_Model_Abstract
 
         if ($this->_useFlatResource) {
             $anchors = $this->_getResource()->getAnchorsAbove($path, $this->getStoreId());
-        }
-        else {
+        } else {
             if (!Mage::registry('_category_is_anchor_attribute')) {
                 $model = $this->_getAttribute('is_anchor');
                 Mage::register('_category_is_anchor_attribute', $model);
@@ -813,7 +811,7 @@ class Mage_Catalog_Model_Category extends Mage_Catalog_Model_Abstract
      * @param bool $toLoad
      * @return mixed
      */
-    public function getCategories($parent, $recursionLevel = 0, $sorted=false, $asCollection=false, $toLoad=true)
+    public function getCategories($parent, $recursionLevel = 0, $sorted = false, $asCollection = false, $toLoad = true)
     {
         $categories = $this->getResource()
             ->getCategories($parent, $recursionLevel, $sorted, $asCollection, $toLoad);
@@ -893,7 +891,8 @@ class Mage_Catalog_Model_Category extends Mage_Catalog_Model_Abstract
      *
      * @return array
      */
-    public function getAvailableSortByOptions() {
+    public function getAvailableSortByOptions()
+    {
         $availableSortBy = array();
         $defaultSortBy   = Mage::getSingleton('catalog/config')
             ->getAttributeUsedForSortByArray();
@@ -917,7 +916,8 @@ class Mage_Catalog_Model_Category extends Mage_Catalog_Model_Abstract
      *
      * @return string
      */
-    public function getDefaultSortBy() {
+    public function getDefaultSortBy()
+    {
         if (!$sortBy = $this->getData('default_sort_by')) {
             $sortBy = Mage::getSingleton('catalog/config')
                 ->getProductListDefaultSortBy($this->getStoreId());

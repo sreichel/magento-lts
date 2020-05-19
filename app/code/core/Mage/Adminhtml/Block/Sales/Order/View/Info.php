@@ -54,7 +54,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Info extends Mage_Adminhtml_Block_Sa
     {
         if ($this->getOrder()) {
             $storeId = $this->getOrder()->getStoreId();
-            if (is_null($storeId)) {
+            if ($storeId === null) {
                 $deleted = Mage::helper('adminhtml')->__(' [deleted]');
                 return nl2br($this->getOrder()->getStoreName()) . $deleted;
             }
@@ -153,7 +153,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Info extends Mage_Adminhtml_Block_Sa
      * @param string $label
      * @return string
      */
-    public function getAddressEditLink($address, $label='')
+    public function getAddressEditLink($address, $label = '')
     {
         if (empty($label)) {
             $label = $this->__('Edit');

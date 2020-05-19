@@ -59,7 +59,7 @@ class Mage_Catalog_Model_Layer_Filter_Attribute extends Mage_Catalog_Model_Layer
      */
     protected function _getResource()
     {
-        if (is_null($this->_resource)) {
+        if ($this->_resource === null) {
             $this->_resource = Mage::getResourceModel('catalog/layer_filter_attribute');
         }
         return $this->_resource;
@@ -140,8 +140,7 @@ class Mage_Catalog_Model_Layer_Filter_Attribute extends Mage_Catalog_Model_Layer
                                 'count' => $optionsCount[$option['value']],
                             );
                         }
-                    }
-                    else {
+                    } else {
                         $data[] = array(
                             'label' => $option['label'],
                             'value' => $option['value'],

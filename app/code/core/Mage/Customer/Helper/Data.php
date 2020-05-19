@@ -164,13 +164,12 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
     public function getFullCustomerName($object = null)
     {
         $name = '';
-        if (is_null($object)) {
+        if ($object === null) {
             $name = $this->getCustomerName();
         } else {
             $config = Mage::getSingleton('eav/config');
 
-            if (
-                $config->getAttribute('customer', 'prefix')->getIsVisible()
+            if ($config->getAttribute('customer', 'prefix')->getIsVisible()
                 && (
                     $object->getPrefix()
                     || $object->getCustomerPrefix()
@@ -580,8 +579,10 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
         ));
 
         if (!extension_loaded('soap')) {
-            Mage::logException(Mage::exception('Mage_Core',
-                Mage::helper('core')->__('PHP SOAP extension is required.')));
+            Mage::logException(Mage::exception(
+                'Mage_Core',
+                Mage::helper('core')->__('PHP SOAP extension is required.')
+            ));
             return $gatewayResponse;
         }
 
@@ -715,10 +716,11 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
             if (!$groupAutoAssignDisabled && !$customerGroupAutoAssignDisabled) {
                 $message .= $willChargeTaxMessage;
             }
-        }
-        else {
-            $contactUsMessage = sprintf($this->__('If you believe this is an error, please contact us at %s'),
-                Mage::getStoreConfig(self::XML_PATH_SUPPORT_EMAIL));
+        } else {
+            $contactUsMessage = sprintf(
+                $this->__('If you believe this is an error, please contact us at %s'),
+                Mage::getStoreConfig(self::XML_PATH_SUPPORT_EMAIL)
+            );
 
             $message = $this->__('Your Tax ID cannot be validated.') . ' '
                 . (!$groupAutoAssignDisabled && !$customerGroupAutoAssignDisabled
@@ -747,7 +749,7 @@ class Mage_Customer_Helper_Data extends Mage_Core_Helper_Abstract
             ->load((int)$customerId);
         $passwordCreatedAt = $customer->getPasswordCreatedAt();
 
-        return is_null($passwordCreatedAt) ? $customer->getCreatedAtTimestamp() : $passwordCreatedAt;
+        return $passwordCreatedAt === null ? $customer->getCreatedAtTimestamp() : $passwordCreatedAt;
     }
 
     /**

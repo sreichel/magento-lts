@@ -151,7 +151,7 @@ class Mage_Cms_Model_Wysiwyg_Config extends Varien_Object
     public function isEnabled()
     {
         $storeId = $this->getStoreId();
-        if (!is_null($storeId)) {
+        if ($storeId !== null) {
             $wysiwygState = Mage::getStoreConfig('cms/wysiwyg/enabled', $storeId);
         } else {
             $wysiwygState = Mage::getStoreConfig('cms/wysiwyg/enabled');

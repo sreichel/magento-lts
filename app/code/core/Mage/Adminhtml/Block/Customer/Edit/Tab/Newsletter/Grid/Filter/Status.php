@@ -52,7 +52,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Newsletter_Grid_Filter_Status exten
     protected function _getOptions()
     {
         $result = array();
-        foreach (self::$_statuses as $code=>$label) {
+        foreach (self::$_statuses as $code => $label) {
             $result[] = array('value'=>$code, 'label'=>Mage::helper('customer')->__($label));
         }
 
@@ -61,11 +61,10 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Newsletter_Grid_Filter_Status exten
 
     public function getCondition()
     {
-        if(is_null($this->getValue())) {
+        if ($this->getValue() === null) {
             return null;
         }
 
         return array('eq'=>$this->getValue());
     }
-
 }

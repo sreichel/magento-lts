@@ -60,7 +60,7 @@ class Mage_Api_Model_Session extends Mage_Core_Model_Session_Abstract
      */
     public function init($namespace, $sessionName = null)
     {
-        if (is_null($this->_currentSessId)) {
+        if ($this->_currentSessId === null) {
             $this->start();
         }
         return $this;
@@ -80,7 +80,7 @@ class Mage_Api_Model_Session extends Mage_Core_Model_Session_Abstract
      */
     public function setSessionId($sessId = null)
     {
-        if (!is_null($sessId)) {
+        if ($sessId !== null) {
             $this->_currentSessId = $sessId;
         }
         return $this;
@@ -143,7 +143,7 @@ class Mage_Api_Model_Session extends Mage_Core_Model_Session_Abstract
      */
     public function refreshAcl($user = null)
     {
-        if (is_null($user)) {
+        if ($user === null) {
             $user = $this->getUser();
         }
         if (!$user) {

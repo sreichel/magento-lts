@@ -100,7 +100,7 @@ class Mage_XmlConnect_Block_Review_Form extends Mage_Core_Block_Abstract
      */
     public function getRatings()
     {
-        if (is_null($this->_ratings)) {
+        if ($this->_ratings === null) {
             $this->_ratings = Mage::getModel('rating/rating')->getResourceCollection()->addEntityFilter('product')
                 ->setPositionOrder()->addRatingPerStoreName(Mage::app()->getStore()->getId())
                 ->setStoreFilter(Mage::app()->getStore()->getId())->load()->addOptionToItems();

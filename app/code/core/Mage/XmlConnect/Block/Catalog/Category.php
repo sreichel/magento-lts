@@ -87,7 +87,7 @@ class Mage_XmlConnect_Block_Catalog_Category extends Mage_XmlConnect_Block_Catal
                 $itemXmlObj->addChild('label', $categoryXmlObj->escapeXml($item->getName()));
                 $itemXmlObj->addChild('entity_id', $item->getId());
                 $itemXmlObj->addChild('content_type', $item->hasChildren() ? 'categories' : 'products');
-                if (!is_null($categoryId)) {
+                if ($categoryId !== null) {
                     $itemXmlObj->addChild('parent_id', $item->getParentId());
                 }
                 $icon = Mage::helper('xmlconnect/catalog_category_image')->initialize($item, 'thumbnail')

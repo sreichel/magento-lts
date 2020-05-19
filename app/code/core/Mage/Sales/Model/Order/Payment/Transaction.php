@@ -395,8 +395,7 @@ class Mage_Sales_Model_Order_Payment_Transaction extends Mage_Core_Model_Abstrac
         if (null !== $whetherHasChild) {
             $this->_hasChild = (bool)$whetherHasChild;
             return $this;
-        }
-        elseif (null === $this->_hasChild) {
+        } elseif (null === $this->_hasChild) {
             if ($this->getChildTransactions()) {
                 $this->_hasChild = true;
             } else {
@@ -430,7 +429,10 @@ class Mage_Sales_Model_Order_Payment_Transaction extends Mage_Core_Model_Abstrac
     {
         $this->_beforeLoadByTxnId($txnId);
         $this->getResource()->loadObjectByTxnId(
-            $this, $this->getOrderId(), $this->_paymentObject->getId(), $txnId
+            $this,
+            $this->getOrderId(),
+            $this->_paymentObject->getId(),
+            $txnId
         );
         $this->_afterLoadByTxnId();
         return $this;
@@ -750,7 +752,7 @@ class Mage_Sales_Model_Order_Payment_Transaction extends Mage_Core_Model_Abstrac
      */
     public function getOrderWebsiteId()
     {
-        if (is_null($this->_orderWebsiteId)) {
+        if ($this->_orderWebsiteId === null) {
             $this->_orderWebsiteId = (int)$this->getResource()->getOrderWebsiteId($this->getOrderId());
         }
         return $this->_orderWebsiteId;

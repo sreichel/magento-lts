@@ -73,8 +73,7 @@ class Mage_Catalog_Model_Category_Api extends Mage_Catalog_Model_Api_Resource
             } catch (Mage_Core_Exception $e) {
                 $this->_fault('website_not_exists', $e->getMessage());
             }
-        }
-        elseif (null !== $store) {
+        } elseif (null !== $store) {
             // load children of root category of store
             if (null === $categoryId) {
                 try {
@@ -133,9 +132,9 @@ class Mage_Catalog_Model_Category_Api extends Mage_Catalog_Model_Api_Resource
      */
     public function tree($parentId = null, $store = null)
     {
-        if (is_null($parentId) && !is_null($store)) {
+        if ($parentId === null && $store !== null) {
             $parentId = Mage::app()->getStore($this->_getStoreId($store))->getRootCategoryId();
-        } elseif (is_null($parentId)) {
+        } elseif ($parentId === null) {
             $parentId = 1;
         }
 
@@ -145,7 +144,7 @@ class Mage_Catalog_Model_Category_Api extends Mage_Catalog_Model_Api_Resource
 
         $root = $tree->getNodeById($parentId);
 
-        if($root && $root->getId() == 1) {
+        if ($root && $root->getId() == 1) {
             $root->setName(Mage::helper('catalog')->__('Root'));
         }
 
@@ -298,11 +297,9 @@ class Mage_Catalog_Model_Category_Api extends Mage_Catalog_Model_Api_Resource
             }
 
             $category->save();
-        }
-        catch (Mage_Core_Exception $e) {
+        } catch (Mage_Core_Exception $e) {
             $this->_fault('data_invalid', $e->getMessage());
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             $this->_fault('data_invalid', $e->getMessage());
         }
 
@@ -337,8 +334,7 @@ class Mage_Catalog_Model_Category_Api extends Mage_Catalog_Model_Api_Resource
                 foreach ($validate as $code => $error) {
                     if ($error === true) {
                         Mage::throwException(Mage::helper('catalog')->__('Attribute "%s" is required.', $code));
-                    }
-                    else {
+                    } else {
                         Mage::throwException($error);
                     }
                 }
@@ -373,7 +369,7 @@ class Mage_Catalog_Model_Category_Api extends Mage_Catalog_Model_Api_Resource
             $afterId = array_pop(explode(',', $parentChildren));
         }
 
-        if( strpos($parent_category->getPath(), $category->getPath()) === 0) {
+        if (strpos($parent_category->getPath(), $category->getPath()) === 0) {
             $this->_fault('not_moved', "Operation do not allow to move a parent category to any of children category");
         }
 
@@ -420,7 +416,7 @@ class Mage_Catalog_Model_Category_Api extends Mage_Catalog_Model_Api_Resource
     {
         $product = Mage::helper('catalog/product')->getProduct($productId, null, $identifierType);
         if (!$product->getId()) {
-            $this->_fault('not_exists','Product not exists.');
+            $this->_fault('not_exists', 'Product not exists.');
         }
         return $product->getId();
     }
@@ -537,5 +533,4 @@ class Mage_Catalog_Model_Category_Api extends Mage_Catalog_Model_Api_Resource
 
         return true;
     }
-
 } // Class Mage_Catalog_Model_Category_Api End

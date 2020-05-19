@@ -48,7 +48,7 @@ class Mage_ProductAlert_Helper_Data extends Mage_Core_Helper_Url
      */
     public function getProduct()
     {
-        if (!is_null($this->_product)) {
+        if ($this->_product !== null) {
             return $this->_product;
         }
         return Mage::registry('product');
@@ -95,7 +95,7 @@ class Mage_ProductAlert_Helper_Data extends Mage_Core_Helper_Url
             }
             $fileName = mageFindClassFile($block);
             if ($fileName!==false) {
-                include_once ($fileName);
+                include_once($fileName);
                 $block = new $block(array());
             }
         }

@@ -41,7 +41,7 @@ class Mage_XmlConnect_Block_Catalog_Product_ItemPrice_Giftcard extends Mage_Bund
      */
     public function getMinAmount($product = null)
     {
-        if (is_null($product)) {
+        if ($product === null) {
             $product = $this->getProduct();
         }
         return $product->getPriceModel()->getMinAmount($product);
@@ -55,7 +55,7 @@ class Mage_XmlConnect_Block_Catalog_Product_ItemPrice_Giftcard extends Mage_Bund
      */
     public function getMaxAmount($product = null)
     {
-        if (is_null($product)) {
+        if ($product === null) {
             $product = $this->getProduct();
         }
         return $product->getPriceModel()->getMaxAmount($product);
@@ -68,9 +68,10 @@ class Mage_XmlConnect_Block_Catalog_Product_ItemPrice_Giftcard extends Mage_Bund
      * @param Mage_XmlConnect_Model_Simplexml_Element $item
      * @return null
      */
-    public function collectProductPrices(Mage_Catalog_Model_Product $product,
-        Mage_XmlConnect_Model_Simplexml_Element $item)
-    {
+    public function collectProductPrices(
+        Mage_Catalog_Model_Product $product,
+        Mage_XmlConnect_Model_Simplexml_Element $item
+    ) {
         $this->setProduct($product);
 
         if ($product->getCanShowPrice() !== false) {

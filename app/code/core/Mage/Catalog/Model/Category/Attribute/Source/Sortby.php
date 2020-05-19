@@ -32,15 +32,15 @@
  * @package    Mage_Catalog
  * @author     Magento Core Team <core@magentocommerce.com>
  */
-class Mage_Catalog_Model_Category_Attribute_Source_Sortby
-    extends Mage_Eav_Model_Entity_Attribute_Source_Abstract
+class Mage_Catalog_Model_Category_Attribute_Source_Sortby extends Mage_Eav_Model_Entity_Attribute_Source_Abstract
 {
     /**
      * Retrieve Catalog Config Singleton
      *
      * @return Mage_Catalog_Model_Config
      */
-    protected function _getCatalogConfig() {
+    protected function _getCatalogConfig()
+    {
         return Mage::getSingleton('catalog/config');
     }
 
@@ -51,7 +51,7 @@ class Mage_Catalog_Model_Category_Attribute_Source_Sortby
      */
     public function getAllOptions()
     {
-        if (is_null($this->_options)) {
+        if ($this->_options === null) {
             $this->_options = array(array(
                 'label' => Mage::helper('catalog')->__('Best Value'),
                 'value' => 'position'

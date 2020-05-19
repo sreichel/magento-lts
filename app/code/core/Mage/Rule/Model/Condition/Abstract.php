@@ -32,9 +32,7 @@
  * @package Mage_Rule
  * @author Magento Core Team <core@magentocommerce.com>
  */
-abstract class Mage_Rule_Model_Condition_Abstract
-    extends Varien_Object
-    implements Mage_Rule_Model_Condition_Interface
+abstract class Mage_Rule_Model_Condition_Abstract extends Varien_Object implements Mage_Rule_Model_Condition_Interface
 {
     /**
      * Defines which operators will be available for this condition
@@ -68,10 +66,16 @@ abstract class Mage_Rule_Model_Condition_Abstract
         $this->loadAttributeOptions()->loadOperatorOptions()->loadValueOptions();
 
         if ($options = $this->getAttributeOptions()) {
-            foreach ($options as $attr=>$dummy) { $this->setAttribute($attr); break; }
+            foreach ($options as $attr => $dummy) {
+                $this->setAttribute($attr);
+                break;
+            }
         }
         if ($options = $this->getOperatorOptions()) {
-            foreach ($options as $operator=>$dummy) { $this->setOperator($operator); break; }
+            foreach ($options as $operator => $dummy) {
+                $this->setOperator($operator);
+                break;
+            }
         }
     }
 
@@ -318,8 +322,12 @@ abstract class Mage_Rule_Model_Condition_Abstract
 
             if ($format !== null) {
                 $this->setValue(
-                    Mage::app()->getLocale()->date($this->getData('value'),
-                        $format, null, false)->toString($format)
+                    Mage::app()->getLocale()->date(
+                        $this->getData('value'),
+                        $format,
+                        null,
+                        false
+                    )->toString($format)
                 );
                 $this->setIsValueParsed(true);
             }
@@ -330,7 +338,7 @@ abstract class Mage_Rule_Model_Condition_Abstract
     public function getValueName()
     {
         $value = $this->getValue();
-        if (is_null($value) || '' === $value) {
+        if ($value === null || '' === $value) {
             return '...';
         }
 
@@ -413,7 +421,7 @@ abstract class Mage_Rule_Model_Condition_Abstract
 
     public function getAttributeElement()
     {
-        if (is_null($this->getAttribute())) {
+        if ($this->getAttribute() === null) {
             foreach ($this->getAttributeOption() as $k => $v) {
                 $this->setAttribute($k);
                 break;
@@ -441,7 +449,7 @@ abstract class Mage_Rule_Model_Condition_Abstract
     public function getOperatorElement()
     {
         $options = $this->getOperatorSelectOptions();
-        if (is_null($this->getOperator())) {
+        if ($this->getOperator() === null) {
             foreach ($options as $option) {
                 $this->setOperator($option['value']);
                 break;
@@ -509,7 +517,8 @@ abstract class Mage_Rule_Model_Condition_Abstract
                 break;
         }
 
-        return $this->getForm()->addField($this->getPrefix() . '__' . $this->getId() . '__value',
+        return $this->getForm()->addField(
+            $this->getPrefix() . '__' . $this->getId() . '__value',
             $this->getValueElementType(),
             $elementParams
         )->setRenderer($this->getValueElementRenderer());
@@ -554,7 +563,7 @@ abstract class Mage_Rule_Model_Condition_Abstract
         return $str;
     }
 
-    public function asStringRecursive($level=0)
+    public function asStringRecursive($level = 0)
     {
         $str = str_pad('', $level * 3, ' ', STR_PAD_LEFT) . $this->asString();
         return $str;
@@ -590,7 +599,8 @@ abstract class Mage_Rule_Model_Condition_Abstract
         $result = false;
 
         switch ($op) {
-            case '==': case '!=':
+            case '==':
+            case '!=':
                 if (is_array($value)) {
                     if (is_array($validatedValue)) {
                         $result = array_intersect($value, $validatedValue);
@@ -607,7 +617,8 @@ abstract class Mage_Rule_Model_Condition_Abstract
                 }
                 break;
 
-            case '<=': case '>':
+            case '<=':
+            case '>':
                 if (!is_scalar($validatedValue)) {
                     return false;
                 } else {
@@ -615,18 +626,20 @@ abstract class Mage_Rule_Model_Condition_Abstract
                 }
                 break;
 
-            case '>=': case '<':
+            case '>=':
+            case '<':
                 if (!is_scalar($validatedValue)) {
-                    return false;
+                        return false;
                 } else {
                     $result = $validatedValue >= $value;
                 }
                 break;
 
-            case '{}': case '!{}':
+            case '{}':
+            case '!{}':
                 if (is_scalar($validatedValue) && is_array($value)) {
                     foreach ($value as $item) {
-                        if (stripos($validatedValue,$item)!==false) {
+                        if (stripos($validatedValue, $item)!==false) {
                             $result = true;
                             break;
                         }
@@ -647,15 +660,18 @@ abstract class Mage_Rule_Model_Condition_Abstract
                 }
                 break;
 
-            case '()': case '!()': case '[]': case '![]':
+            case '()':
+            case '!()':
+            case '[]':
+            case '![]':
                 if (is_array($validatedValue)) {
                     $value = (array)$value;
                     $match = count(array_intersect($validatedValue, $value));
 
                     if (in_array($op, array('[]', '![]'))) {
-                        $result = $match == count($value);
+                                $result = $match == count($value);
                     } else {
-                        $result = $match > 0;
+                            $result = $match > 0;
                     }
                 } else {
                     $value = (array)$value;

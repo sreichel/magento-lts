@@ -110,7 +110,7 @@ abstract class Mage_Catalog_Block_Product_View_Options_Abstract extends Mage_Cor
      * @param bool $flag
      * @return string
      */
-    protected function _formatPrice($value, $flag=true)
+    protected function _formatPrice($value, $flag = true)
     {
         if ($value['pricing_value'] == 0) {
             return '';
@@ -156,7 +156,7 @@ abstract class Mage_Catalog_Block_Product_View_Options_Abstract extends Mage_Cor
      */
     public function getPrice($price, $includingTax = null)
     {
-        if (!is_null($includingTax)) {
+        if ($includingTax !== null) {
             $price = Mage::helper('tax')->getPrice($this->getProduct(), $price, true);
         } else {
             $price = Mage::helper('tax')->getPrice($this->getProduct(), $price);

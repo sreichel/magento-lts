@@ -45,7 +45,7 @@ class Mage_GoogleBase_Block_Adminhtml_Types_Edit extends Mage_Adminhtml_Block_Wi
         $this->_updateButton('save', 'label', $this->__('Save Mapping'));
         $this->_updateButton('save', 'id', 'save_button');
         $this->_updateButton('delete', 'label', $this->__('Delete Mapping'));
-        if(!$model->getId()) {
+        if (!$model->getId()) {
             $this->_removeButton('delete');
         }
 
@@ -135,15 +135,15 @@ class Mage_GoogleBase_Block_Adminhtml_Types_Edit extends Mage_Adminhtml_Block_Wi
 
     public function getHeaderText()
     {
-        if(!is_null(Mage::registry('current_item_type')->getId())) {
+        if (Mage::registry('current_item_type')->getId() !== null) {
             return $this->__('Edit Item Type "%s"', $this->escapeHtml(Mage::registry('current_item_type')->getGbaseItemtype()));
         } else {
             return $this->__('New Item Type');
         }
     }
 
-    public function getHeaderCssClass() {
+    public function getHeaderCssClass()
+    {
         return 'icon-head head-customer-groups';
     }
-
 }

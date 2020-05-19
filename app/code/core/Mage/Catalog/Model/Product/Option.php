@@ -285,7 +285,7 @@ class Mage_Catalog_Model_Product_Option extends Mage_Core_Model_Abstract
      */
     public function getGroupByType($type = null)
     {
-        if (is_null($type)) {
+        if ($type === null) {
             $type = $this->getType();
         }
         $optionGroupsToTypes = array(
@@ -354,7 +354,6 @@ class Mage_Catalog_Model_Product_Option extends Mage_Core_Model_Abstract
                      * need to remove all data of previous group
                      */
                     if ($this->getGroupByType($previousType) != $this->getGroupByType($this->getData('type'))) {
-
                         switch ($this->getGroupByType($previousType)) {
                             case self::OPTION_GROUP_SELECT:
                                 $this->unsetData('values');
@@ -383,7 +382,8 @@ class Mage_Catalog_Model_Product_Option extends Mage_Core_Model_Abstract
                         }
                     }
                 }
-                $this->save();            }
+                $this->save();
+            }
         }//eof foreach()
         return $this;
     }

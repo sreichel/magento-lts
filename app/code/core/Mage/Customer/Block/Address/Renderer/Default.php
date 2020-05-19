@@ -32,9 +32,7 @@
  * @package    Mage_Customer
  * @author      Magento Core Team <core@magentocommerce.com>
  */
-class Mage_Customer_Block_Address_Renderer_Default
-    extends Mage_Core_Block_Abstract
-    implements Mage_Customer_Block_Address_Renderer_Interface
+class Mage_Customer_Block_Address_Renderer_Default extends Mage_Core_Block_Abstract implements Mage_Customer_Block_Address_Renderer_Interface
 {
     /**
      * Format type object
@@ -65,9 +63,9 @@ class Mage_Customer_Block_Address_Renderer_Default
         return $this;
     }
 
-    public function getFormat(Mage_Customer_Model_Address_Abstract $address=null)
+    public function getFormat(Mage_Customer_Model_Address_Abstract $address = null)
     {
-        $countryFormat = is_null($address)
+        $countryFormat = $address === null
             ? false
             : $address->getCountryModel()->getFormat($this->getType()->getCode());
         if ($countryFormat) {
@@ -86,7 +84,7 @@ class Mage_Customer_Block_Address_Renderer_Default
      * @param Mage_Customer_Model_Address_Abstract $address
      * @return string
      */
-    public function render(Mage_Customer_Model_Address_Abstract $address, $format=null)
+    public function render(Mage_Customer_Model_Address_Abstract $address, $format = null)
     {
         switch ($this->getType()->getCode()) {
             case 'html':
@@ -138,7 +136,7 @@ class Mage_Customer_Block_Address_Renderer_Default
         }
 
         $formater->setVariables($data);
-        $format = !is_null($format) ? $format : $this->_prepareAddressTemplateData($this->getFormat($address));
+        $format = $format !== null ? $format : $this->_prepareAddressTemplateData($this->getFormat($address));
 
         return $formater->filter($format);
     }

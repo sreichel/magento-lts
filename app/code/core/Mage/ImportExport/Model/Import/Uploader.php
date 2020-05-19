@@ -45,7 +45,7 @@ class Mage_ImportExport_Model_Import_Uploader extends Mage_Core_Model_File_Uploa
 
     public function __construct($filePath = null)
     {
-        if (!is_null($filePath)) {
+        if ($filePath !== null) {
             $this->_setUploadFile($filePath);
         }
     }
@@ -59,8 +59,11 @@ class Mage_ImportExport_Model_Import_Uploader extends Mage_Core_Model_File_Uploa
         $this->setAllowCreateFolders(true);
         $this->setFilesDispersion(true);
         $this->setAllowedExtensions(array_keys($this->_allowedMimeTypes));
-        $this->addValidateCallback('catalog_product_image',
-                Mage::helper('catalog/image'), 'validateUploadFile');
+        $this->addValidateCallback(
+            'catalog_product_image',
+            Mage::helper('catalog/image'),
+            'validateUploadFile'
+        );
         $this->addValidateCallback(
             Mage_Core_Model_File_Validator_Image::NAME,
             Mage::getModel('core/file_validator_image'),
@@ -222,5 +225,4 @@ class Mage_ImportExport_Model_Import_Uploader extends Mage_Core_Model_File_Uploa
             return false;
         }
     }
-
 }

@@ -212,8 +212,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
                 if (!$item->getOrderItem()->isDummy(true)) {
                     $totalQty+= $item->getQty();
                 }
-            }
-            else {
+            } else {
                 $item->isDeleted(true);
             }
         }
@@ -334,7 +333,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
      *
      * @return $this
      */
-    public function addComment($comment, $notify=false, $visibleOnFront=false)
+    public function addComment($comment, $notify = false, $visibleOnFront = false)
     {
         if (!($comment instanceof Mage_Sales_Model_Order_Shipment_Comment)) {
             $comment = Mage::getModel('sales/order_shipment_comment')
@@ -352,9 +351,9 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
         return $this;
     }
 
-    public function getCommentsCollection($reload=false)
+    public function getCommentsCollection($reload = false)
     {
-        if (is_null($this->_comments) || $reload) {
+        if ($this->_comments === null || $reload) {
             $this->_comments = Mage::getResourceModel('sales/order_shipment_comment_collection')
                 ->setShipmentFilter($this->getId())
                 ->setCreatedAtOrder();
@@ -457,8 +456,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
                 'comment'      => $comment,
                 'billing'      => $order->getBillingAddress(),
                 'payment_html' => $paymentBlockHtml
-            )
-        );
+            ));
         $mailer->send();
 
         return $this;
@@ -527,8 +525,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
                 'shipment' => $this,
                 'comment'  => $comment,
                 'billing'  => $order->getBillingAddress()
-            )
-        );
+            ));
         $mailer->send();
 
         return $this;
@@ -588,13 +585,13 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
         }
 
         if (null !== $this->_tracks) {
-            foreach($this->_tracks as $track) {
+            foreach ($this->_tracks as $track) {
                 $track->save();
             }
         }
 
         if (null !== $this->_comments) {
-            foreach($this->_comments as $comment) {
+            foreach ($this->_comments as $comment) {
                 $comment->save();
             }
         }

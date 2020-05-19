@@ -73,7 +73,8 @@ class Mage_Core_Model_Resource_Design extends Mage_Core_Model_Resource_Db_Abstra
 
         if ($check) {
             Mage::throwException(
-                Mage::helper('core')->__('Your design change for the specified store intersects with another one, please specify another date range.'));
+                Mage::helper('core')->__('Your design change for the specified store intersects with another one, please specify another date range.')
+            );
         }
 
         parent::_beforeSave($object);
@@ -161,7 +162,7 @@ class Mage_Core_Model_Resource_Design extends Mage_Core_Model_Resource_Db_Abstra
      */
     public function loadChange($storeId, $date = null)
     {
-        if (is_null($date)) {
+        if ($date === null) {
             $date = Varien_Date::now();
         }
 

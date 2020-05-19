@@ -40,9 +40,9 @@ class Mage_Catalog_Model_Product_Type_Configurable_Price extends Mage_Catalog_Mo
      * @param   Mage_Catalog_Model_Product $product
      * @return  double
      */
-    public function getFinalPrice($qty=null, $product)
+    public function getFinalPrice($qty = null, $product)
     {
-        if (is_null($qty) && !is_null($product->getCalculatedFinalPrice())) {
+        if ($qty === null && $product->getCalculatedFinalPrice() !== null) {
             return $product->getCalculatedFinalPrice();
         }
 
@@ -111,7 +111,7 @@ class Mage_Catalog_Model_Product_Type_Configurable_Price extends Mage_Catalog_Mo
      */
     protected function _calcSelectionPrice($priceInfo, $productPrice)
     {
-        if($priceInfo['is_percent']) {
+        if ($priceInfo['is_percent']) {
             $ratio = $priceInfo['pricing_value']/100;
             $price = $productPrice * $ratio;
         } else {
@@ -120,9 +120,10 @@ class Mage_Catalog_Model_Product_Type_Configurable_Price extends Mage_Catalog_Mo
         return $price;
     }
 
-    protected function _getValueByIndex($values, $index) {
+    protected function _getValueByIndex($values, $index)
+    {
         foreach ($values as $value) {
-            if($value['value_index'] == $index) {
+            if ($value['value_index'] == $index) {
                 return $value;
             }
         }

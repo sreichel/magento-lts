@@ -227,7 +227,7 @@ class Mage_XmlConnect_CheckoutController extends Mage_XmlConnect_Controller_Acti
          * Checking whether shipping address is the same with billing address?
          * This should be removed when mobile app will send just the 'use_for_shipping' flag
          */
-        if (is_null($useForShipping)) {
+        if ($useForShipping === null) {
             $useForShipping = $this->_checkUseForShipping($data, $billingAddress, $customerAddressId);
         }
 
@@ -351,7 +351,6 @@ class Mage_XmlConnect_CheckoutController extends Mage_XmlConnect_Controller_Acti
         $data = $this->getRequest()->getPost('shipping_method', '');
         $result = $this->getOnepage()->saveShippingMethod($data);
         if (!$result) {
-
             Mage::dispatchEvent('checkout_controller_onepage_save_shipping_method', array(
                 'request' => $this->getRequest(),
                 'quote' => $this->getOnepage()->getQuote()
@@ -459,11 +458,12 @@ class Mage_XmlConnect_CheckoutController extends Mage_XmlConnect_Controller_Acti
                     return;
                 }
                 $this->_message(
-                    $this->__('Payment method was successfully set.'), self::MESSAGE_STATUS_SUCCESS, $sentinelData
+                    $this->__('Payment method was successfully set.'),
+                    self::MESSAGE_STATUS_SUCCESS,
+                    $sentinelData
                 );
                 return;
             }
-
         } catch (Mage_Payment_Exception $e) {
             $result['error'] = $e->getMessage();
             Mage::logException($e);

@@ -127,9 +127,12 @@ class Mage_Checkout_Model_Cart_Product_Api extends Mage_Checkout_Model_Api_Resou
             }
 
             /** @var $quoteItem Mage_Sales_Model_Quote_Item */
-            $quoteItem = $this->_getQuoteItemByProduct($quote, $productByItem,
-                $this->_getProductRequest($productItem));
-            if (is_null($quoteItem->getId())) {
+            $quoteItem = $this->_getQuoteItemByProduct(
+                $quote,
+                $productByItem,
+                $this->_getProductRequest($productItem)
+            );
+            if ($quoteItem->getId() === null) {
                 $errors[] = Mage::helper('checkout')->__("One item of products is not belong any of quote item");
                 continue;
             }
@@ -183,9 +186,12 @@ class Mage_Checkout_Model_Cart_Product_Api extends Mage_Checkout_Model_Api_Resou
 
             try {
                 /** @var $quoteItem Mage_Sales_Model_Quote_Item */
-                $quoteItem = $this->_getQuoteItemByProduct($quote, $productByItem,
-                    $this->_getProductRequest($productItem));
-                if (is_null($quoteItem->getId())) {
+                $quoteItem = $this->_getQuoteItemByProduct(
+                    $quote,
+                    $productByItem,
+                    $this->_getProductRequest($productItem)
+                );
+                if ($quoteItem->getId() === null) {
                     $errors[] = Mage::helper('checkout')->__("One item of products is not belong any of quote item");
                     continue;
                 }
@@ -257,7 +263,7 @@ class Mage_Checkout_Model_Cart_Product_Api extends Mage_Checkout_Model_Api_Resou
         }
 
         $customer = $quote->getCustomer();
-        if (is_null($customer->getId())) {
+        if ($customer->getId() === null) {
             $this->_fault('customer_not_set_for_quote');
         }
 
@@ -266,7 +272,7 @@ class Mage_Checkout_Model_Cart_Product_Api extends Mage_Checkout_Model_Api_Resou
             ->setStoreId($store)
             ->loadByCustomer($customer);
 
-        if (is_null($customerQuote->getId())) {
+        if ($customerQuote->getId() === null) {
             $this->_fault('customer_quote_not_exist');
         }
 
@@ -292,8 +298,11 @@ class Mage_Checkout_Model_Cart_Product_Api extends Mage_Checkout_Model_Api_Resou
 
             try {
                 /** @var $quoteItem Mage_Sales_Model_Quote_Item */
-                $quoteItem = $this->_getQuoteItemByProduct($quote, $productByItem,
-                    $this->_getProductRequest($productItem));
+                $quoteItem = $this->_getQuoteItemByProduct(
+                    $quote,
+                    $productByItem,
+                    $this->_getProductRequest($productItem)
+                );
                 if ($quoteItem && $quoteItem->getId()) {
                     $newQuoteItem = clone $quoteItem;
                     $newQuoteItem->setId(null);

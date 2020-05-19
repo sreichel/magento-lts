@@ -63,8 +63,13 @@ class Mage_Catalog_Model_Api2_Product_Rest_Customer_V1 extends Mage_Catalog_Mode
         /** @var $session Mage_Customer_Model_Session */
         $session = Mage::getSingleton('customer/session');
         $session->setCustomerId($customer->getId());
-        $price = $this->_getPrice($price, $withTax, $customer->getPrimaryShippingAddress(),
-            $customer->getPrimaryBillingAddress(), $customer->getTaxClassId());
+        $price = $this->_getPrice(
+            $price,
+            $withTax,
+            $customer->getPrimaryShippingAddress(),
+            $customer->getPrimaryBillingAddress(),
+            $customer->getTaxClassId()
+        );
         $session->setCustomerId(null);
 
         return $price;
@@ -77,7 +82,7 @@ class Mage_Catalog_Model_Api2_Product_Rest_Customer_V1 extends Mage_Catalog_Mode
      */
     protected function _getCustomer()
     {
-        if (is_null($this->_customer)) {
+        if ($this->_customer === null) {
             /** @var $customer Mage_Customer_Model_Customer */
             $customer = Mage::getModel('customer/customer')->load($this->getApiUser()->getUserId());
             if (!$customer->getId()) {

@@ -228,7 +228,7 @@ class Mage_Directory_Helper_Data extends Mage_Core_Helper_Abstract
         if (empty($this->_currencyCache[$from])) {
             $this->_currencyCache[$from] = Mage::getModel('directory/currency')->load($from);
         }
-        if (is_null($to)) {
+        if ($to === null) {
             $to = Mage::app()->getStore()->getCurrentCurrencyCode();
         }
         $converted = $this->_currencyCache[$from]->convert($amount, $to);
@@ -244,8 +244,12 @@ class Mage_Directory_Helper_Data extends Mage_Core_Helper_Abstract
     public function getCountriesWithOptionalZip($asJson = false)
     {
         if (null === $this->_optionalZipCountries) {
-            $this->_optionalZipCountries = preg_split('/\,/',
-                Mage::getStoreConfig(self::OPTIONAL_ZIP_COUNTRIES_CONFIG_PATH), 0, PREG_SPLIT_NO_EMPTY);
+            $this->_optionalZipCountries = preg_split(
+                '/\,/',
+                Mage::getStoreConfig(self::OPTIONAL_ZIP_COUNTRIES_CONFIG_PATH),
+                0,
+                PREG_SPLIT_NO_EMPTY
+            );
         }
         if ($asJson) {
             return Mage::helper('core')->jsonEncode($this->_optionalZipCountries);

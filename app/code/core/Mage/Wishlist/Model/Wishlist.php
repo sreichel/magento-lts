@@ -144,7 +144,7 @@ class Mage_Wishlist_Model_Wishlist extends Mage_Core_Model_Abstract
     public function loadByCode($code)
     {
         $this->_getResource()->load($this, $code, 'sharing_code');
-        if(!$this->getShared()) {
+        if (!$this->getShared()) {
             $this->setId(null);
         }
 
@@ -242,7 +242,7 @@ class Mage_Wishlist_Model_Wishlist extends Mage_Core_Model_Abstract
      */
     public function getItemCollection()
     {
-        if (is_null($this->_itemCollection)) {
+        if ($this->_itemCollection === null) {
             /** @var $currentWebsiteOnly boolean */
             $currentWebsiteOnly = !Mage::app()->getStore()->isAdmin();
             $this->_itemCollection =  Mage::getResourceModel('wishlist/item_collection')
@@ -285,7 +285,7 @@ class Mage_Wishlist_Model_Wishlist extends Mage_Core_Model_Abstract
     public function getProductCollection()
     {
         $collection = $this->getData('product_collection');
-        if (is_null($collection)) {
+        if ($collection === null) {
             $collection = Mage::getResourceModel('wishlist/product_collection');
             $this->setData('product_collection', $collection);
         }
@@ -436,7 +436,7 @@ class Mage_Wishlist_Model_Wishlist extends Mage_Core_Model_Abstract
      */
     public function getSharedStoreIds($current = true)
     {
-        if (is_null($this->_storeIds) || !is_array($this->_storeIds)) {
+        if ($this->_storeIds === null || !is_array($this->_storeIds)) {
             if ($current) {
                 $this->_storeIds = $this->getStore()->getWebsite()->getStoreIds();
             } else {
@@ -470,7 +470,7 @@ class Mage_Wishlist_Model_Wishlist extends Mage_Core_Model_Abstract
      */
     public function getStore()
     {
-        if (is_null($this->_store)) {
+        if ($this->_store === null) {
             $this->setStore(Mage::app()->getStore());
         }
         return $this->_store;

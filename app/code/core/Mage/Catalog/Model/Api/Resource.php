@@ -94,7 +94,7 @@ class Mage_Catalog_Model_Api_Resource extends Mage_Api_Model_Resource_Abstract
      */
     protected function _getStoreId($store = null)
     {
-        if (is_null($store)) {
+        if ($store === null) {
             $store = ($this->_getSession()->hasData($this->_storeIdSessionField)
                         ? $this->_getSession()->getData($this->_storeIdSessionField) : 0);
         }
@@ -119,7 +119,7 @@ class Mage_Catalog_Model_Api_Resource extends Mage_Api_Model_Resource_Abstract
     protected function _getProduct($productId, $store = null, $identifierType = null)
     {
         $product = Mage::helper('catalog/product')->getProduct($productId, $this->_getStoreId($store), $identifierType);
-        if (is_null($product->getId())) {
+        if ($product->getId() === null) {
             $this->_fault('product_not_exists');
         }
         return $product;
@@ -131,9 +131,9 @@ class Mage_Catalog_Model_Api_Resource extends Mage_Api_Model_Resource_Abstract
      * @param string|int $store
      * @return int
      */
-    public function currentStore($store=null)
+    public function currentStore($store = null)
     {
-        if (!is_null($store)) {
+        if ($store !== null) {
             try {
                 $storeId = Mage::app()->getStore($store)->getId();
             } catch (Mage_Core_Model_Store_Exception $e) {

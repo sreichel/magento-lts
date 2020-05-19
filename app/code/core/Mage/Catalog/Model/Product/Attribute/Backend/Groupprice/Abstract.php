@@ -32,8 +32,7 @@
  * @package    Mage_Catalog
  * @author     Magento Core Team <core@magentocommerce.com>
  */
-abstract class Mage_Catalog_Model_Product_Attribute_Backend_Groupprice_Abstract
-    extends Mage_Catalog_Model_Product_Attribute_Backend_Price
+abstract class Mage_Catalog_Model_Product_Attribute_Backend_Groupprice_Abstract extends Mage_Catalog_Model_Product_Attribute_Backend_Price
 {
     /**
      * Website currency codes and rates
@@ -57,7 +56,7 @@ abstract class Mage_Catalog_Model_Product_Attribute_Backend_Groupprice_Abstract
      */
     protected function _getWebsiteCurrencyRates()
     {
-        if (is_null($this->_rates)) {
+        if ($this->_rates === null) {
             $this->_rates = array();
             $baseCurrency = Mage::app()->getBaseCurrencyCode();
             foreach (Mage::app()->getWebsites() as $website) {

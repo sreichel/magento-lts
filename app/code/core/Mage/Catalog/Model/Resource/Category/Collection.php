@@ -161,8 +161,10 @@ class Mage_Catalog_Model_Resource_Category_Collection extends Mage_Catalog_Model
      */
     protected function _beforeLoad()
     {
-        Mage::dispatchEvent($this->_eventPrefix . '_load_before',
-                            array($this->_eventObject => $this));
+        Mage::dispatchEvent(
+            $this->_eventPrefix . '_load_before',
+            array($this->_eventObject => $this)
+        );
         return parent::_beforeLoad();
     }
 
@@ -173,8 +175,10 @@ class Mage_Catalog_Model_Resource_Category_Collection extends Mage_Catalog_Model
      */
     protected function _afterLoad()
     {
-        Mage::dispatchEvent($this->_eventPrefix . '_load_after',
-                            array($this->_eventObject => $this));
+        Mage::dispatchEvent(
+            $this->_eventPrefix . '_load_after',
+            array($this->_eventObject => $this)
+        );
 
         return parent::_afterLoad();
     }
@@ -198,7 +202,7 @@ class Mage_Catalog_Model_Resource_Category_Collection extends Mage_Catalog_Model
      */
     public function getProductStoreId()
     {
-        if (is_null($this->_productStoreId)) {
+        if ($this->_productStoreId === null) {
             $this->_productStoreId = Mage_Catalog_Model_Abstract::DEFAULT_STORE_ID;
         }
         return $this->_productStoreId;
@@ -268,15 +272,16 @@ class Mage_Catalog_Model_Resource_Category_Collection extends Mage_Catalog_Model
             if (!empty($regularIds)) {
                 $select = $this->_conn->select();
                 $select->from(
-                        array('main_table' => $this->_productTable),
-                        array('category_id', new Zend_Db_Expr('COUNT(main_table.product_id)'))
-                    )
+                    array('main_table' => $this->_productTable),
+                    array('category_id', new Zend_Db_Expr('COUNT(main_table.product_id)'))
+                )
                     ->where($this->_conn->quoteInto('main_table.category_id IN(?)', $regularIds))
                     ->group('main_table.category_id');
                 if ($websiteId) {
                     $select->join(
                         array('w' => $this->_productWebsiteTable),
-                        'main_table.product_id = w.product_id', array()
+                        'main_table.product_id = w.product_id',
+                        array()
                     )
                     ->where('w.website_id = ?', $websiteId);
                 }
@@ -301,9 +306,9 @@ class Mage_Catalog_Model_Resource_Category_Collection extends Mage_Catalog_Model
                     );
                     $select = $this->_conn->select();
                     $select->from(
-                            array('main_table' => $this->_productTable),
-                            new Zend_Db_Expr('COUNT(DISTINCT main_table.product_id)')
-                        )
+                        array('main_table' => $this->_productTable),
+                        new Zend_Db_Expr('COUNT(DISTINCT main_table.product_id)')
+                    )
                         ->joinInner(
                             array('e' => $this->getTable('catalog/category')),
                             'main_table.category_id=e.entity_id',
@@ -314,7 +319,8 @@ class Mage_Catalog_Model_Resource_Category_Collection extends Mage_Catalog_Model
                     if ($websiteId) {
                         $select->join(
                             array('w' => $this->_productWebsiteTable),
-                            'main_table.product_id = w.product_id', array()
+                            'main_table.product_id = w.product_id',
+                            array()
                         )
                         ->where('w.website_id = ?', $websiteId);
                     }
@@ -393,8 +399,10 @@ class Mage_Catalog_Model_Resource_Category_Collection extends Mage_Catalog_Model
     public function addIsActiveFilter()
     {
         $this->addAttributeToFilter('is_active', 1);
-        Mage::dispatchEvent($this->_eventPrefix . '_add_is_active_filter',
-                            array($this->_eventObject => $this));
+        Mage::dispatchEvent(
+            $this->_eventPrefix . '_add_is_active_filter',
+            array($this->_eventObject => $this)
+        );
         return $this;
     }
 

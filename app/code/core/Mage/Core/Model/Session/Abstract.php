@@ -79,7 +79,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      * @param string $sessionName
      * @return $this
      */
-    public function init($namespace, $sessionName=null)
+    public function init($namespace, $sessionName = null)
     {
         parent::init($namespace, $sessionName);
         $this->addHost(true);
@@ -124,7 +124,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
     public function useValidateRemoteAddr()
     {
         $use = Mage::getStoreConfig(self::XML_PATH_USE_REMOTE_ADDR);
-        if (is_null($use)) {
+        if ($use === null) {
             return parent::useValidateRemoteAddr();
         }
         return (bool)$use;
@@ -138,7 +138,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
     public function useValidateHttpVia()
     {
         $use = Mage::getStoreConfig(self::XML_PATH_USE_HTTP_VIA);
-        if (is_null($use)) {
+        if ($use === null) {
             return parent::useValidateHttpVia();
         }
         return (bool)$use;
@@ -152,7 +152,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
     public function useValidateHttpXForwardedFor()
     {
         $use = Mage::getStoreConfig(self::XML_PATH_USE_X_FORWARDED);
-        if (is_null($use)) {
+        if ($use === null) {
             return parent::useValidateHttpXForwardedFor();
         }
         return (bool)$use;
@@ -166,7 +166,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
     public function useValidateHttpUserAgent()
     {
         $use = Mage::getStoreConfig(self::XML_PATH_USE_USER_AGENT);
-        if (is_null($use)) {
+        if ($use === null) {
             return parent::useValidateHttpUserAgent();
         }
         return (bool)$use;
@@ -204,7 +204,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      * @param   bool $clear
      * @return  Mage_Core_Model_Message_Collection
      */
-    public function getMessages($clear=false)
+    public function getMessages($clear = false)
     {
         if (!$this->getData('messages')) {
             $this->setMessages(Mage::getModel('core/message_collection'));
@@ -229,10 +229,12 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
     public function addException(Exception $exception, $alternativeText)
     {
         // log exception to exceptions log
-        $message = sprintf('Exception message: %s%sTrace: %s',
+        $message = sprintf(
+            'Exception message: %s%sTrace: %s',
             $exception->getMessage(),
             "\n",
-            $exception->getTraceAsString());
+            $exception->getTraceAsString()
+        );
         $file    = Mage::getStoreConfig(self::XML_PATH_LOG_EXCEPTION_FILE);
         Mage::log($message, Zend_Log::DEBUG, $file);
 
@@ -373,9 +375,9 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      * @param   string|null $id
      * @return  Mage_Core_Model_Session_Abstract
      */
-    public function setSessionId($id=null)
+    public function setSessionId($id = null)
     {
-        if (is_null($id) && $this->useSid()) {
+        if ($id === null && $this->useSid()) {
             $_queryParam = $this->getSessionIdQueryParam();
             if (isset($_GET[$_queryParam]) && Mage::getSingleton('core/url')->isOwnOriginUrl()) {
                 $id = $_GET[$_queryParam];

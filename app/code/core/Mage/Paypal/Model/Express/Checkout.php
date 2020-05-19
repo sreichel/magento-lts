@@ -342,7 +342,8 @@ class Mage_Paypal_Model_Express_Checkout
                 $this->_api->setAddress($address);
             }
             $this->_quote->getPayment()->setAdditionalInformation(
-                self::PAYMENT_INFO_TRANSPORT_SHIPPING_OVERRIDEN, $isOverriden
+                self::PAYMENT_INFO_TRANSPORT_SHIPPING_OVERRIDEN,
+                $isOverriden
             );
             $this->_quote->getPayment()->save();
         }
@@ -619,7 +620,7 @@ class Mage_Paypal_Model_Express_Checkout
 
         // commence redirecting to finish payment, if paypal requires it
         if ($order->getPayment()->getAdditionalInformation(
-                Mage_Paypal_Model_Express_Checkout::PAYMENT_INFO_TRANSPORT_REDIRECT
+            Mage_Paypal_Model_Express_Checkout::PAYMENT_INFO_TRANSPORT_REDIRECT
         )) {
             $this->_redirectUrl = $this->_config->getExpressCheckoutCompleteUrl($token);
         }
@@ -728,8 +729,8 @@ class Mage_Paypal_Model_Express_Checkout
                 $oldData = $address->getDataUsingMethod($key);
                 $isEmpty = null;
                 if (is_array($oldData)) {
-                    foreach($oldData as $val) {
-                        if(!empty($val)) {
+                    foreach ($oldData as $val) {
+                        if (!empty($val)) {
                             $isEmpty = false;
                             break;
                         }
@@ -798,9 +799,13 @@ class Mage_Paypal_Model_Express_Checkout
      */
     protected function _prepareShippingOptions(
         Mage_Sales_Model_Quote_Address $address,
-        $mayReturnEmpty = false, $calculateTax = false
+        $mayReturnEmpty = false,
+        $calculateTax = false
     ) {
-        $options = array(); $i = 0; $iMin = false; $min = false;
+        $options = array();
+        $i = 0;
+        $iMin = false;
+        $min = false;
         $userSelectedOption = null;
 
         foreach ($address->getGroupedAllShippingRates() as $group) {
@@ -836,7 +841,7 @@ class Mage_Paypal_Model_Express_Checkout
             }
         }
 
-        if ($mayReturnEmpty && is_null($userSelectedOption)) {
+        if ($mayReturnEmpty && $userSelectedOption === null) {
             $options[] = new Varien_Object(array(
                 'is_default' => true,
                 'name'       => Mage::helper('paypal')->__('N/A'),
@@ -846,7 +851,7 @@ class Mage_Paypal_Model_Express_Checkout
             if ($calculateTax) {
                 $options[$i]->setTaxAmount($address->getTaxAmount());
             }
-        } elseif (is_null($userSelectedOption) && isset($options[$iMin])) {
+        } elseif ($userSelectedOption === null && isset($options[$iMin])) {
             $options[$iMin]->setIsDefault(true);
         }
 
@@ -855,7 +860,7 @@ class Mage_Paypal_Model_Express_Checkout
             usort($options, array(get_class($this),'cmpShippingOptions'));
             array_splice($options, 10);
             // User selected option will be always included in options list
-            if (!is_null($userSelectedOption) && !in_array($userSelectedOption, $options)) {
+            if ($userSelectedOption !== null && !in_array($userSelectedOption, $options)) {
                 $options[9] = $userSelectedOption;
             }
         }
@@ -1076,11 +1081,11 @@ class Mage_Paypal_Model_Express_Checkout
         $result    = false;
         $customer  = Mage::getModel('customer/customer');
         $websiteId = Mage::app()->getStore()->getWebsiteId();
-        if (!is_null($websiteId)) {
+        if ($websiteId !== null) {
             $customer->setWebsiteId($websiteId);
         }
         $customer->loadByEmail($email);
-        if (!is_null($customer->getId())) {
+        if ($customer->getId() !== null) {
             $result = true;
         }
 

@@ -104,7 +104,7 @@ class Mage_Poll_Model_Poll extends Mage_Core_Model_Abstract
      */
     public function getPollId($pollId = null)
     {
-        if (is_null($pollId)) {
+        if ($pollId === null) {
             $pollId = $this->getId();
         }
         return $pollId;
@@ -126,7 +126,7 @@ class Mage_Poll_Model_Poll extends Mage_Core_Model_Abstract
      * @param   int $pollId
      * @return  Mage_Poll_Model_Poll
      */
-    public function setVoted($pollId=null)
+    public function setVoted($pollId = null)
     {
         $this->getCookie()->set($this->getCookieName($pollId), $this->getPollId($pollId));
 
@@ -203,8 +203,7 @@ class Mage_Poll_Model_Poll extends Mage_Core_Model_Abstract
         $answerId = false;
         if (is_numeric($answer)) {
             $answerId = $answer;
-        }
-        elseif ($answer instanceof Mage_Poll_Model_Poll_Answer) {
+        } elseif ($answer instanceof Mage_Poll_Model_Poll_Answer) {
             $answerId = $answer->getId();
         }
 
@@ -267,7 +266,7 @@ class Mage_Poll_Model_Poll extends Mage_Core_Model_Abstract
     public function getStoreIds()
     {
         $ids = $this->_getData('store_ids');
-        if (is_null($ids)) {
+        if ($ids === null) {
             $this->loadStoreIds();
             $ids = $this->getData('store_ids');
         }
@@ -283,5 +282,4 @@ class Mage_Poll_Model_Poll extends Mage_Core_Model_Abstract
     {
         return $this->_getData('votes_count');
     }
-
 }

@@ -63,7 +63,7 @@ class Mage_Core_Block_Html_Link extends Mage_Core_Block_Template
         $attributes = array();
         foreach ($allow as $attribute) {
             $value = $this->getDataUsingMethod($attribute);
-            if (!is_null($value)) {
+            if ($value !== null) {
                 $attributes[$attribute] = $this->escapeHtml($value);
             }
         }
@@ -83,7 +83,7 @@ class Mage_Core_Block_Html_Link extends Mage_Core_Block_Template
      * @param   string $quote
      * @return  string
      */
-    public function serialize($attributes = array(), $valueSeparator='=', $fieldSeparator=' ', $quote='"')
+    public function serialize($attributes = array(), $valueSeparator = '=', $fieldSeparator = ' ', $quote = '"')
     {
         $res  = '';
         $data = array();

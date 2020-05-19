@@ -25,8 +25,7 @@
  */
 
 
-class Mage_Customer_Model_Convert_Parser_Customer
-    extends Mage_Eav_Model_Convert_Parser_Abstract
+class Mage_Customer_Model_Convert_Parser_Customer extends Mage_Eav_Model_Convert_Parser_Abstract
 {
     const MULTI_DELIMITER = ' , ';
 
@@ -78,7 +77,7 @@ class Mage_Customer_Model_Convert_Parser_Customer
      */
     public function getCustomerModel()
     {
-        if (is_null($this->_customerModel)) {
+        if ($this->_customerModel === null) {
             $object = Mage::getModel('customer/customer');
             $this->_customerModel = Mage::objects()->save($object);
         }
@@ -92,7 +91,7 @@ class Mage_Customer_Model_Convert_Parser_Customer
      */
     public function getCustomerAddressModel()
     {
-        if (is_null($this->_customerAddressModel)) {
+        if ($this->_customerAddressModel === null) {
             $object = Mage::getModel('customer/address');
             $this->_customerAddressModel = Mage::objects()->save($object);
         }
@@ -106,7 +105,7 @@ class Mage_Customer_Model_Convert_Parser_Customer
      */
     public function getNewsletterModel()
     {
-        if (is_null($this->_newsletterModel)) {
+        if ($this->_newsletterModel === null) {
             $object = Mage::getModel('newsletter/subscriber');
             $this->_newsletterModel = Mage::objects()->save($object);
         }
@@ -120,11 +119,10 @@ class Mage_Customer_Model_Convert_Parser_Customer
      */
     public function getStore()
     {
-        if (is_null($this->_store)) {
+        if ($this->_store === null) {
             try {
                 $store = Mage::app()->getStore($this->getVar('store'));
-            }
-            catch (Exception $e) {
+            } catch (Exception $e) {
                 $this->addException(Mage::helper('catalog')->__('An invalid store was specified.'), Varien_Convert_Exception::FATAL);
                 throw $e;
             }
@@ -140,7 +138,7 @@ class Mage_Customer_Model_Convert_Parser_Customer
      */
     public function getStoreId()
     {
-        if (is_null($this->_storeId)) {
+        if ($this->_storeId === null) {
             $this->_storeId = $this->getStore()->getId();
         }
         return $this->_storeId;
@@ -148,7 +146,7 @@ class Mage_Customer_Model_Convert_Parser_Customer
 
     public function getStoreById($storeId)
     {
-        if (is_null($this->_stores)) {
+        if ($this->_stores === null) {
             $this->_stores = Mage::app()->getStores(true);
         }
         if (isset($this->_stores[$storeId])) {
@@ -165,7 +163,7 @@ class Mage_Customer_Model_Convert_Parser_Customer
      */
     public function getWebsiteById($websiteId)
     {
-        if (is_null($this->_websites)) {
+        if ($this->_websites === null) {
             $this->_websites = Mage::app()->getWebsites(true);
         }
         if (isset($this->_websites[$websiteId])) {
@@ -215,7 +213,7 @@ class Mage_Customer_Model_Convert_Parser_Customer
     public function unparse()
     {
         $systemFields = array();
-        foreach ($this->getFields() as $code=>$node) {
+        foreach ($this->getFields() as $code => $node) {
             if ($node->is('system')) {
                 $systemFields[] = $code;
             }
@@ -254,7 +252,6 @@ class Mage_Customer_Model_Convert_Parser_Customer
                 }
 
                 if ($attribute->usesSource()) {
-
                     $option = $attribute->getSource()->getOptionText($value);
                     if ($value && empty($option)) {
                         $message = Mage::helper('catalog')->__("An invalid option ID is specified for %s (%s), skipping the record.", $field, $value);
@@ -267,8 +264,7 @@ class Mage_Customer_Model_Convert_Parser_Customer
                         $value = $option;
                     }
                     unset($option);
-                }
-                elseif (is_array($value)) {
+                } elseif (is_array($value)) {
                     continue;
                 }
                 $row[$field] = $value;
@@ -280,16 +276,15 @@ class Mage_Customer_Model_Convert_Parser_Customer
             $customerAddress = $this->getCustomerAddressModel();
 
             if (!$defaultBillingId) {
-                foreach ($this->getFields() as $code=>$node) {
+                foreach ($this->getFields() as $code => $node) {
                     if ($node->is('billing')) {
                         $row['billing_'.$code] = null;
                     }
                 }
-            }
-            else {
+            } else {
                 $customerAddress->load($defaultBillingId);
 
-                foreach ($this->getFields() as $code=>$node) {
+                foreach ($this->getFields() as $code => $node) {
                     if ($node->is('billing')) {
                         $row['billing_'.$code] = $customerAddress->getDataUsingMethod($code);
                     }
@@ -297,17 +292,16 @@ class Mage_Customer_Model_Convert_Parser_Customer
             }
 
             if (!$defaultShippingId) {
-                foreach ($this->getFields() as $code=>$node) {
+                foreach ($this->getFields() as $code => $node) {
                     if ($node->is('shipping')) {
                         $row['shipping_'.$code] = null;
                     }
                 }
-            }
-            else {
+            } else {
                 if ($defaultShippingId != $defaultBillingId) {
                     $customerAddress->load($defaultShippingId);
                 }
-                foreach ($this->getFields() as $code=>$node) {
+                foreach ($this->getFields() as $code => $node) {
                     if ($node->is('shipping')) {
                         $row['shipping_'.$code] = $customerAddress->getDataUsingMethod($code);
                     }
@@ -327,9 +321,9 @@ class Mage_Customer_Model_Convert_Parser_Customer
                 && $newsletter->getSubscriberStatus() == Mage_Newsletter_Model_Subscriber::STATUS_SUBSCRIBED)
                 ? 1 : 0;
 
-            if($customer->getGroupId()){
+            if ($customer->getGroupId()) {
                 $groupCode = $this->_getCustomerGroupCode($customer);
-                if (is_null($groupCode)) {
+                if ($groupCode === null) {
                     $this->addException(
                         Mage::helper('catalog')->__("An invalid group ID is specified, skipping the record."),
                         Mage_Dataflow_Model_Convert_Exception::ERROR
@@ -426,7 +420,7 @@ class Mage_Customer_Model_Convert_Parser_Customer
      */
     protected function _getCustomerGroupCode($customer)
     {
-        if (is_null($this->_customerGroups)) {
+        if ($this->_customerGroups === null) {
             $groups = Mage::getResourceModel('customer/group_collection')
                     ->load();
 
@@ -460,92 +454,91 @@ class Mage_Customer_Model_Convert_Parser_Customer
 
             $data = array();
 
-            foreach ($collections->getIterator() as $i=>$model) {
-                $this->setPosition('Line: '.($i+1).', Email: '.$model->getEmail());
+        foreach ($collections->getIterator() as $i => $model) {
+            $this->setPosition('Line: '.($i+1).', Email: '.$model->getEmail());
 
 
 
-                // Will be removed after confirmation from Dima or Moshe
-                $row = array(
-                    'store_view'=>$this->getStoreCode($this->getVar('store') ? $this->getVar('store') : $storeId),
-                ); // End
+            // Will be removed after confirmation from Dima or Moshe
+            $row = array(
+                'store_view'=>$this->getStoreCode($this->getVar('store') ? $this->getVar('store') : $storeId),
+            ); // End
 
-                foreach ($model->getData() as $field=>$value) {
-                    // set website_id
-                    if ($field == 'website_id') {
-                      $row['website_code'] = Mage::getModel('core/website')->load($value)->getCode();
-                      continue;
-                    } // end
+            foreach ($model->getData() as $field => $value) {
+                // set website_id
+                if ($field == 'website_id') {
+                    $row['website_code'] = Mage::getModel('core/website')->load($value)->getCode();
+                    continue;
+                } // end
 
-                    if (in_array($field, $systemFields)) {
-                        continue;
-                    }
-
-                    $attribute = $model->getResource()->getAttribute($field);
-                    if (!$attribute) {
-                        continue;
-                    }
-
-                    if ($attribute->usesSource()) {
-                        $option = $attribute->getSource()->getOptionText($value);
-
-                        if (false===$option) {
-                            $this->addException(Mage::helper('customer')->__("An invalid option ID is specified for %s (%s), skipping the record.", $field, $value), Mage_Dataflow_Model_Convert_Exception::ERROR);
-                            continue;
-                        }
-                        if (is_array($option)) {
-                            $value = $option['label'];
-                        } else {
-                            $value = $option;
-                        }
-                    }
-                    $row[$field] = $value;
-
-                    $billingAddress = $model->getDefaultBillingAddress();
-                    if($billingAddress instanceof Mage_Customer_Model_Address){
-                        $billingAddress->explodeStreetAddress();
-                        $row['billing_street1']     = $billingAddress->getStreet1();
-                        $row['billing_street2']     = $billingAddress->getStreet2();
-                        $row['billing_city']        = $billingAddress->getCity();
-                        $row['billing_region']      = $billingAddress->getRegion();
-                        $row['billing_country']     = $billingAddress->getCountry();
-                        $row['billing_postcode']    = $billingAddress->getPostcode();
-                        $row['billing_telephone']   = $billingAddress->getTelephone();
-                    }
-
-                    $shippingAddress = $model->getDefaultShippingAddress();
-                    if($shippingAddress instanceof Mage_Customer_Model_Address){
-                        $shippingAddress->explodeStreetAddress();
-                        $row['shipping_street1']    = $shippingAddress->getStreet1();
-                        $row['shipping_street2']    = $shippingAddress->getStreet2();
-                        $row['shipping_city']       = $shippingAddress->getCity();
-                        $row['shipping_region']     = $shippingAddress->getRegion();
-                        $row['shipping_country']    = $shippingAddress->getCountry();
-                        $row['shipping_postcode']   = $shippingAddress->getPostcode();
-                        $row['shipping_telephone']  = $shippingAddress->getTelephone();
-                    }
-
-                    if($model->getGroupId()){
-                        $group = Mage::getResourceModel('customer/group_collection')
-                        ->addFilter('customer_group_id',$model->getGroupId())
-                        ->load();
-                        $row['group']=$group->getFirstItem()->getData('customer_group_code');
-                    }
+                if (in_array($field, $systemFields)) {
+                    continue;
                 }
-                $subscriber = Mage::getModel('newsletter/subscriber')->loadByCustomer($model);
-                if ($subscriber->getId()) {
-                    if ($subscriber->getSubscriberStatus() == Mage_Newsletter_Model_Subscriber::STATUS_SUBSCRIBED) {
-                        $row['is_subscribed'] = Mage_Customer_Model_Customer::SUBSCRIBED_YES;
+
+                $attribute = $model->getResource()->getAttribute($field);
+                if (!$attribute) {
+                    continue;
+                }
+
+                if ($attribute->usesSource()) {
+                    $option = $attribute->getSource()->getOptionText($value);
+
+                    if (false===$option) {
+                        $this->addException(Mage::helper('customer')->__("An invalid option ID is specified for %s (%s), skipping the record.", $field, $value), Mage_Dataflow_Model_Convert_Exception::ERROR);
+                        continue;
+                    }
+                    if (is_array($option)) {
+                        $value = $option['label'];
                     } else {
-                        $row['is_subscribed'] = Mage_Customer_Model_Customer::SUBSCRIBED_NO;
+                        $value = $option;
                     }
                 }
-                if(!isset($row['created_in'])){
-                    $row['created_in'] = 'Admin';
-                }
-                $data[] = $row;
+                $row[$field] = $value;
 
+                $billingAddress = $model->getDefaultBillingAddress();
+                if ($billingAddress instanceof Mage_Customer_Model_Address) {
+                    $billingAddress->explodeStreetAddress();
+                    $row['billing_street1']     = $billingAddress->getStreet1();
+                    $row['billing_street2']     = $billingAddress->getStreet2();
+                    $row['billing_city']        = $billingAddress->getCity();
+                    $row['billing_region']      = $billingAddress->getRegion();
+                    $row['billing_country']     = $billingAddress->getCountry();
+                    $row['billing_postcode']    = $billingAddress->getPostcode();
+                    $row['billing_telephone']   = $billingAddress->getTelephone();
+                }
+
+                $shippingAddress = $model->getDefaultShippingAddress();
+                if ($shippingAddress instanceof Mage_Customer_Model_Address) {
+                    $shippingAddress->explodeStreetAddress();
+                    $row['shipping_street1']    = $shippingAddress->getStreet1();
+                    $row['shipping_street2']    = $shippingAddress->getStreet2();
+                    $row['shipping_city']       = $shippingAddress->getCity();
+                    $row['shipping_region']     = $shippingAddress->getRegion();
+                    $row['shipping_country']    = $shippingAddress->getCountry();
+                    $row['shipping_postcode']   = $shippingAddress->getPostcode();
+                    $row['shipping_telephone']  = $shippingAddress->getTelephone();
+                }
+
+                if ($model->getGroupId()) {
+                    $group = Mage::getResourceModel('customer/group_collection')
+                    ->addFilter('customer_group_id', $model->getGroupId())
+                    ->load();
+                    $row['group']=$group->getFirstItem()->getData('customer_group_code');
+                }
             }
+            $subscriber = Mage::getModel('newsletter/subscriber')->loadByCustomer($model);
+            if ($subscriber->getId()) {
+                if ($subscriber->getSubscriberStatus() == Mage_Newsletter_Model_Subscriber::STATUS_SUBSCRIBED) {
+                    $row['is_subscribed'] = Mage_Customer_Model_Customer::SUBSCRIBED_YES;
+                } else {
+                    $row['is_subscribed'] = Mage_Customer_Model_Customer::SUBSCRIBED_NO;
+                }
+            }
+            if (!isset($row['created_in'])) {
+                $row['created_in'] = 'Admin';
+            }
+            $data[] = $row;
+        }
 //       }
         $this->setData($data);
         return $this;
@@ -560,10 +553,9 @@ class Mage_Customer_Model_Convert_Parser_Customer
 
         $entityTypeId = Mage::getSingleton('eav/config')->getEntityType('customer')->getId();
         $result = array();
-        foreach ($data as $i=>$row) {
+        foreach ($data as $i => $row) {
             $this->setPosition('Line: '.($i+1));
             try {
-
                 // validate SKU
                 if (empty($row['email'])) {
                     $this->addException(Mage::helper('customer')->__('Missing email, skipping the record.'), Varien_Convert_Exception::ERROR);
@@ -634,18 +626,17 @@ class Mage_Customer_Model_Convert_Parser_Customer
                     if (!empty($row['entity_id'])) {
                         $model->load($row['entity_id']);
                     }
-                    foreach ($row as $field=>$value) {
+                    foreach ($row as $field => $value) {
                         $attribute = $entity->getAttribute($field);
                         if (!$attribute) {
                             continue;
                             #$this->addException(Mage::helper('catalog')->__("Unknown attribute: %s.", $field), Varien_Convert_Exception::ERROR);
-
                         }
 
                         if ($attribute->usesSource()) {
                             $source = $attribute->getSource();
                             $optionId = $this->getSourceOptionId($source, $value);
-                            if (is_null($optionId)) {
+                            if ($optionId === null) {
                                 $rowError = true;
                                 $this->addException(Mage::helper('customer')->__("Invalid attribute option specified for attribute %s (%s), skipping the record.", $field, $value), Varien_Convert_Exception::ERROR);
                                 continue;
@@ -653,7 +644,6 @@ class Mage_Customer_Model_Convert_Parser_Customer
                             $value = $optionId;
                         }
                         $model->setData($field, $value);
-
                     }//foreach ($row as $field=>$value)
 
 
@@ -671,8 +661,10 @@ class Mage_Customer_Model_Convert_Parser_Customer
                     $regions = Mage::getResourceModel('directory/region_collection')
                         ->addRegionNameFilter($row['billing_region'])
                         ->load();
-                    if ($regions) foreach($regions as $region) {
-                       $regionId = $region->getId();
+                    if ($regions) {
+                        foreach ($regions as $region) {
+                            $regionId = $region->getId();
+                        }
                     }
 
                     $billingAddress->setFirstname($row['firstname']);
@@ -699,7 +691,6 @@ class Mage_Customer_Model_Convert_Parser_Customer
                             $billingAddress->save();
                             $model->setDefaultShipping($billingAddress->getId());
                             $model->addAddress($billingAddress);
-
                         }
                     }
 
@@ -714,8 +705,10 @@ class Mage_Customer_Model_Convert_Parser_Customer
                     $regions = Mage::getResourceModel('directory/region_collection')
                         ->addRegionNameFilter($row['shipping_region'])
                         ->load();
-                    if ($regions) foreach($regions as $region) {
-                       $regionId = $region->getId();
+                    if ($regions) {
+                        foreach ($regions as $region) {
+                            $regionId = $region->getId();
+                        }
                     }
 
                     $shippingAddress->setFirstname($row['firstname']);
@@ -738,7 +731,6 @@ class Mage_Customer_Model_Convert_Parser_Customer
                             $shippingAddress->save();
                             $model->setDefaultShipping($shippingAddress->getId());
                             $model->addAddress($shippingAddress);
-
                         }
                         $shippingAddress->setIsDefaultShipping(true);
                     }
@@ -746,9 +738,7 @@ class Mage_Customer_Model_Convert_Parser_Customer
                     if (!$rowError) {
                         $collection->addItem($model);
                     }
-
                 } //foreach ($storeIds as $storeId)
-
             } catch (Exception $e) {
                 if (!$e instanceof Mage_Dataflow_Model_Convert_Exception) {
                     $this->addException(Mage::helper('customer')->__('An error occurred while retrieving the option value: %s.', $e->getMessage()), Mage_Dataflow_Model_Convert_Exception::FATAL);

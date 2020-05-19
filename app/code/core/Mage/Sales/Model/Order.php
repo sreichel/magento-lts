@@ -441,10 +441,10 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
      * @param string $key data key
      * @return $this
      */
-    public function unsetData($key=null)
+    public function unsetData($key = null)
     {
         parent::unsetData($key);
-        if (is_null($key)) {
+        if ($key === null) {
             $this->_items = null;
         }
         return $this;
@@ -732,8 +732,7 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
 
         foreach ($this->getAllItems() as $item) {
             if ($item->getQtyToShip()>0 && !$item->getIsVirtual()
-                && !$item->getLockedDoShip())
-            {
+                && !$item->getLockedDoShip()) {
                 return true;
             }
         }
@@ -1002,9 +1001,13 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
      * @param $shouldProtectState
      * @return $this
      */
-    protected function _setState($state, $status = false, $comment = '',
-        $isCustomerNotified = null, $shouldProtectState = false)
-    {
+    protected function _setState(
+        $state,
+        $status = false,
+        $comment = '',
+        $isCustomerNotified = null,
+        $shouldProtectState = false
+    ) {
         // attempt to set the specified state
         if ($shouldProtectState) {
             if ($this->isStateProtected($state)) {
@@ -1097,7 +1100,7 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
      * @param string $entityName
      * @return $this
      */
-    public function setHistoryEntityName( $entityName )
+    public function setHistoryEntityName($entityName)
     {
         $this->_historyEntityName = $entityName;
         return $this;
@@ -1226,7 +1229,7 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     public function getShippingCarrier()
     {
         $carrierModel = $this->getData('shipping_carrier');
-        if (is_null($carrierModel)) {
+        if ($carrierModel === null) {
             $carrierModel = false;
             /**
              * $method - carrier_method
@@ -1440,8 +1443,7 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
                 'order'   => $this,
                 'comment' => $comment,
                 'billing' => $this->getBillingAddress()
-            )
-        );
+            ));
 
         /** @var $emailQueue Mage_Core_Model_Email_Queue */
         $emailQueue = Mage::getModel('core/email_queue');
@@ -1466,7 +1468,7 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     {
         $this->queueOrderUpdateEmail($notifyCustomer, $comment, true);
          return $this;
-     }
+    }
 
     protected function _getEmails($configPath)
     {
@@ -1481,7 +1483,7 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
 
     public function getAddressesCollection()
     {
-        if (is_null($this->_addresses)) {
+        if ($this->_addresses === null) {
             $this->_addresses = Mage::getResourceModel('sales/order_address_collection')
                 ->setOrderFilter($this);
 
@@ -1516,7 +1518,7 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
 
     public function getItemsCollection($filterByTypes = array(), $nonChildrenOnly = false)
     {
-        if (is_null($this->_items)) {
+        if ($this->_items === null) {
             $this->_items = Mage::getResourceModel('sales/order_item_collection')
                 ->setOrderFilter($this);
 
@@ -1663,7 +1665,7 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
 
     public function getPaymentsCollection()
     {
-        if (is_null($this->_payments)) {
+        if ($this->_payments === null) {
             $this->_payments = Mage::getResourceModel('sales/order_payment_collection')
                 ->setOrderFilter($this);
 
@@ -1724,9 +1726,9 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
      *
      * @return Mage_Sales_Model_Entity_Order_Status_History_Collection
      */
-    public function getStatusHistoryCollection($reload=false)
+    public function getStatusHistoryCollection($reload = false)
     {
-        if (is_null($this->_statusHistory) || $reload) {
+        if ($this->_statusHistory === null || $reload) {
             $this->_statusHistory = Mage::getResourceModel('sales/order_status_history_collection')
                 ->setOrderFilter($this)
                 ->setOrder('created_at', 'desc')
@@ -1811,7 +1813,7 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     public function getRealOrderId()
     {
         $id = $this->getData('real_order_id');
-        if (is_null($id)) {
+        if ($id === null) {
             $id = $this->getIncrementId();
         }
         return $id;
@@ -1824,7 +1826,7 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
      */
     public function getOrderCurrency()
     {
-        if (is_null($this->_orderCurrency)) {
+        if ($this->_orderCurrency === null) {
             $this->_orderCurrency = Mage::getModel('directory/currency')->load($this->getOrderCurrencyCode());
         }
         return $this->_orderCurrency;
@@ -1865,7 +1867,7 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
      */
     public function getBaseCurrency()
     {
-        if (is_null($this->_baseCurrency)) {
+        if ($this->_baseCurrency === null) {
             $this->_baseCurrency = Mage::getModel('directory/currency')->load($this->getBaseCurrencyCode());
         }
         return $this->_baseCurrency;
@@ -1921,7 +1923,7 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
         return max($total, 0);
     }
 
-    public function getData($key='', $index=null)
+    public function getData($key = '', $index = null)
     {
         if ($key == 'total_due') {
             return $this->getTotalDue();
@@ -1939,7 +1941,7 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
      */
     public function getInvoiceCollection()
     {
-        if (is_null($this->_invoices)) {
+        if ($this->_invoices === null) {
             $this->_invoices = Mage::getResourceModel('sales/order_invoice_collection')
                 ->setOrderFilter($this);
 
@@ -2225,7 +2227,6 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
             if (!empty($attributesForSave)) {
                 $this->_getResource()->saveAttribute($this, $attributesForSave);
             }
-
         }
         if (null !== $this->_items) {
             $this->_items->save();
@@ -2245,7 +2246,7 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     public function getStoreGroupName()
     {
         $storeId = $this->getStoreId();
-        if (is_null($storeId)) {
+        if ($storeId === null) {
             return $this->getStoreName(1); // 0 - website name, 1 - store group name, 2 - store name
         }
         return $this->getStore()->getGroup()->getName();

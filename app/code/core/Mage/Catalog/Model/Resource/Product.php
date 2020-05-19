@@ -111,7 +111,6 @@ class Mage_Catalog_Model_Resource_Product extends Mage_Catalog_Model_Resource_Ab
                 $productsWebsites[$productId] = array();
             }
             $productsWebsites[$productId][] = $productInfo['website_id'];
-
         }
 
         return $productsWebsites;
@@ -343,7 +342,7 @@ class Mage_Catalog_Model_Resource_Product extends Mage_Catalog_Model_Resource_Ab
             $indexCategoryIds   = array_unique($indexCategoryIds);
             $indexProductIds    = array($product->getId());
 
-           $categoryObject->refreshProductIndex($indexCategoryIds, $indexProductIds);
+            $categoryObject->refreshProductIndex($indexCategoryIds, $indexProductIds);
         } else {
             $websites = $product->getWebsiteIds();
 
@@ -392,11 +391,11 @@ class Mage_Catalog_Model_Resource_Product extends Mage_Catalog_Model_Resource_Ab
         $condition = array();
 
         $indexTable = $this->getTable('catalog/product_enabled_index');
-        if (is_null($store) && is_null($product)) {
+        if ($store === null && $product === null) {
             Mage::throwException(
                 Mage::helper('catalog')->__('To reindex the enabled product(s), the store or product must be specified')
             );
-        } elseif (is_null($product) || is_array($product)) {
+        } elseif ($product === null || is_array($product)) {
             $storeId    = $store->getId();
             $websiteId  = $store->getWebsiteId();
 
@@ -415,7 +414,8 @@ class Mage_Catalog_Model_Resource_Product extends Mage_Catalog_Model_Resource_Ab
             $select->joinInner(
                 array('w' => $this->getTable('catalog/product_website')),
                 $adapter->quoteInto(
-                    'w.product_id = t_v_default.entity_id AND w.website_id = ?', $websiteId
+                    'w.product_id = t_v_default.entity_id AND w.website_id = ?',
+                    $websiteId
                 ),
                 array()
             );
@@ -509,11 +509,13 @@ class Mage_Catalog_Model_Resource_Product extends Mage_Catalog_Model_Resource_Ab
     public function getCategoryCollection($product)
     {
         $collection = Mage::getResourceModel('catalog/category_collection')
-            ->joinField('product_id',
+            ->joinField(
+                'product_id',
                 'catalog/category_product',
                 'product_id',
                 'category_id = entity_id',
-                null)
+                null
+            )
             ->addFieldToFilter('product_id', (int)$product->getId());
         return $collection;
     }

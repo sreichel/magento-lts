@@ -319,7 +319,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      */
     public function load($id, $field = null)
     {
-        if (!is_numeric($id) && is_null($field)) {
+        if (!is_numeric($id) && $field === null) {
             $this->_getResource()->load($this, $id, 'code');
             return $this;
         }
@@ -462,10 +462,10 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      */
     public function getWebsite()
     {
-        if (is_null($this->getWebsiteId())) {
+        if ($this->getWebsiteId() === null) {
             return false;
         }
-        if (is_null($this->_website)) {
+        if ($this->_website === null) {
             $this->_website = Mage::app()->getWebsite($this->getWebsiteId());
         }
         return $this->_website;
@@ -534,7 +534,6 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
         if (strpos($value, '{{unsecure_base_url}}') !== false) {
             $unsecureBaseUrl = $this->getConfig(self::XML_PATH_UNSECURE_BASE_URL);
             $value = str_replace('{{unsecure_base_url}}', $unsecureBaseUrl, $value);
-
         } elseif (strpos($value, '{{secure_base_url}}') !== false) {
             $secureBaseUrl = $this->getConfig(self::XML_PATH_SECURE_BASE_URL);
             $value = str_replace('{{secure_base_url}}', $secureBaseUrl, $value);
@@ -585,11 +584,11 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      */
     public function getBaseUrl($type = self::URL_TYPE_LINK, $secure = null)
     {
-        $cacheKey = $type . '/' . (is_null($secure) ? 'null' : ($secure ? 'true' : 'false'));
+        $cacheKey = $type . '/' . ($secure === null ? 'null' : ($secure ? 'true' : 'false'));
         if (!isset($this->_baseUrlCache[$cacheKey])) {
             switch ($type) {
                 case self::URL_TYPE_WEB:
-                    $secure = is_null($secure) ? $this->isCurrentlySecure() : (bool)$secure;
+                    $secure = $secure === null ? $this->isCurrentlySecure() : (bool)$secure;
                     $url = $this->getConfig('web/' . ($secure ? 'secure' : 'unsecure') . '/base_url');
                     break;
 
@@ -608,7 +607,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
 
                 case self::URL_TYPE_SKIN:
                 case self::URL_TYPE_JS:
-                    $secure = is_null($secure) ? $this->isCurrentlySecure() : (bool) $secure;
+                    $secure = $secure === null ? $this->isCurrentlySecure() : (bool) $secure;
                     $url = $this->getConfig('web/' . ($secure ? 'secure' : 'unsecure') . '/base_' . $type . '_url');
                     break;
 
@@ -668,7 +667,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      */
     protected function _updateMediaPathUseRewrites($secure = null, $type = self::URL_TYPE_MEDIA)
     {
-        $secure = is_null($secure) ? $this->isCurrentlySecure() : (bool) $secure;
+        $secure = $secure === null ? $this->isCurrentlySecure() : (bool) $secure;
         $secureStringFlag = $secure ? 'secure' : 'unsecure';
         $url = $this->getConfig('web/' . $secureStringFlag . '/base_' . $type . '_url');
         if (!$this->getConfig(self::XML_PATH_USE_REWRITES)
@@ -747,8 +746,10 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
     public function isFrontUrlSecure()
     {
         if ($this->_isFrontSecure === null) {
-            $this->_isFrontSecure = Mage::getStoreConfigFlag(Mage_Core_Model_Url::XML_PATH_SECURE_IN_FRONT,
-                $this->getId());
+            $this->_isFrontSecure = Mage::getStoreConfigFlag(
+                Mage_Core_Model_Url::XML_PATH_SECURE_IN_FRONT,
+                $this->getId()
+            );
         }
         return $this->_isFrontSecure;
     }
@@ -813,7 +814,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
     public function getBaseCurrency()
     {
         $currency = $this->getData('base_currency');
-        if (is_null($currency)) {
+        if ($currency === null) {
             $currency = Mage::getModel('directory/currency')->load($this->getBaseCurrencyCode());
             $this->setData('base_currency', $currency);
         }
@@ -839,7 +840,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
     public function getDefaultCurrency()
     {
         $currency = $this->getData('default_currency');
-        if (is_null($currency)) {
+        if ($currency === null) {
             $currency = Mage::getModel('directory/currency')->load($this->getDefaultCurrencyCode());
             $this->setData('default_currency', $currency);
         }
@@ -903,7 +904,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
     public function getAvailableCurrencyCodes($skipBaseNotAllowed = false)
     {
         $codes = $this->getData('available_currency_codes');
-        if (is_null($codes)) {
+        if ($codes === null) {
             $codes = explode(',', $this->getConfig(Mage_Directory_Model_Currency::XML_PATH_CURRENCY_ALLOW));
             // add base currency, if it is not in allowed currencies
             $baseCurrencyCode = $this->getBaseCurrencyCode();
@@ -937,7 +938,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
     {
         $currency = $this->getData('current_currency');
 
-        if (is_null($currency)) {
+        if ($currency === null) {
             $currency     = Mage::getModel('directory/currency')->load($this->getCurrentCurrencyCode());
             $baseCurrency = $this->getBaseCurrency();
 
@@ -1022,11 +1023,11 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
                 $this->_priceFilter = $this->getCurrentCurrency()->getFilter();
                 $this->_priceFilter->setRate($this->getBaseCurrency()->getRate($this->getCurrentCurrency()));
             }
-            } elseif ($this->getDefaultCurrency()) {
-                $this->_priceFilter = $this->getDefaultCurrency()->getFilter();
-            } else {
-                $this->_priceFilter = new Varien_Filter_Sprintf('%s', 2);
-            }
+        } elseif ($this->getDefaultCurrency()) {
+            $this->_priceFilter = $this->getDefaultCurrency()->getFilter();
+        } else {
+            $this->_priceFilter = new Varien_Filter_Sprintf('%s', 2);
+        }
         return $this->_priceFilter;
     }
 
@@ -1060,10 +1061,10 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      */
     public function getGroup()
     {
-        if (is_null($this->getGroupId())) {
+        if ($this->getGroupId() === null) {
             return false;
         }
-        if (is_null($this->_group)) {
+        if ($this->_group === null) {
             $this->_group = Mage::getModel('core/store_group')->load($this->getGroupId());
         }
         return $this->_group;
@@ -1123,7 +1124,8 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
     {
         $sidQueryParam = $this->_getSession()->getSessionIdQueryParam();
         $requestString = Mage::getSingleton('core/url')->escape(
-            ltrim(Mage::app()->getRequest()->getRequestString(), '/'));
+            ltrim(Mage::app()->getRequest()->getRequestString(), '/')
+        );
 
         $storeUrl = Mage::app()->getStore()->isCurrentlySecure()
             ? $this->getUrl('', array('_secure' => true))
@@ -1254,7 +1256,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
      */
     public function getFrontendName()
     {
-        if (is_null($this->_frontendName)) {
+        if ($this->_frontendName === null) {
             $storeGroupName = (string) Mage::getStoreConfig('general/store_information/name', $this);
             $this->_frontendName = (!empty($storeGroupName)) ? $storeGroupName : $this->getGroup()->getName();
         }

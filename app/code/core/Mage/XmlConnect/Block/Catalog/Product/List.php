@@ -87,7 +87,7 @@ class Mage_XmlConnect_Block_Catalog_Product_List extends Mage_XmlConnect_Block_C
      */
     protected function _getProductCollection()
     {
-        if (is_null($this->_productCollection)) {
+        if ($this->_productCollection === null) {
             $filters        = array();
             $request        = $this->getRequest();
             $requestParams  = $request->getParams();

@@ -49,7 +49,7 @@ class Mage_Core_Helper_Http extends Mage_Core_Helper_Abstract
      */
     public function authValidate($headers = null)
     {
-        if(!is_null($headers)) {
+        if ($headers !== null) {
             $_SERVER = $headers;
         }
 
@@ -58,7 +58,7 @@ class Mage_Core_Helper_Http extends Mage_Core_Helper_Abstract
 
         // moshe's fix for CGI
         if (empty($_SERVER['HTTP_AUTHORIZATION'])) {
-            foreach ($_SERVER as $k=>$v) {
+            foreach ($_SERVER as $k => $v) {
                 if (substr($k, -18)==='HTTP_AUTHORIZATION' && !empty($v)) {
                     $_SERVER['HTTP_AUTHORIZATION'] = $v;
                     break;
@@ -75,8 +75,7 @@ class Mage_Core_Helper_Http extends Mage_Core_Helper_Abstract
         elseif (!empty($_SERVER['HTTP_AUTHORIZATION'])) {
             $auth = $_SERVER['HTTP_AUTHORIZATION'];
             list($user, $pass) = explode(':', base64_decode(substr($auth, strpos($auth, " ") + 1)));
-        }
-        elseif (!empty($_SERVER['Authorization'])) {
+        } elseif (!empty($_SERVER['Authorization'])) {
             $auth = $_SERVER['Authorization'];
             list($user, $pass) = explode(':', base64_decode(substr($auth, strpos($auth, " ") + 1)));
         }
@@ -95,8 +94,8 @@ class Mage_Core_Helper_Http extends Mage_Core_Helper_Abstract
     public function authFailed()
     {
         Mage::app()->getResponse()
-            ->setHeader('HTTP/1.1','401 Unauthorized')
-            ->setHeader('WWW-Authenticate','Basic realm="RSS Feeds"')
+            ->setHeader('HTTP/1.1', '401 Unauthorized')
+            ->setHeader('WWW-Authenticate', 'Basic realm="RSS Feeds"')
             ->setBody('<h1>401 Unauthorized</h1>')
             ->sendResponse();
         exit;
@@ -128,7 +127,7 @@ class Mage_Core_Helper_Http extends Mage_Core_Helper_Abstract
      */
     public function getRemoteAddr($ipToLong = false)
     {
-        if (is_null($this->_remoteAddr)) {
+        if ($this->_remoteAddr === null) {
             $headers = $this->getRemoteAddrHeaders();
             foreach ($headers as $var) {
                 if ($var != 'REMOTE_ADDR' && $this->_getRequest()->getServer($var, false)) {

@@ -57,7 +57,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Eav extends Mage_Catalog_Model
      */
     public function getIndexers()
     {
-        if (is_null($this->_types)) {
+        if ($this->_types === null) {
             $this->_types   = array(
                 'source'    => Mage::getResourceModel('catalog/product_indexer_eav_source'),
                 'decimal'   => Mage::getResourceModel('catalog/product_indexer_eav_decimal'),
@@ -197,7 +197,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Eav extends Mage_Catalog_Model
     public function getIdxTable($table = null)
     {
         if ($this->useIdxTable()) {
-           return $this->getTable('catalog/product_eav_indexer_idx');
+            return $this->getTable('catalog/product_eav_indexer_idx');
         }
         return $this->getTable('catalog/product_eav_indexer_tmp');
     }

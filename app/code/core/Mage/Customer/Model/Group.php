@@ -96,7 +96,7 @@ class Mage_Customer_Model_Group extends Mage_Core_Model_Abstract
 
     public function getTaxClassId($groupId = null)
     {
-        if (!is_null($groupId)) {
+        if ($groupId !== null) {
             if (empty(self::$_taxClassIds[$groupId])) {
                 $this->load($groupId);
                 self::$_taxClassIds[$groupId] = $this->getData('tax_class_id');
@@ -125,7 +125,9 @@ class Mage_Customer_Model_Group extends Mage_Core_Model_Abstract
     {
         parent::afterCommitCallback();
         Mage::getSingleton('index/indexer')->processEntityAction(
-            $this, self::ENTITY, Mage_Index_Model_Event::TYPE_SAVE
+            $this,
+            self::ENTITY,
+            Mage_Index_Model_Event::TYPE_SAVE
         );
         return $this;
     }
@@ -153,5 +155,4 @@ class Mage_Customer_Model_Group extends Mage_Core_Model_Abstract
         );
         return $this;
     }
-
 }

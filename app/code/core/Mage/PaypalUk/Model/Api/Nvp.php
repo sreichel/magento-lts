@@ -424,7 +424,7 @@ class Mage_PaypalUk_Model_Api_Nvp extends Mage_Paypal_Model_Api_Nvp
     protected function _addMethodToRequest($methodName, $request)
     {
         $request['TRXTYPE'] = $this->_mapPaypalMethodName($methodName);
-        if (!is_null($this->_getPaypalUkActionName($methodName))) {
+        if ($this->_getPaypalUkActionName($methodName) !== null) {
             $request['ACTION'] = $this->_getPaypalUkActionName($methodName);
         }
         return $request;
@@ -438,7 +438,7 @@ class Mage_PaypalUk_Model_Api_Nvp extends Mage_Paypal_Model_Api_Nvp
      */
     protected function _getPaypalUkActionName($methodName)
     {
-        switch($methodName) {
+        switch ($methodName) {
             case Mage_Paypal_Model_Api_Nvp::SET_EXPRESS_CHECKOUT:
                 return self::EXPRESS_SET;
             case Mage_Paypal_Model_Api_Nvp::GET_EXPRESS_CHECKOUT_DETAILS:
@@ -457,7 +457,7 @@ class Mage_PaypalUk_Model_Api_Nvp extends Mage_Paypal_Model_Api_Nvp
      */
     protected function _mapPaypalMethodName($methodName)
     {
-        switch($methodName) {
+        switch ($methodName) {
             case Mage_Paypal_Model_Api_Nvp::DO_EXPRESS_CHECKOUT_PAYMENT:
             case Mage_Paypal_Model_Api_Nvp::GET_EXPRESS_CHECKOUT_DETAILS:
             case Mage_Paypal_Model_Api_Nvp::SET_EXPRESS_CHECKOUT:
@@ -519,7 +519,7 @@ class Mage_PaypalUk_Model_Api_Nvp extends Mage_Paypal_Model_Api_Nvp
     protected function _buildQuery($request)
     {
         $result = '';
-        foreach ($request as $k=>$v) {
+        foreach ($request as $k => $v) {
             $result .= '&'.$k.'='.$v;
         }
         return trim($result, '&');

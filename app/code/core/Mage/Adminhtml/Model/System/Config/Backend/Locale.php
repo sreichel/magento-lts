@@ -56,7 +56,7 @@ class Mage_Adminhtml_Model_System_Config_Backend_Locale extends Mage_Core_Model_
                         );
                         return false;
                     }
-                    if (is_null($indexKey)) {
+                    if ($indexKey === null) {
                         $array[] = $allCurrenciesOption[$columnKey];
                     } else {
                         if (!array_key_exists($indexKey, $allCurrenciesOption)) {
@@ -112,8 +112,7 @@ class Mage_Adminhtml_Model_System_Config_Backend_Locale extends Mage_Core_Model_
                     $currencyName = Mage::app()->getLocale()->currency($data->getValue())->getName();
                     if ($match[1] == 'base') {
                         $fieldName = Mage::helper('adminhtml')->__('Base currency');
-                    }
-                    else {
+                    } else {
                         $fieldName = Mage::helper('adminhtml')->__('Display default currency');
                     }
 
@@ -143,5 +142,4 @@ class Mage_Adminhtml_Model_System_Config_Backend_Locale extends Mage_Core_Model_
 
         return $this;
     }
-
 }

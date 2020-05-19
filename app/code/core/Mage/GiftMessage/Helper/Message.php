@@ -83,7 +83,7 @@ class Mage_GiftMessage_Helper_Message extends Mage_Core_Helper_Data
      * @param boolean $dontDisplayContainer
      * @return string
      */
-    public function getInline($type, Varien_Object $entity, $dontDisplayContainer=false)
+    public function getInline($type, Varien_Object $entity, $dontDisplayContainer = false)
     {
         if (!in_array($type, array('onepage_checkout','multishipping_adress'))
             && !$this->isMessagesAvailable($type, $entity)
@@ -110,13 +110,12 @@ class Mage_GiftMessage_Helper_Message extends Mage_Core_Helper_Data
     {
         if ($type == 'items') {
             $items = $entity->getAllItems();
-            if(!is_array($items) || empty($items)) {
+            if (!is_array($items) || empty($items)) {
                 return Mage::getStoreConfig(self::XPATH_CONFIG_GIFT_MESSAGE_ALLOW_ITEMS, $store);
             }
-            if($entity instanceof Mage_Sales_Model_Quote) {
+            if ($entity instanceof Mage_Sales_Model_Quote) {
                 $_type = $entity->getIsMultiShipping() ? 'address_item' : 'item';
-            }
-            else {
+            } else {
                 $_type = 'order_item';
             }
 
@@ -168,10 +167,10 @@ class Mage_GiftMessage_Helper_Message extends Mage_Core_Helper_Data
      * @param Mage_Core_Model_Store|integer $store
      * @return boolean
      */
-    protected function _getDependenceFromStoreConfig($productGiftMessageAllow, $store=null)
+    protected function _getDependenceFromStoreConfig($productGiftMessageAllow, $store = null)
     {
         $result = Mage::getStoreConfig(self::XPATH_CONFIG_GIFT_MESSAGE_ALLOW_ITEMS, $store);
-        if ($productGiftMessageAllow === '' || is_null($productGiftMessageAllow)) {
+        if ($productGiftMessageAllow === '' || $productGiftMessageAllow === null) {
             return $result;
         } else {
             return $productGiftMessageAllow;
@@ -186,7 +185,7 @@ class Mage_GiftMessage_Helper_Message extends Mage_Core_Helper_Data
      * @param Mage_Core_Model_Store|integer $store
      * @return boolen
      */
-    public function getIsMessagesAvailable($type, Varien_Object $entity, $store=null)
+    public function getIsMessagesAvailable($type, Varien_Object $entity, $store = null)
     {
         return $this->isMessagesAvailable($type, $entity, $store);
     }
@@ -214,7 +213,7 @@ class Mage_GiftMessage_Helper_Message extends Mage_Core_Helper_Data
      */
     public function getGiftMessageForEntity(Varien_Object $entity)
     {
-        if($entity->getGiftMessageId() && !$entity->getGiftMessage()) {
+        if ($entity->getGiftMessageId() && !$entity->getGiftMessage()) {
             $message = $this->getGiftMessage($entity->getGiftMessageId());
             $entity->setGiftMessage($message);
         }
@@ -231,7 +230,7 @@ class Mage_GiftMessage_Helper_Message extends Mage_Core_Helper_Data
      */
     public function getCached($key)
     {
-        if($this->isCached($key)) {
+        if ($this->isCached($key)) {
             return $this->_innerCache[$key];
         }
 
@@ -269,10 +268,10 @@ class Mage_GiftMessage_Helper_Message extends Mage_Core_Helper_Data
      * @param Mage_Core_Model_Store|integer $store
      * @return boolen
      */
-    public function getAvailableForQuoteItems($quote, $store=null)
+    public function getAvailableForQuoteItems($quote, $store = null)
     {
-        foreach($quote->getAllItems() as $item) {
-            if($this->isMessagesAvailable('item', $item, $store)) {
+        foreach ($quote->getAllItems() as $item) {
+            if ($this->isMessagesAvailable('item', $item, $store)) {
                 return true;
             }
         }
@@ -287,10 +286,10 @@ class Mage_GiftMessage_Helper_Message extends Mage_Core_Helper_Data
      * @param Mage_Core_Model_Store|integer $store
      * @return boolen
      */
-    public function getAvailableForAddressItems($items, $store=null)
+    public function getAvailableForAddressItems($items, $store = null)
     {
-        foreach($items as $item) {
-            if($this->isMessagesAvailable('address_item', $item, $store)) {
+        foreach ($items as $item) {
+            if ($this->isMessagesAvailable('address_item', $item, $store)) {
                 return true;
             }
         }
@@ -303,14 +302,13 @@ class Mage_GiftMessage_Helper_Message extends Mage_Core_Helper_Data
      * @param integer $messageId
      * @return Mage_GiftMessage_Model_Message
      */
-    public function getGiftMessage($messageId=null)
+    public function getGiftMessage($messageId = null)
     {
         $message = Mage::getModel('giftmessage/message');
-        if(!is_null($messageId)) {
+        if ($messageId !== null) {
             $message->load($messageId);
         }
 
         return $message;
     }
-
 }

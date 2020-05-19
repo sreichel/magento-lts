@@ -47,20 +47,24 @@ abstract class Mage_Eav_Block_Adminhtml_Attribute_Edit_Options_Abstract extends 
      */
     protected function _prepareLayout()
     {
-        $this->setChild('delete_button',
+        $this->setChild(
+            'delete_button',
             $this->getLayout()->createBlock('adminhtml/widget_button')
                 ->setData(array(
                     'label' => Mage::helper('eav')->__('Delete'),
                     'class' => 'delete delete-option'
-                )));
+                ))
+        );
 
-        $this->setChild('add_button',
+        $this->setChild(
+            'add_button',
             $this->getLayout()->createBlock('adminhtml/widget_button')
                 ->setData(array(
                     'label' => Mage::helper('eav')->__('Add Option'),
                     'class' => 'add',
                     'id'    => 'add_new_option_button'
-                )));
+                ))
+        );
         return parent::_prepareLayout();
     }
 
@@ -92,7 +96,7 @@ abstract class Mage_Eav_Block_Adminhtml_Attribute_Edit_Options_Abstract extends 
     public function getStores()
     {
         $stores = $this->getData('stores');
-        if (is_null($stores)) {
+        if ($stores === null) {
             $stores = Mage::getModel('core/store')
                 ->getResourceCollection()
                 ->setLoadDefault(true)
@@ -130,7 +134,7 @@ abstract class Mage_Eav_Block_Adminhtml_Attribute_Edit_Options_Abstract extends 
         }
 
         $values = $this->getData('option_values');
-        if (is_null($values)) {
+        if ($values === null) {
             $values = array();
             $optionCollection = Mage::getResourceModel('eav/entity_attribute_option_collection')
                 ->setAttributeFilter($this->getAttributeObject()->getId())
@@ -193,7 +197,7 @@ abstract class Mage_Eav_Block_Adminhtml_Attribute_Edit_Options_Abstract extends 
     public function getStoreOptionValues($storeId)
     {
         $values = $this->getData('store_option_values_'.$storeId);
-        if (is_null($values)) {
+        if ($values === null) {
             $values = array();
             $valuesCollection = Mage::getResourceModel('eav/entity_attribute_option_collection')
                 ->setAttributeFilter($this->getAttributeObject()->getId())
@@ -216,5 +220,4 @@ abstract class Mage_Eav_Block_Adminhtml_Attribute_Edit_Options_Abstract extends 
     {
         return Mage::registry('entity_attribute');
     }
-
 }

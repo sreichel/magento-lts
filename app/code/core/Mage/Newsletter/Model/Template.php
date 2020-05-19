@@ -105,8 +105,7 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
                     foreach ($messages as $message) {
                         $errorMessages[] = $message;
                     }
-                }
-                else {
+                } else {
                     $errorMessages[] = $messages;
                 }
             }
@@ -157,7 +156,8 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
      *
      * @return int|string
      */
-    public function getType(){
+    public function getType()
+    {
         return $this->getTemplateType();
     }
 
@@ -275,7 +275,7 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
      */
     public function getMail()
     {
-        if (is_null($this->_mail)) {
+        if ($this->_mail === null) {
             $this->_mail = new Zend_Mail('utf-8');
         }
         return $this->_mail;
@@ -292,7 +292,7 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
      * @return boolean
      * @deprecated since 1.4.0.1
      **/
-    public function send($subscriber, array $variables = array(), $name=null, Mage_Newsletter_Model_Queue $queue=null)
+    public function send($subscriber, array $variables = array(), $name = null, Mage_Newsletter_Model_Queue $queue = null)
     {
         if (!$this->isValidForSend()) {
             return false;
@@ -301,11 +301,10 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
         $email = '';
         if ($subscriber instanceof Mage_Newsletter_Model_Subscriber) {
             $email = $subscriber->getSubscriberEmail();
-            if (is_null($name)) {
+            if ($name === null) {
                 $name = $subscriber->getSubscriberFullName();
             }
-        }
-        else {
+        } else {
             $email = (string) $subscriber;
         }
 
@@ -322,8 +321,7 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
 
         if ($this->isPlain()) {
             $mail->setBodyText($text);
-        }
-        else {
+        } else {
             $mail->setBodyHtml($text);
         }
 
@@ -333,22 +331,21 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
         try {
             $mail->send();
             $this->_mail = null;
-            if (!is_null($queue)) {
+            if ($queue !== null) {
                 $subscriber->received($queue);
             }
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             if ($subscriber instanceof Mage_Newsletter_Model_Subscriber) {
                 // If letter sent for subscriber, we create a problem report entry
                 $problem = Mage::getModel('newsletter/problem');
                 $problem->addSubscriberData($subscriber);
-                if (!is_null($queue)) {
+                if ($queue !== null) {
                     $problem->addQueueData($queue);
                 }
                 $problem->addErrorData($e);
                 $problem->save();
 
-                if (!is_null($queue)) {
+                if ($queue !== null) {
                     $subscriber->received($queue);
                 }
             } else {
@@ -401,7 +398,8 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
     public function getTemplateText()
     {
         if (!$this->getData('template_text') && !$this->getId()) {
-            $this->setData('template_text',
+            $this->setData(
+                'template_text',
                 Mage::helper('newsletter')->__('Follow this link to unsubscribe <!-- This tag is for unsubscribe link  --><a href="{{var subscriber.getUnsubscriptionLink()}}">{{var subscriber.getUnsubscriptionLink()}}</a>')
             );
         }

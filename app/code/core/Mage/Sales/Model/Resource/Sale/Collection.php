@@ -138,13 +138,13 @@ class Mage_Sales_Model_Resource_Sale_Collection extends Varien_Data_Collection_D
             $this->addFieldToFilter('sales.customer_id', $this->_customer->getId());
         }
 
-        if (!is_null($this->_orderStateValue)) {
+        if ($this->_orderStateValue !== null) {
             $condition = '';
             switch ($this->_orderStateCondition) {
-                case 'IN' : 
+                case 'IN':
                     $condition = 'in';
                     break;
-                case 'NOT IN' : 
+                case 'NOT IN':
                     $condition = 'nin';
                     break;
             }

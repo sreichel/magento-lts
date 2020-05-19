@@ -200,8 +200,7 @@ class Mage_CatalogRule_Model_Observer
             $pId = $product->getId();
 
             $key = $this->_getRulePricesKey(array($date, $wId, $gId, $pId));
-        }
-        elseif (!is_null($storeId) && !is_null($product->getCustomerGroupId())) {
+        } elseif ($storeId !== null && $product->getCustomerGroupId() !== null) {
             $wId = Mage::app()->getStore($storeId)->getWebsiteId();
             $gId = $product->getCustomerGroupId();
             $pId = $product->getId();
@@ -291,8 +290,15 @@ class Mage_CatalogRule_Model_Observer
         $updateFields       = $observer->getEvent()->getUpdateFields();
 
         Mage::getSingleton('catalogrule/rule_product_price')
-            ->applyPriceRuleToIndexTable($select, $indexTable, $entityId, $customerGroupId, $websiteId,
-                $updateFields, $websiteDate);
+            ->applyPriceRuleToIndexTable(
+                $select,
+                $indexTable,
+                $entityId,
+                $customerGroupId,
+                $websiteId,
+                $updateFields,
+                $websiteDate
+            );
 
         return $this;
     }
@@ -325,7 +331,8 @@ class Mage_CatalogRule_Model_Observer
         if ($disabledRulesCount) {
             Mage::getModel('catalogrule/rule')->applyAll();
             Mage::getSingleton('adminhtml/session')->addWarning(
-                Mage::helper('catalogrule')->__('%d Catalog Price Rules based on "%s" attribute have been disabled.', $disabledRulesCount, $attributeCode));
+                Mage::helper('catalogrule')->__('%d Catalog Price Rules based on "%s" attribute have been disabled.', $disabledRulesCount, $attributeCode)
+            );
         }
 
         return $this;

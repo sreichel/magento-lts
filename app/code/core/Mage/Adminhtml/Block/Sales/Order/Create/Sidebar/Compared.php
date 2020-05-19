@@ -55,7 +55,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Compared extends Mage_Admi
     public function getItemCollection()
     {
         $collection = $this->getData('item_collection');
-        if (is_null($collection)) {
+        if ($collection === null) {
             if ($collection = $this->getCreateOrderModel()->getCustomerCompareList()) {
                 $collection = $collection->getItemCollection()
                     ->useProductItem(true)
@@ -77,5 +77,4 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Compared extends Mage_Admi
     {
         return $item->getCatalogCompareItemId();
     }
-
 }

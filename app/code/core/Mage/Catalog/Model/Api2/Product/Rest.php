@@ -63,10 +63,14 @@ abstract class Mage_Catalog_Model_Api2_Product_Rest extends Mage_Catalog_Model_A
         /** @var $collection Mage_Catalog_Model_Resource_Product_Collection */
         $collection = Mage::getResourceModel('catalog/product_collection');
         $store = $this->_getStore();
-        $entityOnlyAttributes = $this->getEntityOnlyAttributes($this->getUserType(),
-            Mage_Api2_Model_Resource::OPERATION_ATTRIBUTE_READ);
-        $availableAttributes = array_keys($this->getAvailableAttributes($this->getUserType(),
-            Mage_Api2_Model_Resource::OPERATION_ATTRIBUTE_READ));
+        $entityOnlyAttributes = $this->getEntityOnlyAttributes(
+            $this->getUserType(),
+            Mage_Api2_Model_Resource::OPERATION_ATTRIBUTE_READ
+        );
+        $availableAttributes = array_keys($this->getAvailableAttributes(
+            $this->getUserType(),
+            Mage_Api2_Model_Resource::OPERATION_ATTRIBUTE_READ
+        ));
         // available attributes not contain image attribute, but it needed for get image_url
         $availableAttributes[] = 'image';
         $collection->addStoreFilter($store->getId())
@@ -144,8 +148,11 @@ abstract class Mage_Catalog_Model_Api2_Product_Rest extends Mage_Catalog_Model_A
 
             /** @var $reviewModel Mage_Review_Model_Review */
             $reviewModel = Mage::getModel('review/review');
-            $productData['total_reviews_count'] = $reviewModel->getTotalReviews($product->getId(), true,
-                $this->_getStore()->getId());
+            $productData['total_reviews_count'] = $reviewModel->getTotalReviews(
+                $product->getId(),
+                true,
+                $this->_getStore()->getId()
+            );
 
             $productData['tier_price'] = $this->_getTierPrices();
             $productData['has_custom_options'] = count($product->getOptions()) > 0;
@@ -192,7 +199,7 @@ abstract class Mage_Catalog_Model_Api2_Product_Rest extends Mage_Catalog_Model_A
      */
     protected function _getProduct()
     {
-        if (is_null($this->_product)) {
+        if ($this->_product === null) {
             $productId = $this->getRequest()->getParam('id');
             /** @var $productHelper Mage_Catalog_Helper_Product */
             $productHelper = Mage::helper('catalog/product');
@@ -254,13 +261,18 @@ abstract class Mage_Catalog_Model_Api2_Product_Rest extends Mage_Catalog_Model_A
      * @return float
      * @see Mage_Tax_Helper_Data::getPrice()
      */
-    protected function _getPrice($price, $includingTax = null, $shippingAddress = null,
-        $billingAddress = null, $ctc = null, $priceIncludesTax = null
+    protected function _getPrice(
+        $price,
+        $includingTax = null,
+        $shippingAddress = null,
+        $billingAddress = null,
+        $ctc = null,
+        $priceIncludesTax = null
     ) {
         $product = $this->_getProduct();
         $store = $this->_getStore();
 
-        if (is_null($priceIncludesTax)) {
+        if ($priceIncludesTax === null) {
             /** @var $config Mage_Tax_Model_Config */
             $config = Mage::getSingleton('tax/config');
             $priceIncludesTax = $config->priceIncludesTax($store) || $config->getNeedUseShippingExcludeTax();
@@ -270,7 +282,7 @@ abstract class Mage_Catalog_Model_Api2_Product_Rest extends Mage_Catalog_Model_A
         $includingPercent = null;
 
         $taxClassId = $product->getTaxClassId();
-        if (is_null($percent)) {
+        if ($percent === null) {
             if ($taxClassId) {
                 $request = Mage::getSingleton('tax/calculation')
                     ->getRateRequest($shippingAddress, $billingAddress, $ctc, $store);
@@ -288,14 +300,14 @@ abstract class Mage_Catalog_Model_Api2_Product_Rest extends Mage_Catalog_Model_A
             }
         }
 
-        if ($percent === false || is_null($percent)) {
+        if ($percent === false || $percent === null) {
             if ($priceIncludesTax && !$includingPercent) {
                 return $price;
             }
         }
         $product->setTaxPercent($percent);
 
-        if (!is_null($includingTax)) {
+        if ($includingTax !== null) {
             if ($priceIncludesTax) {
                 if ($includingTax) {
                     /**

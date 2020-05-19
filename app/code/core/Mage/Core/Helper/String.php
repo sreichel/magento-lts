@@ -97,7 +97,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
     public function substr($string, $offset, $length = null)
     {
         $string = $this->cleanString($string);
-        if (is_null($length)) {
+        if ($length === null) {
             $length = $this->strlen($string) - $offset;
         }
         return iconv_substr($string, $offset, $length, self::ICONV_CHARSET);
@@ -213,8 +213,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
                     $result[$i]    = '';
                     $space         = '';
                     $spaceLen      = 0;
-                }
-                else {
+                } else {
                     $currentLength = $this->strlen($result[$i]);
                 }
                 $partLength = $this->strlen($part);
@@ -265,8 +264,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
         foreach ($split as $word) {
             if ($uniqueOnly) {
                 $result[$word] = $word;
-            }
-            else {
+            } else {
                 $result[] = $word;
             }
         }
@@ -315,7 +313,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
         $oldLocale = setlocale(LC_COLLATE, "0");
         $localeCode = Mage::app()->getLocale()->getLocaleCode();
         // use fallback locale if $localeCode is not available
-        setlocale(LC_COLLATE,  $localeCode . '.UTF8', 'C.UTF-8', 'en_US.utf8');
+        setlocale(LC_COLLATE, $localeCode . '.UTF8', 'C.UTF-8', 'en_US.utf8');
         ksort($sort, SORT_LOCALE_STRING);
         setlocale(LC_COLLATE, $oldLocale);
 
@@ -530,7 +528,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
         for ($i = 0; $i < strlen($str); $i++) {
             $char = $str[$i];
             $result = $reader->read($char, $prevChar);
-            if (!is_null($result)) {
+            if ($result !== null) {
                 return $result;
             }
             $prevChar = $char;

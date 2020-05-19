@@ -79,10 +79,10 @@ class Mage_ConfigurableSwatches_Helper_Productimg extends Mage_Core_Helper_Abstr
                 : null,
         );
 
-        if (!is_null($type) && array_key_exists($type, $resultImages)) {
+        if ($type !== null && array_key_exists($type, $resultImages)) {
             $image = $resultImages[$type];
         } else {
-            $image = (!is_null($resultImages['swatch'])) ? $resultImages['swatch'] : $resultImages['standard'];
+            $image = ($resultImages['swatch'] !== null) ? $resultImages['swatch'] : $resultImages['standard'];
         }
 
         return $image;
@@ -105,7 +105,7 @@ class Mage_ConfigurableSwatches_Helper_Productimg extends Mage_Core_Helper_Abstr
             $images = array();
             $searchValues = array();
 
-            if (!is_null($preValues) && is_array($preValues)) { // If a pre-defined list of valid values was passed
+            if ($preValues !== null && is_array($preValues)) { // If a pre-defined list of valid values was passed
                 $preValues = array_map('Mage_ConfigurableSwatches_Helper_Data::normalizeKey', $preValues);
                 foreach ($preValues as $value) {
                     $searchValues[] = $value;
@@ -190,7 +190,7 @@ class Mage_ConfigurableSwatches_Helper_Productimg extends Mage_Core_Helper_Abstr
         $image = $this->getProductImgByLabel($value, $product, 'swatch');
 
         // Check in swatch directory if $image is null
-        if (is_null($image)) {
+        if ($image === null) {
             // Check if file exists in fallback directory
             $fallbackUrl = $this->getGlobalSwatchUrl($product, $value, $width, $height, $fallbackFileExt);
             if (!empty($fallbackUrl)) {
@@ -201,11 +201,11 @@ class Mage_ConfigurableSwatches_Helper_Productimg extends Mage_Core_Helper_Abstr
 
         // If we still don't have a URL or matching product image, look for one that matches just
         // the label (not specifically the swatch suffix)
-        if (empty($url) && is_null($image)) {
+        if (empty($url) && $image === null) {
             $image = $this->getProductImgByLabel($value, $product, 'standard');
         }
 
-        if (!is_null($image)) {
+        if ($image !== null) {
             $filename = $image->getFile();
             $swatchImage = $this->_resizeSwatchImage($filename, 'product', $width, $height);
             $swatchType = 'product';
@@ -233,7 +233,7 @@ class Mage_ConfigurableSwatches_Helper_Productimg extends Mage_Core_Helper_Abstr
         $height = self::SWATCH_DEFAULT_HEIGHT,
         $fileExt = null
     ) {
-        if (is_null($fileExt)) {
+        if ($fileExt === null) {
             $fileExt = self::SWATCH_FILE_EXT;
         }
 

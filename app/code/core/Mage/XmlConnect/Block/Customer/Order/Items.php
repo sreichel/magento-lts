@@ -54,7 +54,7 @@ class Mage_XmlConnect_Block_Customer_Order_Items extends Mage_Sales_Block_Order_
             $type = 'default';
         }
 
-        if (is_null($this->_itemRenders[$type]['renderer'])) {
+        if ($this->_itemRenders[$type]['renderer'] === null) {
             $this->_itemRenders[$type]['renderer'] = $this->getLayout()
                 ->createBlock($this->_itemRenders[$type]['block'])->setRenderedBlock($this);
         }

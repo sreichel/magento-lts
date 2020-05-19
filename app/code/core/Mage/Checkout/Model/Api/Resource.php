@@ -76,7 +76,7 @@ class Mage_Checkout_Model_Api_Resource extends Mage_Api_Model_Resource_Abstract
             return false;
         }
 
-        if (!is_null($quote->getId())) {
+        if ($quote->getId() !== null) {
             $this->_fault('quote_already_exist');
         }
 
@@ -92,14 +92,13 @@ class Mage_Checkout_Model_Api_Resource extends Mage_Api_Model_Resource_Abstract
      */
     protected function _getStoreId($store = null)
     {
-        if (is_null($store)) {
+        if ($store === null) {
             $store = ($this->_getSession()->hasData($this->_storeIdSessionField)
                         ? $this->_getSession()->getData($this->_storeIdSessionField) : 0);
         }
 
         try {
             $storeId = Mage::app()->getStore($store)->getId();
-
         } catch (Mage_Core_Model_Store_Exception $e) {
             $this->_fault('store_not_exists');
         }
@@ -127,7 +126,7 @@ class Mage_Checkout_Model_Api_Resource extends Mage_Api_Model_Resource_Abstract
             $quote->setStoreId($storeId)
                     ->load($quoteId);
         }
-        if (is_null($quote->getId())) {
+        if ($quote->getId() === null) {
             $this->_fault('quote_not_exists');
         }
 
@@ -158,9 +157,9 @@ class Mage_Checkout_Model_Api_Resource extends Mage_Api_Model_Resource_Abstract
      * @param array|null $attributes
      * @return $this
      */
-    protected function _updateAttributes($data, $object, $type,  array $attributes = null)
+    protected function _updateAttributes($data, $object, $type, array $attributes = null)
     {
-        foreach ($data as $attribute=>$value) {
+        foreach ($data as $attribute => $value) {
             if ($this->_isAllowedAttribute($attribute, $type, $attributes)) {
                 $object->setData($attribute, $value);
             }
@@ -185,7 +184,7 @@ class Mage_Checkout_Model_Api_Resource extends Mage_Api_Model_Resource_Abstract
             return $result;
         }
 
-        foreach ($object->getData() as $attribute=>$value) {
+        foreach ($object->getData() as $attribute => $value) {
             if (is_object($value)) {
                 continue;
             }
@@ -195,12 +194,12 @@ class Mage_Checkout_Model_Api_Resource extends Mage_Api_Model_Resource_Abstract
             }
         }
 
-        foreach ($this->_attributesMap['global'] as $alias=>$attributeCode) {
+        foreach ($this->_attributesMap['global'] as $alias => $attributeCode) {
             $result[$alias] = $object->getData($attributeCode);
         }
 
         if (isset($this->_attributesMap[$type])) {
-            foreach ($this->_attributesMap[$type] as $alias=>$attributeCode) {
+            foreach ($this->_attributesMap[$type] as $alias => $attributeCode) {
                 $result[$alias] = $object->getData($attributeCode);
             }
         }
@@ -234,5 +233,4 @@ class Mage_Checkout_Model_Api_Resource extends Mage_Api_Model_Resource_Abstract
 
         return true;
     }
-
 }

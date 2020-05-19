@@ -406,7 +406,7 @@ class Mage_Sales_Model_Order_Payment extends Mage_Payment_Model_Info
      */
     public function capture($invoice)
     {
-        if (is_null($invoice)) {
+        if ($invoice === null) {
             $invoice = $this->_invoice();
             $this->setCreatedInvoice($invoice);
             return $this; // @see Mage_Sales_Model_Order_Invoice::capture()
@@ -491,7 +491,8 @@ class Mage_Sales_Model_Order_Payment extends Mage_Payment_Model_Info
      */
     public function registerCaptureNotification($amount, $skipFraudDetection = false)
     {
-        $this->_generateTransactionId(Mage_Sales_Model_Order_Payment_Transaction::TYPE_CAPTURE,
+        $this->_generateTransactionId(
+            Mage_Sales_Model_Order_Payment_Transaction::TYPE_CAPTURE,
             $this->getAuthorizationTransaction()
         );
 
@@ -746,7 +747,8 @@ class Mage_Sales_Model_Order_Payment extends Mage_Payment_Model_Info
     public function registerRefundNotification($amount)
     {
         $notificationAmount = $amount;
-        $this->_generateTransactionId(Mage_Sales_Model_Order_Payment_Transaction::TYPE_REFUND,
+        $this->_generateTransactionId(
+            Mage_Sales_Model_Order_Payment_Transaction::TYPE_REFUND,
             $this->_lookupTransaction($this->getParentTransactionId())
         );
         if ($this->_isTransactionExists()) {
@@ -771,8 +773,11 @@ class Mage_Sales_Model_Order_Payment extends Mage_Payment_Model_Info
             $transaction = new Varien_Object(array('txn_id' => $this->getTransactionId()));
             Mage::dispatchEvent('sales_html_txn_id', array('transaction' => $transaction, 'payment' => $this));
             $transactionId = $transaction->getHtmlTxnId() ? $transaction->getHtmlTxnId() : $transaction->getTxnId();
-            $order->addStatusHistoryComment(Mage::helper('sales')->__('IPN "Refunded". Refund issued by merchant. Registered notification about refunded amount of %s. Transaction ID: "%s". Credit Memo has not been created. Please create offline Credit Memo.',
-                $this->_formatPrice($notificationAmount), $transactionId), false);
+            $order->addStatusHistoryComment(Mage::helper('sales')->__(
+                'IPN "Refunded". Refund issued by merchant. Registered notification about refunded amount of %s. Transaction ID: "%s". Credit Memo has not been created. Please create offline Credit Memo.',
+                $this->_formatPrice($notificationAmount),
+                $transactionId
+            ), false);
             return $this;
         }
 
@@ -837,7 +842,8 @@ class Mage_Sales_Model_Order_Payment extends Mage_Payment_Model_Info
             'shipping_refunded' => -1 * $creditmemo->getShippingAmount(),
             'base_shipping_refunded' => -1 * $creditmemo->getBaseShippingAmount()
         ));
-        Mage::dispatchEvent('sales_order_payment_cancel_creditmemo',
+        Mage::dispatchEvent(
+            'sales_order_payment_cancel_creditmemo',
             array('payment' => $this, 'creditmemo' => $creditmemo)
         );
         return $this;
@@ -857,8 +863,7 @@ class Mage_Sales_Model_Order_Payment extends Mage_Payment_Model_Info
 
         if (!$this->hasMessage()) {
             $this->setMessage($isOnline ? Mage::helper('sales')->__('Canceled order online.')
-                : Mage::helper('sales')->__('Canceled order offline.')
-            );
+                : Mage::helper('sales')->__('Canceled order offline.'));
         }
 
         if ($isOnline) {
@@ -929,7 +934,8 @@ class Mage_Sales_Model_Order_Payment extends Mage_Payment_Model_Info
         $invoice = $this->_getInvoiceForTransactionId($transactionId);
 
         // invoke the payment method to determine what to do with the transaction
-        $result = null; $message = null;
+        $result = null;
+        $message = null;
         switch ($action) {
             case self::REVIEW_ACTION_ACCEPT:
                 if ($isOnline) {
@@ -1620,7 +1626,7 @@ class Mage_Sales_Model_Order_Payment extends Mage_Payment_Model_Info
      */
     public function getTransactionAdditionalInfo($key = null)
     {
-        if (is_null($key)) {
+        if ($key === null) {
             return $this->_transactionAdditionalInfo;
         }
         return isset($this->_transactionAdditionalInfo[$key]) ? $this->_transactionAdditionalInfo[$key] : null;

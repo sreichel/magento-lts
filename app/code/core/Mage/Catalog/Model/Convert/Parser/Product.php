@@ -25,8 +25,7 @@
  */
 
 
-class Mage_Catalog_Model_Convert_Parser_Product
-    extends Mage_Eav_Model_Convert_Parser_Abstract
+class Mage_Catalog_Model_Convert_Parser_Product extends Mage_Eav_Model_Convert_Parser_Abstract
 {
     const MULTI_DELIMITER = ' , ';
     protected $_resource;
@@ -72,7 +71,7 @@ class Mage_Catalog_Model_Convert_Parser_Product
 
     public function __construct()
     {
-        foreach (Mage::getConfig()->getFieldset('catalog_product_dataflow', 'admin') as $code=>$node) {
+        foreach (Mage::getConfig()->getFieldset('catalog_product_dataflow', 'admin') as $code => $node) {
             if ($node->is('inventory')) {
                 $this->_inventoryFields[] = $code;
                 if ($node->is('use_config')) {
@@ -125,7 +124,7 @@ class Mage_Catalog_Model_Convert_Parser_Product
      */
     public function getProductTypes()
     {
-        if (is_null($this->_productTypes)) {
+        if ($this->_productTypes === null) {
             $this->_productTypes = Mage::getSingleton('catalog/product_type')
                 ->getOptionArray();
         }
@@ -169,7 +168,7 @@ class Mage_Catalog_Model_Convert_Parser_Product
      */
     public function getProductModel()
     {
-        if (is_null($this->_productModel)) {
+        if ($this->_productModel === null) {
             $productModel = Mage::getModel('catalog/product');
             $this->_productModel = Mage::objects()->save($productModel);
         }
@@ -183,7 +182,7 @@ class Mage_Catalog_Model_Convert_Parser_Product
      */
     public function getStore()
     {
-        if (is_null($this->_store)) {
+        if ($this->_store === null) {
             try {
                 $store = Mage::app()->getStore($this->getVar('store'));
             } catch (Exception $e) {
@@ -205,7 +204,7 @@ class Mage_Catalog_Model_Convert_Parser_Product
      */
     public function getStoreId()
     {
-        if (is_null($this->_storeId)) {
+        if ($this->_storeId === null) {
             $this->_storeId = $this->getStore()->getId();
         }
         return $this->_storeId;
@@ -264,7 +263,7 @@ class Mage_Catalog_Model_Convert_Parser_Product
         $entityTypeId    = Mage::getSingleton('eav/config')->getEntityType(Mage_Catalog_Model_Product::ENTITY)->getId();
         $inventoryFields = array();
 
-        foreach ($data as $i=>$row) {
+        foreach ($data as $i => $row) {
             $this->setPosition('Line: '.($i+1));
             try {
                 // validate SKU
@@ -330,7 +329,7 @@ class Mage_Catalog_Model_Convert_Parser_Product
                     if (!empty($row['entity_id'])) {
                         $model->load($row['entity_id']);
                     }
-                    foreach ($row as $field=>$value) {
+                    foreach ($row as $field => $value) {
                         $attribute = $entity->getAttribute($field);
 
                         if (!$attribute) {
@@ -348,7 +347,7 @@ class Mage_Catalog_Model_Convert_Parser_Product
                         if ($attribute->usesSource()) {
                             $source = $attribute->getSource();
                             $optionId = $this->getSourceOptionId($source, $value);
-                            if (is_null($optionId)) {
+                            if ($optionId === null) {
                                 $rowError = true;
                                 $this->addException(
                                     Mage::helper('catalog')->__('Invalid attribute option specified for attribute %s (%s), skipping the record.', $field, $value),
@@ -359,7 +358,6 @@ class Mage_Catalog_Model_Convert_Parser_Product
                             $value = $optionId;
                         }
                         $model->setData($field, $value);
-
                     }//foreach ($row as $field=>$value)
 
                     //echo 'Before **********************<br/><pre>';
@@ -421,8 +419,10 @@ class Mage_Catalog_Model_Convert_Parser_Product
             $row = array(
                 'store'         => $this->getStore()->getCode(),
                 'websites'      => '',
-                'attribute_set' => $this->getAttributeSetName($product->getEntityTypeId(),
-                                        $product->getAttributeSetId()),
+                'attribute_set' => $this->getAttributeSetName(
+                    $product->getEntityTypeId(),
+                    $product->getAttributeSetId()
+                ),
                 'type'          => $product->getTypeId(),
                 'category_ids'  => join(',', $product->getCategoryIds())
             );

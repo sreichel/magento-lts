@@ -50,7 +50,7 @@ class Mage_XmlConnect_Model_Simplexml_Element extends Varien_Simplexml_Element
         $child->setParent($this);
 
         $attributes = $source->attributes();
-        foreach ($attributes as $key=>$value) {
+        foreach ($attributes as $key => $value) {
             $child->addAttribute($key, $this->xmlAttribute($value));
         }
 
@@ -79,7 +79,7 @@ class Mage_XmlConnect_Model_Simplexml_Element extends Varien_Simplexml_Element
                 $result[] = $this->xmlentities($item);
             }
         } else {
-            if (is_null($data)) {
+            if ($data === null) {
                 $data = $this;
             }
             $data = (string)$data;
@@ -101,7 +101,7 @@ class Mage_XmlConnect_Model_Simplexml_Element extends Varien_Simplexml_Element
      */
     public function xmlAttribute($value = null, $stripTags = true)
     {
-        if (is_null($value)) {
+        if ($value === null) {
             $value = $this;
         }
         $value = (string)$value;

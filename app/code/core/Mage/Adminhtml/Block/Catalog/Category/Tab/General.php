@@ -114,9 +114,9 @@ class Mage_Adminhtml_Block_Catalog_Category_Tab_General extends Mage_Adminhtml_B
         );
     }
 
-    protected function _getParentCategoryOptions($node=null, &$options=array())
+    protected function _getParentCategoryOptions($node = null, &$options = array())
     {
-        if (is_null($node)) {
+        if ($node === null) {
             $node = $this->getRoot();
         }
 
@@ -132,6 +132,4 @@ class Mage_Adminhtml_Block_Catalog_Category_Tab_General extends Mage_Adminhtml_B
         }
         return $options;
     }
-
 }
-

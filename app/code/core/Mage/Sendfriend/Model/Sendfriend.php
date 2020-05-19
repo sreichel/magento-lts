@@ -108,12 +108,13 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
      * @return array
      */
     public function toOptionArray()
-    {        return array();
+    {
+        return array();
     }
 
     public function send()
     {
-        if ($this->isExceedLimit()){
+        if ($this->isExceedLimit()) {
             Mage::throwException(Mage::helper('sendfriend')->__('You have exceeded limit of %d sends in an hour', $this->getMaxSendsToFriend()));
         }
 
@@ -150,8 +151,10 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
                     'message'       => $message,
                     'sender_name'   => $sender['name'],
                     'sender_email'  => $sender['email'],
-                    'product_image' => Mage::helper('catalog/image')->init($this->getProduct(),
-                        'small_image')->resize(75),
+                    'product_image' => Mage::helper('catalog/image')->init(
+                        $this->getProduct(),
+                        'small_image'
+                    )->resize(75),
                 )
             );
         }
@@ -177,7 +180,7 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
         }
 
         $email = $this->getSender()->getEmail();
-        if (empty($email) OR !Zend_Validate::is($email, 'EmailAddress')) {
+        if (empty($email) or !Zend_Validate::is($email, 'EmailAddress')) {
             $errors[] = Mage::helper('sendfriend')->__('Invalid sender email.');
         }
 
@@ -289,9 +292,9 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
     public function setRecipients($recipients)
     {
         // validate array
-        if (!is_array($recipients) OR !isset($recipients['email'])
-            OR !isset($recipients['name']) OR !is_array($recipients['email'])
-            OR !is_array($recipients['name'])) {
+        if (!is_array($recipients) or !isset($recipients['email'])
+            or !isset($recipients['name']) or !is_array($recipients['email'])
+            or !is_array($recipients['name'])) {
             return $this;
         }
 
@@ -399,10 +402,10 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
      */
     public function getSendCount($ip = null, $startTime = null)
     {
-        if (is_null($ip)) {
+        if ($ip === null) {
             $ip = $this->getRemoteAddr();
         }
-        if (is_null($startTime)) {
+        if ($startTime === null) {
             $startTime = time() - $this->_getHelper()->getPeriod();
         }
 
@@ -467,7 +470,7 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
      */
     public function getSentCount($useCache = true)
     {
-        if ($useCache && !is_null($this->_sentCount)) {
+        if ($useCache && $this->_sentCount !== null) {
             return $this->_sentCount;
         }
 

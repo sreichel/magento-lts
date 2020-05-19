@@ -493,7 +493,7 @@ class Mage_Core_Model_App
         $this->_initStores();
         Varien_Profiler::stop('mage::app::init::stores');
 
-        if (empty($scopeCode) && !is_null($this->_website)) {
+        if (empty($scopeCode) && $this->_website !== null) {
             $scopeCode = $this->_website->getCode();
             $scopeType = 'website';
         }
@@ -516,7 +516,8 @@ class Mage_Core_Model_App
             $this->_checkGetStore($scopeType);
         }
         $this->_useSessionInUrl = $this->getStore()->getConfig(
-            Mage_Core_Model_Session_Abstract::XML_PATH_USE_FRONTEND_SID);
+            Mage_Core_Model_Session_Abstract::XML_PATH_USE_FRONTEND_SID
+        );
         return $this;
     }
 
@@ -566,11 +567,9 @@ class Mage_Core_Model_App
         $curStoreObj = $this->_stores[$this->_currentStore];
         if ($type == 'website' && $storeObj->getWebsiteId() == $curStoreObj->getWebsiteId()) {
             $this->_currentStore = $store;
-        }
-        elseif ($type == 'group' && $storeObj->getGroupId() == $curStoreObj->getGroupId()) {
+        } elseif ($type == 'group' && $storeObj->getGroupId() == $curStoreObj->getGroupId()) {
             $this->_currentStore = $store;
-        }
-        elseif ($type == 'store') {
+        } elseif ($type == 'store') {
             $this->_currentStore = $store;
         }
 
@@ -668,7 +667,7 @@ class Mage_Core_Model_App
             $websiteStores[$store->getWebsiteId()][$store->getId()] = $store;
             $groupStores[$store->getGroupId()][$store->getId()] = $store;
 
-            if (is_null($this->_store) && $store->getId()) {
+            if ($this->_store === null && $store->getId()) {
                 $this->_store = $store;
             }
         }
@@ -893,13 +892,11 @@ class Mage_Core_Model_App
     {
         try {
             return $this->getStore($id);
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             if ($this->_currentStore) {
                 $this->getRequest()->setActionName('noRoute');
                 return new Varien_Object();
-            }
-            else {
+            } else {
                 Mage::throwException(Mage::helper('core')->__('Requested invalid store "%s"', $id));
             }
         }
@@ -921,8 +918,7 @@ class Mage_Core_Model_App
             }
             if ($codeKey) {
                 $stores[$store->getCode()] = $store;
-            }
-            else {
+            } else {
                 $stores[$store->getId()] = $store;
             }
         }
@@ -969,9 +965,9 @@ class Mage_Core_Model_App
      * @param null|Mage_Core_Model_Website|true|int|string $id
      * @return Mage_Core_Model_Website
      */
-    public function getWebsite($id=null)
+    public function getWebsite($id = null)
     {
-        if (is_null($id)) {
+        if ($id === null) {
             $id = $this->getStore()->getWebsiteId();
         } elseif ($id instanceof Mage_Core_Model_Website) {
             return $id;
@@ -1009,8 +1005,7 @@ class Mage_Core_Model_App
                 }
                 if ($codeKey) {
                     $websites[$website->getCode()] = $website;
-                }
-                else {
+                } else {
                     $websites[$website->getId()] = $website;
                 }
             }
@@ -1025,9 +1020,9 @@ class Mage_Core_Model_App
      * @param null|Mage_Core_Model_Store_Group|int|string $id
      * @return Mage_Core_Model_Store_Group
      */
-    public function getGroup($id=null)
+    public function getGroup($id = null)
     {
-        if (is_null($id)) {
+        if ($id === null) {
             $id = $this->getStore()->getGroup()->getId();
         } elseif ($id instanceof Mage_Core_Model_Store_Group) {
             return $id;
@@ -1181,7 +1176,7 @@ class Mage_Core_Model_App
      * @param null|false|int $lifeTime
      * @return  Mage_Core_Model_App
      */
-    public function saveCache($data, $id, $tags=array(), $lifeTime=false)
+    public function saveCache($data, $id, $tags = array(), $lifeTime = false)
     {
         $this->_cache->save($data, $id, $tags, $lifeTime);
         return $this;
@@ -1216,7 +1211,7 @@ class Mage_Core_Model_App
      * @param   array $tags
      * @return  Mage_Core_Model_App
      */
-    public function cleanCache($tags=array())
+    public function cleanCache($tags = array())
     {
         $this->_cache->clean($tags);
         Mage::dispatchEvent('application_clean_cache', array('tags' => $tags));
@@ -1229,7 +1224,7 @@ class Mage_Core_Model_App
      * @param null|string $type
      * @return bool|array
      */
-    public function useCache($type=null)
+    public function useCache($type = null)
     {
         return $this->_cache->canUse($type);
     }
@@ -1322,7 +1317,7 @@ class Mage_Core_Model_App
     public function dispatchEvent($eventName, $args)
     {
         $eventName = strtolower($eventName);
-        foreach ($this->_events as $area=>$events) {
+        foreach ($this->_events as $area => $events) {
             if (!isset($events[$eventName])) {
                 $eventConfig = $this->getConfig()->getEventConfig($area, $eventName);
                 if (!$eventConfig) {
@@ -1330,7 +1325,7 @@ class Mage_Core_Model_App
                     continue;
                 }
                 $observers = array();
-                foreach ($eventConfig->observers->children() as $obsName=>$obsConfig) {
+                foreach ($eventConfig->observers->children() as $obsName => $obsConfig) {
                     $observers[$obsName] = array(
                         'type'  => (string)$obsConfig->type,
                         'model' => $obsConfig->class ? (string)$obsConfig->class : $obsConfig->getClassName(),
@@ -1349,7 +1344,7 @@ class Mage_Core_Model_App
                 $observer = new Varien_Event_Observer();
             }
 
-            foreach ($events[$eventName]['observers'] as $obsName=>$obs) {
+            foreach ($events[$eventName]['observers'] as $obsName => $obs) {
                 $observer->setData(array('event'=>$event));
                 Varien_Profiler::start('OBSERVER: '.$obsName);
                 switch ($obs['type']) {
@@ -1500,8 +1495,7 @@ class Mage_Core_Model_App
                 }
                 if ($codeKey) {
                     $groups[$group->getCode()] = $group;
-                }
-                else {
+                } else {
                     $groups[$group->getId()] = $group;
                 }
             }
@@ -1529,9 +1523,9 @@ class Mage_Core_Model_App
      * @param   array $tags
      * @return  array
      */
-    protected function _getCacheTags($tags=array())
+    protected function _getCacheTags($tags = array())
     {
-        foreach ($tags as $index=>$value) {
+        foreach ($tags as $index => $value) {
             $tags[$index] = $this->_getCacheId($value);
         }
         return $tags;
@@ -1555,7 +1549,7 @@ class Mage_Core_Model_App
      * @param   string $id
      * @return  string
      */
-    protected function _getCacheId($id=null)
+    protected function _getCacheId($id = null)
     {
         if ($id) {
             $id = $this->prepareCacheId($id);
@@ -1595,7 +1589,7 @@ class Mage_Core_Model_App
      */
     public function clearWebsiteCache($id = null)
     {
-        if (is_null($id)) {
+        if ($id === null) {
             $id = $this->getStore()->getWebsiteId();
         } elseif ($id instanceof Mage_Core_Model_Website) {
             $id = $id->getId();

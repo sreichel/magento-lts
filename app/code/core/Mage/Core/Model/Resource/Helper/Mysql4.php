@@ -292,11 +292,11 @@ class Mage_Core_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_He
                         throw new Zend_Db_Exception("Can't prepare expression when tableName is instance of Zend_Db_Expr");
                     }
                     $tableColumns = $this->_getReadAdapter()->describeTable($tables[$correlationName]['tableName']);
-                    foreach(array_keys($tableColumns) as $col) {
+                    foreach (array_keys($tableColumns) as $col) {
                         $preparedColumns[strtoupper($col)] = array($correlationName, $col, null);
                     }
                 } else {
-                    $columnKey = is_null($alias) ? $column : $alias;
+                    $columnKey = $alias === null ? $column : $alias;
                     $preparedColumns[strtoupper($columnKey)] = array($correlationName, $column, $alias);
                 }
             }
@@ -331,7 +331,7 @@ class Mage_Core_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_He
         }
         $separator = '';
         if ($groupConcatDelimiter) {
-            $separator = sprintf(" SEPARATOR '%s'",  $groupConcatDelimiter);
+            $separator = sprintf(" SEPARATOR '%s'", $groupConcatDelimiter);
         }
 
         $select->columns(array($fieldAlias => new Zend_Db_Expr(sprintf('GROUP_CONCAT(%s%s)', $fieldExpr, $separator))));

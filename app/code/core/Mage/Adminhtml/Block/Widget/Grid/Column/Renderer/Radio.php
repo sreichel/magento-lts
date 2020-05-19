@@ -31,8 +31,7 @@
  * @package    Mage_Adminhtml
  * @author     Magento Core Team <core@magentocommerce.com>
  */
-class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Radio
-    extends Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Abstract
+class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Radio extends Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Abstract
 {
     protected $_defaultWidth = 55;
     protected $_values;
@@ -44,7 +43,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Radio
      */
     public function getValues()
     {
-        if (is_null($this->_values)) {
+        if ($this->_values === null) {
             $this->_values = $this->getColumn()->getData('values') ? $this->getColumn()->getData('values') : array();
         }
         return $this->_values;

@@ -55,8 +55,8 @@ class Mage_Rss_IndexController extends Mage_Rss_Controller_Abstract
             $this->loadLayout();
             $this->renderLayout();
         } else {
-            $this->getResponse()->setHeader('HTTP/1.1','404 Not Found');
-            $this->getResponse()->setHeader('Status','404 File not found');
+            $this->getResponse()->setHeader('HTTP/1.1', '404 Not Found');
+            $this->getResponse()->setHeader('Status', '404 File not found');
             $this->_forward('defaultNoRoute');
         }
     }
@@ -66,8 +66,8 @@ class Mage_Rss_IndexController extends Mage_Rss_Controller_Abstract
      */
     public function nofeedAction()
     {
-        $this->getResponse()->setHeader('HTTP/1.1','404 Not Found');
-        $this->getResponse()->setHeader('Status','404 File not found');
+        $this->getResponse()->setHeader('HTTP/1.1', '404 Not Found');
+        $this->getResponse()->setHeader('Status', '404 File not found');
         $this->loadLayout(false);
         $this->renderLayout();
     }
@@ -81,13 +81,13 @@ class Mage_Rss_IndexController extends Mage_Rss_Controller_Abstract
     public function wishlistAction()
     {
         if (!$this->isFeedEnable('wishlist/active')) {
-            $this->_forward('nofeed','index','rss');
+            $this->_forward('nofeed', 'index', 'rss');
             return;
         }
 
         $wishlist = $this->_getWishlist();
         if (!$wishlist) {
-            $this->_forward('nofeed','index','rss');
+            $this->_forward('nofeed', 'index', 'rss');
             return;
         }
 
@@ -99,7 +99,7 @@ class Mage_Rss_IndexController extends Mage_Rss_Controller_Abstract
         ) {
             $this->_showWishlistRss();
         } else {
-            $this->_forward('nofeed','index','rss');
+            $this->_forward('nofeed', 'index', 'rss');
         }
     }
 
@@ -120,7 +120,7 @@ class Mage_Rss_IndexController extends Mage_Rss_Controller_Abstract
      */
     protected function _getWishlist()
     {
-        if (is_null($this->_wishlist)) {
+        if ($this->_wishlist === null) {
             $this->_wishlist = Mage::getModel('wishlist/wishlist');
             $wishlistId = $this->getRequest()->getParam('wishlist_id');
             if ($wishlistId) {
@@ -141,13 +141,13 @@ class Mage_Rss_IndexController extends Mage_Rss_Controller_Abstract
      */
     protected function _getCustomer()
     {
-        if (is_null($this->_customer)) {
+        if ($this->_customer === null) {
             $this->_customer = Mage::getModel('customer/customer');
 
             $params = $this->_getHelper('core')->urlDecode($this->getRequest()->getParam('data'));
             $data   = explode(',', $params);
             $customerId    = abs(intval($data[0]));
-            if ($customerId && ($customerId == Mage::getSingleton('customer/session')->getCustomerId()) ) {
+            if ($customerId && ($customerId == Mage::getSingleton('customer/session')->getCustomerId())) {
                 $this->_customer->load($customerId);
             }
         }

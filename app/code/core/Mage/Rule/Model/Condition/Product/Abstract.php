@@ -160,8 +160,7 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
         try {
             $obj = Mage::getSingleton('eav/config')
                 ->getAttribute(Mage_Catalog_Model_Product::ENTITY, $this->getAttribute());
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             $obj = new Varien_Object();
             $obj->setEntity(Mage::getResourceSingleton('catalog/product'))
                 ->setFrontendInput('text');
@@ -275,10 +274,10 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
      * @param mixed $option
      * @return string
      */
-    public function getValueOption($option=null)
+    public function getValueOption($option = null)
     {
         $this->_prepareValueOptions();
-        return $this->getData('value_option'.(!is_null($option) ? '/'.$option : ''));
+        return $this->getData('value_option'.($option !== null ? '/'.$option : ''));
     }
 
     /**
@@ -302,7 +301,8 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
         $html = '';
 
         switch ($this->getAttribute()) {
-            case 'sku': case 'category_ids':
+            case 'sku':
+            case 'category_ids':
                 $image = Mage::getDesign()->getSkinUrl('images/rule_chooser_trigger.gif');
                 break;
         }
@@ -443,9 +443,10 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
     {
         $url = false;
         switch ($this->getAttribute()) {
-            case 'sku': case 'category_ids':
+            case 'sku':
+            case 'category_ids':
                 $url = 'adminhtml/promo_widget/chooser'
-                    .'/attribute/'.$this->getAttribute();
+                .'/attribute/'.$this->getAttribute();
                 if ($this->getJsFormObject()) {
                     $url .= '/form/'.$this->getJsFormObject();
                 }
@@ -462,7 +463,8 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
     public function getExplicitApply()
     {
         switch ($this->getAttribute()) {
-            case 'sku': case 'category_ids':
+            case 'sku':
+            case 'category_ids':
                 return true;
         }
         if (is_object($this->getAttributeObject())) {
@@ -491,7 +493,6 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
                 if (!empty($arr['operator'])
                     && in_array($arr['operator'], array('!()', '()'))
                     && false !== strpos($arr['value'], ',')) {
-
                     $tmp = array();
                     foreach (explode(',', $arr['value']) as $value) {
                         $tmp[] = Mage::app()->getLocale()->getNumber($value);
@@ -565,7 +566,7 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
                 }
             }
 
-            if (is_null($oldAttrValue)) {
+            if ($oldAttrValue === null) {
                 $object->unsetData($attrCode);
             } else {
                 $object->setData($attrCode, $oldAttrValue);

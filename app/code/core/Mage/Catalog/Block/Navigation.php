@@ -170,7 +170,7 @@ class Mage_Catalog_Block_Navigation extends Mage_Core_Block_Template
      */
     protected function _getCategoryInstance()
     {
-        if (is_null($this->_categoryInstance)) {
+        if ($this->_categoryInstance === null) {
             $this->_categoryInstance = Mage::getModel('catalog/category');
         }
         return $this->_categoryInstance;
@@ -214,7 +214,7 @@ class Mage_Catalog_Block_Navigation extends Mage_Core_Block_Template
         }
 
         $position = array();
-        for($i = 0; $i <= $level; $i++) {
+        for ($i = 0; $i <= $level; $i++) {
             if (isset($this->_itemLevelPositions[$i])) {
                 $position[] = $this->_itemLevelPositions[$i];
             }
@@ -235,9 +235,16 @@ class Mage_Catalog_Block_Navigation extends Mage_Core_Block_Template
      * @param boolean Whether ot not to add on* attributes to list item
      * @return string
      */
-    protected function _renderCategoryMenuItemHtml($category, $level = 0, $isLast = false, $isFirst = false,
-        $isOutermost = false, $outermostItemClass = '', $childrenWrapClass = '', $noEventAttributes = false)
-    {
+    protected function _renderCategoryMenuItemHtml(
+        $category,
+        $level = 0,
+        $isLast = false,
+        $isFirst = false,
+        $isOutermost = false,
+        $outermostItemClass = '',
+        $childrenWrapClass = '',
+        $noEventAttributes = false
+    ) {
         if (!$category->getIsActive()) {
             return '';
         }
@@ -389,7 +396,8 @@ class Mage_Catalog_Block_Navigation extends Mage_Core_Block_Template
      * @param Mage_Catalog_Model_Category $category
      * @return string
      */
-    public function drawOpenCategoryItem($category) {
+    public function drawOpenCategoryItem($category)
+    {
         $html = '';
         if (!$category->getIsActive()) {
             return $html;

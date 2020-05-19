@@ -46,49 +46,49 @@ class Mage_GiftMessage_Block_Message_Form extends Mage_Core_Block_Template
     public function getSaveUrl()
     {
         return $this->helper('giftmessage/url')->getSaveUrl(
-                            $this->getRequest()->getParam('item'),
-                            $this->getRequest()->getParam('type'),
-                            $this->getRequest()->getParam('message'),
-                            array('uniqueId'=>$this->getRequest()->getParam('uniqueId'))
+            $this->getRequest()->getParam('item'),
+            $this->getRequest()->getParam('type'),
+            $this->getRequest()->getParam('message'),
+            array('uniqueId'=>$this->getRequest()->getParam('uniqueId'))
         );
     }
 
     public function getEditUrl()
     {
         return $this->helper('giftmessage/url')->getEditUrl(
-                            $this->getRequest()->getParam('entity'),
-                            $this->getRequest()->getParam('type')
+            $this->getRequest()->getParam('entity'),
+            $this->getRequest()->getParam('type')
         );
     }
 
     public function getButtonUrl()
     {
         return $this->helper('giftmessage/url')->getButtonUrl(
-                            $this->getRequest()->getParam('item'),
-                            $this->getRequest()->getParam('type')
+            $this->getRequest()->getParam('item'),
+            $this->getRequest()->getParam('type')
         );
     }
 
     public function getRemoveUrl()
     {
         return $this->helper('giftmessage/url')->getRemoveUrl(
-                            $this->getRequest()->getParam('item'),
-                            $this->getRequest()->getParam('type'),
-                            array('uniqueId'=>$this->getRequest()->getParam('uniqueId'))
+            $this->getRequest()->getParam('item'),
+            $this->getRequest()->getParam('type'),
+            array('uniqueId'=>$this->getRequest()->getParam('uniqueId'))
         );
     }
 
     protected function _initMessage()
     {
         $this->_giftMessage = $this->helper('giftmessage/message')->getGiftMessage(
-                                            $this->getRequest()->getParam('message')
-                              );
+            $this->getRequest()->getParam('message')
+        );
         return $this;
     }
 
     public function getMessage()
     {
-        if(is_null($this->_giftMessage)) {
+        if ($this->_giftMessage === null) {
             $this->_initMessage();
         }
 
@@ -109,6 +109,4 @@ class Mage_GiftMessage_Block_Message_Form extends Mage_Core_Block_Template
     {
         return $this->getRequest()->getParam('uniqueId');
     }
-
-
 }

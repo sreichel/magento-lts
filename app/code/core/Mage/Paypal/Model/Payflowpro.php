@@ -32,7 +32,7 @@
  * @author      Magento Core Team <core@magentocommerce.com>
  */
 
-class Mage_Paypal_Model_Payflowpro extends  Mage_Payment_Model_Method_Cc
+class Mage_Paypal_Model_Payflowpro extends Mage_Payment_Model_Method_Cc
 {
     /**
      * Transaction action codes
@@ -161,7 +161,7 @@ class Mage_Paypal_Model_Payflowpro extends  Mage_Payment_Model_Method_Cc
         $response = $this->_postRequest($request);
         $this->_processErrors($response);
 
-        switch ($response->getResultCode()){
+        switch ($response->getResultCode()) {
             case self::RESPONSE_CODE_APPROVED:
                 $payment->setTransactionId($response->getPnref())->setIsTransactionClosed(0);
                 break;
@@ -217,7 +217,7 @@ class Mage_Paypal_Model_Payflowpro extends  Mage_Payment_Model_Method_Cc
         $response = $this->_postRequest($request);
         $this->_processErrors($response);
 
-        switch ($response->getResultCode()){
+        switch ($response->getResultCode()) {
             case self::RESPONSE_CODE_APPROVED:
                 $payment->setTransactionId($response->getPnref())->setIsTransactionClosed(0);
                 break;
@@ -244,7 +244,7 @@ class Mage_Paypal_Model_Payflowpro extends  Mage_Payment_Model_Method_Cc
         $response = $this->_postRequest($request);
         $this->_processErrors($response);
 
-        if ($response->getResultCode() == self::RESPONSE_CODE_APPROVED){
+        if ($response->getResultCode() == self::RESPONSE_CODE_APPROVED) {
             $payment->setTransactionId($response->getPnref())
                 ->setIsTransactionClosed(1)
                 ->setShouldCloseParentTransaction(1);
@@ -299,11 +299,11 @@ class Mage_Paypal_Model_Payflowpro extends  Mage_Payment_Model_Method_Cc
         $request = $this->_buildBasicRequest($payment);
         $request->setTrxtype(self::TRXTYPE_CREDIT);
         $request->setOrigid($payment->getParentTransactionId());
-        $request->setAmt(round($amount,2));
+        $request->setAmt(round($amount, 2));
         $response = $this->_postRequest($request);
         $this->_processErrors($response);
 
-        if ($response->getResultCode() == self::RESPONSE_CODE_APPROVED){
+        if ($response->getResultCode() == self::RESPONSE_CODE_APPROVED) {
             $payment->setTransactionId($response->getPnref())
                 ->setIsTransactionClosed(1);
             $payment->setShouldCloseParentTransaction(!$payment->getCreditmemo()->getInvoice()->canRefund());
@@ -363,7 +363,7 @@ class Mage_Paypal_Model_Payflowpro extends  Mage_Payment_Model_Method_Cc
      */
     protected function _getTransactionUrl($testMode = null)
     {
-        $testMode = is_null($testMode) ? $this->getConfigData('sandbox_flag') : (bool)$testMode;
+        $testMode = $testMode === null ? $this->getConfigData('sandbox_flag') : (bool)$testMode;
         if ($testMode) {
             return self::TRANSACTION_URL_TEST_MODE;
         }
@@ -413,8 +413,7 @@ class Mage_Paypal_Model_Payflowpro extends  Mage_Payment_Model_Method_Cc
             * so we set up _urlEncodeBody flag to false
             */
             $response = $client->setUrlEncodeBody(false)->request();
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             $result->setResponseCode(-1)
                 ->setResponseReasonCode($e->getCode())
                 ->setResponseReasonText($e->getMessage());
@@ -429,7 +428,7 @@ class Mage_Paypal_Model_Payflowpro extends  Mage_Payment_Model_Method_Cc
         $response = strstr($response->getBody(), 'RESULT');
         $valArray = explode('&', $response);
 
-        foreach($valArray as $val) {
+        foreach ($valArray as $val) {
                 $valArray2 = explode('=', $val);
                 $result->setData(strtolower($valArray2[0]), $valArray2[1]);
         }
@@ -453,12 +452,12 @@ class Mage_Paypal_Model_Payflowpro extends  Mage_Payment_Model_Method_Cc
     protected function _buildPlaceRequest(Varien_Object $payment, $amount)
     {
         $request = $this->_buildBasicRequest($payment);
-        $request->setAmt(round($amount,2));
+        $request->setAmt(round($amount, 2));
         $request->setAcct($payment->getCcNumber());
-        $request->setExpdate(sprintf('%02d',$payment->getCcExpMonth()) . substr($payment->getCcExpYear(),-2,2));
+        $request->setExpdate(sprintf('%02d', $payment->getCcExpMonth()) . substr($payment->getCcExpYear(), -2, 2));
         $request->setCvv2($payment->getCcCid());
 
-        if ($this->getIsCentinelValidationEnabled()){
+        if ($this->getIsCentinelValidationEnabled()) {
             $params = array();
             $params = $this->getCentinelValidator()->exportCmpiData($params);
             $request = Varien_Object_Mapper::accumulateByMap($params, $request, $this->_centinelFieldMap);

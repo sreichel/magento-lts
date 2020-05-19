@@ -194,7 +194,8 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
      *
      * @return  Mage_Adminhtml_Model_Sales_Order_Create
      */
-    public function recollectCart(){
+    public function recollectCart()
+    {
         if ($this->_needCollectCart === true) {
             $this->getCustomerCart()
                 ->collectTotals()
@@ -286,8 +287,10 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
         $session->setStoreId($order->getStoreId());
 
         //Notify other modules about the session quote
-        Mage::dispatchEvent('init_from_order_session_quote_initialized',
-                array('session_quote' => $session));
+        Mage::dispatchEvent(
+            'init_from_order_session_quote_initialized',
+            array('session_quote' => $session)
+        );
 
         /**
          * Initialize catalog rule data with new session values
@@ -296,7 +299,7 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
         foreach ($order->getItemsCollection(
             array_keys(Mage::getConfig()->getNode('adminhtml/sales/order/create/available_product_types')->asArray()),
             true
-            ) as $orderItem) {
+        ) as $orderItem) {
             /* @var $orderItem Mage_Sales_Model_Order_Item */
             if (!$orderItem->getParentItem()) {
                 if ($order->getReordered()) {
@@ -465,13 +468,14 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
      */
     public function getCustomerWishlist($cacheReload = false)
     {
-        if (!is_null($this->_wishlist) && !$cacheReload) {
+        if ($this->_wishlist !== null && !$cacheReload) {
             return $this->_wishlist;
         }
 
         if ($this->getSession()->getCustomer()->getId()) {
             $this->_wishlist = Mage::getModel('wishlist/wishlist')->loadByCustomer(
-                $this->getSession()->getCustomer(), true
+                $this->getSession()->getCustomer(),
+                true
             );
             $this->_wishlist->setStore($this->getSession()->getStore())
                 ->setSharedStoreIds($this->getSession()->getStore()->getWebsite()->getStoreIds());
@@ -489,7 +493,7 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
      */
     public function getCustomerCart()
     {
-        if (!is_null($this->_cart)) {
+        if ($this->_cart !== null) {
             return $this->_cart;
         }
 
@@ -514,7 +518,7 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
      */
     public function getCustomerCompareList()
     {
-        if (!is_null($this->_compareList)) {
+        if ($this->_compareList !== null) {
             return $this->_compareList;
         }
 
@@ -571,7 +575,7 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
                     break;
                 case 'cart':
                     $cart = $this->getCustomerCart();
-                    if ($cart && is_null($item->getOptionByCode('additional_options'))) {
+                    if ($cart && $item->getOptionByCode('additional_options') === null) {
                         //options and info buy request
                         $product = Mage::getModel('catalog/product')
                             ->setStoreId($this->getQuote()->getStoreId())
@@ -820,11 +824,9 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
             $config['qty'] = isset($config['qty']) ? (float)$config['qty'] : 1;
             try {
                 $this->addProduct($productId, $config);
-            }
-            catch (Mage_Core_Exception $e){
+            } catch (Mage_Core_Exception $e) {
                 $this->getSession()->addError($e->getMessage());
-            }
-            catch (Exception $e){
+            } catch (Exception $e) {
                 return $e;
             }
         }
@@ -1055,7 +1057,7 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
      */
     protected function _getCustomerForm()
     {
-        if (is_null($this->_customerForm)) {
+        if ($this->_customerForm === null) {
             $this->_customerForm = Mage::getModel('customer/form')
                 ->setFormCode('adminhtml_checkout')
                 ->ignoreInvisible(false);
@@ -1070,7 +1072,7 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
      */
     protected function _getCustomerAddressForm()
     {
-        if (is_null($this->_customerAddressForm)) {
+        if ($this->_customerAddressForm === null) {
             $this->_customerAddressForm = Mage::getModel('customer/form')
                 ->setFormCode('adminhtml_customer_address')
                 ->ignoreInvisible(false);
@@ -1431,11 +1433,11 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
                 }
             }
 
-            if (is_null($customer->getDefaultBilling()) && $customerBillingAddress) {
+            if ($customer->getDefaultBilling() === null && $customerBillingAddress) {
                 $customerBillingAddress->setIsDefaultBilling(true);
             }
 
-            if (is_null($customer->getDefaultShipping())) {
+            if ($customer->getDefaultShipping() === null) {
                 if ($this->getShippingAddress()->getSameAsBilling() && $customerBillingAddress) {
                     $customerBillingAddress->setIsDefaultShipping(true);
                 } elseif ($customerShippingAddress) {
@@ -1585,7 +1587,7 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
     protected function _validate()
     {
         $customerId = $this->getSession()->getCustomerId();
-        if (is_null($customerId)) {
+        if ($customerId === null) {
             Mage::throwException(Mage::helper('adminhtml')->__('Please select a customer.'));
         }
 

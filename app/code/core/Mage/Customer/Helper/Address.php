@@ -67,27 +67,23 @@ class Mage_Customer_Helper_Address extends Mage_Core_Helper_Abstract
      */
     public function getBookUrl()
     {
-
     }
 
     public function getEditUrl()
     {
-
     }
 
     public function getDeleteUrl()
     {
-
     }
 
     public function getCreateUrl()
     {
-
     }
 
     public function getRenderer($renderer)
     {
-        if(is_string($renderer) && $className = Mage::getConfig()->getBlockClassName($renderer)) {
+        if (is_string($renderer) && $className = Mage::getConfig()->getBlockClassName($renderer)) {
             return new $className();
         } else {
             return $renderer;
@@ -123,7 +119,7 @@ class Mage_Customer_Helper_Address extends Mage_Core_Helper_Abstract
         if (!isset($this->_streetLines[$websiteId])) {
             $attribute = Mage::getSingleton('eav/config')->getAttribute('customer_address', 'street');
             $lines = (int)$attribute->getMultilineCount();
-            if($lines <= 0) {
+            if ($lines <= 0) {
                 $lines = 2;
             }
             $this->_streetLines[$websiteId] = min(20, $lines);
@@ -156,7 +152,7 @@ class Mage_Customer_Helper_Address extends Mage_Core_Helper_Abstract
      */
     public function getAttributes()
     {
-        if (is_null($this->_attributes)) {
+        if ($this->_attributes === null) {
             $this->_attributes = array();
             /* @var $config Mage_Eav_Model_Config */
             $config = Mage::getSingleton('eav/config');

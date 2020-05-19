@@ -107,7 +107,7 @@ class Mage_Catalog_Model_Config extends Mage_Eav_Model_Config
 
         $this->_attributeSetsById = array();
         $this->_attributeSetsByName = array();
-        foreach ($attributeSetCollection as $id=>$attributeSet) {
+        foreach ($attributeSetCollection as $id => $attributeSet) {
             $entityTypeId = $attributeSet->getEntityTypeId();
             $name = $attributeSet->getAttributeSetName();
             $this->_attributeSetsById[$entityTypeId][$id] = $name;
@@ -154,7 +154,7 @@ class Mage_Catalog_Model_Config extends Mage_Eav_Model_Config
 
         $this->_attributeGroupsById = array();
         $this->_attributeGroupsByName = array();
-        foreach ($attributeSetCollection as $id=>$attributeGroup) {
+        foreach ($attributeSetCollection as $id => $attributeGroup) {
             $attributeSetId = $attributeGroup->getAttributeSetId();
             $name = $attributeGroup->getAttributeGroupName();
             $this->_attributeGroupsById[$attributeSetId][$id] = $name;
@@ -207,7 +207,7 @@ class Mage_Catalog_Model_Config extends Mage_Eav_Model_Config
 
         $this->_productTypesById = array();
         $this->_productTypesByName = array();
-        foreach ($productTypeCollection as $id=>$type) {
+        foreach ($productTypeCollection as $id => $type) {
             //$name = $type->getCode();
             $name = $type;
             $this->_productTypesById[$id] = $name;
@@ -256,7 +256,7 @@ class Mage_Catalog_Model_Config extends Mage_Eav_Model_Config
      */
     public function getProductAttributes()
     {
-        if (is_null($this->_productAttributes)) {
+        if ($this->_productAttributes === null) {
             $this->_productAttributes = array_keys($this->getAttributesUsedInProductListing());
         }
         return $this->_productAttributes;
@@ -268,7 +268,8 @@ class Mage_Catalog_Model_Config extends Mage_Eav_Model_Config
      *
      * @return array
      */
-    public function getProductCollectionAttributes() {
+    public function getProductCollectionAttributes()
+    {
         $attributes = Mage::getConfig()
             ->getNode(self::XML_PATH_PRODUCT_COLLECTION_ATTRIBUTES)
             ->asArray();
@@ -290,8 +291,9 @@ class Mage_Catalog_Model_Config extends Mage_Eav_Model_Config
      *
      * @return array
      */
-    public function getAttributesUsedInProductListing() {
-        if (is_null($this->_usedInProductListing)) {
+    public function getAttributesUsedInProductListing()
+    {
+        if ($this->_usedInProductListing === null) {
             $this->_usedInProductListing = array();
             $entityType = Mage_Catalog_Model_Product::ENTITY;
             $attributesData = $this->_getResource()
@@ -313,8 +315,9 @@ class Mage_Catalog_Model_Config extends Mage_Eav_Model_Config
      *
      * @return array
      */
-    public function getAttributesUsedForSortBy() {
-        if (is_null($this->_usedForSortBy)) {
+    public function getAttributesUsedForSortBy()
+    {
+        if ($this->_usedForSortBy === null) {
             $this->_usedForSortBy = array();
             $entityType     = Mage_Catalog_Model_Product::ENTITY;
             $attributesData = $this->_getResource()
@@ -355,7 +358,8 @@ class Mage_Catalog_Model_Config extends Mage_Eav_Model_Config
      * @param mixed $store
      * @return string
      */
-    public function getProductListDefaultSortBy($store = null) {
+    public function getProductListDefaultSortBy($store = null)
+    {
         return Mage::getStoreConfig(self::XML_PATH_LIST_DEFAULT_SORT_BY, $store);
     }
 }

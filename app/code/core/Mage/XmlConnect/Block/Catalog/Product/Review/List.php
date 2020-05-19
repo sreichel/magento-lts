@@ -70,7 +70,7 @@ class Mage_XmlConnect_Block_Catalog_Product_Review_List extends Mage_XmlConnect_
      */
     protected function _getReviewCollection()
     {
-        if (is_null($this->_reviewCollection)) {
+        if ($this->_reviewCollection === null) {
             $product = $this->getProduct();
             $request = $this->getRequest();
             if (!$product) {

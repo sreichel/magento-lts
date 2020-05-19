@@ -120,7 +120,7 @@ class Mage_Dataflow_Model_Batch extends Mage_Core_Model_Abstract
      */
     public function getIoAdapter()
     {
-        if (is_null($this->_ioAdapter)) {
+        if ($this->_ioAdapter === null) {
             $this->_ioAdapter = Mage::getModel('dataflow/batch_io');
             $this->_ioAdapter->init($this);
         }
@@ -129,7 +129,7 @@ class Mage_Dataflow_Model_Batch extends Mage_Core_Model_Abstract
 
     protected function _beforeSave()
     {
-        if (is_null($this->getData('created_at'))) {
+        if ($this->getData('created_at') === null) {
             $this->setData('created_at', Mage::getSingleton('core/date')->gmtDate());
         }
     }
@@ -146,7 +146,7 @@ class Mage_Dataflow_Model_Batch extends Mage_Core_Model_Abstract
      */
     public function getBatchExportModel()
     {
-        if (is_null($this->_batchExport)) {
+        if ($this->_batchExport === null) {
             $object = Mage::getModel('dataflow/batch_export');
             $object->setBatchId($this->getId());
             $this->_batchExport = Varien_Object_Cache::singleton()->save($object);
@@ -161,7 +161,7 @@ class Mage_Dataflow_Model_Batch extends Mage_Core_Model_Abstract
      */
     public function getBatchImportModel()
     {
-        if (is_null($this->_batchImport)) {
+        if ($this->_batchImport === null) {
             $object = Mage::getModel('dataflow/batch_import');
             $object->setBatchId($this->getId());
             $this->_batchImport = Varien_Object_Cache::singleton()->save($object);

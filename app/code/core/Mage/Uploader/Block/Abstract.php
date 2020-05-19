@@ -191,7 +191,7 @@ abstract class Mage_Uploader_Block_Abstract extends Mage_Adminhtml_Block_Widget
      */
     public function getMiscConfig()
     {
-        if (is_null($this->_miscConfig)) {
+        if ($this->_miscConfig === null) {
             $this->_miscConfig = Mage::getModel('uploader/config_misc');
         }
         return $this->_miscConfig;
@@ -204,7 +204,7 @@ abstract class Mage_Uploader_Block_Abstract extends Mage_Adminhtml_Block_Widget
      */
     public function getUploaderConfig()
     {
-        if (is_null($this->_uploaderConfig)) {
+        if ($this->_uploaderConfig === null) {
             $this->_uploaderConfig = Mage::getModel('uploader/config_uploader');
         }
         return $this->_uploaderConfig;
@@ -217,7 +217,7 @@ abstract class Mage_Uploader_Block_Abstract extends Mage_Adminhtml_Block_Widget
      */
     public function getButtonConfig()
     {
-        if (is_null($this->_browseButtonConfig)) {
+        if ($this->_browseButtonConfig === null) {
             $this->_browseButtonConfig = Mage::getModel('uploader/config_browsebutton');
         }
         return $this->_browseButtonConfig;

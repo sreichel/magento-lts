@@ -146,14 +146,13 @@ class Mage_Core_Block_Template extends Mage_Core_Block_Abstract
      * @param   mixed $value
      * @return  Mage_Core_Block_Template
      */
-    public function assign($key, $value=null)
+    public function assign($key, $value = null)
     {
         if (is_array($key)) {
-            foreach ($key as $k=>$v) {
+            foreach ($key as $k => $v) {
                 $this->assign($k, $v);
             }
-        }
-        else {
+        } else {
             $this->_viewVars[$key] = $value;
         }
         return $this;
@@ -191,7 +190,7 @@ class Mage_Core_Block_Template extends Mage_Core_Block_Abstract
 
     public function getShowTemplateHints()
     {
-        if (is_null(self::$_showTemplateHints)) {
+        if (self::$_showTemplateHints === null) {
             self::$_showTemplateHints = Mage::getStoreConfig(self::XML_PATH_DEBUG_TEMPLATE_HINTS)
                 && Mage::helper('core')->isDevAllowed();
             self::$_showTemplateHintsBlocks = Mage::getStoreConfig(self::XML_PATH_DEBUG_TEMPLATE_HINTS_BLOCKS)
@@ -243,7 +242,6 @@ HTML;
                 $thisClass = get_class($this);
                 Mage::log('Not valid template file:' . $fileName . ' class: ' . $thisClass, Zend_Log::CRIT, null, true);
             }
-
         } catch (Exception $e) {
             ob_get_clean();
             throw $e;
@@ -309,7 +307,7 @@ HTML;
      * @param string $fileName
      * @return string
      */
-    public function getJsUrl($fileName='')
+    public function getJsUrl($fileName = '')
     {
         if (!$this->_jsUrl) {
             $this->_jsUrl = Mage::getBaseUrl('js');
@@ -351,7 +349,7 @@ HTML;
      */
     protected function _getAllowSymlinks()
     {
-        if (is_null($this->_allowSymlinks)) {
+        if ($this->_allowSymlinks === null) {
             $this->_allowSymlinks = Mage::getStoreConfigFlag(self::XML_PATH_TEMPLATE_ALLOW_SYMLINK);
         }
         return $this->_allowSymlinks;

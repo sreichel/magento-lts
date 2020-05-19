@@ -32,8 +32,7 @@
  * @package    Mage_Adminhtml
  * @author     Magento Core Team <core@magentocommerce.com>
  */
-class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Store
-    extends Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Abstract
+class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Store extends Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Abstract
 {
 
     /**
@@ -105,7 +104,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Store
      */
     public function getCondition()
     {
-        if (is_null($this->getValue())) {
+        if ($this->getValue() === null) {
             return null;
         }
         if ($this->getValue() == '_deleted_') {
@@ -114,5 +113,4 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Store
             return array('eq' => $this->getValue());
         }
     }
-
 }

@@ -61,7 +61,7 @@ class Mage_Catalog_Model_Product_Type_Configurable_Attribute extends Mage_Core_M
     public function addPrice($priceData)
     {
         $data = $this->getPrices();
-        if (is_null($data)) {
+        if ($data === null) {
             $data = array();
         }
         $data[] = $priceData;
@@ -78,7 +78,7 @@ class Mage_Catalog_Model_Product_Type_Configurable_Attribute extends Mage_Core_M
     {
         if ($this->getData('use_default') && $this->getProductAttribute()) {
             return $this->getProductAttribute()->getStoreLabel();
-        } else if (is_null($this->getData('label')) && $this->getProductAttribute()) {
+        } else if ($this->getData('label') === null && $this->getProductAttribute()) {
             $this->setData('label', $this->getProductAttribute()->getStoreLabel());
         }
 

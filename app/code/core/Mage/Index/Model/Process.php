@@ -146,7 +146,6 @@ class Mage_Index_Model_Process extends Mage_Core_Model_Abstract
             }
         }
         return $this;
-
     }
 
     /**
@@ -327,7 +326,7 @@ class Mage_Index_Model_Process extends Mage_Core_Model_Abstract
      * @param   null|string $type
      * @return  Mage_Index_Model_Process
      */
-    public function indexEvents($entity=null, $type=null)
+    public function indexEvents($entity = null, $type = null)
     {
         /**
          * Check if process indexer can match entity code and action type
@@ -428,7 +427,7 @@ class Mage_Index_Model_Process extends Mage_Core_Model_Abstract
      */
     protected function _getLockInstance()
     {
-        if (is_null($this->_lockInstance)) {
+        if ($this->_lockInstance === null) {
             $this->_lockInstance = Mage_Index_Model_Lock::getInstance();
         }
         return $this->_lockInstance;
@@ -544,7 +543,7 @@ class Mage_Index_Model_Process extends Mage_Core_Model_Abstract
     public function getDepends()
     {
         $depends = $this->getData('depends');
-        if (is_null($depends)) {
+        if ($depends === null) {
             $depends = array();
             $path = self::XML_PATH_INDEXER_DATA . '/' . $this->getIndexerCode();
             $node = Mage::getConfig()->getNode($path);

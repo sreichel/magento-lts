@@ -59,7 +59,7 @@ class Mage_Bundle_Block_Catalog_Product_View_Type_Bundle_Option extends Mage_Bun
      */
     protected function _showSingle()
     {
-        if (is_null($this->_showSingle)) {
+        if ($this->_showSingle === null) {
             $_option        = $this->getOption();
             $_selections    = $_option->getSelections();
 
@@ -114,7 +114,7 @@ class Mage_Bundle_Block_Catalog_Product_View_Type_Bundle_Option extends Mage_Bun
      */
     protected function _getSelectedOptions()
     {
-        if (is_null($this->_selectedOptions)) {
+        if ($this->_selectedOptions === null) {
             $this->_selectedOptions = array();
             $option = $this->getOption();
 

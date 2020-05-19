@@ -472,7 +472,8 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
             if ($idToDelete) {
                 $this->_connection->query(
                     $this->_connection->quoteInto(
-                        "DELETE FROM `{$productEntityTable}` WHERE `entity_id` IN (?)", $idToDelete
+                        "DELETE FROM `{$productEntityTable}` WHERE `entity_id` IN (?)",
+                        $idToDelete
                     )
                 );
             }
@@ -1266,7 +1267,8 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
                             $this->_connection->quoteInto(' AND entity_type_id = ?', $this->_entityTypeId);
 
                         $this->_connection->delete(
-                            $tableName, $where
+                            $tableName,
+                            $where
                         );
                     }
                 }
@@ -1340,8 +1342,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
 
             $newProducts = $this->_connection->fetchPairs($this->_connection->select()
                 ->from($entityTable, array('sku', 'entity_id'))
-                ->where('sku IN (?)', array_keys($entityRowsIn))
-            );
+                ->where('sku IN (?)', array_keys($entityRowsIn)));
             foreach ($newProducts as $sku => $newId) { // fill up entity_id for new products
                 $this->_newSku[$sku]['entity_id'] = $newId;
             }
@@ -1468,21 +1469,21 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
                 // 6. Attributes phase
                 $rowStore     = self::SCOPE_STORE == $rowScope ? $this->_storeCodeToId[$rowData[self::COL_STORE]] : 0;
                 $productType  = isset($rowData[self::COL_TYPE]) ? $rowData[self::COL_TYPE] : null;
-                if (!is_null($productType)) {
+                if ($productType !== null) {
                     $previousType = $productType;
                 }
-                if (isset($rowData[self::COL_ATTR_SET]) && !is_null($rowData[self::COL_ATTR_SET])) {
+                if (isset($rowData[self::COL_ATTR_SET]) && $rowData[self::COL_ATTR_SET] !== null) {
                     $previousAttributeSet = $rowData[Mage_ImportExport_Model_Import_Entity_Product::COL_ATTR_SET];
                 }
                 if (self::SCOPE_NULL == $rowScope) {
                     // for multiselect attributes only
-                    if (!is_null($previousAttributeSet)) {
+                    if ($previousAttributeSet !== null) {
                          $rowData[Mage_ImportExport_Model_Import_Entity_Product::COL_ATTR_SET] = $previousAttributeSet;
                     }
-                    if (is_null($productType) && !is_null($previousType)) {
+                    if ($productType === null && $previousType !== null) {
                         $productType = $previousType;
                     }
-                    if (is_null($productType)) {
+                    if ($productType === null) {
                         continue;
                     }
                 }
@@ -1687,7 +1688,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
      */
     protected function _getUploader()
     {
-        if (is_null($this->_fileUploader)) {
+        if ($this->_fileUploader === null) {
             $this->_fileUploader    = new Mage_ImportExport_Model_Import_Uploader();
 
             $this->_fileUploader->init();
@@ -1762,7 +1763,6 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
             }
 
             foreach ($mediaGalleryRows as $insertValue) {
-
                 if (!in_array($insertValue['value'], $insertedGalleryImgs)) {
                     $valueArr = array(
                         'attribute_id' => $insertValue['attribute_id'],
@@ -1778,8 +1778,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
 
                 $newMediaValues = $this->_connection->fetchPairs($this->_connection->select()
                                         ->from($mediaGalleryTableName, array('value', 'value_id'))
-                                        ->where('entity_id IN (?)', $productId)
-                );
+                                        ->where('entity_id IN (?)', $productId));
 
                 if (array_key_exists($insertValue['value'], $newMediaValues)) {
                     $insertValue['value_id'] = $newMediaValues[$insertValue['value']];
@@ -1798,7 +1797,8 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
                             ->insertOnDuplicate($mediaValueTableName, $valueArr, array('value_id'));
                 } catch (Exception $e) {
                     $this->_connection->delete(
-                            $mediaGalleryTableName, $this->_connection->quoteInto('value_id IN (?)', $newMediaValues)
+                        $mediaGalleryTableName,
+                        $this->_connection->quoteInto('value_id IN (?)', $newMediaValues)
                     );
                 }
             }
@@ -1952,8 +1952,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
                     if ($stockItem->verifyNotification()) {
                         $stockItem->setLowStockDate(Mage::app()->getLocale()
                             ->date(null, null, null, false)
-                            ->toString(Varien_Date::DATETIME_INTERNAL_FORMAT)
-                        );
+                            ->toString(Varien_Date::DATETIME_INTERNAL_FORMAT));
                     }
                     $stockItem->setStockStatusChangedAutomatically((int) !$stockItem->verifyStock());
                 } else {
@@ -2159,7 +2158,9 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
             $rowData[self::COL_ATTR_SET] = $this->_newSku[$sku]['attr_set_code'];
 
             $rowAttributesValid = $this->_productTypeModels[$this->_newSku[$sku]['type_id']]->isRowValid(
-                $rowData, $rowNum, !isset($this->_oldSku[$sku])
+                $rowData,
+                $rowNum,
+                !isset($this->_oldSku[$sku])
             );
             if (!$rowAttributesValid && self::SCOPE_DEFAULT == $rowScope) {
                 $sku = false; // mark SCOPE_DEFAULT row as invalid for future child rows

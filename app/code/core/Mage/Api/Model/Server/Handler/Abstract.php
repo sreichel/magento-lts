@@ -133,7 +133,7 @@ abstract class Mage_Api_Model_Server_Handler_Abstract
     protected function _fault($faultName, $resourceName = null, $customMessage = null)
     {
         $faults = $this->_getConfig()->getFaults($resourceName);
-        if (!isset($faults[$faultName]) && !is_null($resourceName)) {
+        if (!isset($faults[$faultName]) && $resourceName !== null) {
             $this->_fault($faultName);
             return;
         } elseif (!isset($faults[$faultName])) {
@@ -142,7 +142,7 @@ abstract class Mage_Api_Model_Server_Handler_Abstract
         }
         $this->_getServer()->getAdapter()->fault(
             $faults[$faultName]['code'],
-            (is_null($customMessage) ? $faults[$faultName]['message'] : $customMessage)
+            ($customMessage === null ? $faults[$faultName]['message'] : $customMessage)
         );
     }
 
@@ -157,7 +157,7 @@ abstract class Mage_Api_Model_Server_Handler_Abstract
     protected function _faultAsArray($faultName, $resourceName = null, $customMessage = null)
     {
         $faults = $this->_getConfig()->getFaults($resourceName);
-        if (!isset($faults[$faultName]) && !is_null($resourceName)) {
+        if (!isset($faults[$faultName]) && $resourceName !== null) {
             return $this->_faultAsArray($faultName);
         } elseif (!isset($faults[$faultName])) {
             return $this->_faultAsArray('unknown');
@@ -166,7 +166,7 @@ abstract class Mage_Api_Model_Server_Handler_Abstract
         return array(
             'isFault'      => true,
             'faultCode'    => $faults[$faultName]['code'],
-            'faultMessage' => (is_null($customMessage) ? $faults[$faultName]['message'] : $customMessage)
+            'faultMessage' => ($customMessage === null ? $faults[$faultName]['message'] : $customMessage)
         );
     }
 
@@ -563,7 +563,7 @@ abstract class Mage_Api_Model_Server_Handler_Abstract
      */
     public function processingMethodResult($result)
     {
-        if (is_null($result) || is_bool($result) || is_numeric($result) || is_object($result)) {
+        if ($result === null || is_bool($result) || is_numeric($result) || is_object($result)) {
             return $result;
         } elseif (is_array($result)) {
             foreach ($result as $key => $value) {

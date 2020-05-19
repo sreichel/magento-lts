@@ -165,11 +165,11 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
     {
         if ($this->hasLockedAttributes()) {
             if (is_array($key)) {
-                 foreach ($this->getLockedAttributes() as $attribute) {
-                     if (isset($key[$attribute])) {
-                         unset($key[$attribute]);
-                     }
-                 }
+                foreach ($this->getLockedAttributes() as $attribute) {
+                    if (isset($key[$attribute])) {
+                        unset($key[$attribute]);
+                    }
+                }
             } elseif ($this->isLockedAttribute($key)) {
                 return $this;
             }
@@ -193,7 +193,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
      */
     public function unsetData($key = null)
     {
-        if ((!is_null($key) && $this->isLockedAttribute($key)) ||
+        if (($key !== null && $this->isLockedAttribute($key)) ||
             $this->isReadonly()) {
             return $this;
         }
@@ -226,7 +226,7 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
         $collection = $this->getResourceCollection()
             ->addAttributeToSelect($additionalAttributes)
             ->addAttributeToFilter($attribute, $value)
-            ->setPage(1,1);
+            ->setPage(1, 1);
 
         foreach ($collection as $object) {
             return $object;
@@ -358,5 +358,4 @@ abstract class Mage_Catalog_Model_Abstract extends Mage_Core_Model_Abstract
         $this->_isReadonly = (bool)$value;
         return $this;
     }
-
 }

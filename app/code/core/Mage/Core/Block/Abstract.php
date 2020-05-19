@@ -222,7 +222,7 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
      */
     protected function _getFactory()
     {
-        return is_null($this->_factory) ? Mage::getSingleton('core/factory') : $this->_factory;
+        return $this->_factory === null ? Mage::getSingleton('core/factory') : $this->_factory;
     }
 
     /**
@@ -232,7 +232,7 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
      */
     protected function _getApp()
     {
-        return is_null($this->_app) ? Mage::app() : $this->_app;
+        return $this->_app === null ? Mage::app() : $this->_app;
     }
 
     /**
@@ -849,7 +849,6 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
                 } else {
                     $result[$alias] = $block;
                 }
-
             }
         }
         return $result;
@@ -943,8 +942,10 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
             self::$_transportObject = new Varien_Object;
         }
         self::$_transportObject->setHtml($html);
-        Mage::dispatchEvent('core_block_abstract_to_html_after',
-            array('block' => $this, 'transport' => self::$_transportObject));
+        Mage::dispatchEvent(
+            'core_block_abstract_to_html_after',
+            array('block' => $this, 'transport' => self::$_transportObject)
+        );
         $html = self::$_transportObject->getHtml();
 
         return $html;
@@ -1062,7 +1063,7 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
      */
     public function getMessagesBlock()
     {
-        if (is_null($this->_messagesBlock)) {
+        if ($this->_messagesBlock === null) {
             return $this->getLayout()->getMessagesBlock();
         }
         return $this->_messagesBlock;
@@ -1139,7 +1140,7 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
     public function getModuleName()
     {
         $module = $this->getData('module_name');
-        if (is_null($module)) {
+        if ($module === null) {
             $class = get_class($this);
             $module = substr($class, 0, strpos($class, '_Block'));
             $this->setData('module_name', $module);
@@ -1410,7 +1411,7 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
      */
     protected function _loadCache()
     {
-        if (is_null($this->getCacheLifetime()) || !$this->_getApp()->useCache(self::CACHE_GROUP)) {
+        if ($this->getCacheLifetime() === null || !$this->_getApp()->useCache(self::CACHE_GROUP)) {
             return false;
         }
         $cacheKey = $this->getCacheKey();
@@ -1435,7 +1436,7 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
      */
     protected function _saveCache($data)
     {
-        if (is_null($this->getCacheLifetime()) || !$this->_getApp()->useCache(self::CACHE_GROUP)) {
+        if ($this->getCacheLifetime() === null || !$this->_getApp()->useCache(self::CACHE_GROUP)) {
             return false;
         }
         $cacheKey = $this->getCacheKey();
@@ -1480,7 +1481,7 @@ abstract class Mage_Core_Block_Abstract extends Varien_Object
      */
     protected function _getSidPlaceholder($cacheKey = null)
     {
-        if (is_null($cacheKey)) {
+        if ($cacheKey === null) {
             $cacheKey = $this->getCacheKey();
         }
 

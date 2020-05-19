@@ -165,7 +165,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute extends Mage_Core_Model_Resource_
     {
         $frontendLabel = $object->getFrontendLabel();
         if (is_array($frontendLabel)) {
-            if (!isset($frontendLabel[0]) || is_null($frontendLabel[0]) || $frontendLabel[0] == '') {
+            if (!isset($frontendLabel[0]) || $frontendLabel[0] === null || $frontendLabel[0] == '') {
                 Mage::throwException(Mage::helper('eav')->__('Frontend label is not defined'));
             }
             $object->setFrontendLabel($frontendLabel[0])
@@ -397,7 +397,8 @@ class Mage_Eav_Model_Resource_Entity_Attribute extends Mage_Core_Model_Resource_
             ->join(
                 array('t' => $this->getTable('eav/entity_type')),
                 'a.entity_type_id = t.entity_type_id',
-                array())
+                array()
+            )
             ->where('t.entity_type_code = :entity_type_code')
             ->where('a.attribute_code = :attribute_code');
 
@@ -435,9 +436,15 @@ class Mage_Eav_Model_Resource_Entity_Attribute extends Mage_Core_Model_Resource_
             ." AND %s.entity_type_id = ".$attribute->getEntityTypeId()
             ." AND %s.attribute_id = ".$attribute->getId()
             ." AND %s.store_id = %d";
-        $joinCondition = sprintf($joinConditionTemplate,
-            'e', 't1', 't1', 't1', 't1',
-            Mage_Core_Model_App::ADMIN_STORE_ID);
+        $joinCondition = sprintf(
+            $joinConditionTemplate,
+            'e',
+            't1',
+            't1',
+            't1',
+            't1',
+            Mage_Core_Model_App::ADMIN_STORE_ID
+        );
         if ($attribute->getFlatAddChildData()) {
             $joinCondition .= ' AND e.child_id = t1.entity_id';
         }
@@ -449,11 +456,13 @@ class Mage_Eav_Model_Resource_Entity_Attribute extends Mage_Core_Model_Resource_
             ->joinLeft(
                 array('t1' => $attribute->getBackend()->getTable()),
                 $joinCondition,
-                array())
+                array()
+            )
             ->joinLeft(
                 array('t2' => $attribute->getBackend()->getTable()),
                 sprintf($joinConditionTemplate, 'e', 't2', 't2', 't2', 't2', $storeId),
-                array($attribute->getAttributeCode() => $valueExpr));
+                array($attribute->getAttributeCode() => $valueExpr)
+            );
         if ($attribute->getFlatAddChildData()) {
             $select->where("e.is_child = ?", 0);
         }

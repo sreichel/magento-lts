@@ -141,7 +141,6 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
      */
     protected function _construct()
     {
-
     }
 
     /**
@@ -253,7 +252,6 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
                 $columnEntry = array('main_table', $field, $alias);
                 array_splice($columns, $insertIndex, 0, array($columnEntry)); // Insert column
                 $insertIndex ++;
-
             }
         } else {
             array_unshift($columns, array('main_table', '*', null));
@@ -354,7 +352,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
         }
 
         $fullExpression = $expression;
-        foreach ($fields as $fieldKey=>$fieldItem) {
+        foreach ($fields as $fieldKey => $fieldItem) {
             $fullExpression = str_replace('{{' . $fieldKey . '}}', $fieldItem, $fullExpression);
         }
 
@@ -411,7 +409,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
     protected function _init($model, $resourceModel = null)
     {
         $this->setModel($model);
-        if (is_null($resourceModel)) {
+        if ($resourceModel === null) {
             $resourceModel = $model;
         }
         $this->setResourceModel($resourceModel);
@@ -508,8 +506,6 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
     public function getData()
     {
         if ($this->_data === null) {
-
-
             $this->_renderFilters()
                  ->_renderOrders()
                  ->_renderLimit();
@@ -713,7 +709,4 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
     {
         return Varien_Date::formatDate($date, $includeTime);
     }
-
-
-
 }

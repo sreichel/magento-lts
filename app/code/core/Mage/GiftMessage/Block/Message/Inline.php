@@ -145,9 +145,9 @@ class Mage_GiftMessage_Block_Message_Inline extends Mage_Core_Block_Template
      * @param mixed $entity
      * @return string
      */
-    public function getMessage($entity=null)
+    public function getMessage($entity = null)
     {
-        if (is_null($this->_giftMessage)) {
+        if ($this->_giftMessage === null) {
             $this->_initMessage();
         }
 
@@ -251,7 +251,7 @@ class Mage_GiftMessage_Block_Message_Inline extends Mage_Core_Block_Template
      * @param string $defaultValue
      * @return string
      */
-    public function getEscaped($value, $defaultValue='')
+    public function getEscaped($value, $defaultValue = '')
     {
         return $this->escapeHtml(trim($value)!='' ? $value : $defaultValue);
     }

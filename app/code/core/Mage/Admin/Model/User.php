@@ -183,7 +183,7 @@ class Mage_Admin_Model_User extends Mage_Core_Model_Abstract
 
         $this->cleanPasswordsValidationData();
 
-        if (!is_null($this->getIsActive())) {
+        if ($this->getIsActive() !== null) {
             $data['is_active'] = intval($this->getIsActive());
         }
 
@@ -649,7 +649,7 @@ class Mage_Admin_Model_User extends Mage_Core_Model_Abstract
 
         if (!Zend_Validate::is($password, 'NotEmpty')) {
             $result[] = $this->_getHelper('adminhtml')->__('Current password field cannot be empty.');
-        } elseif (is_null($this->getId()) || !$this->_getHelper('core')->validateHash($password, $this->getPassword())) {
+        } elseif ($this->getId() === null || !$this->_getHelper('core')->validateHash($password, $this->getPassword())) {
             $result[] = $this->_getHelper('adminhtml')->__('Invalid current password.');
         }
 

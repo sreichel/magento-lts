@@ -146,14 +146,14 @@ class Mage_Admin_Model_Roles extends Mage_Core_Model_Abstract
         $module = 'adminhtml'
     ) {
         static $result;
-        if (is_null($resource)) {
+        if ($resource === null) {
             $resource = Mage::getSingleton('admin/config')->getAdminhtmlConfig()->getNode('acl/resources');
             $resourceName = null;
             $level = -1;
         } else {
             $resourceName = $parentName;
             if (!in_array($resource->getName(), array('title', 'sort_order', 'children', 'disabled'))) {
-                $resourceName = (is_null($parentName) ? '' : $parentName . '/') . $resource->getName();
+                $resourceName = ($parentName === null ? '' : $parentName . '/') . $resource->getName();
 
                 //assigning module for its' children nodes
                 if ($resource->getAttribute('module')) {
@@ -165,7 +165,7 @@ class Mage_Admin_Model_Roles extends Mage_Core_Model_Abstract
                     $resource->addAttribute("module_c", $module);
                 }
 
-                if (is_null($represent2Darray)) {
+                if ($represent2Darray === null) {
                     $result[$resourceName]['name']  = Mage::helper($module)->__((string)$resource->title);
                     $result[$resourceName]['level'] = $level;
                 } else {

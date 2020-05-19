@@ -105,7 +105,7 @@ class Mage_Sitemap_Model_Sitemap extends Mage_Core_Model_Abstract
      */
     protected function getPath()
     {
-        if (is_null($this->_filePath)) {
+        if ($this->_filePath === null) {
             $this->_filePath = str_replace('//', '/', Mage::getBaseDir() .
                 $this->getSitemapPath());
         }
@@ -209,7 +209,9 @@ class Mage_Sitemap_Model_Sitemap extends Mage_Core_Model_Abstract
         ));
         foreach ($pages->getItems() as $item) {
             $url = $item->getUrl();
-            if ( $url == $homepage) { $url = ''; }
+            if ($url == $homepage) {
+                $url = '';
+            }
             $xml = sprintf(
                 '<url><loc>%s</loc><lastmod>%s</lastmod><changefreq>%s</changefreq><priority>%.1f</priority></url>',
                 htmlspecialchars($baseUrl . $url),

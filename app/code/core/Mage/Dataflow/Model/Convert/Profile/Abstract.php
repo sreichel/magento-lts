@@ -31,8 +31,7 @@
  * @package    Mage_Dataflow
  * @author      Magento Core Team <core@magentocommerce.com>
  */
-abstract class Mage_Dataflow_Model_Convert_Profile_Abstract
-    implements Mage_Dataflow_Model_Convert_Profile_Interface
+abstract class Mage_Dataflow_Model_Convert_Profile_Abstract implements Mage_Dataflow_Model_Convert_Profile_Interface
 {
 
     protected $_actions;
@@ -49,9 +48,9 @@ abstract class Mage_Dataflow_Model_Convert_Profile_Abstract
 
     protected $_dataflow_profile = null;
 
-    public function addAction(Mage_Dataflow_Model_Convert_Action_Interface $action=null)
+    public function addAction(Mage_Dataflow_Model_Convert_Action_Interface $action = null)
     {
-        if (is_null($action)) {
+        if ($action === null) {
             $action = new $this->_actionDefaultClass();
         }
         $this->_actions[] = $action;
@@ -73,9 +72,9 @@ abstract class Mage_Dataflow_Model_Convert_Profile_Abstract
         return $this->_containers;
     }
 
-    public function getContainer($name=null)
+    public function getContainer($name = null)
     {
-        if (is_null($name)) {
+        if ($name === null) {
             $name = '_default';
         }
         return $this->getContainers()->getItem($name);
@@ -137,8 +136,7 @@ abstract class Mage_Dataflow_Model_Convert_Profile_Abstract
             /* @var $action Mage_Dataflow_Model_Convert_Action */
             try {
                 $action->run();
-            }
-            catch (Exception $e) {
+            } catch (Exception $e) {
                 $dfe = new Mage_Dataflow_Model_Convert_Exception($e->getMessage());
                 $dfe->setLevel(Mage_Dataflow_Model_Convert_Exception::FATAL);
                 $this->addException($dfe);
@@ -148,7 +146,8 @@ abstract class Mage_Dataflow_Model_Convert_Profile_Abstract
         return $this;
     }
 
-    public function setDataflowProfile($profile) {
+    public function setDataflowProfile($profile)
+    {
         if (is_array($profile)) {
             $this->_dataflow_profile = $profile;
         }

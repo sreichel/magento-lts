@@ -67,7 +67,7 @@ class Mage_GoogleBase_Adminhtml_Googlebase_ItemsController extends Mage_Adminhtm
         if (!$this->_getConfig()->isValidBaseCurrencyCode($this->_getStore()->getId())) {
             $_countryInfo = $this->_getConfig()->getTargetCountryInfo($this->_getStore()->getId());
             $this->_getSession()->addNotice(
-                $this->__("Base Currency should be set to %s for %s in system configuration. Otherwise item prices won't be correct in Google Base.",$_countryInfo['currency_name'],$_countryInfo['name'])
+                $this->__("Base Currency should be set to %s for %s in system configuration. Otherwise item prices won't be correct in Google Base.", $_countryInfo['currency_name'], $_countryInfo['name'])
             );
         }
 
@@ -85,7 +85,7 @@ class Mage_GoogleBase_Adminhtml_Googlebase_ItemsController extends Mage_Adminhtm
                 ->createBlock('googlebase/adminhtml_items_item')
                 ->setIndex($this->getRequest()->getParam('index'))
                 ->toHtml()
-           );
+        );
     }
 
     public function massAddAction()
@@ -117,7 +117,7 @@ class Mage_GoogleBase_Adminhtml_Googlebase_ItemsController extends Mage_Adminhtm
                 $this->_getSession()->addSuccess(
                     $this->__('Total of %d product(s) have been added to Google Base.', $totalAdded)
                 );
-            } elseif (is_null($productIds)) {
+            } elseif ($productIds === null) {
                 $this->_getSession()->addError($this->__('Session expired during export. Please revise exported products and repeat the process if necessary.'));
             } else {
                 $this->_getSession()->addError($this->__('No products were added to Google Base'));
@@ -127,7 +127,7 @@ class Mage_GoogleBase_Adminhtml_Googlebase_ItemsController extends Mage_Adminhtm
             $this->_redirectToCaptcha($e);
             return;
         } catch (Zend_Gdata_App_Exception $e) {
-            $this->_getSession()->addError( $this->_parseGdataExceptionMessage($e->getMessage()) );
+            $this->_getSession()->addError($this->_parseGdataExceptionMessage($e->getMessage()));
         } catch (Exception $e) {
             $this->_getSession()->addError($e->getMessage());
         }
@@ -163,7 +163,7 @@ class Mage_GoogleBase_Adminhtml_Googlebase_ItemsController extends Mage_Adminhtm
             $this->_redirectToCaptcha($e);
             return;
         } catch (Zend_Gdata_App_Exception $e) {
-            $this->_getSession()->addError( $this->_parseGdataExceptionMessage($e->getMessage()) );
+            $this->_getSession()->addError($this->_parseGdataExceptionMessage($e->getMessage()));
         } catch (Exception $e) {
             $this->_getSession()->addError($e->getMessage());
         }
@@ -200,7 +200,7 @@ class Mage_GoogleBase_Adminhtml_Googlebase_ItemsController extends Mage_Adminhtm
             $this->_redirectToCaptcha($e);
             return;
         } catch (Zend_Gdata_App_Exception $e) {
-            $this->_getSession()->addError( $this->_parseGdataExceptionMessage($e->getMessage()) );
+            $this->_getSession()->addError($this->_parseGdataExceptionMessage($e->getMessage()));
         } catch (Exception $e) {
             $this->_getSession()->addError($e->getMessage());
         }
@@ -235,7 +235,7 @@ class Mage_GoogleBase_Adminhtml_Googlebase_ItemsController extends Mage_Adminhtm
             $this->_redirectToCaptcha($e);
             return;
         } catch (Zend_Gdata_App_Exception $e) {
-            $this->_getSession()->addError( $this->_parseGdataExceptionMessage($e->getMessage()) );
+            $this->_getSession()->addError($this->_parseGdataExceptionMessage($e->getMessage()));
         } catch (Exception $e) {
             $this->_getSession()->addError($e->getMessage());
         }
@@ -287,13 +287,12 @@ class Mage_GoogleBase_Adminhtml_Googlebase_ItemsController extends Mage_Adminhtm
             $this->_getSession()->addSuccess(
                 $this->__('Total of %d items(s) have been deleted; total of %d items(s) have been updated.', $totalDeleted, $totalUpdated)
             );
-
         } catch (Zend_Gdata_App_CaptchaRequiredException $e) {
             $this->_getSession()->addError($e->getMessage());
             $this->_redirectToCaptcha($e);
             return;
         } catch (Zend_Gdata_App_Exception $e) {
-            $this->_getSession()->addError( $this->_parseGdataExceptionMessage($e->getMessage()) );
+            $this->_getSession()->addError($this->_parseGdataExceptionMessage($e->getMessage()));
         } catch (Exception $e) {
             $this->_getSession()->addError($e->getMessage());
         }
@@ -311,13 +310,12 @@ class Mage_GoogleBase_Adminhtml_Googlebase_ItemsController extends Mage_Adminhtm
                 $this->getRequest()->getParam('user_confirm')
             );
             $this->_getSession()->addSuccess($this->__('Captcha has been confirmed.'));
-
         } catch (Zend_Gdata_App_CaptchaRequiredException $e) {
             $this->_getSession()->addError($this->__('Captcha confirmation error: %s', $e->getMessage()));
             $this->_redirectToCaptcha($e);
             return;
         } catch (Zend_Gdata_App_Exception $e) {
-            $this->_getSession()->addError( $this->_parseGdataExceptionMessage($e->getMessage()) );
+            $this->_getSession()->addError($this->_parseGdataExceptionMessage($e->getMessage()));
         } catch (Exception $e) {
             $this->_getSession()->addError($this->__('Captcha confirmation error: %s', $e->getMessage()));
         }
@@ -332,7 +330,8 @@ class Mage_GoogleBase_Adminhtml_Googlebase_ItemsController extends Mage_Adminhtm
      */
     protected function _redirectToCaptcha($e)
     {
-        $this->_redirect('*/*/index',
+        $this->_redirect(
+            '*/*/index',
             array('store' => $this->_getStore()->getId(),
                 'captcha_token' => Mage::helper('core')->urlEncode($e->getCaptchaToken()),
                 'captcha_url' => Mage::helper('core')->urlEncode($e->getCaptchaUrl())

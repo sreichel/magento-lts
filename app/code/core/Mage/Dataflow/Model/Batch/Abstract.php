@@ -75,7 +75,7 @@ abstract class Mage_Dataflow_Model_Batch_Abstract extends Mage_Core_Model_Abstra
      */
     public function getIdCollection($batchId = null)
     {
-        if (!is_null($batchId)) {
+        if ($batchId !== null) {
             $this->setBatchId($batchId);
         }
         return $this->getResource()->getIdCollection($this);
@@ -83,7 +83,7 @@ abstract class Mage_Dataflow_Model_Batch_Abstract extends Mage_Core_Model_Abstra
 
     public function deleteCollection($batchId = null)
     {
-        if (!is_null($batchId)) {
+        if ($batchId !== null) {
             $this->setBatchId($batchId);
         }
         return $this->getResource()->deleteCollection($this);

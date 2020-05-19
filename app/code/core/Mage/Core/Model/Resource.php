@@ -300,7 +300,7 @@ class Mage_Core_Model_Resource
             $tableName = $tablePrefix . $tableName;
         }
 
-        if (!is_null($tableSuffix)) {
+        if ($tableSuffix !== null) {
             $tableName .= '_' . $tableSuffix;
         }
         return $this->getConnection(self::DEFAULT_READ_RESOURCE)->getTableName($tableName);
@@ -344,7 +344,7 @@ class Mage_Core_Model_Resource
     {
         $zeroDate = $this->getConnection(self::DEFAULT_READ_RESOURCE)->getSuggestedZeroDate();
         if (!empty($row) && is_array($row)) {
-            foreach ($row as $key=>&$value) {
+            foreach ($row as $key => &$value) {
                 if (is_string($value) && $value === $zeroDate) {
                     $value = '';
                 }
@@ -415,7 +415,11 @@ class Mage_Core_Model_Resource
     public function getFkName($priTableName, $priColumnName, $refTableName, $refColumnName)
     {
         return $this->getConnection(self::DEFAULT_READ_RESOURCE)
-            ->getForeignKeyName($this->getTableName($priTableName), $priColumnName,
-                $this->getTableName($refTableName), $refColumnName);
+            ->getForeignKeyName(
+                $this->getTableName($priTableName),
+                $priColumnName,
+                $this->getTableName($refTableName),
+                $refColumnName
+            );
     }
 }

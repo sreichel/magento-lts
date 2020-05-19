@@ -164,7 +164,7 @@ class Mage_Catalog_Model_Resource_Category_Flat extends Mage_Index_Model_Resourc
      */
     public function getStoreId()
     {
-        if (is_null($this->_storeId)) {
+        if ($this->_storeId === null) {
             return (int)Mage::app()->getStore()->getId();
         }
         return $this->_storeId;
@@ -287,7 +287,8 @@ class Mage_Catalog_Model_Resource_Category_Flat extends Mage_Index_Model_Resourc
                     new Zend_Db_Expr('main_table.' . $_conn->quoteIdentifier('name')),
                     new Zend_Db_Expr('main_table.' . $_conn->quoteIdentifier('path')),
                     'is_active',
-                    'is_anchor'))
+                'is_anchor')
+            )
 
             ->where('main_table.include_in_menu = ?', '1')
             ->order('main_table.position');
@@ -392,8 +393,7 @@ class Mage_Catalog_Model_Resource_Category_Flat extends Mage_Index_Model_Resourc
                 $childrenNodes = $this->_nodes[$parentNode->getId()];
                 if ($childrenNodes->getChildrenNodes()) {
                     $this->_nodes = $childrenNodes->getChildrenNodes();
-                }
-                else {
+                } else {
                     $this->_nodes = array();
                 }
                 $this->_loaded = true;
@@ -445,7 +445,7 @@ class Mage_Catalog_Model_Resource_Category_Flat extends Mage_Index_Model_Resourc
      */
     public function getNodeById($nodeId, $nodes = null)
     {
-        if (is_null($nodes)) {
+        if ($nodes === null) {
             $nodes = $this->getNodes($nodeId);
         }
         if (isset($nodes[$nodeId])) {
@@ -467,7 +467,7 @@ class Mage_Catalog_Model_Resource_Category_Flat extends Mage_Index_Model_Resourc
      */
     public function isBuilt($storeView = null)
     {
-        $storeView = is_null($storeView) ? Mage::app()->getDefaultStoreView() : Mage::app()->getStore($storeView);
+        $storeView = $storeView === null ? Mage::app()->getDefaultStoreView() : Mage::app()->getStore($storeView);
         if ($storeView === null) {
             $storeId = Mage_Core_Model_App::ADMIN_STORE_ID;
         } else {
@@ -603,8 +603,7 @@ class Mage_Catalog_Model_Resource_Category_Flat extends Mage_Index_Model_Resourc
                     'primary'  => isset($fieldProp['primary']) ? $fieldProp['primary'] : false,
                 ), ($fieldProp['comment'] != '') ?
                     $fieldProp['comment'] :
-                    ucwords(str_replace('_', ' ', $fieldName))
-                );
+                    ucwords(str_replace('_', ' ', $fieldName)));
             }
         }
 
@@ -615,26 +614,43 @@ class Mage_Catalog_Model_Resource_Category_Flat extends Mage_Index_Model_Resourc
             array('type' => 'primary')
         );
         $table->addIndex(
-            $_writeAdapter->getIndexName($tableName, array('store_id')), array('store_id'), array('type' => 'index')
+            $_writeAdapter->getIndexName($tableName, array('store_id')),
+            array('store_id'),
+            array('type' => 'index')
         );
         $table->addIndex(
-            $_writeAdapter->getIndexName($tableName, array('path')), array('path'), array('type' => 'index')
+            $_writeAdapter->getIndexName($tableName, array('path')),
+            array('path'),
+            array('type' => 'index')
         );
         $table->addIndex(
-            $_writeAdapter->getIndexName($tableName, array('level')), array('level'), array('type' => 'index')
+            $_writeAdapter->getIndexName($tableName, array('level')),
+            array('level'),
+            array('type' => 'index')
         );
 
         // Adding foreign keys
         $table->addForeignKey(
             $_writeAdapter->getForeignKeyName(
-                $tableName, 'entity_id', $this->getTable('catalog/category'), 'entity_id'
+                $tableName,
+                'entity_id',
+                $this->getTable('catalog/category'),
+                'entity_id'
             ),
-            'entity_id', $this->getTable('catalog/category'), 'entity_id',
-            Varien_Db_Ddl_Table::ACTION_CASCADE, Varien_Db_Ddl_Table::ACTION_CASCADE);
+            'entity_id',
+            $this->getTable('catalog/category'),
+            'entity_id',
+            Varien_Db_Ddl_Table::ACTION_CASCADE,
+            Varien_Db_Ddl_Table::ACTION_CASCADE
+        );
         $table->addForeignKey(
             $_writeAdapter->getForeignKeyName($tableName, 'store_id', $this->getTable('core/store'), 'store_id'),
-            'store_id', $this->getTable('core/store'), 'store_id',
-            Varien_Db_Ddl_Table::ACTION_CASCADE, Varien_Db_Ddl_Table::ACTION_CASCADE);
+            'store_id',
+            $this->getTable('core/store'),
+            'store_id',
+            Varien_Db_Ddl_Table::ACTION_CASCADE,
+            Varien_Db_Ddl_Table::ACTION_CASCADE
+        );
         $_writeAdapter->createTable($table);
         return $this;
     }
@@ -657,7 +673,7 @@ class Mage_Catalog_Model_Resource_Category_Flat extends Mage_Index_Model_Resourc
             }
             $_is_unsigned = '';
             $ddlType = $helper->getDdlTypeByColumnType($column['DATA_TYPE']);
-            $column['DEFAULT'] = trim($column['DEFAULT'],"' ");
+            $column['DEFAULT'] = trim($column['DEFAULT'], "' ");
             switch ($ddlType) {
                 case Varien_Db_Ddl_Table::TYPE_SMALLINT:
                 case Varien_Db_Ddl_Table::TYPE_INTEGER:
@@ -691,7 +707,6 @@ class Mage_Catalog_Model_Resource_Category_Flat extends Mage_Index_Model_Resourc
                 case Varien_Db_Ddl_Table::TYPE_DATETIME:
                     $_is_unsigned = null;
                     break;
-
             }
             $columns[$column['COLUMN_NAME']] = array(
                 'type' => array($ddlType, $options),
@@ -793,7 +808,8 @@ class Mage_Catalog_Model_Resource_Category_Flat extends Mage_Index_Model_Resourc
                     $this->getTable('eav/attribute').'.*'
                 )
                 ->where(
-                    $this->getTable('eav/entity_type') . '.entity_type_code = ?', Mage_Catalog_Model_Category::ENTITY
+                    $this->getTable('eav/entity_type') . '.entity_type_code = ?',
+                    Mage_Catalog_Model_Category::ENTITY
                 );
             $this->_attributeCodes = array();
             foreach ($this->_getWriteAdapter()->fetchAll($select) as $attribute) {
@@ -918,7 +934,7 @@ class Mage_Catalog_Model_Resource_Category_Flat extends Mage_Index_Model_Resourc
      */
     public function synchronize($category = null, $storeIds = array())
     {
-        if (is_null($category)) {
+        if ($category === null) {
             if (empty($storeIds)) {
                 $storeIds = null;
             }
@@ -1424,18 +1440,19 @@ class Mage_Catalog_Model_Resource_Category_Flat extends Mage_Index_Model_Resourc
      */
     public function getStoresRootCategories($storeIds = null)
     {
-        if (is_null($this->_storesRootCategories)) {
+        if ($this->_storesRootCategories === null) {
             $select = $this->_getWriteAdapter()->select()
                 ->from(array('cs' => $this->getTable('core/store')), array('store_id'))
                 ->join(
                     array('csg' => $this->getTable('core/store_group')),
                     'csg.group_id = cs.group_id',
-                    array('root_category_id'))
+                    array('root_category_id')
+                )
                 ->where('cs.store_id <> ?', Mage_Catalog_Model_Abstract::DEFAULT_STORE_ID);
             $this->_storesRootCategories = $this->_getWriteAdapter()->fetchPairs($select);
         }
 
-        if (!is_null($storeIds)) {
+        if ($storeIds !== null) {
             if (!is_array($storeIds)) {
                 $storeIds = array($storeIds);
             }

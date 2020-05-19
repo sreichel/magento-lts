@@ -290,9 +290,11 @@ abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Templ
      * @param bool $displayIfNoReviews
      * @return string
      */
-    public function getReviewsSummaryHtml(Mage_Catalog_Model_Product $product, $templateType = false,
-        $displayIfNoReviews = false)
-    {
+    public function getReviewsSummaryHtml(
+        Mage_Catalog_Model_Product $product,
+        $templateType = false,
+        $displayIfNoReviews = false
+    ) {
         if ($this->_initReviewsHelperBlock()) {
             return $this->_reviewsHelperBlock->getSummaryHtml($product, $templateType, $displayIfNoReviews);
         }
@@ -370,7 +372,7 @@ abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Templ
      */
     public function getTierPriceHtml($product = null, $parent = null)
     {
-        if (is_null($product)) {
+        if ($product === null) {
             $product = $this->getProduct();
         }
         return $this->_getPriceBlock($product->getTypeId())
@@ -402,7 +404,7 @@ abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Templ
      */
     public function getTierPrices($product = null)
     {
-        if (is_null($product)) {
+        if ($product === null) {
             $product = $this->getProduct();
         }
         $prices = $product->getFormatedTierPrice();
@@ -484,7 +486,7 @@ abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Templ
      */
     public function getImageLabel($product = null, $mediaAttributeCode = 'image')
     {
-        if (is_null($product)) {
+        if ($product === null) {
             $product = $this->getProduct();
         }
 
@@ -686,7 +688,7 @@ abstract class Mage_Catalog_Block_Product_Abstract extends Mage_Core_Block_Templ
      * @param bool $addFormKey
      * @return string
      */
-    public function  getAddToCartUrlCustom($product, $additional = array(), $addFormKey = true)
+    public function getAddToCartUrlCustom($product, $additional = array(), $addFormKey = true)
     {
         if (!$product->getTypeInstance(true)->hasRequiredOptions($product)) {
             if (!$addFormKey) {

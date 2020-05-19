@@ -98,7 +98,7 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
      */
     protected function _getSalesAmountExpression()
     {
-        if (is_null($this->_salesAmountExpression)) {
+        if ($this->_salesAmountExpression === null) {
             $adapter = $this->getConnection();
             $expressionTransferObject = new Varien_Object(array(
                 'expression' => '%s - %s - %s - (%s - %s - %s)',
@@ -148,10 +148,12 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
         if ($isFilter == 0) {
             $this->getSelect()->columns(array(
                 'revenue' => new Zend_Db_Expr(
-                    sprintf('SUM((%s) * %s)', $expression,
+                    sprintf(
+                        'SUM((%s) * %s)',
+                        $expression,
                         $adapter->getIfNullSql('main_table.base_to_global_rate', 0)
                     )
-                 )
+                )
             ));
         } else {
             $this->getSelect()->columns(array(
@@ -162,7 +164,10 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
         $dateRange = $this->getDateRange($range, $customStart, $customEnd);
 
         $tzRangeOffsetExpression = $this->_getTZRangeOffsetExpression(
-            $range, 'created_at', $dateRange['from'], $dateRange['to']
+            $range,
+            'created_at',
+            $dateRange['from'],
+            $dateRange['to']
         );
 
         $this->getSelect()
@@ -172,8 +177,7 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
             ))
             ->where('main_table.state NOT IN (?)', array(
                 Mage_Sales_Model_Order::STATE_PENDING_PAYMENT,
-                Mage_Sales_Model_Order::STATE_NEW)
-            )
+                Mage_Sales_Model_Order::STATE_NEW))
             ->order('range ' . Zend_Db_Select::SQL_ASC)
             ->group($tzRangeOffsetExpression);
 
@@ -233,8 +237,7 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
      */
     protected function _getRangeExpression($range)
     {
-        switch ($range)
-        {
+        switch ($range) {
             case '24h':
                 $expression = $this->getConnection()->getConcatSql(array(
                     $this->getConnection()->getDateFormatSql('{{attribute}}', '%Y-%m-%d %H:'),
@@ -333,8 +336,7 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
         $dateStart->setMinute(0);
         $dateStart->setSecond(0);
 
-        switch ($range)
-        {
+        switch ($range) {
             case '24h':
                 $dateEnd = Mage::app()->getLocale()->date();
                 $dateEnd->addHour(1);
@@ -454,8 +456,7 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
         ))
         ->where('main_table.state NOT IN (?)', array(
             Mage_Sales_Model_Order::STATE_PENDING_PAYMENT,
-            Mage_Sales_Model_Order::STATE_NEW)
-         );
+            Mage_Sales_Model_Order::STATE_NEW));
 
         return $this;
     }
@@ -512,14 +513,16 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
             $averageExpr = $adapter->getCheckSql(
                 'SUM(main_table.orders_count) > 0',
                 'SUM(main_table.total_revenue_amount)/SUM(main_table.orders_count)',
-                0);
+                0
+            );
             $this->getSelect()->columns(array(
                 'lifetime' => 'SUM(main_table.total_revenue_amount)',
                 'average'  => $averageExpr
             ));
 
             if (!$isFilter) {
-                $this->addFieldToFilter('store_id',
+                $this->addFieldToFilter(
+                    'store_id',
                     array('eq' => Mage::app()->getStore(Mage_Core_Model_Store::ADMIN_CODE)->getId())
                 );
             }
@@ -542,8 +545,7 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
                 ->where('main_table.status NOT IN(?)', $statuses)
                 ->where('main_table.state NOT IN(?)', array(
                     Mage_Sales_Model_Order::STATE_NEW,
-                    Mage_Sales_Model_Order::STATE_PENDING_PAYMENT)
-                );
+                    Mage_Sales_Model_Order::STATE_PENDING_PAYMENT));
         }
         return $this;
     }
@@ -565,8 +567,7 @@ class Mage_Reports_Model_Resource_Order_Collection extends Mage_Sales_Model_Reso
                 ->group('entity_id');
 
         $this->getSelect()->columns(array(
-            'items' => 'SUM(main_table.total_qty_ordered)')
-        );
+            'items' => 'SUM(main_table.total_qty_ordered)'));
 
         return $this;
     }

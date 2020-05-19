@@ -31,8 +31,7 @@
  * @package     Mage_XmlConnect
  * @author      Magento Core Team <core@magentocommerce.com>
  */
-class Mage_XmlConnect_Model_Simplexml_Form_Element_Multiline
-    extends Mage_XmlConnect_Model_Simplexml_Form_Element_Abstract
+class Mage_XmlConnect_Model_Simplexml_Form_Element_Multiline extends Mage_XmlConnect_Model_Simplexml_Form_Element_Abstract
 {
     /**
      * Format for Xml elements id attribute
@@ -83,7 +82,7 @@ class Mage_XmlConnect_Model_Simplexml_Form_Element_Multiline
     public function getXmlId($index = null)
     {
         $format = $this->_fieldIdFormat;
-        if (!is_null($index)) {
+        if ($index !== null) {
             $format .= '_%2$s';
         }
         return sprintf($format, $this->getData('attribute_code'), $index);
@@ -98,7 +97,7 @@ class Mage_XmlConnect_Model_Simplexml_Form_Element_Multiline
     public function getFieldName($index = null)
     {
         $format = $this->_fieldNameFormat;
-        if (!is_null($index)) {
+        if ($index !== null) {
             $format .= '[%2$s]';
         }
         return sprintf($format, $this->getData('attribute_code'), $index);

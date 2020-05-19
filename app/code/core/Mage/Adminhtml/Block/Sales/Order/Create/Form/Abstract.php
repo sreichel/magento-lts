@@ -32,8 +32,7 @@
  * @package     Mage_Adminhtml
  * @author      Magento Core Team <core@magentocommerce.com>
  */
-abstract class Mage_Adminhtml_Block_Sales_Order_Create_Form_Abstract
-    extends Mage_Adminhtml_Block_Sales_Order_Create_Abstract
+abstract class Mage_Adminhtml_Block_Sales_Order_Create_Form_Abstract extends Mage_Adminhtml_Block_Sales_Order_Create_Abstract
 {
     /**
      * Data Form object
@@ -72,7 +71,7 @@ abstract class Mage_Adminhtml_Block_Sales_Order_Create_Form_Abstract
      */
     public function getForm()
     {
-        if (is_null($this->_form)) {
+        if ($this->_form === null) {
             $this->_form = new Varien_Data_Form();
             $this->_prepareForm();
         }

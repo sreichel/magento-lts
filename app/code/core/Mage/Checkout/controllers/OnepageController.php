@@ -70,7 +70,7 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
 
         if (!$this->_canShowForUnregisteredUsers()) {
             $this->norouteAction();
-            $this->setFlag('',self::FLAG_NO_DISPATCH,true);
+            $this->setFlag('', self::FLAG_NO_DISPATCH, true);
             return;
         }
 
@@ -339,7 +339,7 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
             if (Mage::getSingleton('customer/session')->getCustomer()->getId() == $address->getCustomerId()) {
                 $this->_prepareDataJSON($address->toArray());
             } else {
-                $this->getResponse()->setHeader('HTTP/1.1','403 Forbidden');
+                $this->getResponse()->setHeader('HTTP/1.1', '403 Forbidden');
             }
         }
     }
@@ -456,9 +456,10 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
             if (!$result) {
                 Mage::dispatchEvent(
                     'checkout_controller_onepage_save_shipping_method',
-                     array(
+                    array(
                           'request' => $this->getRequest(),
-                          'quote'   => $this->getOnepage()->getQuote()));
+                    'quote'   => $this->getOnepage()->getQuote())
+                );
                 $this->getOnepage()->getQuote()->collectTotals();
                 $this->_prepareDataJSON($result);
 
@@ -532,7 +533,7 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
      */
     protected function _getOrder()
     {
-        if (is_null($this->_order)) {
+        if ($this->_order === null) {
             $this->_order = Mage::getModel('sales/order')->load($this->getOnepage()->getQuote()->getId(), 'quote_id');
             if (!$this->_order->getId()) {
                 throw new Mage_Payment_Model_Info_Exception(Mage::helper('core')->__("Can not create invoice. Order was not found."));
@@ -692,5 +693,4 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
         $this->getResponse()->setHeader('Content-type', 'application/json', true);
         return $this->getResponse()->setBody(Mage::helper('core')->jsonEncode($response));
     }
-
 }

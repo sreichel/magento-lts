@@ -98,7 +98,10 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
 
         $this->loadAggregatorOptions();
         if ($options = $this->getAggregatorOptions()) {
-            foreach ($options as $aggregator=>$dummy) { $this->setAggregator($aggregator); break; }
+            foreach ($options as $aggregator => $dummy) {
+                $this->setAggregator($aggregator);
+                break;
+            }
         }
     }
 /* start aggregator methods */
@@ -114,7 +117,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
     public function getAggregatorSelectOptions()
     {
         $opt = array();
-        foreach ($this->getAggregatorOption() as $k=>$v) {
+        foreach ($this->getAggregatorOption() as $k => $v) {
             $opt[] = array('value'=>$k, 'label'=>$v);
         }
         return $opt;
@@ -127,8 +130,8 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
 
     public function getAggregatorElement()
     {
-        if (is_null($this->getAggregator())) {
-            foreach ($this->getAggregatorOption() as $k=>$v) {
+        if ($this->getAggregator() === null) {
+            foreach ($this->getAggregatorOption() as $k => $v) {
                 $this->setAggregator($k);
                 break;
             }
@@ -202,7 +205,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
         return $out;
     }
 
-    public function asXml($containerKey='conditions', $itemKey='condition')
+    public function asXml($containerKey = 'conditions', $itemKey = 'condition')
     {
         $xml = "<aggregator>".$this->getAggregator()."</aggregator>"
             ."<value>".$this->getValue()."</value>"
@@ -214,7 +217,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
         return $xml;
     }
 
-    public function loadArray($arr, $key='conditions')
+    public function loadArray($arr, $key = 'conditions')
     {
         $this->setAggregator(isset($arr['aggregator']) ? $arr['aggregator']
                 : (isset($arr['attribute']) ? $arr['attribute'] : null))
@@ -254,9 +257,9 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
     {
            $html = $this->getTypeElement()->getHtml().
                Mage::helper('rule')->__('If %s of these conditions are %s:', $this->getAggregatorElement()->getHtml(), $this->getValueElement()->getHtml());
-           if ($this->getId() != '1') {
-               $html.= $this->getRemoveLinkHtml();
-           }
+        if ($this->getId() != '1') {
+            $html.= $this->getRemoveLinkHtml();
+        }
         return $html;
     }
 
@@ -279,13 +282,13 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
         return $html;
     }
 
-    public function asString($format='')
+    public function asString($format = '')
     {
         $str = Mage::helper('rule')->__("If %s of these conditions are %s:", $this->getAggregatorName(), $this->getValueName());
         return $str;
     }
 
-    public function asStringRecursive($level=0)
+    public function asStringRecursive($level = 0)
     {
         $str = parent::asStringRecursive($level);
         foreach ($this->getConditions() as $cond) {

@@ -386,14 +386,13 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
             /**
              * If we not retrieve negative answer from payment yet
              */
-            if (is_null($canVoid)) {
+            if ($canVoid === null) {
                 $canVoid = $this->getOrder()->getPayment()->canVoid($this);
                 if ($canVoid === false) {
                     $this->setCanVoidFlag(false);
                     $this->_saveBeforeDestruct = true;
                 }
-            }
-            else {
+            } else {
                 $canVoid = (bool) $canVoid;
             }
         }
@@ -412,7 +411,6 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
         );
 
         if ($baseOrderRefund > Mage::app()->getStore()->roundPrice($this->getOrder()->getBaseTotalPaid())) {
-
             $baseAvailableRefund = $this->getOrder()->getBaseTotalPaid()- $this->getOrder()->getBaseTotalRefunded();
 
             Mage::throwException(
@@ -482,8 +480,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
             $this->getOrder()->setBaseTotalOnlineRefunded(
                 $this->getOrder()->getBaseTotalOnlineRefunded()-$this->getBaseGrandTotal()
             );
-        }
-        else {
+        } else {
             $this->getOrder()->setTotalOfflineRefunded(
                 $this->getOrder()->getTotalOfflineRefunded()-$this->getGrandTotal()
             );
@@ -527,8 +524,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
         foreach ($this->getAllItems() as $item) {
             if ($item->getQty()>0) {
                 $item->register();
-            }
-            else {
+            } else {
                 $item->isDeleted(true);
             }
         }
@@ -546,8 +542,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
             $this->getOrder()->setBaseTotalOnlineRefunded(
                 $this->getOrder()->getBaseTotalOnlineRefunded()+$this->getBaseGrandTotal()
             );
-        }
-        else {
+        } else {
             $this->getOrder()->setTotalOfflineRefunded(
                 $this->getOrder()->getTotalOfflineRefunded()+$this->getGrandTotal()
             );
@@ -561,7 +556,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
         );
 
         $state = $this->getState();
-        if (is_null($state)) {
+        if ($state === null) {
             $this->setState(self::STATE_OPEN);
         }
         return $this;
@@ -574,7 +569,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      */
     public static function getStates()
     {
-        if (is_null(self::$_states)) {
+        if (self::$_states === null) {
             self::$_states = array(
                 self::STATE_OPEN       => Mage::helper('sales')->__('Pending'),
                 self::STATE_REFUNDED   => Mage::helper('sales')->__('Refunded'),
@@ -592,11 +587,11 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      */
     public function getStateName($stateId = null)
     {
-        if (is_null($stateId)) {
+        if ($stateId === null) {
             $stateId = $this->getState();
         }
 
-        if (is_null(self::$_states)) {
+        if (self::$_states === null) {
             self::getStates();
         }
         if (isset(self::$_states[$stateId])) {
@@ -665,7 +660,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
      *
      * @return $this
      */
-    public function addComment($comment, $notify=false, $visibleOnFront=false)
+    public function addComment($comment, $notify = false, $visibleOnFront = false)
     {
         if (!($comment instanceof Mage_Sales_Model_Order_Creditmemo_Comment)) {
             $comment = Mage::getModel('sales/order_creditmemo_comment')
@@ -683,9 +678,9 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
         return $this;
     }
 
-    public function getCommentsCollection($reload=false)
+    public function getCommentsCollection($reload = false)
     {
-        if (is_null($this->_comments) || $reload) {
+        if ($this->_comments === null || $reload) {
             $this->_comments = Mage::getResourceModel('sales/order_creditmemo_comment_collection')
                 ->setCreditmemoFilter($this->getId())
                 ->setCreatedAtOrder();
@@ -788,8 +783,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
                 'comment'      => $comment,
                 'billing'      => $order->getBillingAddress(),
                 'payment_html' => $paymentBlockHtml
-            )
-        );
+            ));
         $mailer->send();
 
         if ($notifyCustomer) {
@@ -863,8 +857,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
                 'creditmemo' => $this,
                 'comment'    => $comment,
                 'billing'    => $order->getBillingAddress()
-            )
-        );
+            ));
         $mailer->send();
 
         return $this;
@@ -899,7 +892,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
         }
 
         if (null != $this->_comments) {
-            foreach($this->_comments as $comment) {
+            foreach ($this->_comments as $comment) {
                 $comment->save();
             }
         }

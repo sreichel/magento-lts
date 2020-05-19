@@ -31,8 +31,7 @@
  * @package     Mage_XmlConnect
  * @author      Magento Core Team <core@magentocommerce.com>
  */
-class Mage_Xmlconnect_Block_Checkout_Cart_Item_Renderer_Giftcard
-    extends Enterprise_GiftCard_Block_Checkout_Cart_Item_Renderer
+class Mage_Xmlconnect_Block_Checkout_Cart_Item_Renderer_Giftcard extends Enterprise_GiftCard_Block_Checkout_Cart_Item_Renderer
 {
     /**
      * Get product thumbnail image
@@ -41,7 +40,7 @@ class Mage_Xmlconnect_Block_Checkout_Cart_Item_Renderer_Giftcard
      */
     public function getProductThumbnail()
     {
-        if (!is_null($this->_productThumbnail)) {
+        if ($this->_productThumbnail !== null) {
             return $this->_productThumbnail;
         }
         return $this->helper('xmlconnect/catalog_product_image')->init($this->getProduct(), 'thumbnail');

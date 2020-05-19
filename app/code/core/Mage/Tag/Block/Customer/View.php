@@ -68,7 +68,7 @@ class Mage_Tag_Block_Customer_View extends Mage_Catalog_Block_Product_Abstract
      */
     public function getTagInfo()
     {
-        if (is_null($this->_tagInfo)) {
+        if ($this->_tagInfo === null) {
             $this->_tagInfo = Mage::getModel('tag/tag')
                 ->load($this->getTagId());
         }
@@ -148,7 +148,7 @@ class Mage_Tag_Block_Customer_View extends Mage_Catalog_Block_Product_Abstract
      */
     protected function _getCollection()
     {
-        if (is_null($this->_collection)) {
+        if ($this->_collection === null) {
             $this->_collection = Mage::getModel('tag/tag')
                 ->getEntityCollection()
                 ->addTagFilter($this->getTagId())

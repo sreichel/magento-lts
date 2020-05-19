@@ -31,8 +31,7 @@
  * @package    Mage_Adminhtml
  * @author     Magento Core Team <core@magentocommerce.com>
  */
-class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Theme
-    extends Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Abstract
+class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Theme extends Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Abstract
 {
     /**
      * Retrieve filter HTML
@@ -94,7 +93,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Theme
                     . $this->_drawOptions($option['value'])
                     . '</optgroup>';
             } else {
-                $selected = (($option['value'] == $value && (!is_null($value))) ? ' selected="selected"' : '');
+                $selected = (($option['value'] == $value && ($value !== null)) ? ' selected="selected"' : '');
                 $html .= '<option value="'.$option['value'].'"'.$selected.'>'.$option['label'].'</option>';
             }
         }
@@ -109,7 +108,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Theme
      */
     public function getCondition()
     {
-        if (is_null($this->getValue())) {
+        if ($this->getValue() === null) {
             return null;
         }
         $value = $this->getValue();

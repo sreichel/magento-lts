@@ -32,7 +32,7 @@
  * @package     Mage_Adminhtml
  * @author      Magento Core Team <core@magentocommerce.com>
  */
-class  Mage_Adminhtml_Block_Sales_Items_Abstract extends Mage_Adminhtml_Block_Template
+class Mage_Adminhtml_Block_Sales_Items_Abstract extends Mage_Adminhtml_Block_Template
 {
     /**
      * Renderers with render type key
@@ -98,9 +98,9 @@ class  Mage_Adminhtml_Block_Sales_Items_Abstract extends Mage_Adminhtml_Block_Te
      * @param string $template
      * @return $this
      */
-    public function addColumnRender($column, $block, $template, $type=null)
+    public function addColumnRender($column, $block, $template, $type = null)
     {
-        if (!is_null($type)) {
+        if ($type !== null) {
             $column .= '_' . $type;
         }
         $this->_columnRenders[$column] = array(
@@ -122,11 +122,11 @@ class  Mage_Adminhtml_Block_Sales_Items_Abstract extends Mage_Adminhtml_Block_Te
         if (!isset($this->_itemRenders[$type])) {
             $type = 'default';
         }
-        if (is_null($this->_itemRenders[$type]['renderer'])) {
+        if ($this->_itemRenders[$type]['renderer'] === null) {
             $this->_itemRenders[$type]['renderer'] = $this->getLayout()
                 ->createBlock($this->_itemRenders[$type]['block'])
                 ->setTemplate($this->_itemRenders[$type]['template']);
-            foreach ($this->_columnRenders as $columnType=>$renderer) {
+            foreach ($this->_columnRenders as $columnType => $renderer) {
                 $this->_itemRenders[$type]['renderer']->addColumnRender($columnType, $renderer['block'], $renderer['template']);
             }
         }
@@ -140,7 +140,7 @@ class  Mage_Adminhtml_Block_Sales_Items_Abstract extends Mage_Adminhtml_Block_Te
      * @param string $compositePart
      * @return Mage_Core_Block_Abstract
      */
-    public function getColumnRenderer($column, $compositePart='')
+    public function getColumnRenderer($column, $compositePart = '')
     {
         if (isset($this->_columnRenders[$column . '_' . $compositePart])) {
             $column .= '_' . $compositePart;
@@ -148,7 +148,7 @@ class  Mage_Adminhtml_Block_Sales_Items_Abstract extends Mage_Adminhtml_Block_Te
         if (!isset($this->_columnRenders[$column])) {
             return false;
         }
-        if (is_null($this->_columnRenders[$column]['renderer'])) {
+        if ($this->_columnRenders[$column]['renderer'] === null) {
             $this->_columnRenders[$column]['renderer'] = $this->getLayout()
                 ->createBlock($this->_columnRenders[$column]['block'])
                 ->setTemplate($this->_columnRenders[$column]['template'])
@@ -212,7 +212,7 @@ class  Mage_Adminhtml_Block_Sales_Items_Abstract extends Mage_Adminhtml_Block_Te
 
         if ($block) {
             $block->setItem($item);
-            if (!is_null($field)) {
+            if ($field !== null) {
                 $block->setField($field);
             }
             return $block->toHtml();
@@ -245,16 +245,13 @@ class  Mage_Adminhtml_Block_Sales_Items_Abstract extends Mage_Adminhtml_Block_Te
         if (Mage::registry('order')) {
             return Mage::registry('order');
         }
-        if ($this->getInvoice())
-        {
+        if ($this->getInvoice()) {
             return $this->getInvoice()->getOrder();
         }
-        if ($this->getCreditmemo())
-        {
+        if ($this->getCreditmemo()) {
             return $this->getCreditmemo()->getOrder();
         }
-        if ($this->getItem()->getOrder())
-        {
+        if ($this->getItem()->getOrder()) {
             return $this->getItem()->getOrder();
         }
 
@@ -269,7 +266,7 @@ class  Mage_Adminhtml_Block_Sales_Items_Abstract extends Mage_Adminhtml_Block_Te
     public function getPriceDataObject()
     {
         $obj = $this->getData('price_data_object');
-        if (is_null($obj)) {
+        if ($obj === null) {
             return $this->getOrder();
         }
         return $obj;
@@ -327,15 +324,14 @@ class  Mage_Adminhtml_Block_Sales_Items_Abstract extends Mage_Adminhtml_Block_Te
      * @param   string $separator
      * @return  string
      */
-    public function displayRoundedPrices($basePrice, $price, $precision=2, $strong = false, $separator = '<br />')
+    public function displayRoundedPrices($basePrice, $price, $precision = 2, $strong = false, $separator = '<br />')
     {
         if ($this->getOrder()->isCurrencyDifferent()) {
             $res = '';
             $res.= $this->getOrder()->formatBasePricePrecision($basePrice, $precision);
             $res.= $separator;
             $res.= $this->getOrder()->formatPricePrecision($price, $precision, true);
-        }
-        else {
+        } else {
             $res = $this->getOrder()->formatPricePrecision($price, $precision);
             if ($strong) {
                 $res = '<strong>'.$res.'</strong>';
@@ -450,7 +446,8 @@ class  Mage_Adminhtml_Block_Sales_Items_Abstract extends Mage_Adminhtml_Block_Te
      * @see self::_canEditQty
      * @see self::canEditQty
      */
-    public function setCanEditQty($value) {
+    public function setCanEditQty($value)
+    {
         $this->_canEditQty = $value;
         return $this;
     }
@@ -465,7 +462,7 @@ class  Mage_Adminhtml_Block_Sales_Items_Abstract extends Mage_Adminhtml_Block_Te
         /**
          * If parent block has set
          */
-        if (!is_null($this->_canEditQty)) {
+        if ($this->_canEditQty !== null) {
             return $this->_canEditQty;
         }
 
@@ -521,7 +518,8 @@ class  Mage_Adminhtml_Block_Sales_Items_Abstract extends Mage_Adminhtml_Block_Te
      * CREDITMEMO
      */
 
-    public function canReturnToStock() {
+    public function canReturnToStock()
+    {
         $canReturnToStock = Mage::getStoreConfig(Mage_CatalogInventory_Model_Stock_Item::XML_PATH_CAN_SUBTRACT);
         if (Mage::getStoreConfig(Mage_CatalogInventory_Model_Stock_Item::XML_PATH_CAN_SUBTRACT)) {
             return true;
@@ -535,15 +533,15 @@ class  Mage_Adminhtml_Block_Sales_Items_Abstract extends Mage_Adminhtml_Block_Te
      * @param Mage_Sales_Model_Order_Creditmemo_Item $item
      * @return bool
      */
-    public function canReturnItemToStock($item=null) {
+    public function canReturnItemToStock($item = null)
+    {
         $canReturnToStock = Mage::getStoreConfig(Mage_CatalogInventory_Model_Stock_Item::XML_PATH_CAN_SUBTRACT);
-        if (!is_null($item)) {
+        if ($item !== null) {
             if (!$item->hasCanReturnToStock()) {
                 $product = Mage::getModel('catalog/product')->load($item->getOrderItem()->getProductId());
-                if ( $product->getId() && $product->getStockItem()->getManageStock() ) {
+                if ($product->getId() && $product->getStockItem()->getManageStock()) {
                     $item->setCanReturnToStock(true);
-                }
-                else {
+                } else {
                     $item->setCanReturnToStock(false);
                 }
             }
@@ -559,11 +557,11 @@ class  Mage_Adminhtml_Block_Sales_Items_Abstract extends Mage_Adminhtml_Block_Te
     public function canParentReturnToStock($item = null)
     {
         $canReturnToStock = Mage::getStoreConfig(Mage_CatalogInventory_Model_Stock_Item::XML_PATH_CAN_SUBTRACT);
-        if (!is_null($item)) {
-            if ( $item->getCreditmemo()->getOrder()->hasCanReturnToStock() ) {
+        if ($item !== null) {
+            if ($item->getCreditmemo()->getOrder()->hasCanReturnToStock()) {
                 $canReturnToStock = $item->getCreditmemo()->getOrder()->getCanReturnToStock();
             }
-        } elseif ( $this->getOrder()->hasCanReturnToStock() ) {
+        } elseif ($this->getOrder()->hasCanReturnToStock()) {
             $canReturnToStock = $this->getOrder()->getCanReturnToStock();
         }
         return $canReturnToStock;
@@ -577,11 +575,11 @@ class  Mage_Adminhtml_Block_Sales_Items_Abstract extends Mage_Adminhtml_Block_Te
      */
     public function canShipPartially($order = null)
     {
-        if (is_null($order) || !$order instanceof Mage_Sales_Model_Order) {
+        if ($order === null || !$order instanceof Mage_Sales_Model_Order) {
             $order = Mage::registry('current_shipment')->getOrder();
         }
         $value = $order->getCanShipPartially();
-        if (!is_null($value) && !$value) {
+        if ($value !== null && !$value) {
             return false;
         }
         return true;
@@ -595,11 +593,11 @@ class  Mage_Adminhtml_Block_Sales_Items_Abstract extends Mage_Adminhtml_Block_Te
      */
     public function canShipPartiallyItem($order = null)
     {
-        if (is_null($order) || !$order instanceof Mage_Sales_Model_Order) {
+        if ($order === null || !$order instanceof Mage_Sales_Model_Order) {
             $order = Mage::registry('current_shipment')->getOrder();
         }
         $value = $order->getCanShipPartiallyItem();
-        if (!is_null($value) && !$value) {
+        if ($value !== null && !$value) {
             return false;
         }
         return true;
@@ -612,5 +610,4 @@ class  Mage_Adminhtml_Block_Sales_Items_Abstract extends Mage_Adminhtml_Block_Te
         }
         return true;
     }
-
 }

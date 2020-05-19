@@ -47,7 +47,7 @@ class Mage_Payment_Model_Info extends Mage_Core_Model_Abstract
      * @param   mixed $index
      * @return unknown
      */
-    public function getData($key='', $index=null)
+    public function getData($key = '', $index = null)
     {
         if ('cc_number'===$key) {
             if (empty($this->_data['cc_number']) && !empty($this->_data['cc_number_enc'])) {
@@ -129,7 +129,7 @@ class Mage_Payment_Model_Info extends Mage_Core_Model_Abstract
             Mage::throwException(Mage::helper('sales')->__('Payment disallow storing objects.'));
         }
         $this->_initAdditionalInformation();
-        if (is_array($key) && is_null($value)) {
+        if (is_array($key) && $value === null) {
             $this->_additionalInformation = $key;
         } else {
             $this->_additionalInformation[$key] = $value;

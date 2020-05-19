@@ -58,7 +58,7 @@ class Mage_Catalog_Helper_Category extends Mage_Core_Helper_Abstract
      * @param   boolean $asCollection
      * @return  Varien_Data_Tree_Node_Collection|Mage_Catalog_Model_Resource_Eav_Mysql4_Category_Collection|array
      */
-    public function getStoreCategories($sorted=false, $asCollection=false, $toLoad=true)
+    public function getStoreCategories($sorted = false, $asCollection = false, $toLoad = true)
     {
         $parent     = Mage::app()->getStore()->getRootCategoryId();
         $cacheKey   = sprintf('%d-%d-%d-%d', $parent, $sorted, $asCollection, $toLoad);
@@ -135,7 +135,7 @@ class Mage_Catalog_Helper_Category extends Mage_Core_Helper_Abstract
      */
     public function getCategoryUrlSuffix($storeId = null)
     {
-        if (is_null($storeId)) {
+        if ($storeId === null) {
             $storeId = Mage::app()->getStore()->getId();
         }
 
@@ -163,8 +163,7 @@ class Mage_Catalog_Helper_Category extends Mage_Core_Helper_Abstract
         if ($slash) {
             $regexp     = '#('.preg_quote($this->getCategoryUrlSuffix($storeId), '#').')/$#i';
             $replace    = '/';
-        }
-        else {
+        } else {
             $regexp     = '#('.preg_quote($this->getCategoryUrlSuffix($storeId), '#').')$#i';
             $replace    = '';
         }

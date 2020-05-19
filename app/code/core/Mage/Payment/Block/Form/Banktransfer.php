@@ -53,10 +53,9 @@ class Mage_Payment_Block_Form_Banktransfer extends Mage_Payment_Block_Form
      */
     public function getInstructions()
     {
-        if (is_null($this->_instructions)) {
+        if ($this->_instructions === null) {
             $this->_instructions = $this->getMethod()->getInstructions();
         }
         return $this->_instructions;
     }
-
 }

@@ -103,7 +103,7 @@ abstract class Mage_Core_Model_Session_Abstract_Zend extends Varien_Object
      * @param   mixed $value
      * @return  Mage_Core_Model_Session_Abstract
      */
-    public function setData($key, $value='', $isChanged = false)
+    public function setData($key, $value = '', $isChanged = false)
     {
         if (!$this->_namespace->data) {
             $this->_namespace->data = new Varien_Object();
@@ -119,7 +119,7 @@ abstract class Mage_Core_Model_Session_Abstract_Zend extends Varien_Object
      * @param   bool $clear
      * @return  mixed
      */
-    public function getData($var=null, $clear=false)
+    public function getData($var = null, $clear = false)
     {
         if (!$this->_namespace->data) {
             $this->_namespace->data = new Varien_Object();
@@ -155,9 +155,9 @@ abstract class Mage_Core_Model_Session_Abstract_Zend extends Varien_Object
         return Zend_Session::getId();
     }
 
-    public function setSessionId($id=null)
+    public function setSessionId($id = null)
     {
-        if (!is_null($id)) {
+        if ($id !== null) {
             Zend_Session::setId($id);
         }
         return $this;

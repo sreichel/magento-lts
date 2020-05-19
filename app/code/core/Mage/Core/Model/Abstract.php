@@ -114,10 +114,10 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
      * @param string $resourceName
      * @param string|null $resourceCollectionName
      */
-    protected function _setResourceModel($resourceName, $resourceCollectionName=null)
+    protected function _setResourceModel($resourceName, $resourceCollectionName = null)
     {
         $this->_resourceName = $resourceName;
-        if (is_null($resourceCollectionName)) {
+        if ($resourceCollectionName === null) {
             $resourceCollectionName = $resourceName.'_collection';
         }
         $this->_resourceCollectionName = $resourceCollectionName;
@@ -217,7 +217,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
      * @param   integer $id
      * @return  Mage_Core_Model_Abstract
      */
-    public function load($id, $field=null)
+    public function load($id, $field = null)
     {
         $this->_beforeLoad($id, $field);
         $this->_getResource()->load($this, $id, $field);
@@ -365,7 +365,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
      * @param bool $flag
      * @return bool
      */
-    public function isObjectNew($flag=null)
+    public function isObjectNew($flag = null)
     {
         if ($flag !== null) {
             $this->_isObjectNew = $flag;
@@ -479,8 +479,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
             $this->_afterDelete();
 
             $this->_getResource()->commit();
-        }
-        catch (Exception $e){
+        } catch (Exception $e) {
             $this->_getResource()->rollBack();
             throw $e;
         }
@@ -587,5 +586,4 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
     {
         return $this;
     }
-
 }

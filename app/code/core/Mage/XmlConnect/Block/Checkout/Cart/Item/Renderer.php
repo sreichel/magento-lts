@@ -40,7 +40,7 @@ class Mage_Xmlconnect_Block_Checkout_Cart_Item_Renderer extends Mage_Checkout_Bl
      */
     public function getProductThumbnail()
     {
-        if (!is_null($this->_productThumbnail)) {
+        if ($this->_productThumbnail !== null) {
             return $this->_productThumbnail;
         }
         return $this->helper('xmlconnect/catalog_product_image')->init($this->getProduct(), 'thumbnail');

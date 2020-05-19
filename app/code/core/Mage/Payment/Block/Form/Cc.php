@@ -55,7 +55,7 @@ class Mage_Payment_Block_Form_Cc extends Mage_Payment_Block_Form
             $availableTypes = $method->getConfigData('cctypes');
             if ($availableTypes) {
                 $availableTypes = explode(',', $availableTypes);
-                foreach ($types as $code=>$name) {
+                foreach ($types as $code => $name) {
                     if (!in_array($code, $availableTypes)) {
                         unset($types[$code]);
                     }
@@ -73,7 +73,7 @@ class Mage_Payment_Block_Form_Cc extends Mage_Payment_Block_Form
     public function getCcMonths()
     {
         $months = $this->getData('cc_months');
-        if (is_null($months)) {
+        if ($months === null) {
             $months[0] =  $this->__('Month');
             $months = array_merge($months, $this->_getConfig()->getMonths());
             $this->setData('cc_months', $months);
@@ -89,7 +89,7 @@ class Mage_Payment_Block_Form_Cc extends Mage_Payment_Block_Form
     public function getCcYears()
     {
         $years = $this->getData('cc_years');
-        if (is_null($years)) {
+        if ($years === null) {
             $years = $this->_getConfig()->getYears();
             $years = array(0=>$this->__('Year'))+$years;
             $this->setData('cc_years', $years);
@@ -106,7 +106,7 @@ class Mage_Payment_Block_Form_Cc extends Mage_Payment_Block_Form
     {
         if ($this->getMethod()) {
             $configData = $this->getMethod()->getConfigData('useccv');
-            if(is_null($configData)){
+            if ($configData === null) {
                 return true;
             }
             return (bool) $configData;
@@ -131,7 +131,7 @@ class Mage_Payment_Block_Form_Cc extends Mage_Payment_Block_Form
     * solo/switch card start year
     * @return array
     */
-     public function getSsStartYears()
+    public function getSsStartYears()
     {
         $years = array();
         $first = date("Y");

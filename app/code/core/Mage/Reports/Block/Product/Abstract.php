@@ -99,8 +99,8 @@ abstract class Mage_Reports_Block_Product_Abstract extends Mage_Catalog_Block_Pr
      */
     protected function _getModel()
     {
-        if (is_null($this->_indexModel)) {
-            if (is_null($this->_indexName)) {
+        if ($this->_indexModel === null) {
+            if ($this->_indexName === null) {
                 Mage::throwException(Mage::helper('reports')->__('Index model name must be defined'));
             }
 
@@ -127,16 +127,16 @@ abstract class Mage_Reports_Block_Product_Abstract extends Mage_Catalog_Block_Pr
      */
     public function getItemsCollection()
     {
-        if (is_null($this->_collection)) {
+        if ($this->_collection === null) {
             $attributes = Mage::getSingleton('catalog/config')->getProductAttributes();
 
             $this->_collection = $this->_getModel()
                 ->getCollection()
                 ->addAttributeToSelect($attributes);
 
-                if ($this->getCustomerId()) {
-                    $this->_collection->setCustomerId($this->getCustomerId());
-                }
+            if ($this->getCustomerId()) {
+                $this->_collection->setCustomerId($this->getCustomerId());
+            }
 
                 $this->_collection->excludeProductIds($this->_getModel()->getExcludeProductIds())
                     ->addUrlRewrite()

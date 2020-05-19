@@ -38,7 +38,7 @@ class Mage_Sales_Model_Entity_Order_Attribute_Backend_Shipping extends Mage_Eav_
     public function beforeSave($object)
     {
         $shippingAddressId = $object->getShippingAddressId();
-        if (is_null($shippingAddressId)) {
+        if ($shippingAddressId === null) {
             $object->unsetShippingAddressId();
         }
     }
@@ -56,5 +56,4 @@ class Mage_Sales_Model_Entity_Order_Attribute_Backend_Shipping extends Mage_Eav_
             $this->getAttribute()->getEntity()->saveAttribute($object, $this->getAttribute()->getAttributeCode());
         }
     }
-
 }

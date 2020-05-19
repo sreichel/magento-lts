@@ -70,7 +70,7 @@ abstract class Mage_XmlConnect_Controller_AdminAction extends Mage_Adminhtml_Con
             return $this;
         }
 
-        if (is_null(Mage::getSingleton('adminhtml/session')->getLocale())) {
+        if (Mage::getSingleton('adminhtml/session')->getLocale() === null) {
             Mage::getSingleton('adminhtml/session')->setLocale(Mage::app()->getLocale()->getLocaleCode());
         }
 
@@ -141,7 +141,7 @@ abstract class Mage_XmlConnect_Controller_AdminAction extends Mage_Adminhtml_Con
      */
     public function deniedAction()
     {
-        $this->getResponse()->setHeader('HTTP/1.1','403 Forbidden');
+        $this->getResponse()->setHeader('HTTP/1.1', '403 Forbidden');
         if (Mage::getSingleton('xmlconnect/configuration')->isActiveAdminApp()) {
             $this->_message(Mage_XmlConnect_Model_Simplexml_Message_Error::ERROR_USER_SP_ACCESS_FORBIDDEN);
         } else {

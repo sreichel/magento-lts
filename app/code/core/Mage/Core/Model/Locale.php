@@ -229,7 +229,7 @@ class Mage_Core_Model_Locale
      * @param   bool $translatedName translation flag
      * @return  array
      */
-    protected function _getOptionLocales($translatedName=false)
+    protected function _getOptionLocales($translatedName = false)
     {
         $options = array();
         $zendLocales = $this->getLocale()->getLocaleList();
@@ -288,7 +288,7 @@ class Mage_Core_Model_Locale
         $options= array();
         $zones  = $this->getTranslationList('windowstotimezone');
         ksort($zones);
-        foreach ($zones as $code=>$name) {
+        foreach ($zones as $code => $name) {
             $name = trim($name);
             $zonesList = explode(' ', $code);
             if (count($zonesList) == 1) {
@@ -340,7 +340,7 @@ class Mage_Core_Model_Locale
         $options    = array();
         $countries  = $this->getCountryTranslationList();
 
-        foreach ($countries as $code=>$name) {
+        foreach ($countries as $code => $name) {
             $options[] = array(
                'label' => $name,
                'value' => $code,
@@ -360,7 +360,7 @@ class Mage_Core_Model_Locale
         $options = array();
         $allowed = $this->getAllowCurrencies();
 
-        foreach ($currencies as $name=>$code) {
+        foreach ($currencies as $name => $code) {
             if (!in_array($code, $allowed)) {
                 continue;
             }
@@ -382,7 +382,7 @@ class Mage_Core_Model_Locale
     {
         $currencies = $this->getTranslationList('currencytoname');
         $options = array();
-        foreach ($currencies as $name=>$code) {
+        foreach ($currencies as $name => $code) {
             $options[] = array(
                'label' => $name,
                'value' => $code,
@@ -442,7 +442,7 @@ class Mage_Core_Model_Locale
      * @param   string $type
      * @return  string
      */
-    public function getDateFormat($type=null)
+    public function getDateFormat($type = null)
     {
         return preg_replace('/(?<!y)yy(?!y)/', 'yyyy', $this->getTranslation($type, 'date'));
     }
@@ -454,8 +454,11 @@ class Mage_Core_Model_Locale
      */
     public function getDateFormatWithLongYear()
     {
-        return preg_replace('/(?<!y)yy(?!y)/', 'yyyy',
-            $this->getTranslation(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT, 'date'));
+        return preg_replace(
+            '/(?<!y)yy(?!y)/',
+            'yyyy',
+            $this->getTranslation(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT, 'date')
+        );
     }
 
     /**
@@ -464,7 +467,7 @@ class Mage_Core_Model_Locale
      * @param   string $type
      * @return  string
      */
-    public function getTimeFormat($type=null)
+    public function getTimeFormat($type = null)
     {
         return $this->getTranslation($type, 'time');
     }
@@ -513,7 +516,7 @@ class Mage_Core_Model_Locale
      */
     public function date($date = null, $part = null, $locale = null, $useTimezone = true)
     {
-        if (is_null($locale)) {
+        if ($locale === null) {
             $locale = $this->getLocale();
         }
 
@@ -540,7 +543,7 @@ class Mage_Core_Model_Locale
      * @param   string|null $format
      * @return  Zend_Date
      */
-    public function storeDate($store=null, $date=null, $includeTime=false, $format = null)
+    public function storeDate($store = null, $date = null, $includeTime = false, $format = null)
     {
         $timezone = Mage::app()->getStore($store)->getConfig(self::XML_PATH_DEFAULT_TIMEZONE);
         $date = new Zend_Date($date, $format, $this->getLocale());
@@ -564,7 +567,7 @@ class Mage_Core_Model_Locale
      * @param null|string $format
      * @return Zend_Date
      */
-    public function utcDate($store=null, $date, $includeTime = false, $format = null)
+    public function utcDate($store = null, $date, $includeTime = false, $format = null)
     {
         $dateObj = $this->storeDate($store, $date, $includeTime);
         $dateObj->set($date, $format);
@@ -579,7 +582,7 @@ class Mage_Core_Model_Locale
      * @param   mixed $store
      * @return  int
      */
-    public function storeTimeStamp($store=null)
+    public function storeTimeStamp($store = null)
     {
         $timezone = Mage::app()->getStore($store)->getConfig(self::XML_PATH_DEFAULT_TIMEZONE);
         $currentTimezone = @date_default_timezone_get();
@@ -649,7 +652,7 @@ class Mage_Core_Model_Locale
      */
     public function getNumber($value)
     {
-        if (is_null($value)) {
+        if ($value === null) {
             return null;
         }
 
@@ -667,12 +670,10 @@ class Mage_Core_Model_Locale
             if ($separatorComa > $separatorDot) {
                 $value = str_replace('.', '', $value);
                 $value = str_replace(',', '.', $value);
-            }
-            else {
+            } else {
                 $value = str_replace(',', '', $value);
             }
-        }
-        elseif ($separatorComa !== false) {
+        } elseif ($separatorComa !== false) {
             $value = str_replace(',', '.', $value);
         }
 
@@ -691,7 +692,7 @@ class Mage_Core_Model_Locale
         $symbols = Zend_Locale_Data::getList($this->getLocaleCode(), 'symbols');
 
         $pos = strpos($format, ';');
-        if ($pos !== false){
+        if ($pos !== false) {
             $format = substr($format, 0, $pos);
         }
         $format = preg_replace("/[^0\#\.,]/", "", $format);
@@ -705,7 +706,7 @@ class Mage_Core_Model_Locale
         $requiredPrecision = $totalPrecision;
         $t = substr($format, $decimalPoint);
         $pos = strpos($t, '#');
-        if ($pos !== false){
+        if ($pos !== false) {
             $requiredPrecision = strlen($t) - $pos - $totalPrecision;
         }
         $group = 0;
@@ -742,8 +743,7 @@ class Mage_Core_Model_Locale
             $this->_locale = new Zend_Locale(Mage::getStoreConfig(self::XML_PATH_DEFAULT_LOCALE, $storeId));
             $this->_localeCode = $this->_locale->toString();
             Mage::getSingleton('core/translate')->setLocale($this->_locale)->init('frontend', true);
-        }
-        else {
+        } else {
             $this->_emulatedLocales[] = false;
         }
     }
@@ -844,10 +844,8 @@ class Mage_Core_Model_Locale
 
         $result = false;
         if (!is_empty_date($dateFrom) && $storeTimeStamp < $fromTimeStamp) {
-        }
-        elseif (!is_empty_date($dateTo) && $storeTimeStamp > $toTimeStamp) {
-        }
-        else {
+        } elseif (!is_empty_date($dateTo) && $storeTimeStamp > $toTimeStamp) {
+        } else {
             $result = true;
         }
 

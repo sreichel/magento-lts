@@ -32,8 +32,7 @@
  * @package     Mage_Sales
  * @author      Magento Core Team <core@magentocommerce.com>
  */
-class Mage_Sales_Model_Resource_Order_Attribute_Backend_Shipping
-    extends Mage_Eav_Model_Entity_Attribute_Backend_Abstract
+class Mage_Sales_Model_Resource_Order_Attribute_Backend_Shipping extends Mage_Eav_Model_Entity_Attribute_Backend_Abstract
 {
     /**
      * Perform operation before save
@@ -43,7 +42,7 @@ class Mage_Sales_Model_Resource_Order_Attribute_Backend_Shipping
     public function beforeSave($object)
     {
         $shippingAddressId = $object->getShippingAddressId();
-        if (is_null($shippingAddressId)) {
+        if ($shippingAddressId === null) {
             $object->unsetShippingAddressId();
         }
     }

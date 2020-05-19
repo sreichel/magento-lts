@@ -90,7 +90,7 @@ class Mage_Core_Model_Resource_Config extends Mage_Core_Model_Resource_Db_Abstra
         // load all configuration records from database, which are not inherited
         $select = $read->select()
             ->from($this->getMainTable(), array('scope', 'scope_id', 'path', 'value'));
-        if (!is_null($condition)) {
+        if ($condition !== null) {
             $select->where($condition);
         }
         $rowset = $read->fetchAll($select);
@@ -107,7 +107,7 @@ class Mage_Core_Model_Resource_Config extends Mage_Core_Model_Resource_Db_Abstra
 
         // inherit default config values to all websites
         $extendSource = $xmlConfig->getNode('default');
-        foreach ($websites as $id=>$w) {
+        foreach ($websites as $id => $w) {
             $websiteNode = $xmlConfig->getNode('websites/' . $w['code']);
             $websiteNode->extend($extendSource);
         }

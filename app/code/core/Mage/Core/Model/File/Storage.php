@@ -65,7 +65,8 @@ class Mage_Core_Model_File_Storage extends Mage_Core_Model_Abstract
      * @param  Mage_Core_Model_Abstract $destinationModel
      * @return bool
      */
-    protected function _synchronizeHasErrors(Mage_Core_Model_Abstract $sourceModel,
+    protected function _synchronizeHasErrors(
+        Mage_Core_Model_Abstract $sourceModel,
         Mage_Core_Model_Abstract $destinationModel
     ) {
         if (!$sourceModel || !$destinationModel) {
@@ -100,7 +101,7 @@ class Mage_Core_Model_File_Storage extends Mage_Core_Model_Abstract
      */
     public function getStorageModel($storage = null, $params = array())
     {
-        if (is_null($storage)) {
+        if ($storage === null) {
             $storage = Mage::helper('core/file_storage')->getCurrentStorageCode();
         }
 

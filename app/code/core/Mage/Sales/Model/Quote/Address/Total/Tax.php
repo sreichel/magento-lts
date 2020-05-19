@@ -29,7 +29,8 @@ class Mage_Sales_Model_Quote_Address_Total_Tax extends Mage_Sales_Model_Quote_Ad
 {
     protected $_appliedTaxes = array();
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->setCode('tax');
     }
 
@@ -98,19 +99,18 @@ class Mage_Sales_Model_Quote_Address_Total_Tax extends Mage_Sales_Model_Quote_Ad
                     }
 
                     $this->_saveAppliedTaxes(
-                       $address,
-                       $taxCalculationModel->getAppliedRates($request),
-                       $child->getTaxAmount(),
-                       $child->getBaseTaxAmount(),
-                       $rate
+                        $address,
+                        $taxCalculationModel->getAppliedRates($request),
+                        $child->getTaxAmount(),
+                        $child->getBaseTaxAmount(),
+                        $rate
                     );
                 }
                 $itemTaxAmount = $item->getTaxAmount() + $item->getDiscountTaxCompensation();
                 $address->setTaxAmount($address->getTaxAmount() + $itemTaxAmount);
                 $itemBaseTaxAmount = $item->getBaseTaxAmount() + $item->getBaseDiscountTaxCompensation();
                 $address->setBaseTaxAmount($address->getBaseTaxAmount() + $itemBaseTaxAmount);
-            }
-            else {
+            } else {
                 $discountBefore = $item->getDiscountAmount();
                 $baseDiscountBefore = $item->getBaseDiscountAmount();
 
@@ -144,11 +144,11 @@ class Mage_Sales_Model_Quote_Address_Total_Tax extends Mage_Sales_Model_Quote_Ad
 
                 $applied = $taxCalculationModel->getAppliedRates($request);
                 $this->_saveAppliedTaxes(
-                   $address,
-                   $applied,
-                   $item->getTaxAmount(),
-                   $item->getBaseTaxAmount(),
-                   $rate
+                    $address,
+                    $applied,
+                    $item->getTaxAmount(),
+                    $item->getBaseTaxAmount(),
+                    $rate
                 );
             }
         }
@@ -208,7 +208,7 @@ class Mage_Sales_Model_Quote_Address_Total_Tax extends Mage_Sales_Model_Quote_Ad
                 $previouslyAppliedTaxes[$row['id']] = $row;
             }
 
-            if (!is_null($row['percent'])) {
+            if ($row['percent'] !== null) {
                 $row['percent'] = $row['percent'] ? $row['percent'] : 1;
                 $rate = $rate ? $rate : 1;
 

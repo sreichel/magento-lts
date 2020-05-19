@@ -142,14 +142,18 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
      */
     public function isGiftMessagesAvailable($item = null)
     {
-        if (is_null($item)) {
+        if ($item === null) {
             return $this->helper('giftmessage/message')->getIsMessagesAvailable(
-                'items', $this->getQuote(), $this->getStore()
+                'items',
+                $this->getQuote(),
+                $this->getStore()
             );
         }
 
         return $this->helper('giftmessage/message')->getIsMessagesAvailable(
-            'item', $item, $this->getStore()
+            'item',
+            $item,
+            $this->getStore()
         );
     }
 
@@ -241,8 +245,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
     {
         if ($this->getQuote()->isVirtual()) {
             return $this->getQuote()->getBillingAddress();
-        }
-        else {
+        } else {
             return $this->getQuote()->getShippingAddress();
         }
     }
@@ -286,8 +289,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Items_Grid extends Mage_Adminhtml_
                 $info[] = $this->helper('sales')->__('Buy %s for price %s', $qty, $price);
             }
             return implode(', ', $info);
-        }
-        else {
+        } else {
             return $this->helper('sales')->__('Item ordered qty');
         }
     }

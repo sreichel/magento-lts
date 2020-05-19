@@ -95,7 +95,7 @@ class Mage_Sales_Model_Order_Status_History extends Mage_Sales_Model_Abstract
      */
     public function setIsCustomerNotified($flag = null)
     {
-        if (is_null($flag)) {
+        if ($flag === null) {
             $flag = self::CUSTOMER_NOTIFICATION_NOT_APPLICABLE;
         }
 
@@ -129,7 +129,7 @@ class Mage_Sales_Model_Order_Status_History extends Mage_Sales_Model_Abstract
      */
     public function getStatusLabel()
     {
-        if($this->getOrder()) {
+        if ($this->getOrder()) {
             return $this->getOrder()->getConfig()->getStatusLabel($this->getStatus());
         }
     }

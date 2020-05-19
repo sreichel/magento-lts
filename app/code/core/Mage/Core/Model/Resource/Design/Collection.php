@@ -51,9 +51,10 @@ class Mage_Core_Model_Resource_Design_Collection extends Mage_Core_Model_Resourc
     public function joinStore()
     {
          return $this->join(
-            array('cs' => 'core/store'),
-            'cs.store_id = main_table.store_id',
-            array('cs.name'));
+             array('cs' => 'core/store'),
+             'cs.store_id = main_table.store_id',
+             array('cs.name')
+         );
     }
 
     /**
@@ -64,7 +65,7 @@ class Mage_Core_Model_Resource_Design_Collection extends Mage_Core_Model_Resourc
      */
     public function addDateFilter($date = null)
     {
-        if (is_null($date)) {
+        if ($date === null) {
             $date = $this->formatDate(true);
         } else {
             $date = $this->formatDate($date);

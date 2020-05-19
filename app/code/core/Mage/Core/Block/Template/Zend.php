@@ -49,13 +49,13 @@ class Mage_Core_Block_Template_Zend extends Mage_Core_Block_Template
         $this->_view = new Zend_View();
     }
 
-    public function assign($key, $value=null)
+    public function assign($key, $value = null)
     {
-        if (is_array($key) && is_null($value)) {
-            foreach ($key as $k=>$v) {
+        if (is_array($key) && $value === null) {
+            foreach ($key as $k => $v) {
                 $this->assign($k, $v);
             }
-        } elseif (!is_null($value)) {
+        } elseif ($value !== null) {
             $this->_view->assign($key, $value);
         }
         return $this;
@@ -70,5 +70,4 @@ class Mage_Core_Block_Template_Zend extends Mage_Core_Block_Template
     {
         return $this->_view->render($fileName);
     }
-
 }

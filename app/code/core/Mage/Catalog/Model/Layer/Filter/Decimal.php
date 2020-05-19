@@ -60,7 +60,7 @@ class Mage_Catalog_Model_Layer_Filter_Decimal extends Mage_Catalog_Model_Layer_F
      */
     protected function _getResource()
     {
-        if (is_null($this->_resource)) {
+        if ($this->_resource === null) {
             $this->_resource = Mage::getResourceModel('catalog/layer_filter_decimal');
         }
         return $this->_resource;
@@ -139,7 +139,7 @@ class Mage_Catalog_Model_Layer_Filter_Decimal extends Mage_Catalog_Model_Layer_F
     public function getMaxValue()
     {
         $max = $this->getData('max_value');
-        if (is_null($max)) {
+        if ($max === null) {
             list($min, $max) = $this->_getResource()->getMinMax($this);
             $this->setData('max_value', $max);
             $this->setData('min_value', $min);
@@ -155,7 +155,7 @@ class Mage_Catalog_Model_Layer_Filter_Decimal extends Mage_Catalog_Model_Layer_F
     public function getMinValue()
     {
         $min = $this->getData('min_value');
-        if (is_null($min)) {
+        if ($min === null) {
             list($min, $max) = $this->_getResource()->getMinMax($this);
             $this->setData('max_value', $max);
             $this->setData('min_value', $min);
@@ -178,8 +178,7 @@ class Mage_Catalog_Model_Layer_Filter_Decimal extends Mage_Catalog_Model_Layer_F
                 $range = pow(10, (strlen(floor($maxValue)) - $index));
                 $items = $this->getRangeItemCounts($range);
                 $index++;
-            }
-            while ($range > self::MIN_RANGE_POWER && count($items) < 2);
+            } while ($range > self::MIN_RANGE_POWER && count($items) < 2);
             $this->setData('range', $range);
         }
 
@@ -196,7 +195,7 @@ class Mage_Catalog_Model_Layer_Filter_Decimal extends Mage_Catalog_Model_Layer_F
     {
         $rangeKey = 'range_item_counts_' . $range;
         $items = $this->getData($rangeKey);
-        if (is_null($items)) {
+        if ($items === null) {
             $items = $this->_getResource()->getCount($this, $range);
             $this->setData($rangeKey, $items);
         }
@@ -225,8 +224,6 @@ class Mage_Catalog_Model_Layer_Filter_Decimal extends Mage_Catalog_Model_Layer_F
                     'count' => $count,
                 );
             }
-
-
         }
         return $data;
     }

@@ -133,7 +133,8 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getConfirmationLink() {
+    public function getConfirmationLink()
+    {
         return Mage::helper('newsletter')->getConfirmationUrl($this);
     }
 
@@ -142,7 +143,8 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      *
      * @return string
      */
-    public function getUnsubscriptionLink() {
+    public function getUnsubscriptionLink()
+    {
         return Mage::helper('newsletter')->getUnsubscribeUrl($this);
     }
 
@@ -237,7 +239,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      */
     public function isSubscribed()
     {
-        if($this->getId() && $this->getStatus()==self::STATUS_SUBSCRIBED) {
+        if ($this->getId() && $this->getStatus()==self::STATUS_SUBSCRIBED) {
             return true;
         }
 
@@ -283,13 +285,13 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      * @param int $length
      * @return string
      */
-    public function randomSequence($length=32)
+    public function randomSequence($length = 32)
     {
         $id = '';
         $par = array();
-        $char = array_merge(range('a','z'),range(0,9));
+        $char = array_merge(range('a', 'z'), range(0, 9));
         $charLen = count($char)-1;
-        for ($i=0;$i<$length;$i++){
+        for ($i=0; $i<$length; $i++) {
             $disc = mt_rand(0, $charLen);
             $par[$i] = $char[$disc];
             $id = $id.$char[$disc];
@@ -309,7 +311,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
         $this->loadByEmail($email);
         $customerSession = Mage::getSingleton('customer/session');
 
-        if(!$this->getId()) {
+        if (!$this->getId()) {
             $this->setSubscriberConfirmCode($this->randomSequence());
         }
 
@@ -327,7 +329,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
             if ($isConfirmNeed === true) {
                 // if user subscribes own login email - confirmation is not needed
                 $isOwnSubscribes = $isSubscribeOwnEmail;
-                if ($isOwnSubscribes == true){
+                if ($isOwnSubscribes == true) {
                     $this->setStatus(self::STATUS_SUBSCRIBED);
                 } else {
                     $this->setStatus(self::STATUS_NOT_ACTIVE);
@@ -400,22 +402,22 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
             return $this;
         }
 
-        if(!$this->getId()) {
+        if (!$this->getId()) {
             $this->setSubscriberConfirmCode($this->randomSequence());
         }
 
        /*
         * Logical mismatch between customer registration confirmation code and customer password confirmation
         */
-       $confirmation = null;
-       if ($customer->isConfirmationRequired() && ($customer->getConfirmation() != $customer->getPassword())) {
-           $confirmation = $customer->getConfirmation();
-       }
+        $confirmation = null;
+        if ($customer->isConfirmationRequired() && ($customer->getConfirmation() != $customer->getPassword())) {
+            $confirmation = $customer->getConfirmation();
+        }
 
         $sendInformationEmail = false;
         if ($customer->hasIsSubscribed()) {
             $status = $customer->getIsSubscribed()
-                ? (!is_null($confirmation) ? self::STATUS_UNCONFIRMED : self::STATUS_SUBSCRIBED)
+                ? ($confirmation !== null ? self::STATUS_UNCONFIRMED : self::STATUS_SUBSCRIBED)
                 : self::STATUS_UNSUBSCRIBED;
             /**
              * If subscription status has been changed then send email to the customer
@@ -423,20 +425,20 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
             if ($status != self::STATUS_UNCONFIRMED && $status != $this->getStatus()) {
                 $sendInformationEmail = true;
             }
-        } elseif (($this->getStatus() == self::STATUS_UNCONFIRMED) && (is_null($confirmation))) {
+        } elseif (($this->getStatus() == self::STATUS_UNCONFIRMED) && ($confirmation === null)) {
             $status = self::STATUS_SUBSCRIBED;
             $sendInformationEmail = true;
         } else {
             $status = ($this->getStatus() == self::STATUS_NOT_ACTIVE ? self::STATUS_UNSUBSCRIBED : $this->getStatus());
         }
 
-        if($status != $this->getStatus()) {
+        if ($status != $this->getStatus()) {
             $this->setIsStatusChanged(true);
         }
 
         $this->setStatus($status);
 
-        if(!$this->getId()) {
+        if (!$this->getId()) {
             $storeId = $customer->getStoreId();
             if ($customer->getStoreId() == 0) {
                 $storeId = Mage::app()->getWebsite($customer->getWebsiteId())->getDefaultStore()->getId();
@@ -451,7 +453,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
 
         $this->save();
         $sendSubscription = $customer->getData('sendSubscription') || $sendInformationEmail;
-        if (is_null($sendSubscription) xor $sendSubscription) {
+        if ($sendSubscription === null xor $sendSubscription) {
             if ($this->getIsStatusChanged() && $status == self::STATUS_UNSUBSCRIBED) {
                 $this->sendUnsubscriptionEmail();
             } elseif ($this->getIsStatusChanged() && $status == self::STATUS_SUBSCRIBED) {
@@ -469,7 +471,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      */
     public function confirm($code)
     {
-        if($this->getCode()==$code) {
+        if ($this->getCode()==$code) {
             $this->setStatus(self::STATUS_SUBSCRIBED)
                 ->setIsStatusChanged(true)
                 ->save();
@@ -487,7 +489,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
      */
     public function received(Mage_Newsletter_Model_Queue $queue)
     {
-        $this->getResource()->received($this,$queue);
+        $this->getResource()->received($this, $queue);
         return $this;
     }
 
@@ -502,9 +504,9 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
             return $this;
         }
 
-        if(!Mage::getStoreConfig(self::XML_PATH_CONFIRM_EMAIL_TEMPLATE)
+        if (!Mage::getStoreConfig(self::XML_PATH_CONFIRM_EMAIL_TEMPLATE)
            || !Mage::getStoreConfig(self::XML_PATH_CONFIRM_EMAIL_IDENTITY)
-        )  {
+        ) {
             return $this;
         }
 
@@ -539,7 +541,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
             return $this;
         }
 
-        if(!Mage::getStoreConfig(self::XML_PATH_SUCCESS_EMAIL_TEMPLATE)
+        if (!Mage::getStoreConfig(self::XML_PATH_SUCCESS_EMAIL_TEMPLATE)
            || !Mage::getStoreConfig(self::XML_PATH_SUCCESS_EMAIL_IDENTITY)
         ) {
             return $this;
@@ -575,7 +577,7 @@ class Mage_Newsletter_Model_Subscriber extends Mage_Core_Model_Abstract
         if ($this->getImportMode()) {
             return $this;
         }
-        if(!Mage::getStoreConfig(self::XML_PATH_UNSUBSCRIBE_EMAIL_TEMPLATE)
+        if (!Mage::getStoreConfig(self::XML_PATH_UNSUBSCRIBE_EMAIL_TEMPLATE)
            || !Mage::getStoreConfig(self::XML_PATH_UNSUBSCRIBE_EMAIL_IDENTITY)
         ) {
             return $this;

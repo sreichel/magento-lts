@@ -61,14 +61,14 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
         return $this->getQuote()->getStore()->formatPrice($price);
     }
 
-    public function convertPrice($price, $format=true)
+    public function convertPrice($price, $format = true)
     {
         return $this->getQuote()->getStore()->convertPrice($price, $format);
     }
 
     public function getRequiredAgreementIds()
     {
-        if (is_null($this->_agreements)) {
+        if ($this->_agreements === null) {
             if (!Mage::getStoreConfigFlag('checkout/options/enable_agreements')) {
                 $this->_agreements = array();
             } else {
@@ -227,10 +227,10 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
         foreach ($sendTo as $recipient) {
             $mailTemplate->setDesignConfig(array('area'=>'frontend', 'store'=>$checkout->getStoreId()))
                 ->sendTransactional(
-                $template,
-                Mage::getStoreConfig('checkout/payment_failed/identity', $checkout->getStoreId()),
-                $recipient['email'],
-                $recipient['name'],
+                    $template,
+                    Mage::getStoreConfig('checkout/payment_failed/identity', $checkout->getStoreId()),
+                    $recipient['email'],
+                    $recipient['name'],
                     array(
                         'reason'          => $message,
                         'checkoutType'    => $checkoutType,
@@ -244,7 +244,7 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
                         'items'           => nl2br($items),
                         'total'           => $total,
                     )
-            );
+                );
         }
 
         $translate->setTranslateInline(true);

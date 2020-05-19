@@ -112,14 +112,12 @@ class Mage_Core_Controller_Request_Http extends Zend_Controller_Request_Http
                     $this->setPathInfo(implode('/', $p));
                     $this->_storeCode = $storeCode;
                     Mage::app()->setCurrentStore($storeCode);
-                }
-                else {
+                } else {
                     $this->_storeCode = Mage::app()->getStore()->getCode();
                 }
             } else {
                 $this->_storeCode = Mage::app()->getStore()->getCode();
             }
-
         }
         return $this->_storeCode;
     }
@@ -166,8 +164,7 @@ class Mage_Core_Controller_Request_Http extends Zend_Controller_Request_Http
                     if ($storeCode!=='' && isset($stores[$storeCode])) {
                         Mage::app()->setCurrentStore($storeCode);
                         $pathInfo = '/'.(isset($pathParts[1]) ? $pathParts[1] : '');
-                    }
-                    elseif ($storeCode !== '') {
+                    } elseif ($storeCode !== '') {
                         $this->setActionName('noRoute');
                     }
                 }
@@ -228,7 +225,7 @@ class Mage_Core_Controller_Request_Http extends Zend_Controller_Request_Http
      */
     public function getDirectFrontNames()
     {
-        if (is_null($this->_directFrontNames)) {
+        if ($this->_directFrontNames === null) {
             $names = Mage::getConfig()->getNode(self::XML_NODE_DIRECT_FRONT_NAMES);
             if ($names) {
                 $this->_directFrontNames = $names->asArray();
@@ -277,7 +274,9 @@ class Mage_Core_Controller_Request_Http extends Zend_Controller_Request_Http
     {
         $this->_route = $route;
         $router = Mage::app()->getFrontController()->getRouterByRoute($route);
-        if (!$router) return $this;
+        if (!$router) {
+            return $this;
+        }
         $module = $router->getFrontNameByRoute($route);
         if ($module) {
             $this->setModuleName($module);
@@ -328,8 +327,7 @@ class Mage_Core_Controller_Request_Http extends Zend_Controller_Request_Http
     {
         if (is_array($key)) {
             $_POST = $key;
-        }
-        else {
+        } else {
             $_POST[$key] = $value;
         }
         return $this;
@@ -514,7 +512,7 @@ class Mage_Core_Controller_Request_Http extends Zend_Controller_Request_Http
      */
     public function getBeforeForwardInfo($name = null)
     {
-        if (is_null($name)) {
+        if ($name === null) {
             return $this->_beforeForwardInfo;
         } elseif (isset($this->_beforeForwardInfo[$name])) {
             return $this->_beforeForwardInfo[$name];

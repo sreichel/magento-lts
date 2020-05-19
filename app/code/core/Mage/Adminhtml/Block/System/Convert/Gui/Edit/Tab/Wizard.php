@@ -75,7 +75,7 @@ class Mage_Adminhtml_Block_System_Convert_Gui_Edit_Tab_Wizard extends Mage_Admin
         return $this->_attributes[$entityType];
     }
 
-    public function getValue($key, $default='', $defaultNew = null)
+    public function getValue($key, $default = '', $defaultNew = null)
     {
         if (null !== $defaultNew) {
             if (0 == $this->getProfileId()) {
@@ -139,8 +139,10 @@ class Mage_Adminhtml_Block_System_Convert_Gui_Edit_Tab_Wizard extends Mage_Admin
 
         $opt = array();
         $opt = array(''=>$this->__('Any Attribute Set'));
-        if ($options) foreach($options as $index => $value) {
-            $opt[$index]  = $value;
+        if ($options) {
+            foreach ($options as $index => $value) {
+                $opt[$index]  = $value;
+            }
         }
         //array_slice($options, 0, 0, array(''=>$this->__('Any Attribute Set')));
         return $opt;
@@ -201,8 +203,9 @@ class Mage_Adminhtml_Block_System_Convert_Gui_Edit_Tab_Wizard extends Mage_Admin
      *
      * @return Mage_Adminhtml_Model_System_Store
      */
-    protected function _getStoreModel() {
-        if (is_null($this->_storeModel)) {
+    protected function _getStoreModel()
+    {
+        if ($this->_storeModel === null) {
             $this->_storeModel = Mage::getSingleton('adminhtml/system_store');
         }
         return $this->_storeModel;
@@ -232,6 +235,4 @@ class Mage_Adminhtml_Block_System_Convert_Gui_Edit_Tab_Wizard extends Mage_Admin
         }
         return $this->_shortDateFormat;
     }
-
 }
-

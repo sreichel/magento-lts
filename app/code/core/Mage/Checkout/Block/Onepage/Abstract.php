@@ -148,7 +148,7 @@ abstract class Mage_Checkout_Block_Onepage_Abstract extends Mage_Core_Block_Temp
     public function getCountryHtmlSelect($type)
     {
         $countryId = $this->getAddress()->getCountryId();
-        if (is_null($countryId)) {
+        if ($countryId === null) {
             $countryId = Mage::helper('core')->getDefaultCountry();
         }
         $select = $this->getLayout()->createBlock('core/html_select')

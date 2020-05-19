@@ -247,7 +247,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
     public function getStoreId()
     {
         $storeId = $this->getData('store_id');
-        if (is_null($storeId)) {
+        if ($storeId === null) {
             $storeId = Mage::app()->getStore()->getId();
             $this->setData('store_id', $storeId);
         }
@@ -684,7 +684,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
                 ->setQuoteMessageIndex('qty');
             if ($this->getIsChildItem()) {
                 $result->setMessage(
-                    Mage::helper('cataloginventory')->__('%s is available for purchase in increments of %s only.',$this->getProductName(), $qtyIncrements * 1)
+                    Mage::helper('cataloginventory')->__('%s is available for purchase in increments of %s only.', $this->getProductName(), $qtyIncrements * 1)
                 );
             } else {
                 $result->setMessage(
@@ -717,8 +717,11 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
      * @param string $errorIndex
      * @return $this
      */
-    protected function _addQuoteItemError(Mage_Sales_Model_Quote_Item $item, $itemError,
-        $quoteError, $errorIndex='error'
+    protected function _addQuoteItemError(
+        Mage_Sales_Model_Quote_Item $item,
+        $itemError,
+        $quoteError,
+        $errorIndex = 'error'
     ) {
         $item->setHasError(true);
         $item->setMessage($itemError);
@@ -752,8 +755,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
             $this->setLowStockDate(null);
             if ($this->verifyNotification()) {
                 $this->setLowStockDate(Mage::app()->getLocale()->date(null, null, null, false)
-                    ->toString(Varien_Date::DATETIME_INTERNAL_FORMAT)
-                );
+                    ->toString(Varien_Date::DATETIME_INTERNAL_FORMAT));
             }
 
             $this->setStockStatusChangedAutomatically(0);
@@ -868,7 +870,7 @@ class Mage_CatalogInventory_Model_Stock_Item extends Mage_Core_Model_Abstract
                             $qty += $childProduct->getStockItem()->getStockQty();
                         }
                     }
-                    if (is_null($stockQty) || $qty < $stockQty) {
+                    if ($stockQty === null || $qty < $stockQty) {
                         $stockQty = $qty;
                     }
                 }

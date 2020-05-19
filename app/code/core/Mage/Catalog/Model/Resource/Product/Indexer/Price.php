@@ -72,7 +72,8 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Price extends Mage_Index_Model
             ->join(
                 array('e' => $this->getTable('catalog/product')),
                 'l.parent_id = e.entity_id',
-                array('e.type_id'))
+                array('e.type_id')
+            )
             ->where('l.child_id = ?', $childId);
 
         return $write->fetchPairs($select);
@@ -287,11 +288,13 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Price extends Mage_Index_Model
             $select = $write->select()
                 ->from(
                     array('l' => $this->getTable('catalog/product_relation')),
-                    'parent_id')
+                    'parent_id'
+                )
                 ->join(
                     array('e' => $this->getTable('catalog/product')),
                     'e.entity_id = l.parent_id',
-                    array('type_id'))
+                    array('type_id')
+                )
                 ->where('l.child_id IN(?)', $notCompositeIds);
             $pairs  = $write->fetchPairs($select);
             foreach ($pairs as $productId => $productType) {
@@ -341,7 +344,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Price extends Mage_Index_Model
      */
     public function getTypeIndexers()
     {
-        if (is_null($this->_indexers)) {
+        if ($this->_indexers === null) {
             $this->_indexers = array();
             $types = Mage::getSingleton('catalog/product_type')->getTypesByPriority();
             foreach ($types as $typeId => $typeInfo) {
@@ -428,19 +431,23 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Price extends Mage_Index_Model
         $select = $write->select()
             ->from(
                 array('tp' => $this->getValueTable('catalog/product', 'tier_price')),
-                array('entity_id'))
+                array('entity_id')
+            )
             ->join(
                 array('cg' => $this->getTable('customer/customer_group')),
                 'tp.all_groups = 1 OR (tp.all_groups = 0 AND tp.customer_group_id = cg.customer_group_id)',
-                array('customer_group_id'))
+                array('customer_group_id')
+            )
             ->join(
                 array('cw' => $this->getTable('core/website')),
                 'tp.website_id = 0 OR tp.website_id = cw.website_id',
-                array('website_id'))
+                array('website_id')
+            )
             ->join(
                 array('cwd' => $this->_getWebsiteDateTable()),
                 'cw.website_id = cwd.website_id',
-                array())
+                array()
+            )
             ->where('cw.website_id != 0')
             ->columns(new Zend_Db_Expr("MIN({$websiteExpression})"))
             ->group(array('tp.entity_id', 'cg.customer_group_id', 'cw.website_id'));
@@ -471,19 +478,23 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Price extends Mage_Index_Model
         $select = $write->select()
             ->from(
                 array('gp' => $this->getValueTable('catalog/product', 'group_price')),
-                array('entity_id'))
+                array('entity_id')
+            )
             ->join(
                 array('cg' => $this->getTable('customer/customer_group')),
                 'gp.all_groups = 1 OR (gp.all_groups = 0 AND gp.customer_group_id = cg.customer_group_id)',
-                array('customer_group_id'))
+                array('customer_group_id')
+            )
             ->join(
                 array('cw' => $this->getTable('core/website')),
                 'gp.website_id = 0 OR gp.website_id = cw.website_id',
-                array('website_id'))
+                array('website_id')
+            )
             ->join(
                 array('cwd' => $this->_getWebsiteDateTable()),
                 'cw.website_id = cwd.website_id',
-                array())
+                array()
+            )
             ->where('cw.website_id != 0')
             ->columns(new Zend_Db_Expr("MIN({$websiteExpression})"))
             ->group(array('gp.entity_id', 'cg.customer_group_id', 'cw.website_id'));
@@ -553,11 +564,13 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Price extends Mage_Index_Model
         $select = $write->select()
             ->from(
                 array('cw' => $this->getTable('core/website')),
-                array('website_id'))
+                array('website_id')
+            )
             ->join(
                 array('csg' => $this->getTable('core/store_group')),
                 'cw.default_group_id = csg.group_id',
-                array('store_id' => 'default_store_id'))
+                array('store_id' => 'default_store_id')
+            )
             ->where('cw.website_id != 0');
 
 

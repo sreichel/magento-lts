@@ -46,10 +46,10 @@ class Mage_Newsletter_Model_Problem extends Mage_Core_Model_Abstract
 {
     /**
      * Current Subscriber
-     * 
+     *
      * @var Mage_Newsletter_Model_Subscriber
      */
-    protected  $_subscriber = null;
+    protected $_subscriber = null;
 
     /**
      * Initialize Newsletter Problem Model
@@ -103,11 +103,11 @@ class Mage_Newsletter_Model_Problem extends Mage_Core_Model_Abstract
      */
     public function getSubscriber()
     {
-        if(!$this->getSubscriberId()) {
+        if (!$this->getSubscriberId()) {
             return null;
         }
 
-        if(is_null($this->_subscriber)) {
+        if ($this->_subscriber === null) {
             $this->_subscriber = Mage::getModel('newsletter/subscriber')
                 ->load($this->getSubscriberId());
         }
@@ -122,12 +122,11 @@ class Mage_Newsletter_Model_Problem extends Mage_Core_Model_Abstract
      */
     public function unsubscribe()
     {
-        if($this->getSubscriber()) {
+        if ($this->getSubscriber()) {
             $this->getSubscriber()->setSubscriberStatus(Mage_Newsletter_Model_Subscriber::STATUS_UNSUBSCRIBED)
                 ->setIsStatusChanged(true)
                 ->save();
         }
         return $this;
     }
-
 }

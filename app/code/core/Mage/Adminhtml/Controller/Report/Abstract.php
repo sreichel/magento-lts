@@ -48,7 +48,7 @@ abstract class Mage_Adminhtml_Controller_Report_Abstract extends Mage_Adminhtml_
      */
     protected function _getSession()
     {
-        if (is_null($this->_adminSession)) {
+        if ($this->_adminSession === null) {
             $this->_adminSession = Mage::getSingleton('admin/session');
         }
         return $this->_adminSession;
@@ -111,7 +111,9 @@ abstract class Mage_Adminhtml_Controller_Report_Abstract extends Mage_Adminhtml_
         $flag = Mage::getModel('reports/flag')->setReportFlagCode($flagCode)->loadSelf();
         $updatedAt = ($flag->hasData())
             ? Mage::app()->getLocale()->storeDate(
-                0, new Zend_Date($flag->getLastUpdate(), Varien_Date::DATETIME_INTERNAL_FORMAT), true
+                0,
+                new Zend_Date($flag->getLastUpdate(), Varien_Date::DATETIME_INTERNAL_FORMAT),
+                true
             )
             : 'undefined';
 

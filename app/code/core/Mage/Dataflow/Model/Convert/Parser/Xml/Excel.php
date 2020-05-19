@@ -61,8 +61,7 @@ class Mage_Dataflow_Model_Convert_Parser_Xml_Excel extends Mage_Dataflow_Model_C
 
         try {
             $adapter = Mage::getModel($adapterName);
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             $message = Mage::helper('dataflow')->__('Declared adapter %s was not found.', $adapterName);
             $this->addException($message, Mage_Dataflow_Model_Convert_Exception::FATAL);
             return $this;
@@ -124,20 +123,17 @@ class Mage_Dataflow_Model_Convert_Parser_Xml_Excel extends Mage_Dataflow_Model_C
                     $xmlString = substr($xmlTmpString, $strposF);
                     $isWorksheet = true;
                     continue;
-                }
-                else {
+                } else {
                     if (preg_match('/ss:Name=\"'.preg_quote($worksheet).'\"/siU', substr($xmlTmpString, 0, $strposF))) {
                         $xmlString = substr($xmlTmpString, $strposF);
                         $isWorksheet = true;
                         continue;
-                    }
-                    else {
+                    } else {
                         $xmlString = '';
                         continue;
                     }
                 }
-            }
-            else {
+            } else {
                 $xmlString = $this->_parseXmlRow($xmlString);
 
                 $strposS = strpos($xmlString, '</Worksheet>');
@@ -176,7 +172,6 @@ class Mage_Dataflow_Model_Convert_Parser_Xml_Excel extends Mage_Dataflow_Model_C
                 $dom->load($file);
             }
         } else {
-
             $this->validateDataString();
             $dom->loadXML($this->getData());
         }
@@ -199,7 +194,7 @@ class Mage_Dataflow_Model_Convert_Parser_Xml_Excel extends Mage_Dataflow_Model_C
                 foreach ($cells as $cell) {
                     $value = $cell->getElementsByTagName('Data')->item(0)->nodeValue;
                     $ind = $cell->getAttribute('ss:Index');
-                    if (!is_null($ind) && $ind>0) {
+                    if ($ind !== null && $ind>0) {
                         $index = $ind;
                     }
                     if ($firstRow && !$this->getVar('fieldnames')) {
@@ -265,8 +260,7 @@ class Mage_Dataflow_Model_Convert_Parser_Xml_Excel extends Mage_Dataflow_Model_C
                 $this->_saveParsedRow($xmlRowString);
 
                 $xmlString = substr($xmlTmpString, $strposF + 6);
-            }
-            else {
+            } else {
                 $found = false;
                 continue;
             }
@@ -292,8 +286,7 @@ class Mage_Dataflow_Model_Convert_Parser_Xml_Excel extends Mage_Dataflow_Model_C
 
         try {
             $xmlElement = new SimpleXMLElement($xml);
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             $message = 'Invalid XML row';
             $this->addException($message, Mage_Dataflow_Model_Convert_Exception::ERROR);
             return $this;
@@ -303,7 +296,7 @@ class Mage_Dataflow_Model_Convert_Parser_Xml_Excel extends Mage_Dataflow_Model_C
         $itemData = array();
         $cellIndex = 0;
         foreach ($xmlElement->Row->children() as $cell) {
-            if (is_null($this->_parseFieldNames)) {
+            if ($this->_parseFieldNames === null) {
                 $xmlData[(string)$cell->Data] = (string)$cell->Data;
             } else {
                 $attributes = $cell->attributes('urn:schemas-microsoft-com:office:spreadsheet');
@@ -315,7 +308,7 @@ class Mage_Dataflow_Model_Convert_Parser_Xml_Excel extends Mage_Dataflow_Model_C
             }
         }
 
-        if (is_null($this->_parseFieldNames)) {
+        if ($this->_parseFieldNames === null) {
             $this->_parseFieldNames = $xmlData;
             return $this;
         }
@@ -467,7 +460,7 @@ class Mage_Dataflow_Model_Convert_Parser_Xml_Excel extends Mage_Dataflow_Model_C
         $xmlHeader = '<?xml version="1.0"?>' . "\n";
         $xmlRegexp = '/^<cell><row>(.*)?<\/row><\/cell>\s?$/ms';
 
-        if (is_null($this->_xmlElement)) {
+        if ($this->_xmlElement === null) {
             $xmlString = $xmlHeader . '<cell><row></row></cell>';
             $this->_xmlElement = new SimpleXMLElement($xmlString, LIBXML_NOBLANKS);
         }

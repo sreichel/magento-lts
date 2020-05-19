@@ -96,7 +96,7 @@ class Mage_Adminhtml_Block_Urlrewrite_Category_Tree extends Mage_Adminhtml_Block
     public function getCategoryCollection()
     {
         $collection = $this->_getData('category_collection');
-        if (is_null($collection)) {
+        if ($collection === null) {
             $collection = Mage::getModel('catalog/category')->getCollection()
                 ->addAttributeToSelect(array('name', 'is_active'))
                 ->setLoadProductCount(true);

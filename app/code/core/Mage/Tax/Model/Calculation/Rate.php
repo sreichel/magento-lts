@@ -177,7 +177,7 @@ class Mage_Tax_Model_Calculation_Rate extends Mage_Core_Model_Abstract
      */
     public function saveTitles($titles = null)
     {
-        if (is_null($titles)) {
+        if ($titles === null) {
             $titles = $this->getTitle();
         }
 
@@ -203,7 +203,7 @@ class Mage_Tax_Model_Calculation_Rate extends Mage_Core_Model_Abstract
      */
     public function getTitleModel()
     {
-        if (is_null($this->_titleModel)) {
+        if ($this->_titleModel === null) {
             $this->_titleModel = Mage::getModel('tax/calculation_rate_title');
         }
         return $this->_titleModel;
@@ -216,7 +216,7 @@ class Mage_Tax_Model_Calculation_Rate extends Mage_Core_Model_Abstract
      */
     public function getTitles()
     {
-        if (is_null($this->_titles)) {
+        if ($this->_titles === null) {
             $this->_titles = $this->getTitleModel()->getCollection()->loadByRateId($this->getId());
         }
         return $this->_titles;

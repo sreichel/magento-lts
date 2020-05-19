@@ -243,7 +243,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      */
     public function getStatus()
     {
-        if (is_null($this->_getData('status'))) {
+        if ($this->_getData('status') === null) {
             $this->setData('status', Mage_Catalog_Model_Product_Status::STATUS_ENABLED);
         }
         return $this->_getData('status');
@@ -260,7 +260,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
     public function getTypeInstance($singleton = false)
     {
         if ($singleton === true) {
-            if (is_null($this->_typeInstanceSingleton)) {
+            if ($this->_typeInstanceSingleton === null) {
                 $this->_typeInstanceSingleton = Mage::getSingleton('catalog/product_type')
                     ->factory($this, true);
             }
@@ -336,7 +336,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
     public function getCategory()
     {
         $category = $this->getData('category');
-        if (is_null($category) && $this->getCategoryId()) {
+        if ($category === null && $this->getCategoryId()) {
             $category = Mage::getModel('catalog/category')->load($this->getCategoryId());
             $this->setCategory($category);
         }
@@ -653,7 +653,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param   double $qty
      * @return  double
      */
-    public function getTierPrice($qty=null)
+    public function getTierPrice($qty = null)
     {
         return $this->getPriceModel()->getTierPrice($qty, $this);
     }
@@ -674,7 +674,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param   double $qty
      * @return  array || double
      */
-    public function getFormatedTierPrice($qty=null)
+    public function getFormatedTierPrice($qty = null)
     {
         return $this->getPriceModel()->getFormatedTierPrice($qty, $this);
     }
@@ -711,7 +711,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param double $qty
      * @return double
      */
-    public function getFinalPrice($qty=null)
+    public function getFinalPrice($qty = null)
     {
         $price = $this->_getData('final_price');
         if ($price !== null) {
@@ -996,7 +996,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
         if (!$this->hasMediaAttributes()) {
             $mediaAttributes = array();
             foreach ($this->getAttributes() as $attribute) {
-                if($attribute->getFrontend()->getInputType() == 'media_image') {
+                if ($attribute->getFrontend()->getInputType() == 'media_image') {
                     $mediaAttributes[$attribute->getAttributeCode()] = $attribute;
                 }
             }
@@ -1012,7 +1012,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      */
     public function getMediaGalleryImages()
     {
-        if(!$this->hasData('media_gallery_images') && is_array($this->getMediaGallery('images'))) {
+        if (!$this->hasData('media_gallery_images') && is_array($this->getMediaGallery('images'))) {
             $images = new Varien_Data_Collection();
             foreach ($this->getMediaGallery('images') as $image) {
                 if ($image['disabled']) {
@@ -1039,7 +1039,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param boolean       $exclude           mark image as disabled in product page view
      * @return $this
      */
-    public function addImageToMediaGallery($file, $mediaAttribute=null, $move=false, $exclude=true)
+    public function addImageToMediaGallery($file, $mediaAttribute = null, $move = false, $exclude = true)
     {
         $attributes = $this->getTypeInstance(true)->getSetAttributes($this);
         if (!isset($attributes['media_gallery'])) {
@@ -1447,7 +1447,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param Mage_Catalog_Model_Category $category
      * @return string
      */
-    public function getUrlPath($category=null)
+    public function getUrlPath($category = null)
     {
         return $this->getUrlModel()->getUrlPath($this, $category);
     }
@@ -1479,7 +1479,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param array $arrAttributes Attribute array
      * @return array
      */
-    public function toArray(array $arrAttributes=array())
+    public function toArray(array $arrAttributes = array())
     {
         $data = parent::toArray($arrAttributes);
         if ($stock = $this->getStockItem()) {
@@ -1686,7 +1686,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param   int    $product Product ID
      * @return  Mage_Catalog_Model_Product
      */
-    public function addCustomOption($code, $value, $product=null)
+    public function addCustomOption($code, $value, $product = null)
     {
         $product = $product ? $product : $this;
         $option = Mage::getModel('catalog/product_configuration_item_option')
@@ -1858,7 +1858,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *  @param Mage_Catalog_Model_Entity_Attribute $attribute Attribute model object
      *  @return boolean
      */
-    public function isReservedAttribute ($attribute)
+    public function isReservedAttribute($attribute)
     {
         return $attribute->getIsUserDefined()
             && in_array($attribute->getAttributeCode(), $this->getReservedAttributes());
@@ -1871,7 +1871,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * @param mixed $data
      * @return Varien_Object
      */
-    public function setOrigData($key=null, $data=null)
+    public function setOrigData($key = null, $data = null)
     {
         if (Mage::app()->getStore()->isAdmin()) {
             return parent::setOrigData($key, $data);
@@ -2023,8 +2023,8 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      */
     protected function _clearData()
     {
-        foreach ($this->_data as $data){
-            if (is_object($data) && method_exists($data, 'reset')){
+        foreach ($this->_data as $data) {
+            if (is_object($data) && method_exists($data, 'reset')) {
                 $data->reset();
             }
         }

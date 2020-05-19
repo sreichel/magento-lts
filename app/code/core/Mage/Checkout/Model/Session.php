@@ -235,10 +235,10 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
         return $this;
     }
 
-    public function setStepData($step, $data, $value=null)
+    public function setStepData($step, $data, $value = null)
     {
         $steps = $this->getSteps();
-        if (is_null($value)) {
+        if ($value === null) {
             if (is_array($data)) {
                 $steps[$step] = $data;
             }
@@ -255,16 +255,16 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
         return $this;
     }
 
-    public function getStepData($step=null, $data=null)
+    public function getStepData($step = null, $data = null)
     {
         $steps = $this->getSteps();
-        if (is_null($step)) {
+        if ($step === null) {
             return $steps;
         }
         if (!isset($steps[$step])) {
             return false;
         }
-        if (is_null($data)) {
+        if ($data === null) {
             return $steps[$step];
         }
         if (!is_string($data) || !isset($steps[$step][$data])) {

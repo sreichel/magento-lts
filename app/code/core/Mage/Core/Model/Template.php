@@ -79,7 +79,7 @@ abstract class Mage_Core_Model_Template extends Mage_Core_Model_Abstract
         $store = $designConfig->getStore();
         $storeId = is_object($store) ? $store->getId() : $store;
         $area = $designConfig->getArea();
-        if (!is_null($storeId)) {
+        if ($storeId !== null) {
             $appEmulation = Mage::getSingleton('core/app_emulation');
             $this->_initialEnvironmentInfo = $appEmulation->startEnvironmentEmulation($storeId, $area);
         }
@@ -108,7 +108,7 @@ abstract class Mage_Core_Model_Template extends Mage_Core_Model_Abstract
      */
     protected function getDesignConfig()
     {
-        if(is_null($this->_designConfig)) {
+        if ($this->_designConfig === null) {
             $store = Mage::getDesign()->getStore();
             $storeId = is_object($store) ? $store->getId() : $store;
             $this->_designConfig = new Varien_Object(array(
@@ -138,7 +138,7 @@ abstract class Mage_Core_Model_Template extends Mage_Core_Model_Abstract
      * @param int|string $storeId
      * @param string $area
      */
-    public function emulateDesign($storeId, $area=self::DEFAULT_DESIGN_AREA)
+    public function emulateDesign($storeId, $area = self::DEFAULT_DESIGN_AREA)
     {
         if ($storeId) {
             // save current design settings

@@ -57,12 +57,10 @@ class Mage_Adminhtml_Block_Catalog_Category_Tab_Product extends Mage_Adminhtml_B
             }
             if ($column->getFilter()->getValue()) {
                 $this->getCollection()->addFieldToFilter('entity_id', array('in'=>$productIds));
-            }
-            elseif(!empty($productIds)) {
+            } elseif (!empty($productIds)) {
                 $this->getCollection()->addFieldToFilter('entity_id', array('nin'=>$productIds));
             }
-        }
-        else {
+        } else {
             parent::_addColumnFilterToCollection($column);
         }
         return $this;
@@ -78,12 +76,14 @@ class Mage_Adminhtml_Block_Catalog_Category_Tab_Product extends Mage_Adminhtml_B
             ->addAttributeToSelect('sku')
             ->addAttributeToSelect('price')
             ->addStoreFilter($this->getRequest()->getParam('store'))
-            ->joinField('position',
+            ->joinField(
+                'position',
                 'catalog/category_product',
                 'position',
                 'product_id=entity_id',
                 'category_id='.(int) $this->getRequest()->getParam('id', 0),
-                'left');
+                'left'
+            );
         $this->setCollection($collection);
 
         if ($this->getCategory()->getProductsReadonly()) {
@@ -151,12 +151,10 @@ class Mage_Adminhtml_Block_Catalog_Category_Tab_Product extends Mage_Adminhtml_B
     protected function _getSelectedProducts()
     {
         $products = $this->getRequest()->getPost('selected_products');
-        if (is_null($products)) {
+        if ($products === null) {
             $products = $this->getCategory()->getProductsPosition();
             return array_keys($products);
         }
         return $products;
     }
-
 }
-

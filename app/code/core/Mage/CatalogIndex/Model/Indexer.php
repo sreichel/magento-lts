@@ -155,7 +155,7 @@ class Mage_CatalogIndex_Model_Indexer extends Mage_Core_Model_Abstract
     protected function _getStores()
     {
         $stores = $this->getData('_stores');
-        if (is_null($stores)) {
+        if ($stores === null) {
             $stores = Mage::app()->getStores();
             $this->setData('_stores', $stores);
         }
@@ -170,7 +170,7 @@ class Mage_CatalogIndex_Model_Indexer extends Mage_Core_Model_Abstract
     protected function _getWebsites()
     {
         $websites = $this->getData('_websites');
-        if (is_null($websites)) {
+        if ($websites === null) {
             $websites = Mage::getModel('core/website')->getCollection()->load();
             /* @var Mage_Core_Model_Mysql4_Website_Collection $stores */
 
@@ -230,7 +230,7 @@ class Mage_CatalogIndex_Model_Indexer extends Mage_Core_Model_Abstract
             /**
              * Prepare stores and websites information
              */
-            if (is_null($stores)) {
+            if ($stores === null) {
                 $stores     = $this->_getStores();
                 $websites   = $this->_getWebsites();
             } elseif ($stores instanceof Mage_Core_Model_Store) {
@@ -247,7 +247,7 @@ class Mage_CatalogIndex_Model_Indexer extends Mage_Core_Model_Abstract
             /**
              * Prepare attributes data
              */
-            if (is_null($attributes)) {
+            if ($attributes === null) {
                 $priceAttributeCodes = $this->_indexers['price']->getIndexableAttributeCodes();
                 $attributeCodes = $this->_indexers['eav']->getIndexableAttributeCodes();
             } elseif ($attributes instanceof Mage_Eav_Model_Entity_Attribute_Abstract) {
@@ -310,7 +310,7 @@ class Mage_CatalogIndex_Model_Indexer extends Mage_Core_Model_Abstract
                     );
                     $collection->addFieldToFilter('type_id', $type);
                     $this->_walkCollection($collection, $store, array(), $priceAttributeCodes);
-                    if (!is_null($products) && !$this->getRetreiver($type)->getTypeInstance()->isComposite()) {
+                    if ($products !== null && !$this->getRetreiver($type)->getTypeInstance()->isComposite()) {
                         $this->_walkCollectionRelation($collection, $ws, array(), $priceAttributeCodes);
                     }
                 }
@@ -326,7 +326,7 @@ class Mage_CatalogIndex_Model_Indexer extends Mage_Core_Model_Abstract
                     $collection->addFieldToFilter('type_id', $type);
 
                     $this->_walkCollection($collection, $store, $attributeCodes);
-                    if (!is_null($products) && !$this->getRetreiver($type)->getTypeInstance()->isComposite()) {
+                    if ($products !== null && !$this->getRetreiver($type)->getTypeInstance()->isComposite()) {
                         $this->_walkCollectionRelation($collection, $store, $attributeCodes);
                     }
                 }
@@ -565,7 +565,7 @@ class Mage_CatalogIndex_Model_Indexer extends Mage_Core_Model_Abstract
      */
     protected function _getPriorifiedProductTypes()
     {
-        if (is_null($this->_productTypePriority)) {
+        if ($this->_productTypePriority === null) {
             $this->_productTypePriority = array();
             $config = Mage::getConfig()->getNode('global/catalog/product/type');
 

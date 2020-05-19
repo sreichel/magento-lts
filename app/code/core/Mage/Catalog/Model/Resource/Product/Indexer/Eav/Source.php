@@ -32,8 +32,7 @@
  * @package     Mage_Catalog
  * @author      Magento Core Team <core@magentocommerce.com>
  */
-class Mage_Catalog_Model_Resource_Product_Indexer_Eav_Source
-    extends Mage_Catalog_Model_Resource_Product_Indexer_Eav_Abstract
+class Mage_Catalog_Model_Resource_Product_Indexer_Eav_Source extends Mage_Catalog_Model_Resource_Product_Indexer_Eav_Abstract
 {
     /**
      * Initialize connection and define main index table
@@ -57,7 +56,8 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Eav_Source
             ->join(
                 array('ea' => $this->getTable('eav/attribute')),
                 'ca.attribute_id = ea.attribute_id',
-                array())
+                array()
+            )
             ->where($this->_getIndexableAttributesCondition());
 
         if ($multiSelect == true) {
@@ -98,7 +98,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Eav_Source
         $adapter    = $this->_getWriteAdapter();
         $idxTable   = $this->getIdxTable();
         // prepare select attributes
-        if (is_null($attributeId)) {
+        if ($attributeId === null) {
             $attrIds    = $this->_getIndexableAttributes(false);
         } else {
             $attrIds    = array($attributeId);
@@ -124,14 +124,14 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Eav_Source
         $statusCond = $adapter->quoteInto(' = ?', Mage_Catalog_Model_Product_Status::STATUS_ENABLED);
         $this->_addAttributeToSelect($subSelect, 'status', 'd.entity_id', 's.store_id', $statusCond);
 
-        if (!is_null($entityIds)) {
+        if ($entityIds !== null) {
             $subSelect->where('d.entity_id IN(?)', $entityIds);
         }
 
         /**@var $select Varien_Db_Select*/
         $select = $adapter->select()
             ->from(
-                array('pid' => new Zend_Db_Expr(sprintf('(%s)',$subSelect->assemble()))),
+                array('pid' => new Zend_Db_Expr(sprintf('(%s)', $subSelect->assemble()))),
                 array()
             )
             ->joinLeft(
@@ -179,7 +179,7 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Eav_Source
         $adapter    = $this->_getWriteAdapter();
 
         // prepare multiselect attributes
-        if (is_null($attributeId)) {
+        if ($attributeId === null) {
             $attrIds    = $this->_getIndexableAttributes(true);
         } else {
             $attrIds    = array($attributeId);
@@ -204,25 +204,30 @@ class Mage_Catalog_Model_Resource_Product_Indexer_Eav_Source
         $select = $adapter->select()
             ->from(
                 array('pvd' => $this->getValueTable('catalog/product', 'text')),
-                array('entity_id', 'attribute_id'))
+                array('entity_id', 'attribute_id')
+            )
             ->join(
                 array('cs' => $this->getTable('core/store')),
                 '',
-                array('store_id'))
+                array('store_id')
+            )
             ->joinLeft(
                 array('pvs' => $this->getValueTable('catalog/product', 'text')),
                 'pvs.entity_id = pvd.entity_id AND pvs.attribute_id = pvd.attribute_id'
                     . ' AND pvs.store_id=cs.store_id',
-                array('value' => $productValueExpression))
-            ->where('pvd.store_id=?',
-                $adapter->getIfNullSql('pvs.store_id', Mage_Catalog_Model_Abstract::DEFAULT_STORE_ID))
+                array('value' => $productValueExpression)
+            )
+            ->where(
+                'pvd.store_id=?',
+                $adapter->getIfNullSql('pvs.store_id', Mage_Catalog_Model_Abstract::DEFAULT_STORE_ID)
+            )
             ->where('cs.store_id!=?', Mage_Catalog_Model_Abstract::DEFAULT_STORE_ID)
             ->where('pvd.attribute_id IN(?)', $attrIds);
 
         $statusCond = $adapter->quoteInto('=?', Mage_Catalog_Model_Product_Status::STATUS_ENABLED);
         $this->_addAttributeToSelect($select, 'status', 'pvd.entity_id', 'cs.store_id', $statusCond);
 
-        if (!is_null($entityIds)) {
+        if ($entityIds !== null) {
             $select->where('pvd.entity_id IN(?)', $entityIds);
         }
 

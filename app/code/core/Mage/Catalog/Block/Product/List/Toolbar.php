@@ -473,7 +473,7 @@ class Mage_Catalog_Block_Product_List_Toolbar extends Mage_Core_Block_Template
      */
     public function getOrderUrl($order, $direction)
     {
-        if (is_null($order)) {
+        if ($order === null) {
             $order = $this->getCurrentOrder() ? $this->getCurrentOrder() : $this->_availableOrder[0];
         }
         return $this->getPagerUrl(array(
@@ -489,7 +489,7 @@ class Mage_Catalog_Block_Product_List_Toolbar extends Mage_Core_Block_Template
      * @param array $params Query parameters
      * @return string
      */
-    public function getPagerUrl($params=array())
+    public function getPagerUrl($params = array())
     {
         $urlParams = array();
         $urlParams['_current']  = true;
@@ -559,7 +559,7 @@ class Mage_Catalog_Block_Product_List_Toolbar extends Mage_Core_Block_Template
      */
     public function setModes($modes)
     {
-        if(!isset($this->_availableMode)){
+        if (!isset($this->_availableMode)) {
             $this->_availableMode = $modes;
         }
         return $this;
@@ -573,7 +573,7 @@ class Mage_Catalog_Block_Product_List_Toolbar extends Mage_Core_Block_Template
      */
     public function getModeUrl($mode)
     {
-        return $this->getPagerUrl( array($this->getModeVarName()=>$mode, $this->getPageVarName() => null) );
+        return $this->getPagerUrl(array($this->getModeVarName()=>$mode, $this->getPageVarName() => null));
     }
 
     /**
@@ -652,8 +652,7 @@ class Mage_Catalog_Block_Product_List_Toolbar extends Mage_Core_Block_Template
                 return $default;
             }
             return Mage::getStoreConfig('catalog/frontend/list_per_page');
-        }
-        elseif ($this->getCurrentMode() == 'grid') {
+        } elseif ($this->getCurrentMode() == 'grid') {
             if ($default = $this->getDefaultGridPerPage()) {
                 return $default;
             }
@@ -670,7 +669,7 @@ class Mage_Catalog_Block_Product_List_Toolbar extends Mage_Core_Block_Template
      * @param string $label
      * @return $this
      */
-    public function addPagerLimit($mode, $value, $label='')
+    public function addPagerLimit($mode, $value, $label = '')
     {
         if (!isset($this->_availableLimit[$mode])) {
             $this->_availableLimit[$mode] = array();
@@ -808,7 +807,6 @@ class Mage_Catalog_Block_Product_List_Toolbar extends Mage_Core_Block_Template
         $pagerBlock = $this->getChild('product_list_toolbar_pager');
 
         if ($pagerBlock instanceof Varien_Object) {
-
             /* @var $pagerBlock Mage_Page_Block_Html_Pager */
             $pagerBlock->setAvailableLimit($this->getAvailableLimit());
 

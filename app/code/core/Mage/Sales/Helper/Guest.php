@@ -61,7 +61,7 @@ class Mage_Sales_Helper_Guest extends Mage_Core_Helper_Data
         if (empty($post) && !$cookieModel->get($this->_cookieName)) {
             Mage::app()->getResponse()->setRedirect(Mage::getUrl('sales/guest/form'));
             return false;
-        } elseif (!empty($post) && isset($post['oar_order_id']) && isset($post['oar_type']))  {
+        } elseif (!empty($post) && isset($post['oar_order_id']) && isset($post['oar_type'])) {
             $type           = $post['oar_type'];
             $incrementId    = $post['oar_order_id'];
             $lastName       = $post['oar_billing_lastname'];
@@ -91,7 +91,7 @@ class Mage_Sales_Helper_Guest extends Mage_Core_Helper_Data
                 $errors = true;
             }
 
-            if ($errors === false && !is_null($order->getCustomerId())) {
+            if ($errors === false && $order->getCustomerId() !== null) {
                 $errorMessage = 'Please log in to view your order details.';
                 $errors = true;
             }
@@ -102,9 +102,9 @@ class Mage_Sales_Helper_Guest extends Mage_Core_Helper_Data
             }
         } elseif ($cookieModel->get($this->_cookieName)) {
             $cookie = $cookieModel->get($this->_cookieName);
-            $cookieOrder = $this->_loadOrderByCookie( $cookie );
-            if( !is_null( $cookieOrder) ){
-                if( is_null( $cookieOrder->getCustomerId() ) ){
+            $cookieOrder = $this->_loadOrderByCookie($cookie);
+            if ($cookieOrder !== null) {
+                if ($cookieOrder->getCustomerId() === null) {
                     $cookieModel->renew($this->_cookieName, $this->_lifeTime, '/');
                     $order = $cookieOrder;
                 } else {
@@ -153,13 +153,13 @@ class Mage_Sales_Helper_Guest extends Mage_Core_Helper_Data
 
     /**
      * Try to load order by cookie hash
-     * 
+     *
      * @param string|null $cookie
      * @return null|Mage_Sales_Model_Order
      */
     protected function _loadOrderByCookie($cookie = null)
     {
-        if (!is_null($cookie)) {
+        if ($cookie !== null) {
             $cookieData = explode(':', base64_decode($cookie));
             $protectCode = isset($cookieData[0]) ? $cookieData[0] : null;
             $incrementId = isset($cookieData[1]) ? $cookieData[1] : null;
@@ -186,5 +186,4 @@ class Mage_Sales_Helper_Guest extends Mage_Core_Helper_Data
     {
         return $this->_cookieName;
     }
-
 }

@@ -103,7 +103,7 @@ class Mage_Catalog_Helper_Product_Flat extends Mage_Catalog_Helper_Flat_Abstract
      */
     public function getFlag()
     {
-        if (is_null($this->_flagObject)) {
+        if ($this->_flagObject === null) {
             $className = (string)Mage::getConfig()->getNode(self::XML_PATH_FLAT_FLAG);
             $this->_flagObject = Mage::getSingleton($className)
                 ->loadSelf();
@@ -145,7 +145,7 @@ class Mage_Catalog_Helper_Product_Flat extends Mage_Catalog_Helper_Flat_Abstract
     public function isBuiltAllStores()
     {
         $isBuildAll = true;
-        foreach(Mage::app()->getStores(false) as $store) {
+        foreach (Mage::app()->getStores(false) as $store) {
             /** @var $store Mage_Core_Model_Store */
             $isBuildAll = $isBuildAll && $this->isBuilt($store->getId());
         }

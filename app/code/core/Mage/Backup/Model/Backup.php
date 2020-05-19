@@ -110,10 +110,10 @@ class Mage_Backup_Model_Backup extends Varien_Object
      * @param string $value
      * @return $this
      */
-    public function setType($value='db')
+    public function setType($value = 'db')
     {
         $possibleTypes = Mage::helper('backup')->getBackupTypesList();
-        if(!in_array($value, $possibleTypes)) {
+        if (!in_array($value, $possibleTypes)) {
             $value = Mage::helper('backup')->getDefaultBackupType();
         }
 
@@ -156,8 +156,8 @@ class Mage_Backup_Model_Backup extends Varien_Object
         }
 
         $rawContent = '';
-        if ( $compress ) {
-            $rawContent = gzcompress( $content, self::COMPRESS_RATE );
+        if ($compress) {
+            $rawContent = gzcompress($content, self::COMPRESS_RATE);
         } else {
             $rawContent = $content;
         }
@@ -236,7 +236,7 @@ class Mage_Backup_Model_Backup extends Varien_Object
      */
     public function open($write = false)
     {
-        if (is_null($this->getPath())) {
+        if ($this->getPath() === null) {
             Mage::exception('Mage_Backup', Mage::helper('backup')->__('Backup file path was not specified.'));
         }
 
@@ -245,8 +245,7 @@ class Mage_Backup_Model_Backup extends Varien_Object
             $path = $ioAdapter->getCleanPath($this->getPath());
             $ioAdapter->checkAndCreateFolder($path);
             $filePath = $path . DS . $this->getFileName();
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             Mage::exception('Mage_Backup', $e->getMessage());
         }
 
@@ -278,7 +277,7 @@ class Mage_Backup_Model_Backup extends Varien_Object
      */
     public function read($length)
     {
-        if (is_null($this->_handler)) {
+        if ($this->_handler === null) {
             Mage::exception('Mage_Backup', Mage::helper('backup')->__('Backup file handler was unspecified.'));
         }
 
@@ -287,7 +286,7 @@ class Mage_Backup_Model_Backup extends Varien_Object
 
     public function eof()
     {
-        if (is_null($this->_handler)) {
+        if ($this->_handler === null) {
             Mage::exception('Mage_Backup', Mage::helper('backup')->__('Backup file handler was unspecified.'));
         }
 
@@ -302,14 +301,13 @@ class Mage_Backup_Model_Backup extends Varien_Object
      */
     public function write($string)
     {
-        if (is_null($this->_handler)) {
+        if ($this->_handler === null) {
             Mage::exception('Mage_Backup', Mage::helper('backup')->__('Backup file handler was unspecified.'));
         }
 
         try {
             gzwrite($this->_handler, $string);
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             Mage::exception('Mage_Backup', Mage::helper('backup')->__('An error occurred while writing to the backup file "%s".', $this->getFileName()));
         }
 
@@ -351,7 +349,7 @@ class Mage_Backup_Model_Backup extends Varien_Object
 
     public function getSize()
     {
-        if (!is_null($this->getData('size'))) {
+        if ($this->getData('size') !== null) {
             return $this->getData('size');
         }
 

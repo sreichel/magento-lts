@@ -441,7 +441,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      */
     public function getOrder()
     {
-        if (is_null($this->_order) && ($orderId = $this->getOrderId())) {
+        if ($this->_order === null && ($orderId = $this->getOrderId())) {
             $order = Mage::getModel('sales/order');
             $order->load($orderId);
             $this->setOrder($order);
@@ -479,7 +479,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
             return self::STATUS_INVOICED;
         }
 
-        if ($backordered && ($actuallyOrdered == $backordered) ) {
+        if ($backordered && ($actuallyOrdered == $backordered)) {
             return self::STATUS_BACKORDERED;
         }
 
@@ -530,7 +530,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      */
     public static function getStatusName($statusId)
     {
-        if (is_null(self::$_statuses)) {
+        if (self::$_statuses === null) {
             self::getStatuses();
         }
         if (isset(self::$_statuses[$statusId])) {
@@ -568,7 +568,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      */
     public static function getStatuses()
     {
-        if (is_null(self::$_statuses)) {
+        if (self::$_statuses === null) {
             self::$_statuses = array(
                 //self::STATUS_PENDING        => Mage::helper('sales')->__('Pending'),
                 self::STATUS_PENDING        => Mage::helper('sales')->__('Ordered'),
@@ -593,7 +593,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
     public function getOriginalPrice()
     {
         $price = $this->getData('original_price');
-        if (is_null($price)) {
+        if ($price === null) {
             return $this->getPrice();
         }
         return $price;
@@ -631,10 +631,10 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      * @param string $code
      * @return array
      */
-    public function getProductOptionByCode($code=null)
+    public function getProductOptionByCode($code = null)
     {
         $options = $this->getProductOptions();
-        if (is_null($code)) {
+        if ($code === null) {
             return $options;
         }
         if (isset($options[$code])) {
@@ -675,7 +675,8 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      *
      * @return array
      */
-    public function getChildrenItems() {
+    public function getChildrenItems()
+    {
         return $this->_children;
     }
 
@@ -685,7 +686,8 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function isChildrenCalculated() {
+    public function isChildrenCalculated()
+    {
         if ($parentItem = $this->getParentItem()) {
             $options = $parentItem->getProductOptions();
         } else {
@@ -720,7 +722,8 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function isShipSeparately() {
+    public function isShipSeparately()
+    {
         if ($parentItem = $this->getParentItem()) {
             $options = $parentItem->getProductOptions();
         } else {
@@ -742,7 +745,8 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      * @param bool $shipment
      * @return bool
      */
-    public function isDummy($shipment = false){
+    public function isDummy($shipment = false)
+    {
         if ($shipment) {
             if ($this->getHasChildren() && $this->isShipSeparately()) {
                 return true;

@@ -58,7 +58,8 @@ class Mage_Catalog_Block_Product_List_Upsell extends Mage_Catalog_Block_Product_
             ->addStoreFilter()
         ;
         if (Mage::helper('catalog')->isModuleEnabled('Mage_Checkout')) {
-            Mage::getResourceSingleton('checkout/cart')->addExcludeProductFilter($this->_itemCollection,
+            Mage::getResourceSingleton('checkout/cart')->addExcludeProductFilter(
+                $this->_itemCollection,
                 Mage::getSingleton('checkout/session')->getQuoteId()
             );
 
@@ -102,7 +103,7 @@ class Mage_Catalog_Block_Product_List_Upsell extends Mage_Catalog_Block_Product_
 
     public function getItems()
     {
-        if (is_null($this->_items) && $this->getItemCollection()) {
+        if ($this->_items === null && $this->getItemCollection()) {
             $this->_items = $this->getItemCollection()->getItems();
         }
         return $this->_items;
@@ -162,8 +163,7 @@ class Mage_Catalog_Block_Product_List_Upsell extends Mage_Catalog_Block_Product_
         }
         if (isset($this->_itemLimits[$type])) {
             return $this->_itemLimits[$type];
-        }
-        else {
+        } else {
             return 0;
         }
     }

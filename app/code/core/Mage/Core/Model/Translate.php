@@ -133,7 +133,7 @@ class Mage_Core_Model_Translate
 
         $this->_data = array();
 
-        foreach ($this->getModulesConfig() as $moduleName=>$info) {
+        foreach ($this->getModulesConfig() as $moduleName => $info) {
             $info = $info->asArray();
             $this->_loadModuleTranslation($moduleName, $info['files'], $forceReload);
         }
@@ -211,7 +211,7 @@ class Mage_Core_Model_Translate
      * @param   string $files
      * @return  Mage_Core_Model_Translate
      */
-    protected function _loadModuleTranslation($moduleName, $files, $forceReload=false)
+    protected function _loadModuleTranslation($moduleName, $files, $forceReload = false)
     {
         foreach ($files as $file) {
             $file = $this->_getModuleFilePath($moduleName, $file);
@@ -227,7 +227,7 @@ class Mage_Core_Model_Translate
      * @param string $scope
      * @return $this
      */
-    protected function _addData($data, $scope, $forceReload=false)
+    protected function _addData($data, $scope, $forceReload = false)
     {
         foreach ($data as $key => $value) {
             if ($key === $value) {
@@ -235,7 +235,7 @@ class Mage_Core_Model_Translate
             }
             $key    = $this->_prepareDataString($key);
             $value  = $this->_prepareDataString($value);
-            if ($scope && isset($this->_dataScope[$key]) && !$forceReload ) {
+            if ($scope && isset($this->_dataScope[$key]) && !$forceReload) {
                 /**
                  * Checking previos value
                  */
@@ -253,8 +253,7 @@ class Mage_Core_Model_Translate
                 }
                 $scopeKey = $scope . self::SCOPE_SEPARATOR . $key;
                 $this->_data[$scopeKey] = $value;
-            }
-            else {
+            } else {
                 $this->_data[$key]     = $value;
                 $this->_dataScope[$key]= $scope;
             }
@@ -329,7 +328,7 @@ class Mage_Core_Model_Translate
      */
     public function getData()
     {
-        if (is_null($this->_data)) {
+        if ($this->_data === null) {
             return array();
             //Mage::throwException('Translation data is not initialized. Please contact developers.');
         }
@@ -343,13 +342,13 @@ class Mage_Core_Model_Translate
      */
     public function getLocale()
     {
-        if (is_null($this->_locale)) {
+        if ($this->_locale === null) {
             $this->_locale = Mage::app()->getLocale()->getLocaleCode();
         }
         return $this->_locale;
     }
 
-    public function setLocale( $locale )
+    public function setLocale($locale)
     {
         $this->_locale = $locale;
         return $this;
@@ -372,7 +371,7 @@ class Mage_Core_Model_Translate
      */
     public function getTranslate()
     {
-        if (is_null($this->_translate)) {
+        if ($this->_translate === null) {
             $this->_translate = new Zend_Translate('array', $this->getData(), $this->getLocale());
         }
         return $this->_translate;
@@ -389,7 +388,7 @@ class Mage_Core_Model_Translate
         $text = array_shift($args);
 
         if (is_string($text) && ''==$text
-            || is_null($text)
+            || $text === null
             || is_bool($text) && false===$text
             || is_object($text) && ''==$text->getText()) {
             return '';
@@ -399,8 +398,7 @@ class Mage_Core_Model_Translate
             $module = $text->getModule();
             $text = $text->getText();
             $translated = $this->_getTranslatedString($text, $code);
-        }
-        else {
+        } else {
             if (!empty($_REQUEST['theme'])) {
                 $module = 'frontend/default/'.$_REQUEST['theme'];
             } else {
@@ -433,7 +431,7 @@ class Mage_Core_Model_Translate
      * @param bool $flag
      * @return $this
      */
-    public function setTranslateInline($flag=null)
+    public function setTranslateInline($flag = null)
     {
         $this->_canUseInline = (bool) $flag;
         return $this;
@@ -457,9 +455,9 @@ class Mage_Core_Model_Translate
      * @param string $localeCode
      * @return string
      */
-    public function getTemplateFile($file, $type, $localeCode=null)
+    public function getTemplateFile($file, $type, $localeCode = null)
     {
-        if (is_null($localeCode) || preg_match('/[^a-zA-Z_]/', $localeCode)) {
+        if ($localeCode === null || preg_match('/[^a-zA-Z_]/', $localeCode)) {
             $localeCode = $this->getLocale();
         }
 
@@ -491,7 +489,7 @@ class Mage_Core_Model_Translate
      */
     public function getCacheId()
     {
-        if (is_null($this->_cacheId)) {
+        if ($this->_cacheId === null) {
             $this->_cacheId = 'translate';
             if (isset($this->_config[self::CONFIG_KEY_LOCALE])) {
                 $this->_cacheId.= '_'.$this->_config[self::CONFIG_KEY_LOCALE];
@@ -565,11 +563,9 @@ class Mage_Core_Model_Translate
         $translated = '';
         if (array_key_exists($code, $this->getData())) {
             $translated = $this->_data[$code];
-        }
-        elseif (array_key_exists($text, $this->getData())) {
+        } elseif (array_key_exists($text, $this->getData())) {
             $translated = $this->_data[$text];
-        }
-        else {
+        } else {
             $translated = $text;
         }
         return $translated;

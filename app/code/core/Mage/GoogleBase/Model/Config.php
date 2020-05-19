@@ -163,6 +163,6 @@ class Mage_GoogleBase_Model_Config extends Varien_Object
     {
         $countries = $this->getAllowedCountries($storeId);
         $country = isset($countries[$iso]) ? $countries[$iso] : null;
-        return is_null($field) ? $country : ( isset($country[$field]) ? $country[$field] : null );
+        return $field === null ? $country : ( isset($country[$field]) ? $country[$field] : null );
     }
 }

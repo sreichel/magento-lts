@@ -116,7 +116,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Abstract extends Mage_Admi
     public function getItemCount()
     {
         $count = $this->getData('item_count');
-        if (is_null($count)) {
+        if ($count === null) {
             $count = count($this->getItems());
             $this->setData('item_count', $count);
         }
@@ -143,7 +143,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Abstract extends Mage_Admi
             /*
              * Filtering items by allowed product type
              */
-            foreach($items as $key => $item) {
+            foreach ($items as $key => $item) {
                 if ($item instanceof Mage_Catalog_Model_Product) {
                     $type = $item->getTypeId();
                 } else if ($item instanceof Mage_Sales_Model_Order_Item) {
@@ -183,5 +183,4 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Abstract extends Mage_Admi
     {
         return true;
     }
-
 }
