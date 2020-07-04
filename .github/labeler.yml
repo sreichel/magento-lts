@@ -607,4 +607,4 @@
 
 # Add Documentation Label
 'Documentation':
-  - *.md
+  - '*.md'
