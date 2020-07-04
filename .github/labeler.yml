@@ -42,14 +42,6 @@
   - app/code/core/Zend/**/*
 
 'Component: lib/*':
-  - '!lib/Mage/*'
-  - '!lib/Mage/**/*'
-  - '!lib/PEAR/*'
-  - '!lib/PEAR/**/*'
-  - '!lib/Varien/*'
-  - '!lib/Varien/**/*'
-  - '!lib/Zend/*'
-  - '!lib/Zend/**/*'
   - lib/*
   - lib/**/*
 
