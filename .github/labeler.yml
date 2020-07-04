@@ -42,8 +42,6 @@
   - app/code/core/Zend/**/*
 
 'Component: lib/*':
-  - lib/*
-  - lib/**/*
   - '!lib/Mage/*'
   - '!lib/Mage/**/*'
   - '!lib/PEAR/*'
@@ -52,8 +50,8 @@
   - '!lib/Varien/**/*'
   - '!lib/Zend/*'
   - '!lib/Zend/**/*'
-  - '!app/code/core/Zend/*'
-  - '!app/code/core/Zend/**/*'
+  - lib/*
+  - lib/**/*
 
 'shell':
   - shell/*
