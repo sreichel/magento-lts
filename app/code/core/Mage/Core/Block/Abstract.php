@@ -41,6 +41,7 @@
  * @method $this setCacheTags(array $value)
  * @method $this setClass(string $value)
  * @method $this setDisabled(bool $value)
+ * @method $this setIdPrefix(string $value)
  * @method $this setLabel(string $value)
  * @method $this setOnclick(string $value)
  * @method string getPosition()

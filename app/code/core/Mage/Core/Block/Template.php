@@ -33,6 +33,7 @@
  *
  * @method $this setContentHeading(string $value)
  * @method $this setFormAction(string $value)
+ * @method $this setFormData(array $value)
  * @method $this setIdSuffix(string $value)
  * @method $this setProduct(Mage_Catalog_Model_Product $value)
  * @method $this setDisplayMinimalPrice(bool $value)

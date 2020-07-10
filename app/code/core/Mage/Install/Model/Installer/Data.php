@@ -31,6 +31,16 @@
  * @category   Mage
  * @package    Mage_Install
  * @author      Magento Core Team <core@magentocommerce.com>
+ *
+ * @method array getAdminData()
+ * @method $this setAdminData(array $value)
+ * @method array getConfigData()
+ * @method $this setConfigData(array $value)
+ * @method $this setLocaleData(array $value)
+ * @method string getEncryptionKey()
+ * @method $this setEncryptionKey(string $value)
+ * @method $this setSkipBaseUrlValidation($value)
+ * @method $this setSkipUrlValidation($value)
  */
 class Mage_Install_Model_Installer_Data extends Varien_Object
 {

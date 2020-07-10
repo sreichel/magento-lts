@@ -273,6 +273,7 @@ class Mage_Install_Model_Installer_Console extends Mage_Install_Model_Installer_
      * Prepare data ans save it in data model
      *
      * @return $this
+     * @throws Exception
      */
     protected function _prepareData()
     {

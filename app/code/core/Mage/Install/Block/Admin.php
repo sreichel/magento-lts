@@ -36,12 +36,18 @@ class Mage_Install_Block_Admin extends Mage_Install_Block_Abstract
         parent::__construct();
         $this->setTemplate('install/create_admin.phtml');
     }
-    
+
+    /**
+     * @return string
+     */
     public function getPostUrl()
     {
         return $this->getUrl('*/*/administratorPost');
     }
-    
+
+    /**
+     * @return array|mixed|Varien_Object
+     */
     public function getFormData()
     {
         $data = $this->getData('form_data');

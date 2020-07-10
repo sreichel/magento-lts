@@ -31,6 +31,9 @@
  * @category   Mage
  * @package    Mage_Install
  * @author      Magento Core Team <core@magentocommerce.com>
+ *
+ * @method bool getHideIframe()
+ * @method $this setDownloadCheckStatus(bool $value)
  */
 class Mage_Install_Model_Installer extends Varien_Object
 {
@@ -122,7 +125,7 @@ class Mage_Install_Model_Installer extends Varien_Object
     /**
      * Retrieve server checking result status
      *
-     * @return unknown
+     * @return bool
      */
     public function getServerCheckStatus()
     {
@@ -136,8 +139,9 @@ class Mage_Install_Model_Installer extends Varien_Object
     /**
      * Installation config data
      *
-     * @param   array $data
-     * @return  Mage_Install_Model_Installer
+     * @param array $data
+     * @return  $this
+     * @throws Mage_Core_Exception
      */
     public function installConfig($data)
     {
@@ -243,6 +247,7 @@ class Mage_Install_Model_Installer extends Varien_Object
      *
      * @param mixed $data
      * @return bool
+     * @throws Exception
      */
     public function createAdministrator($data)
     {
@@ -255,7 +260,7 @@ class Mage_Install_Model_Installer extends Varien_Object
         //to support old logic checking if real data was passed
         if (is_array($data)) {
             $data = $this->validateAndPrepareAdministrator($data);
-            if (is_array(data)) {
+            if (is_array($data)) {
                 throw new Exception(Mage::helper('install')->__('Please correct the user data and try again.'));
             }
         }
@@ -278,8 +283,8 @@ class Mage_Install_Model_Installer extends Varien_Object
      * Validating encryption key.
      * Returns TRUE or array of error messages.
      *
-     * @param $key
-     * @return unknown_type
+     * @param string $key
+     * @return array|true
      */
     public function validateEncryptionKey($key)
     {
@@ -316,6 +321,9 @@ class Mage_Install_Model_Installer extends Varien_Object
         return $this;
     }
 
+    /**
+     * @return $this
+     */
     public function finish()
     {
         Mage::getSingleton('install/installer_config')->replaceTmpInstallDate();

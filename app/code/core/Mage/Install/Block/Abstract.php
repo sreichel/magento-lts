@@ -50,11 +50,12 @@ abstract class Mage_Install_Block_Abstract extends Mage_Core_Block_Template
     {
         return Mage::getSingleton('install/wizard');
     }
-    
+
     /**
      * Retrieve current installation step
      *
      * @return Varien_Object
+     * @throws Exception
      */
     public function getCurrentStep()
     {

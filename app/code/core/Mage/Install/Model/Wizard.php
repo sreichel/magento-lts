@@ -111,6 +111,11 @@ class Mage_Install_Model_Wizard
         return $this->_steps;
     }
 
+    /**
+     * @param string $controller
+     * @param string $action
+     * @return string
+     */
     protected function _getUrl($controller, $action)
     {
         return Mage::getUrl($this->_getUrlPath($controller, $action));

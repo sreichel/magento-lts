@@ -49,6 +49,10 @@ class Mage_Install_Model_Installer_Config extends Mage_Install_Model_Installer_A
         $this->_localConfigFile = Mage::getBaseDir('etc') . DS . 'local.xml';
     }
 
+    /**
+     * @param array $data
+     * @return $this
+     */
     public function setConfigData($data)
     {
         if (is_array($data)) {
@@ -57,6 +61,9 @@ class Mage_Install_Model_Installer_Config extends Mage_Install_Model_Installer_A
         return $this;
     }
 
+    /**
+     * @return array
+     */
     public function getConfigData()
     {
         return $this->_configData;
@@ -108,6 +115,9 @@ class Mage_Install_Model_Installer_Config extends Mage_Install_Model_Installer_A
         chmod($this->_localConfigFile, 0777);
     }
 
+    /**
+     * @return Varien_Object
+     */
     public function getFormData()
     {
         $baseUrl = Mage::helper('core/url')->decodePunycode(Mage::getBaseUrl('web'));
@@ -132,6 +142,11 @@ class Mage_Install_Model_Installer_Config extends Mage_Install_Model_Installer_A
         return $data;
     }
 
+    /**
+     * @param array $data
+     * @return $this
+     * @throws Exception
+     */
     protected function _checkHostsInfo($data)
     {
         $url  = $data['protocol'] . '://' . $data['host'] . ':' . $data['port'] . $data['base_path'];
@@ -144,13 +159,19 @@ class Mage_Install_Model_Installer_Config extends Mage_Install_Model_Installer_A
         return $this;
     }
 
+    /**
+     * @param string $url
+     * @param bool $secure
+     * @return $this
+     * @throws Mage_Core_Exception
+     */
     protected function _checkUrl($url, $secure = false)
     {
         $prefix = $secure ? 'install/wizard/checkSecureHost/' : 'install/wizard/checkHost/';
         try {
             $client = new Varien_Http_Client($url . 'index.php/' . $prefix);
             $response = $client->request('GET');
-            /* @var $responce Zend_Http_Response */
+            /* @var Zend_Http_Response $responce */
             $body = $response->getBody();
         }
         catch (Exception $e){
@@ -167,6 +188,10 @@ class Mage_Install_Model_Installer_Config extends Mage_Install_Model_Installer_A
         return $this;
     }
 
+    /**
+     * @param string|null $date
+     * @return $this
+     */
     public function replaceTmpInstallDate($date = null)
     {
         $stamp    = strtotime((string) $date);
@@ -177,6 +202,10 @@ class Mage_Install_Model_Installer_Config extends Mage_Install_Model_Installer_A
         return $this;
     }
 
+    /**
+     * @param string|null $key
+     * @return $this
+     */
     public function replaceTmpEncryptKey($key = null)
     {
         if (!$key) {

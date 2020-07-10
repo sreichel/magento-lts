@@ -34,7 +34,7 @@
 class Mage_Install_Model_Installer_Db extends Mage_Install_Model_Installer_Abstract
 {
     /**
-     * @var database resource
+     * @var Mage_Install_Model_Installer_Db_Abstract resource
      */
     protected $_dbResource;
 
@@ -44,6 +44,8 @@ class Mage_Install_Model_Installer_Db extends Mage_Install_Model_Installer_Abstr
      *
      * @param array $data
      * @return array
+     * @throws Mage_Core_Exception
+     * @throws Mage_Core_Exception
      */
     public function checkDbConnectionData($data)
     {
@@ -107,8 +109,10 @@ class Mage_Install_Model_Installer_Db extends Mage_Install_Model_Installer_Abstr
     /**
      * Check database connection data
      *
-     * @param  array $data
+     * @param array $data
      * @return array
+     * @throws Mage_Core_Exception
+     * @throws Mage_Core_Exception
      */
     protected function _getCheckedData($data)
     {
@@ -152,8 +156,10 @@ class Mage_Install_Model_Installer_Db extends Mage_Install_Model_Installer_Abstr
     /**
      * Retrieve the database resource
      *
-     * @param  string $model database type
+     * @param string $model database type
      * @return Mage_Install_Model_Installer_Db_Abstract
+     * @throws Mage_Core_Exception
+     * @throws Mage_Core_Exception
      */
     protected function _getDbResource($model)
     {
@@ -187,6 +193,7 @@ class Mage_Install_Model_Installer_Db extends Mage_Install_Model_Installer_Abstr
      *
      * @param array $data
      *
+     * @throws Mage_Core_Exception
      * @deprecated since 1.5.0.0
      */
     public function checkDatabase($data)

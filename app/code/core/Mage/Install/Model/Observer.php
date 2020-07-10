@@ -31,6 +31,10 @@
  */
 class Mage_Install_Model_Observer
 {
+    /**
+     * @param Varien_Event_Observer $observer
+     * @return $this
+     */
     public function bindLocale($observer)
     {
         if ($locale=$observer->getEvent()->getLocale()) {
@@ -41,6 +45,9 @@ class Mage_Install_Model_Observer
         return $this;
     }
 
+    /**
+     * @param Varien_Event_Observer $observer
+     */
     public function installFailure($observer)
     {
         echo "<h2>There was a problem proceeding with Magento installation.</h2>";

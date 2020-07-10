@@ -37,6 +37,9 @@ class Mage_Install_Block_End extends Mage_Install_Block_Abstract
         $this->setTemplate('install/end.phtml');
     }
 
+    /**
+     * @return string
+     */
     public function getEncryptionKey()
     {
         $key = $this->getData('encryption_key');

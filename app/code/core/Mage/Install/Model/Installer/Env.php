@@ -35,6 +35,10 @@ class Mage_Install_Model_Installer_Env extends Mage_Install_Model_Installer_Abst
 {
     public function __construct() {}
 
+    /**
+     * @return $this
+     * @throws Exception
+     */
     public function install()
     {
         if (!$this->_checkPhpExtensions()) {
@@ -43,6 +47,9 @@ class Mage_Install_Model_Installer_Env extends Mage_Install_Model_Installer_Abst
         return $this;
     }
 
+    /**
+     * @return bool
+     */
     protected function _checkPhpExtensions()
     {
         $res = true;
@@ -58,6 +65,10 @@ class Mage_Install_Model_Installer_Env extends Mage_Install_Model_Installer_Abst
         return $res;
     }
 
+    /**
+     * @param $extension
+     * @return bool
+     */
     protected function _checkExtension($extension)
     {
         if (is_array($extension)) {

@@ -30,10 +30,29 @@
  * @category   Mage
  * @package    Mage_Install
  * @author      Magento Core Team <core@magentocommerce.com>
+ *
+ * @method array getAdminData(bool $value)
+ * @method $this setAdminData(array $value)
+ * @method array getConfigData(bool $value)
+ * @method $this setConfigData(array $value)
+ * @method string getCurrency()
+ * @method $this setCurrency(string $value)
+ * @method $this setLocale(string $value)
+ * @method array getLocaleData()
+ * @method $this setLocaleData(array $value)
+ * @method $this setTimezone(string $value)
+ * @method string getTimezone()
+ * @method $this setSkipBaseUrlValidation($value)
+ * @method mixed getSkipBaseUrlValidation()
+ * @method $this setSkipUrlValidation($value)
+ * @method mixed getSkipUrlValidation()
  */
 class Mage_Install_Model_Session extends Mage_Core_Model_Session_Abstract
 {
-    public function __construct() 
+    /**
+     * Mage_Install_Model_Session constructor.
+     */
+    public function __construct()
     {
         $this->init('install');
     }

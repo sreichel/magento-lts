@@ -59,6 +59,7 @@ class Mage_Install_Block_Locale extends Mage_Install_Block_Abstract
      * Retrieve locale data post url
      *
      * @return string
+     * @throws Exception
      */
     public function getPostUrl()
     {
@@ -158,6 +159,9 @@ class Mage_Install_Block_Locale extends Mage_Install_Block_Abstract
             : Mage::app()->getLocale()->getCurrency();
     }
 
+    /**
+     * @return Varien_Object
+     */
     public function getFormData()
     {
         $data = $this->getData('form_data');
