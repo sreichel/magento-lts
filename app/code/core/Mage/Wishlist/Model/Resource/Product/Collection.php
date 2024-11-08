@@ -41,6 +41,8 @@ class Mage_Wishlist_Model_Resource_Product_Collection extends Mage_Catalog_Model
      * Get add days in wishlist filter of product collection flag
      *
      * @return bool
+     *
+     * @SuppressWarnings(PHPMD.BooleanGetMethodName)
      */
     public function getDaysInWishlist()
     {
@@ -163,7 +165,10 @@ class Mage_Wishlist_Model_Resource_Product_Collection extends Mage_Catalog_Model
      *
      * @param bool $printQuery
      * @param bool $logQuery
-     * @return Mage_Wishlist_Model_Resource_Product_Collection
+     * @return $this
+     *
+     * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function load($printQuery = false, $logQuery = false)
     {

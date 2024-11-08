@@ -147,6 +147,9 @@ class Mage_Wishlist_Model_Resource_Item_Collection extends Mage_Core_Model_Resou
      * Add products to items and item options
      *
      * @return $this
+     *
+     * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+     * @SuppressWarnings(PHPMD.NPathComplexity)
      */
     protected function _assignProducts()
     {
@@ -311,6 +314,8 @@ class Mage_Wishlist_Model_Resource_Item_Collection extends Mage_Core_Model_Resou
      *
      * @param bool $flag
      * @return $this
+     *
+     * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
      */
     public function setVisibilityFilter($flag = true)
     {
@@ -324,6 +329,8 @@ class Mage_Wishlist_Model_Resource_Item_Collection extends Mage_Core_Model_Resou
      *
      * @param bool $flag
      * @return $this
+     *
+     * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
      */
     public function setSalableFilter($flag = true)
     {
@@ -337,6 +344,8 @@ class Mage_Wishlist_Model_Resource_Item_Collection extends Mage_Core_Model_Resou
      *
      * @param bool $flag
      * @return $this
+     *
+     * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
      */
     public function setInStockFilter($flag = true)
     {

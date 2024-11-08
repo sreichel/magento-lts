@@ -7066,11 +7066,6 @@ parameters:
 			path: app/code/core/Mage/Wishlist/Helper/Data.php
 
 		-
-			message: "#^Parameter \\#1 \\$item of method Mage_Wishlist_Model_Resource_Item_Option_Collection\\:\\:addItemFilter\\(\\) expects array\\|int, \\$this\\(Mage_Wishlist_Model_Item\\) given\\.$#"
-			count: 1
-			path: app/code/core/Mage/Wishlist/Model/Item.php
-
-		-
 			message: "#^Parameter \\#1 \\$message of class Mage_Core_Exception constructor expects string, null given\\.$#"
 			count: 1
 			path: app/code/core/Mage/Wishlist/Model/Item.php

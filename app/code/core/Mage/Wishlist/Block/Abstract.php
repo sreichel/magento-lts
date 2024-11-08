@@ -94,6 +94,8 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
      *
      * @param Mage_Wishlist_Model_Resource_Item_Collection $collection
      * @return $this
+     *
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     protected function _prepareCollection($collection)
     {
@@ -197,15 +199,17 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
      * @param Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $product
      *
      * @return string
+     *
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function getItemConfigureUrl($product)
     {
         if ($product instanceof Mage_Catalog_Model_Product) {
-            $id = $product->getWishlistItemId();
+            $productId = $product->getWishlistItemId();
         } else {
-            $id = $product->getId();
+            $productId = $product->getId();
         }
-        $params = ['id' => $id];
+        $params = ['id' => $productId];
 
         return $this->getUrl('wishlist/index/configure/', $params);
     }
@@ -344,14 +348,15 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
      * @param Mage_Catalog_Model_Product $product
      * @param bool $displayMinimalPrice
      * @param string $idSuffix
-     *
      * @return string
+     *
+     * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
      */
     public function getPriceHtml($product, $displayMinimalPrice = false, $idSuffix = '')
     {
-        $type_id = $product->getTypeId();
+        $typeId = $product->getTypeId();
         if (Mage::helper('catalog')->canApplyMsrp($product)) {
-            $realPriceHtml = $this->_preparePriceRenderer($type_id)
+            $realPriceHtml = $this->_preparePriceRenderer($typeId)
                 ->setProduct($product)
                 ->setDisplayMinimalPrice($displayMinimalPrice)
                 ->setIdSuffix($idSuffix)
@@ -359,10 +364,10 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
                 ->toHtml();
             $product->setAddToCartUrl($this->getAddToCartUrl($product));
             $product->setRealPriceHtml($realPriceHtml);
-            $type_id = $this->_mapRenderer;
+            $typeId = $this->_mapRenderer;
         }
 
-        return $this->_preparePriceRenderer($type_id)
+        return $this->_preparePriceRenderer($typeId)
             ->setProduct($product)
             ->setDisplayMinimalPrice($displayMinimalPrice)
             ->setIdSuffix($idSuffix)
@@ -401,6 +406,8 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
      * @param Mage_Catalog_Model_Product $product
      * @param bool $addFormKey
      * @return string
+     *
+     * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
      */
     public function getAddToWishlistUrlCustom($product, $addFormKey = true)
     {
@@ -416,6 +423,8 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
      * @param Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $item
      * @param bool $addFormKey
      * @return string
+     *
+     * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
      */
     public function getItemRemoveUrlCustom($item, $addFormKey = true)
     {
@@ -431,6 +440,8 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
      * @param string|Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $item
      * @param bool $addFormKey
      * @return string
+     *
+     * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
      */
     public function getItemAddToCartUrlCustom($item, $addFormKey = true)
     {
