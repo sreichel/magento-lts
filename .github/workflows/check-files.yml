@@ -127,7 +127,7 @@ jobs:
           echo "markdown=$count" >> $GITHUB_OUTPUT
 
       - name: Check if spellcheck wordlist files changed
-        id: changes-markdown
+        id: changes-spellcheck
         if: steps.changed-files-specific.outputs.any_modified == 'true'
         run: |
           count="$(grep -oE ".github/*.spellcheck*.txt" <<< "${{ steps.changed-files-specific.outputs.all_modified_files }}" | wc -l)"
