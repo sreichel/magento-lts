@@ -5,6 +5,7 @@ on:
     paths:
       - '.github/workflows/*'
       - '.github/*.txt'
+      - '.github/*.yml'
       - 'composer.json'
       - 'composer.lock'
       - '**.js'
@@ -19,6 +20,7 @@ on:
     paths:
       - '.github/workflows/*'
       - '.github/*.txt'
+      - '.github/*.yml'
       - 'composer.json'
       - 'composer.lock'
       - '**.js'
