@@ -17,9 +17,9 @@ matrix:
           comments: false
           attributes:
             - alt
+            - title
           ignores:
-            - ':matches(a, code, pre)'
-            - 'a'
+            - ':matches(code, pre)'
             - 'blockquote'
             - 'code'
             - 'pre'
