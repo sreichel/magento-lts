@@ -9,6 +9,9 @@ on:
       markdown:
         description: "Count changed MD files"
         value: ${{ jobs.check.outputs.markdown }}
+      spellcheck:
+        description: "Count changed spellcheck wordlist files"
+        value: ${{ jobs.check.outputs.spellcheck }}
       js:
         description: "Count changed JS files"
         value: ${{ jobs.check.outputs.js }}
@@ -52,6 +55,7 @@ jobs:
     outputs:
       composer: ${{ steps.changes-composer.outputs.composer }}
       markdown: ${{ steps.changes-js.outputs.markdown }}
+      spellcheck: ${{ steps.changes-js.outputs.spellcheck }}
       js: ${{ steps.changes-js.outputs.js }}
       php: ${{ steps.changes-php.outputs.php }}
       phtml: ${{ steps.all.outputs.phtml }}
@@ -93,6 +97,7 @@ jobs:
             **/*.xml
             **/*.js
             .github/workflows/**
+            .github/*.spellcheck*.txt
             **phpcs**
             **php-cs-fixer**
             **phpmd**
@@ -120,6 +125,14 @@ jobs:
           count="$(grep -oE "*.md" <<< "${{ steps.changed-files-specific.outputs.all_modified_files }}" | wc -l)"
           echo "$count Markdown file(s) changed"
           echo "markdown=$count" >> $GITHUB_OUTPUT
+
+      - name: Check if spellcheck wordlist files changed
+        id: changes-markdown
+        if: steps.changed-files-specific.outputs.any_modified == 'true'
+        run: |
+          count="$(grep -oE ".github/*.spellcheck*.txt" <<< "${{ steps.changed-files-specific.outputs.all_modified_files }}" | wc -l)"
+          echo "$count spellcheck wordlist file(s) changed"
+          echo "spellcheck=$count" >> $GITHUB_OUTPUT
 
       - name: Check if JS files changed
         id: changes-js
