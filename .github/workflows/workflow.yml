@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/*'
+      - '.github/*.txt'
       - 'composer.json'
       - 'composer.lock'
       - '**.js'
@@ -11,11 +12,13 @@ on:
       - '**.neon'
       - '**.php'
       - '**.phtml'
+      - '**.txt'
       - '**.xml'
 
   pull_request:
     paths:
       - '.github/workflows/*'
+      - '.github/*.txt'
       - 'composer.json'
       - 'composer.lock'
       - '**.js'
