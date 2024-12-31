@@ -6,6 +6,9 @@ on:
       composer:
         description: "Count changed Composer files"
         value: ${{ jobs.check.outputs.composer }}
+      markdown:
+        description: "Count changed MD files"
+        value: ${{ jobs.check.outputs.markdown }}
       js:
         description: "Count changed JS files"
         value: ${{ jobs.check.outputs.js }}
@@ -48,6 +51,7 @@ jobs:
     runs-on: [ubuntu-latest]
     outputs:
       composer: ${{ steps.changes-composer.outputs.composer }}
+      markdown: ${{ steps.changes-js.outputs.markdown }}
       js: ${{ steps.changes-js.outputs.js }}
       php: ${{ steps.changes-php.outputs.php }}
       phtml: ${{ steps.all.outputs.phtml }}
@@ -96,6 +100,8 @@ jobs:
             .rector.php
             tests/
             phpunit*
+            *.md
+            **/*.md
 
       - name: Check if composer files changed
         id: changes-composer
@@ -106,6 +112,14 @@ jobs:
           count="$(grep -oE "composer.*" <<< "${{ steps.changed-files-specific.outputs.all_modified_files }}" | wc -l)"
           echo "$count Composer file(s) changed"
           echo "composer=$count" >> $GITHUB_OUTPUT
+
+      - name: Check if Markdown files changed
+        id: changes-js
+        if: steps.changed-files-specific.outputs.any_modified == 'true'
+        run: |
+          count="$(grep -oE "*.md" <<< "${{ steps.changed-files-specific.outputs.all_modified_files }}" | wc -l)"
+          echo "$count Markdown file(s) changed"
+          echo "markdown=$count" >> $GITHUB_OUTPUT
 
       - name: Check if JS files changed
         id: changes-js

@@ -64,6 +64,14 @@ jobs:
       needs.check.outputs.workflow > 0
     uses: ./.github/workflows/codeql-analysis.yml
 
+  markdown:
+    name: Spellcheck
+    needs: [check]
+    if: |
+      needs.check.outputs.markdown > 0 ||
+      needs.check.outputs.workflow > 0
+    uses: ./.github/workflows/spellcheck.yml
+
   phpcs:
     name: PHP CS
     needs: [check, composer]
@@ -127,10 +135,8 @@ jobs:
       needs.check.outputs.workflow > 0
     uses: ./.github/workflows/rector.yml
 
-  # DOES NOT run by default
-  # runs on schedule or when workflow or unit tests changed
   unit_tests:
-    name: Unit Tests (OpenMage)
+    name: PHPUnit (OpenMage)
     needs: [check, php-cs-fixer]
     if: |
       needs.check.outputs.php > 0 ||
