@@ -6,32 +6,24 @@ on:
       - '.github/workflows/*'
       - 'composer.json'
       - 'composer.lock'
+      - '**.js'
+      - '**.md'
+      - '**.neon'
       - '**.php'
       - '**.phtml'
-      - '**.js'
       - '**.xml'
-      - '.php-cs-fixer.dist.php'
-      - '.phpcs.dist.xml'
-      - '.phpcs.dist.ecg.xml'
-      - '.phpcs.dist.php.xml'
-      - '.phpstan.dist.neon'
-      - '.phpstan.dist.baseline.neon'
 
   pull_request:
     paths:
       - '.github/workflows/*'
       - 'composer.json'
       - 'composer.lock'
+      - '**.js'
+      - '**.md'
+      - '**.neon'
       - '**.php'
       - '**.phtml'
-      - '**.js'
       - '**.xml'
-      - '.php-cs-fixer.dist.php'
-      - '.phpcs.dist.xml'
-      - '.phpcs.dist.ecg.xml'
-      - '.phpcs.dist.php.xml'
-      - '.phpstan.dist.neon'
-      - '.phpstan.dist.baseline.neon'
 
 jobs:
   debug:

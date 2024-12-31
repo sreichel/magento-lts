@@ -114,7 +114,7 @@ jobs:
           echo "composer=$count" >> $GITHUB_OUTPUT
 
       - name: Check if Markdown files changed
-        id: changes-js
+        id: changes-markdown
         if: steps.changed-files-specific.outputs.any_modified == 'true'
         run: |
           count="$(grep -oE "*.md" <<< "${{ steps.changed-files-specific.outputs.all_modified_files }}" | wc -l)"
