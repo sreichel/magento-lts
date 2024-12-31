@@ -1,8 +1,17 @@
+API
 CVE
+DDEV
+GitHub
+https
+ImageMagick
+JSON
 LTS
 Magento
+OAuth
 OpenMage
+SMTP
 TinyMCE
 WSDL
+XML
 XSS
 Zend
