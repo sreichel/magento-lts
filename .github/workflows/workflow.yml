@@ -64,10 +64,10 @@ jobs:
   markdown:
     name: Spellcheck
     needs: [check]
-    if: |
-      needs.check.outputs.markdown > 0 ||
-      needs.check.outputs.spellcheck > 0 ||
-      needs.check.outputs.workflow > 0
+#    if: |
+#      needs.check.outputs.markdown > 0 ||
+#      needs.check.outputs.spellcheck > 0 ||
+#      needs.check.outputs.workflow > 0
     uses: ./.github/workflows/spellcheck.yml
 
   phpcs:

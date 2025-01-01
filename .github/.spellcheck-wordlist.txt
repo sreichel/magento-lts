@@ -1,4 +1,5 @@
 API
+CLI
 CVE
 DDEV
 GitHub
@@ -9,7 +10,9 @@ LTS
 Magento
 OAuth
 OpenMage
+PHP
 SMTP
+SDK
 TinyMCE
 URI
 WSDL
