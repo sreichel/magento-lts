@@ -21,7 +21,7 @@ return $config
         // Arguments lists, array destructuring lists, arrays that are multi-line, match-lines and parameters lists must have a trailing comma.
         // removed "match" and "parameters" for PHP7
         // see https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/issues/8308
-        'trailing_comma_in_multiline' => ['after_heredoc' => true, 'elements' => ['arguments', 'array_destructuring', 'arrays']],
+        # 'trailing_comma_in_multiline' => ['after_heredoc' => true, 'elements' => ['arguments', 'array_destructuring', 'arrays']],
     ])
     ->setFinder(
         PhpCsFixer\Finder::create()
