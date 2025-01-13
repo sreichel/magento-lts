@@ -37,7 +37,7 @@ class EnvironmentConfigLoaderTest extends TestCase
     /**
      * @throws Mage_Core_Exception
      */
-    public function setup(): void
+    public function setUp(): void
     {
         Mage::setRoot();
     }
