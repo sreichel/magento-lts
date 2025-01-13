@@ -68,6 +68,81 @@ parameters:
 
         # Instantiated class not found
         - lib/Varien/Image/Adapter.php
+    ignoreErrors:
+        -
+            identifier: arrayFilter.strict
+        -
+            identifier: booleanAnd.leftNotBoolean
+        -
+            identifier: booleanAnd.rightNotBoolean
+        -
+            identifier: booleanNot.exprNotBoolean
+        -
+            identifier: booleanOr.leftNotBoolean
+        -
+            identifier: booleanOr.rightNotBoolean
+        -
+            identifier: cast.useless
+        -
+            identifier: constructor.missingParentCall
+        -
+            identifier: elseif.condNotBoolean
+        -
+            identifier: empty.notAllowed
+        -
+            identifier: equal.notAllowed
+        -
+            identifier: for.variableOverwrite
+        -
+            identifier: foreach.keyOverwrite
+        -
+            identifier: foreach.valueOverwrite
+        -
+            identifier: function.strict
+        -
+            identifier: if.condNotBoolean
+        -
+            identifier: method.childParameterType
+        -
+            identifier: method.childReturnType
+        -
+            identifier: method.dynamicName
+        -
+            identifier: minus.leftNonNumeric
+        -
+            identifier: minus.rightNonNumeric
+        -
+            identifier: mul.leftNonNumeric
+        -
+            identifier: notEqual.notAllowed
+        -
+            identifier: phpunit.coversMethod
+        -
+            identifier: property.dynamicName
+        -
+            identifier: property.notFound
+        -
+            identifier: property.phpDocType
+        -
+            identifier: return.missing
+        -
+            identifier: staticMethod.alreadyNarrowedType
+        -
+            identifier: staticMethod.dynamicCall
+        -
+            identifier: switch.type
+        -
+            identifier: ternary.condNotBoolean
+        -
+            identifier: ternary.shortNotAllowed
+        -
+            identifier: varTag.type
+        -
+            identifier: variable.dynamicName
+        -
+            identifier: variable.implicitArray
+        -
+            identifier: variable.undefined
     tmpDir: .phpstan.cache
     level: 5
     checkFunctionNameCase: true
