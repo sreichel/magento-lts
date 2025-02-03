@@ -8,13 +8,17 @@ on:
 jobs:
   phpcs:
     name: Validation
-    runs-on: [ubuntu-latest]
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: [ubuntu-latest]
+        php-versions: ['7.4', '8.0', '8.1', '8.2', '8.3', '8.4']
 
     steps:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 7.4
+          php-version: ${{ matrix.php-version }}
 
       - name: Checkout code
         uses: actions/checkout@v4
