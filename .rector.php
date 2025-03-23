@@ -15,6 +15,8 @@ use Rector\Php81\Rector as Php81;
 use Rector\Php82\Rector as Php82;
 use Rector\Php83\Rector as Php83;
 use Rector\Php84\Rector as Php84;
+use Rector\Renaming\Rector\MethodCall\RenameMethodRector;
+use Rector\Renaming\ValueObject\MethodCallRename;
 use Rector\TypeDeclaration\Rector as TypeDeclaration;
 
 try {
@@ -63,6 +65,9 @@ try {
             DeadCode\ClassMethod\RemoveUselessReturnTagRector::class,
             DeadCode\Property\RemoveUselessVarTagRector::class,
             DeadCode\StaticCall\RemoveParentCallWithoutParentRector::class,
+        ])
+        ->withConfiguredRule(RenameMethodRector::class, [
+            new MethodCallRename('Zend_Acl', 'add', 'addResource'),
         ])
         ->withPreparedSets(
             deadCode: false,
