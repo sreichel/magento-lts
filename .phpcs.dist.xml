@@ -8,9 +8,7 @@
     <file>app/Mage.php</file>
     <file>app/code/core/Mage/</file>
     <file>errors/</file>
-    <file>lib/Mage/</file>
-    <file>lib/Magento/</file>
-    <file>lib/Varien/</file>
+    <file>lib/</file>
     <file>shell/</file>
     <file>tests/unit/</file>
 
