@@ -38,7 +38,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-versions }}
-          coverage: pcov #optional, setup coverage driver
+          coverage: xdebug
         env:
           COMPOSER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -96,18 +96,10 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           files: tests/logging/*.xml
 
-      - name: prepare SonarCloud Scan Data
-        if: ${{ (matrix.php-versions == '7.4') && (matrix.mysql-version == '5.7') }}
-        run: |
-          head tests/coverage/clover.xml
-          sed -i 's@'$GITHUB_WORKSPACE'/@/github/workspace/@g' tests/logging/junit.xml
-          sed -i 's@'$GITHUB_WORKSPACE'/@/github/workspace/@g' tests/coverage/clover.xml
-          head ./tests/coverage/clover.xml
-
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v5
         continue-on-error: true
-        if: ${{ (matrix.php-versions == '7.4') && (matrix.mysql-version == '5.7') }} && SONAR_TOKEN
+        if: ${{ (matrix.php-versions == '8.1') && (matrix.mysql-version == '5.7') }}
         with:
           args: >
             -Dproject.settings=tests/sonar-project.properties
