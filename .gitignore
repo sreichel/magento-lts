@@ -109,7 +109,6 @@ phpunit.xml
 .ddev/xhgui
 .ddev/xhprof
 .ddev/docker-compose.*.yaml
-app/etc/includes/ddev.xhgui.php
 
 # local development
 .localdev
