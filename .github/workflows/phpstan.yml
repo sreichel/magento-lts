@@ -40,8 +40,8 @@ jobs:
           restore-keys: |
             phpstan-result-cache-
 
-      - name: PHPStan Static Analysis
-        run: XDEBUG_MODE=off php vendor/bin/phpstan.phar analyze
+      - name: Run PHPStan Static Analysis
+        run: composer run phpstan
 
       - name: Save result cache
         uses: actions/cache/save@v4

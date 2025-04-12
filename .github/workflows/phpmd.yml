@@ -28,5 +28,5 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress --ignore-platform-req=ext-*
 
-      - name: PHPMD
-        run: php vendor/bin/phpmd app/code/core/Mage/ github .phpmd.dist.xml --baseline-file .phpmd.dist.baseline.xml
+      - name: Analyze code
+        run: php composer run php-cs-fixer:test

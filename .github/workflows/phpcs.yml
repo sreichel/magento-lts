@@ -1,4 +1,4 @@
-name: PHPCS
+name: PHPCodeSniffer
 
 on:
   workflow_call:
@@ -33,5 +33,5 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress --ignore-platform-req=ext-*
 
-      - name: PHPCodeSniffer
-        run: php vendor/bin/phpcs -s -p --report=full --standard=.phpcs.dist.xml
+      - name: Run PHPCodeSniffer
+        run: php composer run phpcs

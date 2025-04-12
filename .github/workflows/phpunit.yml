@@ -86,10 +86,10 @@ jobs:
           --enable_charts 'yes' \
           --skip_url_validation 'yes'
 
-      - name: Run phpUnit
+      - name: Run PHPUnit
         run: php vendor/bin/phpunit --configuration .phpunit.dist.xml
 
-      - name: Publish Unit Test Results
+      - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
         with:
