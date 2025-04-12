@@ -146,6 +146,7 @@
         "sort-packages": true
     },
     "suggest": {
+        "ext-posix": "This module contains an interface to those functions defined in the IEEE 1003.1 (POSIX.1) standards",
         "n98/magerun": "The n98 magerun cli tools provides some handy tools to work with Magento from command line."
     },
     "scripts": {

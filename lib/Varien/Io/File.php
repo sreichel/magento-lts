@@ -120,6 +120,7 @@ class Varien_Io_File extends Varien_Io_Abstract
      * @param string $fileName
      * @param string $mode
      * @return bool
+     * @throws Exception
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
      */
@@ -918,7 +919,7 @@ class Varien_Io_File extends Varien_Io_Abstract
      */
     protected function _getFileOwner($filename)
     {
-        if (!function_exists('posix_getpwuid')) {
+        if (!function_exists('posix_getpwuid') || !function_exists('posix_getgrnam')) {
             return 'n/a';
         }
 
