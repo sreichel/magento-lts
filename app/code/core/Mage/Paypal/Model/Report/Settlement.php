@@ -67,6 +67,27 @@ class Mage_Paypal_Model_Report_Settlement extends Mage_Core_Model_Abstract
     public const FILES_OUT_CHARSET = 'UTF-8';
 
     /**
+     * Field delimiter.
+     *
+     * @var string
+     */
+    protected $_delimiter = ',';
+
+    /**
+     * Field enclosure character.
+     *
+     * @var string
+     */
+    protected $_enclosure = '"';
+
+    /**
+     * Field escape character.
+     *
+     * @var string
+     */
+    protected $_escape = '\\';
+
+    /**
      * Reports rows storage
      * @var array
      */
@@ -254,7 +275,7 @@ class Mage_Paypal_Model_Report_Settlement extends Mage_Core_Model_Abstract
 
         $flippedSectionColumns = array_flip($sectionColumns);
         $fp = fopen($localCsv, 'r');
-        while ($line = fgetcsv($fp)) {
+        while ($line = fgetcsv($fp, 0, $this->_delimiter, $this->_enclosure, $this->_escape)) {
             if (empty($line)) { // The line was empty, so skip it.
                 continue;
             }
