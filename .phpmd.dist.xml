@@ -23,9 +23,9 @@
     [x] ErrorControlOperator
     [x] DuplicatedArrayKey
     [ ] IfStatementAssignment
-    [?] MissingImport
+    [x] MissingImport
     [x] StaticAccess
-    [?] UndefinedVariable
+    [x] UndefinedVariable
     -->
     <rule ref="rulesets/cleancode.xml">
         <exclude name="BooleanArgumentFlag" />
@@ -90,7 +90,6 @@
 <!--            <property name="exceptions" value="a,b,x,y,x1,x2,y1,y2" />-->
 <!--        </properties>-->
 <!--    </rule>-->
-    <rule ref="rulesets/naming.xml/ShortMethodName" />
 
     <!-- DESIGN
     [-] CountInLoopExpression
@@ -103,7 +102,11 @@
     [x] GotoStatement
     [-] NumberOfChildren
     -->
-    <rule ref="rulesets/design.xml" />
+    <rule ref="rulesets/design.xml">
+        <exclude name="CouplingBetweenObjects" />
+        <exclude name="DepthOfInheritance" />
+        <exclude name="NumberOfChildren" />
+    </rule>
 
     <!-- CODESIZE
     [-] ExcessiveClassComplexity
