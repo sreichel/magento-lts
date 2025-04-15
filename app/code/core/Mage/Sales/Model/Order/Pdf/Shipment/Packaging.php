@@ -191,77 +191,78 @@ class Mage_Sales_Model_Order_Pdf_Shipment_Packaging extends Mage_Sales_Model_Ord
 
             $txtIndent = 5;
             $itemCollsNumber = $packaging->displayCustomsValue() ? 5 : 4;
+            $itemCollsX = [];
             $itemCollsX[0] = 30; //  coordinate for Product name
             $itemCollsX[1] = 250; // coordinate for Product name
             $itemCollsXEnd = 565;
             $itemCollsXStep = round(($itemCollsXEnd - $itemCollsX[1]) / ($itemCollsNumber - 1));
             // calculate coordinates for all other cells (Weight, Customs Value, Qty Ordered, Qty)
-            for ($i = 2; $i <= $itemCollsNumber; $i++) {
-                $itemCollsX[$i] = $itemCollsX[$i - 1] + $itemCollsXStep;
+            for ($idx = 2; $idx <= $itemCollsNumber; $idx++) {
+                $itemCollsX[$idx] = $itemCollsX[$idx - 1] + $itemCollsXStep;
             }
 
-            $i = 0;
+            $idx = 0;
             $page->setFillColor(new Zend_Pdf_Color_Rgb(0.93, 0.92, 0.92));
-            $page->drawRectangle($itemCollsX[$i], $this->y - 5, $itemCollsX[++$i], $this->y - 15);
-            $page->drawRectangle($itemCollsX[$i], $this->y - 5, $itemCollsX[++$i], $this->y - 15);
-            $page->drawRectangle($itemCollsX[$i], $this->y - 5, $itemCollsX[++$i], $this->y - 15);
-            $page->drawRectangle($itemCollsX[$i], $this->y - 5, $itemCollsX[++$i], $this->y - 15);
-            $page->drawRectangle($itemCollsX[$i], $this->y - 5, $itemCollsXEnd, $this->y - 15);
+            $page->drawRectangle($itemCollsX[$idx], $this->y - 5, $itemCollsX[++$idx], $this->y - 15);
+            $page->drawRectangle($itemCollsX[$idx], $this->y - 5, $itemCollsX[++$idx], $this->y - 15);
+            $page->drawRectangle($itemCollsX[$idx], $this->y - 5, $itemCollsX[++$idx], $this->y - 15);
+            $page->drawRectangle($itemCollsX[$idx], $this->y - 5, $itemCollsX[++$idx], $this->y - 15);
+            $page->drawRectangle($itemCollsX[$idx], $this->y - 5, $itemCollsXEnd, $this->y - 15);
 
             $this->y = $this->y - 12;
-            $i = 0;
+            $idx = 0;
 
             $page->setFillColor(new Zend_Pdf_Color_GrayScale(0));
-            $page->drawText(Mage::helper('sales')->__('Product'), $itemCollsX[$i] + $txtIndent, $this->y, 'UTF-8');
-            $page->drawText(Mage::helper('sales')->__('Weight'), $itemCollsX[++$i] + $txtIndent, $this->y, 'UTF-8');
+            $page->drawText(Mage::helper('sales')->__('Product'), $itemCollsX[$idx] + $txtIndent, $this->y, 'UTF-8');
+            $page->drawText(Mage::helper('sales')->__('Weight'), $itemCollsX[++$idx] + $txtIndent, $this->y, 'UTF-8');
             if ($packaging->displayCustomsValue()) {
                 $page->drawText(
                     Mage::helper('sales')->__('Customs Value'),
-                    $itemCollsX[++$i] + $txtIndent,
+                    $itemCollsX[++$idx] + $txtIndent,
                     $this->y,
                     'UTF-8',
                 );
             }
             $page->drawText(
                 Mage::helper('sales')->__('Qty Ordered'),
-                $itemCollsX[++$i] + $txtIndent,
+                $itemCollsX[++$idx] + $txtIndent,
                 $this->y,
                 'UTF-8',
             );
-            $page->drawText(Mage::helper('sales')->__('Qty'), $itemCollsX[++$i] + $txtIndent, $this->y, 'UTF-8');
+            $page->drawText(Mage::helper('sales')->__('Qty'), $itemCollsX[++$idx] + $txtIndent, $this->y, 'UTF-8');
 
-            $i = 0;
+            $idx = 0;
             foreach ($package->getItems() as $itemId => $item) {
                 $item = new Varien_Object($item);
-                $i = 0;
+                $idx = 0;
 
                 $page->setFillColor(new Zend_Pdf_Color_GrayScale(1));
-                $page->drawRectangle($itemCollsX[$i], $this->y - 3, $itemCollsX[++$i], $this->y - 15);
-                $page->drawRectangle($itemCollsX[$i], $this->y - 3, $itemCollsX[++$i], $this->y - 15);
-                $page->drawRectangle($itemCollsX[$i], $this->y - 3, $itemCollsX[++$i], $this->y - 15);
-                $page->drawRectangle($itemCollsX[$i], $this->y - 3, $itemCollsX[++$i], $this->y - 15);
-                $page->drawRectangle($itemCollsX[$i], $this->y - 3, $itemCollsXEnd, $this->y - 15);
+                $page->drawRectangle($itemCollsX[$idx], $this->y - 3, $itemCollsX[++$idx], $this->y - 15);
+                $page->drawRectangle($itemCollsX[$idx], $this->y - 3, $itemCollsX[++$idx], $this->y - 15);
+                $page->drawRectangle($itemCollsX[$idx], $this->y - 3, $itemCollsX[++$idx], $this->y - 15);
+                $page->drawRectangle($itemCollsX[$idx], $this->y - 3, $itemCollsX[++$idx], $this->y - 15);
+                $page->drawRectangle($itemCollsX[$idx], $this->y - 3, $itemCollsXEnd, $this->y - 15);
 
                 $this->y = $this->y - 12;
-                $i = 0;
+                $idx = 0;
                 $page->setFillColor(new Zend_Pdf_Color_GrayScale(0));
-                $page->drawText($item->getName(), $itemCollsX[$i] + $txtIndent, $this->y, 'UTF-8');
-                $page->drawText($item->getWeight(), $itemCollsX[++$i] + $txtIndent, $this->y, 'UTF-8');
+                $page->drawText($item->getName(), $itemCollsX[$idx] + $txtIndent, $this->y, 'UTF-8');
+                $page->drawText($item->getWeight(), $itemCollsX[++$idx] + $txtIndent, $this->y, 'UTF-8');
                 if ($packaging->displayCustomsValue()) {
                     $page->drawText(
                         $packaging->displayPrice($item->getCustomsValue()),
-                        $itemCollsX[++$i] + $txtIndent,
+                        $itemCollsX[++$idx] + $txtIndent,
                         $this->y,
                         'UTF-8',
                     );
                 }
                 $page->drawText(
                     $packaging->getQtyOrderedItem($item->getOrderItemId()),
-                    $itemCollsX[++$i] + $txtIndent,
+                    $itemCollsX[++$idx] + $txtIndent,
                     $this->y,
                     'UTF-8',
                 );
-                $page->drawText($item->getQty() * 1, $itemCollsX[++$i] + $txtIndent, $this->y, 'UTF-8');
+                $page->drawText($item->getQty() * 1, $itemCollsX[++$idx] + $txtIndent, $this->y, 'UTF-8');
             }
             $this->y = $this->y - 30;
         }
