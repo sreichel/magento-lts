@@ -47,18 +47,23 @@
 
     <!-- CONTROVERSIAL
     [-] CamelCaseClassName
-    [-] CamelCaseMethodName
-    [ ] CamelCaseParameterName
-    [-] CamelCasePropertyName
-    [ ] CamelCaseVariableName
+    [x] CamelCaseMethodName
+    [x] CamelCaseParameterName
+    [x] CamelCasePropertyName
+    [x] CamelCaseVariableName
     [x] Superglobals
     -->
+    <rule ref="rulesets/controversial.xml">
+        <exclude name="CamelCaseClassName" />
+        <exclude name="CamelCaseMethodName" />
+        <exclude name="CamelCasePropertyName" />
+        <exclude name="CamelCaseVariableName" />
+    </rule>
     <rule ref="rulesets/controversial.xml/CamelCaseMethodName">
         <properties>
             <property name="allow-underscore" value="true" />
         </properties>
     </rule>
-    <rule ref="rulesets/controversial.xml/CamelCaseParameterName" />
     <rule ref="rulesets/controversial.xml/CamelCasePropertyName">
         <properties>
             <property name="allow-underscore" value="true" />
@@ -69,7 +74,6 @@
             <property name="allow-underscore" value="true" />
         </properties>
     </rule>
-    <rule ref="rulesets/controversial.xml/Superglobals" />
 
     <!-- NAMING
     [x] BooleanGetMethodName
