@@ -31,7 +31,7 @@
         <exclude name="BooleanArgumentFlag" />
         <exclude name="ElseExpression" /> <!-- can be fixed in some cases -->
         <exclude name="IfStatementAssignment" /> <!-- can be fixed -->
-        <exclude name="MissingImport" /> <!-- can be fixed -->
+        <exclude name="MissingImport" />
         <exclude name="StaticAccess" />
     </rule>
     <rule ref="rulesets/cleancode.xml/MissingImport">
@@ -84,12 +84,13 @@
     <rule ref="rulesets/naming.xml">
         <exclude name="LongClassName" />
         <exclude name="LongVariable" />
+        <exclude name="ShortVariable" />
     </rule>
-<!--    <rule ref="rulesets/naming.xml/ShortVariable">-->
-<!--        <properties>-->
-<!--            <property name="exceptions" value="a,b,x,y,x1,x2,y1,y2" />-->
-<!--        </properties>-->
-<!--    </rule>-->
+    <rule ref="rulesets/naming.xml/ShortVariable">
+        <properties>
+            <property name="exceptions" value="a,b,x,y,x1,x2,y1,y2,id,idx" />
+        </properties>-->
+    </rule>
 
     <!-- DESIGN
     [-] CountInLoopExpression
