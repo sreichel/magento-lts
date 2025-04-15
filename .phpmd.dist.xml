@@ -41,7 +41,7 @@
     </rule>
     <rule ref="rulesets/cleancode.xml/StaticAccess">
         <properties>
-            <property name="exceptions" value="Mage" />
+            <property name="exceptions" value="Mage,Varien_Date,Varien_Profiler,Zend_Json,Zend_Validate" />
         </properties>
     </rule>
 
@@ -103,11 +103,7 @@
     [x] GotoStatement
     [-] NumberOfChildren
     -->
-    <rule ref="rulesets/design.xml">
-        <exclude name="CouplingBetweenObjects" />
-        <exclude name="DepthOfInheritance" />
-        <exclude name="NumberOfChildren" />
-    </rule>
+    <rule ref="rulesets/design.xml" />
 
     <!-- CODESIZE
     [-] ExcessiveClassComplexity
