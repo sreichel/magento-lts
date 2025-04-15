@@ -437,7 +437,9 @@ class Mage_Core_Model_Email_Template extends Mage_Core_Model_Email_Template_Abst
         }
 
         foreach ($emails as $key => $email) {
-            $mail->addTo($email, '=?utf-8?B?' . base64_encode($names[$key]) . '?=');
+            if ($email) {
+                $mail->addTo($email, '=?utf-8?B?' . base64_encode($names[$key]) . '?=');
+            }
         }
 
         if ($this->isPlain()) {
