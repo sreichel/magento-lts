@@ -93,17 +93,21 @@
     <rule ref="rulesets/naming.xml/ShortMethodName" />
 
     <!-- DESIGN
-    [x] CountInLoopExpression
+    [-] CountInLoopExpression
     [x] CouplingBetweenObjects
-    [x] DepthOfInheritance
+    [-] DepthOfInheritance
     [x] DevelopmentCodeFragment
     [x] EmptyCatchBlock
     [x] EvalExpression
     [x] ExitExpression
     [x] GotoStatement
-    [x] NumberOfChildren
+    [-] NumberOfChildren
     -->
-    <rule ref="rulesets/design.xml" />
+    <rule ref="rulesets/design.xml">
+        <exclude name="CouplingBetweenObjects" />
+        <exclude name="DepthOfInheritance" />
+        <exclude name="NumberOfChildren" />
+    </rule>
 
     <!-- CODESIZE
     [-] ExcessiveClassComplexity
