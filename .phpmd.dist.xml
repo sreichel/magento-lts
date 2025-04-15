@@ -32,6 +32,7 @@
         <exclude name="ElseExpression" /> <!-- can be fixed in some cases -->
         <exclude name="IfStatementAssignment" /> <!-- can be fixed -->
         <exclude name="MissingImport" /> <!-- can be fixed -->
+        <exclude name="StaticAccess" />
     </rule>
     <rule ref="rulesets/cleancode.xml/MissingImport">
         <properties>
