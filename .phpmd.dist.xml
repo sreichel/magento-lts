@@ -120,7 +120,7 @@
     [-] ExcessiveMethodLength
     [-] ExcessiveParameterList
     [-] ExcessivePublicCount
-    [-] CyclomaticComplexity
+    [?] CyclomaticComplexity
     [-] NPathComplexity
     [-] TooManyFields
     [-] TooManyMethods
