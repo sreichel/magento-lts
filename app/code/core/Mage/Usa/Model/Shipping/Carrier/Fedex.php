@@ -1045,6 +1045,7 @@ class Mage_Usa_Model_Shipping_Carrier_Fedex extends Mage_Usa_Model_Shipping_Carr
                 $errorTitle = (string) $response->Notifications->Message;
             } elseif (isset($response->TrackDetails)) {
                 $trackInfo = $response->TrackDetails;
+                $resultArray = [];
                 $resultArray['status'] = (string) $trackInfo->StatusDescription;
                 $resultArray['service'] = (string) $trackInfo->ServiceInfo;
                 $timestamp = $trackInfo->EstimatedDeliveryTimestamp ?? $trackInfo->ActualDeliveryTimestamp;
