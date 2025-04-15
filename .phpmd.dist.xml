@@ -76,7 +76,7 @@
     </rule>
 
     <!-- NAMING
-    [x] BooleanGetMethodName
+    [?] BooleanGetMethodName
     [x] ConstantNamingConventions
     [x] ConstructorWithNameAsEnclosingClass
     [-] LongClassName
@@ -86,6 +86,7 @@
     [x] ShortMethodName
     -->
     <rule ref="rulesets/naming.xml">
+        <exclude name="BooleanGetMethodName" />
         <exclude name="LongClassName" />
         <exclude name="LongVariable" />
         <exclude name="ShortVariable" />
