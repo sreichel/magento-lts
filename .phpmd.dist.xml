@@ -41,7 +41,7 @@
     </rule>
     <rule ref="rulesets/cleancode.xml/StaticAccess">
         <properties>
-            <property name="exceptions" value="Mage,Varien_Date,Varien_Profiler,Zend_Json,Zend_Validate" />
+            <property name="exceptions" value="Mage,Varien_Data_Form,Varien_Date,Varien_Profiler,Zend_Cache,Zend_Locale_Data,Zend_Json,Zend_Mail,Zend_Validate" />
         </properties>
     </rule>
 
@@ -88,7 +88,7 @@
     </rule>
     <rule ref="rulesets/naming.xml/ShortVariable">
         <properties>
-            <property name="exceptions" value="a,b,x,y,x1,x2,y1,y2,id,idx" />
+            <property name="exceptions" value="a,b,x,y,x1,x2,y1,y2,fp,id,idx,io,ip,js,to" />
         </properties>-->
     </rule>
 
