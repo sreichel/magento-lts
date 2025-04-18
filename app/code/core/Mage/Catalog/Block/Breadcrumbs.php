@@ -58,7 +58,8 @@ class Mage_Catalog_Block_Breadcrumbs extends Mage_Core_Block_Template
                 $title[] = $breadcrumb['label'];
             }
 
-            if ($headBlock = $this->getLayout()->getBlock('head')) {
+            $headBlock = $this->getBlockHtmlHead();
+            if ($headBlock) {
                 $headBlock->setTitle(implode($this->getTitleSeparator(), array_reverse($title)));
             }
         }

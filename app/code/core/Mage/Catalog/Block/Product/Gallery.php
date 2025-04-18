@@ -27,7 +27,8 @@ class Mage_Catalog_Block_Product_Gallery extends Mage_Core_Block_Template
      */
     protected function _prepareLayout()
     {
-        if ($headBlock = $this->getLayout()->getBlock('head')) {
+        $headBlock = $this->getBlockHtmlHead();
+        if ($headBlock) {
             $headBlock->setTitle($this->getProduct()->getMetaTitle());
         }
         return parent::_prepareLayout();

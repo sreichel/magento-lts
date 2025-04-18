@@ -386,4 +386,11 @@ HTML;
     {
         return false;
     }
+
+    public function getBlockHtmlHead(): Mage_Page_Block_Html_Head|false
+    {
+        /** @var Mage_Page_Block_Html_Head|false $block */
+        $block = $this->getLayout()->getBlock('head');
+        return $block;
+    }
 }

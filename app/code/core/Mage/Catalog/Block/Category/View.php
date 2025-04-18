@@ -32,8 +32,7 @@ class Mage_Catalog_Block_Category_View extends Mage_Core_Block_Template
 
         $this->getLayout()->createBlock('catalog/breadcrumbs');
 
-        /** @var Mage_Page_Block_Html_Head $headBlock */
-        $headBlock = $this->getLayout()->getBlock('head');
+        $headBlock = $this->getBlockHtmlHead();
         if ($headBlock) {
             $category = $this->getCurrentCategory();
             if ($title = $category->getMetaTitle()) {

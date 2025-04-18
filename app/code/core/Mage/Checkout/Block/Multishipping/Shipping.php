@@ -37,7 +37,8 @@ class Mage_Checkout_Block_Multishipping_Shipping extends Mage_Sales_Block_Items_
      */
     protected function _prepareLayout()
     {
-        if ($headBlock = $this->getLayout()->getBlock('head')) {
+        $headBlock = $this->getBlockHtmlHead();
+        if ($headBlock) {
             $headBlock->setTitle(Mage::helper('checkout')->__('Shipping Methods') . ' - ' . $headBlock->getDefaultTitle());
         }
         return parent::_prepareLayout();

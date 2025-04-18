@@ -65,8 +65,7 @@ class Mage_Sales_Block_Order_Print_Shipment extends Mage_Sales_Block_Items_Abstr
      */
     protected function _prepareLayout()
     {
-        /** @var Mage_Page_Block_Html_Head $headBlock */
-        $headBlock = $this->getLayout()->getBlock('head');
+        $headBlock = $this->getBlockHtmlHead();
         if ($headBlock) {
             $headBlock->setTitle($this->__('Order # %s', $this->getOrder()->getRealOrderId()));
         }

@@ -45,8 +45,7 @@ class Mage_Catalog_Block_Product_View extends Mage_Catalog_Block_Product_Abstrac
     {
         $this->getLayout()->createBlock('catalog/breadcrumbs');
 
-        /** @var Mage_Page_Block_Html_Head $headBlock */
-        $headBlock = $this->getLayout()->getBlock('head');
+        $headBlock = $this->getBlockHtmlHead();
         if ($headBlock) {
             $product = $this->getProduct();
             $title = $product->getMetaTitle();

@@ -55,7 +55,8 @@ class Mage_Customer_Block_Address_Edit extends Mage_Directory_Block_Data
                 ->setSuffix($this->getCustomer()->getSuffix());
         }
 
-        if ($headBlock = $this->getLayout()->getBlock('head')) {
+        $headBlock = $this->getBlockHtmlHead();
+        if ($headBlock) {
             $headBlock->setTitle($this->getTitle());
         }
 

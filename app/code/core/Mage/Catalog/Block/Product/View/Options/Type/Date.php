@@ -36,8 +36,9 @@ class Mage_Catalog_Block_Product_View_Options_Type_Date extends Mage_Catalog_Blo
      */
     protected function _prepareLayout()
     {
-        if ($head = $this->getLayout()->getBlock('head')) {
-            $head->setCanLoadCalendarJs(true);
+        $headBlock = $this->getBlockHtmlHead();
+        if ($headBlock) {
+            $headBlock->setCanLoadCalendarJs(true);
         }
         return parent::_prepareLayout();
     }

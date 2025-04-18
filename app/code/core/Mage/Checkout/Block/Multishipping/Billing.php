@@ -27,7 +27,8 @@ class Mage_Checkout_Block_Multishipping_Billing extends Mage_Payment_Block_Form_
      */
     protected function _prepareLayout()
     {
-        if ($headBlock = $this->getLayout()->getBlock('head')) {
+        $headBlock = $this->getBlockHtmlHead();
+        if ($headBlock) {
             $headBlock->setTitle(
                 Mage::helper('checkout')->__('Billing Information - %s', $headBlock->getDefaultTitle()),
             );
