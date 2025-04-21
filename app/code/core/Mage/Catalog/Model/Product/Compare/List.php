@@ -22,7 +22,7 @@
  */
 class Mage_Catalog_Model_Product_Compare_List extends Varien_Object
 {
-    use Mage_Core_Trait_Session;
+    use Mage_Core_Trait_Session_Customer;
 
     /**
      * Add product to Compare List
@@ -76,6 +76,7 @@ class Mage_Catalog_Model_Product_Compare_List extends Varien_Object
      *
      * @param int|Mage_Catalog_Model_Product $product
      * @return $this
+     * @throws Throwable
      */
     public function removeProduct($product)
     {

@@ -30,8 +30,6 @@
  */
 class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_Varien
 {
-    use Mage_Core_Trait_Session;
-
     public const XML_PATH_COOKIE_DOMAIN        = 'web/cookie/cookie_domain';
     public const XML_PATH_COOKIE_PATH          = 'web/cookie/cookie_path';
     public const XML_PATH_COOKIE_LIFETIME      = 'web/cookie/cookie_lifetime';
@@ -175,6 +173,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      * Admin area will always have this feature enabled
      *
      * @return bool
+     * @throws Mage_Core_Model_Store_Exception
      */
     public function useSid()
     {
@@ -361,18 +360,19 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      *
      * @inheritDoc
      * @SuppressWarnings("PHPMD.Superglobals")
+     * @throws Mage_Core_Model_Store_Exception
      */
-    public function setSessionId($id = null)
+    public function setSessionId($sessionId = null)
     {
-        if (is_null($id) && $this->useSid()) {
+        if (is_null($sessionId) && $this->useSid()) {
             $queryParam = $this->getSessionIdQueryParam();
             if (isset($_GET[$queryParam]) && Mage::getSingleton('core/url')->isOwnOriginUrl()) {
-                $id = $_GET[$queryParam];
+                $sessionId = $_GET[$queryParam];
             }
         }
 
         $this->addHost(true);
-        return parent::setSessionId($id);
+        return parent::setSessionId($sessionId);
     }
 
     /**
@@ -429,6 +429,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
      * @param string $urlHost can be host or url
      * @return string {session_id_key}={session_id_encrypted}
      * @SuppressWarnings("PHPMD.CamelCaseVariableName")
+     * @throws Mage_Core_Model_Store_Exception
      */
     public function getSessionIdForHost($urlHost)
     {
@@ -527,7 +528,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
     /**
      * Retrieve session save method
      *
-     * @return Mage_Core_Model_Config_Element|Varien_Simplexml_Element|false|string
+     * @return Mage_Core_Model_Config_Element|string
      */
     public function getSessionSaveMethod()
     {
@@ -540,7 +541,7 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
     /**
      * Get session save path
      *
-     * @return Mage_Core_Model_Config_Element|Varien_Simplexml_Element|false|string
+     * @return Mage_Core_Model_Config_Element|string
      */
     public function getSessionSavePath()
     {

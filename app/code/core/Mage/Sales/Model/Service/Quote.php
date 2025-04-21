@@ -22,7 +22,7 @@
  */
 class Mage_Sales_Model_Service_Quote
 {
-    use Mage_Core_Trait_Session;
+    use Mage_Core_Trait_Session_Customer;
 
     /**
      * Quote object
@@ -121,6 +121,7 @@ class Mage_Sales_Model_Service_Quote
      * Submit the quote. Quote submit process will create the order based on quote data
      *
      * @return Mage_Sales_Model_Order
+     * @throws Exception
      */
     public function submitOrder()
     {
@@ -181,7 +182,7 @@ class Mage_Sales_Model_Service_Quote
         Mage::dispatchEvent('sales_model_service_quote_submit_before', ['order' => $order, 'quote' => $quote]);
         try {
             $transaction->save();
-        } catch (Exception $e) {
+        } catch (Exception $exception) {
             if (!$this->getCustomerSession()->isLoggedIn()) {
                 // reset customer ID's on exception, because customer not saved
                 $quote->getCustomer()->setId(null);
@@ -196,7 +197,7 @@ class Mage_Sales_Model_Service_Quote
             }
 
             Mage::dispatchEvent('sales_model_service_quote_submit_failure', ['order' => $order, 'quote' => $quote]);
-            throw $e;
+            throw $exception;
         }
         $this->_inactivateQuote();
         Mage::dispatchEvent('sales_model_service_quote_submit_success', ['order' => $order, 'quote' => $quote]);
@@ -220,6 +221,7 @@ class Mage_Sales_Model_Service_Quote
     /**
      * Submit all available items
      * All created items will be set to the object
+     * @throws Exception
      */
     public function submitAll()
     {
@@ -229,9 +231,9 @@ class Mage_Sales_Model_Service_Quote
         try {
             $this->submitNominalItems();
             $this->_shouldInactivateQuote = $shouldInactivateQuoteOld;
-        } catch (Exception $e) {
+        } catch (Exception $exception) {
             $this->_shouldInactivateQuote = $shouldInactivateQuoteOld;
-            throw $e;
+            throw $exception;
         }
         // no need to submit the order if there are no normal items remained
         if (!$this->_quote->getAllVisibleItems()) {
@@ -278,6 +280,7 @@ class Mage_Sales_Model_Service_Quote
      * Validate quote data before converting to order
      *
      * @return $this
+     * @throws Mage_Core_Exception
      */
     protected function _validate()
     {

@@ -22,7 +22,8 @@
  */
 class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Model_Cart_Interface
 {
-    use Mage_Core_Trait_Session;
+    use Mage_Core_Trait_Session_Checkout;
+    use Mage_Core_Trait_Session_Customer;
 
     /**
      * Shopping cart items summary quantity(s)
@@ -132,6 +133,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      * @param Mage_Sales_Model_Order_Item $orderItem
      * @param mixed $qtyFlag if is null set product qty like in order
      * @return $this
+     * @throws Mage_Core_Exception
      */
     public function addOrderItem($orderItem, $qtyFlag = null)
     {
@@ -161,6 +163,8 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      *
      * @param   mixed $productInfo
      * @return  Mage_Catalog_Model_Product
+     * @throws Mage_Core_Model_Store_Exception
+     * @throws Mage_Core_Exception
      */
     protected function _getProduct($productInfo)
     {
@@ -208,6 +212,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      * @param   int|Mage_Catalog_Model_Product $productInfo
      * @param   mixed $requestInfo
      * @return  Mage_Checkout_Model_Cart
+     * @throws Mage_Core_Exception
      */
     public function addProduct($productInfo, $requestInfo = null)
     {
@@ -238,9 +243,9 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
         if ($productId) {
             try {
                 $result = $this->getQuote()->addProduct($product, $request);
-            } catch (Mage_Core_Exception $e) {
+            } catch (Mage_Core_Exception $exception) {
                 $this->getCheckoutSession()->setUseNotice(false);
-                $result = $e->getMessage();
+                $result = $exception->getMessage();
             }
             /**
              * String we can get if prepare process has error
@@ -358,6 +363,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      *
      * @param   array $data
      * @return  Mage_Checkout_Model_Cart
+     * @throws Mage_Core_Exception
      */
     public function updateItems($data)
     {
@@ -421,6 +427,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      * Save cart
      *
      * @return $this
+     * @throws Throwable
      */
     public function save()
     {
@@ -531,6 +538,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      * @param null|array|Varien_Object $updatingParams
      * @return Mage_Sales_Model_Quote_Item|string
      *
+     * @throws Mage_Core_Exception
      * @see Mage_Sales_Model_Quote::updateItem()
      */
     public function updateItem($itemId, $requestInfo = null, $updatingParams = null)
@@ -556,9 +564,9 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
             }
 
             $result = $this->getQuote()->updateItem($itemId, $request, $updatingParams);
-        } catch (Mage_Core_Exception $e) {
+        } catch (Mage_Core_Exception $exception) {
             $this->getCheckoutSession()->setUseNotice(false);
-            $result = $e->getMessage();
+            $result = $exception->getMessage();
         }
 
         /**
