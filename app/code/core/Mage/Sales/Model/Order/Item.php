@@ -24,8 +24,8 @@
  * @method Mage_Sales_Model_Resource_Order_Item getResource()
  * @method Mage_Sales_Model_Resource_Order_Item_Collection getCollection()
  *
- * @method int getOrderId()
- * @method $this setOrderId(int $value)
+ * @method int|null getOrderId()
+ * @method $this setOrderId(int|null $value)
  * @method int getParentItemId()
  * @method $this setParentItemId(int $value)
  * @method int getQuoteItemId()
@@ -189,6 +189,8 @@
  * @method $this setQuoteParentItemId(int $value)
  * @method int getParentProductId()
  * @method int getQuoteParentItemId()
+ * @method string|null getItemId()
+ * @method $this setItemId(string|null $value)
  */
 class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
 {

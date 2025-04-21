@@ -63,13 +63,13 @@ class Mage_Api_Model_Session extends Mage_Core_Model_Session_Abstract
     }
 
     /**
-     * @param string|null $sessId
+     * @param string|null $sessionSessionId
      * @return $this
      */
-    public function setSessionId($sessId = null)
+    public function setSessionId($sessionSessionId = null)
     {
-        if (!is_null($sessId)) {
-            $this->_currentSessId = $sessId;
+        if (!is_null($sessionSessionId)) {
+            $this->_currentSessId = $sessionSessionId;
         }
         return $this;
     }

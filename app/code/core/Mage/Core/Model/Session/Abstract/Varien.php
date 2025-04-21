@@ -318,13 +318,13 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
     /**
      * Set custom session id
      *
-     * @param string $id
+     * @param string $sessionId
      * @return $this
      */
-    public function setSessionId($id = null)
+    public function setSessionId($sessionId = null)
     {
-        if (!is_null($id) && preg_match('#^[0-9a-zA-Z,-]+$#', $id)) {
-            session_id($id);
+        if (!is_null($sessionId) && preg_match('#^[0-9a-zA-Z,-]+$#', $sessionId)) {
+            session_id($sessionId);
         }
         return $this;
     }

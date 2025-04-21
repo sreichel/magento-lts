@@ -32,7 +32,7 @@
  */
 class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
 {
-    use Mage_Core_Trait_Session;
+    use Mage_Core_Trait_Session_Checkout;
 
     /**
      * Option Instance
@@ -114,6 +114,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      * Getter for Configuration Item Option
      *
      * @return Mage_Catalog_Model_Product_Configuration_Item_Option_Interface
+     * @throws Mage_Core_Exception
      */
     public function getConfigurationItemOption()
     {
@@ -134,6 +135,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      * Deprecated in favor of getConfigurationItemOption()
      *
      * @return Mage_Catalog_Model_Product_Configuration_Item_Option_Interface
+     * @throws Mage_Core_Exception
      * @deprecated after 1.4.2.0
      */
     public function getQuoteItemOption()
@@ -145,6 +147,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      * Getter for Configuration Item
      *
      * @return Mage_Catalog_Model_Product_Configuration_Item_Interface
+     * @throws Mage_Core_Exception
      */
     public function getConfigurationItem()
     {
@@ -165,6 +168,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      * Deprecated in favor of getConfigurationItem()
      *
      * @return Mage_Catalog_Model_Product_Configuration_Item_Interface
+     * @throws Mage_Core_Exception
      * @deprecated after 1.4.2.0
      */
     public function getQuoteItem()
@@ -176,6 +180,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      * Getter for Buy Request
      *
      * @return Varien_Object
+     * @throws Mage_Core_Exception
      */
     public function getRequest()
     {
@@ -223,6 +228,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      * Check skip required option validation
      *
      * @return bool
+     * @throws Mage_Core_Exception
      */
     public function getSkipCheckRequiredOption()
     {
@@ -328,6 +334,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      * @param string $optionValue Prepared for cart option value
      * @param float $basePrice For percent price type
      * @return float
+     * @throws Mage_Core_Exception
      */
     public function getOptionPrice($optionValue, $basePrice)
     {
@@ -346,6 +353,7 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      * @param string $optionValue Prepared for cart option value
      * @param string $skuDelimiter Delimiter for Sku parts
      * @return string
+     * @throws Mage_Core_Exception
      */
     public function getOptionSku($optionValue, $skuDelimiter)
     {
@@ -356,24 +364,27 @@ class Mage_Catalog_Model_Product_Option_Type_Default extends Varien_Object
      * Return value => key all product options (using for parsing)
      *
      * @return array Array of Product custom options, reversing option values and option ids
+     * @throws Mage_Core_Exception
      */
     public function getProductOptions()
     {
-        if (!isset($this->_productOptions[$this->getProduct()->getId()])) {
-            foreach ($this->getProduct()->getOptions() as $option) {
-                $this->_productOptions[$this->getProduct()->getId()][$option->getTitle()] = ['option_id' => $option->getId()];
+        $prduct = $this->getProduct();
+        $productId = $prduct->getId();
+        if (!isset($this->_productOptions[$productId])) {
+            foreach ($prduct->getOptions() as $option) {
+                $this->_productOptions[$productId][$option->getTitle()] = ['option_id' => $option->getId()];
                 if ($option->getGroupByType() == Mage_Catalog_Model_Product_Option::OPTION_GROUP_SELECT) {
                     $optionValues = [];
                     foreach ($option->getValues() as $value) {
                         $optionValues[$value->getTitle()] = $value->getId();
                     }
-                    $this->_productOptions[$this->getProduct()->getId()][$option->getTitle()]['values'] = $optionValues;
+                    $this->_productOptions[$productId][$option->getTitle()]['values'] = $optionValues;
                 } else {
-                    $this->_productOptions[$this->getProduct()->getId()][$option->getTitle()]['values'] = [];
+                    $this->_productOptions[$productId][$option->getTitle()]['values'] = [];
                 }
             }
         }
-        return $this->_productOptions[$this->getProduct()->getId()] ?? [];
+        return $this->_productOptions[$productId] ?? [];
     }
 
     /**
