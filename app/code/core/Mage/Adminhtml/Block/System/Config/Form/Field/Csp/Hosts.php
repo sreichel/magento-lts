@@ -151,12 +151,4 @@ class Mage_Adminhtml_Block_System_Config_Form_Field_Csp_Hosts extends Mage_Admin
             ($column['class'] ?? 'input-text') . '"' .
             (isset($column['style']) ? ' style="' . $column['style'] . '"' : '') . '/>';
     }
-
-    /**
-     * @throws Exception
-     */
-    public function renderColumn(string $columnName): string
-    {
-        return Mage::helper('core')->jsQuoteEscape($this->_renderCellTemplate($columnName));
-    }
 }
