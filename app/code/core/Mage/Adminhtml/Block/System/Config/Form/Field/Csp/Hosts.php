@@ -148,7 +148,7 @@ class Mage_Adminhtml_Block_System_Config_Form_Field_Csp_Hosts extends Mage_Admin
         return '<input type="text" name="' . $inputName . '" value="#{' . $columnName . '}" ' .
             '#{readonly}' .
             ($column['size'] ? 'size="' . $column['size'] . '"' : '') . ' class="' .
-            ($column['class'] ?? 'input-text') . '"' .
+            ($column['class'] ?? 'input-text required-entry') . '"' .
             (isset($column['style']) ? ' style="' . $column['style'] . '"' : '') . '/>';
     }
 }
