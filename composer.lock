@@ -653,16 +653,16 @@
         },
         {
             "name": "mklkj/tinymce-i18n",
-            "version": "25.2.3",
+            "version": "25.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mklkj/tinymce-i18n.git",
-                "reference": "e3f20d04fdf6d590019c319fd96a1a9fc02325e1"
+                "reference": "2e43ff3dac4723a495587474125de6e016374db4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mklkj/tinymce-i18n/zipball/e3f20d04fdf6d590019c319fd96a1a9fc02325e1",
-                "reference": "e3f20d04fdf6d590019c319fd96a1a9fc02325e1",
+                "url": "https://api.github.com/repos/mklkj/tinymce-i18n/zipball/2e43ff3dac4723a495587474125de6e016374db4",
+                "reference": "2e43ff3dac4723a495587474125de6e016374db4",
                 "shasum": ""
             },
             "type": "library",
@@ -684,9 +684,9 @@
             ],
             "support": {
                 "issues": "https://github.com/mklkj/tinymce-i18n/issues",
-                "source": "https://github.com/mklkj/tinymce-i18n/tree/25.2.3"
+                "source": "https://github.com/mklkj/tinymce-i18n/tree/25.6.2"
             },
-            "time": "2025-02-03T10:42:25+00:00"
+            "time": "2025-06-02T10:25:35+00:00"
         },
         {
             "name": "nnnick/chartjs",
