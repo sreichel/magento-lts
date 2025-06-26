@@ -253,11 +253,8 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
      * @return Mage_Api_Model_User
      * @throws Exception
      */
-    public function login($username, $apiKey)
+    public function login(#[SensitiveParameter] $username, #[SensitiveParameter] $apiKey)
     {
-        $username = new Mage_Core_Model_Security_Obfuscated($username);
-        $apiKey = new Mage_Core_Model_Security_Obfuscated($apiKey);
-
         $sessId = $this->getSessid();
         if ($this->authenticate($username, $apiKey)) {
             $this->setSessid($sessId);

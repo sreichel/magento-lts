@@ -114,11 +114,8 @@ class Mage_Api_Model_Session extends Mage_Core_Model_Session_Abstract
      * @return mixed
      * @throws Mage_Core_Exception
      */
-    public function login($username, $apiKey)
+    public function login(#[SensitiveParameter] $username, #[SensitiveParameter] $apiKey)
     {
-        $username = new Mage_Core_Model_Security_Obfuscated($username);
-        $apiKey = new Mage_Core_Model_Security_Obfuscated($apiKey);
-
         $user = Mage::getModel('api/user')
             ->setSessid($this->getSessionId());
         if ($this->getIsInstaLogin() && $user->authenticate($username, $apiKey)) {

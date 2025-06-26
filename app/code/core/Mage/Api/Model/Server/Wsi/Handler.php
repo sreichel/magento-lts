@@ -72,15 +72,12 @@ class Mage_Api_Model_Server_Wsi_Handler extends Mage_Api_Model_Server_Handler_Ab
      * @param string|null $apiKey
      * @return stdClass
      */
-    public function login($username, $apiKey = null)
+    public function login(#[SensitiveParameter] $username, #[SensitiveParameter] $apiKey = null)
     {
         if (is_object($username)) {
             $apiKey = $username->apiKey;
             $username = $username->username;
         }
-
-        $username = new Mage_Core_Model_Security_Obfuscated($username);
-        $apiKey   = is_null($apiKey) ? null : new Mage_Core_Model_Security_Obfuscated($apiKey);
 
         $stdObject = new stdClass();
         $stdObject->result = parent::login($username, $apiKey);

@@ -134,14 +134,11 @@ class Mage_Admin_Model_Session extends Mage_Core_Model_Session_Abstract
      * @param  Mage_Core_Controller_Request_Http $request
      * @return Mage_Admin_Model_User|null
      */
-    public function login($username, $password, $request = null)
+    public function login(#[SensitiveParameter] $username, #[SensitiveParameter] $password, $request = null)
     {
         if (empty($username) || empty($password)) {
             return null;
         }
-
-        $username = new Mage_Core_Model_Security_Obfuscated($username);
-        $password = new Mage_Core_Model_Security_Obfuscated($password);
 
         try {
             /** @var Mage_Admin_Model_User $user */

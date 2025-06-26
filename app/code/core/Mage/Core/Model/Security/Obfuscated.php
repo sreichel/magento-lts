@@ -13,6 +13,7 @@ declare(strict_types=1);
  * Wrapper to escape value und keep the original value
  *
  * @package    Mage_Core
+ * @deprecated 20.15.0 use #[SensitiveParameter] instead
  */
 class Mage_Core_Model_Security_Obfuscated implements Stringable
 {

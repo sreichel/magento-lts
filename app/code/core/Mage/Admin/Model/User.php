@@ -364,11 +364,8 @@ class Mage_Admin_Model_User extends Mage_Core_Model_Abstract
      * @return bool
      * @throws Mage_Core_Exception
      */
-    public function authenticate($username, $password)
+    public function authenticate(#[SensitiveParameter] $username, #[SensitiveParameter] $password)
     {
-        $username = new Mage_Core_Model_Security_Obfuscated($username);
-        $password = new Mage_Core_Model_Security_Obfuscated($password);
-
         $config = Mage::getStoreConfigFlag('admin/security/use_case_sensitive_login');
         $result = false;
 
@@ -420,11 +417,8 @@ class Mage_Admin_Model_User extends Mage_Core_Model_Abstract
      * @return  $this
      * @throws Mage_Core_Exception
      */
-    public function login($username, $password)
+    public function login(#[SensitiveParameter] $username, #[SensitiveParameter] $password)
     {
-        $username = new Mage_Core_Model_Security_Obfuscated($username);
-        $password = new Mage_Core_Model_Security_Obfuscated($password);
-
         if ($this->authenticate($username, $password)) {
             $this->getResource()->recordLogin($this);
             Mage::getSingleton('core/session')->renewFormKey();

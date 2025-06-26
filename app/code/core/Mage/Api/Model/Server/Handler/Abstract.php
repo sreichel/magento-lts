@@ -199,15 +199,12 @@ abstract class Mage_Api_Model_Server_Handler_Abstract
      * @param string $apiKey
      * @return stdClass|string|void
      */
-    public function login($username, $apiKey = null)
+    public function login(#[SensitiveParameter] $username, #[SensitiveParameter] $apiKey = null)
     {
         if (empty($username) || empty($apiKey)) {
             $this->_fault('invalid_request_param');
             return;
         }
-
-        $username = new Mage_Core_Model_Security_Obfuscated($username);
-        $apiKey   = new Mage_Core_Model_Security_Obfuscated($apiKey);
 
         try {
             $this->_startSession();
