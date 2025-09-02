@@ -1168,16 +1168,16 @@
         },
         {
             "name": "mklkj/tinymce-i18n",
-            "version": "25.6.2",
+            "version": "25.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mklkj/tinymce-i18n.git",
-                "reference": "2e43ff3dac4723a495587474125de6e016374db4"
+                "reference": "d329fbaacb01bf17777356c55dc841c5daf5e9dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mklkj/tinymce-i18n/zipball/2e43ff3dac4723a495587474125de6e016374db4",
-                "reference": "2e43ff3dac4723a495587474125de6e016374db4",
+                "url": "https://api.github.com/repos/mklkj/tinymce-i18n/zipball/d329fbaacb01bf17777356c55dc841c5daf5e9dd",
+                "reference": "d329fbaacb01bf17777356c55dc841c5daf5e9dd",
                 "shasum": ""
             },
             "type": "library",
@@ -1190,7 +1190,7 @@
                     "name": "TinyMCE Community"
                 }
             ],
-            "description": "Languages for TinyMCE 4, 5 and 6",
+            "description": "Languages for TinyMCE 4, 5, 6, 7 and 8",
             "homepage": "https://github.com/mklkj/tinymce-i18n",
             "keywords": [
                 "i18n",
@@ -1199,9 +1199,9 @@
             ],
             "support": {
                 "issues": "https://github.com/mklkj/tinymce-i18n/issues",
-                "source": "https://github.com/mklkj/tinymce-i18n/tree/25.6.2"
+                "source": "https://github.com/mklkj/tinymce-i18n/tree/25.9.1"
             },
-            "time": "2025-06-02T10:25:35+00:00"
+            "time": "2025-09-01T10:54:07+00:00"
         },
         {
             "name": "nesbot/carbon",
