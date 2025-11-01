@@ -47,6 +47,7 @@ class Mage_Sitemap_Model_Sitemap extends Mage_Core_Model_Abstract
 
     /**
      * @inheritDoc
+     *
      * @throws Mage_Core_Exception
      */
     protected function _beforeSave()
@@ -117,6 +118,7 @@ class Mage_Sitemap_Model_Sitemap extends Mage_Core_Model_Abstract
      * Generate XML file
      *
      * @return $this
+     *
      * @throws Throwable
      */
     public function generateXml()

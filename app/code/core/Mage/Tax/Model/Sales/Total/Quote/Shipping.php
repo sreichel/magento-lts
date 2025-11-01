@@ -178,10 +178,11 @@ class Mage_Tax_Model_Sales_Total_Quote_Shipping extends Mage_Sales_Model_Quote_A
     /**
      * Round price based on tax rounding settings
      *
-     * @param  float  $price
-     * @param  string $rate
-     * @param  bool   $direction
-     * @param  string $type
+     * @param float  $price
+     * @param string $rate
+     * @param bool   $direction
+     * @param string $type
+     *
      * @return float
      */
     protected function _round($price, $rate, $direction, $type = 'regular')
@@ -201,7 +202,8 @@ class Mage_Tax_Model_Sales_Total_Quote_Shipping extends Mage_Sales_Model_Quote_A
      * Get request for fetching store tax rate
      *
      * @deprecated after 1.4.0.0
-     * @param  Mage_Sales_Model_Quote_Address $address
+     * @param Mage_Sales_Model_Quote_Address $address
+     *
      * @return Varien_Object
      */
     protected function _getStoreTaxRequest($address)
@@ -217,7 +219,8 @@ class Mage_Tax_Model_Sales_Total_Quote_Shipping extends Mage_Sales_Model_Quote_A
      * Get request for fetching address tax rate
      *
      * @deprecated after 1.4.0.0
-     * @param  Mage_Sales_Model_Quote_Address $address
+     * @param Mage_Sales_Model_Quote_Address $address
+     *
      * @return Varien_Object
      */
     protected function _getAddressTaxRequest($address)
@@ -234,7 +237,8 @@ class Mage_Tax_Model_Sales_Total_Quote_Shipping extends Mage_Sales_Model_Quote_A
      * Check if we need subtract store tax amount from shipping
      *
      * @deprecated after 1.4.0.0
-     * @param  Mage_Sales_Model_Quote_Address $address
+     * @param Mage_Sales_Model_Quote_Address $address
+     *
      * @return bool
      */
     protected function _needSubtractShippingTax($address)

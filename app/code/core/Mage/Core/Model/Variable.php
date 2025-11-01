@@ -43,7 +43,8 @@ class Mage_Core_Model_Variable extends Mage_Core_Model_Abstract
     /**
      * Setter
      *
-     * @param  int   $storeId
+     * @param int $storeId
+     *
      * @return $this
      */
     public function setStoreId($storeId)
@@ -65,7 +66,8 @@ class Mage_Core_Model_Variable extends Mage_Core_Model_Abstract
     /**
      * Load variable by code
      *
-     * @param  string $code
+     * @param string $code
+     *
      * @return $this
      */
     public function loadByCode($code)
@@ -77,7 +79,8 @@ class Mage_Core_Model_Variable extends Mage_Core_Model_Abstract
     /**
      * Return variable value depend on given type
      *
-     * @param  string $type
+     * @param string $type
+     *
      * @return string
      */
     public function getValue($type = null)
@@ -121,7 +124,8 @@ class Mage_Core_Model_Variable extends Mage_Core_Model_Abstract
     /**
      * Retrieve variables option array
      *
-     * @param  bool  $withGroup
+     * @param bool $withGroup
+     *
      * @return array
      */
     public function getVariablesOptionArray($withGroup = false)

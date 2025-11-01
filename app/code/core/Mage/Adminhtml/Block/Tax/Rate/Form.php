@@ -32,6 +32,7 @@ class Mage_Adminhtml_Block_Tax_Rate_Form extends Mage_Adminhtml_Block_Widget_For
      * Prepare form before rendering HTML
      *
      * @inheritDoc
+     *
      * @throws Exception
      */
     protected function _prepareForm()

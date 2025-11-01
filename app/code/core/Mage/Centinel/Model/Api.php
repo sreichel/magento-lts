@@ -155,6 +155,7 @@ class Mage_Centinel_Model_Api extends Varien_Object
      * Getter for API call URL
      *
      * @return string
+     *
      * @throws Exception
      */
     protected function _getApiEndpointUrl()

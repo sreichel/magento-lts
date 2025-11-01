@@ -452,7 +452,8 @@ class Mage_SalesRule_Model_Rule extends Mage_Rule_Model_Abstract
     /**
      * Check cached validation result for specific address
      *
-     * @param  Mage_Sales_Model_Quote_Address $address
+     * @param Mage_Sales_Model_Quote_Address $address
+     *
      * @return bool
      */
     public function hasIsValidForAddress($address)
@@ -464,8 +465,9 @@ class Mage_SalesRule_Model_Rule extends Mage_Rule_Model_Abstract
     /**
      * Set validation result for specific address to results cache
      *
-     * @param  Mage_Sales_Model_Quote_Address $address
-     * @param  bool                           $validationResult
+     * @param Mage_Sales_Model_Quote_Address $address
+     * @param bool                           $validationResult
+     *
      * @return $this
      */
     public function setIsValidForAddress($address, $validationResult)
@@ -478,7 +480,8 @@ class Mage_SalesRule_Model_Rule extends Mage_Rule_Model_Abstract
     /**
      * Get cached validation result for specific address
      *
-     * @param  Mage_Sales_Model_Quote_Address $address
+     * @param Mage_Sales_Model_Quote_Address $address
+     *
      * @return bool
      */
     public function getIsValidForAddress($address)
@@ -490,7 +493,8 @@ class Mage_SalesRule_Model_Rule extends Mage_Rule_Model_Abstract
     /**
      * Return id for address
      *
-     * @param  Mage_Sales_Model_Quote_Address $address
+     * @param Mage_Sales_Model_Quote_Address $address
+     *
      * @return string
      */
     private function _getAddressId($address)

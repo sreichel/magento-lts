@@ -50,7 +50,8 @@ class Mage_Adminhtml_Block_Widget_Grid_Serializer extends Mage_Core_Block_Templa
     /**
      * Get grid column input names to serialize
      *
-     * @param  bool         $asJSON
+     * @param bool $asJSON
+     *
      * @return array|string
      */
     public function getColumnInputNames($asJSON = false)

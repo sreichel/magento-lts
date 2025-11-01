@@ -67,7 +67,9 @@ class Mage_ImportExport_Model_Import extends Mage_ImportExport_Model_Abstract
     /**
      * Create instance of entity adapter and returns it.
      *
+     *
      * @throws Mage_Core_Exception
+     *
      * @return Mage_ImportExport_Model_Import_Entity_Abstract
      */
     protected function _getEntityAdapter()
@@ -112,7 +114,8 @@ class Mage_ImportExport_Model_Import extends Mage_ImportExport_Model_Abstract
     /**
      * Returns source adapter object.
      *
-     * @param  string                                          $sourceFile Full path to source file
+     * @param string $sourceFile Full path to source file
+     *
      * @return Mage_ImportExport_Model_Import_Adapter_Abstract
      */
     protected function _getSourceAdapter($sourceFile)
@@ -123,7 +126,8 @@ class Mage_ImportExport_Model_Import extends Mage_ImportExport_Model_Abstract
     /**
      * Return operation result messages
      *
-     * @param  bool  $validationResult
+     * @param bool $validationResult
+     *
      * @return array
      */
     public function getOperationResultMessages($validationResult)
@@ -188,6 +192,7 @@ class Mage_ImportExport_Model_Import extends Mage_ImportExport_Model_Abstract
      * DB data source model getter.
      *
      * @static
+     *
      * @return Mage_ImportExport_Model_Resource_Import_Data
      */
     public static function getDataSourceModel()
@@ -199,6 +204,7 @@ class Mage_ImportExport_Model_Import extends Mage_ImportExport_Model_Abstract
      * Default import behavior getter.
      *
      * @static
+     *
      * @return string
      */
     public static function getDefaultBehavior()
@@ -210,6 +216,7 @@ class Mage_ImportExport_Model_Import extends Mage_ImportExport_Model_Abstract
      * Override standard entity getter.
      *
      * @throw Mage_Core_Exception
+     *
      * @return string
      */
     public function getEntity()
@@ -385,8 +392,10 @@ class Mage_ImportExport_Model_Import extends Mage_ImportExport_Model_Abstract
     /**
      * Move uploaded file and create source adapter instance.
      *
+     *
      * @throws Mage_Core_Exception
-     * @return string              Source file path
+     *
+     * @return string Source file path
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
      */
     public function uploadSource()
@@ -436,7 +445,8 @@ class Mage_ImportExport_Model_Import extends Mage_ImportExport_Model_Abstract
     /**
      * Validates source file and returns validation result.
      *
-     * @param  string $sourceFile Full path to source file
+     * @param string $sourceFile Full path to source file
+     *
      * @return bool
      */
     public function validateSource($sourceFile)

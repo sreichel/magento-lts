@@ -107,7 +107,9 @@ abstract class Mage_Sales_Model_Order_Pdf_Items_Abstract extends Mage_Core_Model
     /**
      * Retrieve order object
      *
+     *
      * @throws Mage_Core_Exception
+     *
      * @return Mage_Sales_Model_Order
      */
     public function getOrder()
@@ -122,7 +124,9 @@ abstract class Mage_Sales_Model_Order_Pdf_Items_Abstract extends Mage_Core_Model
     /**
      * Retrieve source object
      *
+     *
      * @throws Mage_Core_Exception
+     *
      * @return Mage_Core_Model_Abstract
      */
     public function getSource()
@@ -137,7 +141,9 @@ abstract class Mage_Sales_Model_Order_Pdf_Items_Abstract extends Mage_Core_Model
     /**
      * Retrieve item object
      *
+     *
      * @throws Mage_Core_Exception
+     *
      * @return Varien_Object
      */
     public function getItem()
@@ -152,7 +158,9 @@ abstract class Mage_Sales_Model_Order_Pdf_Items_Abstract extends Mage_Core_Model
     /**
      * Retrieve Pdf model
      *
+     *
      * @throws Mage_Core_Exception
+     *
      * @return Mage_Sales_Model_Order_Pdf_Abstract
      */
     public function getPdf()
@@ -167,7 +175,9 @@ abstract class Mage_Sales_Model_Order_Pdf_Items_Abstract extends Mage_Core_Model
     /**
      * Retrieve Pdf page object
      *
+     *
      * @throws Mage_Core_Exception
+     *
      * @return Zend_Pdf_Page
      */
     public function getPage()
@@ -188,7 +198,8 @@ abstract class Mage_Sales_Model_Order_Pdf_Items_Abstract extends Mage_Core_Model
     /**
      * Format option value process
      *
-     * @param  array|string $value
+     * @param array|string $value
+     *
      * @return string
      */
     protected function _formatOptionValue($value)
@@ -237,6 +248,7 @@ abstract class Mage_Sales_Model_Order_Pdf_Items_Abstract extends Mage_Core_Model
      *      'subtotal' => $subtotal
      *  )
      * )
+     *
      * @return array
      */
     public function getItemPricesForDisplay()
@@ -299,7 +311,8 @@ abstract class Mage_Sales_Model_Order_Pdf_Items_Abstract extends Mage_Core_Model
     /**
      * Set font as regular
      *
-     * @param  int                    $size
+     * @param int $size
+     *
      * @return Zend_Pdf_Resource_Font
      */
     protected function _setFontRegular($size = 7)
@@ -312,7 +325,8 @@ abstract class Mage_Sales_Model_Order_Pdf_Items_Abstract extends Mage_Core_Model
     /**
      * Set font as bold
      *
-     * @param  int                    $size
+     * @param int $size
+     *
      * @return Zend_Pdf_Resource_Font
      */
     protected function _setFontBold($size = 7)
@@ -325,7 +339,8 @@ abstract class Mage_Sales_Model_Order_Pdf_Items_Abstract extends Mage_Core_Model
     /**
      * Set font as italic
      *
-     * @param  int                    $size
+     * @param int $size
+     *
      * @return Zend_Pdf_Resource_Font
      */
     protected function _setFontItalic($size = 7)
@@ -338,7 +353,8 @@ abstract class Mage_Sales_Model_Order_Pdf_Items_Abstract extends Mage_Core_Model
     /**
      * Return item Sku
      *
-     * @param  Mage_Sales_Model_Order_Invoice_Item|Mage_Sales_Model_Order_Creditmemo_Item $item
+     * @param Mage_Sales_Model_Order_Invoice_Item|Mage_Sales_Model_Order_Creditmemo_Item $item
+     *
      * @return string
      */
     public function getSku($item)

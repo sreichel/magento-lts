@@ -30,6 +30,7 @@ class Mage_Api2_Model_Dispatcher
      * Instantiate resource class, set parameters to the instance, run resource internal dispatch method
      *
      * @return $this
+     *
      * @throws Mage_Api2_Exception
      */
     public function dispatch(Mage_Api2_Model_Request $request, Mage_Api2_Model_Response $response)
@@ -60,11 +61,13 @@ class Mage_Api2_Model_Dispatcher
     /**
      * Pack resource model class path from components and try to load it
      *
-     * @param  string                   $model
-     * @param  string                   $apiType  API type
-     * @param  string                   $userType API User type (e.g. admin, customer, guest)
-     * @param  int                      $version  Requested version
+     * @param string $model
+     * @param string $apiType  API type
+     * @param string $userType API User type (e.g. admin, customer, guest)
+     * @param int    $version  Requested version
+     *
      * @return Mage_Api2_Model_Resource
+     *
      * @throws Mage_Api2_Exception
      */
     public static function loadResourceModel($model, $apiType, $userType, $version)
@@ -117,9 +120,11 @@ class Mage_Api2_Model_Dispatcher
     /**
      * Get correct version of the resource model
      *
-     * @param  string              $resourceType
-     * @param  string|bool         $requestedVersion
+     * @param string      $resourceType
+     * @param string|bool $requestedVersion
+     *
      * @return int
+     *
      * @throws Mage_Api2_Exception
      */
     public function getVersion($resourceType, $requestedVersion)

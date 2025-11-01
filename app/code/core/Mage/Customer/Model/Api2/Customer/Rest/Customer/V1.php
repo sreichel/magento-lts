@@ -17,8 +17,10 @@ class Mage_Customer_Model_Api2_Customer_Rest_Customer_V1 extends Mage_Customer_M
     /**
      * Is customer has rights to retrieve/update customer item
      *
-     * @param  int                 $customerId
+     * @param int $customerId
+     *
      * @throws Mage_Api2_Exception
+     *
      * @return bool
      */
     protected function _isOwner($customerId)
@@ -33,7 +35,9 @@ class Mage_Customer_Model_Api2_Customer_Rest_Customer_V1 extends Mage_Customer_M
     /**
      * Retrieve information about customer
      *
+     *
      * @throws Mage_Api2_Exception
+     *
      * @return array|void
      */
     protected function _retrieve()
@@ -54,6 +58,7 @@ class Mage_Customer_Model_Api2_Customer_Rest_Customer_V1 extends Mage_Customer_M
     /**
      * Update customer
      *
+     *
      * @throws Mage_Api2_Exception
      */
     protected function _update(array $data)
@@ -65,6 +70,7 @@ class Mage_Customer_Model_Api2_Customer_Rest_Customer_V1 extends Mage_Customer_M
 
     /**
      * Update customers
+     *
      *
      * @throws Mage_Api2_Exception
      */

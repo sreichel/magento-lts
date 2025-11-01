@@ -93,9 +93,10 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
      * Init process load collection of rules for specific website,
      * customer group and coupon code
      *
-     * @param  int                            $websiteId
-     * @param  int                            $customerGroupId
-     * @param  string                         $couponCode
+     * @param int    $websiteId
+     * @param int    $customerGroupId
+     * @param string $couponCode
+     *
      * @return Mage_SalesRule_Model_Validator
      */
     public function init($websiteId, $customerGroupId, $couponCode)
@@ -148,8 +149,9 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
     /**
      * Check if rule can be applied for specific address/quote/customer
      *
-     * @param  Mage_SalesRule_Model_Rule      $rule
-     * @param  Mage_Sales_Model_Quote_Address $address
+     * @param Mage_SalesRule_Model_Rule      $rule
+     * @param Mage_Sales_Model_Quote_Address $address
+     *
      * @return bool
      */
     protected function _canProcessRule($rule, $address)
@@ -293,6 +295,7 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
      * Quote item discount calculation process
      *
      * @return Mage_SalesRule_Model_Validator
+     *
      * @throws Mage_Core_Exception
      */
     public function process(Mage_Sales_Model_Quote_Item_Abstract $item)
@@ -530,7 +533,8 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
     /**
      * Apply discount amount to FPT
      *
-     * @param  array $items
+     * @param array $items
+     *
      * @return $this
      */
     public function processWeeeAmount(Mage_Sales_Model_Quote_Address $address, $items)
@@ -712,9 +716,10 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
     /**
      * Round the amount with deltas collected
      *
-     * @param  string                $key
-     * @param  float                 $amount
-     * @param  Mage_Core_Model_Store $store
+     * @param string                $key
+     * @param float                 $amount
+     * @param Mage_Core_Model_Store $store
+     *
      * @return float
      */
     protected function _roundWithDeltas($key, $amount, $store)
@@ -728,9 +733,10 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
     /**
      * Round the amount with deltas collected
      *
-     * @param  string                $key
-     * @param  float                 $amount
-     * @param  Mage_Core_Model_Store $store
+     * @param string                $key
+     * @param float                 $amount
+     * @param Mage_Core_Model_Store $store
+     *
      * @return float
      */
     protected function _roundWithDeltasForBase($key, $amount, $store)
@@ -838,9 +844,10 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
     /**
      * Merge two sets of ids
      *
-     * @param  array|string $a1
-     * @param  array|string $a2
-     * @param  bool         $asString
+     * @param array|string $a1
+     * @param array|string $a2
+     * @param bool         $asString
+     *
      * @return array
      */
     public function mergeIds($a1, $a2, $asString = true)
@@ -875,7 +882,8 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
     /**
      * Retrieve information about usage cart fixed rule by quote address
      *
-     * @param  int      $ruleId
+     * @param int $ruleId
+     *
      * @return int|null
      */
     public function getCartFixedRuleUsedForAddress($ruleId)
@@ -886,7 +894,8 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
     /**
      * Calculate quote totals for each rule and save results
      *
-     * @param  mixed $items
+     * @param mixed $items
+     *
      * @return $this
      */
     public function initTotals($items, Mage_Sales_Model_Quote_Address $address)
@@ -958,8 +967,9 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
     /**
      * Add rule discount description label to address object
      *
-     * @param  Mage_Sales_Model_Quote_Address $address
-     * @param  Mage_SalesRule_Model_Rule      $rule
+     * @param Mage_Sales_Model_Quote_Address $address
+     * @param Mage_SalesRule_Model_Rule      $rule
+     *
      * @return Mage_SalesRule_Model_Validator
      */
     protected function _addDiscountDescription($address, $rule)
@@ -985,7 +995,8 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
     /**
      * Return item price
      *
-     * @param  Mage_Sales_Model_Quote_Item_Abstract $item
+     * @param Mage_Sales_Model_Quote_Item_Abstract $item
+     *
      * @return float
      */
     protected function _getItemPrice($item)
@@ -996,8 +1007,10 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
     /**
      * Return item original price
      *
-     * @param  Mage_Sales_Model_Quote_Item_Abstract $item
+     * @param Mage_Sales_Model_Quote_Item_Abstract $item
+     *
      * @return float
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     protected function _getItemOriginalPrice($item)
@@ -1008,7 +1021,8 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
     /**
      * Return item base price
      *
-     * @param  Mage_Sales_Model_Quote_Item_Abstract $item
+     * @param Mage_Sales_Model_Quote_Item_Abstract $item
+     *
      * @return float
      */
     protected function _getItemBasePrice($item)
@@ -1020,8 +1034,10 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
     /**
      * Return item base original price
      *
-     * @param  Mage_Sales_Model_Quote_Item_Abstract $item
+     * @param Mage_Sales_Model_Quote_Item_Abstract $item
+     *
      * @return float
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     protected function _getItemBaseOriginalPrice($item)
@@ -1032,8 +1048,9 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
     /**
      * Return discount item qty
      *
-     * @param  Mage_Sales_Model_Quote_Item_Abstract $item
-     * @param  Mage_SalesRule_Model_Rule            $rule
+     * @param Mage_Sales_Model_Quote_Item_Abstract $item
+     * @param Mage_SalesRule_Model_Rule            $rule
+     *
      * @return int
      */
     protected function _getItemQty($item, $rule)
@@ -1045,8 +1062,9 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
     /**
      * Convert address discount description array to string
      *
-     * @param  Mage_Sales_Model_Quote_Address $address
-     * @param  string                         $separator
+     * @param Mage_Sales_Model_Quote_Address $address
+     * @param string                         $separator
+     *
      * @return $this
      */
     public function prepareDescription($address, $separator = ', ')
@@ -1068,7 +1086,8 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
     /**
      * wrap Mage::getSingleton
      *
-     * @param  string                   $name
+     * @param string $name
+     *
      * @return Mage_Core_Model_Abstract
      */
     protected function _getSingleton($name)
@@ -1079,7 +1098,8 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
     /**
      * wrap Mage::helper
      *
-     * @param  string                    $name
+     * @param string $name
+     *
      * @return Mage_Core_Helper_Abstract
      */
     protected function _getHelper($name)
@@ -1090,7 +1110,8 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
     /**
      * Return items list sorted by possibility to apply prioritized rules
      *
-     * @param  array $items
+     * @param array $items
+     *
      * @return array $items
      */
     public function sortItemsByPriority($items)

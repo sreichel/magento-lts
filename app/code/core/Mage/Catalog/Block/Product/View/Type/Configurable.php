@@ -105,6 +105,7 @@ class Mage_Catalog_Block_Product_View_Type_Configurable extends Mage_Catalog_Blo
      * retrieve current store
      *
      * @deprecated
+     *
      * @return Mage_Core_Model_Store
      */
     public function getCurrentStore()
@@ -275,9 +276,10 @@ class Mage_Catalog_Block_Product_View_Type_Configurable extends Mage_Catalog_Blo
     /**
      * Validating of super product option value
      *
-     * @param  array $attributeId
-     * @param  array $value
-     * @param  array $options
+     * @param array $attributeId
+     * @param array $value
+     * @param array $options
+     *
      * @return bool
      */
     protected function _validateAttributeValue($attributeId, &$value, &$options)
@@ -292,7 +294,8 @@ class Mage_Catalog_Block_Product_View_Type_Configurable extends Mage_Catalog_Blo
     /**
      * Validation of super product option
      *
-     * @param  array $info
+     * @param array $info
+     *
      * @return bool
      */
     protected function _validateAttributeInfo(&$info)
@@ -308,8 +311,9 @@ class Mage_Catalog_Block_Product_View_Type_Configurable extends Mage_Catalog_Blo
      * Calculation real price
      *
      * @deprecated
-     * @param  float $price
-     * @param  bool  $isPercent
+     * @param float $price
+     * @param bool  $isPercent
+     *
      * @return mixed
      */
     protected function _preparePrice($price, $isPercent = false)
@@ -321,8 +325,9 @@ class Mage_Catalog_Block_Product_View_Type_Configurable extends Mage_Catalog_Blo
      * Calculation price before special price
      *
      * @deprecated
-     * @param  float $price
-     * @param  bool  $isPercent
+     * @param float $price
+     * @param bool  $isPercent
+     *
      * @return mixed
      */
     protected function _prepareOldPrice($price, $isPercent = false)
@@ -334,7 +339,8 @@ class Mage_Catalog_Block_Product_View_Type_Configurable extends Mage_Catalog_Blo
      * Replace ',' on '.' for js
      *
      * @deprecated
-     * @param  float  $price
+     * @param float $price
+     *
      * @return string
      */
     protected function _registerJsPrice($price)
@@ -346,8 +352,9 @@ class Mage_Catalog_Block_Product_View_Type_Configurable extends Mage_Catalog_Blo
      * Convert price from default currency to current currency
      *
      * @deprecated
-     * @param  float $price
-     * @param  bool  $round
+     * @param float $price
+     * @param bool  $round
+     *
      * @return float
      */
     protected function _convertPrice($price, $round = false)

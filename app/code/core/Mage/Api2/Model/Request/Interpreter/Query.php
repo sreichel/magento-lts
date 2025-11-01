@@ -22,8 +22,10 @@ class Mage_Api2_Model_Request_Interpreter_Query implements Mage_Api2_Model_Reque
     /**
      * Parse request body into array of params
      *
-     * @param  string                        $body Posted content from request
-     * @return array                         Return always array
+     * @param string $body Posted content from request
+     *
+     * @return array Return always array
+     *
      * @throws Exception|Mage_Api2_Exception
      */
     public function interpret($body)
@@ -47,7 +49,8 @@ class Mage_Api2_Model_Request_Interpreter_Query implements Mage_Api2_Model_Reque
     /**
      * Returns true if and only if the query string passes validation.
      *
-     * @param  string $query The query to validate
+     * @param string $query The query to validate
+     *
      * @return bool
      * @link   http://www.faqs.org/rfcs/rfc2396.html
      */

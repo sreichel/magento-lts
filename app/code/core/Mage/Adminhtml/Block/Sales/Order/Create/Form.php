@@ -22,6 +22,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Form extends Mage_Adminhtml_Block_
 
     /**
      * Retrieve url for loading blocks
+     *
      * @return string
      */
     public function getLoadBlockUrl()
@@ -31,6 +32,7 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Form extends Mage_Adminhtml_Block_
 
     /**
      * Retrieve url for form submiting
+     *
      * @return string
      */
     public function getSaveUrl()

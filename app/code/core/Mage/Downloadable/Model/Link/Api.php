@@ -27,8 +27,9 @@ class Mage_Downloadable_Model_Link_Api extends Mage_Catalog_Model_Api_Resource
     /**
      * Decode file from base64 and upload it to donwloadable 'tmp' folder
      *
-     * @param  array  $fileInfo
-     * @param  string $type
+     * @param array  $fileInfo
+     * @param string $type
+     *
      * @return string
      */
     protected function _uploadFile($fileInfo, $type)
@@ -70,11 +71,12 @@ class Mage_Downloadable_Model_Link_Api extends Mage_Catalog_Model_Api_Resource
     /**
      * Add downloadable content to product
      *
-     * @param  int|string      $productId
-     * @param  array           $resource
-     * @param  string          $resourceType
-     * @param  string|int|null $store
-     * @param  string|null     $identifierType ('sku'|'id')
+     * @param int|string      $productId
+     * @param array           $resource
+     * @param string          $resourceType
+     * @param string|int|null $store
+     * @param string|null     $identifierType ('sku'|'id')
+     *
      * @return bool
      */
     public function add($productId, $resource, $resourceType, $store = null, $identifierType = null)
@@ -128,9 +130,10 @@ class Mage_Downloadable_Model_Link_Api extends Mage_Catalog_Model_Api_Resource
     /**
      * Retrieve downloadable product links
      *
-     * @param  int|string $productId
-     * @param  string|int $store
-     * @param  string     $identifierType ('sku'|'id')
+     * @param int|string $productId
+     * @param string|int $store
+     * @param string     $identifierType ('sku'|'id')
+     *
      * @return array
      */
     public function items($productId, $store = null, $identifierType = null)
@@ -215,8 +218,9 @@ class Mage_Downloadable_Model_Link_Api extends Mage_Catalog_Model_Api_Resource
 
     /**
      * Remove downloadable product link
-     * @param  string $linkId
-     * @param  string $resourceType
+     * @param string $linkId
+     * @param string $resourceType
+     *
      * @return bool
      */
     public function remove($linkId, $resourceType)
@@ -257,9 +261,10 @@ class Mage_Downloadable_Model_Link_Api extends Mage_Catalog_Model_Api_Resource
     /**
      * Return loaded downloadable product instance
      *
-     * @param  int|string                 $productId      (SKU or ID)
-     * @param  int|string                 $store
-     * @param  string                     $identifierType
+     * @param int|string $productId      (SKU or ID)
+     * @param int|string $store
+     * @param string     $identifierType
+     *
      * @return Mage_Catalog_Model_Product
      */
     protected function _getProduct($productId, $store = null, $identifierType = null)

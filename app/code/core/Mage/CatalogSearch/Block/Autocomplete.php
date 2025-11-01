@@ -21,6 +21,7 @@ class Mage_CatalogSearch_Block_Autocomplete extends Mage_Core_Block_Abstract
 
     /**
      * @return string
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     protected function _toHtml()

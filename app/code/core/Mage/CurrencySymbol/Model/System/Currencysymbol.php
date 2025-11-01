@@ -68,7 +68,8 @@ class Mage_CurrencySymbol_Model_System_Currencysymbol
     /**
      * Sets store Id
      *
-     * @param  int   $storeId
+     * @param int $storeId
+     *
      * @return $this
      */
     public function setStoreId($storeId = null)
@@ -82,7 +83,8 @@ class Mage_CurrencySymbol_Model_System_Currencysymbol
     /**
      * Sets website Id
      *
-     * @param  int   $websiteId
+     * @param int $websiteId
+     *
      * @return $this
      */
     public function setWebsiteId($websiteId = null)
@@ -181,7 +183,8 @@ class Mage_CurrencySymbol_Model_System_Currencysymbol
     /**
      * Saves currency symbol to config
      *
-     * @param  array $symbols
+     * @param array $symbols
+     *
      * @return $this
      */
     public function setCurrencySymbolsData($symbols = [])
@@ -229,7 +232,8 @@ class Mage_CurrencySymbol_Model_System_Currencysymbol
     /**
      * Returns custom currency symbol by currency code
      *
-     * @param  string       $code
+     * @param string $code
+     *
      * @return false|string
      */
     public function getCurrencySymbol($code)
@@ -260,8 +264,9 @@ class Mage_CurrencySymbol_Model_System_Currencysymbol
     /**
      * Unserialize data from Store Config.
      *
-     * @param  string $configPath
-     * @param  int    $storeId
+     * @param string $configPath
+     * @param int    $storeId
+     *
      * @return array
      */
     protected function _unserializeStoreConfig($configPath, $storeId = null)

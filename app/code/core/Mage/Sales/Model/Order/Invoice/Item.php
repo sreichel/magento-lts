@@ -172,7 +172,8 @@ class Mage_Sales_Model_Order_Invoice_Item extends Mage_Core_Model_Abstract
     /**
      * Declare qty
      *
-     * @param  float $qty
+     * @param float $qty
+     *
      * @return $this
      */
     public function setQty($qty)

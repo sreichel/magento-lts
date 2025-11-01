@@ -117,6 +117,7 @@ class Mage_Adminhtml_Block_Cms_Wysiwyg_Images_Content_Files extends Mage_Adminht
 
     /**
      * Return current media type based on request or data
+     *
      * @return string
      */
     protected function _getMediaType()

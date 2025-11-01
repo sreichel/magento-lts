@@ -276,7 +276,8 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
     /**
      * Prepare quantity
      *
-     * @param  float|int $qty
+     * @param float|int $qty
+     *
      * @return int|float
      */
     protected function _prepareQty($qty)
@@ -298,7 +299,8 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
     /**
      * Adding quantity to quote item
      *
-     * @param  float $qty
+     * @param float $qty
+     *
      * @return $this
      */
     public function addQty($qty)
@@ -321,7 +323,8 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
     /**
      * Declare quote item quantity
      *
-     * @param  float $qty
+     * @param float $qty
+     *
      * @return $this
      */
     public function setQty($qty)
@@ -383,7 +386,8 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
     /**
      * Set option product with Qty
      *
-     * @param  array $qtyOptions
+     * @param array $qtyOptions
+     *
      * @return $this
      */
     public function setQtyOptions($qtyOptions)
@@ -394,7 +398,8 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
     /**
      * Setup product for quote item
      *
-     * @param  Mage_Catalog_Model_Product $product
+     * @param Mage_Catalog_Model_Product $product
+     *
      * @return $this
      */
     public function setProduct($product)
@@ -429,7 +434,8 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
     /**
      * Check product representation in item
      *
-     * @param  Mage_Catalog_Model_Product $product
+     * @param Mage_Catalog_Model_Product $product
+     *
      * @return bool
      */
     public function representProduct($product)
@@ -470,8 +476,9 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      * First options array is prerogative
      * Second options array checked against first one
      *
-     * @param  array $options1
-     * @param  array $options2
+     * @param array $options1
+     * @param array $options2
+     *
      * @return bool
      */
     public function compareOptions($options1, $options2)
@@ -496,7 +503,8 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
     /**
      * Compare item
      *
-     * @param  Mage_Sales_Model_Quote_Item $item
+     * @param Mage_Sales_Model_Quote_Item $item
+     *
      * @return bool
      */
     public function compare($item)
@@ -601,7 +609,8 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
     /**
      * Initialize quote item options
      *
-     * @param  array $options
+     * @param array $options
+     *
      * @return $this
      */
     public function setOptions($options)
@@ -636,8 +645,10 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
     /**
      * Add option to item
      *
-     * @param  Mage_Sales_Model_Quote_Item_Option|Varien_Object|array $option
+     * @param Mage_Sales_Model_Quote_Item_Option|Varien_Object|array $option
+     *
      * @return $this
+     *
      * @throws Mage_Core_Exception
      */
     public function addOption($option)
@@ -670,7 +681,8 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      * Example: cataloginventory decimal qty validation may change qty to int,
      * so need to change quote item qty option value.
      *
-     * @param  int|float|null $value
+     * @param int|float|null $value
+     *
      * @return $this
      */
     public function updateQtyOption(Varien_Object $option, $value)
@@ -691,7 +703,8 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
     /**
      *Remove option from item options
      *
-     * @param  string $code
+     * @param string $code
+     *
      * @return $this
      */
     public function removeOption($code)
@@ -707,7 +720,8 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
     /**
      * Register option code
      *
-     * @param  Mage_Sales_Model_Quote_Item_Option $option
+     * @param Mage_Sales_Model_Quote_Item_Option $option
+     *
      * @return $this
      */
     protected function _addOptionCode($option)
@@ -724,7 +738,8 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
     /**
      * Get item option by code
      *
-     * @param  string                                  $code
+     * @param string $code
+     *
      * @return Mage_Sales_Model_Quote_Item_Option|null
      */
     public function getOptionByCode($code)
@@ -840,7 +855,8 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
     /**
      * Sets flag, whether this quote item has some error associated with it.
      *
-     * @param  bool  $flag
+     * @param bool $flag
+     *
      * @return $this
      */
     protected function _setHasError($flag)
@@ -854,7 +870,8 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      * When FALSE - clears whole list of quote item errors.
      * It's recommended to use addErrorInfo() instead - to be able to remove error statuses later.
      *
-     * @param  bool  $flag
+     * @param bool $flag
+     *
      * @return $this
      * @see addErrorInfo()
      */
@@ -886,10 +903,11 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      * Adds error information to the quote item.
      * Automatically sets error flag.
      *
-     * @param  string|null        $origin         Usually a name of module, that embeds error
-     * @param  int|null           $code           Error code, unique for origin, that sets it
-     * @param  string|null        $message        Error message
-     * @param  Varien_Object|null $additionalData Any additional data, that caller would like to store
+     * @param string|null        $origin         Usually a name of module, that embeds error
+     * @param int|null           $code           Error code, unique for origin, that sets it
+     * @param string|null        $message        Error message
+     * @param Varien_Object|null $additionalData Any additional data, that caller would like to store
+     *
      * @return $this
      */
     public function addErrorInfo($origin = null, $code = null, $message = null, $additionalData = null)
@@ -919,7 +937,8 @@ class Mage_Sales_Model_Quote_Item extends Mage_Sales_Model_Quote_Item_Abstract
      * $params can have following keys (if not set - then any item is good for this key):
      *   'origin', 'code', 'message'
      *
-     * @param  array $params
+     * @param array $params
+     *
      * @return $this
      */
     public function removeErrorInfosByParams($params)

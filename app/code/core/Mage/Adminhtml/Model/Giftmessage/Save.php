@@ -22,6 +22,7 @@ class Mage_Adminhtml_Model_Giftmessage_Save extends Varien_Object
      * Save all seted giftmessages
      *
      * @return $this
+     *
      * @throws Throwable
      */
     public function saveAllInQuote()
@@ -49,6 +50,7 @@ class Mage_Adminhtml_Model_Giftmessage_Save extends Varien_Object
 
     /**
      * @return $this
+     *
      * @throws Throwable
      */
     public function saveAllInOrder()
@@ -69,9 +71,11 @@ class Mage_Adminhtml_Model_Giftmessage_Save extends Varien_Object
     /**
      * Save a single gift message
      *
-     * @param  int       $entityId
-     * @param  array     $giftmessage
+     * @param int   $entityId
+     * @param array $giftmessage
+     *
      * @return $this
+     *
      * @throws Throwable
      */
     protected function _saveOne($entityId, $giftmessage)
@@ -117,9 +121,11 @@ class Mage_Adminhtml_Model_Giftmessage_Save extends Varien_Object
     /**
      * Delete a single gift message from entity
      *
-     * @param  Mage_GiftMessage_Model_Message|null $giftmessageModel
-     * @param  Varien_Object                       $entityModel
+     * @param Mage_GiftMessage_Model_Message|null $giftmessageModel
+     * @param Varien_Object                       $entityModel
+     *
      * @return $this
+     *
      * @throws Throwable
      */
     protected function _deleteOne($entityModel, $giftmessageModel = null)
@@ -138,7 +144,8 @@ class Mage_Adminhtml_Model_Giftmessage_Save extends Varien_Object
     /**
      * Set allowed quote items for gift messages
      *
-     * @param  array $items
+     * @param array $items
+     *
      * @return $this
      */
     public function setAllowQuoteItems($items)
@@ -150,7 +157,8 @@ class Mage_Adminhtml_Model_Giftmessage_Save extends Varien_Object
     /**
      * Add allowed quote item for gift messages
      *
-     * @param  int   $item
+     * @param int $item
+     *
      * @return $this
      */
     public function addAllowQuoteItem($item)
@@ -202,7 +210,8 @@ class Mage_Adminhtml_Model_Giftmessage_Save extends Varien_Object
     /**
      * Checks allowed quote item for gift messages
      *
-     * @param  Varien_Object $item
+     * @param Varien_Object $item
+     *
      * @return bool
      */
     public function getIsAllowedQuoteItem($item)
@@ -222,7 +231,8 @@ class Mage_Adminhtml_Model_Giftmessage_Save extends Varien_Object
     /**
      * Retrieve is gift message available for item (product)
      *
-     * @param  Varien_Object $item
+     * @param Varien_Object $item
+     *
      * @return bool
      */
     public function isGiftMessagesAvailable($item)
@@ -237,7 +247,8 @@ class Mage_Adminhtml_Model_Giftmessage_Save extends Varien_Object
     /**
      * Imports quote items for gift messages from products data
      *
-     * @param  array $products
+     * @param array $products
+     *
      * @return $this
      */
     public function importAllowQuoteItemsFromProducts($products)
@@ -304,7 +315,8 @@ class Mage_Adminhtml_Model_Giftmessage_Save extends Varien_Object
     /**
      * Retrieve mapped type for entity
      *
-     * @param  string $type
+     * @param string $type
+     *
      * @return string
      */
     protected function _getMappedType($type)

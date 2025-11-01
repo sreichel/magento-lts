@@ -17,8 +17,9 @@ class Mage_Catalog_Model_Product_Option_Value_Api extends Mage_Catalog_Model_Api
     /**
      * Retrieve values from specified option
      *
-     * @param  string          $optionId
-     * @param  int|string|null $store
+     * @param string          $optionId
+     * @param int|string|null $store
+     *
      * @return array
      */
     public function items($optionId, $store = null)
@@ -43,8 +44,9 @@ class Mage_Catalog_Model_Product_Option_Value_Api extends Mage_Catalog_Model_Api
     /**
      * Retrieve specified option value info
      *
-     * @param  string          $valueId
-     * @param  int|string|null $store
+     * @param string          $valueId
+     * @param int|string|null $store
+     *
      * @return array
      */
     public function info($valueId, $store = null)
@@ -81,9 +83,10 @@ class Mage_Catalog_Model_Product_Option_Value_Api extends Mage_Catalog_Model_Api
     /**
      * Add new values to select option
      *
-     * @param  string          $optionId
-     * @param  array           $data
-     * @param  int|string|null $store
+     * @param string          $optionId
+     * @param array           $data
+     * @param int|string|null $store
+     *
      * @return bool
      */
     public function add($optionId, $data, $store = null)
@@ -111,9 +114,10 @@ class Mage_Catalog_Model_Product_Option_Value_Api extends Mage_Catalog_Model_Api
     /**
      * Update value to select option
      *
-     * @param  string          $valueId
-     * @param  array           $data
-     * @param  int|string|null $store
+     * @param string          $valueId
+     * @param array           $data
+     * @param int|string|null $store
+     *
      * @return bool
      */
     public function update($valueId, $data, $store = null)
@@ -156,7 +160,8 @@ class Mage_Catalog_Model_Product_Option_Value_Api extends Mage_Catalog_Model_Api
     /**
      * Delete value from select option
      *
-     * @param  int  $valueId
+     * @param int $valueId
+     *
      * @return bool
      */
     public function remove($valueId)
@@ -184,8 +189,9 @@ class Mage_Catalog_Model_Product_Option_Value_Api extends Mage_Catalog_Model_Api
     /**
      * Load option by id and store
      *
-     * @param  string                            $optionId
-     * @param  int|string|null                   $store
+     * @param string          $optionId
+     * @param int|string|null $store
+     *
      * @return Mage_Catalog_Model_Product_Option
      */
     protected function _prepareOption($optionId, $store = null)

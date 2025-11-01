@@ -24,6 +24,7 @@ class Mage_Adminhtml_Block_Report_Product_Grid extends Mage_Adminhtml_Block_Widg
 
     /**
      * @inheritDoc
+     *
      * @throws Exception
      */
     protected function _prepareCollection()
@@ -49,6 +50,7 @@ class Mage_Adminhtml_Block_Report_Product_Grid extends Mage_Adminhtml_Block_Widg
 
     /**
      * @inheritDoc
+     *
      * @throws Exception
      */
     protected function _prepareColumns()

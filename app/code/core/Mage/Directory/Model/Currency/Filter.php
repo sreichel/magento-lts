@@ -52,7 +52,8 @@ class Mage_Directory_Model_Currency_Filter implements Zend_Filter_Interface
     /**
      * Filter value
      *
-     * @param  double $value
+     * @param double $value
+     *
      * @return string
      */
     public function filter($value)

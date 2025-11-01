@@ -63,7 +63,8 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Cart extends Mage_Adminhtm
     /**
      * Retrieve identifier of block item
      *
-     * @param  Varien_Object $item
+     * @param Varien_Object $item
+     *
      * @return int
      */
     public function getIdentifierId($item)
@@ -74,7 +75,8 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Sidebar_Cart extends Mage_Adminhtm
     /**
      * Retrieve product identifier linked with item
      *
-     * @param  Mage_Sales_Model_Quote_Item $item
+     * @param Mage_Sales_Model_Quote_Item $item
+     *
      * @return int
      */
     public function getProductId($item)

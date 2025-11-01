@@ -18,6 +18,7 @@ class Mage_Catalog_CategoryController extends Mage_Core_Controller_Front_Action
      * Initialize requested category object
      *
      * @return Mage_Catalog_Model_Category|false
+     *
      * @throws Mage_Core_Exception
      */
     protected function _initCategory()
@@ -60,6 +61,7 @@ class Mage_Catalog_CategoryController extends Mage_Core_Controller_Front_Action
      * Initialize requested category object
      *
      * @return Mage_Catalog_Model_Category
+     *
      * @throws Mage_Core_Exception
      * @deprecated use method _initCategory
      *
@@ -107,6 +109,7 @@ class Mage_Catalog_CategoryController extends Mage_Core_Controller_Front_Action
 
     /**
      * Category view action
+     *
      * @throws Mage_Core_Exception
      */
     public function viewAction()

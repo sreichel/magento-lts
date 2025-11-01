@@ -17,7 +17,8 @@ class Mage_Checkout_Model_Cart_Product_Api_V2 extends Mage_Checkout_Model_Cart_P
     /**
      * Return an Array of Object attributes.
      *
-     * @param  object|array $data
+     * @param object|array $data
+     *
      * @return array
      */
     protected function _prepareProductsData($data)

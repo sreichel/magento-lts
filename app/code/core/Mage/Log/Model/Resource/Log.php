@@ -46,7 +46,8 @@ class Mage_Log_Model_Resource_Log extends Mage_Core_Model_Resource_Db_Abstract
     /**
      * Clean visitors table
      *
-     * @param  int   $time
+     * @param int $time
+     *
      * @return $this
      */
     protected function _cleanVisitors($time)
@@ -97,7 +98,8 @@ class Mage_Log_Model_Resource_Log extends Mage_Core_Model_Resource_Db_Abstract
     /**
      * Clean customer table
      *
-     * @param  int   $time
+     * @param int $time
+     *
      * @return $this
      */
     protected function _cleanCustomers($time)

@@ -20,6 +20,7 @@ class Mage_Cms_Block_Page extends Mage_Core_Block_Abstract
      * Retrieve Page instance
      *
      * @return Mage_Cms_Model_Page
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function getPage()
@@ -42,6 +43,7 @@ class Mage_Cms_Block_Page extends Mage_Core_Block_Abstract
 
     /**
      * @inheritDoc
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     protected function _prepareLayout()
@@ -112,7 +114,9 @@ class Mage_Cms_Block_Page extends Mage_Core_Block_Abstract
      * Prepare HTML content
      *
      * @return string
+     *
      * @throws Mage_Core_Model_Store_Exception
+     *
      * @throws Exception
      */
     protected function _toHtml()

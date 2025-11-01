@@ -88,7 +88,8 @@ class Mage_Sales_Block_Order_Invoice extends Mage_Sales_Block_Order_Invoice_Item
     }
 
     /**
-     * @param  Mage_Sales_Model_Order $order
+     * @param Mage_Sales_Model_Order $order
+     *
      * @return string
      */
     public function getViewUrl($order)
@@ -97,7 +98,8 @@ class Mage_Sales_Block_Order_Invoice extends Mage_Sales_Block_Order_Invoice_Item
     }
 
     /**
-     * @param  Mage_Sales_Model_Order $order
+     * @param Mage_Sales_Model_Order $order
+     *
      * @return string
      */
     public function getShipmentUrl($order)
@@ -106,7 +108,8 @@ class Mage_Sales_Block_Order_Invoice extends Mage_Sales_Block_Order_Invoice_Item
     }
 
     /**
-     * @param  Mage_Sales_Model_Order $order
+     * @param Mage_Sales_Model_Order $order
+     *
      * @return string
      */
     public function getCreditmemoUrl($order)
@@ -115,7 +118,8 @@ class Mage_Sales_Block_Order_Invoice extends Mage_Sales_Block_Order_Invoice_Item
     }
 
     /**
-     * @param  Mage_Sales_Model_Order_Invoice $invoice
+     * @param Mage_Sales_Model_Order_Invoice $invoice
+     *
      * @return string
      */
     public function getPrintInvoiceUrl($invoice)
@@ -124,7 +128,8 @@ class Mage_Sales_Block_Order_Invoice extends Mage_Sales_Block_Order_Invoice_Item
     }
 
     /**
-     * @param  Mage_Sales_Model_Order $order
+     * @param Mage_Sales_Model_Order $order
+     *
      * @return string
      */
     public function getPrintAllInvoicesUrl($order)

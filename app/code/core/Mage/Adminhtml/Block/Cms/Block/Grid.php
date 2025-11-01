@@ -24,6 +24,7 @@ class Mage_Adminhtml_Block_Cms_Block_Grid extends Mage_Adminhtml_Block_Widget_Gr
 
     /**
      * @inheritDoc
+     *
      * @throws Exception
      */
     protected function _prepareCollection()
@@ -35,6 +36,7 @@ class Mage_Adminhtml_Block_Cms_Block_Grid extends Mage_Adminhtml_Block_Widget_Gr
 
     /**
      * @inheritDoc
+     *
      * @throws Exception
      */
     protected function _prepareColumns()

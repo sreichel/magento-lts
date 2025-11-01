@@ -88,8 +88,9 @@ class Mage_Core_Model_Resource_Store extends Mage_Core_Model_Resource_Db_Abstrac
     /**
      * Update Default store for Store Group
      *
-     * @param  int   $groupId
-     * @param  int   $storeId
+     * @param int $groupId
+     * @param int $storeId
+     *
      * @return $this
      */
     protected function _updateGroupDefaultStore($groupId, $storeId)
@@ -138,9 +139,10 @@ class Mage_Core_Model_Resource_Store extends Mage_Core_Model_Resource_Db_Abstrac
     /**
      * Retrieve select object for load object data
      *
-     * @param  string                   $field
-     * @param  mixed                    $value
-     * @param  Mage_Core_Model_Abstract $object
+     * @param string                   $field
+     * @param mixed                    $value
+     * @param Mage_Core_Model_Abstract $object
+     *
      * @return Varien_Db_Select
      */
     protected function _getLoadSelect($field, $value, $object)

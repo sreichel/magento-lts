@@ -43,6 +43,7 @@ class Mage_Eav_Model_Form_Fieldset extends Mage_Core_Model_Abstract
     /**
      * Validate data before save data
      *
+     *
      * @throws Mage_Core_Exception
      * @inheritDoc
      */
@@ -87,8 +88,9 @@ class Mage_Eav_Model_Form_Fieldset extends Mage_Core_Model_Abstract
     /**
      * Set fieldset store label
      *
-     * @param  int    $storeId
-     * @param  string $label
+     * @param int    $storeId
+     * @param string $label
+     *
      * @return $this
      */
     public function setStoreLabel($storeId, $label)

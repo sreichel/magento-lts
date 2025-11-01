@@ -136,7 +136,8 @@ class Mage_Catalog_Model_Layer_Filter_Price extends Mage_Catalog_Model_Layer_Fil
     /**
      * Get information about products count in range
      *
-     * @param  int   $range
+     * @param int $range
+     *
      * @return array
      */
     public function getRangeItemCounts($range)
@@ -170,8 +171,9 @@ class Mage_Catalog_Model_Layer_Filter_Price extends Mage_Catalog_Model_Layer_Fil
      * Prepare text of item label
      *
      * @deprecated since 1.7.0.0
-     * @param  int    $range
-     * @param  float  $value
+     * @param int   $range
+     * @param float $value
+     *
      * @return string
      */
     protected function _renderItemLabel($range, $value)
@@ -186,8 +188,9 @@ class Mage_Catalog_Model_Layer_Filter_Price extends Mage_Catalog_Model_Layer_Fil
     /**
      * Prepare text of range label
      *
-     * @param  float|string $fromPrice
-     * @param  float|string $toPrice
+     * @param float|string $fromPrice
+     * @param float|string $toPrice
+     *
      * @return string
      */
     protected function _renderRangeLabel($fromPrice, $toPrice)
@@ -210,6 +213,7 @@ class Mage_Catalog_Model_Layer_Filter_Price extends Mage_Catalog_Model_Layer_Fil
     /**
      * Get price aggreagation data cache key
      * @deprecated after 1.4
+     *
      * @return string
      */
     protected function _getCacheKey()
@@ -340,7 +344,8 @@ class Mage_Catalog_Model_Layer_Filter_Price extends Mage_Catalog_Model_Layer_Fil
     /**
      * Validate and parse filter request param
      *
-     * @param  string     $filter
+     * @param string $filter
+     *
      * @return array|bool
      */
     protected function _validateFilter($filter)
@@ -362,7 +367,8 @@ class Mage_Catalog_Model_Layer_Filter_Price extends Mage_Catalog_Model_Layer_Fil
     /**
      * Apply price range filter
      *
-     * @param  Varien_Object $filterBlock deprecated
+     * @param Varien_Object $filterBlock deprecated
+     *
      * @return $this
      */
     public function apply(Zend_Controller_Request_Abstract $request, $filterBlock)
@@ -416,8 +422,9 @@ class Mage_Catalog_Model_Layer_Filter_Price extends Mage_Catalog_Model_Layer_Fil
      * Apply filter value to product collection based on filter range and selected value
      *
      * @deprecated since 1.7.0.0
-     * @param  int   $range
-     * @param  int   $index
+     * @param int $range
+     * @param int $index
+     *
      * @return $this
      */
     protected function _applyToCollection($range, $index)
@@ -444,7 +451,8 @@ class Mage_Catalog_Model_Layer_Filter_Price extends Mage_Catalog_Model_Layer_Fil
     /**
      * Set active customer group id for filter
      *
-     * @param  int   $customerGroupId
+     * @param int $customerGroupId
+     *
      * @return $this
      */
     public function setCustomerGroupId($customerGroupId)
@@ -474,7 +482,8 @@ class Mage_Catalog_Model_Layer_Filter_Price extends Mage_Catalog_Model_Layer_Fil
     /**
      * Set active currency rate for filter
      *
-     * @param  float $rate
+     * @param float $rate
+     *
      * @return $this
      */
     public function setCurrencyRate($rate)
@@ -541,10 +550,11 @@ class Mage_Catalog_Model_Layer_Filter_Price extends Mage_Catalog_Model_Layer_Fil
     /**
      * Load range of product prices
      *
-     * @param  int        $limit
-     * @param  int|null   $offset
-     * @param  float|null $lowerPrice
-     * @param  float|null $upperPrice
+     * @param int        $limit
+     * @param int|null   $offset
+     * @param float|null $lowerPrice
+     * @param float|null $upperPrice
+     *
      * @return array
      */
     public function loadPrices($limit, $offset = null, $lowerPrice = null, $upperPrice = null)
@@ -560,9 +570,10 @@ class Mage_Catalog_Model_Layer_Filter_Price extends Mage_Catalog_Model_Layer_Fil
     /**
      * Load range of product prices, preceding the price
      *
-     * @param  float       $price
-     * @param  int         $index
-     * @param  float|null  $lowerPrice
+     * @param float      $price
+     * @param int        $index
+     * @param float|null $lowerPrice
+     *
      * @return array|false
      */
     public function loadPreviousPrices($price, $index, $lowerPrice = null)
@@ -578,9 +589,10 @@ class Mage_Catalog_Model_Layer_Filter_Price extends Mage_Catalog_Model_Layer_Fil
     /**
      * Load range of product prices, next to the price
      *
-     * @param  float       $price
-     * @param  int         $rightIndex
-     * @param  float|null  $upperPrice
+     * @param float      $price
+     * @param int        $rightIndex
+     * @param float|null $upperPrice
+     *
      * @return array|false
      */
     public function loadNextPrices($price, $rightIndex, $upperPrice = null)

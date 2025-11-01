@@ -53,6 +53,7 @@ class Mage_CatalogIndex_Model_Indexer_Minimalprice extends Mage_CatalogIndex_Mod
 
     /**
      * @return Mage_Eav_Model_Entity_Attribute_Abstract|mixed
+     *
      * @throws Mage_Core_Exception
      */
     public function getTierPriceAttribute()
@@ -68,6 +69,7 @@ class Mage_CatalogIndex_Model_Indexer_Minimalprice extends Mage_CatalogIndex_Mod
 
     /**
      * @return Mage_Eav_Model_Entity_Attribute_Abstract|mixed
+     *
      * @throws Mage_Core_Exception
      */
     public function getPriceAttribute()

@@ -31,7 +31,8 @@ class Mage_Tax_Model_Calculation_Rate_Title extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  int   $rateId
+     * @param int $rateId
+     *
      * @return $this
      */
     public function deleteByRateId($rateId)

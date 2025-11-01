@@ -17,9 +17,10 @@ class Mage_CatalogIndex_Model_Resource_Data_Grouped extends Mage_CatalogIndex_Mo
     /**
      * Return minimal prices for specified products
      *
-     * @param  array $products
-     * @param  array $priceAttributes
-     * @param  int   $store
+     * @param array $products
+     * @param array $priceAttributes
+     * @param int   $store
+     *
      * @return array
      */
     public function getMinimalPrice($products, $priceAttributes, $store)

@@ -70,6 +70,7 @@ class Mage_Core_Model_Config_Data extends Mage_Core_Model_Abstract
 
     /**
      * Add availability call after load as public
+     *
      * @return $this
      */
     public function afterLoad()
@@ -113,7 +114,8 @@ class Mage_Core_Model_Config_Data extends Mage_Core_Model_Abstract
     /**
      * Get value by key for new user data from <section>/groups/<group>/fields/<field>
      *
-     * @param  string $key
+     * @param string $key
+     *
      * @return string
      */
     public function getFieldsetDataValue($key)

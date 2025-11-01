@@ -115,8 +115,9 @@ class Mage_Page_Block_Template_Links_Block extends Mage_Core_Block_Template
     /**
      * Set first list flag
      *
-     * @param  bool                                 $value
-     *                                                     return Mage_Page_Block_Template_Links_Block
+     * @param bool $value
+     *                    return Mage_Page_Block_Template_Links_Block
+     *
      * @return Mage_Page_Block_Template_Links_Block
      */
     public function setIsFirst($value)
@@ -138,8 +139,9 @@ class Mage_Page_Block_Template_Links_Block extends Mage_Core_Block_Template
     /**
      * Set last list flag
      *
-     * @param  bool                                 $value
-     *                                                     return Mage_Page_Block_Template_Links_Block
+     * @param bool $value
+     *                    return Mage_Page_Block_Template_Links_Block
+     *
      * @return Mage_Page_Block_Template_Links_Block
      */
     public function setIsLast($value)
@@ -181,7 +183,8 @@ class Mage_Page_Block_Template_Links_Block extends Mage_Core_Block_Template
     /**
      * Prepare tag attributes
      *
-     * @param  string|array $params
+     * @param string|array $params
+     *
      * @return string
      */
     protected function _prepareParams($params)

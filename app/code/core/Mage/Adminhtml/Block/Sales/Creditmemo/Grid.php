@@ -36,6 +36,7 @@ class Mage_Adminhtml_Block_Sales_Creditmemo_Grid extends Mage_Adminhtml_Block_Wi
 
     /**
      * @inheritDoc
+     *
      * @throws Exception
      */
     protected function _prepareCollection()
@@ -47,6 +48,7 @@ class Mage_Adminhtml_Block_Sales_Creditmemo_Grid extends Mage_Adminhtml_Block_Wi
 
     /**
      * @inheritDoc
+     *
      * @throws Exception
      */
     protected function _prepareColumns()
@@ -135,7 +137,8 @@ class Mage_Adminhtml_Block_Sales_Creditmemo_Grid extends Mage_Adminhtml_Block_Wi
     }
 
     /**
-     * @param  Mage_Sales_Model_Order_Creditmemo $row
+     * @param Mage_Sales_Model_Order_Creditmemo $row
+     *
      * @return false|string
      */
     public function getRowUrl($row)

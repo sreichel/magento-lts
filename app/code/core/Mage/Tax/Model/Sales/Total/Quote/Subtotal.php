@@ -803,7 +803,8 @@ class Mage_Tax_Model_Sales_Total_Quote_Subtotal extends Mage_Sales_Model_Quote_A
     /**
      * Add row total item amount to subtotal
      *
-     * @param  Mage_Sales_Model_Quote_Item_Abstract      $item
+     * @param Mage_Sales_Model_Quote_Item_Abstract $item
+     *
      * @return Mage_Tax_Model_Sales_Total_Quote_Subtotal
      */
     protected function _addSubtotalAmount(Mage_Sales_Model_Quote_Address $address, $item)
@@ -846,7 +847,8 @@ class Mage_Tax_Model_Sales_Total_Quote_Subtotal extends Mage_Sales_Model_Quote_A
      *
      * @deprecated after 1.4.0.1
      *
-     * @param  Mage_Sales_Model_Quote_Address            $address
+     * @param Mage_Sales_Model_Quote_Address $address
+     *
      * @return Mage_Tax_Model_Sales_Total_Quote_Subtotal
      */
     protected function _processShippingAmount($address)

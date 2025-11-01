@@ -218,8 +218,9 @@ class Varien_Io_Sftp extends Varien_Io_Abstract implements Varien_Io_Interface
 
     /**
      * Write a file
-     * @param  string $filename remote filename
-     * @param  string $src      local filename
+     * @param string $filename remote filename
+     * @param string $src      local filename
+     *
      * @return bool
      */
     public function writeFile($filename, $src)

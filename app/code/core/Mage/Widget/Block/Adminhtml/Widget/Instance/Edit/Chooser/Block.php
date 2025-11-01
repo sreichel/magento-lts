@@ -41,7 +41,8 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Chooser_Block extends Mag
     /**
      * Setter
      *
-     * @param  array $allowedBlocks
+     * @param array $allowedBlocks
+     *
      * @return $this
      */
     public function setAllowedBlocks($allowedBlocks)
@@ -53,7 +54,8 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Chooser_Block extends Mag
     /**
      * Add allowed block
      *
-     * @param  string $block
+     * @param string $block
+     *
      * @return $this
      */
     public function addAllowedBlock($block)
@@ -76,7 +78,8 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Chooser_Block extends Mag
      * Setter
      * If string given exlopde to array by ',' delimiter
      *
-     * @param  string|array $layoutHandle
+     * @param string|array $layoutHandle
+     *
      * @return $this
      */
     public function setLayoutHandle($layoutHandle)
@@ -235,7 +238,8 @@ class Mage_Widget_Block_Adminhtml_Widget_Instance_Edit_Chooser_Block extends Mag
     /**
      * Check whether given block match allowed block types
      *
-     * @param  Mage_Core_Model_Layout_Element $block
+     * @param Mage_Core_Model_Layout_Element $block
+     *
      * @return bool
      */
     protected function _filterBlock($block)

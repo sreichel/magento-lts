@@ -169,7 +169,8 @@ class Mage_SalesRule_Model_Coupon_Massgenerator extends Mage_Core_Model_Abstract
     /**
      * Validate input
      *
-     * @param  array $data
+     * @param array $data
+     *
      * @return bool
      */
     public function validateData($data)

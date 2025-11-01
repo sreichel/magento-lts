@@ -50,8 +50,9 @@ class Mage_Core_Model_Email extends Varien_Object
     }
 
     /**
-     * @param  string|array $var
-     * @param  string|null  $value
+     * @param string|array $var
+     * @param string|null  $value
+     *
      * @return $this
      */
     public function setTemplateVar($var, $value = null)
@@ -113,6 +114,7 @@ class Mage_Core_Model_Email extends Varien_Object
 
     /**
      * @return $this
+     *
      * @throws Zend_Mail_Exception
      */
     public function send()

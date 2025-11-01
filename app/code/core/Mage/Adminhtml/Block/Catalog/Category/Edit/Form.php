@@ -87,6 +87,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Edit_Form extends Mage_Adminhtml_Blo
 
     /**
      * @return string
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function getStoreConfigurationUrl()
@@ -153,8 +154,9 @@ class Mage_Adminhtml_Block_Catalog_Category_Edit_Form extends Mage_Adminhtml_Blo
     /**
      * Add additional button
      *
-     * @param  string $alias
-     * @param  array  $config
+     * @param string $alias
+     * @param array  $config
+     *
      * @return $this
      */
     public function addAdditionalButton($alias, $config)
@@ -174,7 +176,8 @@ class Mage_Adminhtml_Block_Catalog_Category_Edit_Form extends Mage_Adminhtml_Blo
     /**
      * Remove additional button
      *
-     * @param  string $alias
+     * @param string $alias
+     *
      * @return $this
      */
     public function removeAdditionalButton($alias)

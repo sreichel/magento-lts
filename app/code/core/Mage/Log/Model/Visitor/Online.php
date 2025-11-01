@@ -64,7 +64,8 @@ class Mage_Log_Model_Visitor_Online extends Mage_Core_Model_Abstract
     /**
      * Set Prepare at timestamp (if time is null, set current timestamp)
      *
-     * @param  int   $time
+     * @param int $time
+     *
      * @return $this
      */
     public function setPrepareAt($time = null)

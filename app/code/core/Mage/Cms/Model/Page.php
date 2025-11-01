@@ -111,8 +111,9 @@ class Mage_Cms_Model_Page extends Mage_Core_Model_Abstract
      * Check if page identifier exist for specific store
      * return page id if page exists
      *
-     * @param  string $identifier
-     * @param  int    $storeId
+     * @param string $identifier
+     * @param int    $storeId
+     *
      * @return string
      */
     public function checkIdentifier($identifier, $storeId)

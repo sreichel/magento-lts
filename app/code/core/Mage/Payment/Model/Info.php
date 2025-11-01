@@ -80,6 +80,7 @@ class Mage_Payment_Model_Info extends Mage_Core_Model_Abstract
      * Retrieve payment method model object
      *
      * @return Mage_Payment_Model_Method_Abstract
+     *
      * @throws Mage_Core_Exception
      */
     public function getMethodInstance()
@@ -103,7 +104,8 @@ class Mage_Payment_Model_Info extends Mage_Core_Model_Abstract
     /**
      * Encrypt data
      *
-     * @param  string $data
+     * @param string $data
+     *
      * @return string
      */
     public function encrypt($data)
@@ -118,7 +120,8 @@ class Mage_Payment_Model_Info extends Mage_Core_Model_Abstract
     /**
      * Decrypt data
      *
-     * @param  string $data
+     * @param string $data
+     *
      * @return string
      */
     public function decrypt($data)
@@ -135,9 +138,11 @@ class Mage_Payment_Model_Info extends Mage_Core_Model_Abstract
      * Updates data inside the 'additional_information' array
      * or all 'additional_information' if key is data array
      *
-     * @param  string|array        $key
-     * @param  mixed               $value
+     * @param string|array $key
+     * @param mixed        $value
+     *
      * @return $this
+     *
      * @throws Mage_Core_Exception
      */
     public function setAdditionalInformation($key, $value = null)
@@ -159,7 +164,8 @@ class Mage_Payment_Model_Info extends Mage_Core_Model_Abstract
     /**
      * Getter for entire additional_information value or one of its element by key
      *
-     * @param  string           $key
+     * @param string $key
+     *
      * @return array|null|mixed
      */
     public function getAdditionalInformation($key = null)
@@ -175,7 +181,8 @@ class Mage_Payment_Model_Info extends Mage_Core_Model_Abstract
     /**
      * Unsetter for entire additional_information value or one of its element by key
      *
-     * @param  string $key
+     * @param string $key
+     *
      * @return $this
      */
     public function unsAdditionalInformation($key = null)
@@ -192,7 +199,8 @@ class Mage_Payment_Model_Info extends Mage_Core_Model_Abstract
     /**
      * Check whether there is additional information by specified key
      *
-     * @param  string $key
+     * @param string $key
+     *
      * @return bool
      */
     public function hasAdditionalInformation($key = null)

@@ -17,8 +17,10 @@ abstract class Mage_Api2_Model_Request_Interpreter
     /**
      * Request body interpreters factory
      *
-     * @param  string                         $type
+     * @param string $type
+     *
      * @return false|Mage_Core_Model_Abstract
+     *
      * @throws Mage_Api2_Exception
      */
     public static function factory($type)

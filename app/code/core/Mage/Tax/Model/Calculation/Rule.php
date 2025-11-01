@@ -167,9 +167,10 @@ class Mage_Tax_Model_Calculation_Rule extends Mage_Core_Model_Abstract
      * Fetches rules by rate, customer tax class and product tax class
      * and product tax class combination
      *
-     * @param  array $rateId
-     * @param  array $customerTaxClassId
-     * @param  array $productTaxClassId
+     * @param array $rateId
+     * @param array $customerTaxClassId
+     * @param array $productTaxClassId
+     *
      * @return array
      */
     public function fetchRuleCodes($rateId, $customerTaxClassId, $productTaxClassId)

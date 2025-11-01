@@ -37,6 +37,7 @@ interface Mage_CatalogInventory_Model_Resource_Indexer_Stock_Interface
     /**
      * Retrieve Product Type Id for indexer
      *
+     *
      * @throws Mage_Core_Exception
      *
      */

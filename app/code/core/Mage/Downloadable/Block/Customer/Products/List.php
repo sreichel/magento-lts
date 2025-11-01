@@ -79,7 +79,8 @@ class Mage_Downloadable_Block_Customer_Products_List extends Mage_Core_Block_Tem
     /**
      * Return order view url
      *
-     * @param  int    $orderId
+     * @param int $orderId
+     *
      * @return string
      */
     public function getOrderViewUrl($orderId)
@@ -102,7 +103,8 @@ class Mage_Downloadable_Block_Customer_Products_List extends Mage_Core_Block_Tem
     /**
      * Return number of left downloads or unlimited
      *
-     * @param  Mage_Downloadable_Model_Link_Purchased_Item $item
+     * @param Mage_Downloadable_Model_Link_Purchased_Item $item
+     *
      * @return int|string
      */
     public function getRemainingDownloads($item)
@@ -117,7 +119,8 @@ class Mage_Downloadable_Block_Customer_Products_List extends Mage_Core_Block_Tem
     /**
      * Return url to download link
      *
-     * @param  Mage_Downloadable_Model_Link_Purchased_Item $item
+     * @param Mage_Downloadable_Model_Link_Purchased_Item $item
+     *
      * @return string
      */
     public function getDownloadUrl($item)

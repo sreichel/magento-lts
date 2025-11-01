@@ -42,8 +42,9 @@ class Mage_CatalogIndex_Model_Resource_Aggregation extends Mage_Core_Model_Resou
     /**
      * Get aggregated cache data by data key and store
      *
-     * @param  string $key
-     * @param  int    $storeId
+     * @param string $key
+     * @param int    $storeId
+     *
      * @return array
      */
     public function getCacheData($key, $storeId)
@@ -65,10 +66,11 @@ class Mage_CatalogIndex_Model_Resource_Aggregation extends Mage_Core_Model_Resou
     /**
      * Save data to aggreagation table with tags relations
      *
-     * @param  array        $data
-     * @param  string       $key
-     * @param  array|string $tags
-     * @param  int          $storeId
+     * @param array        $data
+     * @param string       $key
+     * @param array|string $tags
+     * @param int          $storeId
+     *
      * @return $this
      */
     public function saveCacheData($data, $key, $tags, $storeId)
@@ -116,8 +118,9 @@ class Mage_CatalogIndex_Model_Resource_Aggregation extends Mage_Core_Model_Resou
     /**
      * Clear data in cache
      *
-     * @param  array           $tags
-     * @param  int|null|string $storeId
+     * @param array           $tags
+     * @param int|null|string $storeId
+     *
      * @return $this
      */
     public function clearCacheData($tags, $storeId)
@@ -146,8 +149,9 @@ class Mage_CatalogIndex_Model_Resource_Aggregation extends Mage_Core_Model_Resou
     /**
      * Save related tags for aggreagation data
      *
-     * @param  int   $aggregationId
-     * @param  array $tags
+     * @param int   $aggregationId
+     * @param array $tags
+     *
      * @return $this
      */
     protected function _saveTagRelations($aggregationId, $tags)
@@ -167,7 +171,8 @@ class Mage_CatalogIndex_Model_Resource_Aggregation extends Mage_Core_Model_Resou
      * Get identifiers of tags
      * if some tags not exist they will be added
      *
-     * @param  array $tags
+     * @param array $tags
+     *
      * @return array
      */
     protected function _getTagIds($tags)
@@ -200,7 +205,8 @@ class Mage_CatalogIndex_Model_Resource_Aggregation extends Mage_Core_Model_Resou
     /**
      * Insert tags to tag table
      *
-     * @param  string | array $tags
+     * @param string | array $tags
+     *
      * @return $this
      */
     protected function _addTags($tags)
@@ -225,7 +231,8 @@ class Mage_CatalogIndex_Model_Resource_Aggregation extends Mage_Core_Model_Resou
     /**
      * ProductCategoryPaths getter
      *
-     * @param  array $productIds
+     * @param array $productIds
+     *
      * @return array
      */
     public function getProductCategoryPaths($productIds)

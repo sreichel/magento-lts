@@ -68,6 +68,7 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
     /**
      * Validate Newsletter template
      *
+     *
      * @throws Mage_Core_Exception
      */
     public function validate()
@@ -114,7 +115,8 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
     /**
      * Load template by code
      *
-     * @param  string $templateCode
+     * @param string $templateCode
+     *
      * @return $this
      */
     public function loadByCode($templateCode)
@@ -174,7 +176,8 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
     /**
      * Retrieve processed template
      *
-     * @param  bool   $usePreprocess
+     * @param bool $usePreprocess
+     *
      * @return string
      */
     public function getProcessedTemplate(array $variables = [], $usePreprocess = false)
@@ -218,8 +221,9 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
     /**
      * Makes additional text preparations for HTML templates
      *
-     * @param  bool        $usePreprocess Use Preprocessed text or original text
-     * @param  string|null $html
+     * @param bool        $usePreprocess Use Preprocessed text or original text
+     * @param string|null $html
+     *
      * @return string
      */
     public function getPreparedTemplateText($usePreprocess = false, $html = null)
@@ -242,7 +246,8 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
     /**
      * Retrieve included template
      *
-     * @param  string $templateCode
+     * @param string $templateCode
+     *
      * @return string
      */
     public function getInclude($templateCode, array $variables)
@@ -270,10 +275,11 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
     /**
      * Send mail to subscriber
      *
-     * @param  Mage_Newsletter_Model_Subscriber|string $subscriber subscriber Model or E-mail
-     * @param  array                                   $variables  template variables
-     * @param  string|null                             $name       receiver name (if subscriber model not specified)
-     * @param  Mage_Newsletter_Model_Queue|null        $queue      queue model, used for problems reporting.
+     * @param Mage_Newsletter_Model_Subscriber|string $subscriber subscriber Model or E-mail
+     * @param array                                   $variables  template variables
+     * @param string|null                             $name       receiver name (if subscriber model not specified)
+     * @param Mage_Newsletter_Model_Queue|null        $queue      queue model, used for problems reporting.
+     *
      * @return bool
      * @deprecated since 1.4.0.1
      **/

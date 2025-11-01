@@ -24,7 +24,8 @@ class Mage_Admin_Model_Resource_Role_Collection extends Mage_Core_Model_Resource
     /**
      * Add user filter
      *
-     * @param  int   $userId
+     * @param int $userId
+     *
      * @return $this
      */
     public function setUserFilter($userId)

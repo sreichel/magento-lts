@@ -39,8 +39,9 @@ class Mage_Media_Model_File_Image extends Mage_Core_Model_Resource_Abstract
     }
 
     /**
-     * @param  mixed      $file
-     * @param  mixed|null $field
+     * @param mixed      $file
+     * @param mixed|null $field
+     *
      * @return $this
      */
     public function load(Mage_Media_Model_Image $object, $file, $field = null)
@@ -70,6 +71,7 @@ class Mage_Media_Model_File_Image extends Mage_Core_Model_Resource_Abstract
      * Create image resource for operation from file
      *
      * @return false|GdImage|resource
+     *
      * @throws Mage_Core_Exception
      */
     public function getImage(Mage_Media_Model_Image $object)
@@ -150,7 +152,8 @@ class Mage_Media_Model_File_Image extends Mage_Core_Model_Resource_Abstract
     /**
      * Creates image
      *
-     * @param  string|null $extension
+     * @param string|null $extension
+     *
      * @return $this
      */
     public function saveAs(Mage_Media_Model_Image $object, $extension = null)
@@ -203,7 +206,8 @@ class Mage_Media_Model_File_Image extends Mage_Core_Model_Resource_Abstract
     /**
      * Destroys resource object
      *
-     * @param  GdImage|resource            $resource
+     * @param GdImage|resource $resource
+     *
      * @return Mage_Media_Model_File_Image
      */
     public function destroyResource(&$resource)

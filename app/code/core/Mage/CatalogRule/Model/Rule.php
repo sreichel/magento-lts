@@ -291,6 +291,7 @@ class Mage_CatalogRule_Model_Rule extends Mage_Rule_Model_Abstract
     /**
      * Apply all price rules, invalidate related cache and refresh price index
      *
+     *
      * @throws Exception
      */
     public function applyAll()
@@ -308,7 +309,8 @@ class Mage_CatalogRule_Model_Rule extends Mage_Rule_Model_Abstract
     /**
      * Apply all price rules to product
      *
-     * @param  int|Mage_Catalog_Model_Product $product
+     * @param int|Mage_Catalog_Model_Product $product
+     *
      * @return $this
      */
     public function applyAllRulesToProduct($product)
@@ -347,7 +349,8 @@ class Mage_CatalogRule_Model_Rule extends Mage_Rule_Model_Abstract
     /**
      * Calculate price using catalog price rule of product
      *
-     * @param  float      $price
+     * @param float $price
+     *
      * @return float|null
      */
     public function calcProductPriceRule(Mage_Catalog_Model_Product $product, $price)

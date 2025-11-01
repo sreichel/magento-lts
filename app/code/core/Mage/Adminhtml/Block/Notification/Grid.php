@@ -28,6 +28,7 @@ class Mage_Adminhtml_Block_Notification_Grid extends Mage_Adminhtml_Block_Widget
 
     /**
      * @inheritDoc
+     *
      * @throws Mage_Core_Exception
      */
     protected function _prepareCollection()
@@ -41,6 +42,7 @@ class Mage_Adminhtml_Block_Notification_Grid extends Mage_Adminhtml_Block_Widget
 
     /**
      * @inheritDoc
+     *
      * @throws Exception
      */
     protected function _prepareColumns()
@@ -76,6 +78,7 @@ class Mage_Adminhtml_Block_Notification_Grid extends Mage_Adminhtml_Block_Widget
 
     /**
      * Prepare mass action
+     *
      * @return $this
      */
     protected function _prepareMassaction()
@@ -97,7 +100,8 @@ class Mage_Adminhtml_Block_Notification_Grid extends Mage_Adminhtml_Block_Widget
     }
 
     /**
-     * @param  Mage_AdminNotification_Model_Inbox $row
+     * @param Mage_AdminNotification_Model_Inbox $row
+     *
      * @return string
      */
     public function getRowClass(Varien_Object $row)

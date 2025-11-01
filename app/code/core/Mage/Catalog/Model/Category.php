@@ -233,8 +233,9 @@ class Mage_Catalog_Model_Category extends Mage_Catalog_Model_Abstract
     /**
      * Move category
      *
-     * @param  int                         $parentId        new parent category id
-     * @param  int                         $afterCategoryId category id after which we have put current category
+     * @param int $parentId        new parent category id
+     * @param int $afterCategoryId category id after which we have put current category
+     *
      * @return Mage_Catalog_Model_Category
      */
     public function move($parentId, $afterCategoryId)
@@ -340,8 +341,10 @@ class Mage_Catalog_Model_Category extends Mage_Catalog_Model_Abstract
     /**
      * Retrieve all customer attributes
      *
-     * @param  bool                              $noDesignAttributes
+     * @param bool $noDesignAttributes
+     *
      * @return Mage_Eav_Model_Entity_Attribute[]
+     *
      * @throws Mage_Core_Exception
      * @todo Use with Flat Resource
      */
@@ -465,7 +468,8 @@ class Mage_Catalog_Model_Category extends Mage_Catalog_Model_Abstract
     /**
      * Set store id
      *
-     * @param  string|int|Mage_Core_Model_Store $storeId
+     * @param string|int|Mage_Core_Model_Store $storeId
+     *
      * @return $this
      */
     public function setStoreId($storeId)
@@ -524,7 +528,8 @@ class Mage_Catalog_Model_Category extends Mage_Catalog_Model_Abstract
     /**
      * Format URL key from name or defined key
      *
-     * @param  string $str
+     * @param string $str
+     *
      * @return string
      */
     public function formatUrlKey($str)
@@ -648,7 +653,8 @@ class Mage_Catalog_Model_Category extends Mage_Catalog_Model_Abstract
     /**
      * Retrieve attribute by code
      *
-     * @param  string                                   $attributeCode
+     * @param string $attributeCode
+     *
      * @return Mage_Eav_Model_Entity_Attribute_Abstract
      */
     // phpcs:ignore Ecg.PHP.PrivateClassMember.PrivateClassMemberError
@@ -667,7 +673,8 @@ class Mage_Catalog_Model_Category extends Mage_Catalog_Model_Abstract
     /**
      * Get all children categories IDs
      *
-     * @param  bool         $asArray return result as array instead of comma-separated list of IDs
+     * @param bool $asArray return result as array instead of comma-separated list of IDs
+     *
      * @return array|string
      */
     public function getAllChildren($asArray = false)
@@ -715,7 +722,8 @@ class Mage_Catalog_Model_Category extends Mage_Catalog_Model_Abstract
     /**
      * Check category id existing
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return bool
      */
     public function checkId($id)
@@ -861,11 +869,12 @@ class Mage_Catalog_Model_Category extends Mage_Catalog_Model_Abstract
     /**
      * Retrieve categories by parent
      *
-     * @param  int                                                                                                           $parent
-     * @param  int                                                                                                           $recursionLevel
-     * @param  bool                                                                                                          $sorted
-     * @param  bool                                                                                                          $asCollection
-     * @param  bool                                                                                                          $toLoad
+     * @param int  $parent
+     * @param int  $recursionLevel
+     * @param bool $sorted
+     * @param bool $asCollection
+     * @param bool $toLoad
+     *
      * @return array|Mage_Catalog_Model_Resource_Category_Collection|Varien_Data_Collection|Varien_Data_Tree_Node_Collection
      */
     public function getCategories($parent, $recursionLevel = 0, $sorted = false, $asCollection = false, $toLoad = true)
@@ -997,7 +1006,9 @@ class Mage_Catalog_Model_Category extends Mage_Catalog_Model_Abstract
     /**
      * Validate attribute values
      *
+     *
      * @throws Mage_Eav_Model_Entity_Attribute_Exception
+     *
      * @return true|array
      */
     public function validate()

@@ -29,8 +29,10 @@ class Mage_Cms_Helper_Page extends Mage_Core_Helper_Abstract
      *
      * Call from controller action
      *
-     * @param  string              $pageId
+     * @param string $pageId
+     *
      * @return bool
+     *
      * @throws Mage_Core_Exception
      */
     public function renderPage(Mage_Core_Controller_Front_Action $action, $pageId = null)
@@ -41,9 +43,11 @@ class Mage_Cms_Helper_Page extends Mage_Core_Helper_Abstract
     /**
      * Renders CMS page
      *
-     * @param  string              $pageId
-     * @param  bool                $renderLayout
+     * @param string $pageId
+     * @param bool   $renderLayout
+     *
      * @return bool
+     *
      * @throws Mage_Core_Exception
      */
     protected function _renderPage(Mage_Core_Controller_Varien_Action $action, $pageId = null, $renderLayout = true)
@@ -130,9 +134,11 @@ class Mage_Cms_Helper_Page extends Mage_Core_Helper_Abstract
      * Allows to use also backend action as first parameter.
      * Also takes third parameter which allows not run renderLayout method.
      *
-     * @param  string              $pageId
-     * @param  bool                $renderLayout
+     * @param string $pageId
+     * @param bool   $renderLayout
+     *
      * @return bool
+     *
      * @throws Mage_Core_Exception
      */
     public function renderPageExtended(Mage_Core_Controller_Varien_Action $action, $pageId = null, $renderLayout = true)
@@ -143,8 +149,10 @@ class Mage_Cms_Helper_Page extends Mage_Core_Helper_Abstract
     /**
      * Retrieve page direct URL
      *
-     * @param  string                          $pageId
+     * @param string $pageId
+     *
      * @return string|null
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function getPageUrl($pageId = null)
@@ -197,7 +205,8 @@ class Mage_Cms_Helper_Page extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * @param  Form::SCOPE_*       $scope
+     * @param Form::SCOPE_* $scope
+     *
      * @throws Mage_Core_Exception
      */
     public static function getScopeInfoFromConfigScope(string $scope, string $scopeId): string
@@ -215,6 +224,7 @@ class Mage_Cms_Helper_Page extends Mage_Core_Helper_Abstract
     }
 
     /**
+     *
      * @throws Mage_Core_Exception
      */
     public static function getValidateConfigErrorMessage(Mage_Core_Model_Resource_Db_Collection_Abstract $isUsedInConfig): string

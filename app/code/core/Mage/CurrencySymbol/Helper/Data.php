@@ -19,7 +19,8 @@ class Mage_CurrencySymbol_Helper_Data extends Mage_Core_Helper_Data
     /**
      * Get currency display options
      *
-     * @param  string $baseCode
+     * @param string $baseCode
+     *
      * @return array
      */
     public function getCurrencyOptions($baseCode)

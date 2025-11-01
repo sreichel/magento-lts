@@ -23,8 +23,9 @@ class Mage_Bundle_Block_Adminhtml_Catalog_Product_Composite_Fieldset_Options_Typ
     }
 
     /**
-     * @param  string $elementId
-     * @param  string $containerId
+     * @param string $elementId
+     * @param string $containerId
+     *
      * @return string
      */
     public function setValidationContainer($elementId, $containerId)

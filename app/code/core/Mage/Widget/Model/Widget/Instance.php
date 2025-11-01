@@ -202,7 +202,8 @@ class Mage_Widget_Model_Widget_Instance extends Mage_Core_Model_Abstract
      * Setter
      * Prepare widget type
      *
-     * @param  string $type
+     * @param string $type
+     *
      * @return $this
      */
     public function setType($type)
@@ -242,7 +243,8 @@ class Mage_Widget_Model_Widget_Instance extends Mage_Core_Model_Abstract
      * Setter
      * Prepare widget package theme
      *
-     * @param  string $packageTheme
+     * @param string $packageTheme
+     *
      * @return $this
      */
     public function setPackageTheme($packageTheme)
@@ -464,7 +466,8 @@ class Mage_Widget_Model_Widget_Instance extends Mage_Core_Model_Abstract
     /**
      * Retrieve widget templates that supported by given block reference
      *
-     * @param  string $blockReference
+     * @param string $blockReference
+     *
      * @return array
      */
     public function getWidgetSupportedTemplatesByBlock($blockReference)
@@ -500,8 +503,9 @@ class Mage_Widget_Model_Widget_Instance extends Mage_Core_Model_Abstract
     /**
      * Generate layout update xml
      *
-     * @param  string $blockReference
-     * @param  string $templatePath
+     * @param string $blockReference
+     * @param string $templatePath
+     *
      * @return string
      */
     public function generateLayoutUpdateXml($blockReference, $templatePath = '')

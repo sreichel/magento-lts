@@ -30,6 +30,7 @@ class Mage_Adminhtml_Block_Catalog_Search_Grid extends Mage_Adminhtml_Block_Widg
      * Prepare collection for Grid
      *
      * @inheritDoc
+     *
      * @throws Mage_Core_Exception
      */
     protected function _prepareCollection()
@@ -44,6 +45,7 @@ class Mage_Adminhtml_Block_Catalog_Search_Grid extends Mage_Adminhtml_Block_Widg
      * Prepare Grid columns
      *
      * @inheritDoc
+     *
      * @throws Exception
      */
     protected function _prepareColumns()
@@ -145,7 +147,8 @@ class Mage_Adminhtml_Block_Catalog_Search_Grid extends Mage_Adminhtml_Block_Widg
     /**
      * Retrieve Row Click callback URL
      *
-     * @param  Mage_CatalogSearch_Model_Query $row
+     * @param Mage_CatalogSearch_Model_Query $row
+     *
      * @return string
      */
     public function getRowUrl($row)

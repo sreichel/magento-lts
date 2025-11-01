@@ -151,8 +151,9 @@ class Mage_Api_Model_Config extends Varien_Simplexml_Config
     /**
      * Load Acl resources from config
      *
-     * @param  Mage_Core_Model_Config_Element $resource
-     * @param  string                         $parentName
+     * @param Mage_Core_Model_Config_Element $resource
+     * @param string                         $parentName
+     *
      * @return $this
      */
     public function loadAclResources(Mage_Api_Model_Acl $acl, $resource = null, $parentName = null)
@@ -183,7 +184,8 @@ class Mage_Api_Model_Config extends Varien_Simplexml_Config
     /**
      * Get acl assert config
      *
-     * @param  string                                               $name
+     * @param string $name
+     *
      * @return bool|Mage_Core_Model_Config_Element|SimpleXMLElement
      */
     public function getAclAssert($name = '')
@@ -199,7 +201,8 @@ class Mage_Api_Model_Config extends Varien_Simplexml_Config
     /**
      * Retrieve privilege set by name
      *
-     * @param  string                                               $name
+     * @param string $name
+     *
      * @return bool|Mage_Core_Model_Config_Element|SimpleXMLElement
      */
     public function getAclPrivilegeSet($name = '')
@@ -213,7 +216,8 @@ class Mage_Api_Model_Config extends Varien_Simplexml_Config
     }
 
     /**
-     * @param  string|null $resourceName
+     * @param string|null $resourceName
+     *
      * @return array
      */
     public function getFaults($resourceName = null)
@@ -256,7 +260,8 @@ class Mage_Api_Model_Config extends Varien_Simplexml_Config
     }
 
     /**
-     * @param  string     $id
+     * @param string $id
+     *
      * @return bool|mixed
      */
     protected function _loadCache($id)
@@ -265,10 +270,11 @@ class Mage_Api_Model_Config extends Varien_Simplexml_Config
     }
 
     /**
-     * @param  string                   $data
-     * @param  string                   $id
-     * @param  array                    $tags
-     * @param  bool                     $lifetime
+     * @param string $data
+     * @param string $id
+     * @param array  $tags
+     * @param bool   $lifetime
+     *
      * @return bool|Mage_Core_Model_App
      */
     protected function _saveCache($data, $id, $tags = [], $lifetime = false)
@@ -277,7 +283,8 @@ class Mage_Api_Model_Config extends Varien_Simplexml_Config
     }
 
     /**
-     * @param  string              $id
+     * @param string $id
+     *
      * @return Mage_Core_Model_App
      */
     protected function _removeCache($id)

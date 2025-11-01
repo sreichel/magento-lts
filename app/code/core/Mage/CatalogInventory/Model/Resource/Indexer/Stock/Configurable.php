@@ -17,7 +17,8 @@ class Mage_CatalogInventory_Model_Resource_Indexer_Stock_Configurable extends Ma
     /**
      * Reindex stock data for defined configurable product ids
      *
-     * @param  int|array $entityIds
+     * @param int|array $entityIds
+     *
      * @return $this
      */
     public function reindexEntity($entityIds)
@@ -29,8 +30,9 @@ class Mage_CatalogInventory_Model_Resource_Indexer_Stock_Configurable extends Ma
     /**
      * Get the select object for get stock status by product ids
      *
-     * @param  int|array        $entityIds
-     * @param  bool             $usePrimaryTable use primary or temporary index table
+     * @param int|array $entityIds
+     * @param bool      $usePrimaryTable use primary or temporary index table
+     *
      * @return Varien_Db_Select
      */
     protected function _getStockStatusSelect($entityIds = null, $usePrimaryTable = false)

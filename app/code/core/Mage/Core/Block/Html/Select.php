@@ -37,7 +37,8 @@ class Mage_Core_Block_Html_Select extends Mage_Core_Block_Abstract
     /**
      * Set options for the HTML select
      *
-     * @param  array $options
+     * @param array $options
+     *
      * @return $this
      */
     public function setOptions($options)
@@ -49,9 +50,10 @@ class Mage_Core_Block_Html_Select extends Mage_Core_Block_Abstract
     /**
      * Add an option to HTML select
      *
-     * @param  string $value  HTML value
-     * @param  string $label  HTML label
-     * @param  array  $params HTML attributes
+     * @param string $value  HTML value
+     * @param string $label  HTML label
+     * @param array  $params HTML attributes
+     *
      * @return $this
      */
     public function addOption($value, $label, $params = [])
@@ -63,7 +65,8 @@ class Mage_Core_Block_Html_Select extends Mage_Core_Block_Abstract
     /**
      * Set element's HTML ID
      *
-     * @param  string $id ID
+     * @param string $id ID
+     *
      * @return $this
      */
     public function setId($id)
@@ -75,7 +78,8 @@ class Mage_Core_Block_Html_Select extends Mage_Core_Block_Abstract
     /**
      * Set element's CSS class
      *
-     * @param  string $class Class
+     * @param string $class Class
+     *
      * @return $this
      */
     public function setClass($class)
@@ -87,7 +91,8 @@ class Mage_Core_Block_Html_Select extends Mage_Core_Block_Abstract
     /**
      * Set element's HTML title
      *
-     * @param  string $title Title
+     * @param string $title Title
+     *
      * @return $this
      */
     public function setTitle($title)
@@ -197,8 +202,9 @@ class Mage_Core_Block_Html_Select extends Mage_Core_Block_Abstract
     /**
      * Return option HTML node
      *
-     * @param  array  $option
-     * @param  bool   $selected
+     * @param array $option
+     * @param bool  $selected
+     *
      * @return string
      */
     protected function _optionToHtml($option, $selected = false)
@@ -243,7 +249,8 @@ class Mage_Core_Block_Html_Select extends Mage_Core_Block_Abstract
     /**
      * Calculate CRC32 hash for option value
      *
-     * @param  string $optionValue Value of the option
+     * @param string $optionValue Value of the option
+     *
      * @return string
      */
     public function calcOptionHash($optionValue)

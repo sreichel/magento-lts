@@ -32,9 +32,11 @@ class Mage_Catalog_Model_Resource_Product_Website extends Mage_Core_Model_Resour
     /**
      * Removes products from websites
      *
-     * @param  array     $websiteIds
-     * @param  array     $productIds
+     * @param array $websiteIds
+     * @param array $productIds
+     *
      * @return $this
+     *
      * @throws Exception
      */
     public function removeProducts($websiteIds, $productIds)
@@ -67,9 +69,11 @@ class Mage_Catalog_Model_Resource_Product_Website extends Mage_Core_Model_Resour
     /**
      * Add products to websites
      *
-     * @param  array     $websiteIds
-     * @param  array     $productIds
+     * @param array $websiteIds
+     * @param array $productIds
+     *
      * @return $this
+     *
      * @throws Exception
      */
     public function addProducts($websiteIds, $productIds)
@@ -118,7 +122,8 @@ class Mage_Catalog_Model_Resource_Product_Website extends Mage_Core_Model_Resour
     /**
      * Retrieve product(s) website ids.
      *
-     * @param  array $productIds
+     * @param array $productIds
+     *
      * @return array
      */
     public function getWebsites($productIds)

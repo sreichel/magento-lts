@@ -21,7 +21,9 @@ class Mage_Page_Block_Html_Topmenu_Renderer extends Mage_Page_Block_Html_Topmenu
 
     /**
      * Renders block html
+     *
      * @return string
+     *
      * @throws Exception
      */
     protected function _toHtml()
@@ -56,7 +58,8 @@ class Mage_Page_Block_Html_Topmenu_Renderer extends Mage_Page_Block_Html_Topmenu
 
     /**
      * Fetches template. If template has return statement, than its value is used and direct output otherwise.
-     * @param  string $childrenWrapClass
+     * @param string $childrenWrapClass
+     *
      * @return string
      */
     public function render(Varien_Data_Tree_Node $menuTree, $childrenWrapClass)

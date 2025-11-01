@@ -28,7 +28,8 @@ class Mage_Sales_Model_Order_Invoice_Api extends Mage_Sales_Model_Api_Resource
     /**
      * Retrieve invoices list. Filtration could be applied
      *
-     * @param  null|object|array $filters
+     * @param null|object|array $filters
+     *
      * @return array
      */
     public function items($filters = null)
@@ -65,8 +66,10 @@ class Mage_Sales_Model_Order_Invoice_Api extends Mage_Sales_Model_Api_Resource
     /**
      * Retrieve invoice information
      *
-     * @param  string             $invoiceIncrementId
+     * @param string $invoiceIncrementId
+     *
      * @return array
+     *
      * @throws Mage_Api_Exception
      */
     public function info($invoiceIncrementId)
@@ -102,11 +105,12 @@ class Mage_Sales_Model_Order_Invoice_Api extends Mage_Sales_Model_Api_Resource
     /**
      * Create new invoice for order
      *
-     * @param  string $orderIncrementId
-     * @param  array  $itemsQty
-     * @param  string $comment
-     * @param  bool   $email
-     * @param  bool   $includeComment
+     * @param string $orderIncrementId
+     * @param array  $itemsQty
+     * @param string $comment
+     * @param bool   $email
+     * @param bool   $includeComment
+     *
      * @return string
      */
     public function create($orderIncrementId, $itemsQty = [], $comment = null, $email = false, $includeComment = false)
@@ -159,10 +163,11 @@ class Mage_Sales_Model_Order_Invoice_Api extends Mage_Sales_Model_Api_Resource
     /**
      * Add comment to invoice
      *
-     * @param  string $invoiceIncrementId
-     * @param  string $comment
-     * @param  bool   $email
-     * @param  bool   $includeComment
+     * @param string $invoiceIncrementId
+     * @param string $comment
+     * @param bool   $email
+     * @param bool   $includeComment
+     *
      * @return bool
      */
     public function addComment($invoiceIncrementId, $comment, $email = false, $includeComment = false)
@@ -189,7 +194,8 @@ class Mage_Sales_Model_Order_Invoice_Api extends Mage_Sales_Model_Api_Resource
     /**
      * Capture invoice
      *
-     * @param  string $invoiceIncrementId
+     * @param string $invoiceIncrementId
+     *
      * @return bool
      */
     public function capture($invoiceIncrementId)
@@ -225,8 +231,10 @@ class Mage_Sales_Model_Order_Invoice_Api extends Mage_Sales_Model_Api_Resource
     /**
      * Void invoice
      *
-     * @param  int                $invoiceIncrementId
+     * @param int $invoiceIncrementId
+     *
      * @return bool
+     *
      * @throws Mage_Api_Exception
      */
     public function void($invoiceIncrementId)
@@ -262,7 +270,8 @@ class Mage_Sales_Model_Order_Invoice_Api extends Mage_Sales_Model_Api_Resource
     /**
      * Cancel invoice
      *
-     * @param  string $invoiceIncrementId
+     * @param string $invoiceIncrementId
+     *
      * @return bool
      */
     public function cancel($invoiceIncrementId)

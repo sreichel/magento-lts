@@ -48,7 +48,8 @@ class Mage_Rss_Block_Catalog_Abstract extends Mage_Rss_Block_Abstract
     /**
      * Return Price Block renderer for specified product type
      *
-     * @param  string                   $productTypeId Catalog Product type
+     * @param string $productTypeId Catalog Product type
+     *
      * @return Mage_Core_Block_Abstract
      */
     protected function _getPriceBlock($productTypeId)
@@ -70,7 +71,8 @@ class Mage_Rss_Block_Catalog_Abstract extends Mage_Rss_Block_Abstract
     /**
      * Return template for Price Block renderer
      *
-     * @param  string $productTypeId Catalog Product type
+     * @param string $productTypeId Catalog Product type
+     *
      * @return string
      */
     protected function _getPriceBlockTemplate($productTypeId)
@@ -87,9 +89,10 @@ class Mage_Rss_Block_Catalog_Abstract extends Mage_Rss_Block_Abstract
     /**
      * Returns product price html for RSS feed
      *
-     * @param  Mage_Catalog_Model_Product $product
-     * @param  bool                       $displayMinimalPrice Display "As low as" etc.
-     * @param  string                     $idSuffix            Suffix for HTML containers
+     * @param Mage_Catalog_Model_Product $product
+     * @param bool                       $displayMinimalPrice Display "As low as" etc.
+     * @param string                     $idSuffix            Suffix for HTML containers
+     *
      * @return string
      */
     public function getPriceHtml($product, $displayMinimalPrice = false, $idSuffix = '')

@@ -56,8 +56,9 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_Label_Pdf_Page extends Zend_Pdf_Page
     /**
      * Calculate the width of given text in points taking into account current font and font-size
      *
-     * @param  string $text
-     * @param  float  $fontSize
+     * @param string $text
+     * @param float  $fontSize
+     *
      * @return float
      */
     public function getTextWidth($text, Zend_Pdf_Resource_Font $font, $fontSize)
@@ -76,13 +77,15 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_Label_Pdf_Page extends Zend_Pdf_Page
     /**
      * Draw a line of text at the specified position.
      *
-     * @param  string                    $text
-     * @param  float                     $x
-     * @param  float                     $y
-     * @param  string                    $charEncoding (optional) Character encoding of source text.
-     *                                                 Defaults to current locale.
-     * @param                            $align
+     * @param string $text
+     * @param float  $x
+     * @param float  $y
+     * @param string $charEncoding (optional) Character encoding of source text.
+     *                             Defaults to current locale.
+     * @param        $align
+     *
      * @throws Zend_Pdf_Exception
+     *
      * @return Zend_Pdf_Canvas_Interface
      */
     public function drawText($text, $x, $y, $charEncoding = 'UTF-8', $align = self::ALIGN_LEFT)
@@ -111,12 +114,14 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_Label_Pdf_Page extends Zend_Pdf_Page
      * Draw a text paragraph taking into account the maximum number of symbols in a row.
      * If line is longer - spit it.
      *
-     * @param  array              $lines
-     * @param  int                $x
-     * @param  int                $y
-     * @param  int                $maxWidth - number of symbols
-     * @param  string             $align
+     * @param array  $lines
+     * @param int    $x
+     * @param int    $y
+     * @param int    $maxWidth - number of symbols
+     * @param string $align
+     *
      * @throws Zend_Pdf_Exception
+     *
      * @return float
      */
     public function drawLines($lines, $x, $y, $maxWidth, $align = self::ALIGN_LEFT)

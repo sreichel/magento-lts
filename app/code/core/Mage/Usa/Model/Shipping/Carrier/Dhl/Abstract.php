@@ -32,7 +32,8 @@ abstract class Mage_Usa_Model_Shipping_Carrier_Dhl_Abstract extends Mage_Usa_Mod
     /**
      * Get shipping date
      *
-     * @param  bool   $domestic
+     * @param bool $domestic
+     *
      * @return string
      */
     protected function _getShipDate($domestic = true)
@@ -46,8 +47,9 @@ abstract class Mage_Usa_Model_Shipping_Carrier_Dhl_Abstract extends Mage_Usa_Mod
     /**
      * Determine shipping day according to configuration settings
      *
-     * @param  array  $shippingDays
-     * @param  string $date
+     * @param array  $shippingDays
+     * @param string $date
+     *
      * @return string
      */
     protected function _determineShippingDay($shippingDays, $date)

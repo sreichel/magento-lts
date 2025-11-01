@@ -35,6 +35,7 @@ class Mage_Adminhtml_Block_Permissions_Block_Grid extends Mage_Adminhtml_Block_W
 
     /**
      * @return $this
+     *
      * @throws Exception
      */
     protected function _prepareColumns()
@@ -62,7 +63,8 @@ class Mage_Adminhtml_Block_Permissions_Block_Grid extends Mage_Adminhtml_Block_W
     }
 
     /**
-     * @param  Mage_Admin_Model_Block $row
+     * @param Mage_Admin_Model_Block $row
+     *
      * @return string
      */
     public function getRowUrl($row)

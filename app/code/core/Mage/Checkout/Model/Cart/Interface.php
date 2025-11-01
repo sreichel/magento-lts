@@ -18,8 +18,9 @@ interface Mage_Checkout_Model_Cart_Interface
     /**
      * Add product to shopping cart (quote)
      *
-     * @param  int|Mage_Catalog_Model_Product     $productInfo
-     * @param  mixed                              $requestInfo
+     * @param int|Mage_Catalog_Model_Product $productInfo
+     * @param mixed                          $requestInfo
+     *
      * @return Mage_Checkout_Model_Cart_Interface
      */
     public function addProduct($productInfo, $requestInfo = null);
@@ -28,6 +29,7 @@ interface Mage_Checkout_Model_Cart_Interface
      * Save cart
      *
      * @abstract
+     *
      * @return Mage_Checkout_Model_Cart_Interface
      */
     public function saveQuote();
@@ -36,6 +38,7 @@ interface Mage_Checkout_Model_Cart_Interface
      * Associate quote with the cart
      *
      * @abstract
+     *
      * @return Mage_Checkout_Model_Cart_Interface
      */
     public function setQuote(Mage_Sales_Model_Quote $quote);
@@ -43,6 +46,7 @@ interface Mage_Checkout_Model_Cart_Interface
     /**
      * Get quote object associated with cart
      * @abstract
+     *
      * @return Mage_Sales_Model_Quote
      */
     public function getQuote();

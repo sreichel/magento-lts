@@ -17,9 +17,11 @@ class Mage_Archive_Abstract
     /**
      * Write data to file. If file can't be opened - throw exception
      *
-     * @param  string         $destination
-     * @param  string         $data
+     * @param string $destination
+     * @param string $data
+     *
      * @return bool
+     *
      * @throws Mage_Exception
      */
     protected function _writeFile($destination, $data)
@@ -35,8 +37,10 @@ class Mage_Archive_Abstract
     /**
      * Read data from file. If file can't be opened, throw to exception.
      *
-     * @param  string         $source
+     * @param string $source
+     *
      * @return string
+     *
      * @throws Mage_Exception
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
@@ -57,8 +61,9 @@ class Mage_Archive_Abstract
     /**
      * Get file name from source (URI) without last extension.
      *
-     * @param  string       $source
-     * @param  bool         $withExtension
+     * @param string $source
+     * @param bool   $withExtension
+     *
      * @return mixed|string
      */
     public function getFilename($source, $withExtension = false)

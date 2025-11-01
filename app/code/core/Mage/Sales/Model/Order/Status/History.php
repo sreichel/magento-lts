@@ -62,6 +62,7 @@ class Mage_Sales_Model_Order_Status_History extends Mage_Sales_Model_Abstract
     /**
      * Get store id
      *
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function getStoreId(): int
@@ -72,7 +73,8 @@ class Mage_Sales_Model_Order_Status_History extends Mage_Sales_Model_Abstract
     /**
      * Notification flag
      *
-     * @param  mixed $flag OPTIONAL (notification is not applicable by default)
+     * @param mixed $flag OPTIONAL (notification is not applicable by default)
+     *
      * @return $this
      */
     public function setIsCustomerNotified($flag = null)
@@ -122,6 +124,7 @@ class Mage_Sales_Model_Order_Status_History extends Mage_Sales_Model_Abstract
      * Get store object
      *
      * @return Mage_Core_Model_Store
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function getStore()

@@ -91,6 +91,7 @@ class Varien_Data_Form extends Varien_Data_Form_Abstract
 
     /**
      * Return allowed HTML form attributes
+     *
      * @return array
      */
     public function getHtmlAttributes()
@@ -101,8 +102,10 @@ class Varien_Data_Form extends Varien_Data_Form_Abstract
     /**
      * Add form element
      *
-     * @param  string|false     $after
+     * @param string|false $after
+     *
      * @return Varien_Data_Form
+     *
      * @throws Exception
      */
     public function addElement(Varien_Data_Form_Element_Abstract $element, $after = false)
@@ -116,7 +119,8 @@ class Varien_Data_Form extends Varien_Data_Form_Abstract
     /**
      * Check existing element
      *
-     * @param  string $elementId
+     * @param string $elementId
+     *
      * @return bool
      */
     protected function _elementIdExists($elementId)
@@ -125,7 +129,8 @@ class Varien_Data_Form extends Varien_Data_Form_Abstract
     }
 
     /**
-     * @param  Varien_Data_Form_Element_Abstract $element
+     * @param Varien_Data_Form_Element_Abstract $element
+     *
      * @return $this
      */
     public function addElementToCollection($element)
@@ -136,8 +141,10 @@ class Varien_Data_Form extends Varien_Data_Form_Abstract
     }
 
     /**
-     * @param  string    $elementId
+     * @param string $elementId
+     *
      * @return bool
+     *
      * @throws Exception
      */
     public function checkElementId($elementId)
@@ -158,7 +165,8 @@ class Varien_Data_Form extends Varien_Data_Form_Abstract
     }
 
     /**
-     * @param  string                                 $elementId
+     * @param string $elementId
+     *
      * @return Varien_Data_Form_Element_Abstract|null
      */
     public function getElement($elementId)
@@ -171,7 +179,8 @@ class Varien_Data_Form extends Varien_Data_Form_Abstract
     }
 
     /**
-     * @param  array $values
+     * @param array $values
+     *
      * @return $this
      */
     public function setValues($values)
@@ -188,7 +197,8 @@ class Varien_Data_Form extends Varien_Data_Form_Abstract
     }
 
     /**
-     * @param  array $values
+     * @param array $values
+     *
      * @return $this
      */
     public function addValues($values)
@@ -209,7 +219,8 @@ class Varien_Data_Form extends Varien_Data_Form_Abstract
     /**
      * Add suffix to name of all elements
      *
-     * @param  string           $suffix
+     * @param string $suffix
+     *
      * @return Varien_Data_Form
      */
     public function addFieldNameSuffix($suffix)
@@ -225,8 +236,9 @@ class Varien_Data_Form extends Varien_Data_Form_Abstract
     }
 
     /**
-     * @param  string $name
-     * @param  string $suffix
+     * @param string $name
+     * @param string $suffix
+     *
      * @return string
      */
     public function addSuffixToName($name, $suffix)
@@ -248,7 +260,8 @@ class Varien_Data_Form extends Varien_Data_Form_Abstract
     }
 
     /**
-     * @param  string                          $elementId
+     * @param string $elementId
+     *
      * @return $this|Varien_Data_Form_Abstract
      */
     public function removeField($elementId)
@@ -261,7 +274,8 @@ class Varien_Data_Form extends Varien_Data_Form_Abstract
     }
 
     /**
-     * @param  string $prefix
+     * @param string $prefix
+     *
      * @return $this
      */
     public function setFieldContainerIdPrefix($prefix)

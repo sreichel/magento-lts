@@ -48,6 +48,7 @@ class Mage_Api2_Model_Router
      * Find route that match current URL, set parameters of the route to Request object
      *
      * @return Mage_Api2_Model_Request
+     *
      * @throws Mage_Api2_Exception
      */
     public function route(Mage_Api2_Model_Request $request)
@@ -80,8 +81,10 @@ class Mage_Api2_Model_Router
     /**
      * Set API type to request as a result of one pass route
      *
-     * @param  bool                $trimApiTypePath OPTIONAL If TRUE - /api/:api_type part of request path info will be trimmed
+     * @param bool $trimApiTypePath OPTIONAL If TRUE - /api/:api_type part of request path info will be trimmed
+     *
      * @return $this
+     *
      * @throws Mage_Api2_Exception
      */
     public function routeApiType(Mage_Api2_Model_Request $request, $trimApiTypePath = true)

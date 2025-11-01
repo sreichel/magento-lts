@@ -20,7 +20,8 @@ class Mage_Sales_Model_Entity_Order_Shipment_Track_Collection extends Mage_Eav_M
     }
 
     /**
-     * @param  int   $shipmentId
+     * @param int $shipmentId
+     *
      * @return $this
      */
     public function setShipmentFilter($shipmentId)
@@ -30,7 +31,8 @@ class Mage_Sales_Model_Entity_Order_Shipment_Track_Collection extends Mage_Eav_M
     }
 
     /**
-     * @param  int   $orderId
+     * @param int $orderId
+     *
      * @return $this
      */
     public function setOrderFilter($orderId)

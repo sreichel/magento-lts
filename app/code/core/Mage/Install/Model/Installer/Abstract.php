@@ -39,8 +39,10 @@ class Mage_Install_Model_Installer_Abstract
      * Validate session storage value (files or db)
      * If empty, will return 'files'
      *
-     * @param  string    $value
+     * @param string $value
+     *
      * @return string
+     *
      * @throws Exception
      */
     protected function _checkSessionSave($value)
@@ -60,8 +62,10 @@ class Mage_Install_Model_Installer_Abstract
      * Validate admin frontname value.
      * If empty, "admin" will be returned
      *
-     * @param  string    $value
+     * @param string $value
+     *
      * @return string
+     *
      * @throws Exception
      */
     protected function _checkAdminFrontname($value)

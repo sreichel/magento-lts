@@ -363,8 +363,9 @@ class Mage_Cache_Backend_File extends Zend_Cache_Backend_File
     /**
      * Get a metadatas record and optionally the data as well
      *
-     * @param  string     $file     Cache file
-     * @param  bool       $withData
+     * @param string $file     Cache file
+     * @param bool   $withData
+     *
      * @return array|bool
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
@@ -478,8 +479,10 @@ class Mage_Cache_Backend_File extends Zend_Cache_Backend_File
      * @param string $mode Clean mode
      * @param array  $tags
      *
+     *
      * @throws Zend_Cache_Exception
-     * @return bool                 In case of success returns true
+     *
+     * @return bool In case of success returns true
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
      */
@@ -562,8 +565,10 @@ class Mage_Cache_Backend_File extends Zend_Cache_Backend_File
      * @param string $mode Clean mode
      * @param array  $tags Array of tags
      *
+     *
      * @throws Zend_Cache_Exception
-     * @return bool                 In case of success returns true
+     *
+     * @return bool In case of success returns true
      */
     protected function _cleanNew($mode = Zend_Cache::CLEANING_MODE_ALL, $tags = [])
     {
@@ -789,8 +794,9 @@ class Mage_Cache_Backend_File extends Zend_Cache_Backend_File
     /**
      * Make the directory structure for the given id
      *
-     * @param  string $id cache id
-     * @return bool   true
+     * @param string $id cache id
+     *
+     * @return bool true
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
      */

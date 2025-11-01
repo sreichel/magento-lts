@@ -16,6 +16,7 @@ class Mage_CatalogInventory_Model_System_Config_Backend_Minsaleqty extends Mage_
 {
     /**
      * Process data after load
+     *
      * @return $this
      */
     protected function _afterLoad()
@@ -28,6 +29,7 @@ class Mage_CatalogInventory_Model_System_Config_Backend_Minsaleqty extends Mage_
 
     /**
      * Prepare data before save
+     *
      * @return $this
      */
     protected function _beforeSave()

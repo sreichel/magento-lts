@@ -271,6 +271,7 @@ class Mage_HTTP_Client_Curl implements Mage_HTTP_IClient
     /**
      * Get cookies array with details
      * (domain, expire time etc)
+     *
      * @return array
      */
     public function getCookiesFull()
@@ -385,8 +386,10 @@ class Mage_HTTP_Client_Curl implements Mage_HTTP_IClient
 
     /**
      * Throw error exception
-     * @param            $string
+     * @param $string
+     *
      * @throws Exception
+     *
      * @return never
      */
     public function doError($string)
@@ -434,6 +437,7 @@ class Mage_HTTP_Client_Curl implements Mage_HTTP_IClient
     }
 
     /**
+     *
      * @throws Exception
      */
     protected function validateHttpVersion(array $line)

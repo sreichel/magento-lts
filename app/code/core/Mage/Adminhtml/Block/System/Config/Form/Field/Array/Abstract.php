@@ -141,7 +141,8 @@ abstract class Mage_Adminhtml_Block_System_Config_Form_Field_Array_Abstract exte
     /**
      * Render array cell for prototypeJS template
      *
-     * @param  string $columnName
+     * @param string $columnName
+     *
      * @return string
      */
     protected function _renderCellTemplate($columnName)

@@ -43,6 +43,7 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Attribute_Assigned extends Mag
 
     /**
      * Initialize and retrieve a helper instance
+     *
      * @return Mage_SalesRule_Helper_Data
      */
     protected function _getHelper()
@@ -77,6 +78,7 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Attribute_Assigned extends Mag
 
     /**
      * Retrieves unary operators of the attribute assignment state
+     *
      * @return array
      */
     public function getOperatorSelectOptions()
@@ -96,6 +98,7 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Attribute_Assigned extends Mag
 
     /**
      * Retrieve an operator name
+     *
      * @return string
      */
     public function getOperatorName()
@@ -123,6 +126,7 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Attribute_Assigned extends Mag
 
     /**
      * Generate a condition html
+     *
      * @return string
      */
     public function asHtml()

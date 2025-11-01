@@ -21,6 +21,7 @@ class Mage_Usa_Model_Shipping_Carrier_UpsAuth extends Mage_Usa_Model_Shipping_Ca
 
     /**
      * @return string
+     *
      * @throws Exception
      */
     public function getAccessToken(string $clientId, string $clientSecret, string $clientUrl)

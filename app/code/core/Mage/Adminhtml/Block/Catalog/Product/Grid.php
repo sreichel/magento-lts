@@ -132,7 +132,9 @@ class Mage_Adminhtml_Block_Catalog_Product_Grid extends Mage_Adminhtml_Block_Wid
 
     /**
      * @inheritDoc
+     *
      * @throws Mage_Core_Exception
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     protected function _prepareColumns()
@@ -337,7 +339,8 @@ class Mage_Adminhtml_Block_Catalog_Product_Grid extends Mage_Adminhtml_Block_Wid
     }
 
     /**
-     * @param  Mage_Catalog_Model_Product $row
+     * @param Mage_Catalog_Model_Product $row
+     *
      * @return string
      */
     public function getRowUrl($row)

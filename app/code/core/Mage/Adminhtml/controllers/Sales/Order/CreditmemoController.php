@@ -29,7 +29,8 @@ class Mage_Adminhtml_Sales_Order_CreditmemoController extends Mage_Adminhtml_Con
 
     /**
      * Check if creditmeno can be created for order
-     * @param  Mage_Sales_Model_Order $order
+     * @param Mage_Sales_Model_Order $order
+     *
      * @return bool
      */
     protected function _canCreditmemo($order)
@@ -55,7 +56,8 @@ class Mage_Adminhtml_Sales_Order_CreditmemoController extends Mage_Adminhtml_Con
 
     /**
      * Initialize requested invoice instance
-     * @param  Mage_Sales_Model_Order               $order
+     * @param Mage_Sales_Model_Order $order
+     *
      * @return false|Mage_Sales_Model_Order_Invoice
      */
     protected function _initInvoice($order)
@@ -77,6 +79,7 @@ class Mage_Adminhtml_Sales_Order_CreditmemoController extends Mage_Adminhtml_Con
      * Initialize creditmemo model instance
      *
      * @return Mage_Sales_Model_Order_Creditmemo|false
+     *
      * @throws Mage_Core_Exception
      */
     protected function _initCreditmemo($update = false)
@@ -151,8 +154,10 @@ class Mage_Adminhtml_Sales_Order_CreditmemoController extends Mage_Adminhtml_Con
 
     /**
      * Save creditmemo and related order, invoice in one transaction
-     * @param  Mage_Sales_Model_Order_Creditmemo $creditmemo
+     * @param Mage_Sales_Model_Order_Creditmemo $creditmemo
+     *
      * @return $this
+     *
      * @throws Exception
      */
     protected function _saveCreditmemo($creditmemo)
@@ -414,8 +419,9 @@ class Mage_Adminhtml_Sales_Order_CreditmemoController extends Mage_Adminhtml_Con
      * children are not in process
      *
      * @deprecated after 1.4, Mage_Sales_Model_Service_Order used
-     * @param  Mage_Sales_Model_Order_Item $item
-     * @param  array                       $qtys
+     * @param Mage_Sales_Model_Order_Item $item
+     * @param array                       $qtys
+     *
      * @return bool
      */
     protected function _needToAddDummy($item, $qtys)

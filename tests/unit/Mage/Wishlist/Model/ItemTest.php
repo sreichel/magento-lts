@@ -54,6 +54,7 @@ final class ItemTest extends OpenMageTest
     /**
      * @dataProvider validateDataProvider
      * @group Model
+     *
      * @throws Mage_Core_Exception
      */
     public function testValidate(?string $expectedExceptionMessage, ?int $wishlistId, ?int $productId): void

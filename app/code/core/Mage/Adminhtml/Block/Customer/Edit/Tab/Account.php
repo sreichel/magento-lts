@@ -18,6 +18,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Account extends Mage_Adminhtml_Bloc
      * Initialize form
      *
      * @return $this
+     *
      * @throws Mage_Core_Exception
      */
     public function initForm()

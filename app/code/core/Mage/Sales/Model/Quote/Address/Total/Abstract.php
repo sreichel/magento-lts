@@ -44,7 +44,8 @@ abstract class Mage_Sales_Model_Quote_Address_Total_Abstract
     /**
      * Set total code code name
      *
-     * @param  string                                        $code
+     * @param string $code
+     *
      * @return Mage_Sales_Model_Quote_Address_Total_Abstract
      */
     public function setCode($code)
@@ -115,6 +116,7 @@ abstract class Mage_Sales_Model_Quote_Address_Total_Abstract
      * Get quote address object
      *
      * @throw   Mage_Core_Exception if address not declared
+     *
      * @return Mage_Sales_Model_Quote_Address
      */
     protected function _getAddress()
@@ -131,7 +133,8 @@ abstract class Mage_Sales_Model_Quote_Address_Total_Abstract
     /**
      * Set total model amount value to address
      *
-     * @param  float                                         $amount
+     * @param float $amount
+     *
      * @return Mage_Sales_Model_Quote_Address_Total_Abstract
      */
     protected function _setAmount($amount)
@@ -146,7 +149,8 @@ abstract class Mage_Sales_Model_Quote_Address_Total_Abstract
     /**
      * Set total model base amount value to address
      *
-     * @param  float                                         $baseAmount
+     * @param float $baseAmount
+     *
      * @return Mage_Sales_Model_Quote_Address_Total_Abstract
      */
     protected function _setBaseAmount($baseAmount)
@@ -161,7 +165,8 @@ abstract class Mage_Sales_Model_Quote_Address_Total_Abstract
     /**
      * Add total model amount value to address
      *
-     * @param  float                                         $amount
+     * @param float $amount
+     *
      * @return Mage_Sales_Model_Quote_Address_Total_Abstract
      */
     protected function _addAmount($amount)
@@ -176,7 +181,8 @@ abstract class Mage_Sales_Model_Quote_Address_Total_Abstract
     /**
      * Add total model base amount value to address
      *
-     * @param  float                                         $baseAmount
+     * @param float $baseAmount
+     *
      * @return Mage_Sales_Model_Quote_Address_Total_Abstract
      */
     protected function _addBaseAmount($baseAmount)
@@ -244,8 +250,9 @@ abstract class Mage_Sales_Model_Quote_Address_Total_Abstract
      * Process model configuration array.
      * This method can be used for changing models apply sort order
      *
-     * @param  array                 $config
-     * @param  Mage_Core_Model_Store $store
+     * @param array                 $config
+     * @param Mage_Core_Model_Store $store
+     *
      * @return array
      */
     public function processConfigArray($config, $store)

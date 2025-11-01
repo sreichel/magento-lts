@@ -85,8 +85,9 @@ class Mage_CatalogSearch_Model_Fulltext extends Mage_Core_Model_Abstract
      * (1, 2)       => Clean index of product Id=2 and its store view Id=1
      * (null, 2)    => Clean index of all store views of product Id=2
      *
-     * @param  int   $storeId   Store View Id
-     * @param  int   $productId Product Entity Id
+     * @param int $storeId   Store View Id
+     * @param int $productId Product Entity Id
+     *
      * @return $this
      */
     public function cleanIndex($storeId = null, $productId = null)
@@ -109,7 +110,8 @@ class Mage_CatalogSearch_Model_Fulltext extends Mage_Core_Model_Abstract
     /**
      * Prepare results for query
      *
-     * @param  Mage_CatalogSearch_Model_Query $query
+     * @param Mage_CatalogSearch_Model_Query $query
+     *
      * @return $this
      */
     public function prepareResult($query = null)
@@ -130,7 +132,8 @@ class Mage_CatalogSearch_Model_Fulltext extends Mage_Core_Model_Abstract
     /**
      * Retrieve search type
      *
-     * @param  int $storeId
+     * @param int $storeId
+     *
      * @return int
      */
     public function getSearchType($storeId = null)
@@ -145,7 +148,8 @@ class Mage_CatalogSearch_Model_Fulltext extends Mage_Core_Model_Abstract
      *
      * @deprecated after 1.6.1.0
      *
-     * @param  bool  $value
+     * @param bool $value
+     *
      * @return $this
      */
     public function setAllowTableChanges($value = true)

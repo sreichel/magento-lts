@@ -53,6 +53,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
      * Initialize product from request parameters
      *
      * @return Mage_Catalog_Model_Product
+     *
      * @throws Mage_Core_Exception
      */
     protected function _initProduct()
@@ -145,8 +146,9 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
     /**
      * Create serializer block for a grid
      *
-     * @param  string                                                        $inputName
-     * @param  array                                                         $productsArray
+     * @param string $inputName
+     * @param array  $productsArray
+     *
      * @return Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Ajax_Serializer
      */
     protected function _createSerializerBlock($inputName, Mage_Adminhtml_Block_Widget_Grid $gridBlock, $productsArray)
@@ -281,6 +283,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
     /**
      * WYSIWYG editor action for ajax request
      *
+     *
      * @throws Mage_Core_Model_Store_Exception|Mage_Core_Exception
      */
     public function wysiwygAction()
@@ -308,6 +311,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
 
     /**
      * Get specified tab grid
+     *
      * @throws Mage_Core_Exception
      */
     public function gridOnlyAction()
@@ -324,6 +328,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
     /**
      * Get categories fieldset block
      *
+     *
      * @throws Mage_Core_Exception
      */
     public function categoriesAction()
@@ -336,6 +341,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
     /**
      * Get options fieldset block
      *
+     *
      * @throws Mage_Core_Exception
      */
     public function optionsAction()
@@ -347,6 +353,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
 
     /**
      * Get related products grid and serializer block
+     *
      * @throws Mage_Core_Exception
      */
     public function relatedAction()
@@ -360,6 +367,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
 
     /**
      * Get upsell products grid and serializer block
+     *
      * @throws Mage_Core_Exception
      */
     public function upsellAction()
@@ -373,6 +381,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
 
     /**
      * Get crosssell products grid and serializer block
+     *
      * @throws Mage_Core_Exception
      */
     public function crosssellAction()
@@ -386,6 +395,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
 
     /**
      * Get related products grid
+     *
      * @throws Mage_Core_Exception
      */
     public function relatedGridAction()
@@ -399,6 +409,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
 
     /**
      * Get upsell products grid
+     *
      * @throws Mage_Core_Exception
      */
     public function upsellGridAction()
@@ -412,6 +423,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
 
     /**
      * Get crosssell products grid
+     *
      * @throws Mage_Core_Exception
      */
     public function crosssellGridAction()
@@ -425,6 +437,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
 
     /**
      * Get associated grouped products grid and serializer block
+     *
      * @throws Mage_Core_Exception
      */
     public function superGroupAction()
@@ -439,6 +452,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
     /**
      * Get associated grouped products grid only
      *
+     *
      * @throws Mage_Core_Exception
      */
     public function superGroupGridOnlyAction()
@@ -452,6 +466,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
 
     /**
      * Get product reviews grid
+     *
      *
      * @throws Mage_Core_Exception
      */
@@ -468,6 +483,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
     /**
      * Get super config grid
      *
+     *
      * @throws Mage_Core_Exception
      */
     public function superConfigAction()
@@ -478,6 +494,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
     }
 
     /**
+     *
      * @throws Mage_Core_Exception
      * @deprecated since 1.2
      */
@@ -569,6 +586,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
 
     /**
      * Initialize product before saving
+     *
      * @throws Mage_Core_Exception|Zend_Json_Exception
      */
     protected function _initProductSave()
@@ -791,9 +809,11 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
 
     /**
      * Duplicates product attributes between stores.
-     * @param  array                      $stores  list of store pairs: array(fromStore => toStore, fromStore => toStore,..)
-     * @param  Mage_Catalog_Model_Product $product whose attributes should be copied
+     * @param array                      $stores  list of store pairs: array(fromStore => toStore, fromStore => toStore,..)
+     * @param Mage_Catalog_Model_Product $product whose attributes should be copied
+     *
      * @return $this
+     *
      * @throws Throwable
      */
     protected function _copyAttributesBetweenStores(array $stores, Mage_Catalog_Model_Product $product)
@@ -817,6 +837,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
 
     /**
      * Create product duplicate
+     *
      * @throws Mage_Core_Exception
      */
     public function duplicateAction()
@@ -897,6 +918,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
 
     /**
      * @deprecated since 1.5.0.0
+     *
      * @return $this
      */
     public function addCustomersToAlertQueueAction()
@@ -986,6 +1008,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
 
     /**
      * Validate batch of products before theirs status will be set
+     *
      *
      * @throws Mage_Core_Exception
      * @param  int                 $status

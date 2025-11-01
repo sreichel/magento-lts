@@ -35,6 +35,7 @@ final class SitemapTest extends OpenMageTest
     /**
      * @dataProvider provideGenerateXmlData
      * @group Model
+     *
      * @throws Throwable
      * @todo  test validation
      * @todo  test content of xml

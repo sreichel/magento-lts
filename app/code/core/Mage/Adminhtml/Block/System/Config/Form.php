@@ -225,6 +225,7 @@ class Mage_Adminhtml_Block_System_Config_Form extends Mage_Adminhtml_Block_Widge
      * @param string                            $fieldPrefix
      * @param string                            $labelPrefix
      * @throw Mage_Core_Exception
+     *
      * @return $this
      */
     public function initFields($fieldset, $group, $section, $fieldPrefix = '', $labelPrefix = '')
@@ -499,8 +500,9 @@ class Mage_Adminhtml_Block_System_Config_Form extends Mage_Adminhtml_Block_Widge
     /**
      * Support models "getCommentText" method for field note generation
      *
-     * @param  Mage_Core_Model_Config_Element $element
-     * @param  string                         $helper
+     * @param Mage_Core_Model_Config_Element $element
+     * @param string                         $helper
+     *
      * @return string
      */
     protected function _prepareFieldComment($element, $helper, $currentValue)
@@ -526,8 +528,9 @@ class Mage_Adminhtml_Block_System_Config_Form extends Mage_Adminhtml_Block_Widge
     /**
      * Support models "getCommentText" method for group note generation
      *
-     * @param  Mage_Core_Model_Config_Element $element
-     * @param  string                         $helper
+     * @param Mage_Core_Model_Config_Element $element
+     * @param string                         $helper
+     *
      * @return string
      */
     protected function _prepareGroupComment($element, $helper)
@@ -538,8 +541,9 @@ class Mage_Adminhtml_Block_System_Config_Form extends Mage_Adminhtml_Block_Widge
     /**
      * Prepare additional comment for field like tooltip
      *
-     * @param  Mage_Core_Model_Config_Element $element
-     * @param  string                         $helper
+     * @param Mage_Core_Model_Config_Element $element
+     * @param string                         $helper
+     *
      * @return string
      */
     protected function _prepareFieldTooltip($element, $helper)
@@ -568,8 +572,9 @@ class Mage_Adminhtml_Block_System_Config_Form extends Mage_Adminhtml_Block_Widge
     }
 
     /**
-     * @param  Varien_Simplexml_Element $a
-     * @param  Varien_Simplexml_Element $b
+     * @param Varien_Simplexml_Element $a
+     * @param Varien_Simplexml_Element $b
+     *
      * @return int
      */
     protected function _sortForm($a, $b)
@@ -578,7 +583,8 @@ class Mage_Adminhtml_Block_System_Config_Form extends Mage_Adminhtml_Block_Widge
     }
 
     /**
-     * @param  Varien_Simplexml_Element $field
+     * @param Varien_Simplexml_Element $field
+     *
      * @return bool
      */
     public function canUseDefaultValue($field)
@@ -595,7 +601,8 @@ class Mage_Adminhtml_Block_System_Config_Form extends Mage_Adminhtml_Block_Widge
     }
 
     /**
-     * @param  Varien_Simplexml_Element $field
+     * @param Varien_Simplexml_Element $field
+     *
      * @return bool
      */
     public function canUseWebsiteValue($field)
@@ -610,7 +617,8 @@ class Mage_Adminhtml_Block_System_Config_Form extends Mage_Adminhtml_Block_Widge
     /**
      * Checking field visibility
      *
-     * @param  Varien_Simplexml_Element $field
+     * @param Varien_Simplexml_Element $field
+     *
      * @return bool
      */
     protected function _canShowField($field)
@@ -685,7 +693,8 @@ class Mage_Adminhtml_Block_System_Config_Form extends Mage_Adminhtml_Block_Widge
     /**
      * Retrieve label for scope
      *
-     * @param  Mage_Core_Model_Config_Element $element
+     * @param Mage_Core_Model_Config_Element $element
+     *
      * @return string
      */
     public function getScopeLabel($element)
@@ -767,6 +776,7 @@ class Mage_Adminhtml_Block_System_Config_Form extends Mage_Adminhtml_Block_Widge
      */
     /**
      * @TODO delete this methods when {^see above^} is done
+     *
      * @return string
      */
     public function getSectionCode()
@@ -776,6 +786,7 @@ class Mage_Adminhtml_Block_System_Config_Form extends Mage_Adminhtml_Block_Widge
 
     /**
      * @TODO delete this methods when {^see above^} is done
+     *
      * @return string
      */
     public function getWebsiteCode()
@@ -785,6 +796,7 @@ class Mage_Adminhtml_Block_System_Config_Form extends Mage_Adminhtml_Block_Widge
 
     /**
      * @TODO delete this methods when {^see above^} is done
+     *
      * @return string
      */
     public function getStoreCode()

@@ -27,6 +27,7 @@ class Mage_Adminhtml_Block_Report_Shopcart_Customer_Grid extends Mage_Adminhtml_
 
     /**
      * @inheritDoc
+     *
      * @throws Exception
      */
     protected function _prepareCollection()
@@ -51,6 +52,7 @@ class Mage_Adminhtml_Block_Report_Shopcart_Customer_Grid extends Mage_Adminhtml_
 
     /**
      * @inheritDoc
+     *
      * @throws Exception
      */
     protected function _prepareColumns()

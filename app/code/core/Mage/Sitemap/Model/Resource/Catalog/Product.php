@@ -22,7 +22,8 @@ class Mage_Sitemap_Model_Resource_Catalog_Product extends Mage_Sitemap_Model_Res
     /**
      * Get product collection array
      *
-     * @param  int         $storeId
+     * @param int $storeId
+     *
      * @return array|false
      */
     public function getCollection($storeId)
@@ -77,8 +78,9 @@ class Mage_Sitemap_Model_Resource_Catalog_Product extends Mage_Sitemap_Model_Res
     /**
      * Retrieve entity url
      *
-     * @param  array         $row
-     * @param  Varien_Object $entity
+     * @param array         $row
+     * @param Varien_Object $entity
+     *
      * @return string
      */
     protected function _getEntityUrl($row, $entity)
@@ -89,7 +91,8 @@ class Mage_Sitemap_Model_Resource_Catalog_Product extends Mage_Sitemap_Model_Res
     /**
      * Loads product attribute by given attribute code
      *
-     * @param  string                                       $attributeCode
+     * @param string $attributeCode
+     *
      * @return Mage_Sitemap_Model_Resource_Catalog_Abstract
      */
     protected function _loadAttribute($attributeCode)

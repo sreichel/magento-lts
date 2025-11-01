@@ -15,7 +15,8 @@
 class Mage_Sales_Model_Entity_Order_Attribute_Backend_Shipping extends Mage_Eav_Model_Entity_Attribute_Backend_Abstract
 {
     /**
-     * @param  Varien_Object $object
+     * @param Varien_Object $object
+     *
      * @return $this
      */
     public function beforeSave($object)
@@ -29,8 +30,10 @@ class Mage_Sales_Model_Entity_Order_Attribute_Backend_Shipping extends Mage_Eav_
     }
 
     /**
-     * @param  Varien_Object $object
+     * @param Varien_Object $object
+     *
      * @return $this
+     *
      * @throws Exception
      */
     public function afterSave($object)

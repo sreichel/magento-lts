@@ -18,6 +18,7 @@ class Mage_System_Args
 
     /**
      * Get flags/named options
+     *
      * @return array
      */
     public function getFlags()
@@ -27,6 +28,7 @@ class Mage_System_Args
 
     /**
      * Get filtered args
+     *
      * @return array
      */
     public function getFiltered()
@@ -36,7 +38,8 @@ class Mage_System_Args
 
     /**
      * Constructor
-     * @param  array|false $argv, if false $GLOBALS['argv'] is taken
+     * @param array|false $argv, if false $GLOBALS['argv'] is taken
+     *
      * @return void
      */
     public function __construct($argv = false)

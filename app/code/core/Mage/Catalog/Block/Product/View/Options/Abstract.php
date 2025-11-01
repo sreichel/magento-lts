@@ -72,6 +72,7 @@ abstract class Mage_Catalog_Block_Product_View_Options_Abstract extends Mage_Cor
 
     /**
      * @return string
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function getFormatedPrice()
@@ -89,9 +90,11 @@ abstract class Mage_Catalog_Block_Product_View_Options_Abstract extends Mage_Cor
     /**
      * Return formatted price
      *
-     * @param  array                           $value
-     * @param  bool                            $flag
+     * @param array $value
+     * @param bool  $flag
+     *
      * @return string
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     protected function _formatPrice($value, $flag = true)
@@ -136,9 +139,11 @@ abstract class Mage_Catalog_Block_Product_View_Options_Abstract extends Mage_Cor
     /**
      * Get price with including/excluding tax
      *
-     * @param  float                           $price
-     * @param  bool                            $includingTax
+     * @param float $price
+     * @param bool  $includingTax
+     *
      * @return float
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function getPrice($price, $includingTax = null)
@@ -155,7 +160,8 @@ abstract class Mage_Catalog_Block_Product_View_Options_Abstract extends Mage_Cor
     /**
      * Returns price converted to current currency rate
      *
-     * @param  float $price
+     * @param float $price
+     *
      * @return float
      */
     public function getCurrencyPrice($price)

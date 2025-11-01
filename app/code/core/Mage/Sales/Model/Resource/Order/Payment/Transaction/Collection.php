@@ -105,7 +105,8 @@ class Mage_Sales_Model_Resource_Order_Payment_Transaction_Collection extends Mag
     /**
      * Order ID filter setter
      *
-     * @param  int   $orderId
+     * @param int $orderId
+     *
      * @return $this
      */
     public function addOrderIdFilter($orderId)
@@ -118,7 +119,8 @@ class Mage_Sales_Model_Resource_Order_Payment_Transaction_Collection extends Mag
      * Payment ID filter setter
      * Can take either the integer id or the payment instance
      *
-     * @param  Mage_Sales_Model_Order_Payment|int $payment
+     * @param Mage_Sales_Model_Order_Payment|int $payment
+     *
      * @return $this
      */
     public function addPaymentIdFilter($payment)
@@ -135,7 +137,8 @@ class Mage_Sales_Model_Resource_Order_Payment_Transaction_Collection extends Mag
     /**
      * Parent ID filter setter
      *
-     * @param  int   $parentId
+     * @param int $parentId
+     *
      * @return $this
      */
     public function addParentIdFilter($parentId)
@@ -147,7 +150,8 @@ class Mage_Sales_Model_Resource_Order_Payment_Transaction_Collection extends Mag
     /**
      * Transaction type filter setter
      *
-     * @param  array|string $txnType
+     * @param array|string $txnType
+     *
      * @return $this
      */
     public function addTxnTypeFilter($txnType)
@@ -163,7 +167,8 @@ class Mage_Sales_Model_Resource_Order_Payment_Transaction_Collection extends Mag
     /**
      * Add filter by store ids
      *
-     * @param  int|array $storeIds
+     * @param int|array $storeIds
+     *
      * @return $this
      */
     public function addStoreFilter($storeIds)

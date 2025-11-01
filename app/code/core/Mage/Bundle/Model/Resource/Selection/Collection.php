@@ -68,7 +68,8 @@ class Mage_Bundle_Model_Resource_Selection_Collection extends Mage_Catalog_Model
     /**
      * Join website scope prices to collection, override default prices
      *
-     * @param  int   $websiteId
+     * @param int $websiteId
+     *
      * @return $this
      */
     public function joinPrices($websiteId)
@@ -99,7 +100,8 @@ class Mage_Bundle_Model_Resource_Selection_Collection extends Mage_Catalog_Model
     /**
      * Apply option ids filter to collection
      *
-     * @param  array $optionIds
+     * @param array $optionIds
+     *
      * @return $this
      */
     public function setOptionIdsFilter($optionIds)
@@ -114,7 +116,8 @@ class Mage_Bundle_Model_Resource_Selection_Collection extends Mage_Catalog_Model
     /**
      * Apply selection ids filter to collection
      *
-     * @param  array $selectionIds
+     * @param array $selectionIds
+     *
      * @return $this
      */
     public function setSelectionIdsFilter($selectionIds)

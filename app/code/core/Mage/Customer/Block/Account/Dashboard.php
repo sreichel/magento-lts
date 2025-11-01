@@ -44,7 +44,8 @@ class Mage_Customer_Block_Account_Dashboard extends Mage_Core_Block_Template
     }
 
     /**
-     * @param  Mage_Customer_Model_Address $address
+     * @param Mage_Customer_Model_Address $address
+     *
      * @return string
      */
     public function getAddressEditUrl($address)

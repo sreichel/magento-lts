@@ -49,7 +49,8 @@ class Mage_Customer_Model_Flowpassword extends Mage_Core_Model_Abstract
     /**
      * Check forgot password requests to times per 24 hours from 1 e-mail
      *
-     * @param  string $email
+     * @param string $email
+     *
      * @return bool
      */
     public function checkCustomerForgotPasswordFlowEmail($email)

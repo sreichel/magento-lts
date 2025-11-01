@@ -31,7 +31,9 @@ class Mage_Admin_Model_Block extends Mage_Core_Model_Abstract
 
     /**
      * @return array|true
+     *
      * @throws Exception
+     *
      * @throws Zend_Validate_Exception
      */
     public function validate()
@@ -65,7 +67,8 @@ class Mage_Admin_Model_Block extends Mage_Core_Model_Abstract
     /**
      * Check is block with such type allowed for parsing via blockDirective method
      *
-     * @param  string $type
+     * @param string $type
+     *
      * @return bool
      */
     public function isTypeAllowed($type)

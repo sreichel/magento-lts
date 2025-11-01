@@ -37,7 +37,8 @@ class Mage_PaypalUk_Model_Express extends Mage_Paypal_Model_Express
     /**
      * EC PE won't be available if the EC is available
      *
-     * @param  Mage_Sales_Model_Quote $quote
+     * @param Mage_Sales_Model_Quote $quote
+     *
      * @return bool
      */
     public function isAvailable($quote = null)
@@ -83,6 +84,7 @@ class Mage_PaypalUk_Model_Express extends Mage_Paypal_Model_Express
      *
      * @see Mage_Checkout_OnepageController::savePaymentAction()
      * @see Mage_Sales_Model_Quote_Payment::getCheckoutRedirectUrl()
+     *
      * @return string
      */
     public function getCheckoutRedirectUrl()

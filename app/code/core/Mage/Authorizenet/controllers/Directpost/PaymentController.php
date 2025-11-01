@@ -25,6 +25,7 @@ class Mage_Authorizenet_Directpost_PaymentController extends Mage_Core_Controlle
     /**
      * Get session model
 
+     *
      * @return Mage_Authorizenet_Model_Directpost_Session
      */
     protected function _getDirectPostSession()

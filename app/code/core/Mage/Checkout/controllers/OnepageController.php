@@ -526,7 +526,9 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
     /**
      * Get Order by quoteId
      *
+     *
      * @throws Mage_Payment_Model_Info_Exception
+     *
      * @return Mage_Sales_Model_Order
      */
     protected function _getOrder()
@@ -545,7 +547,9 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
      * Create invoice
      *
      * @return Mage_Sales_Model_Service_Order
+     *
      * @throws Mage_Core_Exception
+     *
      * @throws Mage_Payment_Model_Info_Exception
      */
     protected function _initInvoice()
@@ -666,7 +670,8 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
     /**
      * Filtering posted data. Converting localized data if needed
      *
-     * @param  array $data
+     * @param array $data
+     *
      * @return array
      */
     protected function _filterPostData($data)
@@ -690,7 +695,8 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
     /**
      * Prepare JSON formatted data for response to client
      *
-     * @param  mixed                             $response
+     * @param mixed $response
+     *
      * @return Zend_Controller_Response_Abstract
      */
     protected function _prepareDataJSON($response)

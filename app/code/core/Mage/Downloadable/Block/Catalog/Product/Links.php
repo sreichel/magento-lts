@@ -53,8 +53,10 @@ class Mage_Downloadable_Block_Catalog_Product_Links extends Mage_Catalog_Block_P
     }
 
     /**
-     * @param  Mage_Downloadable_Model_Link    $link
+     * @param Mage_Downloadable_Model_Link $link
+     *
      * @return string
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function getFormattedLinkPrice($link)
@@ -95,7 +97,8 @@ class Mage_Downloadable_Block_Catalog_Product_Links extends Mage_Catalog_Block_P
     /**
      * Returns price converted to current currency rate
      *
-     * @param  float $price
+     * @param float $price
+     *
      * @return float
      */
     public function getCurrencyPrice($price)
@@ -122,7 +125,8 @@ class Mage_Downloadable_Block_Catalog_Product_Links extends Mage_Catalog_Block_P
     }
 
     /**
-     * @param  Mage_Downloadable_Model_Link $link
+     * @param Mage_Downloadable_Model_Link $link
+     *
      * @return string
      */
     public function getLinkSamlpeUrl($link)
@@ -157,7 +161,8 @@ class Mage_Downloadable_Block_Catalog_Product_Links extends Mage_Catalog_Block_P
     /**
      * Returns whether link checked by default or not
      *
-     * @param  Mage_Downloadable_Model_Link $link
+     * @param Mage_Downloadable_Model_Link $link
+     *
      * @return bool
      */
     public function getIsLinkChecked($link)
@@ -173,7 +178,8 @@ class Mage_Downloadable_Block_Catalog_Product_Links extends Mage_Catalog_Block_P
     /**
      * Returns value for link's input checkbox - either 'checked' or ''
      *
-     * @param  Mage_Downloadable_Model_Link $link
+     * @param Mage_Downloadable_Model_Link $link
+     *
      * @return string
      */
     public function getLinkCheckedValue($link)

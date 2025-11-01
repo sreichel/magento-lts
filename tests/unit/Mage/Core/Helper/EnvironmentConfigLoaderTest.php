@@ -42,6 +42,7 @@ final class EnvironmentConfigLoaderTest extends OpenMageTest
     private static array $storeData = [];
 
     /**
+     *
      * @throws Mage_Core_Exception
      */
     public function setup(): void

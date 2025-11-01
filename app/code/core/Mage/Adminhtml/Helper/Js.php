@@ -31,7 +31,8 @@ class Mage_Adminhtml_Helper_Js extends Mage_Core_Helper_Js
      *   2 => array(...),
      * )
      *
-     * @param  string $encoded
+     * @param string $encoded
+     *
      * @return array
      */
     public function decodeGridSerializedInput($encoded)

@@ -71,8 +71,9 @@ class Mage_CatalogIndex_Model_Resource_Price extends Mage_CatalogIndex_Model_Res
     }
 
     /**
-     * @param  Mage_Eav_Model_Entity_Attribute $attribute
-     * @param  Zend_Db_Select                  $entitySelect
+     * @param Mage_Eav_Model_Entity_Attribute $attribute
+     * @param Zend_Db_Select                  $entitySelect
+     *
      * @return float|int
      */
     public function getMaxValue($attribute, $entitySelect)
@@ -108,9 +109,10 @@ class Mage_CatalogIndex_Model_Resource_Price extends Mage_CatalogIndex_Model_Res
     }
 
     /**
-     * @param  int                             $range
-     * @param  Mage_Eav_Model_Entity_Attribute $attribute
-     * @param  Zend_Db_Select                  $entitySelect
+     * @param int                             $range
+     * @param Mage_Eav_Model_Entity_Attribute $attribute
+     * @param Zend_Db_Select                  $entitySelect
+     *
      * @return array
      */
     public function getCount($range, $attribute, $entitySelect)
@@ -155,11 +157,12 @@ class Mage_CatalogIndex_Model_Resource_Price extends Mage_CatalogIndex_Model_Res
     }
 
     /**
-     * @param  int                             $range
-     * @param  int                             $index
-     * @param  Mage_Eav_Model_Entity_Attribute $attribute
-     * @param  array                           $entityIdsFilter
-     * @param  string                          $tableName
+     * @param int                             $range
+     * @param int                             $index
+     * @param Mage_Eav_Model_Entity_Attribute $attribute
+     * @param array                           $entityIdsFilter
+     * @param string                          $tableName
+     *
      * @return array
      */
     public function getFilteredEntities($range, $index, $attribute, $entityIdsFilter, $tableName = 'price_table')
@@ -194,11 +197,12 @@ class Mage_CatalogIndex_Model_Resource_Price extends Mage_CatalogIndex_Model_Res
     }
 
     /**
-     * @param  Mage_Eav_Model_Resource_Entity_Attribute_Collection $collection
-     * @param  Mage_Eav_Model_Entity_Attribute                     $attribute
-     * @param  int                                                 $range
-     * @param  int                                                 $index
-     * @param  string                                              $tableName
+     * @param Mage_Eav_Model_Resource_Entity_Attribute_Collection $collection
+     * @param Mage_Eav_Model_Entity_Attribute                     $attribute
+     * @param int                                                 $range
+     * @param int                                                 $index
+     * @param string                                              $tableName
+     *
      * @return $this
      */
     public function applyFilterToCollection($collection, $attribute, $range, $index, $tableName = 'price_table')
@@ -241,7 +245,8 @@ class Mage_CatalogIndex_Model_Resource_Price extends Mage_CatalogIndex_Model_Res
     }
 
     /**
-     * @param  array $ids
+     * @param array $ids
+     *
      * @return array
      */
     public function getMinimalPrices($ids)

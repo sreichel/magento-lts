@@ -114,7 +114,8 @@ class Mage_Catalog_Model_Resource_Product_Link_Product_Collection extends Mage_C
     /**
      * Exclude products from filter
      *
-     * @param  array $products
+     * @param array $products
+     *
      * @return $this
      */
     public function addExcludeProductFilter($products)
@@ -134,7 +135,8 @@ class Mage_Catalog_Model_Resource_Product_Link_Product_Collection extends Mage_C
     /**
      * Add products to filter
      *
-     * @param  array|int|string $products
+     * @param array|int|string $products
+     *
      * @return $this
      */
     public function addProductFilter($products)
@@ -165,7 +167,8 @@ class Mage_Catalog_Model_Resource_Product_Link_Product_Collection extends Mage_C
     /**
      * Setting group by to exclude duplications in collection
      *
-     * @param  string $groupBy
+     * @param string $groupBy
+     *
      * @return $this
      */
     public function setGroupBy($groupBy = 'e.entity_id')
@@ -238,7 +241,8 @@ class Mage_Catalog_Model_Resource_Product_Link_Product_Collection extends Mage_C
     /**
      * Enable sorting products by its position
      *
-     * @param  string $dir sort type asc|desc
+     * @param string $dir sort type asc|desc
+     *
      * @return $this
      */
     public function setPositionOrder($dir = self::SORT_ORDER_ASC)
@@ -253,7 +257,8 @@ class Mage_Catalog_Model_Resource_Product_Link_Product_Collection extends Mage_C
     /**
      * Enable sorting products by its attribute set name
      *
-     * @param  string $dir sort type asc|desc
+     * @param string $dir sort type asc|desc
+     *
      * @return $this
      */
     public function setAttributeSetIdOrder($dir = self::SORT_ORDER_ASC)

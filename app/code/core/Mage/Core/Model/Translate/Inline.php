@@ -112,7 +112,8 @@ class Mage_Core_Model_Translate_Inline
     /**
      * Is enabled and allowed Inline Translates
      *
-     * @param  mixed $store
+     * @param mixed $store
+     *
      * @return bool
      */
     public function isAllowed($store = null)
@@ -143,7 +144,8 @@ class Mage_Core_Model_Translate_Inline
     /**
      * Parse and save edited translate
      *
-     * @param  array $translate
+     * @param array $translate
+     *
      * @return $this
      */
     public function processAjaxPost($translate)
@@ -175,6 +177,7 @@ class Mage_Core_Model_Translate_Inline
      *
      * @param array|string $body
      * @param-out array|string|null $body
+     *
      * @return $this
      */
     public function stripInlineTranslations(&$body)
@@ -194,6 +197,7 @@ class Mage_Core_Model_Translate_Inline
      *
      * @param array|string $body
      * @param-out array|string|null $body
+     *
      * @return $this
      */
     public function processResponseBody(&$body)
@@ -266,7 +270,8 @@ class Mage_Core_Model_Translate_Inline
     /**
      * Escape Translate data
      *
-     * @param  string $string
+     * @param string $string
+     *
      * @return string
      */
     protected function _escape($string)
@@ -277,8 +282,9 @@ class Mage_Core_Model_Translate_Inline
     /**
      * Get attribute location
      *
-     * @param  array  $matches
-     * @param  array  $options
+     * @param array $matches
+     * @param array $options
+     *
      * @return string
      */
     protected function _getAttributeLocation($matches, $options)
@@ -289,8 +295,9 @@ class Mage_Core_Model_Translate_Inline
     /**
      * Get tag location
      *
-     * @param  array  $matches
-     * @param  array  $options
+     * @param array $matches
+     * @param array $options
+     *
      * @return string
      */
     protected function _getTagLocation($matches, $options)
@@ -303,10 +310,11 @@ class Mage_Core_Model_Translate_Inline
     /**
      * Get translate data by regexp
      *
-     * @param  string       $regexp
-     * @param  string       $text
-     * @param  string|array $locationCallback
-     * @param  array        $options
+     * @param string       $regexp
+     * @param string       $text
+     * @param string|array $locationCallback
+     * @param array        $options
+     *
      * @return array
      */
     protected function _getTranslateData($regexp, &$text, $locationCallback, $options = [])
@@ -400,9 +408,10 @@ class Mage_Core_Model_Translate_Inline
     /**
      * Format translate for special tags
      *
-     * @param  string $tagHtml
-     * @param  string $tagName
-     * @param  array  $trArr
+     * @param string $tagHtml
+     * @param string $tagName
+     * @param array  $trArr
+     *
      * @return string
      */
     protected function _applySpecialTagsFormat($tagHtml, $tagName, $trArr)
@@ -418,9 +427,10 @@ class Mage_Core_Model_Translate_Inline
     /**
      * Format translate for simple tags
      *
-     * @param  string $tagHtml
-     * @param  string $tagName
-     * @param  array  $trArr
+     * @param string $tagHtml
+     * @param string $tagName
+     * @param array  $trArr
+     *
      * @return string
      */
     protected function _applySimpleTagsFormat($tagHtml, $tagName, $trArr)
@@ -491,9 +501,10 @@ class Mage_Core_Model_Translate_Inline
     /**
      * Find end of tag
      *
-     * @param  string    $body
-     * @param  string    $tagName
-     * @param  int       $from
+     * @param string $body
+     * @param string $tagName
+     * @param int    $from
+     *
      * @return false|int return false if end of tag is not found
      */
     // phpcs:ignore Ecg.PHP.PrivateClassMember.PrivateClassMemberError
@@ -551,6 +562,7 @@ class Mage_Core_Model_Translate_Inline
      * Check is a Request contain Json flag
      *
      * @deprecated 1.3.2.2
+     *
      * @return bool
      */
     public function getIsAjaxRequest()
@@ -563,6 +575,7 @@ class Mage_Core_Model_Translate_Inline
      *
      * @param bool $flag
      * @deprecated 1.3.2.2
+     *
      * @return $this
      */
     public function setIsAjaxRequest($flag)
@@ -584,7 +597,8 @@ class Mage_Core_Model_Translate_Inline
     /**
      * Set flag about parsed content is Json
      *
-     * @param  bool  $flag
+     * @param bool $flag
+     *
      * @return $this
      */
     public function setIsJson($flag)

@@ -72,7 +72,8 @@ class Mage_Paypal_Model_Hostedpro_Request extends Varien_Object
     /**
      * Append payment data to request
      *
-     * @param  Mage_Paypal_Model_Hostedpro $paymentMethod
+     * @param Mage_Paypal_Model_Hostedpro $paymentMethod
+     *
      * @return $this
      */
     public function setPaymentMethod($paymentMethod)
@@ -87,7 +88,8 @@ class Mage_Paypal_Model_Hostedpro_Request extends Varien_Object
     /**
      * Append order data to request
      *
-     * @param  Mage_Sales_Model_Order $order
+     * @param Mage_Sales_Model_Order $order
+     *
      * @return $this
      */
     public function setOrder($order)
@@ -214,7 +216,8 @@ class Mage_Paypal_Model_Hostedpro_Request extends Varien_Object
     /**
      * Format price string
      *
-     * @param  mixed $string
+     * @param mixed $string
+     *
      * @return mixed
      */
     protected function _formatPrice($string)

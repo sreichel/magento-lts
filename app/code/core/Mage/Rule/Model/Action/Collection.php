@@ -132,7 +132,8 @@ class Mage_Rule_Model_Action_Collection extends Mage_Rule_Model_Action_Abstract
     }
 
     /**
-     * @param  string $format
+     * @param string $format
+     *
      * @return string
      */
     public function asString($format = '')
@@ -141,7 +142,8 @@ class Mage_Rule_Model_Action_Collection extends Mage_Rule_Model_Action_Abstract
     }
 
     /**
-     * @param  int    $level
+     * @param int $level
+     *
      * @return string
      */
     public function asStringRecursive($level = 0)

@@ -171,7 +171,8 @@ class Mage_Tax_Model_Observer
     /**
      * Add tax percent values to product collection items
      *
-     * @param  Varien_Event_Observer   $observer
+     * @param Varien_Event_Observer $observer
+     *
      * @return Mage_Tax_Model_Observer
      */
     public function addTaxPercentToProductCollection($observer)
@@ -206,7 +207,8 @@ class Mage_Tax_Model_Observer
     /**
      * Refresh sales tax report statistics for last day
      *
-     * @param  Mage_Cron_Model_Schedule $schedule
+     * @param Mage_Cron_Model_Schedule $schedule
+     *
      * @return $this
      */
     public function aggregateSalesReportTaxData($schedule)

@@ -631,7 +631,8 @@ class Mage_Sales_Model_Quote_Address extends Mage_Customer_Model_Address_Abstrac
      * false: get non-nominals only
      * null: get all
      *
-     * @param  Mage_Sales_Model_Quote_Item_Abstract       $item
+     * @param Mage_Sales_Model_Quote_Item_Abstract $item
+     *
      * @return Mage_Sales_Model_Quote_Item_Abstract|false
      */
     protected function _filterNominal($item)
@@ -662,7 +663,8 @@ class Mage_Sales_Model_Quote_Address extends Mage_Customer_Model_Address_Abstrac
     /**
      * Retrieve item quantity by id
      *
-     * @param  int       $itemId
+     * @param int $itemId
+     *
      * @return float|int
      */
     public function getItemQty($itemId = 0)
@@ -699,7 +701,8 @@ class Mage_Sales_Model_Quote_Address extends Mage_Customer_Model_Address_Abstrac
     /**
      * Get address item object by id without
      *
-     * @param  int                                       $itemId
+     * @param int $itemId
+     *
      * @return Mage_Sales_Model_Quote_Address_Item|false
      */
     public function getItemById($itemId)
@@ -716,7 +719,8 @@ class Mage_Sales_Model_Quote_Address extends Mage_Customer_Model_Address_Abstrac
     /**
      * Get prepared not deleted item
      *
-     * @param  int                                       $itemId
+     * @param int $itemId
+     *
      * @return Mage_Sales_Model_Quote_Address_Item|false
      */
     public function getValidItemById($itemId)
@@ -733,7 +737,8 @@ class Mage_Sales_Model_Quote_Address extends Mage_Customer_Model_Address_Abstrac
     /**
      * Retrieve item object by quote item Id
      *
-     * @param  int                                       $itemId
+     * @param int $itemId
+     *
      * @return Mage_Sales_Model_Quote_Address_Item|false
      */
     public function getItemByQuoteItemId($itemId)
@@ -750,7 +755,8 @@ class Mage_Sales_Model_Quote_Address extends Mage_Customer_Model_Address_Abstrac
     /**
      * Remove item from collection
      *
-     * @param  int   $itemId
+     * @param int $itemId
+     *
      * @return $this
      */
     public function removeItem($itemId)
@@ -766,7 +772,8 @@ class Mage_Sales_Model_Quote_Address extends Mage_Customer_Model_Address_Abstrac
     /**
      * Add item to address
      *
-     * @param  int   $qty
+     * @param int $qty
+     *
      * @return $this
      */
     public function addItem(Mage_Sales_Model_Quote_Item_Abstract $item, $qty = null)
@@ -872,8 +879,9 @@ class Mage_Sales_Model_Quote_Address extends Mage_Customer_Model_Address_Abstrac
     /**
      * Sort rates recursive callback
      *
-     * @param  array $a
-     * @param  array $b
+     * @param array $a
+     * @param array $b
+     *
      * @return int
      */
     protected function _sortRates($a, $b)
@@ -890,7 +898,8 @@ class Mage_Sales_Model_Quote_Address extends Mage_Customer_Model_Address_Abstrac
     /**
      * Retrieve shipping rate by identifier
      *
-     * @param  int                                         $rateId
+     * @param int $rateId
+     *
      * @return Mage_Sales_Model_Quote_Address_Rate | false
      */
     public function getShippingRateById($rateId)
@@ -907,7 +916,8 @@ class Mage_Sales_Model_Quote_Address extends Mage_Customer_Model_Address_Abstrac
     /**
      * Retrieve shipping rate by code
      *
-     * @param  string                                    $code
+     * @param string $code
+     *
      * @return Mage_Sales_Model_Quote_Address_Rate|false
      */
     public function getShippingRateByCode($code)
@@ -1090,6 +1100,7 @@ class Mage_Sales_Model_Quote_Address extends Mage_Customer_Model_Address_Abstrac
      * Retrieve total models
      *
      * @deprecated
+     *
      * @return array
      */
     public function getTotalModels()
@@ -1130,7 +1141,8 @@ class Mage_Sales_Model_Quote_Address extends Mage_Customer_Model_Address_Abstrac
     /**
      * Add total data or model
      *
-     * @param  Mage_Sales_Model_Quote_Address_Total|array $total
+     * @param Mage_Sales_Model_Quote_Address_Total|array $total
+     *
      * @return $this
      */
     public function addTotal($total)
@@ -1208,7 +1220,8 @@ class Mage_Sales_Model_Quote_Address extends Mage_Customer_Model_Address_Abstrac
     /**
      * Set applied taxes
      *
-     * @param  array $data
+     * @param array $data
+     *
      * @return $this
      */
     public function setAppliedTaxes($data)
@@ -1219,8 +1232,9 @@ class Mage_Sales_Model_Quote_Address extends Mage_Customer_Model_Address_Abstrac
     /**
      * Set shipping amount
      *
-     * @param  float $value
-     * @param  bool  $alreadyExclTax
+     * @param float $value
+     * @param bool  $alreadyExclTax
+     *
      * @return $this
      */
     public function setShippingAmount($value, $alreadyExclTax = false)
@@ -1231,8 +1245,9 @@ class Mage_Sales_Model_Quote_Address extends Mage_Customer_Model_Address_Abstrac
     /**
      * Set base shipping amount
      *
-     * @param  float $value
-     * @param  bool  $alreadyExclTax
+     * @param float $value
+     * @param bool  $alreadyExclTax
+     *
      * @return $this
      */
     public function setBaseShippingAmount($value, $alreadyExclTax = false)
@@ -1243,8 +1258,9 @@ class Mage_Sales_Model_Quote_Address extends Mage_Customer_Model_Address_Abstrac
     /**
      * Set total amount value
      *
-     * @param  string $code
-     * @param  float  $amount
+     * @param string $code
+     * @param float  $amount
+     *
      * @return $this
      */
     public function setTotalAmount($code, $amount)
@@ -1261,8 +1277,9 @@ class Mage_Sales_Model_Quote_Address extends Mage_Customer_Model_Address_Abstrac
     /**
      * Set total amount value in base store currency
      *
-     * @param  string $code
-     * @param  float  $amount
+     * @param string $code
+     * @param float  $amount
+     *
      * @return $this
      */
     public function setBaseTotalAmount($code, $amount)
@@ -1279,8 +1296,9 @@ class Mage_Sales_Model_Quote_Address extends Mage_Customer_Model_Address_Abstrac
     /**
      * Add amount total amount value
      *
-     * @param  string $code
-     * @param  float  $amount
+     * @param string $code
+     * @param float  $amount
+     *
      * @return $this
      */
     public function addTotalAmount($code, $amount)
@@ -1293,8 +1311,9 @@ class Mage_Sales_Model_Quote_Address extends Mage_Customer_Model_Address_Abstrac
     /**
      * Add amount total amount value in base store currency
      *
-     * @param  string $code
-     * @param  float  $amount
+     * @param string $code
+     * @param float  $amount
+     *
      * @return $this
      */
     public function addBaseTotalAmount($code, $amount)
@@ -1307,7 +1326,8 @@ class Mage_Sales_Model_Quote_Address extends Mage_Customer_Model_Address_Abstrac
     /**
      * Get total amount value by code
      *
-     * @param  string $code
+     * @param string $code
+     *
      * @return float
      */
     public function getTotalAmount($code)
@@ -1318,7 +1338,8 @@ class Mage_Sales_Model_Quote_Address extends Mage_Customer_Model_Address_Abstrac
     /**
      * Get total amount value by code in base store curncy
      *
-     * @param  string $code
+     * @param string $code
+     *
      * @return float
      */
     public function getBaseTotalAmount($code)

@@ -24,6 +24,7 @@ class Mage_Adminhtml_Block_System_Convert_Gui_Edit_Tabs extends Mage_Adminhtml_B
 
     /**
      * @inheritDoc
+     *
      * @throws Exception
      */
     protected function _beforeToHtml()

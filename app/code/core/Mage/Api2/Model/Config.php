@@ -71,8 +71,10 @@ class Mage_Api2_Model_Config extends Varien_Simplexml_Config
     /**
      * Fetch all routes of the given api type from config files api2.xml
      *
-     * @param  string              $apiType
+     * @param string $apiType
+     *
      * @throws Mage_Api2_Exception
+     *
      * @return array
      */
     public function getRoutes($apiType)
@@ -183,7 +185,8 @@ class Mage_Api2_Model_Config extends Varien_Simplexml_Config
     /**
      * Retrieve resource group from config files api2.xml
      *
-     * @param  string                              $name
+     * @param string $name
+     *
      * @return Mage_Core_Model_Config_Element|bool
      */
     public function getResourceGroup($name)
@@ -199,7 +202,8 @@ class Mage_Api2_Model_Config extends Varien_Simplexml_Config
     /**
      * Retrieve resource by type (node)
      *
-     * @param  string                        $node
+     * @param string $node
+     *
      * @return Varien_Simplexml_Element|bool
      */
     public function getResource($node)
@@ -210,7 +214,8 @@ class Mage_Api2_Model_Config extends Varien_Simplexml_Config
     /**
      * Retrieve resource attributes
      *
-     * @param  string $node
+     * @param string $node
+     *
      * @return array
      */
     public function getResourceAttributes($node)
@@ -222,9 +227,10 @@ class Mage_Api2_Model_Config extends Varien_Simplexml_Config
     /**
      * Get excluded attributes of API resource
      *
-     * @param  string $resource
-     * @param  string $userType
-     * @param  string $operation
+     * @param string $resource
+     * @param string $userType
+     * @param string $operation
+     *
      * @return array
      */
     public function getResourceExcludedAttributes($resource, $userType, $operation)
@@ -246,8 +252,9 @@ class Mage_Api2_Model_Config extends Varien_Simplexml_Config
     /**
      * Get forced attributes of API resource
      *
-     * @param  string $resource
-     * @param  string $userType
+     * @param string $resource
+     * @param string $userType
+     *
      * @return array
      */
     public function getResourceForcedAttributes($resource, $userType)
@@ -269,9 +276,10 @@ class Mage_Api2_Model_Config extends Varien_Simplexml_Config
     /**
      * Get included attributes
      *
-     * @param  string                                          $resource      API resource ID
-     * @param  string                                          $userType      API user type
-     * @param  Mage_Api2_Model_Resource::OPERATION_ATTRIBUTE_* $operationType
+     * @param string                                          $resource      API resource ID
+     * @param string                                          $userType      API user type
+     * @param Mage_Api2_Model_Resource::OPERATION_ATTRIBUTE_* $operationType
+     *
      * @return array
      */
     public function getResourceIncludedAttributes($resource, $userType, $operationType)
@@ -293,9 +301,10 @@ class Mage_Api2_Model_Config extends Varien_Simplexml_Config
     /**
      * Get entity only attributes
      *
-     * @param  string                                          $resource      API resource ID
-     * @param  string                                          $userType      API user type
-     * @param  Mage_Api2_Model_Resource::OPERATION_ATTRIBUTE_* $operationType
+     * @param string                                          $resource      API resource ID
+     * @param string                                          $userType      API user type
+     * @param Mage_Api2_Model_Resource::OPERATION_ATTRIBUTE_* $operationType
+     *
      * @return array
      */
     public function getResourceEntityOnlyAttributes($resource, $userType, $operationType)
@@ -318,7 +327,8 @@ class Mage_Api2_Model_Config extends Varien_Simplexml_Config
     /**
      * Retrieve resource working model
      *
-     * @param  string $node
+     * @param string $node
+     *
      * @return string
      */
     public function getResourceWorkingModel($node)
@@ -329,8 +339,10 @@ class Mage_Api2_Model_Config extends Varien_Simplexml_Config
     /**
      * Get resource allowed versions sorted in reverse order
      *
-     * @param  string    $node
+     * @param string $node
+     *
      * @return array
+     *
      * @throws Exception
      */
     public function getVersions($node)
@@ -355,7 +367,8 @@ class Mage_Api2_Model_Config extends Varien_Simplexml_Config
     /**
      * Retrieve resource model
      *
-     * @param  string $node
+     * @param string $node
+     *
      * @return string
      */
     public function getResourceModel($node)
@@ -366,8 +379,9 @@ class Mage_Api2_Model_Config extends Varien_Simplexml_Config
     /**
      * Retrieve API user privileges for specified resource
      *
-     * @param  string $resource
-     * @param  string $userType
+     * @param string $resource
+     * @param string $userType
+     *
      * @return array
      */
     public function getResourceUserPrivileges($resource, $userType)
@@ -379,7 +393,8 @@ class Mage_Api2_Model_Config extends Varien_Simplexml_Config
     /**
      * Retrieve resource subresources
      *
-     * @param  string $node
+     * @param string $node
+     *
      * @return array
      */
     public function getResourceSubresources($node)
@@ -391,8 +406,9 @@ class Mage_Api2_Model_Config extends Varien_Simplexml_Config
     /**
      * Get validation config by validator type
      *
-     * @param  string $resourceType
-     * @param  string $validatorType
+     * @param string $resourceType
+     * @param string $validatorType
+     *
      * @return array
      */
     public function getValidationConfig($resourceType, $validatorType)
@@ -404,8 +420,9 @@ class Mage_Api2_Model_Config extends Varien_Simplexml_Config
     /**
      * Get latest version of resource model. If second arg is specified - use it as a limiter
      *
-     * @param  string $resourceType    Resource type
-     * @param  int    $lowerOrEqualsTo OPTIONAL If specified - return version equal or lower to
+     * @param string $resourceType    Resource type
+     * @param int    $lowerOrEqualsTo OPTIONAL If specified - return version equal or lower to
+     *
      * @return int
      */
     public function getResourceLastVersion($resourceType, $lowerOrEqualsTo = null)
@@ -428,7 +445,8 @@ class Mage_Api2_Model_Config extends Varien_Simplexml_Config
     /**
      * Get route with Mage_Api2_Model_Resource::ACTION_TYPE_ENTITY type
      *
-     * @param  string $node
+     * @param string $node
+     *
      * @return string
      */
     public function getRouteWithEntityTypeAction($node)

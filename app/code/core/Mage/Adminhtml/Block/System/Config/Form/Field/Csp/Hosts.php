@@ -39,7 +39,9 @@ class Mage_Adminhtml_Block_System_Config_Form_Field_Csp_Hosts extends Mage_Admin
      * Obtain existing data from form element
      *
      * Each row will be instance of Varien_Object
+     *
      * @return array<string, Varien_Object> Array of rows
+     *
      * @throws Exception
      */
     public function getArrayRows(): array
@@ -95,7 +97,8 @@ class Mage_Adminhtml_Block_System_Config_Form_Field_Csp_Hosts extends Mage_Admin
      * Extract and validate area and directive name from the node path
      *
      * @return array{Mage_Core_Model_App_Area::AREA_FRONTEND|Mage_Core_Model_App_Area::AREA_ADMINHTML, value-of<Mage_Csp_Helper_Data::CSP_DIRECTIVES>} Array containing area and directiveName
-     * @throws Exception                                                                                                                               If path format is invalid or contains disallowed values
+     *
+     * @throws Exception If path format is invalid or contains disallowed values
      */
     private function _parseNodePath(): array
     {
@@ -121,8 +124,10 @@ class Mage_Adminhtml_Block_System_Config_Form_Field_Csp_Hosts extends Mage_Admin
     /**
      * Render array cell for prototypeJS template
      *
-     * @param  string    $columnName
+     * @param string $columnName
+     *
      * @return string
+     *
      * @throws Exception
      */
     protected function _renderCellTemplate($columnName)

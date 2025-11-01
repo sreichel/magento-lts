@@ -20,7 +20,8 @@ class Mage_Sales_Model_Entity_Order_Creditmemo_Comment_Collection extends Mage_E
     }
 
     /**
-     * @param  int   $creditmemoId
+     * @param int $creditmemoId
+     *
      * @return $this
      */
     public function setCreditmemoFilter($creditmemoId)
@@ -30,7 +31,8 @@ class Mage_Sales_Model_Entity_Order_Creditmemo_Comment_Collection extends Mage_E
     }
 
     /**
-     * @param  string $order
+     * @param string $order
+     *
      * @return $this
      */
     public function setCreatedAtOrder($order = 'desc')

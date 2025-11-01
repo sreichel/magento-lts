@@ -59,8 +59,10 @@ class Mage_Checkout_Block_Multishipping_Shipping extends Mage_Sales_Block_Items_
     }
 
     /**
-     * @param  Mage_Sales_Model_Quote_Address $address
+     * @param Mage_Sales_Model_Quote_Address $address
+     *
      * @return array|mixed
+     *
      * @throws Exception
      */
     public function getAddressItems($address)
@@ -81,7 +83,8 @@ class Mage_Checkout_Block_Multishipping_Shipping extends Mage_Sales_Block_Items_
     }
 
     /**
-     * @param  Mage_Sales_Model_Quote_Address $address
+     * @param Mage_Sales_Model_Quote_Address $address
+     *
      * @return string
      */
     public function getAddressShippingMethod($address)
@@ -90,7 +93,8 @@ class Mage_Checkout_Block_Multishipping_Shipping extends Mage_Sales_Block_Items_
     }
 
     /**
-     * @param  Mage_Sales_Model_Quote_Address $address
+     * @param Mage_Sales_Model_Quote_Address $address
+     *
      * @return array
      */
     public function getShippingRates($address)
@@ -99,7 +103,8 @@ class Mage_Checkout_Block_Multishipping_Shipping extends Mage_Sales_Block_Items_
     }
 
     /**
-     * @param  string $carrierCode
+     * @param string $carrierCode
+     *
      * @return string
      */
     public function getCarrierName($carrierCode)
@@ -112,7 +117,8 @@ class Mage_Checkout_Block_Multishipping_Shipping extends Mage_Sales_Block_Items_
     }
 
     /**
-     * @param  Mage_Sales_Model_Quote_Address $address
+     * @param Mage_Sales_Model_Quote_Address $address
+     *
      * @return string
      */
     public function getAddressEditUrl($address)
@@ -145,9 +151,10 @@ class Mage_Checkout_Block_Multishipping_Shipping extends Mage_Sales_Block_Items_
     }
 
     /**
-     * @param  Mage_Sales_Model_Quote_Address $address
-     * @param  float                          $price
-     * @param  bool                           $flag
+     * @param Mage_Sales_Model_Quote_Address $address
+     * @param float                          $price
+     * @param bool                           $flag
+     *
      * @return float
      */
     public function getShippingPrice($address, $price, $flag)

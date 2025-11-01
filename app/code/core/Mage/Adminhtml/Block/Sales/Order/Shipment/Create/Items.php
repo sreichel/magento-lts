@@ -64,7 +64,8 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_Create_Items extends Mage_Adminh
     /**
      * Format given price
      *
-     * @param  float  $price
+     * @param float $price
+     *
      * @return string
      */
     public function formatPrice($price)

@@ -66,8 +66,9 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Checkbox extends Mage_Adm
     }
 
     /**
-     * @param  string $value   Value of the element
-     * @param  bool   $checked Whether it is checked
+     * @param string $value   Value of the element
+     * @param bool   $checked Whether it is checked
+     *
      * @return string
      */
     protected function _getCheckboxHtml($value, $checked)

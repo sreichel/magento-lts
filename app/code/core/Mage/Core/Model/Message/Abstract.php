@@ -62,7 +62,8 @@ abstract class Mage_Core_Model_Message_Abstract
     }
 
     /**
-     * @param  string $class
+     * @param string $class
+     *
      * @return $this
      */
     public function setClass($class)
@@ -72,7 +73,8 @@ abstract class Mage_Core_Model_Message_Abstract
     }
 
     /**
-     * @param  string $method
+     * @param string $method
+     *
      * @return $this
      */
     public function setMethod($method)
@@ -92,7 +94,8 @@ abstract class Mage_Core_Model_Message_Abstract
     /**
      * Set message identifier
      *
-     * @param  string                           $id
+     * @param string $id
+     *
      * @return Mage_Core_Model_Message_Abstract
      */
     public function setIdentifier($id)
@@ -114,7 +117,8 @@ abstract class Mage_Core_Model_Message_Abstract
     /**
      * Set message sticky status
      *
-     * @param  bool                             $isSticky
+     * @param bool $isSticky
+     *
      * @return Mage_Core_Model_Message_Abstract
      */
     public function setIsSticky($isSticky = true)
@@ -136,7 +140,8 @@ abstract class Mage_Core_Model_Message_Abstract
     /**
      * Set code
      *
-     * @param  string                           $code
+     * @param string $code
+     *
      * @return Mage_Core_Model_Message_Abstract
      */
     public function setCode($code)

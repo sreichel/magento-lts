@@ -91,7 +91,9 @@ class Mage_Catalog_Model_Resource_Eav_Attribute extends Mage_Eav_Model_Entity_At
     /**
      * Processing object before save data
      *
+     *
      * @throws Mage_Core_Exception
+     *
      * @return Mage_Core_Model_Abstract
      */
     protected function _beforeSave()
@@ -288,6 +290,7 @@ class Mage_Catalog_Model_Resource_Eav_Attribute extends Mage_Eav_Model_Entity_At
 
     /**
      * Retrieve is_filterable value
+     *
      * @return int
      */
     public function getIsFilterable()
@@ -299,6 +302,7 @@ class Mage_Catalog_Model_Resource_Eav_Attribute extends Mage_Eav_Model_Entity_At
      * Get Attribute translated label for store
      *
      * @deprecated
+     *
      * @return string
      */
     protected function _getLabelForStore()

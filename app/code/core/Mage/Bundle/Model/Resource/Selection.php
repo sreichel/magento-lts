@@ -22,10 +22,11 @@ class Mage_Bundle_Model_Resource_Selection extends Mage_Core_Model_Resource_Db_A
     /**
      * Retrieve Price From index
      *
-     * @param  int   $productId
-     * @param  float $qty
-     * @param  int   $storeId
-     * @param  int   $groupId
+     * @param int   $productId
+     * @param float $qty
+     * @param int   $storeId
+     * @param int   $groupId
+     *
      * @return mixed
      */
     public function getPriceFromIndex($productId, $qty, $storeId, $groupId)
@@ -72,8 +73,9 @@ class Mage_Bundle_Model_Resource_Selection extends Mage_Core_Model_Resource_Db_A
      *   group => array(ids)
      * )
      *
-     * @param  int   $parentId
-     * @param  bool  $required
+     * @param int  $parentId
+     * @param bool $required
+     *
      * @return array
      */
     public function getChildrenIds($parentId, $required = true)
@@ -127,7 +129,8 @@ class Mage_Bundle_Model_Resource_Selection extends Mage_Core_Model_Resource_Db_A
     /**
      * Retrieve array of related bundle product ids by selection product id(s)
      *
-     * @param  int|array $childId
+     * @param int|array $childId
+     *
      * @return array
      */
     public function getParentIdsByChild($childId)

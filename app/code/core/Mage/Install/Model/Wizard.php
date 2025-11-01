@@ -71,7 +71,8 @@ class Mage_Install_Model_Wizard
     /**
      * Get wizard step by name
      *
-     * @param  string                $name
+     * @param string $name
+     *
      * @return Varien_Object | false
      */
     public function getStepByName($name)
@@ -103,8 +104,9 @@ class Mage_Install_Model_Wizard
     /**
      * Retrieve Url Path
      *
-     * @param  string $controller
-     * @param  string $action
+     * @param string $controller
+     * @param string $action
+     *
      * @return string
      */
     protected function _getUrlPath($controller, $action)

@@ -25,6 +25,7 @@ class Mage_Paypal_Block_Hosted_Pro_Iframe extends Mage_Paypal_Block_Iframe
 
     /**
      * Get iframe action URL
+     *
      * @return string
      */
     public function getFrameActionUrl()

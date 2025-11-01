@@ -43,9 +43,11 @@ class Unserialize_Reader_Arr
     public const FINISHED_ARR = 5;
 
     /**
-     * @param             $char
-     * @param             $prevChar
+     * @param $char
+     * @param $prevChar
+     *
      * @return array|null
+     *
      * @throws Exception
      */
     public function read($char, $prevChar)

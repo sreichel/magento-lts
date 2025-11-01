@@ -32,7 +32,8 @@ class Mage_Core_Model_Translate_String extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  string $string
+     * @param string $string
+     *
      * @return $this
      */
     public function setString($string)

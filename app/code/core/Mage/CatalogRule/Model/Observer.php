@@ -32,7 +32,8 @@ class Mage_CatalogRule_Model_Observer
     /**
      * Apply all catalog price rules for specific product
      *
-     * @param  Varien_Event_Observer $observer
+     * @param Varien_Event_Observer $observer
+     *
      * @return $this
      */
     public function applyAllRulesOnProduct($observer)
@@ -52,7 +53,8 @@ class Mage_CatalogRule_Model_Observer
      * Load matched catalog price rules for specific product.
      * Is used for comparison in Mage_CatalogRule_Model_Resource_Rule::applyToProduct method
      *
-     * @param  Varien_Event_Observer $observer
+     * @param Varien_Event_Observer $observer
+     *
      * @return $this
      */
     public function loadProductRules($observer)
@@ -389,6 +391,7 @@ class Mage_CatalogRule_Model_Observer
 
     /**
      * @return $this
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function prepareCatalogProductCollectionPrices(Varien_Event_Observer $observer)
@@ -473,7 +476,8 @@ class Mage_CatalogRule_Model_Observer
     /**
      * Generate key for rule prices
      *
-     * @param  array  $keyInfo
+     * @param array $keyInfo
+     *
      * @return string
      */
     protected function _getRulePricesKey($keyInfo)

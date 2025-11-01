@@ -43,8 +43,9 @@ class Mage_CatalogIndex_Model_Price extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  Mage_Eav_Model_Entity_Attribute $attribute
-     * @param  Zend_Db_Select                  $entityIdsFilter
+     * @param Mage_Eav_Model_Entity_Attribute $attribute
+     * @param Zend_Db_Select                  $entityIdsFilter
+     *
      * @return float|int
      */
     public function getMaxValue($attribute, $entityIdsFilter)
@@ -53,9 +54,10 @@ class Mage_CatalogIndex_Model_Price extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  Mage_Eav_Model_Entity_Attribute $attribute
-     * @param  int                             $range
-     * @param  Zend_Db_Select                  $entitySelect
+     * @param Mage_Eav_Model_Entity_Attribute $attribute
+     * @param int                             $range
+     * @param Zend_Db_Select                  $entitySelect
+     *
      * @return array
      */
     public function getCount($attribute, $range, $entitySelect)
@@ -64,10 +66,11 @@ class Mage_CatalogIndex_Model_Price extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  Mage_Eav_Model_Entity_Attribute $attribute
-     * @param  int                             $range
-     * @param  int                             $index
-     * @param  array                           $entityIdsFilter
+     * @param Mage_Eav_Model_Entity_Attribute $attribute
+     * @param int                             $range
+     * @param int                             $index
+     * @param array                           $entityIdsFilter
+     *
      * @return array
      */
     public function getFilteredEntities($attribute, $range, $index, $entityIdsFilter)
@@ -76,10 +79,11 @@ class Mage_CatalogIndex_Model_Price extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  Mage_Eav_Model_Resource_Entity_Attribute_Collection $collection
-     * @param  Mage_Eav_Model_Entity_Attribute                     $attribute
-     * @param  int                                                 $range
-     * @param  int                                                 $index
+     * @param Mage_Eav_Model_Resource_Entity_Attribute_Collection $collection
+     * @param Mage_Eav_Model_Entity_Attribute                     $attribute
+     * @param int                                                 $range
+     * @param int                                                 $index
+     *
      * @return Mage_CatalogIndex_Model_Resource_Price
      */
     public function applyFilterToCollection($collection, $attribute, $range, $index)

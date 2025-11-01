@@ -84,7 +84,8 @@ class Mage_Core_Model_Message_Collection
     /**
      * Get first even message by identifier
      *
-     * @param  string                                $identifier
+     * @param string $identifier
+     *
      * @return Mage_Core_Model_Message_Abstract|void
      */
     public function getMessageByIdentifier($identifier)
@@ -119,7 +120,8 @@ class Mage_Core_Model_Message_Collection
     /**
      * Retrieve messages collection items
      *
-     * @param  string $type
+     * @param string $type
+     *
      * @return array
      */
     public function getItems($type = null)
@@ -139,7 +141,8 @@ class Mage_Core_Model_Message_Collection
     /**
      * Retrieve all messages by type
      *
-     * @param  string $type
+     * @param string $type
+     *
      * @return array
      */
     public function getItemsByType($type)
@@ -174,7 +177,8 @@ class Mage_Core_Model_Message_Collection
     /**
      * Retrieve messages count
      *
-     * @param  string|null $type
+     * @param string|null $type
+     *
      * @return int
      */
     public function count($type = null)

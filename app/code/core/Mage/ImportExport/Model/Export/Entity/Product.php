@@ -161,7 +161,9 @@ class Mage_ImportExport_Model_Export_Entity_Product extends Mage_ImportExport_Mo
     /**
      * Initialize product type models.
      *
+     *
      * @throws Exception
+     *
      * @return $this
      */
     protected function _initTypeModels()
@@ -429,6 +431,7 @@ class Mage_ImportExport_Model_Export_Entity_Product extends Mage_ImportExport_Mo
      *
      * @deprecated since 1.6.1.0
      * @see Mage_Catalog_Model_Resource_Product_Type_Configurable::getConfigurableOptions()
+     *
      * @return array
      */
     protected function _prepareConfigurableProductData(array $productIds)
@@ -463,6 +466,7 @@ class Mage_ImportExport_Model_Export_Entity_Product extends Mage_ImportExport_Mo
      *
      * @deprecated since 1.6.1.0
      * @see Mage_Catalog_Model_Resource_Product_Type_Configurable::getConfigurableOptions()
+     *
      * @return array
      */
     protected function _prepareConfigurableProductPrice(array $productIds)
@@ -511,9 +515,10 @@ class Mage_ImportExport_Model_Export_Entity_Product extends Mage_ImportExport_Mo
     /**
      * Update data row with information about categories. Return true, if data row was updated
      *
-     * @param  array $dataRow
-     * @param  array $rowCategories
-     * @param  int   $productId
+     * @param array $dataRow
+     * @param array $rowCategories
+     * @param int   $productId
+     *
      * @return bool
      */
     protected function _updateDataWithCategoryColumns(&$dataRow, &$rowCategories, $productId)

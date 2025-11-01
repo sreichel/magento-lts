@@ -22,7 +22,8 @@ interface Mage_Index_Model_Resource_Helper_Lock_Interface
     /**
      * Set lock
      *
-     * @param  string $name
+     * @param string $name
+     *
      * @return bool
      */
     public function setLock($name);
@@ -30,7 +31,8 @@ interface Mage_Index_Model_Resource_Helper_Lock_Interface
     /**
      * Release lock
      *
-     * @param  string $name
+     * @param string $name
+     *
      * @return bool
      */
     public function releaseLock($name);
@@ -38,7 +40,8 @@ interface Mage_Index_Model_Resource_Helper_Lock_Interface
     /**
      * Is lock exists
      *
-     * @param  string $name
+     * @param string $name
+     *
      * @return bool
      */
     public function isLocked($name);

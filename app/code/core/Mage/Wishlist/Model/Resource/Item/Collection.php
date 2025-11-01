@@ -226,7 +226,8 @@ class Mage_Wishlist_Model_Resource_Item_Collection extends Mage_Core_Model_Resou
     /**
      * Add filtration by customer id
      *
-     * @param  int   $customerId
+     * @param int $customerId
+     *
      * @return $this
      */
     public function addCustomerIdFilter($customerId)
@@ -281,8 +282,9 @@ class Mage_Wishlist_Model_Resource_Item_Collection extends Mage_Core_Model_Resou
      * @deprecated after 1.6.0.0-rc2
      * @see Varien_Data_Collection_Db::setOrder() is used instead
      *
-     * @param  string $attribute
-     * @param  string $dir
+     * @param string $attribute
+     * @param string $dir
+     *
      * @return $this
      */
     public function addWishListSortOrder($attribute = 'added_at', $dir = 'desc')
@@ -305,7 +307,8 @@ class Mage_Wishlist_Model_Resource_Item_Collection extends Mage_Core_Model_Resou
     /**
      * Set product Visibility Filter to product collection flag
      *
-     * @param  bool  $flag
+     * @param bool $flag
+     *
      * @return $this
      */
     public function setVisibilityFilter($flag = true)
@@ -318,7 +321,8 @@ class Mage_Wishlist_Model_Resource_Item_Collection extends Mage_Core_Model_Resou
      * Set Salable Filter.
      * This filter apply Salable Product Types Filter to product collection.
      *
-     * @param  bool  $flag
+     * @param bool $flag
+     *
      * @return $this
      */
     public function setSalableFilter($flag = true)
@@ -331,7 +335,8 @@ class Mage_Wishlist_Model_Resource_Item_Collection extends Mage_Core_Model_Resou
      * Set In Stock Filter.
      * This filter remove items with no salable product.
      *
-     * @param  bool  $flag
+     * @param bool $flag
+     *
      * @return $this
      */
     public function setInStockFilter($flag = true)
@@ -349,6 +354,7 @@ class Mage_Wishlist_Model_Resource_Item_Collection extends Mage_Core_Model_Resou
      * - this method is useless because we can calculate days in php, and don't use MySQL for it
      *
      * @deprecated after 1.4.2.0
+     *
      * @return $this
      */
     public function addDaysInWishlist()
@@ -375,7 +381,8 @@ class Mage_Wishlist_Model_Resource_Item_Collection extends Mage_Core_Model_Resou
      *
      * $constraints may contain 'from' and 'to' indexes with number of days to look for items
      *
-     * @param  array $constraints
+     * @param array $constraints
+     *
      * @return $this
      */
     public function addDaysFilter($constraints)
@@ -444,7 +451,8 @@ class Mage_Wishlist_Model_Resource_Item_Collection extends Mage_Core_Model_Resou
     /**
      * Adds filter on product name
      *
-     * @param  string $productName
+     * @param string $productName
+     *
      * @return $this
      */
     public function addProductNameFilter($productName)
@@ -459,7 +467,8 @@ class Mage_Wishlist_Model_Resource_Item_Collection extends Mage_Core_Model_Resou
     /**
      * Sets ordering by product name
      *
-     * @param  string $dir
+     * @param string $dir
+     *
      * @return $this
      */
     public function setOrderByProductName($dir)
@@ -490,7 +499,8 @@ class Mage_Wishlist_Model_Resource_Item_Collection extends Mage_Core_Model_Resou
     /**
      * Setter for $_websiteId
      *
-     * @param  int   $websiteId
+     * @param int $websiteId
+     *
      * @return $this
      */
     public function setWebsiteId($websiteId)
@@ -502,7 +512,8 @@ class Mage_Wishlist_Model_Resource_Item_Collection extends Mage_Core_Model_Resou
     /**
      * Setter for $_customerGroupId
      *
-     * @param  int   $customerGroupId
+     * @param int $customerGroupId
+     *
      * @return $this
      */
     public function setCustomerGroupId($customerGroupId)

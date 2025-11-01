@@ -76,7 +76,8 @@ class Mage_Review_Block_Customer_Recent extends Mage_Core_Block_Template
     }
 
     /**
-     * @param  string $date
+     * @param string $date
+     *
      * @return string
      */
     public function dateFormat($date)
@@ -93,7 +94,8 @@ class Mage_Review_Block_Customer_Recent extends Mage_Core_Block_Template
     }
 
     /**
-     * @param  int    $id
+     * @param int $id
+     *
      * @return string
      */
     public function getReviewUrl($id)

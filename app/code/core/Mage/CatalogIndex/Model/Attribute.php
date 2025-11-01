@@ -31,9 +31,10 @@ class Mage_CatalogIndex_Model_Attribute extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  Mage_Eav_Model_Entity_Attribute $attribute
-     * @param  string                          $filter
-     * @param  int|array                       $entityFilter
+     * @param Mage_Eav_Model_Entity_Attribute $attribute
+     * @param string                          $filter
+     * @param int|array                       $entityFilter
+     *
      * @return array
      */
     public function getFilteredEntities($attribute, $filter, $entityFilter)
@@ -42,8 +43,9 @@ class Mage_CatalogIndex_Model_Attribute extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  Mage_Eav_Model_Entity_Attribute $attribute
-     * @param  Zend_Db_Select                  $entityFilter
+     * @param Mage_Eav_Model_Entity_Attribute $attribute
+     * @param Zend_Db_Select                  $entityFilter
+     *
      * @return array
      */
     public function getCount($attribute, $entityFilter)
@@ -52,9 +54,10 @@ class Mage_CatalogIndex_Model_Attribute extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  array                           $optionIds
-     * @param  Mage_Eav_Model_Entity_Attribute $attribute
-     * @param  mixed                           $entityFilter
+     * @param array                           $optionIds
+     * @param Mage_Eav_Model_Entity_Attribute $attribute
+     * @param mixed                           $entityFilter
+     *
      * @return mixed
      */
     public function checkCount($optionIds, $attribute, $entityFilter)
@@ -63,9 +66,10 @@ class Mage_CatalogIndex_Model_Attribute extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  Mage_Eav_Model_Resource_Entity_Attribute_Collection $collection
-     * @param  Mage_Eav_Model_Entity_Attribute                     $attribute
-     * @param  string                                              $value
+     * @param Mage_Eav_Model_Resource_Entity_Attribute_Collection $collection
+     * @param Mage_Eav_Model_Entity_Attribute                     $attribute
+     * @param string                                              $value
+     *
      * @return $this
      */
     public function applyFilterToCollection($collection, $attribute, $value)

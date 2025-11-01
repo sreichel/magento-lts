@@ -25,7 +25,8 @@ class Mage_Checkout_Block_Onepage_Payment_Methods extends Mage_Payment_Block_For
     /**
      * Check payment method model
      *
-     * @param  Mage_Payment_Model_Method_Abstract|null $method
+     * @param Mage_Payment_Model_Method_Abstract|null $method
+     *
      * @return bool
      */
     protected function _canUseMethod($method)
@@ -49,6 +50,7 @@ class Mage_Checkout_Block_Onepage_Payment_Methods extends Mage_Payment_Block_For
 
     /**
      * Payment method form html getter
+     *
      * @return string
      */
     public function getPaymentMethodFormHtml(Mage_Payment_Model_Method_Abstract $method)
@@ -73,6 +75,7 @@ class Mage_Checkout_Block_Onepage_Payment_Methods extends Mage_Payment_Block_For
 
     /**
      * Payment method additional label part getter
+     *
      * @return string
      */
     public function getMethodLabelAfterHtml(Mage_Payment_Model_Method_Abstract $method)

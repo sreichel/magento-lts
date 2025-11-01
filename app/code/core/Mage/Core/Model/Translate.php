@@ -98,8 +98,9 @@ class Mage_Core_Model_Translate
     /**
      * Initialization translation data
      *
-     * @param  string $area
-     * @param  bool   $forceReload
+     * @param string $area
+     * @param bool   $forceReload
+     *
      * @return $this
      */
     public function init($area, $forceReload = false)
@@ -159,7 +160,8 @@ class Mage_Core_Model_Translate
     /**
      * Initialize configuration
      *
-     * @param  array $config
+     * @param array $config
+     *
      * @return $this
      */
     public function setConfig($config)
@@ -187,7 +189,8 @@ class Mage_Core_Model_Translate
     /**
      * Retrieve config value by key
      *
-     * @param  string $key
+     * @param string $key
+     *
      * @return mixed
      */
     public function getConfig($key)
@@ -198,9 +201,10 @@ class Mage_Core_Model_Translate
     /**
      * Loading data from module translation files
      *
-     * @param  string $moduleName
-     * @param  array  $files
-     * @param  bool   $forceReload
+     * @param string $moduleName
+     * @param array  $files
+     * @param bool   $forceReload
+     *
      * @return $this
      */
     protected function _loadModuleTranslation($moduleName, $files, $forceReload = false)
@@ -216,9 +220,10 @@ class Mage_Core_Model_Translate
     /**
      * Adding translation data
      *
-     * @param  array  $data
-     * @param  string $scope
-     * @param  bool   $forceReload
+     * @param array  $data
+     * @param string $scope
+     * @param bool   $forceReload
+     *
      * @return $this
      */
     protected function _addData($data, $scope, $forceReload = false)
@@ -259,7 +264,8 @@ class Mage_Core_Model_Translate
     }
 
     /**
-     * @param  string $string
+     * @param string $string
+     *
      * @return string
      */
     protected function _prepareDataString($string)
@@ -270,7 +276,8 @@ class Mage_Core_Model_Translate
     /**
      * Loading current theme translation
      *
-     * @param  bool  $forceReload
+     * @param bool $forceReload
+     *
      * @return $this
      */
     protected function _loadThemeTranslation($forceReload = false)
@@ -283,7 +290,8 @@ class Mage_Core_Model_Translate
     /**
      * Loading current store translation from DB
      *
-     * @param  bool  $forceReload
+     * @param bool $forceReload
+     *
      * @return $this
      */
     protected function _loadDbTranslation($forceReload = false)
@@ -296,8 +304,9 @@ class Mage_Core_Model_Translate
     /**
      * Retrieve translation file for module
      *
-     * @param  string $module
-     * @param  string $fileName
+     * @param string $module
+     * @param string $fileName
+     *
      * @return string
      */
     protected function _getModuleFilePath($module, $fileName)
@@ -310,7 +319,8 @@ class Mage_Core_Model_Translate
     /**
      * Retrieve data from file
      *
-     * @param  string $file
+     * @param string $file
+     *
      * @return array
      */
     protected function _getFileData($file)
@@ -355,7 +365,8 @@ class Mage_Core_Model_Translate
     }
 
     /**
-     * @param  string $locale
+     * @param string $locale
+     *
      * @return $this
      */
     public function setLocale($locale)
@@ -391,7 +402,8 @@ class Mage_Core_Model_Translate
     /**
      * Translate
      *
-     * @param  array  $args
+     * @param array $args
+     *
      * @return string
      * @SuppressWarnings("PHPMD.Superglobals")
      */
@@ -445,7 +457,8 @@ class Mage_Core_Model_Translate
     /**
      * Set Translate inline mode
      *
-     * @param  bool  $flag
+     * @param bool $flag
+     *
      * @return $this
      */
     public function setTranslateInline($flag = null)
@@ -467,9 +480,10 @@ class Mage_Core_Model_Translate
     /**
      * Retrieve translated template file
      *
-     * @param  string $file
-     * @param  string $type
-     * @param  string $localeCode
+     * @param string $file
+     * @param string $type
+     * @param string $localeCode
+     *
      * @return string
      */
     public function getTemplateFile($file, $type, $localeCode = null)
@@ -581,8 +595,9 @@ class Mage_Core_Model_Translate
     /**
      * Return translated string from text.
      *
-     * @param  string $text
-     * @param  string $code
+     * @param string $text
+     * @param string $code
+     *
      * @return string
      */
     protected function _getTranslatedString($text, $code)

@@ -20,7 +20,8 @@ class Mage_Sales_Model_Entity_Order_Invoice_Item_Collection extends Mage_Eav_Mod
     }
 
     /**
-     * @param  int   $invoiceId
+     * @param int $invoiceId
+     *
      * @return $this
      */
     public function setInvoiceFilter($invoiceId)

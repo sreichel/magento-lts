@@ -48,7 +48,8 @@ class Mage_CatalogSearch_Block_Advanced_Form extends Mage_Core_Block_Template
     /**
      * Retrieve attribute label
      *
-     * @param  Mage_Eav_Model_Entity_Attribute_Abstract $attribute
+     * @param Mage_Eav_Model_Entity_Attribute_Abstract $attribute
+     *
      * @return string
      */
     public function getAttributeLabel($attribute)
@@ -59,7 +60,8 @@ class Mage_CatalogSearch_Block_Advanced_Form extends Mage_Core_Block_Template
     /**
      * Retrieve attribute input validation class
      *
-     * @param  Mage_Eav_Model_Entity_Attribute_Abstract $attribute
+     * @param Mage_Eav_Model_Entity_Attribute_Abstract $attribute
+     *
      * @return string
      */
     public function getAttributeValidationClass($attribute)
@@ -70,8 +72,9 @@ class Mage_CatalogSearch_Block_Advanced_Form extends Mage_Core_Block_Template
     /**
      * Retrieve search string for given field from request
      *
-     * @param  Mage_Eav_Model_Entity_Attribute_Abstract $attribute
-     * @param  string|null                              $part
+     * @param Mage_Eav_Model_Entity_Attribute_Abstract $attribute
+     * @param string|null                              $part
+     *
      * @return mixed|string
      */
     public function getAttributeValue($attribute, $part = null)
@@ -127,7 +130,8 @@ class Mage_CatalogSearch_Block_Advanced_Form extends Mage_Core_Block_Template
     /**
      * Retrieve currency code for attribute
      *
-     * @param  Mage_Eav_Model_Entity_Attribute_Abstract $attribute
+     * @param Mage_Eav_Model_Entity_Attribute_Abstract $attribute
+     *
      * @return string
      */
     public function getCurrency($attribute)
@@ -138,7 +142,8 @@ class Mage_CatalogSearch_Block_Advanced_Form extends Mage_Core_Block_Template
     /**
      * Retrieve attribute input type
      *
-     * @param  Mage_Eav_Model_Entity_Attribute_Abstract $attribute
+     * @param Mage_Eav_Model_Entity_Attribute_Abstract $attribute
+     *
      * @return string
      */
     public function getAttributeInputType($attribute)
@@ -171,7 +176,8 @@ class Mage_CatalogSearch_Block_Advanced_Form extends Mage_Core_Block_Template
     /**
      * Build attribute select element html string
      *
-     * @param  Mage_Eav_Model_Entity_Attribute_Abstract $attribute
+     * @param Mage_Eav_Model_Entity_Attribute_Abstract $attribute
+     *
      * @return string
      */
     public function getAttributeSelectElement($attribute)
@@ -203,7 +209,8 @@ class Mage_CatalogSearch_Block_Advanced_Form extends Mage_Core_Block_Template
     /**
      * Retrieve yes/no element html for provided attribute
      *
-     * @param  Mage_Eav_Model_Entity_Attribute_Abstract $attribute
+     * @param Mage_Eav_Model_Entity_Attribute_Abstract $attribute
+     *
      * @return string
      */
     public function getAttributeYesNoElement($attribute)
@@ -276,8 +283,9 @@ class Mage_CatalogSearch_Block_Advanced_Form extends Mage_Core_Block_Template
     /**
      * Build date element html string for attribute
      *
-     * @param  Mage_Eav_Model_Entity_Attribute_Abstract $attribute
-     * @param  string                                   $part
+     * @param Mage_Eav_Model_Entity_Attribute_Abstract $attribute
+     * @param string                                   $part
+     *
      * @return string
      */
     public function getDateInput($attribute, $part = 'from')

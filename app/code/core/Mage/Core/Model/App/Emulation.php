@@ -166,8 +166,9 @@ class Mage_Core_Model_App_Emulation extends Varien_Object
     /**
      * Retrieve config value for store by path
      *
-     * @param  string                                     $path
-     * @param  null|string|bool|int|Mage_Core_Model_Store $store
+     * @param string                                     $path
+     * @param null|string|bool|int|Mage_Core_Model_Store $store
+     *
      * @return mixed
      */
     protected function _getStoreConfig($path, $store = null)

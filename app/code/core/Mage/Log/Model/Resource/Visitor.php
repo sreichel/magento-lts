@@ -54,7 +54,8 @@ class Mage_Log_Model_Resource_Visitor extends Mage_Core_Model_Resource_Db_Abstra
     /**
      * Saving information about url
      *
-     * @param  Mage_Core_Model_Abstract|Mage_Log_Model_Visitor $visitor
+     * @param Mage_Core_Model_Abstract|Mage_Log_Model_Visitor $visitor
+     *
      * @return $this
      */
     protected function _saveUrlInfo($visitor)
@@ -152,7 +153,8 @@ class Mage_Log_Model_Resource_Visitor extends Mage_Core_Model_Resource_Db_Abstra
     /**
      * Saving visitor information
      *
-     * @param  Mage_Core_Model_Abstract|Mage_Log_Model_Visitor $visitor
+     * @param Mage_Core_Model_Abstract|Mage_Log_Model_Visitor $visitor
+     *
      * @return $this
      */
     protected function _saveVisitorInfo($visitor)
@@ -191,7 +193,8 @@ class Mage_Log_Model_Resource_Visitor extends Mage_Core_Model_Resource_Db_Abstra
     /**
      * Saving visitor and url relation
      *
-     * @param  Mage_Core_Model_Abstract|Mage_Log_Model_Visitor $visitor
+     * @param Mage_Core_Model_Abstract|Mage_Log_Model_Visitor $visitor
+     *
      * @return $this
      */
     protected function _saveVisitorUrl($visitor)
@@ -210,7 +213,8 @@ class Mage_Log_Model_Resource_Visitor extends Mage_Core_Model_Resource_Db_Abstra
     /**
      * Saving information about customer
      *
-     * @param  Mage_Core_Model_Abstract|Mage_Log_Model_Visitor $visitor
+     * @param Mage_Core_Model_Abstract|Mage_Log_Model_Visitor $visitor
+     *
      * @return $this
      */
     protected function _saveCustomerInfo($visitor)
@@ -256,7 +260,8 @@ class Mage_Log_Model_Resource_Visitor extends Mage_Core_Model_Resource_Db_Abstra
     /**
      * Saving information about quote
      *
-     * @param  Mage_Core_Model_Abstract|Mage_Log_Model_Visitor $visitor
+     * @param Mage_Core_Model_Abstract|Mage_Log_Model_Visitor $visitor
+     *
      * @return $this
      */
     protected function _saveQuoteInfo($visitor)

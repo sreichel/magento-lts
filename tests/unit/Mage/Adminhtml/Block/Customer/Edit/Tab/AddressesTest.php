@@ -20,6 +20,7 @@ final class AddressesTest extends OpenMageTest
 {
     /**
      * @group Block
+     *
      * @throws Mage_Core_Exception
      */
     public function testInitForm(): void

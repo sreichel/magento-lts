@@ -16,6 +16,7 @@ class Mage_Tag_CustomerController extends Mage_Core_Controller_Front_Action
 {
     /**
      * @return int|false
+     *
      * @throws Mage_Core_Exception
      */
     protected function _getTagId()

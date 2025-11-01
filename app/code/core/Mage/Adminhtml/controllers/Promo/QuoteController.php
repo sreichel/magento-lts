@@ -249,6 +249,7 @@ class Mage_Adminhtml_Promo_QuoteController extends Mage_Adminhtml_Controller_Act
     /**
      * New condition HTML action
      *
+     *
      * @throws Mage_Core_Exception
      */
     public function newConditionHtmlAction()

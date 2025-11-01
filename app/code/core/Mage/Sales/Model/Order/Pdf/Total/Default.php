@@ -32,6 +32,7 @@ class Mage_Sales_Model_Order_Pdf_Total_Default extends Varien_Object
      *      'font_size'=> $fontSize
      *  )
      * )
+     *
      * @return array
      */
     public function getTotalsForDisplay()
@@ -74,6 +75,7 @@ class Mage_Sales_Model_Order_Pdf_Total_Default extends Varien_Object
      *      'font_size'=> $fontSize
      *  )
      * )
+     *
      * @return array
      */
     public function getFullTaxInfo()

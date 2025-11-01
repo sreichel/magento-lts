@@ -43,7 +43,8 @@ class Mage_Rating_Model_Resource_Rating_Option_Collection extends Mage_Core_Mode
     /**
      * Add rating filter
      *
-     * @param  int|array $rating
+     * @param int|array $rating
+     *
      * @return $this
      */
     public function addRatingFilter($rating)
@@ -60,7 +61,8 @@ class Mage_Rating_Model_Resource_Rating_Option_Collection extends Mage_Core_Mode
     /**
      * Set order by position field
      *
-     * @param  string $dir
+     * @param string $dir
+     *
      * @return $this
      */
     public function setPositionOrder($dir = 'ASC')

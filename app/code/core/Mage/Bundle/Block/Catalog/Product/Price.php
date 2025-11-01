@@ -41,6 +41,7 @@ class Mage_Bundle_Block_Catalog_Product_Price extends Mage_Catalog_Block_Product
      * With corrections for Dynamic prices
      *
      * @return bool
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function displayBothPrices()

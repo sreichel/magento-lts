@@ -16,6 +16,7 @@ class Mage_Adminhtml_Model_System_Config_Clone_Media_Image extends Mage_Core_Mod
 {
     /**
      * Get fields prefixes
+     *
      * @return array
      */
     public function getPrefixes()

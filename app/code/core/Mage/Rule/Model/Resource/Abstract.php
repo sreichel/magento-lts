@@ -65,8 +65,9 @@ abstract class Mage_Rule_Model_Resource_Abstract extends Mage_Core_Model_Resourc
     /**
      * Prepare select for condition
      *
-     * @param  int                                $storeId
-     * @param  Mage_Rule_Model_Condition_Abstract $condition
+     * @param int                                $storeId
+     * @param Mage_Rule_Model_Condition_Abstract $condition
+     *
      * @return Varien_Db_Select
      */
     public function getProductFlatSelect($storeId, $condition)
@@ -102,7 +103,9 @@ abstract class Mage_Rule_Model_Resource_Abstract extends Mage_Core_Model_Resourc
      * @param string           $entityType
      * @param bool             $deleteOldResults
      *
+     *
      * @throws Exception
+     *
      * @return Mage_Rule_Model_Resource_Abstract
      */
     public function bindRuleToEntity($ruleIds, $entityIds, $entityType, $deleteOldResults = true)
@@ -229,7 +232,8 @@ abstract class Mage_Rule_Model_Resource_Abstract extends Mage_Core_Model_Resourc
     /**
      * Retrieve website ids of specified rule
      *
-     * @param  int   $ruleId
+     * @param int $ruleId
+     *
      * @return array
      */
     public function getWebsiteIds($ruleId)
@@ -240,7 +244,8 @@ abstract class Mage_Rule_Model_Resource_Abstract extends Mage_Core_Model_Resourc
     /**
      * Retrieve customer group ids of specified rule
      *
-     * @param  int   $ruleId
+     * @param int $ruleId
+     *
      * @return array
      */
     public function getCustomerGroupIds($ruleId)

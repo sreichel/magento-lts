@@ -29,7 +29,8 @@ class Mage_Adminhtml_Block_Tag_Tag_Grid extends Mage_Adminhtml_Block_Widget_Grid
     }
 
     /**
-     * @param  Mage_Adminhtml_Block_Widget_Grid_Column $column
+     * @param Mage_Adminhtml_Block_Widget_Grid_Column $column
+     *
      * @return $this
      */
     protected function _addColumnFilterToCollection($column)
@@ -45,6 +46,7 @@ class Mage_Adminhtml_Block_Tag_Tag_Grid extends Mage_Adminhtml_Block_Widget_Grid
 
     /**
      * @inheritDoc
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     protected function _prepareCollection()
@@ -58,6 +60,7 @@ class Mage_Adminhtml_Block_Tag_Tag_Grid extends Mage_Adminhtml_Block_Widget_Grid
 
     /**
      * @inheritDoc
+     *
      * @throws Exception
      */
     protected function _prepareColumns()
@@ -154,7 +157,8 @@ class Mage_Adminhtml_Block_Tag_Tag_Grid extends Mage_Adminhtml_Block_Widget_Grid
     /**
      * Retrieves row click URL
      *
-     * @param  Mage_Tag_Model_Tag $row
+     * @param Mage_Tag_Model_Tag $row
+     *
      * @return string
      */
     public function getRowUrl($row)

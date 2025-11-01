@@ -105,8 +105,9 @@ class Mage_Downloadable_Model_Sample extends Mage_Core_Model_Abstract
     /**
      * Retrieve links searchable data
      *
-     * @param  int   $productId
-     * @param  int   $storeId
+     * @param int $productId
+     * @param int $storeId
+     *
      * @return array
      */
     public function getSearchableData($productId, $storeId)

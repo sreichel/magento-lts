@@ -96,8 +96,9 @@ class Mage_Oauth_Model_Token extends Mage_Core_Model_Abstract
     /**
      * Authorize token
      *
-     * @param  int    $userId   Authorization user identifier
-     * @param  string $userType Authorization user type
+     * @param int    $userId   Authorization user identifier
+     * @param string $userType Authorization user type
+     *
      * @return $this
      */
     public function authorize($userId, $userType)
@@ -155,8 +156,9 @@ class Mage_Oauth_Model_Token extends Mage_Core_Model_Abstract
     /**
      * Generate and save request token
      *
-     * @param  int    $consumerId  Consumer identifier
-     * @param  string $callbackUrl Callback URL
+     * @param int    $consumerId  Consumer identifier
+     * @param string $callbackUrl Callback URL
+     *
      * @return $this
      */
     public function createRequestToken($consumerId, $callbackUrl)
@@ -180,6 +182,7 @@ class Mage_Oauth_Model_Token extends Mage_Core_Model_Abstract
      * Get OAuth user type
      *
      * @return string
+     *
      * @throws Exception
      */
     public function getUserType()
@@ -196,7 +199,8 @@ class Mage_Oauth_Model_Token extends Mage_Core_Model_Abstract
     /**
      * Get string representation of token
      *
-     * @param  string $format
+     * @param string $format
+     *
      * @return string
      */
     public function toString($format = '')

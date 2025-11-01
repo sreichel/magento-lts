@@ -76,6 +76,7 @@ class Mage_Catalog_Block_Product_View extends Mage_Catalog_Block_Product_Abstrac
      * Retrieve current product model
      *
      * @return Mage_Catalog_Model_Product
+     *
      * @throws Mage_Core_Exception
      */
     public function getProduct()
@@ -102,9 +103,11 @@ class Mage_Catalog_Block_Product_View extends Mage_Catalog_Block_Product_Abstrac
     /**
      * Retrieve url for direct adding product to cart
      *
-     * @param  Mage_Catalog_Model_Product $product
-     * @param  array                      $additional
+     * @param Mage_Catalog_Model_Product $product
+     * @param array                      $additional
+     *
      * @return string
+     *
      * @throws Exception
      */
     public function getAddToCartUrl($product, $additional = [])
@@ -117,6 +120,7 @@ class Mage_Catalog_Block_Product_View extends Mage_Catalog_Block_Product_Abstrac
      * price calculation depending on product options
      *
      * @return string
+     *
      * @throws Mage_Core_Exception
      */
     public function getJsonConfig()
@@ -150,6 +154,7 @@ class Mage_Catalog_Block_Product_View extends Mage_Catalog_Block_Product_Abstrac
      * Return true if product has options
      *
      * @return bool
+     *
      * @throws Mage_Core_Exception
      */
     public function hasOptions()
@@ -165,6 +170,7 @@ class Mage_Catalog_Block_Product_View extends Mage_Catalog_Block_Product_Abstrac
      * Check if product has required options
      *
      * @return bool
+     *
      * @throws Mage_Core_Exception
      */
     public function hasRequiredOptions()
@@ -179,6 +185,7 @@ class Mage_Catalog_Block_Product_View extends Mage_Catalog_Block_Product_Abstrac
      * instantly.
      *
      * @return bool
+     *
      * @throws Mage_Core_Exception
      */
     public function isStartCustomization()
@@ -190,8 +197,10 @@ class Mage_Catalog_Block_Product_View extends Mage_Catalog_Block_Product_Abstrac
      * Get default qty - either as preconfigured, or as 1.
      * Also restricts it by minimal qty.
      *
-     * @param  null|Mage_Catalog_Model_Product $product
+     * @param null|Mage_Catalog_Model_Product $product
+     *
      * @return int|float
+     *
      * @throws Mage_Core_Exception
      */
     public function getProductDefaultQty($product = null)
@@ -207,6 +216,7 @@ class Mage_Catalog_Block_Product_View extends Mage_Catalog_Block_Product_Abstrac
      * Retrieve block cache tags
      *
      * @return array
+     *
      * @throws Mage_Core_Exception
      */
     public function getCacheTags()
@@ -217,10 +227,12 @@ class Mage_Catalog_Block_Product_View extends Mage_Catalog_Block_Product_Abstrac
     /**
      * Retrieve url for direct adding product to cart with or without Form Key
      *
-     * @param  Mage_Catalog_Model_Product $product
-     * @param  array                      $additional
-     * @param  bool                       $addFormKey
+     * @param Mage_Catalog_Model_Product $product
+     * @param array                      $additional
+     * @param bool                       $addFormKey
+     *
      * @return string
+     *
      * @throws Exception
      */
     public function getAddToCartUrlCustom($product, $additional = [], $addFormKey = true)

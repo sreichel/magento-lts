@@ -80,7 +80,8 @@ class Mage_Catalog_Model_Product_Link extends Mage_Core_Model_Abstract
     /**
      * Retrieve table name for attribute type
      *
-     * @param  string $type
+     * @param string $type
+     *
      * @return string
      */
     public function getAttributeTypeTable($type)
@@ -90,6 +91,7 @@ class Mage_Catalog_Model_Product_Link extends Mage_Core_Model_Abstract
 
     /**
      * Retrieve linked product collection
+     *
      * @return Mage_Catalog_Model_Resource_Product_Link_Product_Collection
      */
     public function getProductCollection()
@@ -100,6 +102,7 @@ class Mage_Catalog_Model_Product_Link extends Mage_Core_Model_Abstract
 
     /**
      * Retrieve link collection
+     *
      * @return Mage_Catalog_Model_Resource_Product_Link_Collection
      */
     public function getLinkCollection()
@@ -109,7 +112,8 @@ class Mage_Catalog_Model_Product_Link extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  int|null $type
+     * @param int|null $type
+     *
      * @return array
      */
     public function getAttributes($type = null)
@@ -124,7 +128,8 @@ class Mage_Catalog_Model_Product_Link extends Mage_Core_Model_Abstract
     /**
      * Save data for product relations
      *
-     * @param  Mage_Catalog_Model_Product      $product
+     * @param Mage_Catalog_Model_Product $product
+     *
      * @return Mage_Catalog_Model_Product_Link
      */
     public function saveProductRelations($product)
@@ -150,7 +155,8 @@ class Mage_Catalog_Model_Product_Link extends Mage_Core_Model_Abstract
     /**
      * Save grouped product relation links
      *
-     * @param  Mage_Catalog_Model_Product $product
+     * @param Mage_Catalog_Model_Product $product
+     *
      * @return $this
      */
     public function saveGroupedLinks($product)

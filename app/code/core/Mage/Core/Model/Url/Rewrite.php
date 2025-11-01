@@ -79,7 +79,8 @@ class Mage_Core_Model_Url_Rewrite extends Mage_Core_Model_Abstract implements Ma
      * Load rewrite information for request
      * If $path is array - we must load possible records and choose one matching earlier record in array
      *
-     * @param  mixed                       $path
+     * @param mixed $path
+     *
      * @return Mage_Core_Model_Url_Rewrite
      */
     public function loadByRequestPath($path)
@@ -93,7 +94,8 @@ class Mage_Core_Model_Url_Rewrite extends Mage_Core_Model_Abstract implements Ma
     }
 
     /**
-     * @param  string $path
+     * @param string $path
+     *
      * @return $this
      */
     public function loadByIdPath($path)
@@ -103,7 +105,8 @@ class Mage_Core_Model_Url_Rewrite extends Mage_Core_Model_Abstract implements Ma
     }
 
     /**
-     * @param  string|array $tags
+     * @param string|array $tags
+     *
      * @return $this
      */
     public function loadByTags($tags)
@@ -138,7 +141,8 @@ class Mage_Core_Model_Url_Rewrite extends Mage_Core_Model_Abstract implements Ma
     }
 
     /**
-     * @param  string $key
+     * @param string $key
+     *
      * @return bool
      */
     public function hasOption($key)
@@ -149,7 +153,8 @@ class Mage_Core_Model_Url_Rewrite extends Mage_Core_Model_Abstract implements Ma
     }
 
     /**
-     * @param  string|array $tags
+     * @param string|array $tags
+     *
      * @return $this
      */
     public function addTag($tags)
@@ -174,7 +179,8 @@ class Mage_Core_Model_Url_Rewrite extends Mage_Core_Model_Abstract implements Ma
     }
 
     /**
-     * @param  string|array $tags
+     * @param string|array $tags
+     *
      * @return $this
      */
     public function removeTag($tags)
@@ -202,6 +208,7 @@ class Mage_Core_Model_Url_Rewrite extends Mage_Core_Model_Abstract implements Ma
      * Implement logic of custom rewrites
      *
      * @return bool
+     *
      * @throws Mage_Core_Model_Store_Exception
      * @deprecated since 1.7.0.2. Refactored and moved to Mage_Core_Controller_Request_Rewrite
      * @SuppressWarnings("PHPMD.Superglobals")

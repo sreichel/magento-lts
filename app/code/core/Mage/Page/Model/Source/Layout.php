@@ -50,7 +50,8 @@ class Mage_Page_Model_Source_Layout
     /**
      * Retrieve page layout options array
      *
-     * @param  bool  $withEmpty
+     * @param bool $withEmpty
+     *
      * @return array
      */
     public function toOptionArray($withEmpty = false)
@@ -73,6 +74,7 @@ class Mage_Page_Model_Source_Layout
 
     /**
      * Default options value getter
+     *
      * @return string
      */
     public function getDefaultValue()

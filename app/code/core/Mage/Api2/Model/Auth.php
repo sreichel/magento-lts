@@ -22,7 +22,9 @@ class Mage_Api2_Model_Auth
     /**
      * Figure out API user type and create user model instance
      *
+     *
      * @throws Exception
+     *
      * @return Mage_Api2_Model_Auth_User_Abstract
      */
     public function authenticate(Mage_Api2_Model_Request $request)

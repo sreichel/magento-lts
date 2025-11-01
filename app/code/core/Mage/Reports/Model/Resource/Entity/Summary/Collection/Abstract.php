@@ -24,9 +24,10 @@ class Mage_Reports_Model_Resource_Entity_Summary_Collection_Abstract extends Var
     /**
      * Filters the summaries by some period
      *
-     * @param  string          $periodType
-     * @param  string|int|null $customStart
-     * @param  string|int|null $customEnd
+     * @param string          $periodType
+     * @param string|int|null $customStart
+     * @param string|int|null $customEnd
+     *
      * @return $this
      */
     public function setSelectPeriod($periodType, $customStart = null, $customEnd = null)
@@ -70,7 +71,8 @@ class Mage_Reports_Model_Resource_Entity_Summary_Collection_Abstract extends Var
     /**
      * Set date period
      *
-     * @param  int   $period
+     * @param int $period
+     *
      * @return $this
      */
     public function setDatePeriod($period)
@@ -81,7 +83,8 @@ class Mage_Reports_Model_Resource_Entity_Summary_Collection_Abstract extends Var
     /**
      * Set store filter
      *
-     * @param  int   $storeId
+     * @param int $storeId
+     *
      * @return $this
      */
     public function setStoreFilter($storeId)

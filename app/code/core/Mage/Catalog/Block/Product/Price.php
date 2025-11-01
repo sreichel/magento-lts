@@ -61,7 +61,8 @@ class Mage_Catalog_Block_Product_Price extends Mage_Catalog_Block_Product_Abstra
     /**
      * Sets the id suffix
      *
-     * @param  string $idSuffix
+     * @param string $idSuffix
+     *
      * @return $this
      */
     public function setIdSuffix($idSuffix)
@@ -83,8 +84,9 @@ class Mage_Catalog_Block_Product_Price extends Mage_Catalog_Block_Product_Abstra
     /**
      * Get tier prices (formatted)
      *
-     * @param  Mage_Catalog_Model_Product $product
-     * @param  Mage_Catalog_Model_Product $parent
+     * @param Mage_Catalog_Model_Product $product
+     * @param Mage_Catalog_Model_Product $parent
+     *
      * @return array
      */
     public function getTierPrices($product = null, $parent = null)
@@ -161,8 +163,9 @@ class Mage_Catalog_Block_Product_Price extends Mage_Catalog_Block_Product_Abstra
     /**
      * Retrieve url for direct adding product to cart
      *
-     * @param  Mage_Catalog_Model_Product $product
-     * @param  array                      $additional
+     * @param Mage_Catalog_Model_Product $product
+     * @param array                      $additional
+     *
      * @return string
      */
     public function getAddToCartUrl($product, $additional = [])
@@ -187,7 +190,8 @@ class Mage_Catalog_Block_Product_Price extends Mage_Catalog_Block_Product_Abstra
     /**
      * Get Product Price valid JS string
      *
-     * @param  Mage_Catalog_Model_Product $product
+     * @param Mage_Catalog_Model_Product $product
+     *
      * @return string
      */
     public function getRealPriceJs($product)
@@ -211,7 +215,8 @@ class Mage_Catalog_Block_Product_Price extends Mage_Catalog_Block_Product_Abstra
      *
      * If attribute is not found false is returned
      *
-     * @param  string|int|Mage_Core_Model_Config_Element        $attribute
+     * @param string|int|Mage_Core_Model_Config_Element $attribute
+     *
      * @return Mage_Eav_Model_Entity_Attribute_Abstract | false
      */
     public function getProductAttribute($attribute)
@@ -222,9 +227,10 @@ class Mage_Catalog_Block_Product_Price extends Mage_Catalog_Block_Product_Abstra
     /**
      * Retrieve url for direct adding product to cart with or without Form Key
      *
-     * @param  Mage_Catalog_Model_Product $product
-     * @param  array                      $additional
-     * @param  bool                       $addFormKey
+     * @param Mage_Catalog_Model_Product $product
+     * @param array                      $additional
+     * @param bool                       $addFormKey
+     *
      * @return string
      */
     public function getAddToCartUrlCustom($product, $additional = [], $addFormKey = true)

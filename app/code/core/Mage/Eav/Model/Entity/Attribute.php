@@ -124,6 +124,7 @@ class Mage_Eav_Model_Entity_Attribute extends Mage_Eav_Model_Entity_Attribute_Ab
      * Prepare data for save
      *
      * @inheritDoc
+     *
      * @throws Mage_Eav_Exception
      */
     protected function _beforeSave()
@@ -265,7 +266,8 @@ class Mage_Eav_Model_Entity_Attribute extends Mage_Eav_Model_Entity_Attribute_Ab
     /**
      * Retrieve attribute codes by frontend type
      *
-     * @param  string $type
+     * @param string $type
+     *
      * @return array
      */
     public function getAttributeCodesByFrontendType($type)
@@ -291,8 +293,10 @@ class Mage_Eav_Model_Entity_Attribute extends Mage_Eav_Model_Entity_Attribute_Ab
     /**
      * Return store label of attribute
      *
-     * @param  int                             $storeId
+     * @param int $storeId
+     *
      * @return string
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function getStoreLabel($storeId = null)

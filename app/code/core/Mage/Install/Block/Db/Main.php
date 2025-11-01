@@ -24,9 +24,10 @@ class Mage_Install_Block_Db_Main extends Mage_Core_Block_Template
     /**
      * Adding customized database block template for database model type
      *
-     * @param  string $type     database type
-     * @param  string $block    database block type
-     * @param  string $template
+     * @param string $type     database type
+     * @param string $block    database block type
+     * @param string $template
+     *
      * @return $this
      */
     public function addDatabaseBlock($type, $block, $template)
@@ -43,7 +44,8 @@ class Mage_Install_Block_Db_Main extends Mage_Core_Block_Template
     /**
      * Retrieve database block by type
      *
-     * @param  string                          $type database model type
+     * @param string $type database model type
+     *
      * @return bool | Mage_Core_Block_Template
      */
     public function getDatabaseBlock($type)

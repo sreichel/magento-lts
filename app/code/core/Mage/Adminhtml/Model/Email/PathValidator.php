@@ -18,7 +18,8 @@ class Mage_Adminhtml_Model_Email_PathValidator extends Zend_Validate_Abstract
      * Returns true if and only if $value meets the validation requirements
      * If $value fails validation, then this method returns false
      *
-     * @param  mixed $value
+     * @param mixed $value
+     *
      * @return bool
      */
     public function isValid($value)
@@ -31,7 +32,8 @@ class Mage_Adminhtml_Model_Email_PathValidator extends Zend_Validate_Abstract
     /**
      * Return bool after checking the encrypted model in the path to config node
      *
-     * @param  string $path
+     * @param string $path
+     *
      * @return bool
      */
     protected function isEncryptedNodePath($path)

@@ -14,7 +14,8 @@ class Varien_Filter_FormElementName extends Zend_Filter_Alnum
      *
      * Returns the string $value, removing all but alphabetic (including -_;) and digit characters
      *
-     * @param  string $value
+     * @param string $value
+     *
      * @return string
      */
     public function filter($value)

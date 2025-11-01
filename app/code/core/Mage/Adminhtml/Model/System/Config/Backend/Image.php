@@ -16,6 +16,7 @@ class Mage_Adminhtml_Model_System_Config_Backend_Image extends Mage_Adminhtml_Mo
 {
     /**
      * Getter for allowed extensions of uploaded files
+     *
      * @return array
      */
     protected function _getAllowedExtensions()

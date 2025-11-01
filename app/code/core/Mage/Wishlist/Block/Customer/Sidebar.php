@@ -27,7 +27,8 @@ class Mage_Wishlist_Block_Customer_Sidebar extends Mage_Wishlist_Block_Abstract
     /**
      * Add sidebar conditions to collection
      *
-     * @param  Mage_Wishlist_Model_Resource_Item_Collection $collection
+     * @param Mage_Wishlist_Model_Resource_Item_Collection $collection
+     *
      * @return $this
      */
     protected function _prepareCollection($collection)
@@ -58,6 +59,7 @@ class Mage_Wishlist_Block_Customer_Sidebar extends Mage_Wishlist_Block_Abstract
      * Can Display wishlist
      *
      * @deprecated after 1.6.2.0
+     *
      * @return bool
      */
     public function getCanDisplayWishlist()
@@ -69,7 +71,8 @@ class Mage_Wishlist_Block_Customer_Sidebar extends Mage_Wishlist_Block_Abstract
      * Retrieve URL for removing item from wishlist
      *
      * @deprecated back compatibility alias for getItemRemoveUrl
-     * @param  Mage_Wishlist_Model_Item $item
+     * @param Mage_Wishlist_Model_Item $item
+     *
      * @return string
      */
     public function getRemoveItemUrl($item)
@@ -81,7 +84,8 @@ class Mage_Wishlist_Block_Customer_Sidebar extends Mage_Wishlist_Block_Abstract
      * Retrieve URL for adding product to shopping cart and remove item from wishlist
      *
      * @deprecated
-     * @param  Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $product
+     * @param Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $product
+     *
      * @return string
      */
     public function getAddToCartItemUrl($product)

@@ -326,7 +326,8 @@ class Mage_Adminhtml_Block_System_Email_Template_Edit extends Mage_Adminhtml_Blo
     /**
      * Get paths of where current template is used as default
      *
-     * @param  bool         $asJSON
+     * @param bool $asJSON
+     *
      * @return string|array
      */
     public function getUsedDefaultForPaths($asJSON = true)
@@ -343,7 +344,8 @@ class Mage_Adminhtml_Block_System_Email_Template_Edit extends Mage_Adminhtml_Blo
     /**
      * Get paths of where current template is currently used
      *
-     * @param  bool         $asJSON
+     * @param bool $asJSON
+     *
      * @return string|array
      */
     public function getUsedCurrentlyForPaths($asJSON = true)
@@ -360,7 +362,8 @@ class Mage_Adminhtml_Block_System_Email_Template_Edit extends Mage_Adminhtml_Blo
     /**
      * Convert xml config paths to decorated names
      *
-     * @param  array $paths
+     * @param array $paths
+     *
      * @return array
      */
     protected function _getSystemConfigPathsParts($paths)

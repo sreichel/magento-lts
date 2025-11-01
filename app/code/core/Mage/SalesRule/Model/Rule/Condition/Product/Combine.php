@@ -35,6 +35,7 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Combine extends Mage_Rule_Mode
 
     /**
      * Initialize and retrieve a helper instance
+     *
      * @return Mage_Catalog_Helper_Data
      */
     protected function _getHelper()
@@ -44,7 +45,8 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Combine extends Mage_Rule_Mode
 
     /**
      * Check whether the attribute is a quote item attribute
-     * @param  string $attributeCode
+     * @param string $attributeCode
+     *
      * @return bool
      */
     protected function _getIsQuoteItemAttribute($attributeCode)
@@ -93,6 +95,7 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Combine extends Mage_Rule_Mode
 
     /**
      * CHeck whether the product attribute information exists and initialize it if missing
+     *
      * @return $this
      */
     protected function _initializeProductAttributesInfo()
@@ -140,6 +143,7 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Combine extends Mage_Rule_Mode
 
     /**
      * Generate a conditions data
+     *
      * @return array
      */
     public function getNewChildSelectOptions()
@@ -170,7 +174,8 @@ class Mage_SalesRule_Model_Rule_Condition_Product_Combine extends Mage_Rule_Mode
 
     /**
      * Collect all validated attributes
-     * @param  Mage_Catalog_Model_Resource_Product_Collection $productCollection
+     * @param Mage_Catalog_Model_Resource_Product_Collection $productCollection
+     *
      * @return $this
      */
     public function collectValidatedAttributes($productCollection)

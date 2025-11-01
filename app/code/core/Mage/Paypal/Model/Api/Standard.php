@@ -144,6 +144,7 @@ class Mage_Paypal_Model_Api_Standard extends Mage_Paypal_Model_Api_Abstract
 
     /**
      * Merchant account email getter
+     *
      * @return string
      */
     public function getBusinessAccount()
@@ -153,6 +154,7 @@ class Mage_Paypal_Model_Api_Standard extends Mage_Paypal_Model_Api_Abstract
 
     /**
      * Payment action getter
+     *
      * @return string
      */
     public function getPaymentAction()
@@ -172,7 +174,8 @@ class Mage_Paypal_Model_Api_Standard extends Mage_Paypal_Model_Api_Abstract
      * For some reason PayPal ignores shipping total variables exactly when line items is enabled
      * Note that $i = 1
      *
-     * @param  int  $i
+     * @param int $i
+     *
      * @return bool
      */
     protected function _exportLineItems(array &$request, $i = 1)

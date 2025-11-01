@@ -141,8 +141,9 @@ class Varien_Data_Form_Element_Multiselect extends Varien_Data_Form_Element_Abst
     }
 
     /**
-     * @param  array  $option
-     * @param  array  $selected
+     * @param array $option
+     * @param array $selected
+     *
      * @return string
      */
     protected function _optionToHtml($option, $selected)

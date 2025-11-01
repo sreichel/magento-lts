@@ -211,7 +211,8 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_View extends Mage_Adminhtml_Bl
     /**
      * Check whether action is allowed
      *
-     * @param  string $action
+     * @param string $action
+     *
      * @return bool
      */
     public function _isAllowedAction($action)

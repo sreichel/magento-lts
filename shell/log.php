@@ -40,7 +40,8 @@ class Mage_Shell_Log extends Mage_Shell_Abstract
     /**
      * Convert count to human view
      *
-     * @param  int    $number
+     * @param int $number
+     *
      * @return string
      */
     protected function _humanCount($number)
@@ -63,7 +64,8 @@ class Mage_Shell_Log extends Mage_Shell_Abstract
     /**
      * Convert size to human view
      *
-     * @param  int    $number
+     * @param int $number
+     *
      * @return string
      */
     protected function _humanSize($number)

@@ -174,6 +174,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Create_Items extends Mage_Adminht
 
     /**
      * Check if capture operation is allowed in ACL
+     *
      * @return bool
      */
     public function isCaptureAllowed()
@@ -183,6 +184,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Create_Items extends Mage_Adminht
 
     /**
      * Check if invoice can be captured
+     *
      * @return bool
      */
     public function canCapture()
@@ -192,6 +194,7 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Create_Items extends Mage_Adminht
 
     /**
      * Check if gateway is associated with invoice order
+     *
      * @return bool
      */
     public function isGatewayUsed()

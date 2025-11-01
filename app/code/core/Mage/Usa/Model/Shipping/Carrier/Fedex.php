@@ -103,8 +103,9 @@ class Mage_Usa_Model_Shipping_Carrier_Fedex extends Mage_Usa_Model_Shipping_Carr
     /**
      * Create soap client with selected wsdl
      *
-     * @param  string     $wsdl
-     * @param  bool|int   $trace
+     * @param string   $wsdl
+     * @param bool|int $trace
+     *
      * @return SoapClient
      */
     protected function _createSoapClient($wsdl, $trace = false)
@@ -290,7 +291,8 @@ class Mage_Usa_Model_Shipping_Carrier_Fedex extends Mage_Usa_Model_Shipping_Carr
     /**
      * Forming request for rate estimation depending to the purpose
      *
-     * @param  string $purpose
+     * @param string $purpose
+     *
      * @return array
      */
     protected function _formRateRequest($purpose)
@@ -376,7 +378,8 @@ class Mage_Usa_Model_Shipping_Carrier_Fedex extends Mage_Usa_Model_Shipping_Carr
     /**
      * Makes remote request to the carrier and returns a response
      *
-     * @param  string $purpose
+     * @param string $purpose
+     *
      * @return mixed
      */
     protected function _doRatesRequest($purpose)
@@ -461,7 +464,8 @@ class Mage_Usa_Model_Shipping_Carrier_Fedex extends Mage_Usa_Model_Shipping_Carr
     /**
      * Prepare shipping rate result based on response
      *
-     * @param  mixed                           $response
+     * @param mixed $response
+     *
      * @return Mage_Shipping_Model_Rate_Result
      */
     protected function _prepareRateResponse($response)
@@ -531,7 +535,8 @@ class Mage_Usa_Model_Shipping_Carrier_Fedex extends Mage_Usa_Model_Shipping_Carr
     /**
      * Get origin based amount form response of rate estimation
      *
-     * @param  stdClass   $rate
+     * @param stdClass $rate
+     *
      * @return null|float
      */
     protected function _getRateAmountOriginBased($rate)
@@ -590,6 +595,7 @@ class Mage_Usa_Model_Shipping_Carrier_Fedex extends Mage_Usa_Model_Shipping_Carr
      * Get xml quotes
      *
      * @deprecated
+     *
      * @return Mage_Shipping_Model_Rate_Result
      */
     protected function _getXmlQuotes()
@@ -673,7 +679,8 @@ class Mage_Usa_Model_Shipping_Carrier_Fedex extends Mage_Usa_Model_Shipping_Carr
     /**
      * Prepare shipping rate result based on response
      *
-     * @param  mixed                           $response
+     * @param mixed $response
+     *
      * @return Mage_Shipping_Model_Rate_Result
      */
     protected function _parseXmlResponse($response)
@@ -738,7 +745,8 @@ class Mage_Usa_Model_Shipping_Carrier_Fedex extends Mage_Usa_Model_Shipping_Carr
     /**
      * Parse XML string and return XML document object or false
      *
-     * @param  string                $xmlContent
+     * @param string $xmlContent
+     *
      * @return SimpleXMLElement|bool
      */
     protected function _parseXml($xmlContent)
@@ -758,8 +766,9 @@ class Mage_Usa_Model_Shipping_Carrier_Fedex extends Mage_Usa_Model_Shipping_Carr
     /**
      * Get configuration data of carrier
      *
-     * @param  string     $type
-     * @param  string     $code
+     * @param string $type
+     * @param string $code
+     *
      * @return array|bool
      */
     public function getCode($type, $code = '')
@@ -953,7 +962,8 @@ class Mage_Usa_Model_Shipping_Carrier_Fedex extends Mage_Usa_Model_Shipping_Carr
     /**
      * Get tracking
      *
-     * @param  mixed                                $trackings
+     * @param mixed $trackings
+     *
      * @return Mage_Shipping_Model_Rate_Result|null
      */
     public function getTracking($trackings)
@@ -1555,7 +1565,8 @@ class Mage_Usa_Model_Shipping_Carrier_Fedex extends Mage_Usa_Model_Shipping_Carr
      * For multi package shipments. Delete requested shipments if the current shipment
      * request is failed
      *
-     * @param  array $data
+     * @param array $data
+     *
      * @return bool
      */
     public function rollBack($data)

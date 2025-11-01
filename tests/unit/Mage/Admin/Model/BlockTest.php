@@ -34,6 +34,7 @@ final class BlockTest extends OpenMageTest
      * @param true|array<int, string> $expectedResult
      *
      * @group Model
+     *
      * @throws Exception
      */
     public function testValidate(bool|array $expectedResult, array $methods): void

@@ -91,7 +91,8 @@ class Mage_Catalog_Model_Product_Media_Config implements Mage_Media_Model_Image_
     }
 
     /**
-     * @param  string $file
+     * @param string $file
+     *
      * @return string
      */
     public function getMediaUrl($file)
@@ -106,7 +107,8 @@ class Mage_Catalog_Model_Product_Media_Config implements Mage_Media_Model_Image_
     }
 
     /**
-     * @param  string $file
+     * @param string $file
+     *
      * @return string
      */
     public function getMediaPath($file)
@@ -121,7 +123,8 @@ class Mage_Catalog_Model_Product_Media_Config implements Mage_Media_Model_Image_
     }
 
     /**
-     * @param  string $file
+     * @param string $file
+     *
      * @return string
      */
     public function getTmpMediaUrl($file)
@@ -139,7 +142,8 @@ class Mage_Catalog_Model_Product_Media_Config implements Mage_Media_Model_Image_
      * Part of URL of temporary product images
      * relatively to media folder
      *
-     * @param  string $file
+     * @param string $file
+     *
      * @return string
      */
     public function getTmpMediaShortUrl($file)
@@ -156,7 +160,8 @@ class Mage_Catalog_Model_Product_Media_Config implements Mage_Media_Model_Image_
     /**
      * Part of URL of product images relatively to media folder
      *
-     * @param  string $file
+     * @param string $file
+     *
      * @return string
      */
     public function getMediaShortUrl($file)
@@ -171,7 +176,8 @@ class Mage_Catalog_Model_Product_Media_Config implements Mage_Media_Model_Image_
     }
 
     /**
-     * @param  string $file
+     * @param string $file
+     *
      * @return string
      */
     public function getTmpMediaPath($file)
@@ -186,7 +192,8 @@ class Mage_Catalog_Model_Product_Media_Config implements Mage_Media_Model_Image_
     }
 
     /**
-     * @param  string $file
+     * @param string $file
+     *
      * @return string
      */
     protected function _prepareFileForUrl($file)
@@ -195,7 +202,8 @@ class Mage_Catalog_Model_Product_Media_Config implements Mage_Media_Model_Image_
     }
 
     /**
-     * @param  string $file
+     * @param string $file
+     *
      * @return string
      */
     protected function _prepareFileForPath($file)

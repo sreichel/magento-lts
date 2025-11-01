@@ -548,7 +548,8 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     /**
      * Clear order object data
      *
-     * @param  string $key data key
+     * @param string $key data key
+     *
      * @return $this
      */
     public function unsetData($key = null)
@@ -564,7 +565,8 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     /**
      * Retrieve can flag for action (edit, unhold, etc..)
      *
-     * @param  string    $action
+     * @param string $action
+     *
      * @return bool|null
      */
     public function getActionFlag($action)
@@ -575,8 +577,9 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     /**
      * Set can flag value for action (edit, unhold, etc...)
      *
-     * @param  string $action
-     * @param  bool   $flag
+     * @param string $action
+     * @param bool   $flag
+     *
      * @return $this
      */
     public function setActionFlag($action, $flag)
@@ -598,7 +601,8 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     /**
      * Set flag for order if it can sends new email to customer.
      *
-     * @param  bool  $flag
+     * @param bool $flag
+     *
      * @return $this
      */
     public function setCanSendNewEmailFlag($flag)
@@ -610,7 +614,8 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     /**
      * Load order by system increment identifier
      *
-     * @param  string $incrementId
+     * @param string $incrementId
+     *
      * @return $this
      */
     public function loadByIncrementId($incrementId)
@@ -621,8 +626,9 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     /**
      * Load order by custom attribute value. Attribute value should be unique
      *
-     * @param  string $attribute
-     * @param  string $value
+     * @param string $attribute
+     * @param string $value
+     *
      * @return $this
      */
     public function loadByAttribute($attribute, $value)
@@ -913,7 +919,8 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     /**
      * Retrieve order reorder availability
      *
-     * @param  bool $ignoreSalable
+     * @param bool $ignoreSalable
+     *
      * @return bool
      */
     protected function _canReorder($ignoreSalable = false)
@@ -1101,10 +1108,11 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
      * If status is specified, will add order status history with specified comment
      * the setData() cannot be overridden because of compatibility issues with resource model
      *
-     * @param  string      $state
-     * @param  string|bool $status
-     * @param  string      $comment
-     * @param  bool        $isCustomerNotified
+     * @param string      $state
+     * @param string|bool $status
+     * @param string      $comment
+     * @param bool        $isCustomerNotified
+     *
      * @return $this
      */
     public function setState($state, $status = false, $comment = '', $isCustomerNotified = null)
@@ -1117,11 +1125,12 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
      * By default allows to set any state. Can also update status to default or specified value
      * Сomplete and closed states are encapsulated intentionally, see the _checkState()
      *
-     * @param  string      $state
-     * @param  string|bool $status
-     * @param  string      $comment
-     * @param  bool        $isCustomerNotified
-     * @param  bool        $shouldProtectState
+     * @param string      $state
+     * @param string|bool $status
+     * @param string      $comment
+     * @param bool        $isCustomerNotified
+     * @param bool        $shouldProtectState
+     *
      * @return $this
      */
     protected function _setState(
@@ -1158,7 +1167,8 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
 
     /**
      * Whether specified state can be set from outside
-     * @param  string $state
+     * @param string $state
+     *
      * @return bool
      */
     public function isStateProtected($state)
@@ -1184,9 +1194,10 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
      * Add status change information to history
      * @deprecated after 1.4.0.0-alpha3
      *
-     * @param  string $status
-     * @param  string $comment
-     * @param  bool   $isCustomerNotified
+     * @param string $status
+     * @param string $comment
+     * @param bool   $isCustomerNotified
+     *
      * @return $this
      */
     public function addStatusToHistory($status, $comment = '', $isCustomerNotified = false)
@@ -1200,8 +1211,9 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
      * Add a comment to order
      * Different or default status may be specified
      *
-     * @param  string                                $comment
-     * @param  bool|string                           $status
+     * @param string      $comment
+     * @param bool|string $status
+     *
      * @return Mage_Sales_Model_Order_Status_History
      */
     public function addStatusHistoryComment($comment, $status = false)
@@ -1225,7 +1237,8 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     /**
      * Overrides entity id, which will be saved to comments history status
      *
-     * @param  string $entityName
+     * @param string $entityName
+     *
      * @return $this
      */
     public function setHistoryEntityName($entityName)
@@ -1249,6 +1262,7 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
 
     /**
      * @return $this
+     *
      * @throws Mage_Core_Exception
      */
     public function hold()
@@ -1267,6 +1281,7 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
      * Attempt to unhold the order
      *
      * @return $this
+     *
      * @throws Mage_Core_Exception
      */
     public function unhold()
@@ -1283,7 +1298,8 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
 
     /**
      * Cancel order
-     * @param  string $comment
+     * @param string $comment
+     *
      * @return $this
      */
     public function cancel($comment = '')
@@ -1299,9 +1315,11 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
 
     /**
      * Prepare order totals to cancellation
-     * @param  string              $comment
-     * @param  bool                $graceful
+     * @param string $comment
+     * @param bool   $graceful
+     *
      * @return $this
+     *
      * @throws Mage_Core_Exception
      */
     public function registerCancellation($comment = '', $graceful = true)
@@ -1387,7 +1405,8 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     /**
      * Retrieve shipping method
      *
-     * @param  bool                 $asObject return carrier code and shipping method data as object
+     * @param bool $asObject return carrier code and shipping method data as object
+     *
      * @return string|Varien_Object
      */
     public function getShippingMethod($asObject = false)
@@ -1440,6 +1459,7 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
      * @param bool $forceMode if true then email will be sent regardless of the fact that it was already sent previously
      *
      * @return $this
+     *
      * @throws Exception
      */
     public function queueNewOrderEmail($forceMode = false)
@@ -1645,7 +1665,8 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     }
 
     /**
-     * @param  string      $configPath
+     * @param string $configPath
+     *
      * @return array|false
      */
     protected function _getEmails($configPath)
@@ -1680,7 +1701,8 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     }
 
     /**
-     * @param  int|string                           $addressId
+     * @param int|string $addressId
+     *
      * @return false|Mage_Sales_Model_Order_Address
      */
     public function getAddressById($addressId)
@@ -1696,6 +1718,7 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
 
     /**
      * @return $this
+     *
      * @throws Exception
      */
     public function addAddress(Mage_Sales_Model_Order_Address $address)
@@ -1709,8 +1732,9 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     }
 
     /**
-     * @param  array                                           $filterByTypes
-     * @param  bool                                            $nonChildrenOnly
+     * @param array $filterByTypes
+     * @param bool  $nonChildrenOnly
+     *
      * @return Mage_Sales_Model_Resource_Order_Item_Collection
      */
     public function getItemsCollection($filterByTypes = [], $nonChildrenOnly = false)
@@ -1740,7 +1764,8 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     /**
      * Get random items collection with related children
      *
-     * @param  int                                             $limit
+     * @param int $limit
+     *
      * @return Mage_Sales_Model_Resource_Order_Item_Collection
      */
     public function getItemsRandomCollection($limit = 1)
@@ -1751,7 +1776,8 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     /**
      * Get random items collection without related children
      *
-     * @param  int                                             $limit
+     * @param int $limit
+     *
      * @return Mage_Sales_Model_Resource_Order_Item_Collection
      */
     public function getParentItemsRandomCollection($limit = 1)
@@ -1762,8 +1788,9 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     /**
      * Get random items collection with or without related children
      *
-     * @param  int                                             $limit
-     * @param  bool                                            $nonChildrenOnly
+     * @param int  $limit
+     * @param bool $nonChildrenOnly
+     *
      * @return Mage_Sales_Model_Resource_Order_Item_Collection
      */
     protected function _getItemsRandomCollection($limit, $nonChildrenOnly = false)
@@ -1832,7 +1859,8 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     }
 
     /**
-     * @param  int                              $itemId
+     * @param int $itemId
+     *
      * @return Mage_Sales_Model_Order_Item|null
      */
     public function getItemById($itemId)
@@ -1841,7 +1869,8 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     }
 
     /**
-     * @param  int                              $quoteItemId
+     * @param int $quoteItemId
+     *
      * @return Mage_Sales_Model_Order_Item|null
      */
     public function getItemByQuoteItemId($quoteItemId)
@@ -1857,6 +1886,7 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
 
     /**
      * @return $this
+     *
      * @throws Exception
      */
     public function addItem(Mage_Sales_Model_Order_Item $item)
@@ -1922,7 +1952,8 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     }
 
     /**
-     * @param  int                                 $paymentId
+     * @param int $paymentId
+     *
      * @return bool|Mage_Sales_Model_Order_Payment
      */
     public function getPaymentById($paymentId)
@@ -1938,6 +1969,7 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
 
     /**
      * @return $this
+     *
      * @throws Exception
      */
     public function addPayment(Mage_Sales_Model_Order_Payment $payment)
@@ -1967,7 +1999,8 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     /*********************** STATUSES ***************************/
 
     /**
-     * @param  bool                                                      $reload
+     * @param bool $reload
+     *
      * @return Mage_Sales_Model_Resource_Order_Status_History_Collection
      */
     public function getStatusHistoryCollection($reload = false)
@@ -2023,7 +2056,8 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     }
 
     /**
-     * @param  int                                         $statusId
+     * @param int $statusId
+     *
      * @return false|Mage_Sales_Model_Order_Status_History
      */
     public function getStatusHistoryById($statusId)
@@ -2086,8 +2120,9 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     /**
      * Get formatted price value including order currency rate to order website currency
      *
-     * @param  float  $price
-     * @param  bool   $addBrackets
+     * @param float $price
+     * @param bool  $addBrackets
+     *
      * @return string
      */
     public function formatPrice($price, $addBrackets = false)
@@ -2096,9 +2131,10 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     }
 
     /**
-     * @param  float  $price
-     * @param  int    $precision
-     * @param  bool   $addBrackets
+     * @param float $price
+     * @param int   $precision
+     * @param bool  $addBrackets
+     *
      * @return string
      */
     public function formatPricePrecision($price, $precision, $addBrackets = false)
@@ -2109,7 +2145,8 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     /**
      * Retrieve currency formatted string.
      *
-     * @param  float|string $price Numeric value or field name, e.g. "grand_total".
+     * @param float|string $price Numeric value or field name, e.g. "grand_total".
+     *
      * @return string
      */
     public function formatPriceTxt($price)
@@ -2144,7 +2181,8 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     }
 
     /**
-     * @param  float  $price
+     * @param float $price
+     *
      * @return string
      */
     public function formatBasePrice($price)
@@ -2153,8 +2191,9 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     }
 
     /**
-     * @param  float  $price
-     * @param  int    $precision
+     * @param float $price
+     * @param int   $precision
+     *
      * @return string
      */
     public function formatBasePricePrecision($price, $precision)
@@ -2195,8 +2234,9 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     }
 
     /**
-     * @param  string          $key
-     * @param  int|string|null $index
+     * @param string          $key
+     * @param int|string|null $index
+     *
      * @return float|mixed
      */
     public function getData($key = '', $index = null)
@@ -2386,7 +2426,8 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     /**
      * Get formatted order created date in store timezone
      *
-     * @param  string $format date format type (short|medium|long|full)
+     * @param string $format date format type (short|medium|long|full)
+     *
      * @return string
      */
     public function getCreatedAtFormated($format)
@@ -2613,7 +2654,8 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     /**
      * Create new invoice with maximum qty for invoice for each item
      *
-     * @param  array                          $qtys
+     * @param array $qtys
+     *
      * @return Mage_Sales_Model_Order_Invoice
      */
     public function prepareInvoice($qtys = [])
@@ -2624,7 +2666,8 @@ class Mage_Sales_Model_Order extends Mage_Sales_Model_Abstract
     /**
      * Create new shipment with maximum qty for shipping for each item
      *
-     * @param  array                           $qtys
+     * @param array $qtys
+     *
      * @return Mage_Sales_Model_Order_Shipment
      */
     public function prepareShipment($qtys = [])

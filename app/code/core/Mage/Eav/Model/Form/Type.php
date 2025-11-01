@@ -72,7 +72,8 @@ class Mage_Eav_Model_Form_Type extends Mage_Core_Model_Abstract
     /**
      * Assign Entity Type to Form Type
      *
-     * @param  int   $entityTypeId
+     * @param int $entityTypeId
+     *
      * @return $this
      */
     public function addEntityType($entityTypeId)

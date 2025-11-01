@@ -15,7 +15,8 @@ class Mage_Adminhtml_Block_Sales_Totals extends Mage_Sales_Block_Order_Totals
     /**
      * Format total value based on order currency
      *
-     * @param  Varien_Object $total
+     * @param Varien_Object $total
+     *
      * @return string
      */
     public function formatValue($total)

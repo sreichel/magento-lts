@@ -29,6 +29,7 @@ class Mage_Rss_Block_Catalog_Tag extends Mage_Rss_Block_Catalog_Abstract
 
     /**
      * @return string
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     protected function _toHtml()

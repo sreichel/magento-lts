@@ -63,7 +63,8 @@ class Mage_Sales_Model_Service_Order
     /**
      * Updates numeric data taking into account locale
      *
-     * @param  array $data
+     * @param array $data
+     *
      * @return $this
      */
     public function updateLocaleNumbers(&$data)
@@ -82,7 +83,8 @@ class Mage_Sales_Model_Service_Order
     /**
      * Perform numbers conversion according to locale
      *
-     * @param  mixed $value
+     * @param mixed $value
+     *
      * @return float
      */
     protected function _getLocaleNumber($value)
@@ -94,7 +96,8 @@ class Mage_Sales_Model_Service_Order
      * Prepare order invoice based on order data and requested items qtys. If $qtys is not empty - the function will
      * prepare only specified items, otherwise all containing in the order.
      *
-     * @param  array                          $qtys
+     * @param array $qtys
+     *
      * @return Mage_Sales_Model_Order_Invoice
      */
     public function prepareInvoice($qtys = [])
@@ -133,7 +136,8 @@ class Mage_Sales_Model_Service_Order
     /**
      * Prepare order shipment based on order items and requested items qty
      *
-     * @param  array                           $qtys
+     * @param array $qtys
+     *
      * @return Mage_Sales_Model_Order_Shipment
      */
     public function prepareShipment($qtys = [])
@@ -189,7 +193,8 @@ class Mage_Sales_Model_Service_Order
     /**
      * Prepare order creditmemo based on order items and requested params
      *
-     * @param  array                             $data
+     * @param array $data
+     *
      * @return Mage_Sales_Model_Order_Creditmemo
      */
     public function prepareCreditmemo($data = [])
@@ -232,8 +237,9 @@ class Mage_Sales_Model_Service_Order
     /**
      * Prepare order creditmemo based on invoice items and requested requested params
      *
-     * @param  Mage_Sales_Model_Order_Invoice    $invoice
-     * @param  array                             $data
+     * @param Mage_Sales_Model_Order_Invoice $invoice
+     * @param array                          $data
+     *
      * @return Mage_Sales_Model_Order_Creditmemo
      */
     public function prepareInvoiceCreditmemo($invoice, $data = [])
@@ -350,8 +356,9 @@ class Mage_Sales_Model_Service_Order
      * Check if order item can be invoiced. Dummy item can be invoiced or with his children or
      * with parent item which is included to invoice
      *
-     * @param  Mage_Sales_Model_Order_Item $item
-     * @param  array                       $qtys
+     * @param Mage_Sales_Model_Order_Item $item
+     * @param array                       $qtys
+     *
      * @return bool
      */
     protected function _canInvoiceItem($item, $qtys = [])
@@ -394,8 +401,9 @@ class Mage_Sales_Model_Service_Order
      * Check if order item can be shipped. Dummy item can be shipped or with his children or
      * with parent item which is included to shipment
      *
-     * @param  Mage_Sales_Model_Order_Item $item
-     * @param  array                       $qtys
+     * @param Mage_Sales_Model_Order_Item $item
+     * @param array                       $qtys
+     *
      * @return bool
      */
     protected function _canShipItem($item, $qtys = [])
@@ -445,9 +453,10 @@ class Mage_Sales_Model_Service_Order
     /**
      * Check if order item can be refunded
      *
-     * @param  Mage_Sales_Model_Order_Item $item
-     * @param  array                       $qtys
-     * @param  array                       $invoiceQtysRefundLimits
+     * @param Mage_Sales_Model_Order_Item $item
+     * @param array                       $qtys
+     * @param array                       $invoiceQtysRefundLimits
+     *
      * @return bool
      */
     protected function _canRefundItem($item, $qtys = [], $invoiceQtysRefundLimits = [])
@@ -484,8 +493,9 @@ class Mage_Sales_Model_Service_Order
     /**
      * Check if no dummy order item can be refunded
      *
-     * @param  Mage_Sales_Model_Order_Item $item
-     * @param  array                       $invoiceQtysRefundLimits
+     * @param Mage_Sales_Model_Order_Item $item
+     * @param array                       $invoiceQtysRefundLimits
+     *
      * @return bool
      */
     protected function _canRefundNoDummyItem($item, $invoiceQtysRefundLimits = [])

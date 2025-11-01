@@ -126,7 +126,8 @@ class Mage_Log_Model_Resource_Visitor_Collection extends Mage_Core_Model_Resourc
      * Get GROUP BY date format
      *
      * @deprecated since 1.5.0.0
-     * @param  string $type
+     * @param string $type
+     *
      * @return string
      */
     protected function _getGroupByDateFormat($type)
@@ -148,7 +149,8 @@ class Mage_Log_Model_Resource_Visitor_Collection extends Mage_Core_Model_Resourc
      * Get range by type
      *
      * @deprecated since 1.5.0.0
-     * @param  string $typeCode
+     * @param string $typeCode
+     *
      * @return string
      */
     protected function _getRangeByType($typeCode)
@@ -182,7 +184,8 @@ class Mage_Log_Model_Resource_Visitor_Collection extends Mage_Core_Model_Resourc
     /**
      * Return field with table prefix
      *
-     * @param  string $fieldName
+     * @param string $fieldName
+     *
      * @return string
      */
     protected function _getFieldMap($fieldName)
@@ -193,8 +196,9 @@ class Mage_Log_Model_Resource_Visitor_Collection extends Mage_Core_Model_Resourc
     /**
      * Load data
      *
-     * @param  bool                                            $printQuery
-     * @param  bool                                            $logQuery
+     * @param bool $printQuery
+     * @param bool $logQuery
+     *
      * @return Mage_Core_Model_Resource_Db_Collection_Abstract
      */
     public function load($printQuery = false, $logQuery = false)

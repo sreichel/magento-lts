@@ -304,6 +304,7 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
 
     /**
      * @inheritDoc
+     *
      * @throws Mage_Core_Exception
      */
     protected function _beforeSave()
@@ -387,7 +388,8 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
     /**
      * Loading quote data by customer
      *
-     * @param  int|Mage_Customer_Model_Customer $customer
+     * @param int|Mage_Customer_Model_Customer $customer
+     *
      * @return $this
      */
     public function loadByCustomer($customer)
@@ -408,7 +410,8 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
     /**
      * Loading only active quote
      *
-     * @param  int   $quoteId
+     * @param int $quoteId
+     *
      * @return $this
      */
     public function loadActive($quoteId)
@@ -423,7 +426,8 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
     /**
      * Loading quote by identifier
      *
-     * @param  int   $quoteId
+     * @param int $quoteId
+     *
      * @return $this
      */
     public function loadByIdWithoutStore($quoteId)
@@ -449,6 +453,7 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
      * Assign customer model to quote with billing and shipping address change
      *
      * @return $this
+     *
      * @throws Mage_Core_Exception
      */
     public function assignCustomerWithAddressChange(
@@ -576,7 +581,8 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
     /**
      * Retrieve quote address by type
      *
-     * @param  string                         $type
+     * @param string $type
+     *
      * @return Mage_Sales_Model_Quote_Address
      */
     protected function _getAddressByType($type)
@@ -646,7 +652,8 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
 
     /**
      *
-     * @param  int                                  $addressId
+     * @param int $addressId
+     *
      * @return Mage_Sales_Model_Quote_Address|false
      */
     public function getAddressById($addressId)
@@ -661,7 +668,8 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  int                                  $addressId
+     * @param int $addressId
+     *
      * @return Mage_Sales_Model_Quote_Address|false
      */
     public function getAddressByCustomerAddressId($addressId)
@@ -676,7 +684,8 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  int                                  $addressId
+     * @param int $addressId
+     *
      * @return Mage_Sales_Model_Quote_Address|false
      */
     public function getShippingAddressByCustomerAddressId($addressId)
@@ -693,7 +702,8 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  int   $addressId
+     * @param int $addressId
+     *
      * @return $this
      */
     public function removeAddress($addressId)
@@ -748,6 +758,7 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
 
     /**
      * @return $this
+     *
      * @throws Mage_Core_Exception
      */
     public function addAddress(Mage_Sales_Model_Quote_Address $address)
@@ -808,7 +819,8 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
     /**
      * Retrieve quote items collection
      *
-     * @param  bool                                            $useCache
+     * @param bool $useCache
+     *
      * @return Mage_Sales_Model_Resource_Quote_Item_Collection
      */
     public function getItemsCollection($useCache = true)
@@ -890,7 +902,8 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
     /**
      * Checking product exist in Quote
      *
-     * @param  int  $productId
+     * @param int $productId
+     *
      * @return bool
      */
     public function hasProductId($productId)
@@ -907,7 +920,8 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
     /**
      * Retrieve item model object by item identifier
      *
-     * @param  int                         $itemId
+     * @param int $itemId
+     *
      * @return Mage_Sales_Model_Quote_Item
      */
     public function getItemById($itemId)
@@ -959,7 +973,8 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
     /**
      * Remove quote item by item identifier
      *
-     * @param  int   $itemId
+     * @param int $itemId
+     *
      * @return $this
      */
     public function removeItem($itemId)
@@ -1042,8 +1057,9 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
      * Advanced func to add product to quote - processing mode can be specified there.
      * Returns error message if product type instance can't prepare product.
      *
-     * @param  null|float|Varien_Object           $request
-     * @param  null|string                        $processMode
+     * @param null|float|Varien_Object $request
+     * @param null|string              $processMode
+     *
      * @return Mage_Sales_Model_Quote_Item|string
      */
     public function addProductAdvanced(Mage_Catalog_Model_Product $product, $request = null, $processMode = null)
@@ -1130,7 +1146,8 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
      *
      * return error message if product type instance can't prepare product
      *
-     * @param  null|float|Varien_Object           $request
+     * @param null|float|Varien_Object $request
+     *
      * @return Mage_Sales_Model_Quote_Item|string
      */
     public function addProduct(Mage_Catalog_Model_Product $product, $request = null)
@@ -1145,8 +1162,10 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
     /**
      * Adding catalog product object data to quote
      *
-     * @param  int                             $qty
+     * @param int $qty
+     *
      * @return Mage_Sales_Model_Quote_Item
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     protected function _addCatalogProduct(Mage_Catalog_Model_Product $product, $qty = 1)
@@ -1197,9 +1216,10 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
      *
      * For more options see Mage_Catalog_Helper_Product->addParamsToBuyRequest()
      *
-     * @param  int                         $itemId
-     * @param  Varien_Object               $buyRequest
-     * @param  null|array|Varien_Object    $params
+     * @param int                      $itemId
+     * @param Varien_Object            $buyRequest
+     * @param null|array|Varien_Object $params
+     *
      * @return Mage_Sales_Model_Quote_Item
      *
      * @see Mage_Catalog_Helper_Product::addParamsToBuyRequest()
@@ -1268,7 +1288,8 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
     /**
      * Retrieve quote item by product id
      *
-     * @param  Mage_Catalog_Model_Product        $product
+     * @param Mage_Catalog_Model_Product $product
+     *
      * @return Mage_Sales_Model_Quote_Item|false
      */
     public function getItemByProduct($product)
@@ -1378,7 +1399,8 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  int                                  $paymentId
+     * @param int $paymentId
+     *
      * @return false|Mage_Sales_Model_Quote_Payment
      */
     public function getPaymentById($paymentId)
@@ -1394,6 +1416,7 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
 
     /**
      * @return $this
+     *
      * @throws Mage_Core_Exception
      */
     public function addPayment(Mage_Sales_Model_Quote_Payment $payment)
@@ -1560,8 +1583,9 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  string $message
-     * @param  string $index
+     * @param string $message
+     * @param string $index
+     *
      * @return $this
      */
     public function addMessage($message, $index = 'error')
@@ -1620,7 +1644,8 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
     /**
      * Sets flag, whether this quote has some error associated with it.
      *
-     * @param  bool  $flag
+     * @param bool $flag
+     *
      * @return $this
      */
     protected function _setHasError($flag)
@@ -1634,7 +1659,8 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
      * When FALSE - clears whole list of quote errors.
      * It's recommended to use addErrorInfo() instead - to be able to remove error statuses later.
      *
-     * @param  bool  $flag
+     * @param bool $flag
+     *
      * @return $this
      * @see addErrorInfo()
      */
@@ -1666,11 +1692,12 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
      * Adds error information to the quote.
      * Automatically sets error flag.
      *
-     * @param  string             $type           An internal error type ('error', 'qty', etc.), passed then to adding messages routine
-     * @param  string|null        $origin         Usually a name of module, that embeds error
-     * @param  int|null           $code           Error code, unique for origin, that sets it
-     * @param  string|null        $message        Error message
-     * @param  Varien_Object|null $additionalData Any additional data, that caller would like to store
+     * @param string             $type           An internal error type ('error', 'qty', etc.), passed then to adding messages routine
+     * @param string|null        $origin         Usually a name of module, that embeds error
+     * @param int|null           $code           Error code, unique for origin, that sets it
+     * @param string|null        $message        Error message
+     * @param Varien_Object|null $additionalData Any additional data, that caller would like to store
+     *
      * @return $this
      */
     public function addErrorInfo($type = 'error', $origin = null, $code = null, $message = null, $additionalData = null)
@@ -1695,8 +1722,9 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
      * $params can have the following keys (if not set - then any item is good for this key):
      *   'origin', 'code', 'message'
      *
-     * @param  string|null $type   An internal error type ('error', 'qty', etc.), passed then to adding messages routine
-     * @param  array       $params
+     * @param string|null $type   An internal error type ('error', 'qty', etc.), passed then to adding messages routine
+     * @param array       $params
+     *
      * @return $this
      */
     public function removeErrorInfosByParams($type, $params)
@@ -1739,8 +1767,9 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
     /**
      * Removes message by text
      *
-     * @param  string $type
-     * @param  string $text
+     * @param string $type
+     * @param string $text
+     *
      * @return $this
      */
     public function removeMessageByText($type, $text)
@@ -1788,7 +1817,8 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  bool $multishipping
+     * @param bool $multishipping
+     *
      * @return bool
      */
     public function validateMinimumAmount($multishipping = false)
@@ -1972,7 +2002,8 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
      * Getter whether quote has nominal items
      * Can bypass treating virtual items as nominal
      *
-     * @param  bool $countVirtual
+     * @param bool $countVirtual
+     *
      * @return bool
      */
     public function hasNominalItems($countVirtual = true)
@@ -2087,7 +2118,8 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
      * Return quote checkout method code
      *
      * @deprecated after 1.4 beta1 it is checkout module responsibility
-     * @param  bool   $originalMethod if true return defined method from beginning
+     * @param bool $originalMethod if true return defined method from beginning
+     *
      * @return string
      */
     public function getCheckoutMethod($originalMethod = false)
@@ -2103,6 +2135,7 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
      * Check is allow Guest Checkout
      *
      * @deprecated after 1.4 beta1 it is checkout module responsibility
+     *
      * @return bool
      */
     public function isAllowedGuestCheckout()

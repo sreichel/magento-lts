@@ -209,7 +209,8 @@ class Mage_HTTP_Client_Socket implements Mage_HTTP_IClient
      * Set host, port from full url
      * and return relative url
      *
-     * @param  string $uri ex. http://google.com/index.php?a=b
+     * @param string $uri ex. http://google.com/index.php?a=b
+     *
      * @return string ex. /index.php?a=b
      */
     protected function parseUrl($uri)
@@ -303,6 +304,7 @@ class Mage_HTTP_Client_Socket implements Mage_HTTP_IClient
     /**
      * Get cookies array with details
      * (domain, expire time etc)
+     *
      * @return array
      */
     public function getCookiesFull()
@@ -466,8 +468,10 @@ class Mage_HTTP_Client_Socket implements Mage_HTTP_IClient
 
     /**
      * Throw error exception
-     * @param            $string
+     * @param $string
+     *
      * @throws Exception
+     *
      * @return never
      */
     public function doError($string)
@@ -477,8 +481,9 @@ class Mage_HTTP_Client_Socket implements Mage_HTTP_IClient
 
     /**
      * Convert headers hash to string
-     * @param         $delimiter
-     * @param         $append
+     * @param $delimiter
+     * @param $append
+     *
      * @return string
      */
     protected function headersToString($append = [])

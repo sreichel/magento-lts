@@ -25,6 +25,7 @@ class Mage_Adminhtml_Block_Review_Grid extends Mage_Adminhtml_Block_Widget_Grid
 
     /**
      * @inheritDoc
+     *
      * @throws Exception
      */
     protected function _prepareCollection()
@@ -64,6 +65,7 @@ class Mage_Adminhtml_Block_Review_Grid extends Mage_Adminhtml_Block_Widget_Grid
 
     /**
      * @inheritDoc
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     protected function _prepareColumns()

@@ -510,9 +510,11 @@ class Mage_Dataflow_Model_Profile extends Mage_Core_Model_Abstract
     /**
      * Get node from xml object
      *
-     * @param  object    $xmlObject
-     * @param  string    $nodeName
+     * @param object $xmlObject
+     * @param string $nodeName
+     *
      * @return object
+     *
      * @throws Exception
      */
     protected function getNode($xmlObject, $nodeName)

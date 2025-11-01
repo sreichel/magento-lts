@@ -19,7 +19,8 @@ class Mage_Adminhtml_Block_Widget_Grid_Massaction_Item extends Mage_Adminhtml_Bl
     /**
      * Set parent massaction block
      *
-     * @param  Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract $massaction
+     * @param Mage_Adminhtml_Block_Widget_Grid_Massaction_Abstract $massaction
+     *
      * @return $this
      */
     public function setMassaction($massaction)
@@ -41,8 +42,10 @@ class Mage_Adminhtml_Block_Widget_Grid_Massaction_Item extends Mage_Adminhtml_Bl
     /**
      * Set additional action block for this item
      *
-     * @param  string|Mage_Core_Block_Abstract $block
+     * @param string|Mage_Core_Block_Abstract $block
+     *
      * @return $this
+     *
      * @throws Mage_Core_Exception
      */
     public function setAdditionalActionBlock($block)

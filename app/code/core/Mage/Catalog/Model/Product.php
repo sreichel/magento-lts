@@ -445,7 +445,8 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
     /**
      * Set Price calculation flag
      *
-     * @param  bool  $calculate
+     * @param bool $calculate
+     *
      * @return $this
      */
     public function setPriceCalculation($calculate = true)
@@ -483,7 +484,8 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      *
      * Type instance implement type depended logic
      *
-     * @param  bool                                     $singleton
+     * @param bool $singleton
+     *
      * @return Mage_Catalog_Model_Product_Type_Abstract
      */
     public function getTypeInstance($singleton = false)
@@ -508,8 +510,9 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
     /**
      * Set type instance for external
      *
-     * @param  Mage_Catalog_Model_Product_Type_Abstract $instance  Product type instance
-     * @param  bool                                     $singleton Whether instance is singleton
+     * @param Mage_Catalog_Model_Product_Type_Abstract $instance  Product type instance
+     * @param bool                                     $singleton Whether instance is singleton
+     *
      * @return $this
      */
     public function setTypeInstance($instance, $singleton = false)
@@ -540,7 +543,8 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
     /**
      * Retrieve product id by sku
      *
-     * @param  string $sku
+     * @param string $sku
+     *
      * @return string
      */
     public function getIdBySku($sku)
@@ -581,7 +585,8 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
     /**
      * Set assigned category IDs array to product
      *
-     * @param  array|int|string $ids the ID(s) as int, comma-separated string or array of ints
+     * @param array|int|string $ids the ID(s) as int, comma-separated string or array of ints
+     *
      * @return $this
      */
     public function setCategoryIds($ids)
@@ -674,8 +679,9 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * Retrieve product attributes
      * if $groupId is null - retrieve all product attributes
      *
-     * @param  int   $groupId   Retrieve attributes of the specified group
-     * @param  bool  $skipSuper Not used
+     * @param int  $groupId   Retrieve attributes of the specified group
+     * @param bool $skipSuper Not used
+     *
      * @return array
      */
     public function getAttributes($groupId = null, $skipSuper = false)
@@ -721,7 +727,8 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
     }
 
     /**
-     * @param  Mage_CatalogInventory_Model_Stock_Item $stockItem
+     * @param Mage_CatalogInventory_Model_Stock_Item $stockItem
+     *
      * @return $this
      */
     public function setStockItem($stockItem)
@@ -732,6 +739,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
 
     /**
      * Check product options and type options and save them, too
+     *
      *
      * @throws Mage_Core_Exception
      */
@@ -802,7 +810,8 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * Check/set if options can be affected when saving product
      * If value specified, it will be set.
      *
-     * @param  bool $value
+     * @param bool $value
+     *
      * @return bool
      */
     public function canAffectOptions($value = null)
@@ -919,7 +928,8 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
     /**
      * Get product tier price by qty
      *
-     * @param  float       $qty
+     * @param float $qty
+     *
      * @return float|array
      */
     public function getTierPrice($qty = null)
@@ -940,7 +950,8 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
     /**
      * Get formatted by currency tier price
      *
-     * @param  double         $qty
+     * @param double $qty
+     *
      * @return array | double
      */
     public function getFormatedTierPrice($qty = null)
@@ -965,7 +976,8 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * products it's called very often in Item->getProduct(). So removing chain of magic with more cpu consuming
      * algorithms gives nice optimization boost.
      *
-     * @param  float|null $price Price amount
+     * @param float|null $price Price amount
+     *
      * @return $this
      */
     public function setFinalPrice($price)
@@ -977,7 +989,8 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
     /**
      * Get product final price
      *
-     * @param  double $qty
+     * @param double $qty
+     *
      * @return double
      */
     public function getFinalPrice($qty = null)
@@ -1313,11 +1326,12 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
     /**
      * Add image to media gallery
      *
-     * @param  string       $file           file path of image in file system
-     * @param  string|array $mediaAttribute code of attribute with type 'media_image',
-     *                                      leave blank if image should be only in gallery
-     * @param  bool         $move           if true, it will move source file
-     * @param  bool         $exclude        mark image as disabled in product page view
+     * @param string       $file           file path of image in file system
+     * @param string|array $mediaAttribute code of attribute with type 'media_image',
+     *                                     leave blank if image should be only in gallery
+     * @param bool         $move           if true, it will move source file
+     * @param bool         $exclude        mark image as disabled in product page view
+     *
      * @return $this
      */
     public function addImageToMediaGallery($file, $mediaAttribute = null, $move = false, $exclude = true)
@@ -1567,7 +1581,8 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
     /**
      * Set is duplicable flag
      *
-     * @param  bool  $value
+     * @param bool $value
+     *
      * @return $this
      */
     public function setIsDuplicable($value)
@@ -1674,7 +1689,8 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
     /**
      * Get attribute text by its code
      *
-     * @param  string $attributeCode of the attribute
+     * @param string $attributeCode of the attribute
+     *
      * @return string
      */
     public function getAttributeText($attributeCode)
@@ -1701,7 +1717,8 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
     /**
      * Retrieve Product URL
      *
-     * @param  bool   $useSid
+     * @param bool $useSid
+     *
      * @return string
      */
     public function getProductUrl($useSid = null)
@@ -1712,7 +1729,8 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
     /**
      * Retrieve URL in current store
      *
-     * @param  array  $params the route params
+     * @param array $params the route params
+     *
      * @return string
      */
     public function getUrlInStore($params = [])
@@ -1723,7 +1741,8 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
     /**
      * Formats URL key
      *
-     * @param  string $str
+     * @param string $str
+     *
      * @return string
      */
     public function formatUrlKey($str)
@@ -1745,7 +1764,8 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
     /**
      * Retrieve Product Url Path (include category)
      *
-     * @param  Mage_Catalog_Model_Category $category
+     * @param Mage_Catalog_Model_Category $category
+     *
      * @return string
      */
     public function getUrlPath($category = null)
@@ -1776,7 +1796,8 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
     /**
      * Renders the object to array
      *
-     * @param  array $arrAttributes Attribute array
+     * @param array $arrAttributes Attribute array
+     *
      * @return array
      */
     public function toArray(array $arrAttributes = [])
@@ -1793,7 +1814,8 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
     /**
      * Same as setData(), but also initiates the stock item (if it is there)
      *
-     * @param  array $data Array to form the object from
+     * @param array $data Array to form the object from
+     *
      * @return $this
      */
     public function fromArray($data)
@@ -1815,6 +1837,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
 
     /**
      * @deprecated after 1.4.2.0
+     *
      * @return $this
      */
     public function loadParentProductIds()
@@ -1850,6 +1873,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
 
     /**
      * Custom function for other modules
+     *
      * @return int
      */
 
@@ -1948,7 +1972,8 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
     /**
      * Get option from options array of product by given option id
      *
-     * @param  string                                 $optionId
+     * @param string $optionId
+     *
      * @return Mage_Catalog_Model_Product_Option|null
      */
     public function getOptionById($optionId)
@@ -1979,9 +2004,10 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
     /**
      * Add custom option information to product
      *
-     * @param  string $code    Option code
-     * @param  mixed  $value   Value of the option
-     * @param  int    $product Product ID
+     * @param string $code    Option code
+     * @param mixed  $value   Value of the option
+     * @param int    $product Product ID
+     *
      * @return $this
      */
     public function addCustomOption($code, $value, $product = null)
@@ -2021,7 +2047,8 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
     /**
      * Get product custom option info
      *
-     * @param  string                                  $code
+     * @param string $code
+     *
      * @return Mage_Sales_Model_Quote_Item_Option|null
      */
     public function getCustomOption($code)
@@ -2046,7 +2073,8 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
     /**
      * Check availability display product in category
      *
-     * @param  int    $categoryId
+     * @param int $categoryId
+     *
      * @return string
      */
     public function canBeShowInCategory($categoryId)
@@ -2088,6 +2116,7 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * Return re-sized image URL
      *
      * @deprecated since 1.1.5
+     *
      * @return string
      */
     public function getImageUrl()
@@ -2099,8 +2128,9 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * Return re-sized small image URL
      *
      * @deprecated since 1.1.5
-     * @param  int    $width
-     * @param  int    $height
+     * @param int $width
+     * @param int $height
+     *
      * @return string
      */
     public function getSmallImageUrl($width = 88, $height = 77)
@@ -2112,8 +2142,9 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
      * Return re-sized thumbnail image URL
      *
      * @deprecated since 1.1.5
-     * @param  int    $width
-     * @param  int    $height
+     * @param int $width
+     * @param int $height
+     *
      * @return string
      */
     public function getThumbnailUrl($width = 75, $height = 75)
@@ -2151,7 +2182,8 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
     /**
      *  Check whether attribute reserved or not
      *
-     * @param  Mage_Catalog_Model_Entity_Attribute $attribute Attribute model object
+     * @param Mage_Catalog_Model_Entity_Attribute $attribute Attribute model object
+     *
      * @return bool
      */
     public function isReservedAttribute($attribute)
@@ -2163,8 +2195,9 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
     /**
      * Set original loaded data if needed
      *
-     * @param  string        $key
-     * @param  mixed         $data
+     * @param string $key
+     * @param mixed  $data
+     *
      * @return Varien_Object
      */
     public function setOrigData($key = null, $data = null)
@@ -2374,7 +2407,8 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
     /**
      * Retrieve product entities info as array
      *
-     * @param  string|array $columns One or several columns
+     * @param string|array $columns One or several columns
+     *
      * @return array
      */
     public function getProductEntitiesInfo($columns = null)
@@ -2424,7 +2458,8 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
     }
 
     /**
-     * @param  int                              $storeId
+     * @param int $storeId
+     *
      * @return Mage_Review_Model_Review_Summary
      */
     public function getReviewSummary($storeId = null)

@@ -27,7 +27,8 @@ class Mage_Customer_Model_Observer
     /**
      * Check whether specified billing address is default for its customer
      *
-     * @param  Mage_Customer_Model_Address $address
+     * @param Mage_Customer_Model_Address $address
+     *
      * @return bool
      */
     protected function _isDefaultBilling($address)
@@ -39,7 +40,8 @@ class Mage_Customer_Model_Observer
     /**
      * Check whether specified shipping address is default for its customer
      *
-     * @param  Mage_Customer_Model_Address $address
+     * @param Mage_Customer_Model_Address $address
+     *
      * @return bool
      */
     protected function _isDefaultShipping($address)
@@ -51,7 +53,8 @@ class Mage_Customer_Model_Observer
     /**
      * Check whether specified address should be processed in after_save event handler
      *
-     * @param  Mage_Customer_Model_Address $address
+     * @param Mage_Customer_Model_Address $address
+     *
      * @return bool
      */
     protected function _canProcessAddress($address)

@@ -41,8 +41,9 @@ class Mage_Core_Model_Design extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  int         $storeId
-     * @param  string|null $date
+     * @param int         $storeId
+     * @param string|null $date
+     *
      * @return $this
      */
     public function loadChange($storeId, $date = null)

@@ -77,7 +77,8 @@ class Mage_Customer_Block_Account_Dashboard_Sidebar extends Mage_Core_Block_Temp
     }
 
     /**
-     * @param  Mage_Wishlist_Model_Item $wishlistItem
+     * @param Mage_Wishlist_Model_Item $wishlistItem
+     *
      * @return string
      */
     public function getWishlistAddToCartLink($wishlistItem)
@@ -87,6 +88,7 @@ class Mage_Customer_Block_Account_Dashboard_Sidebar extends Mage_Core_Block_Temp
 
     /**
      * @return Mage_Catalog_Model_Resource_Product_Compare_Item_Collection
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function getCompareItems()

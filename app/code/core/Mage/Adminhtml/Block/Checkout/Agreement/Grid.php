@@ -117,7 +117,8 @@ class Mage_Adminhtml_Block_Checkout_Agreement_Grid extends Mage_Adminhtml_Block_
     }
 
     /**
-     * @param  Mage_Checkout_Model_Agreement $row
+     * @param Mage_Checkout_Model_Agreement $row
+     *
      * @return string
      */
     public function getRowUrl($row)

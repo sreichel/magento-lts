@@ -62,7 +62,8 @@ class Mage_Tax_Model_Config_Notification extends Mage_Core_Model_Config_Data
     /**
      * Reset flag for showing tax notifications
      *
-     * @param  string $path
+     * @param string $path
+     *
      * @return $this
      */
     protected function _resetNotificationFlag($path)

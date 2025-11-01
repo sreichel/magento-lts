@@ -90,6 +90,7 @@ final class UrlTest extends OpenMageTest
     /**
      * @covers Mage_Core_Helper_Url::decodePunycode()
      * @group Helper
+     *
      * @throws Exception
      */
     public function testDecodePunycode(): void

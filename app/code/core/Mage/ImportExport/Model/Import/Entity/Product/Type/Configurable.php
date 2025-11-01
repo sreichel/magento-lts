@@ -114,8 +114,9 @@ class Mage_ImportExport_Model_Import_Entity_Product_Type_Configurable extends Ma
     /**
      * Add attribute parameters to appropriate attribute set.
      *
-     * @param  string                                                      $attrSetName
-     * @param  array                                                       $attrParams  Refined attribute parameters.
+     * @param string $attrSetName
+     * @param array  $attrParams  Refined attribute parameters.
+     *
      * @return Mage_ImportExport_Model_Import_Entity_Product_Type_Abstract
      */
     protected function _addAttributeParams($attrSetName, array $attrParams)
@@ -131,8 +132,9 @@ class Mage_ImportExport_Model_Import_Entity_Product_Type_Configurable extends Ma
     /**
      * Get super attribute ID (if it is not possible - return NULL).
      *
-     * @param  int        $productId
-     * @param  int        $attributeId
+     * @param int $productId
+     * @param int $attributeId
+     *
      * @return array|null
      */
     protected function _getSuperAttributeId($productId, $attributeId)
@@ -143,7 +145,8 @@ class Mage_ImportExport_Model_Import_Entity_Product_Type_Configurable extends Ma
     /**
      * Have we check attribute for is_required? Used as last chance to disable this type of check.
      *
-     * @param  string $attrCode
+     * @param string $attrCode
+     *
      * @return bool
      */
     protected function _isAttributeRequiredCheckNeeded($attrCode)
@@ -154,7 +157,8 @@ class Mage_ImportExport_Model_Import_Entity_Product_Type_Configurable extends Ma
     /**
      * Is attribute is super-attribute?
      *
-     * @param  string $attrCode
+     * @param string $attrCode
+     *
      * @return bool
      */
     protected function _isAttributeSuper($attrCode)
@@ -165,7 +169,8 @@ class Mage_ImportExport_Model_Import_Entity_Product_Type_Configurable extends Ma
     /**
      * Validate particular attributes columns.
      *
-     * @param  int  $rowNum
+     * @param int $rowNum
+     *
      * @return bool
      */
     protected function _isParticularAttributesValid(array $rowData, $rowNum)
@@ -350,7 +355,9 @@ class Mage_ImportExport_Model_Import_Entity_Product_Type_Configurable extends Ma
     /**
      * Save product type specific data.
      *
+     *
      * @throws Exception
+     *
      * @return Mage_ImportExport_Model_Import_Entity_Product_Type_Abstract
      */
     public function saveData()

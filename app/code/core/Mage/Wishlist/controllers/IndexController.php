@@ -70,7 +70,8 @@ class Mage_Wishlist_IndexController extends Mage_Wishlist_Controller_Abstract
 
     /**
      * Retrieve wishlist object
-     * @param  int                                $wishlistId
+     * @param int $wishlistId
+     *
      * @return Mage_Wishlist_Model_Wishlist|false
      */
     protected function _getWishlist($wishlistId = null)
@@ -172,6 +173,7 @@ class Mage_Wishlist_IndexController extends Mage_Wishlist_Controller_Abstract
      * Add the item to wish list
      *
      * @return void
+     *
      * @throws Throwable
      */
     protected function _addItemToWishList()
@@ -751,6 +753,7 @@ class Mage_Wishlist_IndexController extends Mage_Wishlist_Controller_Abstract
 
     /**
      * Custom options download action
+     *
      * @return void
      * @SuppressWarnings("PHPMD.ExitExpression")
      */

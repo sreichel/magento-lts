@@ -21,6 +21,7 @@ class Mage_Sales_Model_Entity_Order_Collection extends Mage_Eav_Model_Entity_Col
 
     /**
      * @return $this
+     *
      * @throws Mage_Core_Exception
      */
     public function addItemCountExpr()

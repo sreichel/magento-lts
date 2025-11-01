@@ -17,7 +17,8 @@ class Mage_Core_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_He
     /**
      * Returns expression for field unification
      *
-     * @param  string $field
+     * @param string $field
+     *
      * @return string
      */
     public function castField($field)
@@ -28,9 +29,10 @@ class Mage_Core_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_He
     /**
      * Returns analytic expression for database column
      *
-     * @param  string       $column
-     * @param  string       $groupAliasName OPTIONAL
-     * @param  string       $orderBy        OPTIONAL
+     * @param string $column
+     * @param string $groupAliasName OPTIONAL
+     * @param string $orderBy        OPTIONAL
+     *
      * @return Zend_Db_Expr
      */
     public function prepareColumn($column, $groupAliasName = null, $orderBy = null)
@@ -52,8 +54,9 @@ class Mage_Core_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_He
      *
      * Returns Insert From Select On Duplicate query with analytic functions
      *
-     * @param  string $table
-     * @param  array  $fields
+     * @param string $table
+     * @param array  $fields
+     *
      * @return string
      */
     public function getInsertFromSelectUsingAnalytic(Varien_Db_Select $select, $table, $fields)
@@ -65,7 +68,8 @@ class Mage_Core_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_He
      * Correct limitation of queries with UNION
      * No need to do additional actions on MySQL
      *
-     * @param  Varien_Db_Select $select
+     * @param Varien_Db_Select $select
+     *
      * @return Varien_Db_Select
      */
     public function limitUnion($select)
@@ -76,7 +80,8 @@ class Mage_Core_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_He
     /**
      * Returns array of quoted orders with direction
      *
-     * @param  bool  $autoReset
+     * @param bool $autoReset
+     *
      * @return array
      */
     protected function _prepareOrder(Varien_Db_Select $select, $autoReset = false)
@@ -111,8 +116,9 @@ class Mage_Core_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_He
      * which can be true if you need the first part of the field.
      * Field can be with 'dot' delimiter.
      *
-     * @param  string $field
-     * @param  bool   $reverse OPTIONAL
+     * @param string $field
+     * @param bool   $reverse OPTIONAL
+     *
      * @return string
      */
     protected function _truncateAliasName($field, $reverse = false)
@@ -133,7 +139,8 @@ class Mage_Core_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_He
     /**
      * Returns quoted group by fields
      *
-     * @param  bool  $autoReset
+     * @param bool $autoReset
+     *
      * @return array
      */
     protected function _prepareGroup(Varien_Db_Select $select, $autoReset = false)
@@ -158,8 +165,10 @@ class Mage_Core_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_He
     /**
      * Prepare and returns having array
      *
-     * @param  bool              $autoReset
+     * @param bool $autoReset
+     *
      * @return array
+     *
      * @throws Zend_Db_Exception
      */
     protected function _prepareHaving(Varien_Db_Select $select, $autoReset = false)
@@ -200,10 +209,11 @@ class Mage_Core_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_He
 
     /**
      *
-     * @param  string $query
-     * @param  int    $limitCount
-     * @param  int    $limitOffset
-     * @param  array  $columnList
+     * @param string $query
+     * @param int    $limitCount
+     * @param int    $limitOffset
+     * @param array  $columnList
+     *
      * @return string
      */
     protected function _assembleLimit($query, $limitCount, $limitOffset, $columnList = [])
@@ -228,8 +238,10 @@ class Mage_Core_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_He
     /**
      * Prepare select column list
      *
-     * @param  string            $groupByCondition
+     * @param string $groupByCondition
+     *
      * @return array
+     *
      * @throws Zend_Db_Exception
      */
     public function prepareColumnsList(Varien_Db_Select $select, $groupByCondition = null)
@@ -275,12 +287,13 @@ class Mage_Core_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_He
     /**
      * Add prepared column group_concat expression
      *
-     * @param  Varien_Db_Select $select
-     * @param  string           $fieldAlias           Field alias which will be added with column group_concat expression
-     * @param  string           $fields
-     * @param  string           $groupConcatDelimiter
-     * @param  string           $fieldsDelimiter
-     * @param  string           $additionalWhere
+     * @param Varien_Db_Select $select
+     * @param string           $fieldAlias           Field alias which will be added with column group_concat expression
+     * @param string           $fields
+     * @param string           $groupConcatDelimiter
+     * @param string           $fieldsDelimiter
+     * @param string           $additionalWhere
+     *
      * @return Varien_Db_Select
      */
     public function addGroupConcatColumn($select, $fieldAlias, $fields, $groupConcatDelimiter = ',', $fieldsDelimiter = '', $additionalWhere = '')
@@ -308,8 +321,9 @@ class Mage_Core_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_He
     /**
      * Returns expression of days passed from $startDate to $endDate
      *
-     * @param  string|Zend_Db_Expr $startDate
-     * @param  string|Zend_Db_Expr $endDate
+     * @param string|Zend_Db_Expr $startDate
+     * @param string|Zend_Db_Expr $endDate
+     *
      * @return Zend_Db_Expr
      */
     public function getDateDiff($startDate, $endDate)
@@ -323,8 +337,9 @@ class Mage_Core_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_He
      * Stating escape symbol in expression is not required, because we use standard MySQL escape symbol.
      * For options and escaping see escapeLikeValue().
      *
-     * @param  string       $value
-     * @param  array        $options
+     * @param string $value
+     * @param array  $options
+     *
      * @return Zend_Db_Expr
      *
      * @see escapeLikeValue()

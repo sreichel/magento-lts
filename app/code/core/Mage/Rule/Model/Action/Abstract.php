@@ -324,7 +324,8 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
     }
 
     /**
-     * @param  string $format
+     * @param string $format
+     *
      * @return string
      */
     public function asString($format = '')
@@ -333,7 +334,8 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
     }
 
     /**
-     * @param  int    $level
+     * @param int $level
+     *
      * @return string
      */
     public function asStringRecursive($level = 0)

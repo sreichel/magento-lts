@@ -119,7 +119,8 @@ class Mage_Catalog_Model_Product_Indexer_Eav extends Mage_Index_Model_Indexer_Ab
     /**
      * Check is attribute indexable in EAV
      *
-     * @param  Mage_Catalog_Model_Resource_Eav_Attribute|string $attribute
+     * @param Mage_Catalog_Model_Resource_Eav_Attribute|string $attribute
+     *
      * @return bool
      */
     protected function _attributeIsIndexable($attribute)
@@ -135,7 +136,8 @@ class Mage_Catalog_Model_Product_Indexer_Eav extends Mage_Index_Model_Indexer_Ab
     /**
      * Check that attribute has an effects on other attributes
      *
-     * @param  Mage_Catalog_Model_Resource_Eav_Attribute|string $attribute
+     * @param Mage_Catalog_Model_Resource_Eav_Attribute|string $attribute
+     *
      * @return bool
      */
     protected function _attributeIsDependent($attribute)

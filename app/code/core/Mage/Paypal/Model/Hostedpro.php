@@ -199,7 +199,8 @@ class Mage_Paypal_Model_Hostedpro extends Mage_Paypal_Model_Direct
     /**
      * Get return URL
      *
-     * @param  int    $storeId
+     * @param int $storeId
+     *
      * @return string
      */
     public function getReturnUrl($storeId = null)
@@ -210,7 +211,8 @@ class Mage_Paypal_Model_Hostedpro extends Mage_Paypal_Model_Direct
     /**
      * Get notify (IPN) URL
      *
-     * @param  int    $storeId
+     * @param int $storeId
+     *
      * @return string
      */
     public function getNotifyUrl($storeId = null)
@@ -221,7 +223,8 @@ class Mage_Paypal_Model_Hostedpro extends Mage_Paypal_Model_Direct
     /**
      * Get cancel URL
      *
-     * @param  int    $storeId
+     * @param int $storeId
+     *
      * @return string
      */
     public function getCancelUrl($storeId = null)
@@ -232,9 +235,10 @@ class Mage_Paypal_Model_Hostedpro extends Mage_Paypal_Model_Direct
     /**
      * Build URL for store
      *
-     * @param  string $path
-     * @param  int    $storeId
-     * @param  bool   $secure
+     * @param string $path
+     * @param int    $storeId
+     * @param bool   $secure
+     *
      * @return string
      */
     protected function _getUrl($path, $storeId, $secure = null)

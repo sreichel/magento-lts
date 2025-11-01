@@ -18,8 +18,10 @@ class Mage_Eav_Model_Entity_Attribute_Backend_Datetime extends Mage_Eav_Model_En
      * Should set (bool, string) correct type for empty value from html form,
      * necessary for farther process, else date string
      *
-     * @param  Varien_Object      $object
+     * @param Varien_Object $object
+     *
      * @throws Mage_Eav_Exception
+     *
      * @return $this
      */
     public function beforeSave($object)
@@ -50,7 +52,8 @@ class Mage_Eav_Model_Entity_Attribute_Backend_Datetime extends Mage_Eav_Model_En
      * string format used from input fields (all date input fields need apply locale settings)
      * int value can be declared in code (this meen whot we use valid date)
      *
-     * @param  string|int  $date
+     * @param string|int $date
+     *
      * @return string|null
      */
     public function formatDate($date)

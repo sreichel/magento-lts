@@ -79,7 +79,8 @@ class Mage_Tag_Block_Customer_View extends Mage_Catalog_Block_Product_Abstract
     /**
      * Retrieve Product Info URL
      *
-     * @param  int    $productId
+     * @param int $productId
+     *
      * @return string
      */
     public function getReviewUrl($productId)

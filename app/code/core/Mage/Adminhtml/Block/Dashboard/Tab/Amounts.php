@@ -21,6 +21,7 @@ class Mage_Adminhtml_Block_Dashboard_Tab_Amounts extends Mage_Adminhtml_Block_Da
 
     /**
      * Initialize object
+     *
      * @throws Exception
      */
     public function __construct()
@@ -33,6 +34,7 @@ class Mage_Adminhtml_Block_Dashboard_Tab_Amounts extends Mage_Adminhtml_Block_Da
      * Prepare chart data
      *
      * @return void
+     *
      * @throws Exception
      */
     protected function _prepareData()

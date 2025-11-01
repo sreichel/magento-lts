@@ -22,7 +22,8 @@ class Mage_Wishlist_Block_Customer_Wishlist extends Mage_Wishlist_Block_Abstract
     /**
      * Add wishlist conditions to collection
      *
-     * @param  Mage_Wishlist_Model_Resource_Item_Collection $collection
+     * @param Mage_Wishlist_Model_Resource_Item_Collection $collection
+     *
      * @return $this
      */
     protected function _prepareCollection($collection)
@@ -61,7 +62,8 @@ class Mage_Wishlist_Block_Customer_Wishlist extends Mage_Wishlist_Block_Abstract
      * Sets all options render configurations
      *
      * @deprecated after 1.6.2.0
-     * @param  null|array $optionCfg
+     * @param null|array $optionCfg
+     *
      * @return $this
      */
     public function setOptionsRenderCfgs($optionCfg)
@@ -74,6 +76,7 @@ class Mage_Wishlist_Block_Customer_Wishlist extends Mage_Wishlist_Block_Abstract
      * Returns all options render configurations
      *
      * @deprecated after 1.6.2.0
+     *
      * @return array
      */
     public function getOptionsRenderCfgs()
@@ -85,9 +88,10 @@ class Mage_Wishlist_Block_Customer_Wishlist extends Mage_Wishlist_Block_Abstract
      * Adds config for rendering product type options
      *
      * @deprecated after 1.6.2.0
-     * @param  string      $productType
-     * @param  string      $helperName
-     * @param  null|string $template
+     * @param string      $productType
+     * @param string      $helperName
+     * @param null|string $template
+     *
      * @return $this
      */
     public function addOptionsRenderCfg($productType, $helperName, $template = null)
@@ -100,7 +104,8 @@ class Mage_Wishlist_Block_Customer_Wishlist extends Mage_Wishlist_Block_Abstract
      * Returns html for showing item options
      *
      * @deprecated after 1.6.2.0
-     * @param  string     $productType
+     * @param string $productType
+     *
      * @return array|null
      */
     public function getOptionsRenderCfg($productType)
@@ -118,6 +123,7 @@ class Mage_Wishlist_Block_Customer_Wishlist extends Mage_Wishlist_Block_Abstract
      * Returns html for showing item options
      *
      * @deprecated after 1.6.2.0
+     *
      * @return string
      */
     public function getDetailsHtml(Mage_Wishlist_Model_Item $item)
@@ -157,6 +163,7 @@ class Mage_Wishlist_Block_Customer_Wishlist extends Mage_Wishlist_Block_Abstract
      * Returns qty to show visually to user
      *
      * @deprecated after 1.6.2.0
+     *
      * @return float
      */
     public function getAddToCartQty(Mage_Wishlist_Model_Item $item)

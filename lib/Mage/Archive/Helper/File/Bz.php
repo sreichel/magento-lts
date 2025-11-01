@@ -18,6 +18,7 @@ class Mage_Archive_Helper_File_Bz extends Mage_Archive_Helper_File
     /**
      * Open bz archive file
      *
+     *
      * @throws Mage_Exception
      * @param  string         $mode
      *
@@ -34,6 +35,7 @@ class Mage_Archive_Helper_File_Bz extends Mage_Archive_Helper_File
 
     /**
      * Write data to bz archive
+     *
      *
      * @throws Mage_Exception
      * @param                 $data
@@ -52,8 +54,10 @@ class Mage_Archive_Helper_File_Bz extends Mage_Archive_Helper_File
     /**
      * Read data from bz archive
      *
+     *
      * @throws Mage_Exception
      * @param  int            $length
+     *
      * @return string
      */
     protected function _read($length)

@@ -20,7 +20,8 @@ class Mage_Sales_Model_Entity_Order_Shipment_Comment_Collection extends Mage_Eav
     }
 
     /**
-     * @param  int   $shipmentId
+     * @param int $shipmentId
+     *
      * @return $this
      */
     public function setShipmentFilter($shipmentId)
@@ -30,7 +31,8 @@ class Mage_Sales_Model_Entity_Order_Shipment_Comment_Collection extends Mage_Eav
     }
 
     /**
-     * @param  string $order
+     * @param string $order
+     *
      * @return $this
      */
     public function setCreatedAtOrder($order = 'desc')

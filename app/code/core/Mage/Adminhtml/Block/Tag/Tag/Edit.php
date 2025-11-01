@@ -17,6 +17,7 @@
 class Mage_Adminhtml_Block_Tag_Tag_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
 {
     /**
+     *
      * @throws Mage_Core_Exception
      */
     public function __construct()

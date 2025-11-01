@@ -65,9 +65,10 @@ class Mage_Reports_Model_Event extends Mage_Core_Model_Abstract
     /**
      * Update customer type after customer login
      *
-     * @param  int   $visitorId
-     * @param  int   $customerId
-     * @param  array $types
+     * @param int   $visitorId
+     * @param int   $customerId
+     * @param array $types
+     *
      * @return $this
      */
     public function updateCustomerType($visitorId, $customerId, $types = null)

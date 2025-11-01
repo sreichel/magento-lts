@@ -68,9 +68,10 @@ class Varien_Date
     /**
      * Convert Zend Date format to local time/date according format
      *
-     * @param  string $value
-     * @param  bool   $convertDate
-     * @param  bool   $convertTime
+     * @param string $value
+     * @param bool   $convertDate
+     * @param bool   $convertTime
+     *
      * @return string
      */
     public static function convertZendToStrftime($value, $convertDate = true, $convertTime = true)
@@ -89,8 +90,9 @@ class Varien_Date
     /**
      * Convert value by dictionary
      *
-     * @param  string $value
-     * @param  array  $dictionary
+     * @param string $value
+     * @param array  $dictionary
+     *
      * @return string
      */
     protected static function _convert($value, $dictionary)
@@ -106,7 +108,8 @@ class Varien_Date
      * Convert date to UNIX timestamp
      * Returns current UNIX timestamp if date is true
      *
-     * @param  Zend_Date|string|true $date
+     * @param Zend_Date|string|true $date
+     *
      * @return int
      */
     public static function toTimestamp($date)
@@ -125,7 +128,8 @@ class Varien_Date
     /**
      * Retrieve current date in internal format
      *
-     * @param  bool   $withoutTime day only flag
+     * @param bool $withoutTime day only flag
+     *
      * @return string
      */
     public static function now($withoutTime = false)
@@ -137,8 +141,9 @@ class Varien_Date
     /**
      * Format date to internal format
      *
-     * @param  int|string|Zend_Date|bool|null $date
-     * @param  bool                           $includeTime
+     * @param int|string|Zend_Date|bool|null $date
+     * @param bool                           $includeTime
+     *
      * @return string|null
      */
     public static function formatDate($date, $includeTime = true)

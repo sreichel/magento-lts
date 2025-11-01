@@ -76,7 +76,8 @@ abstract class Mage_Core_Model_File_Storage_Database_Abstract extends Mage_Core_
     /**
      * Specify connection name
      *
-     * @param  string $connectionName
+     * @param string $connectionName
+     *
      * @return $this
      */
     public function setConnectionName($connectionName)

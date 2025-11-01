@@ -95,8 +95,9 @@ class Mage_Admin_Model_Session extends Mage_Core_Model_Session_Abstract
      * Since the session is used as a singleton, the value will be in $_isFirstPageAfterLogin until the end of request,
      * unless it is reset intentionally from somewhere
      *
-     * @param  string $namespace
-     * @param  string $sessionName
+     * @param string $namespace
+     * @param string $sessionName
+     *
      * @return $this
      * @see self::login()
      */
@@ -129,9 +130,10 @@ class Mage_Admin_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * Try to login user in admin
      *
-     * @param  string                            $username
-     * @param  string                            $password
-     * @param  Mage_Core_Controller_Request_Http $request
+     * @param string                            $username
+     * @param string                            $password
+     * @param Mage_Core_Controller_Request_Http $request
+     *
      * @return Mage_Admin_Model_User|null
      */
     public function login($username, $password, $request = null)
@@ -188,7 +190,8 @@ class Mage_Admin_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * Refresh ACL resources stored in session
      *
-     * @param  Mage_Admin_Model_User $user
+     * @param Mage_Admin_Model_User $user
+     *
      * @return $this
      */
     public function refreshAcl($user = null)
@@ -218,8 +221,9 @@ class Mage_Admin_Model_Session extends Mage_Core_Model_Session_Abstract
      * Mage::getSingleton('admin/session')->isAllowed('admin/catalog')
      * Mage::getSingleton('admin/session')->isAllowed('catalog')
      *
-     * @param  string $resource
-     * @param  string $privilege
+     * @param string $resource
+     * @param string $privilege
+     *
      * @return bool
      */
     public function isAllowed($resource, $privilege = null)
@@ -274,7 +278,8 @@ class Mage_Admin_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * Setter whether the current/next page should be treated as first page after login
      *
-     * @param  bool  $value
+     * @param bool $value
+     *
      * @return $this
      */
     public function setIsFirstPageAfterLogin($value)
@@ -286,7 +291,8 @@ class Mage_Admin_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * Custom REQUEST_URI logic
      *
-     * @param  Mage_Core_Controller_Request_Http $request
+     * @param Mage_Core_Controller_Request_Http $request
+     *
      * @return string|null
      */
     protected function _getRequestUri($request = null)

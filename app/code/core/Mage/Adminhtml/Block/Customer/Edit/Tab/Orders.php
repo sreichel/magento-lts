@@ -51,6 +51,7 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Orders extends Mage_Adminhtml_Block
 
     /**
      * @inheritDoc
+     *
      * @throws Exception
      */
     protected function _prepareColumns()
@@ -112,7 +113,8 @@ class Mage_Adminhtml_Block_Customer_Edit_Tab_Orders extends Mage_Adminhtml_Block
     }
 
     /**
-     * @param  Varien_Object $row
+     * @param Varien_Object $row
+     *
      * @return string
      */
     public function getRowUrl($row)

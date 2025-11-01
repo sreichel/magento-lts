@@ -62,9 +62,10 @@ class Mage_Rating_Model_Rating extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  int    $optionId
-     * @param  string $entityPkValue
-     * @param  int    $customerId
+     * @param int    $optionId
+     * @param string $entityPkValue
+     * @param int    $customerId
+     *
      * @return $this
      */
     public function addOptionVote($optionId, $entityPkValue, $customerId = null)
@@ -79,7 +80,8 @@ class Mage_Rating_Model_Rating extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  int   $optionId
+     * @param int $optionId
+     *
      * @return $this
      */
     public function updateOptionVote($optionId)
@@ -115,8 +117,9 @@ class Mage_Rating_Model_Rating extends Mage_Core_Model_Abstract
     /**
      * Get rating collection object
      *
-     * @param  string                         $entityPkValue
-     * @param  bool                           $onlyForCurrentStore
+     * @param string $entityPkValue
+     * @param bool   $onlyForCurrentStore
+     *
      * @return array|Mage_Rating_Model_Rating
      */
 
@@ -127,8 +130,9 @@ class Mage_Rating_Model_Rating extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  int   $reviewId
-     * @param  bool  $onlyForCurrentStore
+     * @param int  $reviewId
+     * @param bool $onlyForCurrentStore
+     *
      * @return array
      */
     public function getReviewSummary($reviewId, $onlyForCurrentStore = true)
@@ -140,7 +144,8 @@ class Mage_Rating_Model_Rating extends Mage_Core_Model_Abstract
     /**
      * Get rating entity type id by code
      *
-     * @param  string $entityCode
+     * @param string $entityCode
+     *
      * @return string
      */
     public function getEntityIdByCode($entityCode)

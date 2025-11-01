@@ -47,6 +47,7 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_Create_Adjustments extends Mag
 
     /**
      * Get credit memo shipping amount depend on configuration settings
+     *
      * @return float
      */
     public function getShippingAmount()
@@ -64,6 +65,7 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_Create_Adjustments extends Mag
 
     /**
      * Get label for shipping total based on configuration settings
+     *
      * @return string
      */
     public function getShippingLabel()

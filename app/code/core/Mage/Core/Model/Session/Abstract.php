@@ -72,8 +72,9 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
     /**
      * Init session
      *
-     * @param  string $namespace
-     * @param  string $sessionName
+     * @param string $namespace
+     * @param string $sessionName
+     *
      * @return $this
      */
     public function init($namespace, $sessionName = null)
@@ -203,7 +204,8 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
     /**
      * Retrieve messages from session
      *
-     * @param  bool                               $clear
+     * @param bool $clear
+     *
      * @return Mage_Core_Model_Message_Collection
      */
     public function getMessages($clear = false)
@@ -225,7 +227,8 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
     /**
      * Not Mage exception handling
      *
-     * @param  string $alternativeText
+     * @param string $alternativeText
+     *
      * @return $this
      */
     public function addException(Exception $exception, $alternativeText)
@@ -250,7 +253,8 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
     /**
      * Adding new error message
      *
-     * @param  string $message
+     * @param string $message
+     *
      * @return $this
      */
     public function addError($message)
@@ -262,7 +266,8 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
     /**
      * Adding new warning message
      *
-     * @param  string $message
+     * @param string $message
+     *
      * @return $this
      */
     public function addWarning($message)
@@ -274,7 +279,8 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
     /**
      * Adding new notice message
      *
-     * @param  string $message
+     * @param string $message
+     *
      * @return $this
      */
     public function addNotice($message)
@@ -286,7 +292,8 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
     /**
      * Adding new success message
      *
-     * @param  string $message
+     * @param string $message
+     *
      * @return $this
      */
     public function addSuccess($message)
@@ -298,7 +305,8 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
     /**
      * Adding messages array to message collection
      *
-     * @param  array $messages
+     * @param array $messages
+     *
      * @return $this
      */
     public function addMessages($messages)
@@ -315,7 +323,8 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
     /**
      * Adds messages array to message collection, but doesn't add duplicates to it
      *
-     * @param  array|string|Mage_Core_Model_Message_Abstract $messages
+     * @param array|string|Mage_Core_Model_Message_Abstract $messages
+     *
      * @return $this
      */
     public function addUniqueMessages($messages)
@@ -416,7 +425,8 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
     /**
      * Set skip flag if need skip generating of _GET session_id_key param
      *
-     * @param  bool  $flag
+     * @param bool $flag
+     *
      * @return $this
      */
     public function setSkipSessionIdFlag($flag)
@@ -438,7 +448,8 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
     /**
      * If session cookie is not applicable due to host or path mismatch - add session id to query
      *
-     * @param  string $urlHost can be host or url
+     * @param string $urlHost can be host or url
+     *
      * @return string {session_id_key}={session_id_encrypted}
      * @SuppressWarnings("PHPMD.CamelCaseVariableName")
      */
@@ -475,7 +486,8 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
     /**
      * Check if session is valid for given hostname
      *
-     * @param  string $host
+     * @param string $host
+     *
      * @return bool
      */
     public function isValidForHost($host)
@@ -488,7 +500,8 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
     /**
      * Check if session is valid for given path
      *
-     * @param  string $path
+     * @param string $path
+     *
      * @return bool
      */
     public function isValidForPath($path)
@@ -506,7 +519,8 @@ class Mage_Core_Model_Session_Abstract extends Mage_Core_Model_Session_Abstract_
     /**
      * Add hostname to session
      *
-     * @param  string $host
+     * @param string $host
+     *
      * @return $this
      */
     public function addHost($host)

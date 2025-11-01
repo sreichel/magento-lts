@@ -26,6 +26,7 @@ class Mage_GiftMessage_Block_Message_Form extends Mage_Core_Block_Template
 
     /**
      * @return string
+     *
      * @throws Exception
      */
     public function getSaveUrl()
@@ -42,6 +43,7 @@ class Mage_GiftMessage_Block_Message_Form extends Mage_Core_Block_Template
 
     /**
      * @return string
+     *
      * @throws Exception
      */
     public function getEditUrl()
@@ -56,6 +58,7 @@ class Mage_GiftMessage_Block_Message_Form extends Mage_Core_Block_Template
 
     /**
      * @return string
+     *
      * @throws Exception
      */
     public function getButtonUrl()
@@ -70,6 +73,7 @@ class Mage_GiftMessage_Block_Message_Form extends Mage_Core_Block_Template
 
     /**
      * @return string
+     *
      * @throws Exception
      */
     public function getRemoveUrl()
@@ -85,6 +89,7 @@ class Mage_GiftMessage_Block_Message_Form extends Mage_Core_Block_Template
 
     /**
      * @return $this
+     *
      * @throws Exception
      */
     protected function _initMessage()
@@ -97,6 +102,7 @@ class Mage_GiftMessage_Block_Message_Form extends Mage_Core_Block_Template
 
     /**
      * @return Mage_GiftMessage_Model_Message
+     *
      * @throws Exception
      */
     public function getMessage()
@@ -109,7 +115,8 @@ class Mage_GiftMessage_Block_Message_Form extends Mage_Core_Block_Template
     }
 
     /**
-     * @param  string $value
+     * @param string $value
+     *
      * @return string
      */
     public function getEscaped($value)
@@ -118,7 +125,8 @@ class Mage_GiftMessage_Block_Message_Form extends Mage_Core_Block_Template
     }
 
     /**
-     * @param  string $value
+     * @param string $value
+     *
      * @return string
      */
     public function getEscapedForJs($value)
@@ -128,6 +136,7 @@ class Mage_GiftMessage_Block_Message_Form extends Mage_Core_Block_Template
 
     /**
      * @return string
+     *
      * @throws Exception
      */
     public function getUniqueId()

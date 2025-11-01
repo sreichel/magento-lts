@@ -47,7 +47,8 @@ class Mage_Api2_Model_Resource_Validator_Fields extends Mage_Api2_Model_Resource
      * Required parameteres for options:
      * - resource
      *
-     * @param  array     $options
+     * @param array $options
+     *
      * @throws Exception If passed parameter 'resource' is wrong
      */
     public function __construct($options)
@@ -72,7 +73,9 @@ class Mage_Api2_Model_Resource_Validator_Fields extends Mage_Api2_Model_Resource
     /**
      * Build validator chain with config data
      *
+     *
      * @throws Exception If validator type is not set
+     *
      * @throws Exception If validator is not exist
      */
     protected function _buildValidatorsChain(array $validationConfig)
@@ -114,10 +117,12 @@ class Mage_Api2_Model_Resource_Validator_Fields extends Mage_Api2_Model_Resource
      * Get validator object instance
      * Override the method if we need to use not only Zend validators!
      *
-     * @param  string                  $type
-     * @param  array                   $options
+     * @param string $type
+     * @param array  $options
+     *
      * @return Zend_Validate_Interface
-     * @throws Exception               If validator is not exist
+     *
+     * @throws Exception If validator is not exist
      */
     protected function _getValidatorInstance($type, $options)
     {
@@ -135,7 +140,8 @@ class Mage_Api2_Model_Resource_Validator_Fields extends Mage_Api2_Model_Resource
      * getErrors() will return an array of errors that explain why the
      * validation failed.
      *
-     * @param  bool $isPartial
+     * @param bool $isPartial
+     *
      * @return bool
      */
     public function isValidData(array $data, $isPartial = false)

@@ -31,7 +31,8 @@ class Mage_Adminhtml_Block_Cms_Block_Widget_Chooser extends Mage_Adminhtml_Block
     /**
      * Prepare chooser element HTML
      *
-     * @param  Varien_Data_Form_Element_Abstract $element Form Element
+     * @param Varien_Data_Form_Element_Abstract $element Form Element
+     *
      * @return Varien_Data_Form_Element_Abstract
      */
     public function prepareElementHtml(Varien_Data_Form_Element_Abstract $element)

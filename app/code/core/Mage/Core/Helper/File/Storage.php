@@ -60,7 +60,8 @@ class Mage_Core_Helper_File_Storage extends Mage_Core_Helper_Abstract
     /**
      * Check if storage is internal
      *
-     * @param  int|null $storage
+     * @param int|null $storage
+     *
      * @return bool
      */
     public function isInternalStorage($storage = null)
@@ -73,8 +74,9 @@ class Mage_Core_Helper_File_Storage extends Mage_Core_Helper_Abstract
     /**
      * Retrieve storage model
      *
-     * @param  int|null                                                                $storage
-     * @param  array                                                                   $params
+     * @param int|null $storage
+     * @param array    $params
+     *
      * @return Mage_Core_Model_File_Storage_File|Mage_Core_Model_File_Storage_Database
      */
     public function getStorageModel($storage = null, $params = [])
@@ -86,7 +88,8 @@ class Mage_Core_Helper_File_Storage extends Mage_Core_Helper_Abstract
      * Check if needed to copy file from storage to file system and
      * if file exists in the storage
      *
-     * @param  string   $filename
+     * @param string $filename
+     *
      * @return bool|int
      */
     public function processStorageFile($filename)
@@ -110,7 +113,8 @@ class Mage_Core_Helper_File_Storage extends Mage_Core_Helper_Abstract
     /**
      * Save file to file system
      *
-     * @param  Mage_Core_Model_File_Storage_Database $file
+     * @param Mage_Core_Model_File_Storage_Database $file
+     *
      * @return bool|int
      */
     public function saveFileToFileSystem($file)

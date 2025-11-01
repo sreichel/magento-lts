@@ -75,7 +75,8 @@ class Mage_Core_Model_App_Area
     /**
      * Load area data
      *
-     * @param  string|null              $part
+     * @param string|null $part
+     *
      * @return Mage_Core_Model_App_Area
      */
     public function load($part = null)
@@ -95,7 +96,8 @@ class Mage_Core_Model_App_Area
     /**
      * Loading part of area
      *
-     * @param  string                   $part
+     * @param string $part
+     *
      * @return Mage_Core_Model_App_Area
      */
     protected function _loadPart($part)
@@ -148,7 +150,9 @@ class Mage_Core_Model_App_Area
 
     /**
      * @return $this|void
+     *
      * @throws Mage_Core_Exception
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     protected function _initDesign()

@@ -34,7 +34,8 @@ class Mage_Core_Model_File_Validator_StreamWrapper
     /**
      * Validation callback for checking is stream wrapper allowed
      *
-     * @param  string $filePath Path to file
+     * @param string $filePath Path to file
+     *
      * @return bool
      */
     public function validate($filePath)

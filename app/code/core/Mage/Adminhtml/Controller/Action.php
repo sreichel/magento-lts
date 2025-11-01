@@ -223,6 +223,7 @@ class Mage_Adminhtml_Controller_Action extends Mage_Core_Controller_Varien_Actio
 
     /**
      * @deprecated after 1.4.0.0 alpha, logic moved to Mage_Adminhtml_Block_Notification_Baseurl
+     *
      * @return $this
      */
     protected function _checkUrlSettings()
@@ -316,7 +317,8 @@ class Mage_Adminhtml_Controller_Action extends Mage_Core_Controller_Varien_Actio
     /**
      * Set currently used module name
      *
-     * @param  string $moduleName
+     * @param string $moduleName
+     *
      * @return $this
      */
     public function setUsedModuleName($moduleName)
@@ -345,7 +347,8 @@ class Mage_Adminhtml_Controller_Action extends Mage_Core_Controller_Varien_Actio
      *
      * Is overridden here to set defaultUrl to admin url
      *
-     * @param  string                           $defaultUrl
+     * @param string $defaultUrl
+     *
      * @return Mage_Adminhtml_Controller_Action
      */
     protected function _redirectReferer($defaultUrl = null)
@@ -358,8 +361,9 @@ class Mage_Adminhtml_Controller_Action extends Mage_Core_Controller_Varien_Actio
     /**
      * Set redirect into response
      *
-     * @param  string $path
-     * @param  array  $arguments
+     * @param string $path
+     * @param array  $arguments
+     *
      * @return $this
      */
     protected function _redirect($path, $arguments = [])
@@ -378,8 +382,9 @@ class Mage_Adminhtml_Controller_Action extends Mage_Core_Controller_Varien_Actio
     /**
      * Generate url by route and parameters
      *
-     * @param  string $route
-     * @param  array  $params
+     * @param string $route
+     * @param array  $params
+     *
      * @return string
      */
     public function getUrl($route = '', $params = [])

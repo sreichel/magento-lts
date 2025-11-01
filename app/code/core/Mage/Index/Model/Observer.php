@@ -31,6 +31,7 @@ class Mage_Index_Model_Observer
     /**
      * Store after commit observer. Process store related indexes
      *
+     *
      * @throws Throwable
      */
     public function processStoreSave(Varien_Event_Observer $observer)
@@ -45,6 +46,7 @@ class Mage_Index_Model_Observer
 
     /**
      * Store group after commit observer. Process store group related indexes
+     *
      *
      * @throws Throwable
      */
@@ -61,6 +63,7 @@ class Mage_Index_Model_Observer
     /**
      * Website save after commit observer. Process website related indexes
      *
+     *
      * @throws Throwable
      */
     public function processWebsiteSave(Varien_Event_Observer $observer)
@@ -75,6 +78,7 @@ class Mage_Index_Model_Observer
 
     /**
      * Store after commit observer. Process store related indexes
+     *
      *
      * @throws Throwable
      */
@@ -91,6 +95,7 @@ class Mage_Index_Model_Observer
     /**
      * Store group after commit observer. Process store group related indexes
      *
+     *
      * @throws Throwable
      */
     public function processStoreGroupDelete(Varien_Event_Observer $observer)
@@ -106,6 +111,7 @@ class Mage_Index_Model_Observer
     /**
      * Website save after commit observer. Process website related indexes
      *
+     *
      * @throws Throwable
      */
     public function processWebsiteDelete(Varien_Event_Observer $observer)
@@ -120,6 +126,7 @@ class Mage_Index_Model_Observer
 
     /**
      * Config data after commit observer.
+     *
      *
      * @throws Throwable
      */
@@ -137,6 +144,7 @@ class Mage_Index_Model_Observer
      * Clean old index events for indexers in manual mode
      *
      * @return void
+     *
      * @throws Exception
      */
     public function cleanOutdatedEvents()

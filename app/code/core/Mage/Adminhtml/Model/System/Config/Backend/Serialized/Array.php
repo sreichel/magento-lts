@@ -18,6 +18,7 @@ class Mage_Adminhtml_Model_System_Config_Backend_Serialized_Array extends Mage_A
      * Check object existence in incoming data and unset array element with '__empty' key
      *
      * @inheritDoc
+     *
      * @throws Mage_Core_Exception
      */
     protected function _beforeSave()

@@ -29,6 +29,7 @@ final class ReviewTest extends OpenMageTest
      * @dataProvider provideValidateReviewData
      * @param array|true $expectedResult
      * @group Model
+     *
      * @throws Zend_Validate_Exception
      */
     public function testValidate($expectedResult, array $methods): void

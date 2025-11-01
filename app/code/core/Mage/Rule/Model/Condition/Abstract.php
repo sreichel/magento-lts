@@ -195,7 +195,8 @@ abstract class Mage_Rule_Model_Condition_Abstract extends Varien_Object implemen
     }
 
     /**
-     * @param  array $arr
+     * @param array $arr
+     *
      * @return $this
      */
     public function loadArray($arr)
@@ -210,7 +211,8 @@ abstract class Mage_Rule_Model_Condition_Abstract extends Varien_Object implemen
     }
 
     /**
-     * @param  SimpleXMLElement|string $xml
+     * @param SimpleXMLElement|string $xml
+     *
      * @return $this
      */
     public function loadXml($xml)
@@ -583,6 +585,7 @@ abstract class Mage_Rule_Model_Condition_Abstract extends Varien_Object implemen
      * Value element type will define renderer for condition value element
      *
      * @see Varien_Data_Form_Element
+     *
      * @return string
      */
     public function getValueElementType()
@@ -681,7 +684,8 @@ abstract class Mage_Rule_Model_Condition_Abstract extends Varien_Object implemen
     }
 
     /**
-     * @param  string $format
+     * @param string $format
+     *
      * @return string
      */
     public function asString($format = '')
@@ -690,7 +694,8 @@ abstract class Mage_Rule_Model_Condition_Abstract extends Varien_Object implemen
     }
 
     /**
-     * @param  int    $level
+     * @param int $level
+     *
      * @return string
      */
     public function asStringRecursive($level = 0)
@@ -701,7 +706,8 @@ abstract class Mage_Rule_Model_Condition_Abstract extends Varien_Object implemen
     /**
      * Validate product attribute value for condition
      *
-     * @param  mixed $validatedValue product attribute value
+     * @param mixed $validatedValue product attribute value
+     *
      * @return bool
      */
     public function validateAttribute($validatedValue)
@@ -825,9 +831,10 @@ abstract class Mage_Rule_Model_Condition_Abstract extends Varien_Object implemen
     /**
      * Case and type insensitive comparison of values
      *
-     * @param  string|int|float $validatedValue
-     * @param  string|int|float $value
-     * @param  bool             $strict
+     * @param string|int|float $validatedValue
+     * @param string|int|float $value
+     * @param bool             $strict
+     *
      * @return bool
      */
     protected function _compareValues($validatedValue, $value, $strict = true)

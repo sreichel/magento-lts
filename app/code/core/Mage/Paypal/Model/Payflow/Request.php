@@ -18,8 +18,9 @@ class Mage_Paypal_Model_Payflow_Request extends Varien_Object
      * Set/Get attribute wrapper
      * Also add length path if key contains = or &
      *
-     * @param  string $method
-     * @param  array  $args
+     * @param string $method
+     * @param array  $args
+     *
      * @return mixed
      * @SuppressWarnings("PHPMD.DevelopmentCodeFragment")
      */

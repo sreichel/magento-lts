@@ -86,24 +86,28 @@ interface Mage_HTTP_IClient
 
     /**
      * Get response headers
+     *
      * @return array
      */
     public function getHeaders();
 
     /**
      * Get response body
+     *
      * @return string
      */
     public function getBody();
 
     /**
      * Get response status code
+     *
      * @return int
      */
     public function getStatus();
 
     /**
      * Get response cookies (k=>v)
+     *
      * @return array
      */
     public function getCookies();

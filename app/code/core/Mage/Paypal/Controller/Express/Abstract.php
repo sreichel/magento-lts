@@ -445,6 +445,7 @@ abstract class Mage_Paypal_Controller_Express_Abstract extends Mage_Core_Control
      * Instantiate quote and checkout
      *
      * @return Mage_Paypal_Model_Express_Checkout
+     *
      * @throws Mage_Core_Exception
      */
     protected function _initCheckout()
@@ -468,7 +469,8 @@ abstract class Mage_Paypal_Controller_Express_Abstract extends Mage_Core_Control
      * Search for proper checkout token in request or session or (un)set specified one
      * Combined getter/setter
      *
-     * @param  string       $setToken
+     * @param string $setToken
+     *
      * @return $this|string
      */
     protected function _initToken($setToken = null)

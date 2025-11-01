@@ -159,6 +159,7 @@ class Mage_Adminhtml_Block_Sales_Order_Creditmemo_Create_Items extends Mage_Admi
 
     /**
      * Whether to show 'Return to stock' column in creaditmemo grid
+     *
      * @return bool
      */
     public function canReturnItemsToStock()

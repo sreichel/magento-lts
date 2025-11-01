@@ -53,7 +53,9 @@ class Mage_ImportExport_Model_Export extends Mage_ImportExport_Model_Abstract
     /**
      * Create instance of entity adapter and returns it.
      *
+     *
      * @throws Exception
+     *
      * @return Mage_ImportExport_Model_Export_Entity_Abstract
      */
     protected function _getEntityAdapter()
@@ -98,7 +100,9 @@ class Mage_ImportExport_Model_Export extends Mage_ImportExport_Model_Abstract
     /**
      * Get writer object.
      *
+     *
      * @throws Mage_Core_Exception
+     *
      * @return Mage_ImportExport_Model_Export_Adapter_Abstract
      */
     protected function _getWriter()
@@ -136,7 +140,9 @@ class Mage_ImportExport_Model_Export extends Mage_ImportExport_Model_Abstract
      *
      * @deprecated after ver 1.9.2.4 use $this->exportFile() instead
      *
+     *
      * @throws Mage_Core_Exception
+     *
      * @return string
      */
     public function export()
@@ -179,7 +185,9 @@ class Mage_ImportExport_Model_Export extends Mage_ImportExport_Model_Abstract
      *     'type'  => 'file'
      * )
      *
+     *
      * @throws Mage_Core_Exception
+     *
      * @return array
      */
     public function exportFile()
@@ -225,7 +233,9 @@ class Mage_ImportExport_Model_Export extends Mage_ImportExport_Model_Abstract
      * Determine filter type for specified attribute.
      *
      * @static
+     *
      * @throws Exception
+     *
      * @return string
      */
     public static function getAttributeFilterType(Mage_Eav_Model_Entity_Attribute $attribute)
@@ -262,6 +272,7 @@ class Mage_ImportExport_Model_Export extends Mage_ImportExport_Model_Abstract
      * Override standard entity getter.
      *
      * @throw Exception
+     *
      * @return string
      */
     public function getEntity()
@@ -287,6 +298,7 @@ class Mage_ImportExport_Model_Export extends Mage_ImportExport_Model_Abstract
      * Override standard entity getter.
      *
      * @throw Exception
+     *
      * @return string
      */
     public function getFileFormat()

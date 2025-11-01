@@ -61,8 +61,9 @@ class Mage_ProductAlert_Model_Price extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  int   $customerId
-     * @param  int   $websiteId
+     * @param int $customerId
+     * @param int $websiteId
+     *
      * @return $this
      */
     public function deleteCustomer($customerId, $websiteId = 0)

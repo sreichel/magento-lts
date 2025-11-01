@@ -21,6 +21,7 @@ class Mage_Tax_Model_Sales_Pdf_Grandtotal extends Mage_Sales_Model_Order_Pdf_Tot
      *      'font_size'=> $fontSize
      *  )
      * )
+     *
      * @return array
      */
     public function getTotalsForDisplay()

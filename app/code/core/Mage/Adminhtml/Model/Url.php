@@ -54,8 +54,9 @@ class Mage_Adminhtml_Model_Url extends Mage_Core_Model_Url
     /**
      * Custom logic to retrieve Urls
      *
-     * @param  string $routePath
-     * @param  array  $routeParams
+     * @param string $routePath
+     * @param array  $routeParams
+     *
      * @return string
      */
     public function getUrl($routePath = null, $routeParams = null)
@@ -97,8 +98,9 @@ class Mage_Adminhtml_Model_Url extends Mage_Core_Model_Url
     /**
      * Generate secret key for controller and action based on form key
      *
-     * @param  string $controller Controller name
-     * @param  string $action     Action name
+     * @param string $controller Controller name
+     * @param string $action     Action name
+     *
      * @return string
      */
     public function getSecretKey($controller = null, $action = null)

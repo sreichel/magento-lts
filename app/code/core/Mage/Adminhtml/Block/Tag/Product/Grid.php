@@ -40,6 +40,7 @@ class Mage_Adminhtml_Block_Tag_Product_Grid extends Mage_Adminhtml_Block_Widget_
 
     /**
      * @inheritDoc
+     *
      * @throws Exception
      */
     protected function _prepareCollection()
@@ -59,6 +60,7 @@ class Mage_Adminhtml_Block_Tag_Product_Grid extends Mage_Adminhtml_Block_Widget_
 
     /**
      * @inheritDoc
+     *
      * @throws Exception
      */
     protected function _prepareColumns()
@@ -95,7 +97,8 @@ class Mage_Adminhtml_Block_Tag_Product_Grid extends Mage_Adminhtml_Block_Widget_
     }
 
     /**
-     * @param  Mage_Adminhtml_Block_Widget_Grid_Column $column
+     * @param Mage_Adminhtml_Block_Widget_Grid_Column $column
+     *
      * @return $this
      */
     protected function _addColumnFilterToCollection($column)

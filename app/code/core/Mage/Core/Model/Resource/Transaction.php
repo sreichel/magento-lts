@@ -95,7 +95,8 @@ class Mage_Core_Model_Resource_Transaction
     /**
      * Adding object for using in transaction
      *
-     * @param  string $alias
+     * @param string $alias
+     *
      * @return $this
      */
     public function addObject(Mage_Core_Model_Abstract $object, $alias = '')
@@ -111,7 +112,8 @@ class Mage_Core_Model_Resource_Transaction
     /**
      * Add callback function which will be called before commit transactions
      *
-     * @param  callable $callback
+     * @param callable $callback
+     *
      * @return $this
      */
     public function addCommitCallback($callback)
@@ -124,6 +126,7 @@ class Mage_Core_Model_Resource_Transaction
      * Initialize objects save transaction
      *
      * @return $this
+     *
      * @throws Exception
      */
     public function save()
@@ -161,6 +164,7 @@ class Mage_Core_Model_Resource_Transaction
      * Initialize objects delete transaction
      *
      * @return $this
+     *
      * @throws Exception
      */
     public function delete()

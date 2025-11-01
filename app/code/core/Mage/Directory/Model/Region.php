@@ -48,8 +48,9 @@ class Mage_Directory_Model_Region extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  string $code
-     * @param  string $countryId
+     * @param string $code
+     * @param string $countryId
+     *
      * @return $this
      */
     public function loadByCode($code, $countryId)
@@ -62,8 +63,9 @@ class Mage_Directory_Model_Region extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  string $name
-     * @param  string $countryId
+     * @param string $name
+     * @param string $countryId
+     *
      * @return $this
      */
     public function loadByName($name, $countryId)

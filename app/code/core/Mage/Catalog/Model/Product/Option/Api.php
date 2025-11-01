@@ -17,10 +17,11 @@ class Mage_Catalog_Model_Product_Option_Api extends Mage_Catalog_Model_Api_Resou
     /**
      * Add custom option to product
      *
-     * @param  string          $productId
-     * @param  array           $data
-     * @param  int|string|null $store
-     * @return bool            $isAdded
+     * @param string          $productId
+     * @param array           $data
+     * @param int|string|null $store
+     *
+     * @return bool $isAdded
      */
     public function add($productId, $data, $store = null)
     {
@@ -44,9 +45,10 @@ class Mage_Catalog_Model_Product_Option_Api extends Mage_Catalog_Model_Api_Resou
     /**
      * Update product custom option data
      *
-     * @param  string          $optionId
-     * @param  array           $data
-     * @param  int|string|null $store
+     * @param string          $optionId
+     * @param array           $data
+     * @param int|string|null $store
+     *
      * @return bool
      */
     public function update($optionId, $data, $store = null)
@@ -190,8 +192,9 @@ class Mage_Catalog_Model_Product_Option_Api extends Mage_Catalog_Model_Api_Resou
     /**
      * Get full information about custom option in product
      *
-     * @param  int|string      $optionId
-     * @param  int|string|null $store
+     * @param int|string      $optionId
+     * @param int|string|null $store
+     *
      * @return array
      */
     public function info($optionId, $store = null)
@@ -252,8 +255,9 @@ class Mage_Catalog_Model_Product_Option_Api extends Mage_Catalog_Model_Api_Resou
     /**
      * Retrieve list of product custom options
      *
-     * @param  string          $productId
-     * @param  int|string|null $store
+     * @param string          $productId
+     * @param int|string|null $store
+     *
      * @return array
      */
     public function items($productId, $store = null)
@@ -277,7 +281,8 @@ class Mage_Catalog_Model_Product_Option_Api extends Mage_Catalog_Model_Api_Resou
     /**
      * Remove product custom option
      *
-     * @param  string $optionId
+     * @param string $optionId
+     *
      * @return bool
      */
     public function remove($optionId)
@@ -303,7 +308,8 @@ class Mage_Catalog_Model_Product_Option_Api extends Mage_Catalog_Model_Api_Resou
     /**
      * Check is type in allowed set
      *
-     * @param  string $type
+     * @param string $type
+     *
      * @return bool
      */
     protected function _isTypeAllowed($type)

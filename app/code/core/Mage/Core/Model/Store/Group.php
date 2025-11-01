@@ -235,7 +235,8 @@ class Mage_Core_Model_Store_Group extends Mage_Core_Model_Abstract
      * If no store with given locale is found - default store is returned
      * If group has no stores - null is returned
      *
-     * @param  string                     $locale
+     * @param string $locale
+     *
      * @return Mage_Core_Model_Store|null
      */
     public function getDefaultStoreByLocale($locale)
@@ -255,7 +256,8 @@ class Mage_Core_Model_Store_Group extends Mage_Core_Model_Abstract
     /**
      * Retrieve list of stores with given locale
      *
-     * @param  string $locale
+     * @param string $locale
+     *
      * @return array
      */
     public function getStoresByLocale($locale)
@@ -346,7 +348,8 @@ class Mage_Core_Model_Store_Group extends Mage_Core_Model_Abstract
     /**
      * Get/Set isReadOnly flag
      *
-     * @param  bool $value
+     * @param bool $value
+     *
      * @return bool
      */
     public function isReadOnly($value = null)

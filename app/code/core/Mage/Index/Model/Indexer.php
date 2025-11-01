@@ -76,7 +76,8 @@ class Mage_Index_Model_Indexer
     /**
      * Get index process by specific id
      *
-     * @param  int                            $processId
+     * @param int $processId
+     *
      * @return Mage_Index_Model_Process|false
      */
     public function getProcessById($processId)
@@ -93,7 +94,8 @@ class Mage_Index_Model_Indexer
     /**
      * Get index process by specific code
      *
-     * @param  string                         $code
+     * @param string $code
+     *
      * @return Mage_Index_Model_Process|false
      */
     public function getProcessByCode($code)
@@ -177,6 +179,7 @@ class Mage_Index_Model_Indexer
      * Check if object actions are locked
      *
      * @deprecated after 1.6.1.0
+     *
      * @return bool
      */
     public function isLocked()
@@ -188,9 +191,11 @@ class Mage_Index_Model_Indexer
      * Indexing all pending events.
      * Events set can be limited by event entity and type
      *
-     * @param  null | string            $entity
-     * @param  null | string            $type
+     * @param null | string $entity
+     * @param null | string $type
+     *
      * @throws Exception
+     *
      * @return Mage_Index_Model_Indexer
      */
     public function indexEvents($entity = null, $type = null)
@@ -251,9 +256,10 @@ class Mage_Index_Model_Indexer
     /**
      * Create new event log and register event in all processes
      *
-     * @param  string                 $entityType
-     * @param  string                 $eventType
-     * @param  bool                   $doSave
+     * @param string $entityType
+     * @param string $eventType
+     * @param bool   $doSave
+     *
      * @return Mage_Index_Model_Event
      */
     public function logEvent(Varien_Object $entity, $entityType, $eventType, $doSave = true)
@@ -276,8 +282,9 @@ class Mage_Index_Model_Indexer
      * Create new event log and register event in all processes.
      * Initiate events indexing procedure.
      *
-     * @param  string              $entityType
-     * @param  string              $eventType
+     * @param string $entityType
+     * @param string $eventType
+     *
      * @throws Exception|Throwable
      */
     public function processEntityAction(Varien_Object $entity, $entityType, $eventType): Mage_Index_Model_Indexer
@@ -375,7 +382,8 @@ class Mage_Index_Model_Indexer
     /**
      * Enable/Disable keys in index tables
      *
-     * @param  bool  $enable
+     * @param bool $enable
+     *
      * @return $this
      */
     protected function _changeKeyStatus($enable = true)
@@ -409,8 +417,9 @@ class Mage_Index_Model_Indexer
     /**
      * Check if the event will be processed and disable/enable keys in index tables
      *
-     * @param  mixed|Mage_Index_Model_Process $process
-     * @param  bool                           $enable
+     * @param mixed|Mage_Index_Model_Process $process
+     * @param bool                           $enable
+     *
      * @return bool
      */
     protected function _changeProcessKeyStatus($process, $enable = true)
@@ -462,8 +471,9 @@ class Mage_Index_Model_Indexer
     /**
      * Get event type name
      *
-     * @param  null|string $entityType
-     * @param  null|string $eventType
+     * @param null|string $entityType
+     * @param null|string $eventType
+     *
      * @return string
      */
     protected function _getEventTypeName($entityType = null, $eventType = null)

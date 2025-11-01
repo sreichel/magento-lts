@@ -108,7 +108,8 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template
     }
 
     /**
-     * @param  string $title
+     * @param string $title
+     *
      * @return $this
      */
     public function setHeaderTitle($title)
@@ -128,7 +129,8 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template
     /**
      * Add CSS class to page body tag
      *
-     * @param  string $className
+     * @param string $className
+     *
      * @return $this
      */
     public function addBodyClass($className)
@@ -152,8 +154,10 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template
     }
 
     /**
-     * @param  string              $theme
+     * @param string $theme
+     *
      * @return $this
+     *
      * @throws Mage_Core_Exception
      */
     public function setTheme($theme)
@@ -187,7 +191,8 @@ class Mage_Page_Block_Html extends Mage_Core_Block_Template
     /**
      * Processing block html after rendering
      *
-     * @param  string $html
+     * @param string $html
+     *
      * @return string
      */
     protected function _afterToHtml($html)

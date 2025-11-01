@@ -33,8 +33,10 @@ class Mage_Directory_Model_Country extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  string              $code
+     * @param string $code
+     *
      * @return $this
+     *
      * @throws Mage_Core_Exception
      */
     public function loadByCode($code)
@@ -72,7 +74,8 @@ class Mage_Directory_Model_Country extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  bool   $html
+     * @param bool $html
+     *
      * @return string
      */
     public function formatAddress(Varien_Object $address, $html = false)
@@ -131,7 +134,8 @@ T: {{telephone}}';
     /**
      * Retrieve format
      *
-     * @param  string                                   $type
+     * @param string $type
+     *
      * @return Mage_Directory_Model_Country_Format|null
      */
     public function getFormat($type)

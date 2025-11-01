@@ -174,7 +174,8 @@ class Mage_Dataflow_Model_Batch extends Mage_Core_Model_Abstract
      * Set additional params
      * automatic convert to serialize data
      *
-     * @param  mixed $data
+     * @param mixed $data
+     *
      * @return $this
      */
     public function setParams($data)

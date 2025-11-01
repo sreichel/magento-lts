@@ -44,7 +44,8 @@ class Mage_Catalog_Model_Product_Type_Configurable_Attribute extends Mage_Core_M
     /**
      * Add price data to attribute
      *
-     * @param  array $priceData
+     * @param array $priceData
+     *
      * @return $this
      */
     public function addPrice($priceData)

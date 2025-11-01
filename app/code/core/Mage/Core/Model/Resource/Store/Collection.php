@@ -38,7 +38,8 @@ class Mage_Core_Model_Resource_Store_Collection extends Mage_Core_Model_Resource
     /**
      * Set flag for load default (admin) store
      *
-     * @param  bool  $loadDefault
+     * @param bool $loadDefault
+     *
      * @return $this
      */
     public function setLoadDefault($loadDefault)
@@ -72,7 +73,8 @@ class Mage_Core_Model_Resource_Store_Collection extends Mage_Core_Model_Resource
      * Add filter by group id.
      * Group id can be passed as one single value or array of values.
      *
-     * @param  int|array $groupId
+     * @param int|array $groupId
+     *
      * @return $this
      */
     public function addGroupFilter($groupId)
@@ -83,7 +85,8 @@ class Mage_Core_Model_Resource_Store_Collection extends Mage_Core_Model_Resource
     /**
      * Add store id(s) filter to collection
      *
-     * @param  int|array $store
+     * @param int|array $store
+     *
      * @return $this
      */
     public function addIdFilter($store)
@@ -94,7 +97,8 @@ class Mage_Core_Model_Resource_Store_Collection extends Mage_Core_Model_Resource
     /**
      * Add filter by website to collection
      *
-     * @param  int|array $website
+     * @param int|array $website
+     *
      * @return $this
      */
     public function addWebsiteFilter($website)
@@ -105,7 +109,8 @@ class Mage_Core_Model_Resource_Store_Collection extends Mage_Core_Model_Resource
     /**
      * Add root category id filter to store collection
      *
-     * @param  int|array $category
+     * @param int|array $category
+     *
      * @return $this
      */
     public function addCategoryFilter($category)
@@ -189,6 +194,7 @@ class Mage_Core_Model_Resource_Store_Collection extends Mage_Core_Model_Resource
 
     /**
      * Initializes the config cache for each store
+     *
      * @return $this
      */
     public function initConfigCache()

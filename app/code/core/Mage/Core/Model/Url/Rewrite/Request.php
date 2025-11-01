@@ -323,7 +323,8 @@ class Mage_Core_Model_Url_Rewrite_Request
     /**
      * Replace route name placeholders in url to front name
      *
-     * @param  string $url
+     * @param string $url
+     *
      * @return string
      */
     protected function _processRewriteUrl($url)
@@ -345,7 +346,8 @@ class Mage_Core_Model_Url_Rewrite_Request
     /**
      * Retrieve router by name
      *
-     * @param  string                                            $name
+     * @param string $name
+     *
      * @return Mage_Core_Controller_Varien_Router_Abstract|false
      */
     protected function _getRouter($name)
@@ -356,7 +358,8 @@ class Mage_Core_Model_Url_Rewrite_Request
     /**
      * Retrieve router by name
      *
-     * @param  string                                      $routeName
+     * @param string $routeName
+     *
      * @return Mage_Core_Controller_Varien_Router_Abstract
      */
     protected function _getRouterByRoute($routeName)

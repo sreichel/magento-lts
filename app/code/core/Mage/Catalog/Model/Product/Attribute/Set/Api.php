@@ -39,8 +39,9 @@ class Mage_Catalog_Model_Product_Attribute_Set_Api extends Mage_Api_Model_Resour
     /**
      * Create new attribute set based on another set
      *
-     * @param  string $attributeSetName
-     * @param  string $skeletonSetId
+     * @param string $attributeSetName
+     * @param string $skeletonSetId
+     *
      * @return int
      */
     public function create($attributeSetName, $skeletonSetId)
@@ -74,8 +75,9 @@ class Mage_Catalog_Model_Product_Attribute_Set_Api extends Mage_Api_Model_Resour
     /**
      * Remove attribute set
      *
-     * @param  string $attributeSetId
-     * @param  bool   $forceProductsRemove
+     * @param string $attributeSetId
+     * @param bool   $forceProductsRemove
+     *
      * @return bool
      */
     public function remove($attributeSetId, $forceProductsRemove = false)
@@ -108,10 +110,11 @@ class Mage_Catalog_Model_Product_Attribute_Set_Api extends Mage_Api_Model_Resour
     /**
      * Add attribute to attribute set
      *
-     * @param  string      $attributeId
-     * @param  string      $attributeSetId
-     * @param  string|null $attributeGroupId
-     * @param  string      $sortOrder
+     * @param string      $attributeId
+     * @param string      $attributeSetId
+     * @param string|null $attributeGroupId
+     * @param string      $sortOrder
+     *
      * @return bool
      */
     public function attributeAdd($attributeId, $attributeSetId, $attributeGroupId = null, $sortOrder = '0')
@@ -161,8 +164,9 @@ class Mage_Catalog_Model_Product_Attribute_Set_Api extends Mage_Api_Model_Resour
     /**
      * Remove attribute from attribute set
      *
-     * @param  string $attributeId
-     * @param  string $attributeSetId
+     * @param string $attributeId
+     * @param string $attributeSetId
+     *
      * @return bool
      */
     public function attributeRemove($attributeId, $attributeSetId)
@@ -201,8 +205,9 @@ class Mage_Catalog_Model_Product_Attribute_Set_Api extends Mage_Api_Model_Resour
     /**
      * Create group within existing attribute set
      *
-     * @param  string|int $attributeSetId
-     * @param  string     $groupName
+     * @param string|int $attributeSetId
+     * @param string     $groupName
+     *
      * @return int
      */
     public function groupAdd($attributeSetId, $groupName)
@@ -229,8 +234,9 @@ class Mage_Catalog_Model_Product_Attribute_Set_Api extends Mage_Api_Model_Resour
     /**
      * Rename existing group
      *
-     * @param  string|int $groupId
-     * @param  string     $groupName
+     * @param string|int $groupId
+     * @param string     $groupName
+     *
      * @return bool
      */
     public function groupRename($groupId, $groupName)
@@ -256,7 +262,8 @@ class Mage_Catalog_Model_Product_Attribute_Set_Api extends Mage_Api_Model_Resour
     /**
      * Remove group from existing attribute set
      *
-     * @param  string|int $attributeGroupId
+     * @param string|int $attributeGroupId
+     *
      * @return bool
      */
     public function groupRemove($attributeGroupId)

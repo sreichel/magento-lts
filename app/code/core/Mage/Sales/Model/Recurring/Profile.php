@@ -122,7 +122,8 @@ class Mage_Sales_Model_Recurring_Profile extends Mage_Payment_Model_Recurring_Pr
     /**
      * Load order by system increment identifier
      *
-     * @param  int   $internalReferenceId
+     * @param int $internalReferenceId
+     *
      * @return $this
      */
     public function loadByInternalReferenceId($internalReferenceId)
@@ -355,6 +356,7 @@ class Mage_Sales_Model_Recurring_Profile extends Mage_Payment_Model_Recurring_Pr
      * Import quote information to the profile
      *
      * @return $this
+     *
      * @throws Exception
      */
     public function importQuote(Mage_Sales_Model_Quote $quote)
@@ -419,7 +421,8 @@ class Mage_Sales_Model_Recurring_Profile extends Mage_Payment_Model_Recurring_Pr
     /**
      * Getter for sales-related field labels
      *
-     * @param  string      $field
+     * @param string $field
+     *
      * @return string|null
      */
     public function getFieldLabel($field)
@@ -436,7 +439,8 @@ class Mage_Sales_Model_Recurring_Profile extends Mage_Payment_Model_Recurring_Pr
     /**
      * Getter for sales-related field comments
      *
-     * @param  string      $field
+     * @param string $field
+     *
      * @return string|null
      */
     public function getFieldComment($field)
@@ -450,7 +454,8 @@ class Mage_Sales_Model_Recurring_Profile extends Mage_Payment_Model_Recurring_Pr
     /**
      * Getter for all available states
      *
-     * @param  bool  $withLabels
+     * @param bool $withLabels
+     *
      * @return array
      */
     public function getAllStates($withLabels = true)
@@ -473,7 +478,8 @@ class Mage_Sales_Model_Recurring_Profile extends Mage_Payment_Model_Recurring_Pr
     /**
      * Get state label based on the code
      *
-     * @param  string $state
+     * @param string $state
+     *
      * @return string
      */
     public function getStateLabel($state)
@@ -492,7 +498,8 @@ class Mage_Sales_Model_Recurring_Profile extends Mage_Payment_Model_Recurring_Pr
     /**
      * Render state as label
      *
-     * @param  string $key
+     * @param string $key
+     *
      * @return mixed
      */
     public function renderData($key)
@@ -509,8 +516,9 @@ class Mage_Sales_Model_Recurring_Profile extends Mage_Payment_Model_Recurring_Pr
      * Getter for additional information value
      * It is assumed that the specified additional info is an object or associative array
      *
-     * @param  string     $infoKey
-     * @param  string     $infoValueKey
+     * @param string $infoKey
+     * @param string $infoValueKey
+     *
      * @return mixed|null
      */
     public function getInfoValue($infoKey, $infoValueKey)
@@ -572,9 +580,11 @@ class Mage_Sales_Model_Recurring_Profile extends Mage_Payment_Model_Recurring_Pr
     /**
      * Check whether profile can be changed to specified state
      *
-     * @param  string              $againstState
-     * @param  bool                $soft
+     * @param string $againstState
+     * @param bool   $soft
+     *
      * @return bool
+     *
      * @throws Mage_Core_Exception
      */
     protected function _checkWorkflow($againstState, $soft = true)
@@ -609,7 +619,8 @@ class Mage_Sales_Model_Recurring_Profile extends Mage_Payment_Model_Recurring_Pr
     /**
      * Add order relation to recurring profile
      *
-     * @param  int   $orderId
+     * @param int $orderId
+     *
      * @return $this
      */
     public function addOrderRelation($orderId)
@@ -621,7 +632,8 @@ class Mage_Sales_Model_Recurring_Profile extends Mage_Payment_Model_Recurring_Pr
     /**
      * Create and return new order item based on profile item data and $itemInfo
      *
-     * @param  Varien_Object                    $itemInfo
+     * @param Varien_Object $itemInfo
+     *
      * @return Mage_Sales_Model_Order_Item|void
      */
     protected function _getItem($itemInfo)
@@ -647,7 +659,8 @@ class Mage_Sales_Model_Recurring_Profile extends Mage_Payment_Model_Recurring_Pr
      * Create and return new order item based on profile item data and $itemInfo
      * for regular payment
      *
-     * @param  Varien_Object               $itemInfo
+     * @param Varien_Object $itemInfo
+     *
      * @return Mage_Sales_Model_Order_Item
      */
     protected function _getRegularItem($itemInfo)
@@ -673,7 +686,8 @@ class Mage_Sales_Model_Recurring_Profile extends Mage_Payment_Model_Recurring_Pr
      * Create and return new order item based on profile item data and $itemInfo
      * for trial payment
      *
-     * @param  Varien_Object               $itemInfo
+     * @param Varien_Object $itemInfo
+     *
      * @return Mage_Sales_Model_Order_Item
      */
     protected function _getTrialItem($itemInfo)
@@ -698,7 +712,8 @@ class Mage_Sales_Model_Recurring_Profile extends Mage_Payment_Model_Recurring_Pr
      * Create and return new order item based on profile item data and $itemInfo
      * for initial payment
      *
-     * @param  Varien_Object               $itemInfo
+     * @param Varien_Object $itemInfo
+     *
      * @return Mage_Sales_Model_Order_Item
      */
     protected function _getInitialItem($itemInfo)

@@ -113,7 +113,8 @@ class Mage_Catalog_Model_Convert_Adapter_Product extends Mage_Eav_Model_Convert_
     /**
      * Store affected entity ids
      *
-     * @param  int|array $ids
+     * @param int|array $ids
+     *
      * @return $this
      */
     protected function _addAffectedEntityIds($ids)
@@ -225,7 +226,8 @@ class Mage_Catalog_Model_Convert_Adapter_Product extends Mage_Eav_Model_Convert_
     /**
      * Retrieve eav entity attribute model
      *
-     * @param  string                                $code
+     * @param string $code
+     *
      * @return Mage_Eav_Model_Entity_Attribute|false
      */
     public function getAttribute($code)
@@ -320,7 +322,8 @@ class Mage_Catalog_Model_Convert_Adapter_Product extends Mage_Eav_Model_Convert_
     /**
      * Retrieve store object by code
      *
-     * @param  string                      $store
+     * @param string $store
+     *
      * @return Mage_Core_Model_Store|false
      */
     public function getStoreByCode($store)
@@ -339,7 +342,8 @@ class Mage_Catalog_Model_Convert_Adapter_Product extends Mage_Eav_Model_Convert_
     /**
      * Retrieve store object by code
      *
-     * @param  string                      $id
+     * @param string $id
+     *
      * @return Mage_Core_Model_Store|false
      */
     public function getStoreById($id)
@@ -430,7 +434,8 @@ class Mage_Catalog_Model_Convert_Adapter_Product extends Mage_Eav_Model_Convert_
     /**
      * Retrieve not loaded collection
      *
-     * @param  string                                         $entityType
+     * @param string $entityType
+     *
      * @return Mage_Catalog_Model_Resource_Product_Collection
      */
     protected function _getCollectionForLoad($entityType)
@@ -441,7 +446,9 @@ class Mage_Catalog_Model_Convert_Adapter_Product extends Mage_Eav_Model_Convert_
     }
 
     /**
+     *
      * @throws Mage_Core_Exception
+     *
      * @throws Varien_Exception
      */
     public function setProduct(Mage_Catalog_Model_Product $object)
@@ -460,7 +467,9 @@ class Mage_Catalog_Model_Convert_Adapter_Product extends Mage_Eav_Model_Convert_
     }
 
     /**
+     *
      * @throws Mage_Core_Exception
+     *
      * @throws Varien_Exception
      */
     public function setStockItem(Mage_CatalogInventory_Model_Stock_Item $object)
@@ -643,7 +652,9 @@ class Mage_Catalog_Model_Convert_Adapter_Product extends Mage_Eav_Model_Convert_
     /**
      * Save product (import)
      *
+     *
      * @throws Mage_Core_Exception
+     *
      * @return bool
      */
     public function saveRow(array $importData)

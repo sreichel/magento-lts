@@ -120,8 +120,9 @@ class Mage_CatalogSearch_Model_Advanced extends Mage_Core_Model_Abstract
      *
      * @deprecated after 1.4.1.0 - use Mage_CatalogSearch_Model_Resource_Advanced->_prepareCondition()
      *
-     * @param  Mage_Catalog_Model_Resource_Eav_Attribute $attribute
-     * @param  string|array                              $value
+     * @param Mage_Catalog_Model_Resource_Eav_Attribute $attribute
+     * @param string|array                              $value
+     *
      * @return mixed
      */
     protected function _prepareCondition($attribute, $value)
@@ -132,7 +133,8 @@ class Mage_CatalogSearch_Model_Advanced extends Mage_Core_Model_Abstract
     /**
      * Add advanced search filters to product collection
      *
-     * @param  array $values
+     * @param array $values
+     *
      * @return $this
      */
     public function addFilters($values)
@@ -218,8 +220,9 @@ class Mage_CatalogSearch_Model_Advanced extends Mage_Core_Model_Abstract
     /**
      * Add data about search criteria to object state
      *
-     * @param  Mage_Eav_Model_Entity_Attribute $attribute
-     * @param  mixed                           $value
+     * @param Mage_Eav_Model_Entity_Attribute $attribute
+     * @param mixed                           $value
+     *
      * @return $this
      */
     protected function _addSearchCriteria($attribute, $value)
@@ -316,8 +319,10 @@ class Mage_CatalogSearch_Model_Advanced extends Mage_Core_Model_Abstract
     /**
      * Prepare product collection
      *
-     * @param  Mage_CatalogSearch_Model_Resource_Advanced_Collection $collection
+     * @param Mage_CatalogSearch_Model_Resource_Advanced_Collection $collection
+     *
      * @return $this
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function prepareProductCollection($collection)

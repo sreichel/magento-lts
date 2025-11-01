@@ -144,7 +144,8 @@ class Mage_CatalogRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abst
     /**
      * Return whether the product fits the rule
      *
-     * @param  array $websiteIds
+     * @param array $websiteIds
+     *
      * @return bool
      */
     public function validateProduct(Mage_CatalogRule_Model_Rule $rule, Varien_Object $product, $websiteIds = [])
@@ -305,7 +306,9 @@ class Mage_CatalogRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abst
      * Update products which are matched for rule
      *
      *
+     *
      * @throws Exception
+     *
      * @return $this
      */
     public function updateRuleProductData(Mage_CatalogRule_Model_Rule $rule)
@@ -525,7 +528,9 @@ class Mage_CatalogRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abst
      *
      * @param int|Mage_Catalog_Model_Product $product
      *
+     *
      * @throws Exception
+     *
      * @return $this
      */
     public function applyAllRules($product = null)
@@ -685,10 +690,11 @@ class Mage_CatalogRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abst
     /**
      * Get active rule data based on few filters
      *
-     * @param  int|string $date
-     * @param  int        $websiteId
-     * @param  int        $customerGroupId
-     * @param  int        $productId
+     * @param int|string $date
+     * @param int        $websiteId
+     * @param int        $customerGroupId
+     * @param int        $productId
+     *
      * @return array
      */
     public function getRulesFromProduct($date, $websiteId, $customerGroupId, $productId)
@@ -738,7 +744,9 @@ class Mage_CatalogRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abst
      * @param Mage_Catalog_Model_Product  $product
      * @param array                       $websiteIds
      *
+     *
      * @throws Exception
+     *
      * @return $this
      */
     public function applyToProduct($rule, $product, $websiteIds)
@@ -778,7 +786,8 @@ class Mage_CatalogRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abst
     /**
      * Get ids of matched rules for specific product
      *
-     * @param  int   $productId
+     * @param int $productId
+     *
      * @return array
      */
     public function getProductRuleIds($productId)
@@ -792,8 +801,9 @@ class Mage_CatalogRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abst
     /**
      * Is product has been matched the rule
      *
-     * @param  int                        $ruleId
-     * @param  Mage_Catalog_Model_Product $product
+     * @param int                        $ruleId
+     * @param Mage_Catalog_Model_Product $product
+     *
      * @return bool
      */
     protected function _isProductMatchedRule($ruleId, $product)

@@ -35,6 +35,7 @@ class Mage_Adminhtml_Block_Cms_Wysiwyg_Images_Content_Uploader extends Mage_Uplo
 
     /**
      * Return current media type based on request or data
+     *
      * @return string
      */
     protected function _getMediaType()

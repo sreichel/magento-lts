@@ -47,7 +47,8 @@ class Varien_Data_Form_Filter_Date implements Varien_Data_Form_Filter_Interface
     /**
      * Returns the result of filtering $value
      *
-     * @param  string|null $value
+     * @param string|null $value
+     *
      * @return string|null
      */
     public function inputFilter($value)
@@ -72,7 +73,8 @@ class Varien_Data_Form_Filter_Date implements Varien_Data_Form_Filter_Interface
     /**
      * Returns the result of filtering $value
      *
-     * @param  string|null $value
+     * @param string|null $value
+     *
      * @return string
      */
     public function outputFilter($value)

@@ -258,7 +258,8 @@ class Mage_Oauth_Adminhtml_Oauth_ConsumerController extends Mage_Adminhtml_Contr
     /**
      * Set form data
      *
-     * @param  array $data
+     * @param array $data
+     *
      * @return $this
      */
     protected function _setFormData($data)

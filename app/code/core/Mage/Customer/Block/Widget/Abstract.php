@@ -18,7 +18,8 @@
 class Mage_Customer_Block_Widget_Abstract extends Mage_Core_Block_Template
 {
     /**
-     * @param  string      $key
+     * @param string $key
+     *
      * @return string|null
      */
     public function getConfig($key)
@@ -53,7 +54,8 @@ class Mage_Customer_Block_Widget_Abstract extends Mage_Core_Block_Template
     }
 
     /**
-     * @param  string $field
+     * @param string $field
+     *
      * @return string
      */
     public function getFieldId($field)
@@ -62,7 +64,8 @@ class Mage_Customer_Block_Widget_Abstract extends Mage_Core_Block_Template
     }
 
     /**
-     * @param  string $field
+     * @param string $field
+     *
      * @return string
      */
     public function getFieldName($field)
@@ -73,7 +76,8 @@ class Mage_Customer_Block_Widget_Abstract extends Mage_Core_Block_Template
     /**
      * Retrieve customer attribute instance
      *
-     * @param  string                              $attributeCode
+     * @param string $attributeCode
+     *
      * @return Mage_Customer_Model_Attribute|false
      */
     protected function _getAttribute($attributeCode)

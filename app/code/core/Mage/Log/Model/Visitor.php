@@ -199,7 +199,8 @@ class Mage_Log_Model_Visitor extends Mage_Core_Model_Abstract
      *
      * Used in event "controller_action_predispatch"
      *
-     * @param  Varien_Event_Observer $observer
+     * @param Varien_Event_Observer $observer
+     *
      * @return $this
      */
     public function initByRequest($observer)
@@ -246,7 +247,8 @@ class Mage_Log_Model_Visitor extends Mage_Core_Model_Abstract
      *
      * Used in event "controller_action_postdispatch"
      *
-     * @param  Varien_Event_Observer $observer
+     * @param Varien_Event_Observer $observer
+     *
      * @return $this
      */
     public function saveByRequest($observer)
@@ -272,7 +274,8 @@ class Mage_Log_Model_Visitor extends Mage_Core_Model_Abstract
      *
      * Used in event "customer_login"
      *
-     * @param  Varien_Event_Observer $observer
+     * @param Varien_Event_Observer $observer
+     *
      * @return $this
      */
     public function bindCustomerLogin($observer)
@@ -292,7 +295,8 @@ class Mage_Log_Model_Visitor extends Mage_Core_Model_Abstract
      *
      * Used in event "customer_logout"
      *
-     * @param  Varien_Event_Observer $observer
+     * @param Varien_Event_Observer $observer
+     *
      * @return $this
      */
     public function bindCustomerLogout($observer)
@@ -305,7 +309,8 @@ class Mage_Log_Model_Visitor extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  Varien_Event_Observer $observer
+     * @param Varien_Event_Observer $observer
+     *
      * @return $this
      */
     public function bindQuoteCreate($observer)
@@ -323,7 +328,8 @@ class Mage_Log_Model_Visitor extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  Varien_Event_Observer $observer
+     * @param Varien_Event_Observer $observer
+     *
      * @return $this
      */
     public function bindQuoteDestroy($observer)
@@ -339,7 +345,8 @@ class Mage_Log_Model_Visitor extends Mage_Core_Model_Abstract
 
     /**
      * Methods for research (depends on customer online admin section)
-     * @param  Varien_Object $data
+     * @param Varien_Object $data
+     *
      * @return $this
      */
     public function addIpData($data)
@@ -350,7 +357,8 @@ class Mage_Log_Model_Visitor extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  Varien_Object $data
+     * @param Varien_Object $data
+     *
      * @return $this
      */
     public function addCustomerData($data)
@@ -371,7 +379,8 @@ class Mage_Log_Model_Visitor extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  Varien_Object $data
+     * @param Varien_Object $data
+     *
      * @return $this
      */
     public function addQuoteData($data)
@@ -386,7 +395,8 @@ class Mage_Log_Model_Visitor extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  Varien_Event_Observer $observer
+     * @param Varien_Event_Observer $observer
+     *
      * @return bool
      */
     public function isModuleIgnored($observer)

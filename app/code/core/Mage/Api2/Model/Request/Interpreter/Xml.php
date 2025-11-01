@@ -31,8 +31,10 @@ class Mage_Api2_Model_Request_Interpreter_Xml implements Mage_Api2_Model_Request
     /**
      * Parse Request body into array of params
      *
-     * @param  string                        $body Posted content from request
+     * @param string $body Posted content from request
+     *
      * @return array
+     *
      * @throws Exception|Mage_Api2_Exception
      */
     public function interpret($body)
@@ -58,7 +60,8 @@ class Mage_Api2_Model_Request_Interpreter_Xml implements Mage_Api2_Model_Request
     /**
      * Returns an associativearray from a SimpleXMLElement.
      *
-     * @param  SimpleXMLElement $xmlObject Convert a SimpleXMLElement into an array
+     * @param SimpleXMLElement $xmlObject Convert a SimpleXMLElement into an array
+     *
      * @return array
      */
     protected function _toArray(SimpleXMLElement $xmlObject)

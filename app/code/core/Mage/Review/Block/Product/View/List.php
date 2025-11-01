@@ -26,6 +26,7 @@ class Mage_Review_Block_Product_View_List extends Mage_Review_Block_Product_View
 
     /**
      * @return $this
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     protected function _prepareLayout()
@@ -42,6 +43,7 @@ class Mage_Review_Block_Product_View_List extends Mage_Review_Block_Product_View
 
     /**
      * @inheritDoc
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     protected function _beforeToHtml()
@@ -53,7 +55,8 @@ class Mage_Review_Block_Product_View_List extends Mage_Review_Block_Product_View
     }
 
     /**
-     * @param  int    $id
+     * @param int $id
+     *
      * @return string
      */
     public function getReviewUrl($id)

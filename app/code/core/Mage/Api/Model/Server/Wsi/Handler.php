@@ -19,8 +19,9 @@ class Mage_Api_Model_Server_Wsi_Handler extends Mage_Api_Model_Server_Handler_Ab
     /**
      * Interceptor for all interfaces
      *
-     * @param  string   $function
-     * @param  array    $args
+     * @param string $function
+     * @param array  $args
+     *
      * @return stdClass
      */
     public function __call($function, $args)
@@ -69,8 +70,9 @@ class Mage_Api_Model_Server_Wsi_Handler extends Mage_Api_Model_Server_Handler_Ab
     /**
      * Login user and Retrieve session id
      *
-     * @param  string      $username
-     * @param  string|null $apiKey
+     * @param string      $username
+     * @param string|null $apiKey
+     *
      * @return stdClass
      */
     public function login($username, $apiKey = null)
@@ -91,7 +93,8 @@ class Mage_Api_Model_Server_Wsi_Handler extends Mage_Api_Model_Server_Handler_Ab
     /**
      * Return called class and method names
      *
-     * @param  String     $apiPath
+     * @param String $apiPath
+     *
      * @return array|void
      */
     protected function _getResourceName($apiPath)
@@ -120,9 +123,10 @@ class Mage_Api_Model_Server_Wsi_Handler extends Mage_Api_Model_Server_Handler_Ab
     /**
      * Return an array of parameters for the callable method.
      *
-     * @param  String $modelName
-     * @param  String $methodName
-     * @return array  of ReflectionParameter
+     * @param String $modelName
+     * @param String $methodName
+     *
+     * @return array of ReflectionParameter
      */
     public function getMethodParams($modelName, $methodName)
     {
@@ -134,8 +138,9 @@ class Mage_Api_Model_Server_Wsi_Handler extends Mage_Api_Model_Server_Handler_Ab
     /**
      * Prepares arguments for the method calling. Sort in correct order, set default values for omitted parameters.
      *
-     * @param  array $params
-     * @param  array $args
+     * @param array $params
+     * @param array $args
+     *
      * @return array
      */
     public function prepareArgs($params, $args)
@@ -161,7 +166,8 @@ class Mage_Api_Model_Server_Wsi_Handler extends Mage_Api_Model_Server_Handler_Ab
     /**
      * End web service session
      *
-     * @param  stdClass|string $sessionId
+     * @param stdClass|string $sessionId
+     *
      * @return stdClass
      */
     public function endSession($sessionId)

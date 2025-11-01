@@ -35,7 +35,8 @@ class Mage_Catalog_Model_Api2_Product_Validator_Product extends Mage_Api2_Model_
 
     /**
      * Mage_Catalog_Model_Api2_Product_Validator_Product constructor.
-     * @param  array     $options
+     * @param array $options
+     *
      * @throws Exception
      */
     public function __construct($options)
@@ -230,7 +231,8 @@ class Mage_Catalog_Model_Api2_Product_Validator_Product extends Mage_Api2_Model_
     /**
      * Validate product type
      *
-     * @param  array     $data
+     * @param array $data
+     *
      * @return true|void
      */
     protected function _validateProductType($data)
@@ -251,8 +253,9 @@ class Mage_Catalog_Model_Api2_Product_Validator_Product extends Mage_Api2_Model_
     /**
      * Validate attribute set
      *
-     * @param  array                      $data
-     * @param  Mage_Eav_Model_Entity_Type $productEntity
+     * @param array                      $data
+     * @param Mage_Eav_Model_Entity_Type $productEntity
+     *
      * @return true|void
      */
     protected function _validateAttributeSet($data, $productEntity)
@@ -275,7 +278,8 @@ class Mage_Catalog_Model_Api2_Product_Validator_Product extends Mage_Api2_Model_
     /**
      * Validate SKU
      *
-     * @param  array     $data
+     * @param array $data
+     *
      * @return true|void
      */
     protected function _validateSku($data)
@@ -410,7 +414,8 @@ class Mage_Catalog_Model_Api2_Product_Validator_Product extends Mage_Api2_Model_
     /**
      * Determine if stock management is enabled
      *
-     * @param  array $stockData
+     * @param array $stockData
+     *
      * @return bool
      */
     protected function _isManageStockEnabled($stockData)
@@ -613,8 +618,9 @@ class Mage_Catalog_Model_Api2_Product_Validator_Product extends Mage_Api2_Model_
     /**
      * Check if value from config is used
      *
-     * @param  array  $data
-     * @param  string $field
+     * @param array  $data
+     * @param string $field
+     *
      * @return bool
      */
     protected function _isConfigValueUsed($data, $field)
@@ -625,9 +631,11 @@ class Mage_Catalog_Model_Api2_Product_Validator_Product extends Mage_Api2_Model_
     /**
      * Throw API2 exception
      *
-     * @param  string              $message
-     * @param  int                 $code
+     * @param string $message
+     * @param int    $code
+     *
      * @throws Mage_Api2_Exception
+     *
      * @return never
      */
     protected function _critical($message, $code)

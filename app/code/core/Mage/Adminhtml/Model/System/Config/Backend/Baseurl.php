@@ -14,6 +14,7 @@ class Mage_Adminhtml_Model_System_Config_Backend_Baseurl extends Mage_Core_Model
 {
     /**
      * @return $this
+     *
      * @throws Mage_Core_Exception
      */
     protected function _beforeSave()

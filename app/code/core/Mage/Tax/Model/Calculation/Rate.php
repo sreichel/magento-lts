@@ -137,6 +137,7 @@ class Mage_Tax_Model_Calculation_Rate extends Mage_Core_Model_Abstract
      * Processing object before delete data
      *
      * @return Mage_Core_Model_Abstract
+     *
      * @throws Mage_Core_Exception
      */
     protected function _beforeDelete()
@@ -229,7 +230,8 @@ class Mage_Tax_Model_Calculation_Rate extends Mage_Core_Model_Abstract
     /**
      * Load rate model by code
      *
-     * @param  string $code
+     * @param string $code
+     *
      * @return $this
      */
     public function loadByCode($code)

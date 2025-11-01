@@ -33,6 +33,7 @@ class Mage_Api2_Model_Auth_User_Admin extends Mage_Api2_Model_Auth_User_Abstract
      * Retrieve user role
      *
      * @return int
+     *
      * @throws Exception
      */
     public function getRole()
@@ -71,8 +72,10 @@ class Mage_Api2_Model_Auth_User_Admin extends Mage_Api2_Model_Auth_User_Abstract
     /**
      * Set user role
      *
-     * @param  int       $role
+     * @param int $role
+     *
      * @return $this
+     *
      * @throws Exception
      */
     public function setRole($role)

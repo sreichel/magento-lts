@@ -28,6 +28,7 @@ abstract class Mage_Catalog_Model_Product_Attribute_Backend_Groupprice_Abstract 
      * Error message when duplicates
      *
      * @abstract
+     *
      * @return string
      */
     abstract protected function _getDuplicateErrorMessage();
@@ -35,7 +36,8 @@ abstract class Mage_Catalog_Model_Product_Attribute_Backend_Groupprice_Abstract 
     /**
      * Retrieve websites currency rates and base currency codes
      *
-     * @param  int|null $websiteId
+     * @param int|null $websiteId
+     *
      * @return array
      */
     protected function _getWebsiteCurrencyRates($websiteId = null)
@@ -80,7 +82,8 @@ abstract class Mage_Catalog_Model_Product_Attribute_Backend_Groupprice_Abstract 
     /**
      * Get additional unique fields
      *
-     * @param  array $objectArray
+     * @param array $objectArray
+     *
      * @return array
      */
     protected function _getAdditionalUniqueFields($objectArray)
@@ -91,7 +94,8 @@ abstract class Mage_Catalog_Model_Product_Attribute_Backend_Groupprice_Abstract 
     /**
      * Whether group price value fixed or percent of original price
      *
-     * @param  Mage_Catalog_Model_Product_Type_Price $priceObject
+     * @param Mage_Catalog_Model_Product_Type_Price $priceObject
+     *
      * @return bool
      */
     protected function _isPriceFixed($priceObject)
@@ -102,8 +106,10 @@ abstract class Mage_Catalog_Model_Product_Attribute_Backend_Groupprice_Abstract 
     /**
      * Validate group price data
      *
-     * @param  Mage_Catalog_Model_Product $object
+     * @param Mage_Catalog_Model_Product $object
+     *
      * @throws Mage_Core_Exception
+     *
      * @return bool
      */
     public function validate($object)
@@ -176,8 +182,9 @@ abstract class Mage_Catalog_Model_Product_Attribute_Backend_Groupprice_Abstract 
     /**
      * Prepare group prices data for website
      *
-     * @param  string $productTypeId
-     * @param  int    $websiteId
+     * @param string $productTypeId
+     * @param int    $websiteId
+     *
      * @return array
      */
     public function preparePriceData(array $priceData, $productTypeId, $websiteId)
@@ -206,7 +213,8 @@ abstract class Mage_Catalog_Model_Product_Attribute_Backend_Groupprice_Abstract 
     /**
      * Assign group prices to product data
      *
-     * @param  Mage_Catalog_Model_Product                                       $object
+     * @param Mage_Catalog_Model_Product $object
+     *
      * @return Mage_Catalog_Model_Product_Attribute_Backend_Groupprice_Abstract
      */
     public function afterLoad($object)
@@ -245,7 +253,8 @@ abstract class Mage_Catalog_Model_Product_Attribute_Backend_Groupprice_Abstract 
     /**
      * After Save Attribute manipulation
      *
-     * @param  Mage_Catalog_Model_Product                                       $object
+     * @param Mage_Catalog_Model_Product $object
+     *
      * @return Mage_Catalog_Model_Product_Attribute_Backend_Groupprice_Abstract
      */
     public function afterSave($object)

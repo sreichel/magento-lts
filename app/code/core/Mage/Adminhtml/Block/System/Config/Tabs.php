@@ -27,8 +27,9 @@ class Mage_Adminhtml_Block_System_Config_Tabs extends Mage_Adminhtml_Block_Widge
     }
 
     /**
-     * @param  Mage_Core_Model_Config_Element $a
-     * @param  Mage_Core_Model_Config_Element $b
+     * @param Mage_Core_Model_Config_Element $a
+     * @param Mage_Core_Model_Config_Element $b
+     *
      * @return int
      */
     protected function _sort($a, $b)
@@ -118,8 +119,9 @@ class Mage_Adminhtml_Block_System_Config_Tabs extends Mage_Adminhtml_Block_Widge
     /**
      * Add tab
      *
-     * @param  string $code
-     * @param  array  $config
+     * @param string $code
+     * @param array  $config
+     *
      * @return $this
      */
     public function addTab($code, $config)
@@ -133,7 +135,8 @@ class Mage_Adminhtml_Block_System_Config_Tabs extends Mage_Adminhtml_Block_Widge
     /**
      * Retrieve tab
      *
-     * @param  string        $code
+     * @param string $code
+     *
      * @return Varien_Object
      */
     public function getTab($code)
@@ -142,9 +145,10 @@ class Mage_Adminhtml_Block_System_Config_Tabs extends Mage_Adminhtml_Block_Widge
     }
 
     /**
-     * @param  string $code
-     * @param  string $tabCode
-     * @param  array  $config
+     * @param string $code
+     * @param string $tabCode
+     * @param array  $config
+     *
      * @return $this
      */
     public function addSection($code, $tabCode, $config)
@@ -296,7 +300,8 @@ class Mage_Adminhtml_Block_System_Config_Tabs extends Mage_Adminhtml_Block_Widge
     }
 
     /**
-     * @param  string $code
+     * @param string $code
+     *
      * @return bool
      */
     public function checkSectionPermissions($code = null)

@@ -75,6 +75,7 @@ class Mage_Adminhtml_Block_Widget_Form extends Mage_Adminhtml_Block_Widget
      *
      * @deprecated deprecated since version 1.2
      * @see getForm()
+     *
      * @return Varien_Data_Form
      */
     public function getFormObject()
@@ -235,7 +236,8 @@ class Mage_Adminhtml_Block_Widget_Form extends Mage_Adminhtml_Block_Widget
     }
 
     /**
-     * @param  Varien_Data_Form_Element_Abstract $element
+     * @param Varien_Data_Form_Element_Abstract $element
+     *
      * @return string
      */
     protected function _getAdditionalElementHtml($element)

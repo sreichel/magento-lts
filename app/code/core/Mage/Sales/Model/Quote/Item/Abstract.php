@@ -247,7 +247,8 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
     /**
      * Set parent item
      *
-     * @param  Mage_Sales_Model_Quote_Item $parentItem
+     * @param Mage_Sales_Model_Quote_Item $parentItem
+     *
      * @return $this
      */
     public function setParentItem($parentItem)
@@ -286,7 +287,8 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
     /**
      * Add child item
      *
-     * @param  Mage_Sales_Model_Quote_Item_Abstract $child
+     * @param Mage_Sales_Model_Quote_Item_Abstract $child
+     *
      * @return $this
      */
     public function addChild($child)
@@ -299,7 +301,8 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
     /**
      * Adds message(s) for quote item. Duplicated messages are not added.
      *
-     * @param  array|string $messages
+     * @param array|string $messages
+     *
      * @return $this
      */
     public function setMessage($messages)
@@ -321,7 +324,8 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
     /**
      * Add message of quote item to array of messages
      *
-     * @param  string $message
+     * @param string $message
+     *
      * @return $this
      */
     public function addMessage($message)
@@ -333,7 +337,8 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
     /**
      * Get messages array of quote item
      *
-     * @param  bool         $string flag for converting messages to string
+     * @param bool $string flag for converting messages to string
+     *
      * @return array|string
      */
     public function getMessage($string = true)
@@ -348,7 +353,8 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
     /**
      * Removes message by text
      *
-     * @param  string $text
+     * @param string $text
+     *
      * @return $this
      */
     public function removeMessageByText($text)
@@ -617,7 +623,8 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
     /**
      * Set original price to item (calculation price will be refreshed too)
      *
-     * @param  float $price
+     * @param float $price
+     *
      * @return $this
      */
     public function setOriginalPrice($price)
@@ -638,7 +645,8 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
     /**
      * Specify custom item price (used in case when we have applied not product price to item)
      *
-     * @param  float $value
+     * @param float $value
+     *
      * @return $this
      */
     public function setCustomPrice($value)
@@ -661,7 +669,8 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
     /**
      * Specify item price (base calculation price and converted price will be refreshed too)
      *
-     * @param  float $value
+     * @param float $value
+     *
      * @return $this
      */
     public function setPrice($value)
@@ -673,6 +682,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
 
     /**
      * Get item price converted to quote currency
+     *
      * @return float
      */
     public function getConvertedPrice()
@@ -688,7 +698,8 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
 
     /**
      * Set new value for converted price
-     * @param  float|null $value
+     * @param float|null $value
+     *
      * @return $this
      */
     public function setConvertedPrice($value)
@@ -757,6 +768,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      * Calculate item tax amount
      *
      * @deprecated logic moved to tax totals calculation model
+     *
      * @return $this
      */
     public function calcTaxAmount()
@@ -811,6 +823,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      * Get item tax amount
      *
      * @deprecated
+     *
      * @return float
      */
     public function getTaxAmount()
@@ -822,6 +835,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
      * Get item base tax amount
      *
      * @deprecated
+     *
      * @return float
      */
     public function getBaseTaxAmount()
@@ -832,9 +846,11 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
     /**
      * Get item price (item price always exclude price)
      *
-     * @param  float                           $value
-     * @param  bool                            $saveTaxes
+     * @param float $value
+     * @param bool  $saveTaxes
+     *
      * @return float
+     *
      * @throws Mage_Core_Model_Store_Exception
      * @deprecated
      */

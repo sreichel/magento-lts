@@ -45,6 +45,7 @@ final class LinkTest extends OpenMageTest
     /**
      * @dataProvider provideGetTitleData
      * @group Block
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function testGetTitle(string $expectedResult, array $data): void
@@ -58,6 +59,7 @@ final class LinkTest extends OpenMageTest
     /**
      * @dataProvider provideGetAnchorTextData
      * @group Block
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function testGetAnchorText(bool|string|null $expectedResult, array $data): void

@@ -48,7 +48,8 @@ class Mage_Wishlist_Model_Item_Option extends Mage_Core_Model_Abstract implement
     /**
      * Set quote item
      *
-     * @param  Mage_Wishlist_Model_Item        $item
+     * @param Mage_Wishlist_Model_Item $item
+     *
      * @return Mage_Wishlist_Model_Item_Option
      */
     public function setItem($item)
@@ -74,7 +75,8 @@ class Mage_Wishlist_Model_Item_Option extends Mage_Core_Model_Abstract implement
     /**
      * Set option product
      *
-     * @param  Mage_Catalog_Model_Product      $product
+     * @param Mage_Catalog_Model_Product $product
+     *
      * @return Mage_Wishlist_Model_Item_Option
      */
     public function setProduct($product)

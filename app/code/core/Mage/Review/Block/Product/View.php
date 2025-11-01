@@ -20,6 +20,7 @@ class Mage_Review_Block_Product_View extends Mage_Catalog_Block_Product_View
      * Render block HTML
      *
      * @inheritDoc
+     *
      * @throws Mage_Core_Exception
      */
     protected function _toHtml()
@@ -33,9 +34,11 @@ class Mage_Review_Block_Product_View extends Mage_Catalog_Block_Product_View
      * Replace review summary html with more detailed review summary
      * Reviews collection count will be jerked here
      *
-     * @param  string|false                                        $templateType
-     * @param  bool                                                $displayIfNoReviews
+     * @param string|false $templateType
+     * @param bool         $displayIfNoReviews
+     *
      * @return string
+     *
      * @throws Mage_Core_Model_Store_Exception|Mage_Core_Exception
      */
     public function getReviewsSummaryHtml(Mage_Catalog_Model_Product $product, $templateType = false, $displayIfNoReviews = false)
@@ -55,6 +58,7 @@ class Mage_Review_Block_Product_View extends Mage_Catalog_Block_Product_View
 
     /**
      * @return Mage_Review_Model_Resource_Review_Collection
+     *
      * @throws Mage_Core_Model_Store_Exception|Mage_Core_Exception
      */
     public function getReviewsCollection()

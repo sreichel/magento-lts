@@ -50,8 +50,9 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Datetime extends Mage_Admin
     /**
      * Convert given date to default (UTC) timezone
      *
-     * @param  string         $date
-     * @param  string         $locale
+     * @param string $date
+     * @param string $locale
+     *
      * @return Zend_Date|null
      */
     protected function _convertDate($date, $locale)
@@ -144,7 +145,8 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Datetime extends Mage_Admin
     /**
      * Return escaped value for calendar
      *
-     * @param  string $index
+     * @param string $index
+     *
      * @return string
      */
     public function getEscapedValue($index = null)

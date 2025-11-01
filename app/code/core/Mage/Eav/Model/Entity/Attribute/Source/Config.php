@@ -26,7 +26,9 @@ class Mage_Eav_Model_Entity_Attribute_Source_Config extends Mage_Eav_Model_Entit
     /**
      * Retrieve all options for the source from configuration
      *
+     *
      * @throws Mage_Eav_Exception
+     *
      * @return array
      */
     public function getAllOptions()

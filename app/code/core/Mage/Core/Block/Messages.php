@@ -67,7 +67,8 @@ class Mage_Core_Block_Messages extends Mage_Core_Block_Template
 
     /**
      * Set message escape flag
-     * @param  bool  $flag
+     * @param bool $flag
+     *
      * @return $this
      */
     public function setEscapeMessageFlag($flag)
@@ -129,7 +130,8 @@ class Mage_Core_Block_Messages extends Mage_Core_Block_Template
     /**
      * Adding new error message
      *
-     * @param  string                   $message
+     * @param string $message
+     *
      * @return Mage_Core_Block_Messages
      */
     public function addError($message)
@@ -141,7 +143,8 @@ class Mage_Core_Block_Messages extends Mage_Core_Block_Template
     /**
      * Adding new warning message
      *
-     * @param  string                   $message
+     * @param string $message
+     *
      * @return Mage_Core_Block_Messages
      */
     public function addWarning($message)
@@ -153,7 +156,8 @@ class Mage_Core_Block_Messages extends Mage_Core_Block_Template
     /**
      * Adding new nitice message
      *
-     * @param  string                   $message
+     * @param string $message
+     *
      * @return Mage_Core_Block_Messages
      */
     public function addNotice($message)
@@ -165,7 +169,8 @@ class Mage_Core_Block_Messages extends Mage_Core_Block_Template
     /**
      * Adding new success message
      *
-     * @param  string                   $message
+     * @param string $message
+     *
      * @return Mage_Core_Block_Messages
      */
     public function addSuccess($message)
@@ -177,7 +182,8 @@ class Mage_Core_Block_Messages extends Mage_Core_Block_Template
     /**
      * Retrieve messages array by message type
      *
-     * @param  string $type
+     * @param string $type
+     *
      * @return array
      */
     public function getMessages($type = null)
@@ -188,7 +194,8 @@ class Mage_Core_Block_Messages extends Mage_Core_Block_Template
     /**
      * Retrieve messages in HTML format
      *
-     * @param  string $type
+     * @param string $type
+     *
      * @return string
      */
     public function getHtml($type = null)

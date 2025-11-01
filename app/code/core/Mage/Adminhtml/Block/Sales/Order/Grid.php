@@ -38,6 +38,7 @@ class Mage_Adminhtml_Block_Sales_Order_Grid extends Mage_Adminhtml_Block_Widget_
 
     /**
      * @inheritDoc
+     *
      * @throws Exception
      */
     protected function _prepareCollection()
@@ -49,6 +50,7 @@ class Mage_Adminhtml_Block_Sales_Order_Grid extends Mage_Adminhtml_Block_Widget_
 
     /**
      * @inheritDoc
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     protected function _prepareColumns()
@@ -140,6 +142,7 @@ class Mage_Adminhtml_Block_Sales_Order_Grid extends Mage_Adminhtml_Block_Widget_
      * Add link to RSS feed when enabled for filtered store-view
      *
      * @return $this
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function addRssFeedLink()
@@ -221,7 +224,8 @@ class Mage_Adminhtml_Block_Sales_Order_Grid extends Mage_Adminhtml_Block_Widget_
     }
 
     /**
-     * @param  Mage_Sales_Model_Order $row
+     * @param Mage_Sales_Model_Order $row
+     *
      * @return false|string
      */
     public function getRowUrl($row)

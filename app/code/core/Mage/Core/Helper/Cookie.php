@@ -60,6 +60,7 @@ class Mage_Core_Helper_Cookie extends Mage_Core_Helper_Abstract
     /**
      * Initializes store, cookie and website objects.
      *
+     *
      * @throws InvalidArgumentException
      */
     public function __construct(array $data = [])

@@ -128,7 +128,8 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
     /**
      * get address street
      *
-     * @param  int          $line address line index
+     * @param int $line address line index
+     *
      * @return string|array
      */
     public function getStreet($line = 0)
@@ -189,7 +190,8 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  string                               $street
+     * @param string $street
+     *
      * @return Mage_Customer_Model_Address_Abstract
      */
     public function setStreetFull($street)
@@ -200,7 +202,8 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
     /**
      * set address street
      *
-     * @param  array|string $street
+     * @param array|string $street
+     *
      * @return $this
      */
     public function setStreet($street)
@@ -349,7 +352,8 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
     /**
      * Retrieve country model
      *
-     * @param  int|null                     $region
+     * @param int|null $region
+     *
      * @return Mage_Directory_Model_Country
      * @SuppressWarnings("PHPMD.CamelCaseVariableName")
      */
@@ -375,7 +379,8 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  bool   $html
+     * @param bool $html
+     *
      * @return string
      * @deprecated for public function format
      */
@@ -386,7 +391,8 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  string      $type
+     * @param string $type
+     *
      * @return string|null
      */
     public function format($type)
@@ -494,7 +500,8 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
     /**
      * Add error
      *
-     * @param  string $error
+     * @param string $error
+     *
      * @return $this
      */
     public function addError($error)

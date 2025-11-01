@@ -118,6 +118,7 @@ abstract class Mage_Catalog_Block_Layer_Filter_Abstract extends Mage_Core_Block_
 
     /**
      * Getter for $_displayProductCount
+     *
      * @return bool
      */
     public function shouldDisplayProductCount()

@@ -30,8 +30,9 @@ class Mage_Catalog_Model_Product_Website extends Mage_Core_Model_Abstract
     /**
      * Removes products from websites
      *
-     * @param  array $websiteIds
-     * @param  array $productIds
+     * @param array $websiteIds
+     * @param array $productIds
+     *
      * @return $this
      */
     public function removeProducts($websiteIds, $productIds)
@@ -50,8 +51,9 @@ class Mage_Catalog_Model_Product_Website extends Mage_Core_Model_Abstract
     /**
      * Add products to websites
      *
-     * @param  array $websiteIds
-     * @param  array $productIds
+     * @param array $websiteIds
+     * @param array $productIds
+     *
      * @return $this
      */
     public function addProducts($websiteIds, $productIds)
@@ -71,7 +73,8 @@ class Mage_Catalog_Model_Product_Website extends Mage_Core_Model_Abstract
      * Retrieve product websites
      * Return array with key as product ID and value array of websites
      *
-     * @param  int|array $productIds
+     * @param int|array $productIds
+     *
      * @return array
      */
     public function getWebsites($productIds)

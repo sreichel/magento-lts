@@ -55,6 +55,7 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
      * Set back redirect url to response
      *
      * @return $this
+     *
      * @throws Mage_Core_Exception
      */
     protected function _goBack()
@@ -189,6 +190,7 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
 
     /**
      * Add product to shopping cart action
+     *
      *
      * @throws Mage_Core_Exception
      */

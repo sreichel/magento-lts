@@ -24,7 +24,8 @@ class Mage_Api_Model_Session extends Mage_Core_Model_Session_Abstract
     protected $_currentSessId = null;
 
     /**
-     * @param  string|null $sessionName
+     * @param string|null $sessionName
+     *
      * @return $this
      */
     public function start($sessionName = null)
@@ -35,8 +36,9 @@ class Mage_Api_Model_Session extends Mage_Core_Model_Session_Abstract
     }
 
     /**
-     * @param  string      $namespace
-     * @param  string|null $sessionName
+     * @param string      $namespace
+     * @param string|null $sessionName
+     *
      * @return $this
      */
     public function init($namespace, $sessionName = null)
@@ -57,7 +59,8 @@ class Mage_Api_Model_Session extends Mage_Core_Model_Session_Abstract
     }
 
     /**
-     * @param  string|null $sessId
+     * @param string|null $sessId
+     *
      * @return $this
      */
     public function setSessionId($sessId = null)
@@ -113,9 +116,11 @@ class Mage_Api_Model_Session extends Mage_Core_Model_Session_Abstract
     }
 
     /**
-     * @param  string              $username
-     * @param  string              $apiKey
+     * @param string $username
+     * @param string $apiKey
+     *
      * @return mixed
+     *
      * @throws Mage_Core_Exception
      */
     public function login($username, $apiKey)
@@ -149,7 +154,8 @@ class Mage_Api_Model_Session extends Mage_Core_Model_Session_Abstract
     }
 
     /**
-     * @param  Mage_Api_Model_User|null $user
+     * @param Mage_Api_Model_User|null $user
+     *
      * @return $this
      */
     public function refreshAcl($user = null)
@@ -178,8 +184,9 @@ class Mage_Api_Model_Session extends Mage_Core_Model_Session_Abstract
      * Check current user permission on resource and privilege
      *
      *
-     * @param  string $resource
-     * @param  string $privilege
+     * @param string $resource
+     * @param string $privilege
+     *
      * @return bool
      */
     public function isAllowed($resource, $privilege = null)
@@ -209,7 +216,8 @@ class Mage_Api_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      *  Check session expiration
      *
-     * @param  Mage_Api_Model_User $user
+     * @param Mage_Api_Model_User $user
+     *
      * @return bool
      */
     public function isSessionExpired($user)
@@ -223,8 +231,10 @@ class Mage_Api_Model_Session extends Mage_Core_Model_Session_Abstract
     }
 
     /**
-     * @param  string|false        $sessId
+     * @param string|false $sessId
+     *
      * @return bool
+     *
      * @throws Mage_Core_Exception
      */
     public function isLoggedIn($sessId = false)
@@ -245,7 +255,8 @@ class Mage_Api_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      *  Renew user by session ID if session not expired
      *
-     * @param  string $sessId
+     * @param string $sessId
+     *
      * @return bool
      */
     protected function _renewBySessId($sessId)

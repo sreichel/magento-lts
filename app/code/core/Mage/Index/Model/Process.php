@@ -113,7 +113,8 @@ class Mage_Index_Model_Process extends Mage_Core_Model_Abstract
     /**
      * Remove indexer namespace from event
      *
-     * @param  Mage_Index_Model_Event $event
+     * @param Mage_Index_Model_Event $event
+     *
      * @return $this
      */
     protected function _resetEventNamespace($event)
@@ -156,8 +157,9 @@ class Mage_Index_Model_Process extends Mage_Core_Model_Abstract
     /**
      * Check if specific entity and action type is matched
      *
-     * @param  string $entity
-     * @param  string $type
+     * @param string $entity
+     * @param string $type
+     *
      * @return bool
      */
     public function matchEntityAndType($entity, $type)
@@ -229,6 +231,7 @@ class Mage_Index_Model_Process extends Mage_Core_Model_Abstract
      * Check and using depends processes
      *
      * @return $this
+     *
      * @throws Exception
      */
     public function reindexEverything()
@@ -295,6 +298,7 @@ class Mage_Index_Model_Process extends Mage_Core_Model_Abstract
      * Get Indexer strategy object
      *
      * @return Mage_Index_Model_Indexer_Abstract
+     *
      * @throws Mage_Core_Exception
      */
     public function getIndexer()
@@ -325,8 +329,9 @@ class Mage_Index_Model_Process extends Mage_Core_Model_Abstract
     /**
      * Index pending events addressed to the process
      *
-     * @param  null|string $entity
-     * @param  null|string $type
+     * @param null|string $entity
+     * @param null|string $type
+     *
      * @return $this
      */
     public function indexEvents($entity = null, $type = null)
@@ -375,7 +380,8 @@ class Mage_Index_Model_Process extends Mage_Core_Model_Abstract
     /**
      * Process all events of the collection
      *
-     * @param  bool  $skipUnmatched
+     * @param bool $skipUnmatched
+     *
      * @return $this
      */
     protected function _processEventsCollection(
@@ -406,7 +412,8 @@ class Mage_Index_Model_Process extends Mage_Core_Model_Abstract
     /**
      * Update status process/event association
      *
-     * @param  string $status
+     * @param string $status
+     *
      * @return $this
      */
     public function updateEventStatus(Mage_Index_Model_Event $event, $status)
@@ -488,7 +495,8 @@ class Mage_Index_Model_Process extends Mage_Core_Model_Abstract
     /**
      * Change process status
      *
-     * @param  string $status
+     * @param string $status
+     *
      * @return $this
      */
     public function changeStatus($status)
@@ -570,7 +578,8 @@ class Mage_Index_Model_Process extends Mage_Core_Model_Abstract
      * Set whether table changes are allowed
      *
      * @deprecated after 1.6.1.0
-     * @param  bool  $value
+     * @param bool $value
+     *
      * @return $this
      */
     public function setAllowTableChanges($value = true)
@@ -583,6 +592,7 @@ class Mage_Index_Model_Process extends Mage_Core_Model_Abstract
      * Disable keys in index table
      *
      * @return $this
+     *
      * @throws Mage_Core_Exception
      */
     public function disableIndexerKeys()
@@ -599,6 +609,7 @@ class Mage_Index_Model_Process extends Mage_Core_Model_Abstract
      * Enable keys in index table
      *
      * @return $this
+     *
      * @throws Mage_Core_Exception
      */
     public function enableIndexerKeys()

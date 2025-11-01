@@ -62,7 +62,8 @@ class Mage_Customer_Model_Group extends Mage_Core_Model_Abstract
     /**
      * Alias for setCustomerGroupCode
      *
-     * @param  string $value
+     * @param string $value
+     *
      * @return $this
      */
     public function setCode($value)
@@ -81,7 +82,8 @@ class Mage_Customer_Model_Group extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  int|null $groupId
+     * @param int|null $groupId
+     *
      * @return int
      * @SuppressWarnings("PHPMD.CamelCaseVariableName")
      */

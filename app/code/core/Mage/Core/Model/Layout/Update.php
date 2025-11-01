@@ -100,7 +100,8 @@ class Mage_Core_Model_Layout_Update
     }
 
     /**
-     * @param  string $update
+     * @param string $update
+     *
      * @return $this
      */
     public function addUpdate($update)
@@ -135,7 +136,8 @@ class Mage_Core_Model_Layout_Update
     }
 
     /**
-     * @param  array|string $handle
+     * @param array|string $handle
+     *
      * @return $this
      */
     public function addHandle($handle)
@@ -152,7 +154,8 @@ class Mage_Core_Model_Layout_Update
     }
 
     /**
-     * @param  string $handle
+     * @param string $handle
+     *
      * @return $this
      */
     public function removeHandle($handle)
@@ -186,7 +189,8 @@ class Mage_Core_Model_Layout_Update
     /**
      * Set cache id
      *
-     * @param  string $cacheId
+     * @param string $cacheId
+     *
      * @return $this
      */
     public function setCacheId($cacheId)
@@ -248,7 +252,8 @@ class Mage_Core_Model_Layout_Update
     /**
      * Load layout updates by handles
      *
-     * @param  array|string $handles
+     * @param array|string $handles
+     *
      * @return $this
      */
     public function load($handles = [])
@@ -288,7 +293,8 @@ class Mage_Core_Model_Layout_Update
     /**
      * Merge layout update by handle
      *
-     * @param  string $handle
+     * @param string $handle
+     *
      * @return $this
      */
     public function merge($handle)
@@ -303,6 +309,7 @@ class Mage_Core_Model_Layout_Update
 
     /**
      * @return $this
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function fetchFileLayoutUpdates()
@@ -334,8 +341,10 @@ class Mage_Core_Model_Layout_Update
     }
 
     /**
-     * @param  string                          $handle
+     * @param string $handle
+     *
      * @return bool
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function fetchPackageLayoutUpdates($handle)
@@ -358,7 +367,8 @@ class Mage_Core_Model_Layout_Update
     }
 
     /**
-     * @param  string $handle
+     * @param string $handle
+     *
      * @return bool
      */
     public function fetchDbLayoutUpdates($handle)
@@ -385,7 +395,8 @@ class Mage_Core_Model_Layout_Update
     /**
      * Get update string
      *
-     * @param  string $handle
+     * @param string $handle
+     *
      * @return mixed
      */
     protected function _getUpdateString($handle)
@@ -394,7 +405,8 @@ class Mage_Core_Model_Layout_Update
     }
 
     /**
-     * @param  SimpleXMLElement $updateXml
+     * @param SimpleXMLElement $updateXml
+     *
      * @return $this
      */
     public function fetchRecursiveUpdates($updateXml)
@@ -420,10 +432,11 @@ class Mage_Core_Model_Layout_Update
     /**
      * Collect and merge layout updates from file
      *
-     * @param  string           $area
-     * @param  string           $package
-     * @param  string           $theme
-     * @param  int|null         $storeId
+     * @param string   $area
+     * @param string   $package
+     * @param string   $theme
+     * @param int|null $storeId
+     *
      * @return SimpleXMLElement
      */
     public function getFileLayoutUpdatesXml($area, $package, $theme, $storeId = null)

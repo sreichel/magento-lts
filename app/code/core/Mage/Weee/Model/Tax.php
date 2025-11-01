@@ -78,12 +78,13 @@ class Mage_Weee_Model_Tax extends Mage_Core_Model_Abstract
     /**
      * Calculate weee amount for a product
      *
-     * @param  Mage_Catalog_Model_Product           $product
-     * @param  Mage_Customer_Model_Address_Abstract $shipping
-     * @param  Mage_Customer_Model_Address_Abstract $billing
-     * @param  mixed                                $website
-     * @param  bool                                 $calculateTax
-     * @param  bool                                 $ignoreDiscount
+     * @param Mage_Catalog_Model_Product           $product
+     * @param Mage_Customer_Model_Address_Abstract $shipping
+     * @param Mage_Customer_Model_Address_Abstract $billing
+     * @param mixed                                $website
+     * @param bool                                 $calculateTax
+     * @param bool                                 $ignoreDiscount
+     *
      * @return float
      */
     public function getWeeeAmount(
@@ -113,7 +114,8 @@ class Mage_Weee_Model_Tax extends Mage_Core_Model_Abstract
     /**
      * Get a list of Weee attribute codes
      *
-     * @param  bool  $forceEnabled
+     * @param bool $forceEnabled
+     *
      * @return array
      */
     public function getWeeeAttributeCodes($forceEnabled = false)
@@ -124,7 +126,8 @@ class Mage_Weee_Model_Tax extends Mage_Core_Model_Abstract
     /**
      * Retrieve Weee tax attribute codes
      *
-     * @param  bool  $forceEnabled
+     * @param bool $forceEnabled
+     *
      * @return array
      */
     public function getWeeeTaxAttributeCodes($forceEnabled = false)
@@ -143,12 +146,13 @@ class Mage_Weee_Model_Tax extends Mage_Core_Model_Abstract
     /**
      * Get Weee amounts associated with a product
      *
-     * @param  Mage_Catalog_Model_Product                   $product
-     * @param  Mage_Sales_Model_Quote_Address               $shipping
-     * @param  Mage_Sales_Model_Quote_Address               $billing
-     * @param  int|Mage_Core_Model_Website|null|string|true $website
-     * @param  bool                                         $calculateTax
-     * @param  bool                                         $ignoreDiscount
+     * @param Mage_Catalog_Model_Product                   $product
+     * @param Mage_Sales_Model_Quote_Address               $shipping
+     * @param Mage_Sales_Model_Quote_Address               $billing
+     * @param int|Mage_Core_Model_Website|null|string|true $website
+     * @param bool                                         $calculateTax
+     * @param bool                                         $ignoreDiscount
+     *
      * @return array
      */
     public function getProductWeeeAttributes(
@@ -267,7 +271,8 @@ class Mage_Weee_Model_Tax extends Mage_Core_Model_Abstract
     /**
      * Get discount percentage for a product
      *
-     * @param  Mage_Catalog_Model_Product $product
+     * @param Mage_Catalog_Model_Product $product
+     *
      * @return int
      */
     protected function _getDiscountPercentForProduct($product)
@@ -302,7 +307,8 @@ class Mage_Weee_Model_Tax extends Mage_Core_Model_Abstract
     /**
      * Update discounts for FPT amounts base on products condiotion
      *
-     * @param  mixed $products
+     * @param mixed $products
+     *
      * @return $this
      */
     public function updateProductsDiscountPercent($products)

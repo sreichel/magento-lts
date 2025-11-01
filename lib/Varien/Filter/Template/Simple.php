@@ -29,8 +29,9 @@ class Varien_Filter_Template_Simple extends Varien_Object implements Zend_Filter
     /**
      * Define start tag and end tag
      *
-     * @param  string                        $start
-     * @param  string                        $end
+     * @param string $start
+     * @param string $end
+     *
      * @return Varien_Filter_Template_Simple
      */
     public function setTags($start, $end)
@@ -43,7 +44,8 @@ class Varien_Filter_Template_Simple extends Varien_Object implements Zend_Filter
     /**
      * Return result of getData method for matched variables
      *
-     * @param  array $matches
+     * @param array $matches
+     *
      * @return mixed
      */
     protected function _filterDataItem($matches)
@@ -54,7 +56,8 @@ class Varien_Filter_Template_Simple extends Varien_Object implements Zend_Filter
     /**
      * Insert data to template
      *
-     * @param  string $value
+     * @param string $value
+     *
      * @return string
      */
     public function filter($value)

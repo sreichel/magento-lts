@@ -99,6 +99,7 @@ class Mage_Adminhtml_System_Email_TemplateController extends Mage_Adminhtml_Cont
     /**
      * Save action
      *
+     *
      * @throws Mage_Core_Exception
      */
     public function saveAction()
@@ -228,7 +229,8 @@ class Mage_Adminhtml_System_Email_TemplateController extends Mage_Adminhtml_Cont
     /**
      * Load email template from request
      *
-     * @param  string                              $idFieldName
+     * @param string $idFieldName
+     *
      * @return Mage_Adminhtml_Model_Email_Template
      */
     protected function _initTemplate($idFieldName = 'template_id')

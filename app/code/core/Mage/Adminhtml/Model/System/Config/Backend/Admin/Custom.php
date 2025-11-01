@@ -30,6 +30,7 @@ class Mage_Adminhtml_Model_System_Config_Backend_Admin_Custom extends Mage_Core_
      * Validate custom admin URL before save
      *
      * @return $this
+     *
      * @throws Mage_Core_Exception
      */
     protected function _beforeSave()

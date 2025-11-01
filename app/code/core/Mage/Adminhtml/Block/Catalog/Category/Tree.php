@@ -166,8 +166,9 @@ class Mage_Adminhtml_Block_Catalog_Category_Tree extends Mage_Adminhtml_Block_Ca
     /**
      * Get JSON of array of categories, that are breadcrumbs for specified category path
      *
-     * @param  string $path
-     * @param  string $javascriptVarName
+     * @param string $path
+     * @param string $javascriptVarName
+     *
      * @return string
      */
     public function getBreadcrumbsJavascript($path, $javascriptVarName)
@@ -198,8 +199,9 @@ class Mage_Adminhtml_Block_Catalog_Category_Tree extends Mage_Adminhtml_Block_Ca
     /**
      * Get JSON of a tree node or an associative array
      *
-     * @param  Varien_Data_Tree_Node|array $node
-     * @param  int                         $level
+     * @param Varien_Data_Tree_Node|array $node
+     * @param int                         $level
+     *
      * @return array
      */
     protected function _getNodeJson($node, $level = 0)
@@ -253,7 +255,8 @@ class Mage_Adminhtml_Block_Catalog_Category_Tree extends Mage_Adminhtml_Block_Ca
     /**
      * Get category name
      *
-     * @param  Varien_Object $node
+     * @param Varien_Object $node
+     *
      * @return string
      */
     public function buildNodeName($node)

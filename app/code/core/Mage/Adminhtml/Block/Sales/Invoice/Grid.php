@@ -38,6 +38,7 @@ class Mage_Adminhtml_Block_Sales_Invoice_Grid extends Mage_Adminhtml_Block_Widge
 
     /**
      * @inheritDoc
+     *
      * @throws Exception
      */
     protected function _prepareCollection()
@@ -49,6 +50,7 @@ class Mage_Adminhtml_Block_Sales_Invoice_Grid extends Mage_Adminhtml_Block_Widge
 
     /**
      * @inheritDoc
+     *
      * @throws Exception
      */
     protected function _prepareColumns()
@@ -137,7 +139,8 @@ class Mage_Adminhtml_Block_Sales_Invoice_Grid extends Mage_Adminhtml_Block_Widge
     }
 
     /**
-     * @param  Mage_Sales_Model_Order_Invoice $row
+     * @param Mage_Sales_Model_Order_Invoice $row
+     *
      * @return false|string
      */
     public function getRowUrl($row)

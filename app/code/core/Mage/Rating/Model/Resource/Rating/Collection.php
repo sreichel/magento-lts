@@ -29,7 +29,8 @@ class Mage_Rating_Model_Resource_Rating_Collection extends Mage_Core_Model_Resou
     /**
      * Add entity filter
      *
-     * @param  int|string                                   $entity
+     * @param int|string $entity
+     *
      * @return Mage_Rating_Model_Resource_Rating_Collection
      */
     public function addEntityFilter($entity)
@@ -63,7 +64,8 @@ class Mage_Rating_Model_Resource_Rating_Collection extends Mage_Core_Model_Resou
     /**
      * set order by position field
      *
-     * @param  string                                       $dir
+     * @param string $dir
+     *
      * @return Mage_Rating_Model_Resource_Rating_Collection
      */
     public function setPositionOrder($dir = 'ASC')
@@ -75,7 +77,8 @@ class Mage_Rating_Model_Resource_Rating_Collection extends Mage_Core_Model_Resou
     /**
      * Set store filter
      *
-     * @param  int|array $storeId
+     * @param int|array $storeId
+     *
      * @return $this
      */
     public function setStoreFilter($storeId)
@@ -135,8 +138,9 @@ class Mage_Rating_Model_Resource_Rating_Collection extends Mage_Core_Model_Resou
     /**
      * Add entity summary to item
      *
-     * @param  int   $entityPkValue
-     * @param  int   $storeId
+     * @param int $entityPkValue
+     * @param int $storeId
+     *
      * @return $this
      */
     public function addEntitySummaryToItem($entityPkValue, $storeId)
@@ -200,7 +204,8 @@ class Mage_Rating_Model_Resource_Rating_Collection extends Mage_Core_Model_Resou
     /**
      * Add rating store name
      *
-     * @param  int   $storeId
+     * @param int $storeId
+     *
      * @return $this
      */
     public function addRatingPerStoreName($storeId)

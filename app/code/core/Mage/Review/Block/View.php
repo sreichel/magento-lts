@@ -109,7 +109,8 @@ class Mage_Review_Block_View extends Mage_Catalog_Block_Product_Abstract
     /**
      * Format date in long format
      *
-     * @param  string $date
+     * @param string $date
+     *
      * @return string
      */
     public function dateFormat($date)

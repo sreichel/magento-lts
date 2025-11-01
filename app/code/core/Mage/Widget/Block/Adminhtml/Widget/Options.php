@@ -117,7 +117,8 @@ class Mage_Widget_Block_Adminhtml_Widget_Options extends Mage_Adminhtml_Block_Wi
     /**
      * Add field to Options form based on parameter configuration
      *
-     * @param  Varien_Object                     $parameter
+     * @param Varien_Object $parameter
+     *
      * @return Varien_Data_Form_Element_Abstract
      */
     protected function _addField($parameter)

@@ -25,7 +25,8 @@ class Mage_Customer_Model_Resource_Address_Collection extends Mage_Eav_Model_Ent
     /**
      * Set customer filter
      *
-     * @param  Mage_Customer_Model_Customer $customer
+     * @param Mage_Customer_Model_Customer $customer
+     *
      * @return $this
      */
     public function setCustomerFilter($customer)

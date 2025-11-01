@@ -23,6 +23,7 @@ class Mage_Tag_Block_Product_List extends Mage_Core_Block_Template
 
     /**
      * @return int
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function getCount()
@@ -32,6 +33,7 @@ class Mage_Tag_Block_Product_List extends Mage_Core_Block_Template
 
     /**
      * @return mixed
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function getTags()
@@ -53,6 +55,7 @@ class Mage_Tag_Block_Product_List extends Mage_Core_Block_Template
 
     /**
      * @return mixed
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     protected function _getCollection()
@@ -99,9 +102,11 @@ class Mage_Tag_Block_Product_List extends Mage_Core_Block_Template
     /**
      * Render tags by specified pattern and implode them by specified 'glue' string
      *
-     * @param  string                          $pattern
-     * @param  string                          $glue
+     * @param string $pattern
+     * @param string $glue
+     *
      * @return string
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function renderTags($pattern, $glue = ' ')
@@ -122,7 +127,8 @@ class Mage_Tag_Block_Product_List extends Mage_Core_Block_Template
     /**
      * Generate unique html id
      *
-     * @param  string $prefix
+     * @param string $prefix
+     *
      * @return string
      */
     public function getUniqueHtmlId($prefix = '')

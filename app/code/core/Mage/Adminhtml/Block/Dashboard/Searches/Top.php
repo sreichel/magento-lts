@@ -51,6 +51,7 @@ class Mage_Adminhtml_Block_Dashboard_Searches_Top extends Mage_Adminhtml_Block_D
     }
 
     /**
+     *
      * @throws Exception
      */
     protected function _prepareColumns()
@@ -83,7 +84,8 @@ class Mage_Adminhtml_Block_Dashboard_Searches_Top extends Mage_Adminhtml_Block_D
     }
 
     /**
-     * @param  Mage_CatalogSearch_Model_Query $row
+     * @param Mage_CatalogSearch_Model_Query $row
+     *
      * @return string
      */
     public function getRowUrl($row)

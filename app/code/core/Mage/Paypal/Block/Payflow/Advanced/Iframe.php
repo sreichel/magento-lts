@@ -25,6 +25,7 @@ class Mage_Paypal_Block_Payflow_Advanced_Iframe extends Mage_Paypal_Block_Payflo
 
     /**
      * Get frame action URL
+     *
      * @return string
      */
     public function getFrameActionUrl()

@@ -26,9 +26,10 @@ class Mage_Checkout_Model_Cart_Customer_Api extends Mage_Checkout_Model_Api_Reso
     /**
      * Set customer for shopping cart
      *
-     * @param  int        $quoteId
-     * @param  array      $customerData
-     * @param  int|string $store
+     * @param int        $quoteId
+     * @param array      $customerData
+     * @param int|string $store
+     *
      * @return true
      */
     public function set($quoteId, $customerData, $store = null)
@@ -81,9 +82,10 @@ class Mage_Checkout_Model_Cart_Customer_Api extends Mage_Checkout_Model_Api_Reso
     }
 
     /**
-     * @param  int        $quoteId
-     * @param  array      $customerAddressData of array|object
-     * @param  int|string $store
+     * @param int        $quoteId
+     * @param array      $customerAddressData of array|object
+     * @param int|string $store
+     *
      * @return true
      */
     public function setAddresses($quoteId, $customerAddressData, $store = null)
@@ -170,7 +172,8 @@ class Mage_Checkout_Model_Cart_Customer_Api extends Mage_Checkout_Model_Api_Reso
     /**
      * Prepare customer entered data for implementing
      *
-     * @param  array $data
+     * @param array $data
+     *
      * @return array
      */
     protected function _prepareCustomerData($data)
@@ -188,7 +191,8 @@ class Mage_Checkout_Model_Cart_Customer_Api extends Mage_Checkout_Model_Api_Reso
     /**
      * Prepare customer entered data for implementing
      *
-     * @param  array      $data
+     * @param array $data
+     *
      * @return array|null
      */
     protected function _prepareCustomerAddressData($data)

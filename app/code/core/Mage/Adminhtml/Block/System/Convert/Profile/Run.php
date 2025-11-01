@@ -28,6 +28,7 @@ class Mage_Adminhtml_Block_System_Convert_Profile_Run extends Mage_Adminhtml_Blo
 
     /**
      * Preparing batch model (initialization)
+     *
      * @return $this
      */
     protected function _prepareBatchModel()
@@ -96,6 +97,7 @@ class Mage_Adminhtml_Block_System_Convert_Profile_Run extends Mage_Adminhtml_Blo
 
     /**
      * Return a batch model instance
+     *
      * @return Mage_Dataflow_Model_Batch
      */
     protected function _getBatchModel()
@@ -105,6 +107,7 @@ class Mage_Adminhtml_Block_System_Convert_Profile_Run extends Mage_Adminhtml_Blo
 
     /**
      * Return a batch model config JSON
+     *
      * @return string
      */
     public function getBatchConfigJson()
@@ -116,7 +119,8 @@ class Mage_Adminhtml_Block_System_Convert_Profile_Run extends Mage_Adminhtml_Blo
 
     /**
      * Encoding to JSON
-     * @param  string $source
+     * @param string $source
+     *
      * @return string JSON
      */
     public function jsonEncode($source)
@@ -126,6 +130,7 @@ class Mage_Adminhtml_Block_System_Convert_Profile_Run extends Mage_Adminhtml_Blo
 
     /**
      * Get a profile
+     *
      * @return object
      */
     public function getProfile()
@@ -135,6 +140,7 @@ class Mage_Adminhtml_Block_System_Convert_Profile_Run extends Mage_Adminhtml_Blo
 
     /**
      * Generating form key
+     *
      * @return string
      */
     public function getFormKey()
@@ -144,6 +150,7 @@ class Mage_Adminhtml_Block_System_Convert_Profile_Run extends Mage_Adminhtml_Blo
 
     /**
      * Return batch model and initialize it if need
+     *
      * @return Mage_Dataflow_Model_Batch
      */
     public function getBatchModel()
@@ -154,6 +161,7 @@ class Mage_Adminhtml_Block_System_Convert_Profile_Run extends Mage_Adminhtml_Blo
 
     /**
      * Generating exceptions data
+     *
      * @return array
      */
     public function getExceptions()

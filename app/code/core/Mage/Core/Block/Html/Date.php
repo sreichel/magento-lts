@@ -71,7 +71,8 @@ class Mage_Core_Block_Html_Date extends Mage_Core_Block_Template
     }
 
     /**
-     * @param  null   $index deprecated
+     * @param null $index deprecated
+     *
      * @return string
      */
     public function getEscapedValue($index = null)

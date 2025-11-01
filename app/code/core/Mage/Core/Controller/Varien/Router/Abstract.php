@@ -15,7 +15,8 @@ abstract class Mage_Core_Controller_Varien_Router_Abstract
     protected $_front;
 
     /**
-     * @param  Mage_Core_Controller_Varien_Front $front
+     * @param Mage_Core_Controller_Varien_Front $front
+     *
      * @return $this
      */
     public function setFront($front)
@@ -33,7 +34,8 @@ abstract class Mage_Core_Controller_Varien_Router_Abstract
     }
 
     /**
-     * @param  string $routeName
+     * @param string $routeName
+     *
      * @return string
      */
     public function getFrontNameByRoute($routeName)
@@ -42,7 +44,8 @@ abstract class Mage_Core_Controller_Varien_Router_Abstract
     }
 
     /**
-     * @param  string $frontName
+     * @param string $frontName
+     *
      * @return string
      */
     public function getRouteByFrontName($frontName)

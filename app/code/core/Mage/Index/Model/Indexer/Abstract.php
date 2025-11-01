@@ -104,8 +104,9 @@ abstract class Mage_Index_Model_Indexer_Abstract extends Mage_Core_Model_Abstrac
     /**
      * Check if indexer matched specific entity and action type
      *
-     * @param  string $entity
-     * @param  string $type
+     * @param string $entity
+     * @param string $type
+     *
      * @return bool
      */
     public function matchEntityAndType($entity, $type)
@@ -153,7 +154,8 @@ abstract class Mage_Index_Model_Indexer_Abstract extends Mage_Core_Model_Abstrac
      * Set whether table changes are allowed
      *
      * @deprecated after 1.6.1.0
-     * @param  bool                              $value
+     * @param bool $value
+     *
      * @return Mage_Index_Model_Indexer_Abstract
      */
     public function setAllowTableChanges($value = true)

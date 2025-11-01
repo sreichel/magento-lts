@@ -77,7 +77,8 @@ class Mage_Sales_Model_Order_Pdf_Invoice extends Mage_Sales_Model_Order_Pdf_Abst
     /**
      * Return PDF document
      *
-     * @param  Mage_Sales_Model_Order_Invoice[] $invoices
+     * @param Mage_Sales_Model_Order_Invoice[] $invoices
+     *
      * @return Zend_Pdf
      */
     public function getPdf($invoices = [])

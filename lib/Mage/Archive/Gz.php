@@ -17,8 +17,9 @@ class Mage_Archive_Gz extends Mage_Archive_Abstract implements Mage_Archive_Inte
     /**
      * Pack file by GZ compressor.
      *
-     * @param  string $source
-     * @param  string $destination
+     * @param string $source
+     * @param string $destination
+     *
      * @return string
      */
     public function pack($source, $destination)
@@ -42,8 +43,9 @@ class Mage_Archive_Gz extends Mage_Archive_Abstract implements Mage_Archive_Inte
     /**
      * Unpack file by GZ compressor.
      *
-     * @param  string $source
-     * @param  string $destination
+     * @param string $source
+     * @param string $destination
+     *
      * @return string
      */
     public function unpack($source, $destination)

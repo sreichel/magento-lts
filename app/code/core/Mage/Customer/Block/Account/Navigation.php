@@ -25,10 +25,11 @@ class Mage_Customer_Block_Account_Navigation extends Mage_Core_Block_Template
     protected $_activeLink = false;
 
     /**
-     * @param  string $name
-     * @param  string $path
-     * @param  string $label
-     * @param  array  $urlParams
+     * @param string $name
+     * @param string $path
+     * @param string $label
+     * @param array  $urlParams
+     *
      * @return $this
      */
     public function addLink($name, $path, $label, $urlParams = [])
@@ -45,7 +46,8 @@ class Mage_Customer_Block_Account_Navigation extends Mage_Core_Block_Template
     /**
      * Remove a link
      *
-     * @param  string $name Name of the link
+     * @param string $name Name of the link
+     *
      * @return $this
      */
     public function removeLink($name)
@@ -58,7 +60,8 @@ class Mage_Customer_Block_Account_Navigation extends Mage_Core_Block_Template
     }
 
     /**
-     * @param  string $path
+     * @param string $path
+     *
      * @return $this
      */
     public function setActive($path)
@@ -76,7 +79,8 @@ class Mage_Customer_Block_Account_Navigation extends Mage_Core_Block_Template
     }
 
     /**
-     * @param  Varien_Object $link
+     * @param Varien_Object $link
+     *
      * @return bool
      */
     public function isActive($link)
@@ -93,7 +97,8 @@ class Mage_Customer_Block_Account_Navigation extends Mage_Core_Block_Template
     }
 
     /**
-     * @param  string $path
+     * @param string $path
+     *
      * @return string
      */
     protected function _completePath($path)

@@ -325,7 +325,8 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
     }
 
     /**
-     * @param  int  $itemId
+     * @param int $itemId
+     *
      * @return bool
      */
     public function getItemById($itemId)
@@ -342,7 +343,8 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
     /**
      * Returns credit memo item by its order id
      *
-     * @param  int                                         $orderId
+     * @param int $orderId
+     *
      * @return Mage_Sales_Model_Order_Creditmemo_Item|bool
      */
     public function getItemByOrderId($orderId)
@@ -358,6 +360,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
 
     /**
      * @return $this
+     *
      * @throws Exception
      */
     public function addItem(Mage_Sales_Model_Order_Creditmemo_Item $item)
@@ -389,9 +392,10 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
     /**
      * Round price considering delta
      *
-     * @param  float  $price
-     * @param  string $type
-     * @param  bool   $negative Indicates if we perform addition (true) or subtraction (false) of rounded value
+     * @param float  $price
+     * @param string $type
+     * @param bool   $negative Indicates if we perform addition (true) or subtraction (false) of rounded value
+     *
      * @return float
      */
     public function roundPrice($price, $type = 'regular', $negative = false)
@@ -444,7 +448,9 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
 
     /**
      * @return $this
+     *
      * @throws Mage_Core_Exception
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function refund()
@@ -636,7 +642,8 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
     /**
      * Retrieve Creditmemo state name by state identifier
      *
-     * @param  int    $stateId
+     * @param int $stateId
+     *
      * @return string
      */
     public function getStateName($stateId = null)
@@ -653,7 +660,8 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
     }
 
     /**
-     * @param  float $amount
+     * @param float $amount
+     *
      * @return $this
      */
     public function setShippingAmount($amount)
@@ -663,7 +671,8 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
     }
 
     /**
-     * @param  float $amount
+     * @param float $amount
+     *
      * @return $this
      */
     public function setAdjustmentPositive($amount)
@@ -685,7 +694,8 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
     }
 
     /**
-     * @param  float $amount
+     * @param float $amount
+     *
      * @return $this
      */
     public function setAdjustmentNegative($amount)
@@ -737,7 +747,8 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
     }
 
     /**
-     * @param  bool                                                        $reload
+     * @param bool $reload
+     *
      * @return Mage_Sales_Model_Resource_Order_Comment_Collection_Abstract
      */
     public function getCommentsCollection($reload = false)
@@ -765,8 +776,9 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
     /**
      * Send email with creditmemo data
      *
-     * @param  bool   $notifyCustomer
-     * @param  string $comment
+     * @param bool   $notifyCustomer
+     * @param string $comment
+     *
      * @return $this
      */
     public function sendEmail($notifyCustomer = true, $comment = '')
@@ -868,8 +880,9 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
     /**
      * Send email with creditmemo update information
      *
-     * @param  bool   $notifyCustomer
-     * @param  string $comment
+     * @param bool   $notifyCustomer
+     * @param string $comment
+     *
      * @return $this
      */
     public function sendUpdateEmail($notifyCustomer = true, $comment = '')
@@ -937,7 +950,8 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
     }
 
     /**
-     * @param  string     $configPath
+     * @param string $configPath
+     *
      * @return array|bool
      */
     protected function _getEmails($configPath)
@@ -952,6 +966,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
 
     /**
      * @return Mage_Sales_Model_Abstract
+     *
      * @throws Mage_Core_Exception
      */
     protected function _beforeDelete()
@@ -1002,7 +1017,8 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
     /**
      * Get creditmemos collection filtered by $filter
      *
-     * @param  array|null                                            $filter
+     * @param array|null $filter
+     *
      * @return Mage_Sales_Model_Resource_Order_Creditmemo_Collection
      */
     public function getFilteredCollectionItems($filter = null)

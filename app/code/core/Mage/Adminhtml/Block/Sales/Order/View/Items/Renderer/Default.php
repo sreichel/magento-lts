@@ -22,7 +22,8 @@ class Mage_Adminhtml_Block_Sales_Order_View_Items_Renderer_Default extends Mage_
     /**
      * Retrieve real html id for field
      *
-     * @param  string $id
+     * @param string $id
+     *
      * @return string
      */
     public function getFieldId($id)
@@ -44,6 +45,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Items_Renderer_Default extends Mage_
      * Indicate that block can display container
      *
      * @return bool
+     *
      * @throws Exception
      */
     public function canDisplayContainer()
@@ -63,6 +65,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Items_Renderer_Default extends Mage_
      * Retrieve default value for giftmessage sender
      *
      * @deprecated after 1.4.2.0
+     *
      * @return string
      */
     public function getDefaultSender()
@@ -82,6 +85,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Items_Renderer_Default extends Mage_
      * Retrieve default value for giftmessage recipient
      *
      * @deprecated after 1.4.2.0
+     *
      * @return string
      */
     public function getDefaultRecipient()
@@ -115,7 +119,8 @@ class Mage_Adminhtml_Block_Sales_Order_View_Items_Renderer_Default extends Mage_
      * Retrieve real name for field
      *
      * @deprecated after 1.4.2.0
-     * @param  string $name
+     * @param string $name
+     *
      * @return string
      */
     public function getFieldName($name)
@@ -127,6 +132,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Items_Renderer_Default extends Mage_
      * Initialize gift message for entity
      *
      * @deprecated after 1.4.2.0
+     *
      * @return $this
      */
     protected function _initMessage()
@@ -153,6 +159,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Items_Renderer_Default extends Mage_
      * Retrieve gift message for entity
      *
      * @deprecated after 1.4.2.0
+     *
      * @return Mage_GiftMessage_Model_Message
      */
     public function getMessage()
@@ -183,6 +190,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Items_Renderer_Default extends Mage_
      * Retrieve block html id
      *
      * @deprecated after 1.4.2.0
+     *
      * @return string
      */
     public function getHtmlId()
@@ -194,6 +202,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Items_Renderer_Default extends Mage_
      * Indicates that block can display giftmessages form
      *
      * TODO set return type
+     *
      * @return bool
      */
     public function canDisplayGiftmessage()
@@ -214,7 +223,8 @@ class Mage_Adminhtml_Block_Sales_Order_View_Items_Renderer_Default extends Mage_
     /**
      * Display susbtotal price including tax
      *
-     * @param  Mage_Sales_Model_Order_Item $item
+     * @param Mage_Sales_Model_Order_Item $item
+     *
      * @return string
      */
     public function displaySubtotalInclTax($item)

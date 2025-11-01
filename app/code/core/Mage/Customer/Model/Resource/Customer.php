@@ -41,8 +41,10 @@ class Mage_Customer_Model_Resource_Customer extends Mage_Eav_Model_Entity_Abstra
     /**
      * Check customer scope, email and confirmation key before saving
      *
-     * @param  Mage_Customer_Model_Customer $customer
+     * @param Mage_Customer_Model_Customer $customer
+     *
      * @return $this
+     *
      * @throws Mage_Core_Exception
      */
     protected function _beforeSave(Varien_Object $customer)
@@ -166,8 +168,9 @@ class Mage_Customer_Model_Resource_Customer extends Mage_Eav_Model_Entity_Abstra
     /**
      * Retrieve select object for loading base entity row
      *
-     * @param  Mage_Customer_Model_Customer $object
-     * @param  mixed                        $rowId
+     * @param Mage_Customer_Model_Customer $object
+     * @param mixed                        $rowId
+     *
      * @return Zend_Db_Select
      */
     protected function _getLoadRowSelect($object, $rowId)
@@ -183,10 +186,12 @@ class Mage_Customer_Model_Resource_Customer extends Mage_Eav_Model_Entity_Abstra
     /**
      * Load customer by email
      *
+     *
      * @throws Mage_Core_Exception
      *
-     * @param  string $email
-     * @param  bool   $testOnly
+     * @param string $email
+     * @param bool   $testOnly
+     *
      * @return $this
      */
     public function loadByEmail(Mage_Customer_Model_Customer $customer, $email, $testOnly = false)
@@ -221,7 +226,8 @@ class Mage_Customer_Model_Resource_Customer extends Mage_Eav_Model_Entity_Abstra
     /**
      * Change customer password
      *
-     * @param  string $newPassword
+     * @param string $newPassword
+     *
      * @return $this
      */
     public function changePassword(Mage_Customer_Model_Customer $customer, $newPassword)
@@ -256,7 +262,8 @@ class Mage_Customer_Model_Resource_Customer extends Mage_Eav_Model_Entity_Abstra
     /**
      * Check customer by id
      *
-     * @param  int  $customerId
+     * @param int $customerId
+     *
      * @return bool
      */
     public function checkCustomerId($customerId)
@@ -279,7 +286,8 @@ class Mage_Customer_Model_Resource_Customer extends Mage_Eav_Model_Entity_Abstra
     /**
      * Get customer website id
      *
-     * @param  int    $customerId
+     * @param int $customerId
+     *
      * @return string
      */
     public function getWebsiteId($customerId)
@@ -312,7 +320,8 @@ class Mage_Customer_Model_Resource_Customer extends Mage_Eav_Model_Entity_Abstra
      *
      * Stores new reset password link token and its creation time
      *
-     * @param  string $newResetPasswordLinkToken
+     * @param string $newResetPasswordLinkToken
+     *
      * @return $this
      */
     public function changeResetPasswordLinkToken(Mage_Customer_Model_Customer $customer, $newResetPasswordLinkToken)
@@ -333,8 +342,10 @@ class Mage_Customer_Model_Resource_Customer extends Mage_Eav_Model_Entity_Abstra
      *
      * Stores new reset password link customer Id
      *
-     * @param  string    $newResetPasswordLinkCustomerId
+     * @param string $newResetPasswordLinkCustomerId
+     *
      * @return $this
+     *
      * @throws Exception
      */
     public function changeResetPasswordLinkCustomerId(
@@ -353,7 +364,8 @@ class Mage_Customer_Model_Resource_Customer extends Mage_Eav_Model_Entity_Abstra
      * Get password created at timestamp for a customer by id
      * If attribute password_created_at is empty, return created_at timestamp
      *
-     * @param  int       $customerId
+     * @param int $customerId
+     *
      * @return int|false
      */
     public function getPasswordTimestamp($customerId)
@@ -385,7 +397,8 @@ class Mage_Customer_Model_Resource_Customer extends Mage_Eav_Model_Entity_Abstra
     /**
      * Get email by customer ID.
      *
-     * @param  int          $customerId
+     * @param int $customerId
+     *
      * @return string|false
      */
     public function getEmail($customerId)

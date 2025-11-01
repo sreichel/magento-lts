@@ -50,6 +50,7 @@ class Mage_Admin_Model_Rules extends Mage_Core_Model_Abstract
 
     /**
      * Update rules
+     *
      * @return $this
      */
     public function update()
@@ -60,6 +61,7 @@ class Mage_Admin_Model_Rules extends Mage_Core_Model_Abstract
 
     /**
      * Initialize and retrieve permissions collection
+     *
      * @return Object
      */
     public function getCollection()
@@ -69,6 +71,7 @@ class Mage_Admin_Model_Rules extends Mage_Core_Model_Abstract
 
     /**
      * Save rules relations to the database
+     *
      * @return $this
      */
     public function saveRel()
@@ -79,6 +82,7 @@ class Mage_Admin_Model_Rules extends Mage_Core_Model_Abstract
 
     /**
      * Check if the current rule is allowed
+     *
      * @return bool
      */
     public function isAllowed()

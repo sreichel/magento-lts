@@ -23,6 +23,7 @@ final class UserTest extends OpenMageTest
      * @dataProvider provideValidateApiUserData
      * @param array|true $expectedResult
      * @group Model
+     *
      * @throws Zend_Validate_Exception
      */
     public function testValidate($expectedResult, array $methods): void

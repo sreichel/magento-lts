@@ -21,7 +21,8 @@ class Mage_Payment_Model_Method_Checkmo extends Mage_Payment_Model_Method_Abstra
     /**
      * Assign data to info model instance
      *
-     * @param  mixed                             $data
+     * @param mixed $data
+     *
      * @return Mage_Payment_Model_Method_Checkmo
      */
     public function assignData($data)

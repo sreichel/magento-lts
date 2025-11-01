@@ -132,7 +132,8 @@ class Mage_Api2_Model_Acl_Global_Role extends Mage_Core_Model_Abstract
     /**
      * Get role system belonging
      *
-     * @param  Mage_Api2_Model_Acl_Global_Role $role
+     * @param Mage_Api2_Model_Acl_Global_Role $role
+     *
      * @return bool
      */
     public static function isSystemRole($role)

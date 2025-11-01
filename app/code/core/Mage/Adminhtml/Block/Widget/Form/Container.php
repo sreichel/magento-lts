@@ -90,6 +90,7 @@ class Mage_Adminhtml_Block_Widget_Form_Container extends Mage_Adminhtml_Block_Wi
 
     /**
      * @return string
+     *
      * @throws Exception
      */
     public function getDeleteUrl()
@@ -105,6 +106,7 @@ class Mage_Adminhtml_Block_Widget_Form_Container extends Mage_Adminhtml_Block_Wi
      *
      * @deprecated
      * @see getFormActionUrl()
+     *
      * @return string
      */
     public function getSaveUrl()
@@ -186,7 +188,8 @@ class Mage_Adminhtml_Block_Widget_Form_Container extends Mage_Adminhtml_Block_Wi
     /**
      * Set data object and pass it to form
      *
-     * @param  Varien_Object $object
+     * @param Varien_Object $object
+     *
      * @return $this
      */
     public function setDataObject($object)

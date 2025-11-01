@@ -15,8 +15,10 @@
 class Mage_Core_Helper_UnserializeArray
 {
     /**
-     * @param  string    $str
+     * @param string $str
+     *
      * @return array
+     *
      * @throws Exception
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
      */

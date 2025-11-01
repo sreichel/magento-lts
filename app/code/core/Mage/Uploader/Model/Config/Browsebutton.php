@@ -34,7 +34,8 @@ class Mage_Uploader_Model_Config_Browsebutton extends Mage_Uploader_Model_Config
     /**
      * Get MIME types from files extensions
      *
-     * @param  string|array $exts
+     * @param string|array $exts
+     *
      * @return string
      */
     public function getMimeTypesByExtensions($exts)

@@ -103,7 +103,8 @@ abstract class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Price_Group_Abstrac
     /**
      * Sort values
      *
-     * @param  array $data
+     * @param array $data
+     *
      * @return array
      */
     protected function _sortValues($data)
@@ -114,7 +115,8 @@ abstract class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Price_Group_Abstrac
     /**
      * Retrieve allowed customer groups
      *
-     * @param  int|null     $groupId return name by customer group id
+     * @param int|null $groupId return name by customer group id
+     *
      * @return array|string
      */
     public function getCustomerGroups($groupId = null)
@@ -251,7 +253,8 @@ abstract class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Price_Group_Abstrac
     /**
      * Retrieve customized price column header
      *
-     * @param  string $default
+     * @param string $default
+     *
      * @return string
      */
     public function getPriceColumnHeader($default)
@@ -266,7 +269,8 @@ abstract class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Price_Group_Abstrac
     /**
      * Retrieve customized price column header
      *
-     * @param  string $default
+     * @param string $default
+     *
      * @return string
      */
     public function getPriceValidation($default)

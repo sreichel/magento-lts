@@ -90,7 +90,8 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
     /**
      * Set layout area
      *
-     * @param  string                 $area
+     * @param string $area
+     *
      * @return Mage_Core_Model_Layout
      */
     public function setArea($area)
@@ -112,7 +113,8 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
     /**
      * Declaring layout direct output flag
      *
-     * @param  bool                   $flag
+     * @param bool $flag
+     *
      * @return Mage_Core_Model_Layout
      */
     public function setDirectOutput($flag)
@@ -214,8 +216,9 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
     /**
      * Add block object to layout based on xml node data
      *
-     * @param  Varien_Simplexml_Element                                $node
-     * @param  Mage_Core_Model_Layout_Element|Varien_Simplexml_Element $parent
+     * @param Varien_Simplexml_Element                                $node
+     * @param Mage_Core_Model_Layout_Element|Varien_Simplexml_Element $parent
+     *
      * @return $this
      */
     protected function _generateBlock($node, $parent)
@@ -280,8 +283,9 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
     }
 
     /**
-     * @param  Varien_Simplexml_Element                                $node
-     * @param  Mage_Core_Model_Layout_Element|Varien_Simplexml_Element $parent
+     * @param Varien_Simplexml_Element                                $node
+     * @param Mage_Core_Model_Layout_Element|Varien_Simplexml_Element $parent
+     *
      * @return $this
      */
     protected function _generateAction($node, $parent)
@@ -359,8 +363,9 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
 
     /**
      * @codeCoverageIgnore
-     * @param  string              $method
-     * @param  string[]            $args
+     * @param string   $method
+     * @param string[] $args
+     *
      * @throws Mage_Core_Exception
      * @deprecated
      * @see Mage_Core_Helper_Security::validateAgainstBlockMethodBlacklist()
@@ -426,8 +431,9 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
     /**
      * Save block in blocks registry
      *
-     * @param  string                   $name
-     * @param  Mage_Core_Block_Abstract $block
+     * @param string                   $name
+     * @param Mage_Core_Block_Abstract $block
+     *
      * @return $this
      */
     public function setBlock($name, $block)
@@ -439,7 +445,8 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
     /**
      * Remove block from registry
      *
-     * @param  string $name
+     * @param string $name
+     *
      * @return $this
      */
     public function unsetBlock($name)
@@ -452,8 +459,9 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
     /**
      * Block Factory
      *
-     * @param  string                         $type
-     * @param  string|null                    $name
+     * @param string      $type
+     * @param string|null $name
+     *
      * @return Mage_Core_Block_Abstract|false
      */
     public function createBlock($type, $name = '', array $attributes = [])
@@ -489,8 +497,9 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
     /**
      * Add a block to registry, create new object if needed
      *
-     * @param  string|Mage_Core_Block_Abstract $block
-     * @param  string                          $blockName
+     * @param string|Mage_Core_Block_Abstract $block
+     * @param string                          $blockName
+     *
      * @return Mage_Core_Block_Abstract
      */
     public function addBlock($block, $blockName)
@@ -501,7 +510,8 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
     /**
      * Create block object instance based on block type
      *
-     * @param  string                   $block
+     * @param string $block
+     *
      * @return Mage_Core_Block_Abstract
      */
     protected function _getBlockInstance($block, array $attributes = [])
@@ -539,7 +549,8 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
     /**
      * Get block object by name
      *
-     * @param  string                         $name
+     * @param string $name
+     *
      * @return Mage_Core_Block_Abstract|false
      */
     public function getBlock($name)
@@ -550,8 +561,9 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
     /**
      * Add a block to output
      *
-     * @param  string $blockName
-     * @param  string $method
+     * @param string $blockName
+     * @param string $method
+     *
      * @return $this
      */
     public function addOutputBlock($blockName, $method = 'toHtml')
@@ -562,7 +574,8 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
     }
 
     /**
-     * @param  string $blockName
+     * @param string $blockName
+     *
      * @return $this
      */
     public function removeOutputBlock($blockName)
@@ -602,7 +615,8 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
     }
 
     /**
-     * @param  string                          $type
+     * @param string $type
+     *
      * @return Mage_Core_Block_Abstract|object
      */
     public function getBlockSingleton($type)
@@ -629,7 +643,8 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
     /**
      * Retrieve helper object
      *
-     * @param  string                          $name
+     * @param string $name
+     *
      * @return Mage_Core_Helper_Abstract|false
      */
     public function helper($name)

@@ -111,7 +111,8 @@ class Mage_Catalog_Block_Product_List_Upsell extends Mage_Catalog_Block_Product_
     }
 
     /**
-     * @param  array $columns
+     * @param array $columns
+     *
      * @return $this
      */
     public function setColumnCount($columns)
@@ -151,8 +152,9 @@ class Mage_Catalog_Block_Product_List_Upsell extends Mage_Catalog_Block_Product_
      * Set how many items we need to show in upsell block
      * Notice: this parameter will be also applied
      *
-     * @param  string $type
-     * @param  int    $limit
+     * @param string $type
+     * @param int    $limit
+     *
      * @return $this
      */
     public function setItemLimit($type, $limit)
@@ -165,7 +167,8 @@ class Mage_Catalog_Block_Product_List_Upsell extends Mage_Catalog_Block_Product_
     }
 
     /**
-     * @param  string          $type
+     * @param string $type
+     *
      * @return array|int|mixed
      */
     public function getItemLimit($type = '')

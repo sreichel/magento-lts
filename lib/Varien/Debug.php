@@ -44,9 +44,10 @@ class Varien_Debug
     /**
      * Prints or return a backtrace
      *
-     * @param  bool        $return   return or print
-     * @param  bool        $html     output in HTML format
-     * @param  bool        $withArgs add short argumets of methods
+     * @param bool $return   return or print
+     * @param bool $html     output in HTML format
+     * @param bool $withArgs add short argumets of methods
+     *
      * @return string|bool
      */
     public static function backtrace($return = false, $html = true, $withArgs = true)
@@ -58,10 +59,11 @@ class Varien_Debug
     /**
      * Prints or return a trace
      *
-     * @param  array       $trace    trace array
-     * @param  bool        $return   return or print
-     * @param  bool        $html     output in HTML format
-     * @param  bool        $withArgs add short argumets of methods
+     * @param array $trace    trace array
+     * @param bool  $return   return or print
+     * @param bool  $html     output in HTML format
+     * @param bool  $withArgs add short argumets of methods
+     *
      * @return string|bool
      */
     public static function trace(array $trace, $return = false, $html = true, $withArgs = true)

@@ -59,6 +59,7 @@ class Mage_Page_Block_Html_Wrapper extends Mage_Core_Block_Abstract
 
     /**
      * Wrapper element tag name getter
+     *
      * @return string
      */
     public function getElementTagName()
@@ -69,7 +70,8 @@ class Mage_Page_Block_Html_Wrapper extends Mage_Core_Block_Abstract
 
     /**
      * Setter whether this block depends on children
-     * @param  string $depends
+     * @param string $depends
+     *
      * @return $this
      */
     public function dependsOnChildren($depends = '0')

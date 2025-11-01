@@ -58,8 +58,10 @@ class Mage_Cron_Model_Schedule extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  string              $expr
+     * @param string $expr
+     *
      * @return $this
+     *
      * @throws Mage_Core_Exception
      */
     public function setCronExpr($expr)
@@ -78,7 +80,8 @@ class Mage_Cron_Model_Schedule extends Mage_Core_Model_Abstract
      *
      * Supports $this->setCronExpr('* 0-5,10-59/5 2-10,15-25 january-june/2 mon-fri')
      *
-     * @param  string|int $time
+     * @param string|int $time
+     *
      * @return bool
      */
     public function trySchedule($time)
@@ -113,9 +116,11 @@ class Mage_Cron_Model_Schedule extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  string              $expr
-     * @param  int                 $num
+     * @param string $expr
+     * @param int    $num
+     *
      * @return bool
+     *
      * @throws Mage_Core_Exception
      */
     public function matchCronExpression($expr, $num)
@@ -178,7 +183,8 @@ class Mage_Cron_Model_Schedule extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param  int|string       $value
+     * @param int|string $value
+     *
      * @return int|string|false
      */
     public function getNumeric($value)

@@ -23,6 +23,7 @@ class Mage_Tax_Model_Sales_Pdf_Subtotal extends Mage_Sales_Model_Order_Pdf_Total
      *      'font_size'=> $fontSize
      *  )
      * )
+     *
      * @return array
      */
     public function getTotalsForDisplay()

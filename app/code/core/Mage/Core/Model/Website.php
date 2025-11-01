@@ -159,7 +159,8 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
     /**
      * Load website configuration
      *
-     * @param  string                  $code
+     * @param string $code
+     *
      * @return Mage_Core_Model_Website
      */
     public function loadConfig($code)
@@ -191,7 +192,8 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
     /**
      * Get website config data
      *
-     * @param  string $path
+     * @param string $path
+     *
      * @return mixed
      */
     public function getConfig($path)
@@ -241,7 +243,8 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
     /**
      * Set website groups
      *
-     * @param  array $groups
+     * @param array $groups
+     *
      * @return $this
      */
     public function setGroups($groups)
@@ -561,7 +564,8 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
      * Retrieve default stores select object
      * Select fields website_id, store_id
      *
-     * @param  bool             $withDefault include/exclude default admin website
+     * @param bool $withDefault include/exclude default admin website
+     *
      * @return Varien_Db_Select
      */
     public function getDefaultStoresSelect($withDefault = false)
@@ -572,7 +576,8 @@ class Mage_Core_Model_Website extends Mage_Core_Model_Abstract
     /**
      * Get/Set isReadOnly flag
      *
-     * @param  bool $value
+     * @param bool $value
+     *
      * @return bool
      */
     public function isReadOnly($value = null)

@@ -54,7 +54,8 @@ final class SecurityTest extends OpenMageTest
     /**
      * @dataProvider validateAgainstBlockMethodBlacklistDataProvider
      * @doesNotPerformAssertions if data is correct, then NO exception is thrown, so we don't need an assertion
-     * @param  string[]            $args
+     * @param string[] $args
+     *
      * @throws Mage_Core_Exception
      *
      * @group Helper
@@ -110,7 +111,8 @@ final class SecurityTest extends OpenMageTest
 
     /**
      * @dataProvider forbiddenBlockMethodsDataProvider
-     * @param  string[]            $args
+     * @param string[] $args
+     *
      * @throws Mage_Core_Exception
      *
      * @group Helper

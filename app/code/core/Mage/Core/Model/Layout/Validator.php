@@ -131,9 +131,11 @@ class Mage_Core_Model_Layout_Validator extends Zend_Validate_Abstract
      * getMessages() will return an array of messages that explain why the
      * validation failed.
      *
+     *
      * @throws Exception                       Throw exception when xml object is not
      *                                         instance of Varien_Simplexml_Element
      * @param  Varien_Simplexml_Element|string $value
+     *
      * @return bool
      */
     public function isValid($value)
@@ -228,6 +230,7 @@ class Mage_Core_Model_Layout_Validator extends Zend_Validate_Abstract
     /**
      * Validate template path for preventing access to the directory above
      * If template path value has "../"
+     *
      *
      * @throws Exception
      */

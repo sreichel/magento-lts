@@ -60,7 +60,8 @@ class Mage_CatalogSearch_Model_Resource_Fulltext_Collection extends Mage_Catalog
     /**
      * Add search query filter
      *
-     * @param  string $query
+     * @param string $query
+     *
      * @return $this
      */
     public function addSearchFilter($query)
@@ -168,8 +169,9 @@ class Mage_CatalogSearch_Model_Resource_Fulltext_Collection extends Mage_Catalog
     /**
      * Set Order field
      *
-     * @param  string $attribute
-     * @param  string $dir
+     * @param string $attribute
+     * @param string $dir
+     *
      * @return $this
      */
     public function setOrder($attribute, $dir = 'desc')

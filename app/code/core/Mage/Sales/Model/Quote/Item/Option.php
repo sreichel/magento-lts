@@ -57,7 +57,8 @@ class Mage_Sales_Model_Quote_Item_Option extends Mage_Core_Model_Abstract implem
     /**
      * Set quote item
      *
-     * @param  Mage_Sales_Model_Quote_Item $item
+     * @param Mage_Sales_Model_Quote_Item $item
+     *
      * @return $this
      */
     public function setItem($item)
@@ -83,7 +84,8 @@ class Mage_Sales_Model_Quote_Item_Option extends Mage_Core_Model_Abstract implem
     /**
      * Set option product
      *
-     * @param  Mage_Catalog_Model_Product $product
+     * @param Mage_Catalog_Model_Product $product
+     *
      * @return $this
      */
     public function setProduct($product)

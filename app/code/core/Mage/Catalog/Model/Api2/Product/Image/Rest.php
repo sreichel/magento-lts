@@ -35,7 +35,9 @@ abstract class Mage_Catalog_Model_Api2_Product_Image_Rest extends Mage_Catalog_M
     /**
      * Retrieve product image data for customer and guest roles
      *
+     *
      * @throws Mage_Api2_Exception
+     *
      * @return array
      */
     protected function _retrieve()
@@ -85,7 +87,9 @@ abstract class Mage_Catalog_Model_Api2_Product_Image_Rest extends Mage_Catalog_M
     /**
      * Retrieve media gallery
      *
+     *
      * @throws Mage_Api2_Exception
+     *
      * @return Mage_Catalog_Model_Product_Attribute_Backend_Media
      */
     protected function _getMediaGallery()
@@ -107,7 +111,8 @@ abstract class Mage_Catalog_Model_Api2_Product_Image_Rest extends Mage_Catalog_M
     /**
      * Create image data representation for API
      *
-     * @param  array $image
+     * @param array $image
+     *
      * @return array
      */
     protected function _formatImageData($image)
@@ -125,7 +130,8 @@ abstract class Mage_Catalog_Model_Api2_Product_Image_Rest extends Mage_Catalog_M
     /**
      * Retrieve image types assigned to product (base, small, thumbnail)
      *
-     * @param  string $imageFile
+     * @param string $imageFile
+     *
      * @return array
      */
     protected function _getImageTypesAssignedToProduct($imageFile)
@@ -153,7 +159,8 @@ abstract class Mage_Catalog_Model_Api2_Product_Image_Rest extends Mage_Catalog_M
     /**
      * Create file name from received data
      *
-     * @param  array  $data
+     * @param array $data
+     *
      * @return string
      */
     protected function _getFileName($data)
@@ -169,8 +176,10 @@ abstract class Mage_Catalog_Model_Api2_Product_Image_Rest extends Mage_Catalog_M
     /**
      * Retrieve file extension using MIME type
      *
+     *
      * @throws Mage_Api2_Exception
      * @param  string              $mimeType
+     *
      * @return string
      */
     protected function _getExtensionByMimeType($mimeType)
@@ -185,8 +194,10 @@ abstract class Mage_Catalog_Model_Api2_Product_Image_Rest extends Mage_Catalog_M
     /**
      * Get file URI by its id. File URI is used by media backend to identify image
      *
+     *
      * @throws Mage_Api2_Exception
      * @param  int                 $imageId
+     *
      * @return string
      */
     protected function _getImageFileById($imageId)

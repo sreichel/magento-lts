@@ -102,7 +102,8 @@ class Mage_Oauth_Block_Adminhtml_Oauth_AuthorizedTokens_Grid extends Mage_Adminh
     /**
      * Get revoke URL
      *
-     * @param  Mage_Oauth_Model_Token $row
+     * @param Mage_Oauth_Model_Token $row
+     *
      * @return string|null
      */
     public function getRevokeUrl($row)
@@ -113,7 +114,8 @@ class Mage_Oauth_Block_Adminhtml_Oauth_AuthorizedTokens_Grid extends Mage_Adminh
     /**
      * Get delete URL
      *
-     * @param  Mage_Oauth_Model_Token $row
+     * @param Mage_Oauth_Model_Token $row
+     *
      * @return string|null
      */
     public function getDeleteUrl($row)
@@ -155,10 +157,11 @@ class Mage_Oauth_Block_Adminhtml_Oauth_AuthorizedTokens_Grid extends Mage_Adminh
     /**
      * Decorate user type column
      *
-     * @param  string                                  $value
-     * @param  Mage_Oauth_Model_Token                  $row
-     * @param  Mage_Adminhtml_Block_Widget_Grid_Column $column
-     * @param  bool                                    $isExport
+     * @param string                                  $value
+     * @param Mage_Oauth_Model_Token                  $row
+     * @param Mage_Adminhtml_Block_Widget_Grid_Column $column
+     * @param bool                                    $isExport
+     *
      * @return mixed
      */
     public function decorateUserType($value, $row, $column, $isExport)
@@ -170,10 +173,11 @@ class Mage_Oauth_Block_Adminhtml_Oauth_AuthorizedTokens_Grid extends Mage_Adminh
     /**
      * Decorate user type column
      *
-     * @param  string                                  $value
-     * @param  Mage_Oauth_Model_Token                  $row
-     * @param  Mage_Adminhtml_Block_Widget_Grid_Column $column
-     * @param  bool                                    $isExport
+     * @param string                                  $value
+     * @param Mage_Oauth_Model_Token                  $row
+     * @param Mage_Adminhtml_Block_Widget_Grid_Column $column
+     * @param bool                                    $isExport
+     *
      * @return mixed
      */
     public function decorateUserId($value, $row, $column, $isExport)

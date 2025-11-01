@@ -17,7 +17,8 @@ class Mage_Sales_Model_Convert_Quote extends Varien_Object
     /**
      * Convert quote model to order model
      *
-     * @param  null|Mage_Sales_Model_Order $order
+     * @param null|Mage_Sales_Model_Order $order
+     *
      * @return Mage_Sales_Model_Order
      */
     public function toOrder(Mage_Sales_Model_Quote $quote, $order = null)
@@ -40,7 +41,8 @@ class Mage_Sales_Model_Convert_Quote extends Varien_Object
     /**
      * Convert quote address model to order
      *
-     * @param  null|Mage_Sales_Model_Order $order
+     * @param null|Mage_Sales_Model_Order $order
+     *
      * @return Mage_Sales_Model_Order
      */
     public function addressToOrder(Mage_Sales_Model_Quote_Address $address, $order = null)

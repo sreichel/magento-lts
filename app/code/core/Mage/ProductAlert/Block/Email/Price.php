@@ -23,7 +23,8 @@ class Mage_ProductAlert_Block_Email_Price extends Mage_ProductAlert_Block_Email_
     /**
      * Retrieve unsubscribe url for product
      *
-     * @param  int    $productId
+     * @param int $productId
+     *
      * @return string
      */
     public function getProductUnsubscribeUrl($productId)

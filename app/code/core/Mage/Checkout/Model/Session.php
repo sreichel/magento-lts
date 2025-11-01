@@ -138,7 +138,8 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * Set customer instance
      *
-     * @param  Mage_Customer_Model_Customer|null $customer
+     * @param Mage_Customer_Model_Customer|null $customer
+     *
      * @return $this
      */
     public function setCustomer($customer)
@@ -160,7 +161,8 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * Set quote to be loaded even if inactive
      *
-     * @param  bool  $load
+     * @param bool $load
+     *
      * @return $this
      */
     public function setLoadInactive($load = true)
@@ -244,6 +246,7 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
 
     /**
      * @return string
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     protected function _getQuoteIdKey()
@@ -315,9 +318,10 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
      * By providing the two parameters data and value, the data will be added to existing step data.
      * By providing an associative array [data => value, ...] the existing step data will be replaced.
      *
-     * @param  string       $step
-     * @param  array|string $data
-     * @param  mixed|null   $value
+     * @param string       $step
+     * @param array|string $data
+     * @param mixed|null   $value
+     *
      * @return $this
      */
     public function setStepData($step, $data, $value = null)
@@ -346,8 +350,9 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
      * Returns existing step data for all steps ($step = null) or the provided checkout step.
      * By providing $data only this data of the given step will be returned, or false if not set.
      *
-     * @param  string|null       $step
-     * @param  string|null       $data
+     * @param string|null $step
+     * @param string|null $data
+     *
      * @return array|mixed|false
      */
     public function getStepData($step = null, $data = null)
@@ -503,7 +508,8 @@ class Mage_Checkout_Model_Session extends Mage_Core_Model_Session_Abstract
     }
 
     /**
-     * @param  Mage_Sales_Model_Quote $quote
+     * @param Mage_Sales_Model_Quote $quote
+     *
      * @return $this
      */
     public function replaceQuote($quote)

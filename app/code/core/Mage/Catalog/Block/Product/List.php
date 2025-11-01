@@ -200,7 +200,8 @@ class Mage_Catalog_Block_Product_List extends Mage_Catalog_Block_Product_Abstrac
     }
 
     /**
-     * @param  Mage_Catalog_Model_Resource_Product_Collection $collection
+     * @param Mage_Catalog_Model_Resource_Product_Collection $collection
+     *
      * @return $this
      */
     public function setCollection($collection)
@@ -210,8 +211,10 @@ class Mage_Catalog_Block_Product_List extends Mage_Catalog_Block_Product_Abstrac
     }
 
     /**
-     * @param  array|string|int|Mage_Core_Model_Config_Element $code
+     * @param array|string|int|Mage_Core_Model_Config_Element $code
+     *
      * @return $this
+     *
      * @throws Mage_Core_Exception
      */
     public function addAttribute($code)
@@ -241,7 +244,8 @@ class Mage_Catalog_Block_Product_List extends Mage_Catalog_Block_Product_Abstrac
     /**
      * Prepare Sort By fields from Category Data
      *
-     * @param  Mage_Catalog_Model_Category $category
+     * @param Mage_Catalog_Model_Category $category
+     *
      * @return $this
      */
     public function prepareSortableFieldsByCategory($category)

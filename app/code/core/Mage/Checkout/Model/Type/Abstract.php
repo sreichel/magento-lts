@@ -125,7 +125,8 @@ abstract class Mage_Checkout_Model_Type_Abstract extends Varien_Object
     }
 
     /**
-     * @param  Mage_Sales_Model_Quote_Address $address
+     * @param Mage_Sales_Model_Quote_Address $address
+     *
      * @return Mage_Sales_Model_Order
      */
     protected function _createOrderFromAddress($address)

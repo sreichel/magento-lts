@@ -43,8 +43,9 @@ class Mage_Adminhtml_Block_Report_Filter_Form extends Mage_Adminhtml_Block_Widge
     /**
      * Get field visibility
      *
-     * @param  string $fieldId           Field id
-     * @param  bool   $defaultVisibility Default field visibility
+     * @param string $fieldId           Field id
+     * @param bool   $defaultVisibility Default field visibility
+     *
      * @return bool
      */
     public function getFieldVisibility($fieldId, $defaultVisibility = true)
@@ -83,8 +84,9 @@ class Mage_Adminhtml_Block_Report_Filter_Form extends Mage_Adminhtml_Block_Widge
     /**
      * Add report type option
      *
-     * @param  string $key
-     * @param  string $value
+     * @param string $key
+     * @param string $value
+     *
      * @return $this
      */
     public function addReportTypeOption($key, $value)

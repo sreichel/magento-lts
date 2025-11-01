@@ -88,7 +88,8 @@ class Mage_Core_Model_Resource_File_Storage_Database extends Mage_Core_Model_Res
     /**
      * Decodes blob content retrieved by DB driver
      *
-     * @param  array $row Table row with 'content' key in it
+     * @param array $row Table row with 'content' key in it
+     *
      * @return array
      */
     protected function _decodeFileContent($row)
@@ -100,7 +101,8 @@ class Mage_Core_Model_Resource_File_Storage_Database extends Mage_Core_Model_Res
     /**
      * Decodes blob content retrieved by Database driver
      *
-     * @param  array $rows Array of table rows (files), each containing 'content' key
+     * @param array $rows Array of table rows (files), each containing 'content' key
+     *
      * @return array
      */
     protected function _decodeAllFilesContent($rows)
@@ -115,8 +117,9 @@ class Mage_Core_Model_Resource_File_Storage_Database extends Mage_Core_Model_Res
     /**
      * Load entity by filename
      *
-     * @param  string $filename
-     * @param  string $path
+     * @param string $filename
+     * @param string $path
+     *
      * @return $this
      */
     public function loadByFilename(Mage_Core_Model_File_Storage_Database $object, $filename, $path)
@@ -154,8 +157,9 @@ class Mage_Core_Model_Resource_File_Storage_Database extends Mage_Core_Model_Res
     /**
      * Get files from storage at defined range
      *
-     * @param  int   $offset
-     * @param  int   $count
+     * @param int $offset
+     * @param int $count
+     *
      * @return array
      */
     public function getFiles($offset = 0, $count = 100)
@@ -177,7 +181,8 @@ class Mage_Core_Model_Resource_File_Storage_Database extends Mage_Core_Model_Res
     /**
      * Save file to storage
      *
-     * @param  array|Mage_Core_Model_File_Storage_Database $file
+     * @param array|Mage_Core_Model_File_Storage_Database $file
+     *
      * @return $this
      */
     public function saveFile($file)
@@ -203,10 +208,11 @@ class Mage_Core_Model_Resource_File_Storage_Database extends Mage_Core_Model_Res
     /**
      * Rename files in database
      *
-     * @param  string $oldFilename
-     * @param  string $oldPath
-     * @param  string $newFilename
-     * @param  string $newPath
+     * @param string $oldFilename
+     * @param string $oldPath
+     * @param string $newFilename
+     * @param string $newPath
+     *
      * @return $this
      */
     public function renameFile($oldFilename, $oldPath, $newFilename, $newPath)
@@ -225,10 +231,11 @@ class Mage_Core_Model_Resource_File_Storage_Database extends Mage_Core_Model_Res
     /**
      * Copy files in database
      *
-     * @param  string $oldFilename
-     * @param  string $oldPath
-     * @param  string $newFilename
-     * @param  string $newPath
+     * @param string $oldFilename
+     * @param string $oldPath
+     * @param string $newFilename
+     * @param string $newPath
+     *
      * @return $this
      */
     public function copyFile($oldFilename, $oldPath, $newFilename, $newPath)
@@ -260,8 +267,9 @@ class Mage_Core_Model_Resource_File_Storage_Database extends Mage_Core_Model_Res
     /**
      * Check whether file exists in DB
      *
-     * @param  string $filename
-     * @param  string $path
+     * @param string $filename
+     * @param string $path
+     *
      * @return bool
      */
     public function fileExists($filename, $path)
@@ -316,7 +324,8 @@ class Mage_Core_Model_Resource_File_Storage_Database extends Mage_Core_Model_Res
     /**
      * Return directory file listing
      *
-     * @param  string $directory
+     * @param string $directory
+     *
      * @return mixed
      */
     public function getDirectoryFiles($directory)

@@ -77,8 +77,9 @@ class Mage_PaypalUk_Model_Direct extends Mage_Paypal_Model_Direct
      * Format credit card expiration date based on month and year values
      * Format: mmyy
      *
-     * @param  string|int $month
-     * @param  string|int $year
+     * @param string|int $month
+     * @param string|int $year
+     *
      * @return string
      */
     protected function _getFormattedCcExpirationDate($month, $year)

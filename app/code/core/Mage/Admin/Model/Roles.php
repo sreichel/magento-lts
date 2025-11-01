@@ -107,11 +107,12 @@ class Mage_Admin_Model_Roles extends Mage_Core_Model_Abstract
     /**
      * Build resources array process
      *
-     * @param  null|string                          $parentName
-     * @param  null|int                             $level
-     * @param  null|mixed                           $represent2Darray
-     * @param  bool                                 $rawNodes
-     * @param  string                               $module
+     * @param null|string $parentName
+     * @param null|int    $level
+     * @param null|mixed  $represent2Darray
+     * @param bool        $rawNodes
+     * @param string      $module
+     *
      * @return Varien_Simplexml_Element|false|array
      */
     protected function _buildResourcesArray(

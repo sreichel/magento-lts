@@ -70,7 +70,8 @@ class Mage_Downloadable_Model_Link_Api_Validator //extends Mage_Api_Model_Resour
     /**
      * Validate resourceType, it should be one of (links|samples|link_samples)
      *
-     * @param  string $type
+     * @param string $type
+     *
      * @return bool
      */
     public function validateType($type)

@@ -24,7 +24,8 @@ class Mage_Oauth_AuthorizeController extends Mage_Core_Controller_Front_Action
     /**
      * Init authorize page
      *
-     * @param  bool  $simple Is simple page?
+     * @param bool $simple Is simple page?
+     *
      * @return $this
      */
     protected function _initForm($simple = false)
@@ -76,7 +77,8 @@ class Mage_Oauth_AuthorizeController extends Mage_Core_Controller_Front_Action
     /**
      * Init confirm page
      *
-     * @param  bool  $simple Is simple page?
+     * @param bool $simple Is simple page?
+     *
      * @return $this
      */
     protected function _initConfirmPage($simple = false)
@@ -129,7 +131,8 @@ class Mage_Oauth_AuthorizeController extends Mage_Core_Controller_Front_Action
     /**
      * Init reject page
      *
-     * @param  bool  $simple Is simple page?
+     * @param bool $simple Is simple page?
+     *
      * @return $this
      */
     protected function _initRejectPage($simple = false)

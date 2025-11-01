@@ -58,6 +58,7 @@ class Mage_Catalog_Model_Category_Url extends Mage_Catalog_Model_Url
 
     /**
      * Returns category URL by which it can be accessed
+     *
      * @return string
      */
     protected function _getDirectUrl(Mage_Catalog_Model_Category $category)

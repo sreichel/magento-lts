@@ -54,7 +54,8 @@ class Mage_Core_Model_Design_Fallback
     }
 
     /**
-     * @param  string|int|Mage_Core_Model_Store $store
+     * @param string|int|Mage_Core_Model_Store $store
+     *
      * @return $this
      */
     public function setStore($store)
@@ -71,9 +72,10 @@ class Mage_Core_Model_Design_Fallback
     /**
      * Get fallback scheme
      *
-     * @param  string $area
-     * @param  string $package
-     * @param  string $theme
+     * @param string $area
+     * @param string $package
+     * @param string $theme
+     *
      * @return array
      */
     public function getFallbackScheme($area, $package, $theme)
@@ -96,9 +98,10 @@ class Mage_Core_Model_Design_Fallback
     /**
      * Check if inheritance defined in theme config
      *
-     * @param  string $area
-     * @param  string $package
-     * @param  string $theme
+     * @param string $area
+     * @param string $package
+     * @param string $theme
+     *
      * @return bool
      */
     protected function _isInheritanceDefined($area, $package, $theme)
@@ -110,10 +113,12 @@ class Mage_Core_Model_Design_Fallback
     /**
      * Get fallback scheme according to theme config
      *
-     * @param  string              $area
-     * @param  string              $package
-     * @param  string              $theme
+     * @param string $area
+     * @param string $package
+     * @param string $theme
+     *
      * @return array
+     *
      * @throws Mage_Core_Exception
      */
     protected function _getFallbackScheme($area, $package, $theme)
@@ -138,9 +143,10 @@ class Mage_Core_Model_Design_Fallback
     /**
      * Prevent circular inheritance
      *
-     * @param  string              $area
-     * @param  string              $package
-     * @param  string              $theme
+     * @param string $area
+     * @param string $package
+     * @param string $theme
+     *
      * @throws Mage_Core_Exception
      */
     protected function _checkVisited($area, $package, $theme)
@@ -171,6 +177,7 @@ class Mage_Core_Model_Design_Fallback
 
     /**
      * Default theme getter
+     *
      * @return string
      */
     protected function _getFallbackTheme()

@@ -22,6 +22,7 @@ class Mage_Rss_Block_List extends Mage_Core_Block_Template
      * Add Link elements to head
      *
      * @return $this
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     protected function _prepareLayout()
@@ -51,11 +52,13 @@ class Mage_Rss_Block_List extends Mage_Core_Block_Template
     /**
      * Add new rss feed
      *
-     * @param  string                          $url
-     * @param  string                          $label
-     * @param  array                           $param
-     * @param  bool                            $customerGroup
+     * @param string $url
+     * @param string $label
+     * @param array  $param
+     * @param bool   $customerGroup
+     *
      * @return $this
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function addRssFeed($url, $label, $param = [], $customerGroup = false)
@@ -81,6 +84,7 @@ class Mage_Rss_Block_List extends Mage_Core_Block_Template
 
     /**
      * @return int
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function getCurrentStoreId()
@@ -112,6 +116,7 @@ class Mage_Rss_Block_List extends Mage_Core_Block_Template
 
     /**
      * @return array|false
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function getRssMiscFeeds()
@@ -124,6 +129,7 @@ class Mage_Rss_Block_List extends Mage_Core_Block_Template
     }
 
     /**
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function newProductRssFeed()
@@ -135,6 +141,7 @@ class Mage_Rss_Block_List extends Mage_Core_Block_Template
     }
 
     /**
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function specialProductRssFeed()
@@ -146,6 +153,7 @@ class Mage_Rss_Block_List extends Mage_Core_Block_Template
     }
 
     /**
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function salesRuleProductRssFeed()
@@ -157,7 +165,9 @@ class Mage_Rss_Block_List extends Mage_Core_Block_Template
     }
 
     /**
+     *
      * @throws Mage_Core_Exception
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function categoriesRssFeed()

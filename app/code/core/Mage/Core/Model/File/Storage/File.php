@@ -100,9 +100,10 @@ class Mage_Core_Model_File_Storage_File extends Mage_Core_Model_File_Storage_Abs
     /**
      * Collect files and directories from storage
      *
-     * @param  int        $offset
-     * @param  int        $count
-     * @param  string     $type
+     * @param int    $offset
+     * @param int    $count
+     * @param string $type
+     *
      * @return array|bool
      */
     public function collectData($offset = 0, $count = 100, $type = 'files')
@@ -129,8 +130,9 @@ class Mage_Core_Model_File_Storage_File extends Mage_Core_Model_File_Storage_Abs
     /**
      * Export directories list from storage
      *
-     * @param  int        $offset
-     * @param  int        $count
+     * @param int $offset
+     * @param int $count
+     *
      * @return array|bool
      */
     public function exportDirectories($offset = 0, $count = 100)
@@ -141,8 +143,9 @@ class Mage_Core_Model_File_Storage_File extends Mage_Core_Model_File_Storage_Abs
     /**
      * Export files list in defined range
      *
-     * @param  int        $offset
-     * @param  int        $count
+     * @param int $offset
+     * @param int $count
+     *
      * @return array|bool
      */
     public function exportFiles($offset = 0, $count = 1)
@@ -171,8 +174,9 @@ class Mage_Core_Model_File_Storage_File extends Mage_Core_Model_File_Storage_Abs
     /**
      * Import entities to storage
      *
-     * @param  array  $data
-     * @param  string $callback
+     * @param array  $data
+     * @param string $callback
+     *
      * @return $this
      */
     public function import($data, $callback)
@@ -196,7 +200,8 @@ class Mage_Core_Model_File_Storage_File extends Mage_Core_Model_File_Storage_Abs
     /**
      * Import directories to storage
      *
-     * @param  array $dirs
+     * @param array $dirs
+     *
      * @return $this
      */
     public function importDirectories($dirs)
@@ -207,7 +212,8 @@ class Mage_Core_Model_File_Storage_File extends Mage_Core_Model_File_Storage_Abs
     /**
      * Import files list
      *
-     * @param  array $files
+     * @param array $files
+     *
      * @return $this
      */
     public function importFiles($files)
@@ -218,7 +224,8 @@ class Mage_Core_Model_File_Storage_File extends Mage_Core_Model_File_Storage_Abs
     /**
      * Save directory to storage
      *
-     * @param  array $dir
+     * @param array $dir
+     *
      * @return bool
      */
     public function saveDir($dir)
@@ -229,8 +236,9 @@ class Mage_Core_Model_File_Storage_File extends Mage_Core_Model_File_Storage_Abs
     /**
      * Save file to storage
      *
-     * @param  array|Mage_Core_Model_File_Storage_Database $file
-     * @param  bool                                        $overwrite
+     * @param array|Mage_Core_Model_File_Storage_Database $file
+     * @param bool                                        $overwrite
+     *
      * @return bool
      */
     public function saveFile($file, $overwrite = true)
@@ -255,7 +263,8 @@ class Mage_Core_Model_File_Storage_File extends Mage_Core_Model_File_Storage_Abs
     }
 
     /**
-     * @param  string $filePath
+     * @param string $filePath
+     *
      * @return bool
      */
     public function lockCreateFile($filePath)

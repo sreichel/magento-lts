@@ -33,7 +33,8 @@ class Mage_Adminhtml_Block_Template extends Mage_Core_Block_Template
     }
 
     /**
-     * @param  string $moduleName Full module name
+     * @param string $moduleName Full module name
+     *
      * @return bool
      * @deprecated
      * @see Mage_Core_Block_Template::isModuleOutputEnabled()
@@ -57,7 +58,8 @@ class Mage_Adminhtml_Block_Template extends Mage_Core_Block_Template
     /**
      * Deleting script tags from string
      *
-     * @param  string $html
+     * @param string $html
+     *
      * @return string
      */
     public function maliciousCodeFilter($html)

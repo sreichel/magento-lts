@@ -24,7 +24,8 @@ class Mage_Adminhtml_Model_System_Config_Source_Storage_Media_Database
     /**
      * Recursively collect connection configuration
      *
-     * @param  string $connectionName
+     * @param string $connectionName
+     *
      * @return array
      */
     protected function _collectConnectionConfig($connectionName)

@@ -124,6 +124,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Li
      * Return true if price in website scope
      *
      * @deprecated since 1.14.2.0
+     *
      * @return bool
      */
     public function getIsPriceWebsiteScope()
@@ -223,7 +224,8 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Li
     /**
      * Return formatted price with two digits after decimal point
      *
-     * @param  float  $value
+     * @param float $value
+     *
      * @return string
      */
     public function getPriceValue($value)
@@ -277,7 +279,8 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Li
     /**
      * Retrieve config json
      *
-     * @param  string $type
+     * @param string $type
+     *
      * @return string
      */
     public function getConfigJson($type = 'links')
@@ -295,7 +298,8 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Li
     }
 
     /**
-     * @param  string $type
+     * @param string $type
+     *
      * @return string
      */
     public function getBrowseButtonHtml($type = '')
@@ -311,7 +315,8 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Li
     }
 
     /**
-     * @param  string $type
+     * @param string $type
+     *
      * @return string
      */
     public function getDeleteButtonHtml($type = '')
@@ -327,6 +332,7 @@ class Mage_Downloadable_Block_Adminhtml_Catalog_Product_Edit_Tab_Downloadable_Li
      * Retrieve config object
      *
      * @deprecated
+     *
      * @return $this
      */
     public function getConfig()

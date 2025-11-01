@@ -42,7 +42,8 @@ class Mage_Catalog_Model_Api2_Product_Rest_Admin_V1 extends Mage_Catalog_Model_A
     /**
      * Remove specified keys from associative or indexed array
      *
-     * @param  bool  $dropOrigKeys if true - return array as indexed array
+     * @param bool $dropOrigKeys if true - return array as indexed array
+     *
      * @return array
      */
     protected function _filterOutArrayKeys(array $array, array $keys, $dropOrigKeys = false)
@@ -88,6 +89,7 @@ class Mage_Catalog_Model_Api2_Product_Rest_Admin_V1 extends Mage_Catalog_Model_A
 
     /**
      * Delete product by its ID
+     *
      *
      * @throws Mage_Api2_Exception
      */
@@ -214,7 +216,8 @@ class Mage_Catalog_Model_Api2_Product_Rest_Admin_V1 extends Mage_Catalog_Model_A
     /**
      * Determine if stock management is enabled
      *
-     * @param  array $stockData
+     * @param array $stockData
+     *
      * @return bool
      */
     protected function _isManageStockEnabled($stockData)
@@ -233,8 +236,9 @@ class Mage_Catalog_Model_Api2_Product_Rest_Admin_V1 extends Mage_Catalog_Model_A
     /**
      * Check if value from config is used
      *
-     * @param  array  $data
-     * @param  string $field
+     * @param array  $data
+     * @param string $field
+     *
      * @return bool
      */
     protected function _isConfigValueUsed($data, $field)
@@ -376,8 +380,9 @@ class Mage_Catalog_Model_Api2_Product_Rest_Admin_V1 extends Mage_Catalog_Model_A
     /**
      * Check if attribute is allowed
      *
-     * @param  Mage_Eav_Model_Entity_Attribute_Abstract $attribute
-     * @param  array                                    $attributes
+     * @param Mage_Eav_Model_Entity_Attribute_Abstract $attribute
+     * @param array                                    $attributes
+     *
      * @return bool
      */
     protected function _isAllowedAttribute($attribute, $attributes = null)

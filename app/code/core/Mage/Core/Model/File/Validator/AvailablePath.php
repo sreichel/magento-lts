@@ -92,8 +92,9 @@ class Mage_Core_Model_File_Validator_AvailablePath extends Zend_Validate_Abstrac
     /**
      * Set paths masks
      *
-     * @param  array $paths All paths masks types.
-     *                      E.g.: array('available' => array(...), 'protected' => array(...))
+     * @param array $paths All paths masks types.
+     *                     E.g.: array('available' => array(...), 'protected' => array(...))
+     *
      * @return $this
      */
     public function setPaths(array $paths)
@@ -123,7 +124,8 @@ class Mage_Core_Model_File_Validator_AvailablePath extends Zend_Validate_Abstrac
     /**
      * Add protected paths masks
      *
-     * @param  string|array $path
+     * @param string|array $path
+     *
      * @return $this
      */
     public function addProtectedPath($path)
@@ -161,7 +163,8 @@ class Mage_Core_Model_File_Validator_AvailablePath extends Zend_Validate_Abstrac
     /**
      * Add available paths mask
      *
-     * @param  string|array $path
+     * @param string|array $path
+     *
      * @return $this
      */
     public function addAvailablePath($path)
@@ -192,8 +195,10 @@ class Mage_Core_Model_File_Validator_AvailablePath extends Zend_Validate_Abstrac
      * getMessages() will return an array of messages that explain why the
      * validation failed.
      *
+     *
      * @throws Exception Throw exception on empty both paths masks types
      * @param  string    $value File/dir path
+     *
      * @return bool
      */
     public function isValid($value)
@@ -241,9 +246,10 @@ class Mage_Core_Model_File_Validator_AvailablePath extends Zend_Validate_Abstrac
     /**
      * Validate value by path masks
      *
-     * @param  array $valuePathInfo Path info from value path
-     * @param  array $paths         Protected/available paths masks
-     * @param  bool  $protected     Paths masks is protected?
+     * @param array $valuePathInfo Path info from value path
+     * @param array $paths         Protected/available paths masks
+     * @param bool  $protected     Paths masks is protected?
+     *
      * @return bool
      */
     protected function _isValidByPaths($valuePathInfo, $paths, $protected)

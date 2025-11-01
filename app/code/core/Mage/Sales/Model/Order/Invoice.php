@@ -224,7 +224,8 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
     /**
      * Load invoice by increment id
      *
-     * @param  string $incrementId
+     * @param string $incrementId
+     *
      * @return $this
      */
     public function loadByIncrementId($incrementId)
@@ -444,6 +445,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
 
     /**
      * Whether pay() method was called (whether order and payment totals were updated)
+     *
      * @return bool
      */
     public function wasPayCalled()
@@ -529,9 +531,10 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
     /**
      * Round price considering delta
      *
-     * @param  float  $price
-     * @param  string $type
-     * @param  bool   $negative Indicates if we perform addition (true) or subtraction (false) of rounded value
+     * @param float  $price
+     * @param string $type
+     * @param bool   $negative Indicates if we perform addition (true) or subtraction (false) of rounded value
+     *
      * @return float
      */
     public function roundPrice($price, $type = 'regular', $negative = false)
@@ -584,7 +587,8 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
     }
 
     /**
-     * @param  int|string                                $itemId
+     * @param int|string $itemId
+     *
      * @return false|Mage_Sales_Model_Order_Invoice_Item
      */
     public function getItemById($itemId)
@@ -600,6 +604,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
 
     /**
      * @return $this
+     *
      * @throws Exception
      */
     public function addItem(Mage_Sales_Model_Order_Invoice_Item $item)
@@ -636,7 +641,8 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
     /**
      * Retrieve invoice state name by state identifier
      *
-     * @param  int    $stateId
+     * @param int $stateId
+     *
      * @return string
      */
     public function getStateName($stateId = null)
@@ -774,7 +780,8 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
     }
 
     /**
-     * @param  bool                                                        $reload
+     * @param bool $reload
+     *
      * @return Mage_Sales_Model_Resource_Order_Comment_Collection_Abstract
      */
     public function getCommentsCollection($reload = false)
@@ -802,8 +809,9 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
     /**
      * Send email with invoice data
      *
-     * @param  bool   $notifyCustomer
-     * @param  string $comment
+     * @param bool   $notifyCustomer
+     * @param string $comment
+     *
      * @return $this
      */
     public function sendEmail($notifyCustomer = true, $comment = '')
@@ -905,8 +913,9 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
     /**
      * Send email with invoice update information
      *
-     * @param  bool   $notifyCustomer
-     * @param  string $comment
+     * @param bool   $notifyCustomer
+     * @param string $comment
+     *
      * @return $this
      */
     public function sendUpdateEmail($notifyCustomer = true, $comment = '')
@@ -974,7 +983,8 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
     }
 
     /**
-     * @param  string     $configPath
+     * @param string $configPath
+     *
      * @return array|bool
      */
     protected function _getEmails($configPath)
@@ -989,6 +999,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
 
     /**
      * @return Mage_Sales_Model_Abstract
+     *
      * @throws Mage_Core_Exception
      */
     protected function _beforeDelete()

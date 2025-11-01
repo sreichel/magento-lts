@@ -29,7 +29,8 @@ class Mage_Weee_Model_Attribute_Backend_Weee_Tax extends Mage_Catalog_Model_Prod
     /**
      * Validate data
      *
-     * @param  Mage_Catalog_Model_Product $object
+     * @param Mage_Catalog_Model_Product $object
+     *
      * @return $this
      */
     public function validate($object)
@@ -64,7 +65,8 @@ class Mage_Weee_Model_Attribute_Backend_Weee_Tax extends Mage_Catalog_Model_Prod
     /**
      * Assign WEEE taxes to product data
      *
-     * @param  Mage_Catalog_Model_Product $object
+     * @param Mage_Catalog_Model_Product $object
+     *
      * @return $this
      */
     public function afterLoad($object)
@@ -89,7 +91,8 @@ class Mage_Weee_Model_Attribute_Backend_Weee_Tax extends Mage_Catalog_Model_Prod
     }
 
     /**
-     * @param  Mage_Catalog_Model_Product                               $object
+     * @param Mage_Catalog_Model_Product $object
+     *
      * @return $this|Mage_Catalog_Model_Product_Attribute_Backend_Price
      */
     public function afterSave($object)
@@ -132,7 +135,8 @@ class Mage_Weee_Model_Attribute_Backend_Weee_Tax extends Mage_Catalog_Model_Prod
     }
 
     /**
-     * @param  Varien_Object                                          $object
+     * @param Varien_Object $object
+     *
      * @return $this|Mage_Eav_Model_Entity_Attribute_Backend_Abstract
      */
     public function afterDelete($object)

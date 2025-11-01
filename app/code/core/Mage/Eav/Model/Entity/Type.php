@@ -72,7 +72,8 @@ class Mage_Eav_Model_Entity_Type extends Mage_Core_Model_Abstract
     /**
      * Load type by code
      *
-     * @param  string $code
+     * @param string $code
+     *
      * @return $this
      */
     public function loadByCode($code)
@@ -85,7 +86,8 @@ class Mage_Eav_Model_Entity_Type extends Mage_Core_Model_Abstract
     /**
      * Retrieve entity type attributes collection
      *
-     * @param  int|null                                            $setId
+     * @param int|null $setId
+     *
      * @return Mage_Eav_Model_Resource_Entity_Attribute_Collection
      */
     public function getAttributeCollection($setId = null)
@@ -110,7 +112,8 @@ class Mage_Eav_Model_Entity_Type extends Mage_Core_Model_Abstract
     /**
      * Create entity type attributes collection
      *
-     * @param  int|null                                            $setId
+     * @param int|null $setId
+     *
      * @return Mage_Eav_Model_Resource_Entity_Attribute_Collection
      */
     public function newAttributeCollection($setId = null)
@@ -160,8 +163,10 @@ class Mage_Eav_Model_Entity_Type extends Mage_Core_Model_Abstract
     /**
      * Retrieve new incrementId
      *
-     * @param  int          $storeId
+     * @param int $storeId
+     *
      * @return false|string
+     *
      * @throws Exception
      */
     public function fetchNewIncrementId($storeId = null)

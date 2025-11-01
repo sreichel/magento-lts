@@ -95,8 +95,9 @@ class Mage_Adminhtml_Model_System_Store extends Varien_Object
     /**
      * Retrieve store values for form
      *
-     * @param  bool  $empty
-     * @param  bool  $all
+     * @param bool $empty
+     * @param bool $all
+     *
      * @return array
      */
     public function getStoreValuesForForm($empty = false, $all = false)
@@ -168,10 +169,11 @@ class Mage_Adminhtml_Model_System_Store extends Varien_Object
     /**
      * Retrieve stores structure
      *
-     * @param  bool  $isAll
-     * @param  array $storeIds
-     * @param  array $groupIds
-     * @param  array $websiteIds
+     * @param bool  $isAll
+     * @param array $storeIds
+     * @param array $groupIds
+     * @param array $websiteIds
+     *
      * @return array
      */
     public function getStoresStructure($isAll = false, $storeIds = [], $groupIds = [], $websiteIds = [])
@@ -236,8 +238,9 @@ class Mage_Adminhtml_Model_System_Store extends Varien_Object
     /**
      * Website label/value array getter, compatible with form dropdown options
      *
-     * @param  bool  $empty
-     * @param  bool  $all
+     * @param bool $empty
+     * @param bool $all
+     *
      * @return array
      */
     public function getWebsiteValuesForForm($empty = false, $all = false)
@@ -270,8 +273,9 @@ class Mage_Adminhtml_Model_System_Store extends Varien_Object
     /**
      * Get websites as id => name associative array
      *
-     * @param  bool   $withDefault
-     * @param  string $attribute
+     * @param bool   $withDefault
+     * @param string $attribute
+     *
      * @return array
      */
     public function getWebsiteOptionHash($withDefault = false, $attribute = 'name')
@@ -287,8 +291,9 @@ class Mage_Adminhtml_Model_System_Store extends Varien_Object
     /**
      * Get store views as id => name associative array
      *
-     * @param  bool   $withDefault
-     * @param  string $attribute
+     * @param bool   $withDefault
+     * @param string $attribute
+     *
      * @return array
      */
     public function getStoreOptionHash($withDefault = false, $attribute = 'name')
@@ -304,7 +309,8 @@ class Mage_Adminhtml_Model_System_Store extends Varien_Object
     /**
      * Get store groups as id => name associative array
      *
-     * @param  string $attribute
+     * @param string $attribute
+     *
      * @return array
      */
     public function getStoreGroupOptionHash($attribute = 'name')
@@ -320,7 +326,8 @@ class Mage_Adminhtml_Model_System_Store extends Varien_Object
     /**
      * Retrieve Website name by Id
      *
-     * @param  int         $websiteId
+     * @param int $websiteId
+     *
      * @return string|null
      */
     public function getWebsiteName($websiteId)
@@ -337,7 +344,8 @@ class Mage_Adminhtml_Model_System_Store extends Varien_Object
     /**
      * Retrieve Group name by Id
      *
-     * @param  int         $groupId
+     * @param int $groupId
+     *
      * @return string|null
      */
     public function getGroupName($groupId)
@@ -354,7 +362,8 @@ class Mage_Adminhtml_Model_System_Store extends Varien_Object
     /**
      * Retrieve Store name by Id
      *
-     * @param  int         $storeId
+     * @param int $storeId
+     *
      * @return string|null
      */
     public function getStoreName($storeId)
@@ -369,7 +378,8 @@ class Mage_Adminhtml_Model_System_Store extends Varien_Object
     /**
      * Retrieve store name with website and website store
      *
-     * @param  int                   $storeId
+     * @param int $storeId
+     *
      * @return Mage_Core_Model_Store
      **/
     public function getStoreData($storeId)
@@ -380,7 +390,8 @@ class Mage_Adminhtml_Model_System_Store extends Varien_Object
     /**
      * Retrieve store name with website and website store
      *
-     * @param  int    $storeId
+     * @param int $storeId
+     *
      * @return string
      **/
     public function getStoreNameWithWebsite($storeId)
@@ -437,7 +448,8 @@ class Mage_Adminhtml_Model_System_Store extends Varien_Object
      * Load/Reload collection(s) by type
      * Allowed types: website, group, store or null for all
      *
-     * @param  string $type
+     * @param string $type
+     *
      * @return $this
      */
     public function reload($type = null)
@@ -468,7 +480,8 @@ class Mage_Adminhtml_Model_System_Store extends Varien_Object
     /**
      * Retrieve store path with website and website store
      *
-     * @param  int    $storeId
+     * @param int $storeId
+     *
      * @return string
      **/
     public function getStoreNamePath($storeId)
@@ -493,7 +506,8 @@ class Mage_Adminhtml_Model_System_Store extends Varien_Object
     /**
      * Specify whether to show admin-scope options
      *
-     * @param  bool  $value
+     * @param bool $value
+     *
      * @return $this
      */
     public function setIsAdminScopeAllowed($value)

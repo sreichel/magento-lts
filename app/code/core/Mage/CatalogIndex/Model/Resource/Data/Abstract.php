@@ -31,7 +31,8 @@ class Mage_CatalogIndex_Model_Resource_Data_Abstract extends Mage_Core_Model_Res
     /**
      * Set link select
      *
-     * @param  Zend_Db_Select $select
+     * @param Zend_Db_Select $select
+     *
      * @return $this
      */
     protected function _setLinkSelect($select)
@@ -62,9 +63,10 @@ class Mage_CatalogIndex_Model_Resource_Data_Abstract extends Mage_Core_Model_Res
     /**
      * Retrieve specified attribute data for specified products from specified store
      *
-     * @param  array|string $products
-     * @param  array        $attributes
-     * @param  int          $store
+     * @param array|string $products
+     * @param array        $attributes
+     * @param int          $store
+     *
      * @return array
      */
     public function getAttributeData($products, $attributes, $store)
@@ -105,12 +107,13 @@ class Mage_CatalogIndex_Model_Resource_Data_Abstract extends Mage_Core_Model_Res
     /**
      * Returns an array of product children/parents
      *
-     * @param  int       $store
-     * @param  string    $table
-     * @param  string    $idField
-     * @param  string    $whereField
-     * @param  int|array $id
-     * @param  array     $additionalWheres
+     * @param int       $store
+     * @param string    $table
+     * @param string    $idField
+     * @param string    $whereField
+     * @param int|array $id
+     * @param array     $additionalWheres
+     *
      * @return array
      */
     public function fetchLinkInformation($store, $table, $idField, $whereField, $id, $additionalWheres = [])
@@ -166,9 +169,10 @@ class Mage_CatalogIndex_Model_Resource_Data_Abstract extends Mage_Core_Model_Res
     /**
      * Return minimal prices for specified products
      *
-     * @param  array $products
-     * @param  array $priceAttributes
-     * @param  int   $store
+     * @param array $products
+     * @param array $priceAttributes
+     * @param int   $store
+     *
      * @return mixed
      */
     public function getMinimalPrice($products, $priceAttributes, $store)
@@ -188,8 +192,9 @@ class Mage_CatalogIndex_Model_Resource_Data_Abstract extends Mage_Core_Model_Res
     /**
      * Return tier prices for specified product in specified website
      *
-     * @param  array $products
-     * @param  int   $website
+     * @param array $products
+     * @param int   $website
+     *
      * @return mixed
      */
     public function getTierPrices($products, $website)
@@ -222,11 +227,12 @@ class Mage_CatalogIndex_Model_Resource_Data_Abstract extends Mage_Core_Model_Res
     /**
      * Add attribute filter to select
      *
-     * @param  string           $attributeCode
-     * @param  string           $table         the main table name or alias
-     * @param  string           $field         entity_id field name
-     * @param  int              $store
-     * @param  int|string|array $value         the filter value
+     * @param string           $attributeCode
+     * @param string           $table         the main table name or alias
+     * @param string           $field         entity_id field name
+     * @param int              $store
+     * @param int|string|array $value         the filter value
+     *
      * @return $this
      */
     protected function _addAttributeFilter(Varien_Db_Select $select, $attributeCode, $table, $field, $store, $value)

@@ -321,8 +321,9 @@ abstract class Mage_ImportExport_Model_Export_Entity_Abstract
     /**
      * Add error with corresponding current data source row number.
      *
-     * @param  string $errorCode   Error code or simply column name
-     * @param  int    $errorRowNum Row number.
+     * @param string $errorCode   Error code or simply column name
+     * @param int    $errorRowNum Row number.
+     *
      * @return $this
      */
     public function addRowError($errorCode, $errorRowNum)
@@ -337,8 +338,9 @@ abstract class Mage_ImportExport_Model_Export_Entity_Abstract
     /**
      * Add message template for specific error code from outside.
      *
-     * @param  string $errorCode Error code
-     * @param  string $message   Message template
+     * @param string $errorCode Error code
+     * @param string $message   Message template
+     *
      * @return $this
      */
     public function addMessageTemplate($errorCode, $message)
@@ -368,7 +370,9 @@ abstract class Mage_ImportExport_Model_Export_Entity_Abstract
      *     'type'  => 'file'
      * )
      *
+     *
      * @throws Mage_Core_Exception
+     *
      * @return array
      */
     abstract public function exportFile();
@@ -435,6 +439,7 @@ abstract class Mage_ImportExport_Model_Export_Entity_Abstract
      * EAV entity type code getter.
      *
      * @abstract
+     *
      * @return string
      */
     abstract public function getEntityTypeCode();
@@ -510,7 +515,9 @@ abstract class Mage_ImportExport_Model_Export_Entity_Abstract
     /**
      * Inner writer object getter.
      *
+     *
      * @throws Exception
+     *
      * @return Mage_ImportExport_Model_Export_Adapter_Abstract
      */
     public function getWriter()

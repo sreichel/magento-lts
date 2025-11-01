@@ -24,7 +24,8 @@
 class Mage_Core_Block_Text extends Mage_Core_Block_Abstract
 {
     /**
-     * @param  string $text
+     * @param string $text
+     *
      * @return $this
      */
     public function setText($text)

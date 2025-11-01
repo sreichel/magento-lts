@@ -35,6 +35,7 @@ class Mage_Core_Block_Store_Switcher extends Mage_Core_Block_Template
 
     /**
      * @return $this
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     protected function _loadData()
@@ -102,6 +103,7 @@ class Mage_Core_Block_Store_Switcher extends Mage_Core_Block_Template
 
     /**
      * @return int
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function getLanguageCount()
@@ -118,6 +120,7 @@ class Mage_Core_Block_Store_Switcher extends Mage_Core_Block_Template
 
     /**
      * @return int
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function getCurrentStoreId()
@@ -127,6 +130,7 @@ class Mage_Core_Block_Store_Switcher extends Mage_Core_Block_Template
 
     /**
      * @return string
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function getCurrentStoreCode()

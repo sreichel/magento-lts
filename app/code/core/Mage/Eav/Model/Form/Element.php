@@ -43,6 +43,7 @@ class Mage_Eav_Model_Form_Element extends Mage_Core_Model_Abstract
     /**
      * Validate data before save data
      *
+     *
      * @throws Mage_Core_Exception
      * @inheritDoc
      */

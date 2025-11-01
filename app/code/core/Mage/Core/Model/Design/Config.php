@@ -18,6 +18,7 @@ class Mage_Core_Model_Design_Config extends Varien_Simplexml_Config
 
     /**
      * Assemble themes inheritance config
+     *
      * @throws Mage_Core_Exception
      */
     public function __construct(array $params = [])
@@ -68,7 +69,8 @@ class Mage_Core_Model_Design_Config extends Varien_Simplexml_Config
     /**
      * Save cache
      *
-     * @param  array $tags
+     * @param array $tags
+     *
      * @return $this
      */
     public function saveCache($tags = null)
@@ -96,7 +98,8 @@ class Mage_Core_Model_Design_Config extends Varien_Simplexml_Config
     /**
      * Get area, package and theme from path .../app/design/{area}/{package}/{theme}/etc/theme.xml
      *
-     * @param  string $filePath
+     * @param string $filePath
+     *
      * @return array
      */
     protected function _getThemePathSegments($filePath)

@@ -38,7 +38,8 @@ class Mage_Bundle_Model_Resource_Indexer_Price extends Mage_Catalog_Model_Resour
     /**
      * Reindex temporary (price result data) for defined product(s)
      *
-     * @param  int|array $entityIds
+     * @param int|array $entityIds
+     *
      * @return $this
      */
     public function reindexEntity($entityIds)
@@ -126,8 +127,9 @@ class Mage_Bundle_Model_Resource_Indexer_Price extends Mage_Catalog_Model_Resour
     /**
      * Prepare temporary price index data for bundle products by price type
      *
-     * @param  int       $priceType
-     * @param  int|array $entityIds the entity ids limitatation
+     * @param int       $priceType
+     * @param int|array $entityIds the entity ids limitatation
+     *
      * @return $this
      */
     protected function _prepareBundlePriceByType($priceType, $entityIds = null)
@@ -378,7 +380,8 @@ class Mage_Bundle_Model_Resource_Indexer_Price extends Mage_Catalog_Model_Resour
     /**
      * Calculate bundle product selections price by product type
      *
-     * @param  int   $priceType
+     * @param int $priceType
+     *
      * @return $this
      */
     protected function _calculateBundleSelectionPrice($priceType)
@@ -523,7 +526,8 @@ class Mage_Bundle_Model_Resource_Indexer_Price extends Mage_Catalog_Model_Resour
     /**
      * Prepare temporary index price for bundle products
      *
-     * @param  int|array $entityIds the entity ids limitation
+     * @param int|array $entityIds the entity ids limitation
+     *
      * @return $this
      */
     protected function _prepareBundlePrice($entityIds = null)
@@ -566,7 +570,8 @@ class Mage_Bundle_Model_Resource_Indexer_Price extends Mage_Catalog_Model_Resour
      *
      * @see Mage_Catalog_Model_Resource_Product_Indexer_Price::_prepareTierPriceIndex
      *
-     * @param  int|array $entityIds
+     * @param int|array $entityIds
+     *
      * @return $this
      */
     protected function _prepareTierPriceIndex($entityIds = null)
@@ -625,7 +630,8 @@ class Mage_Bundle_Model_Resource_Indexer_Price extends Mage_Catalog_Model_Resour
      *
      * @see Mage_Catalog_Model_Resource_Product_Indexer_Price::_prepareGroupPriceIndex
      *
-     * @param  int|array $entityIds
+     * @param int|array $entityIds
+     *
      * @return $this
      */
     protected function _prepareGroupPriceIndex($entityIds = null)

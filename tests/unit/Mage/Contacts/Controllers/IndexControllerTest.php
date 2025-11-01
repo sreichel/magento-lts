@@ -26,6 +26,7 @@ final class IndexControllerTest extends OpenMageTest
      * @group Controller
      * @group runInSeparateProcess
      * @runInSeparateProcess
+     *
      * @throws Mage_Core_Exception
      */
     public function testPostAction(array $postData, bool $isFormKeyValid, ?string $expectedErrorMessage): void

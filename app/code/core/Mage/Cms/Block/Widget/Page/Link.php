@@ -60,6 +60,7 @@ class Mage_Cms_Block_Widget_Page_Link extends Mage_Core_Block_Html_Link implemen
      * as parameter or retrieve page title from DB using passed identifier or page id.
      *
      * @return string
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function getTitle()
@@ -85,6 +86,7 @@ class Mage_Cms_Block_Widget_Page_Link extends Mage_Core_Block_Html_Link implemen
      * if title will be blank string, page identifier will be used.
      *
      * @return string
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     public function getAnchorText()
@@ -110,6 +112,7 @@ class Mage_Cms_Block_Widget_Page_Link extends Mage_Core_Block_Html_Link implemen
     }
 
     /**
+     *
      * @throws Mage_Core_Model_Store_Exception
      */
     protected function getCmsPageTitleByIdentifier(int|string $identifier): string

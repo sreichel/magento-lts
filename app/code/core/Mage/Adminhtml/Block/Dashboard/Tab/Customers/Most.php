@@ -50,7 +50,9 @@ class Mage_Adminhtml_Block_Dashboard_Tab_Customers_Most extends Mage_Adminhtml_B
     }
 
     /**
+     *
      * @throws Mage_Core_Model_Store_Exception
+     *
      * @throws Exception
      */
     protected function _prepareColumns()
@@ -93,7 +95,8 @@ class Mage_Adminhtml_Block_Dashboard_Tab_Customers_Most extends Mage_Adminhtml_B
     }
 
     /**
-     * @param  Mage_Sales_Model_Order $row
+     * @param Mage_Sales_Model_Order $row
+     *
      * @return string
      */
     public function getRowUrl($row)
