@@ -30,9 +30,9 @@ class Mage_Catalog_Model_Resource_Product_Link extends Mage_Core_Model_Resource_
     /**
      * Save Product Links process
      *
-     * @param Mage_Catalog_Model_Product $product
-     * @param array $data
-     * @param int $typeId
+     * @param  Mage_Catalog_Model_Product $product
+     * @param  array                      $data
+     * @param  int                        $typeId
      * @return $this
      */
     public function saveProductLinks($product, $data, $typeId)
@@ -113,8 +113,8 @@ class Mage_Catalog_Model_Resource_Product_Link extends Mage_Core_Model_Resource_
     /**
      * Prepare link attribute value by attribute type
      *
-     * @param string $type
-     * @param mixed $value
+     * @param  string $type
+     * @param  mixed  $value
      * @return mixed
      */
     protected function _prepareAttributeValue($type, $value)
@@ -131,7 +131,7 @@ class Mage_Catalog_Model_Resource_Product_Link extends Mage_Core_Model_Resource_
     /**
      * Retrieve product link attributes by link type
      *
-     * @param int $typeId
+     * @param  int   $typeId
      * @return array
      */
     public function getAttributesByType($typeId)
@@ -150,7 +150,7 @@ class Mage_Catalog_Model_Resource_Product_Link extends Mage_Core_Model_Resource_
     /**
      * Returns table for link attribute by attribute type
      *
-     * @param string $type
+     * @param  string $type
      * @return string
      */
     public function getAttributeTypeTable($type)
@@ -164,8 +164,8 @@ class Mage_Catalog_Model_Resource_Product_Link extends Mage_Core_Model_Resource_
      *   group => array(ids)
      * )
      *
-     * @param int $parentId
-     * @param int $typeId
+     * @param  int   $parentId
+     * @param  int   $typeId
      * @return array
      */
     public function getChildrenIds($parentId, $typeId)
@@ -200,8 +200,8 @@ class Mage_Catalog_Model_Resource_Product_Link extends Mage_Core_Model_Resource_
     /**
      * Retrieve parent ids array by required child
      *
-     * @param int|array $childId
-     * @param int $typeId
+     * @param  int|array $childId
+     * @param  int       $typeId
      * @return array
      */
     public function getParentIdsByChild($childId, $typeId)
@@ -224,9 +224,9 @@ class Mage_Catalog_Model_Resource_Product_Link extends Mage_Core_Model_Resource_
     /**
      * Save grouped product relations
      *
-     * @param Mage_Catalog_Model_Product $product
-     * @param array $data
-     * @param int $typeId
+     * @param  Mage_Catalog_Model_Product $product
+     * @param  array                      $data
+     * @param  int                        $typeId
      * @return $this
      */
     public function saveGroupedLinks($product, $data, $typeId)

@@ -33,7 +33,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
     /**
      * Return option html
      *
-     * @param array $optionInfo
+     * @param  array  $optionInfo
      * @return string
      */
     public function getCustomizedView($optionInfo)
@@ -103,7 +103,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
     /**
      * Validate user input for option
      *
-     * @param array $values All product option values, i.e. array (option_id => mixed, option_id => mixed...)
+     * @param  array                                       $values All product option values, i.e. array (option_id => mixed, option_id => mixed...)
      * @return $this
      * @throws Mage_Core_Exception|Zend_Validate_Exception
      */
@@ -298,7 +298,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
     /**
      * Validate file
      *
-     * @param array $optionValue
+     * @param  array                   $optionValue
      * @return bool
      * @throws Mage_Core_Exception
      * @throws Zend_Validate_Exception
@@ -396,9 +396,9 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
 
     /**
      * Get Error messages for validator Errors
-     * @param array $errors Array of validation failure message codes @see Zend_Validate::getErrors()
-     * @param array $fileInfo File info
-     * @return array Array of error messages
+     * @param  array               $errors   Array of validation failure message codes @see Zend_Validate::getErrors()
+     * @param  array               $fileInfo File info
+     * @return array               Array of error messages
      * @throws Mage_Core_Exception
      */
     protected function _getValidatorErrors($errors, $fileInfo)
@@ -425,7 +425,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
     /**
      * Prepare option value for cart
      *
-     * @return mixed Prepared option value
+     * @return mixed               Prepared option value
      * @throws Mage_Core_Exception
      */
     public function prepareForCart()
@@ -472,7 +472,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
     /**
      * Return formatted option value for quote option
      *
-     * @param string $optionValue Prepared for cart option value
+     * @param  string $optionValue Prepared for cart option value
      * @return string
      */
     public function getFormattedOptionValue($optionValue)
@@ -502,7 +502,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
     /**
      * Format File option html
      *
-     * @param string|array $optionValue Serialized string of option data or its data array
+     * @param  string|array        $optionValue Serialized string of option data or its data array
      * @return string
      * @throws Mage_Core_Exception
      */
@@ -536,7 +536,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
     /**
      * Create a value from a storable representation
      *
-     * @param mixed $value
+     * @param  mixed     $value
      * @return array
      * @throws Exception
      */
@@ -554,7 +554,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
     /**
      * Return printable option value
      *
-     * @param string $optionValue Prepared for cart option value
+     * @param  string $optionValue Prepared for cart option value
      * @return string
      */
     public function getPrintableOptionValue($optionValue)
@@ -566,7 +566,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
     /**
      * Return formatted option value ready to edit, ready to parse
      *
-     * @param string $optionValue Prepared for cart option value
+     * @param  string $optionValue Prepared for cart option value
      * @return string
      */
     public function getEditableOptionValue($optionValue)
@@ -586,8 +586,8 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
     /**
      * Parse user input value and return cart prepared value
      *
-     * @param string $optionValue
-     * @param array $productOptionValues Values for product option
+     * @param  string      $optionValue
+     * @param  array       $productOptionValues Values for product option
      * @return string|null
      */
     public function parseOptionValue($optionValue, $productOptionValues)
@@ -609,7 +609,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
     /**
      * Prepare option value for info buy request
      *
-     * @param string $optionValue
+     * @param  string $optionValue
      * @return mixed
      */
     public function prepareOptionValueForRequest($optionValue)
@@ -657,7 +657,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
     /**
      * Main Destination directory
      *
-     * @param bool $relative If true - returns relative path to the webroot
+     * @param  bool   $relative If true - returns relative path to the webroot
      * @return string
      */
     public function getTargetDir($relative = false)
@@ -669,7 +669,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
     /**
      * Quote items destination directory
      *
-     * @param bool $relative If true - returns relative path to the webroot
+     * @param  bool   $relative If true - returns relative path to the webroot
      * @return string
      */
     public function getQuoteTargetDir($relative = false)
@@ -680,7 +680,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
     /**
      * Order items destination directory
      *
-     * @param bool $relative If true - returns relative path to the webroot
+     * @param  bool   $relative If true - returns relative path to the webroot
      * @return string
      */
     public function getOrderTargetDir($relative = false)
@@ -691,7 +691,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
     /**
      * Set url to custom option download controller
      *
-     * @param string $url
+     * @param  string $url
      * @return $this
      */
     public function setCustomOptionDownloadUrl($url)
@@ -725,7 +725,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
     /**
      * Create Writeable directory if it doesn't exist
      *
-     * @param string $path Absolute directory path
+     * @param  string              $path Absolute directory path
      * @throws Mage_Core_Exception
      */
     protected function _createWriteableDir($path)
@@ -739,8 +739,8 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
     /**
      * Return URL for option file download
      *
-     * @param string $route
-     * @param array $params
+     * @param  string                          $route
+     * @param  array                           $params
      * @return string
      * @throws Mage_Core_Model_Store_Exception
      */
@@ -761,7 +761,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
     /**
      * Parse file extensions string with various separators
      *
-     * @param string $extensions String to parse
+     * @param  string     $extensions String to parse
      * @return array|null
      */
     protected function _parseExtensionsString($extensions)
@@ -777,7 +777,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
     /**
      * Simple check if file is image
      *
-     * @param array|string $fileInfo - either file data from Zend_File_Transfer or file path
+     * @param  array|string $fileInfo - either file data from Zend_File_Transfer or file path
      * @return bool
      */
     protected function _isImage($fileInfo)
@@ -813,8 +813,8 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
     /**
      * Return php.ini setting value in bytes
      *
-     * @param string $option php.ini Var name
-     * @return int Setting value
+     * @param  string $option php.ini Var name
+     * @return int    Setting value
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
      */
@@ -828,7 +828,7 @@ class Mage_Catalog_Model_Product_Option_Type_File extends Mage_Catalog_Model_Pro
     /**
      * Simple convert bytes to Megabytes
      *
-     * @param int $bytes
+     * @param  int   $bytes
      * @return float
      */
     protected function _bytesToMbytes($bytes)

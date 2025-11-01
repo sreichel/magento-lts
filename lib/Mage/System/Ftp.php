@@ -37,7 +37,7 @@ class Mage_System_Ftp
     /**
      * ftp_mkdir wrapper
      *
-     * @param string $name
+     * @param  string $name
      * @return string
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
@@ -51,8 +51,8 @@ class Mage_System_Ftp
     /**
      * Make dir recursive
      *
-     * @param string $path
-     * @param int $mode
+     * @param  string $path
+     * @param  int    $mode
      * @return bool
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
@@ -83,8 +83,8 @@ class Mage_System_Ftp
     /**
      * Try to login to server
      *
-     * @param string $login
-     * @param string $password
+     * @param  string    $login
+     * @param  string    $password
      * @throws Exception on invalid login credentials
      * @return bool
      *
@@ -107,7 +107,7 @@ class Mage_System_Ftp
     /**
      * Validate connection string
      *
-     * @param string $string
+     * @param  string    $string
      * @throws Exception
      * @return array
      *
@@ -133,7 +133,7 @@ class Mage_System_Ftp
      * user,pass,port,path are optional parts
      *
      * @param string $string
-     * @param int $timeout
+     * @param int    $timeout
      */
     public function connect($string, $timeout = 900)
     {
@@ -162,10 +162,10 @@ class Mage_System_Ftp
     /**
      * ftp_fput wrapper
      *
-     * @param string $remoteFile
-     * @param resource $handle
-     * @param int $mode  FTP_BINARY | FTP_ASCII
-     * @param int $startPos
+     * @param  string   $remoteFile
+     * @param  resource $handle
+     * @param  int      $mode       FTP_BINARY | FTP_ASCII
+     * @param  int      $startPos
      * @return bool
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
@@ -179,10 +179,10 @@ class Mage_System_Ftp
     /**
      * ftp_put wrapper
      *
-     * @param string $remoteFile
-     * @param string $localFile
-     * @param int $mode FTP_BINARY | FTP_ASCII
-     * @param int $startPos
+     * @param  string $remoteFile
+     * @param  string $localFile
+     * @param  int    $mode       FTP_BINARY | FTP_ASCII
+     * @param  int    $startPos
      * @return bool
      */
     public function put($remoteFile, $localFile, $mode = FTP_BINARY, $startPos = 0)
@@ -219,7 +219,7 @@ class Mage_System_Ftp
     /**
      * ftp_raw wrapper
      *
-     * @param string $cmd
+     * @param  string $cmd
      * @return mixed
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
@@ -236,10 +236,10 @@ class Mage_System_Ftp
      * Can be used for relative and absolute remote paths
      * Relative: use chdir before calling this
      *
-     * @param string $remote
-     * @param string $local
-     * @param int $dirMode
-     * @param int $ftpMode
+     * @param  string $remote
+     * @param  string $local
+     * @param  int    $dirMode
+     * @param  int    $ftpMode
      * @return bool
      */
     public function upload($remote, $local, $dirMode = 0777, $ftpMode = FTP_BINARY)
@@ -283,9 +283,9 @@ class Mage_System_Ftp
     /**
      * Download remote file to local machine
      *
-     * @param string $remote
-     * @param string $local
-     * @param int $ftpMode  FTP_BINARY|FTP_ASCII
+     * @param  string $remote
+     * @param  string $local
+     * @param  int    $ftpMode FTP_BINARY|FTP_ASCII
      * @return bool
      */
     public function download($remote, $local, $ftpMode = FTP_BINARY)
@@ -297,7 +297,7 @@ class Mage_System_Ftp
     /**
      * ftp_pasv wrapper
      *
-     * @param bool $pasv
+     * @param  bool $pasv
      * @return bool
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
@@ -325,8 +325,8 @@ class Mage_System_Ftp
     /**
      * ftp_chmod wrapper
      *
-     * @param $mode
-     * @param $remoteFile
+     * @param       $mode
+     * @param       $remoteFile
      * @return bool
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
@@ -340,7 +340,7 @@ class Mage_System_Ftp
     /**
      * ftp_chdir wrapper
      *
-     * @param string $dir
+     * @param  string $dir
      * @return bool
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
@@ -367,10 +367,10 @@ class Mage_System_Ftp
     /**
      * ftp_get wrapper
      *
-     * @param string $localFile
-     * @param string $remoteFile
-     * @param int $fileMode         FTP_BINARY | FTP_ASCII
-     * @param int $resumeOffset
+     * @param  string $localFile
+     * @param  string $remoteFile
+     * @param  int    $fileMode     FTP_BINARY | FTP_ASCII
+     * @param  int    $resumeOffset
      * @return bool
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
@@ -385,7 +385,7 @@ class Mage_System_Ftp
     /**
      * ftp_nlist wrapper
      *
-     * @param string $dir
+     * @param  string $dir
      * @return bool
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
@@ -400,8 +400,8 @@ class Mage_System_Ftp
     /**
      * ftp_rawlist wrapper
      *
-     * @param string $dir
-     * @param bool $recursive
+     * @param  string $dir
+     * @param  bool   $recursive
      * @return mixed
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
@@ -416,7 +416,7 @@ class Mage_System_Ftp
     /**
      * Convert byte count to float KB/MB format
      *
-     * @param int $bytes
+     * @param  int    $bytes
      * @return string
      */
     public static function byteconvert($bytes)
@@ -429,7 +429,7 @@ class Mage_System_Ftp
     /**
      * Chmod string "-rwxrwxrwx" to "777" converter
      *
-     * @param string $chmod
+     * @param  string $chmod
      * @return string
      */
     public static function chmodnum($chmod)
@@ -443,8 +443,8 @@ class Mage_System_Ftp
     /**
      * Check whether file exists
      *
-     * @param string $path
-     * @param bool $excludeIfIsDir
+     * @param  string $path
+     * @param  bool   $excludeIfIsDir
      * @return bool
      */
     public function fileExists($path, $excludeIfIsDir = true)
@@ -471,8 +471,8 @@ class Mage_System_Ftp
     /**
      * Get directory contents in PHP array
      *
-     * @param string $dir
-     * @param bool $recursive
+     * @param  string $dir
+     * @param  bool   $recursive
      * @return array
      */
     public function ls($dir = '/', $recursive = false)
@@ -512,7 +512,7 @@ class Mage_System_Ftp
     /**
      * Correct file path
      *
-     * @param string $str
+     * @param  string $str
      * @return string
      */
     public function correctFilePath($str)
@@ -524,7 +524,7 @@ class Mage_System_Ftp
     /**
      * Delete file
      *
-     * @param string $file
+     * @param  string $file
      * @return bool
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")

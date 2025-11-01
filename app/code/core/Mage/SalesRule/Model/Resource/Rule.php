@@ -135,7 +135,7 @@ class Mage_SalesRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abstra
      * Retrieve coupon/rule uses for specified customer
      *
      * @param Mage_SalesRule_Model_Rule $rule
-     * @param int $customerId
+     * @param int                       $customerId
      *
      * @return string
      */
@@ -151,7 +151,7 @@ class Mage_SalesRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abstra
     /**
      * Save rule labels for different store views
      *
-     * @param int $ruleId
+     * @param int   $ruleId
      * @param array $labels
      *
      * @return $this
@@ -200,7 +200,7 @@ class Mage_SalesRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abstra
     /**
      * Get all existing rule labels
      *
-     * @param int $ruleId
+     * @param  int   $ruleId
      * @return array
      */
     public function getStoreLabels($ruleId)
@@ -214,8 +214,8 @@ class Mage_SalesRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abstra
     /**
      * Get rule label by specific store id
      *
-     * @param int $ruleId
-     * @param int $storeId
+     * @param  int    $ruleId
+     * @param  int    $storeId
      * @return string
      */
     public function getStoreLabel($ruleId, $storeId)
@@ -231,8 +231,8 @@ class Mage_SalesRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abstra
     /**
      * Return codes of all product attributes currently used in promo rules for specified customer group and website
      *
-     * @param int $websiteId
-     * @param int $customerGroupId
+     * @param  int   $websiteId
+     * @param  int   $customerGroupId
      * @return mixed
      */
     public function getActiveAttributes($websiteId, $customerGroupId)
@@ -250,8 +250,8 @@ class Mage_SalesRule_Model_Resource_Rule extends Mage_Rule_Model_Resource_Abstra
     /**
      * Save product attributes currently used in conditions and actions of rule
      *
-     * @param Mage_SalesRule_Model_Rule $rule
-     * @param mixed $attributes
+     * @param  Mage_SalesRule_Model_Rule $rule
+     * @param  mixed                     $attributes
      * @return $this
      */
     public function setActualProductAttributes($rule, $attributes)

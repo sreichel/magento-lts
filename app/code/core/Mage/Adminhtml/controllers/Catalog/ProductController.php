@@ -145,8 +145,8 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
     /**
      * Create serializer block for a grid
      *
-     * @param string $inputName
-     * @param array $productsArray
+     * @param  string                                                        $inputName
+     * @param  array                                                         $productsArray
      * @return Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Ajax_Serializer
      */
     protected function _createSerializerBlock($inputName, Mage_Adminhtml_Block_Widget_Grid $gridBlock, $productsArray)
@@ -791,8 +791,8 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
 
     /**
      * Duplicates product attributes between stores.
-     * @param array $stores list of store pairs: array(fromStore => toStore, fromStore => toStore,..)
-     * @param Mage_Catalog_Model_Product $product whose attributes should be copied
+     * @param  array                      $stores  list of store pairs: array(fromStore => toStore, fromStore => toStore,..)
+     * @param  Mage_Catalog_Model_Product $product whose attributes should be copied
      * @return $this
      * @throws Throwable
      */
@@ -988,7 +988,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
      * Validate batch of products before theirs status will be set
      *
      * @throws Mage_Core_Exception
-     * @param  int $status
+     * @param  int                 $status
      */
     public function _validateMassStatus(array $productIds, $status)
     {

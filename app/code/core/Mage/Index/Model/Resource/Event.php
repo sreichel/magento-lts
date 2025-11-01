@@ -88,8 +88,8 @@ class Mage_Index_Model_Resource_Event extends Mage_Core_Model_Resource_Db_Abstra
     /**
      * Update status for events of process
      *
-     * @param int|array|Mage_Index_Model_Process $process
-     * @param string $status
+     * @param  int|array|Mage_Index_Model_Process $process
+     * @param  string                             $status
      * @return $this
      */
     public function updateProcessEvents($process, $status = Mage_Index_Model_Process::EVENT_STATUS_DONE)
@@ -114,7 +114,7 @@ class Mage_Index_Model_Resource_Event extends Mage_Core_Model_Resource_Db_Abstra
     /**
      * Retrieve unprocessed events list by specified process
      *
-     * @param Mage_Index_Model_Process $process
+     * @param  Mage_Index_Model_Process $process
      * @return array
      */
     public function getUnprocessedEvents($process)

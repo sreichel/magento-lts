@@ -64,7 +64,7 @@ class Mage_Paypal_Model_Ipn
     /**
      * IPN request data getter
      *
-     * @param string $key
+     * @param  string       $key
      * @return array|string
      */
     public function getRequestData($key = null)
@@ -650,8 +650,8 @@ class Mage_Paypal_Model_Ipn
      * Generate an "IPN" comment with additional explanation.
      * Returns the generated comment or order status history object
      *
-     * @param string $comment
-     * @param bool $addToHistory
+     * @param  string                                       $comment
+     * @param  bool                                         $addToHistory
      * @return string|Mage_Sales_Model_Order_Status_History
      */
     protected function _createIpnComment($comment = '', $addToHistory = false)
@@ -743,7 +743,7 @@ class Mage_Paypal_Model_Ipn
     /**
      * Filter payment status from NVP into paypal/info format
      *
-     * @param string $ipnPaymentStatus
+     * @param  string $ipnPaymentStatus
      * @return string
      */
     protected function _filterPaymentStatus($ipnPaymentStatus)

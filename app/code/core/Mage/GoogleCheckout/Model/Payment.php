@@ -31,7 +31,7 @@ class Mage_GoogleCheckout_Model_Payment extends Mage_Payment_Model_Method_Abstra
     /**
      *  Return Order Place Redirect URL
      *
-     *  @return string
+     * @return string
      */
     public function getOrderPlaceRedirectUrl()
     {
@@ -41,7 +41,7 @@ class Mage_GoogleCheckout_Model_Payment extends Mage_Payment_Model_Method_Abstra
     /**
      * Authorize
      *
-     * @param float $amount
+     * @param  float $amount
      * @return void
      */
     public function authorize(Varien_Object $payment, $amount)
@@ -52,7 +52,7 @@ class Mage_GoogleCheckout_Model_Payment extends Mage_Payment_Model_Method_Abstra
     /**
      * Capture payment
      *
-     * @param float $amount
+     * @param  float     $amount
      * @throws Exception
      * @return void
      */
@@ -64,7 +64,7 @@ class Mage_GoogleCheckout_Model_Payment extends Mage_Payment_Model_Method_Abstra
     /**
      * Refund money
      *
-     * @param float $amount
+     * @param  float     $amount
      * @throws Exception
      * @return void
      */
@@ -96,7 +96,7 @@ class Mage_GoogleCheckout_Model_Payment extends Mage_Payment_Model_Method_Abstra
     /**
      * Retrieve information from payment configuration
      *
-     * @param string $field
+     * @param string                                $field
      * @param int|string|null|Mage_Core_Model_Store $storeId
      */
     public function getConfigData($field, $storeId = null)
@@ -107,7 +107,7 @@ class Mage_GoogleCheckout_Model_Payment extends Mage_Payment_Model_Method_Abstra
     /**
      * Check void availability
      *
-     * @return  bool
+     * @return bool
      */
     public function canVoid(Varien_Object $payment)
     {

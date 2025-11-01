@@ -226,7 +226,7 @@ class Mage_Wishlist_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Retrieve Item Store for URL
      *
-     * @param Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $item
+     * @param  Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $item
      * @return Mage_Core_Model_Store
      */
     protected function _getUrlStore($item)
@@ -253,7 +253,7 @@ class Mage_Wishlist_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Retrieve URL for removing item from wishlist
      *
-     * @param Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $item
+     * @param  Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $item
      * @return string
      */
     public function getRemoveUrl($item)
@@ -264,7 +264,7 @@ class Mage_Wishlist_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Retrieve URL for removing item from wishlist
      *
-     * @param Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $item
+     * @param  Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $item
      * @return string
      */
     public function getConfigureUrl($item)
@@ -279,7 +279,7 @@ class Mage_Wishlist_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @param Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $item
      *
-     * @return  string|bool
+     * @return string|bool
      */
     public function getAddUrl($item)
     {
@@ -291,7 +291,7 @@ class Mage_Wishlist_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @param int $itemId
      *
-     * @return  string
+     * @return string
      */
     public function getMoveFromCartUrl($itemId)
     {
@@ -303,7 +303,7 @@ class Mage_Wishlist_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @param Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $item
      *
-     * @return  string|bool
+     * @return string|bool
      */
     public function getUpdateUrl($item)
     {
@@ -328,7 +328,7 @@ class Mage_Wishlist_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @param Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $item
      *
-     * @return  string|bool
+     * @return string|bool
      */
     public function getAddUrlWithParams($item, array $params = [])
     {
@@ -338,8 +338,8 @@ class Mage_Wishlist_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Retrieve URL for adding item to shopping cart
      *
-     * @param string|Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $item
-     * @return  string
+     * @param  string|Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $item
+     * @return string
      */
     public function getAddToCartUrl($item)
     {
@@ -349,7 +349,7 @@ class Mage_Wishlist_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Return helper instance
      *
-     * @param string $helperName
+     * @param  string                    $helperName
      * @return Mage_Core_Helper_Abstract
      */
     protected function _getHelperInstance($helperName)
@@ -360,8 +360,8 @@ class Mage_Wishlist_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Return model instance
      *
-     * @param string $className
-     * @param array $arguments
+     * @param  string                   $className
+     * @param  array                    $arguments
      * @return Mage_Core_Model_Abstract
      */
     protected function _getSingletonModel($className, $arguments = [])
@@ -372,8 +372,8 @@ class Mage_Wishlist_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Retrieve URL for adding item to shoping cart from shared wishlist
      *
-     * @param string|Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $item
-     * @return  string
+     * @param  string|Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $item
+     * @return string
      */
     public function getSharedAddToCartUrl($item)
     {
@@ -395,8 +395,8 @@ class Mage_Wishlist_Helper_Data extends Mage_Core_Helper_Abstract
      * Retrieve url for adding item to shoping cart with b64 referer
      *
      * @deprecated
-     * @param   Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $item
-     * @return  string
+     * @param  Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $item
+     * @return string
      */
     public function getAddToCartUrlBase64($item)
     {
@@ -406,7 +406,7 @@ class Mage_Wishlist_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Retrieve customer wishlist url
      *
-     * @param int|null $wishlistId
+     * @param  int|null $wishlistId
      * @return string
      */
     public function getListUrl($wishlistId = null)
@@ -461,7 +461,7 @@ class Mage_Wishlist_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Retrieve RSS URL
      *
-     * @param int $wishlistId
+     * @param  int    $wishlistId
      * @return string
      */
     public function getRssUrl($wishlistId = null)
@@ -559,8 +559,8 @@ class Mage_Wishlist_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Retrieve url for adding product to wishlist with params with or without Form Key
      *
-     * @param Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $item
-     * @param bool $addFormKey
+     * @param  Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $item
+     * @param  bool                                                $addFormKey
      * @return string|bool
      */
     public function getAddUrlWithCustomParams($item, array $params = [], $addFormKey = true)
@@ -589,8 +589,8 @@ class Mage_Wishlist_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Retrieve URL for removing item from wishlist with params with or without Form Key
      *
-     * @param Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $item
-     * @param bool $addFormKey
+     * @param  Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $item
+     * @param  bool                                                $addFormKey
      * @return string
      */
     public function getRemoveUrlCustom($item, $addFormKey = true)
@@ -608,9 +608,9 @@ class Mage_Wishlist_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Retrieve URL for adding item to shopping cart with or without Form Key
      *
-     * @param string|Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $item
-     * @param bool $addFormKey
-     * @return  string
+     * @param  string|Mage_Catalog_Model_Product|Mage_Wishlist_Model_Item $item
+     * @param  bool                                                       $addFormKey
+     * @return string
      */
     public function getAddToCartUrlCustom($item, $addFormKey = true)
     {

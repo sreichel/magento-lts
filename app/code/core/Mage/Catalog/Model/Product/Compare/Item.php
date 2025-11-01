@@ -17,13 +17,13 @@
  *
  * @method $this setVisitorId(int $value)
  * @method $this setCustomerId(int $value)
- * @method int getProductId()
+ * @method int   getProductId()
  * @method $this setProductId(int $value)
- * @method int getStoreId()
+ * @method int   getStoreId()
  * @method $this setStoreId(int $value)
- * @method bool hasVisitorId()
- * @method bool hasCustomerId()
- * @method bool hasStoreId()
+ * @method bool  hasVisitorId()
+ * @method bool  hasCustomerId()
+ * @method bool  hasStoreId()
  */
 class Mage_Catalog_Model_Product_Compare_Item extends Mage_Core_Model_Abstract
 {
@@ -98,7 +98,7 @@ class Mage_Catalog_Model_Product_Compare_Item extends Mage_Core_Model_Abstract
     /**
      * Set visitor
      *
-     * @param int $visitorId
+     * @param  int   $visitorId
      * @return $this
      */
     public function addVisitorId($visitorId)
@@ -110,7 +110,7 @@ class Mage_Catalog_Model_Product_Compare_Item extends Mage_Core_Model_Abstract
     /**
      * Load compare item by product
      *
-     * @param mixed $product
+     * @param  mixed $product
      * @return $this
      */
     public function loadByProduct($product)
@@ -122,7 +122,7 @@ class Mage_Catalog_Model_Product_Compare_Item extends Mage_Core_Model_Abstract
     /**
      * Set product data
      *
-     * @param mixed $product
+     * @param  mixed $product
      * @return $this
      */
     public function addProductData($product)

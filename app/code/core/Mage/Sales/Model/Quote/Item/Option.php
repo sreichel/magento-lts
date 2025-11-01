@@ -12,22 +12,22 @@
  *
  * @package    Mage_Sales
  *
- * @method Mage_Sales_Model_Resource_Quote_Item_Option _getResource()
- * @method Mage_Sales_Model_Resource_Quote_Item_Option getResource()
+ * @method Mage_Sales_Model_Resource_Quote_Item_Option            _getResource()
+ * @method Mage_Sales_Model_Resource_Quote_Item_Option            getResource()
  * @method Mage_Sales_Model_Resource_Quote_Item_Option_Collection getCollection()
  *
- * @method $this setBackorders(float $value)
- * @method $this setHasError(bool $value)
- * @method $this setHasQtyOptionUpdate(bool $value)
- * @method int getItemId()
- * @method $this setItemId(int $value)
- * @method int getProductId()
- * @method $this setMessage(string $value)
- * @method $this setProductId(int $value)
- * @method $this setIsQtyDecimal(bool $value)
+ * @method $this  setBackorders(float $value)
+ * @method $this  setHasError(bool $value)
+ * @method $this  setHasQtyOptionUpdate(bool $value)
+ * @method int    getItemId()
+ * @method $this  setItemId(int $value)
+ * @method int    getProductId()
+ * @method $this  setMessage(string $value)
+ * @method $this  setProductId(int $value)
+ * @method $this  setIsQtyDecimal(bool $value)
  * @method string getCode()
- * @method $this setCode(string $value)
- * @method $this setValue(string $value)
+ * @method $this  setCode(string $value)
+ * @method $this  setValue(string $value)
  */
 class Mage_Sales_Model_Quote_Item_Option extends Mage_Core_Model_Abstract implements Mage_Catalog_Model_Product_Configuration_Item_Option_Interface
 {
@@ -57,8 +57,8 @@ class Mage_Sales_Model_Quote_Item_Option extends Mage_Core_Model_Abstract implem
     /**
      * Set quote item
      *
-     * @param   Mage_Sales_Model_Quote_Item $item
-     * @return  $this
+     * @param  Mage_Sales_Model_Quote_Item $item
+     * @return $this
      */
     public function setItem($item)
     {
@@ -83,8 +83,8 @@ class Mage_Sales_Model_Quote_Item_Option extends Mage_Core_Model_Abstract implem
     /**
      * Set option product
      *
-     * @param   Mage_Catalog_Model_Product $product
-     * @return  $this
+     * @param  Mage_Catalog_Model_Product $product
+     * @return $this
      */
     public function setProduct($product)
     {

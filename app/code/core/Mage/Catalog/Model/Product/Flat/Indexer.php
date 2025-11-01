@@ -14,22 +14,22 @@
  *
  * @method Mage_Catalog_Model_Resource_Product_Flat_Indexer _getResource()
  * @method Mage_Catalog_Model_Resource_Product_Flat_Indexer getResource()
- * @method int getEntityTypeId()
- * @method $this setEntityTypeId(int $value)
- * @method int getAttributeSetId()
- * @method $this setAttributeSetId(int $value)
- * @method string getTypeId()
- * @method $this setTypeId(string $value)
- * @method string getSku()
- * @method $this setSku(string $value)
- * @method int getHasOptions()
- * @method $this setHasOptions(int $value)
- * @method int getRequiredOptions()
- * @method $this setRequiredOptions(int $value)
- * @method string getCreatedAt()
- * @method $this setCreatedAt(string $value)
- * @method string getUpdatedAt()
- * @method $this setUpdatedAt(string $value)
+ * @method int                                              getEntityTypeId()
+ * @method $this                                            setEntityTypeId(int $value)
+ * @method int                                              getAttributeSetId()
+ * @method $this                                            setAttributeSetId(int $value)
+ * @method string                                           getTypeId()
+ * @method $this                                            setTypeId(string $value)
+ * @method string                                           getSku()
+ * @method $this                                            setSku(string $value)
+ * @method int                                              getHasOptions()
+ * @method $this                                            setHasOptions(int $value)
+ * @method int                                              getRequiredOptions()
+ * @method $this                                            setRequiredOptions(int $value)
+ * @method string                                           getCreatedAt()
+ * @method $this                                            setCreatedAt(string $value)
+ * @method string                                           getUpdatedAt()
+ * @method $this                                            setUpdatedAt(string $value)
  */
 class Mage_Catalog_Model_Product_Flat_Indexer extends Mage_Core_Model_Abstract
 {
@@ -55,7 +55,7 @@ class Mage_Catalog_Model_Product_Flat_Indexer extends Mage_Core_Model_Abstract
     /**
      * Rebuild Catalog Product Flat Data
      *
-     * @param mixed $store
+     * @param  mixed $store
      * @return $this
      */
     public function rebuild($store = null)
@@ -77,9 +77,9 @@ class Mage_Catalog_Model_Product_Flat_Indexer extends Mage_Core_Model_Abstract
     /**
      * Update attribute data for flat table
      *
-     * @param string $attributeCode
-     * @param int $store
-     * @param int|array $productIds
+     * @param  string    $attributeCode
+     * @param  int       $store
+     * @param  int|array $productIds
      * @return $this
      */
     public function updateAttribute($attributeCode, $store = null, $productIds = null)
@@ -103,7 +103,7 @@ class Mage_Catalog_Model_Product_Flat_Indexer extends Mage_Core_Model_Abstract
     /**
      * Prepare datastorage for catalog product flat
      *
-     * @param int $store
+     * @param  int   $store
      * @return $this
      */
     public function prepareDataStorage($store = null)
@@ -124,7 +124,7 @@ class Mage_Catalog_Model_Product_Flat_Indexer extends Mage_Core_Model_Abstract
     /**
      * Update events observer attributes
      *
-     * @param int $store
+     * @param  int   $store
      * @return $this
      */
     public function updateEventAttributes($store = null)
@@ -147,9 +147,9 @@ class Mage_Catalog_Model_Product_Flat_Indexer extends Mage_Core_Model_Abstract
     /**
      * Update product status
      *
-     * @param int $productId
-     * @param int $status
-     * @param int $store
+     * @param  int   $productId
+     * @param  int   $status
+     * @param  int   $store
      * @return $this
      */
     public function updateProductStatus($productId, $status, $store = null)
@@ -175,8 +175,8 @@ class Mage_Catalog_Model_Product_Flat_Indexer extends Mage_Core_Model_Abstract
     /**
      * Update Catalog Product Flat data
      *
-     * @param int|array $productIds
-     * @param int $store
+     * @param  int|array $productIds
+     * @param  int       $store
      * @return $this
      */
     public function updateProduct($productIds, $store = null)
@@ -207,8 +207,8 @@ class Mage_Catalog_Model_Product_Flat_Indexer extends Mage_Core_Model_Abstract
     /**
      * Save Catalog Product(s) Flat data
      *
-     * @param int|array $productIds
-     * @param int $store
+     * @param  int|array $productIds
+     * @param  int       $store
      * @return $this
      */
     public function saveProduct($productIds, $store = null)
@@ -239,8 +239,8 @@ class Mage_Catalog_Model_Product_Flat_Indexer extends Mage_Core_Model_Abstract
     /**
      * Remove product from flat
      *
-     * @param int|array $productIds
-     * @param int $store
+     * @param  int|array $productIds
+     * @param  int       $store
      * @return $this
      */
     public function removeProduct($productIds, $store = null)
@@ -261,7 +261,7 @@ class Mage_Catalog_Model_Product_Flat_Indexer extends Mage_Core_Model_Abstract
     /**
      * Delete store process
      *
-     * @param int $store
+     * @param  int   $store
      * @return $this
      */
     public function deleteStore($store)

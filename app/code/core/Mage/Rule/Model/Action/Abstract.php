@@ -12,18 +12,18 @@
  *
  * @package    Mage_Rule
  *
- * @method array getAttributeOption()
- * @method $this setAttributeOption(array $value)
- * @method array getOperatorOption()
- * @method $this setOperatorOption(array $value)
- * @method array getValueOption()
- * @method $this setValueOption(array $value)
- * @method string getAttribute()
- * @method $this setAttribute(string $value)
- * @method string getOperator()
- * @method $this setOperator(string $value)
- * @method string getType()
- * @method string getValue()
+ * @method array                    getAttributeOption()
+ * @method $this                    setAttributeOption(array $value)
+ * @method array                    getOperatorOption()
+ * @method $this                    setOperatorOption(array $value)
+ * @method array                    getValueOption()
+ * @method $this                    setValueOption(array $value)
+ * @method string                   getAttribute()
+ * @method $this                    setAttribute(string $value)
+ * @method string                   getOperator()
+ * @method $this                    setOperator(string $value)
+ * @method string                   getType()
+ * @method string                   getValue()
  * @method Mage_Rule_Model_Abstract getRule()
  */
 abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements Mage_Rule_Model_Action_Interface
@@ -324,7 +324,7 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
     }
 
     /**
-     * @param string $format
+     * @param  string $format
      * @return string
      */
     public function asString($format = '')
@@ -333,7 +333,7 @@ abstract class Mage_Rule_Model_Action_Abstract extends Varien_Object implements 
     }
 
     /**
-     * @param int $level
+     * @param  int    $level
      * @return string
      */
     public function asStringRecursive($level = 0)

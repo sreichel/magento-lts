@@ -73,7 +73,7 @@ class Mage_Paypal_Model_Method_Agreement extends Mage_Sales_Model_Payment_Method
      * Store setter
      * Also updates store ID in config object
      *
-     * @param Mage_Core_Model_Store|int $store
+     * @param  Mage_Core_Model_Store|int $store
      * @return $this
      */
     public function setStore($store)
@@ -171,7 +171,7 @@ class Mage_Paypal_Model_Method_Agreement extends Mage_Sales_Model_Payment_Method
     /**
      * Authorize payment
      *
-     * @param float $amount
+     * @param  float $amount
      * @return $this
      */
     public function authorize(Varien_Object $payment, $amount)
@@ -182,7 +182,7 @@ class Mage_Paypal_Model_Method_Agreement extends Mage_Sales_Model_Payment_Method
     /**
      * Void payment
      *
-     * @param Mage_Sales_Model_Order_Payment $payment
+     * @param  Mage_Sales_Model_Order_Payment $payment
      * @return $this
      */
     public function void(Varien_Object $payment)
@@ -194,8 +194,8 @@ class Mage_Paypal_Model_Method_Agreement extends Mage_Sales_Model_Payment_Method
     /**
      * Capture payment
      *
-     * @param Mage_Sales_Model_Order_Payment $payment
-     * @param float $amount
+     * @param  Mage_Sales_Model_Order_Payment $payment
+     * @param  float                          $amount
      * @return $this
      */
     public function capture(Varien_Object $payment, $amount)
@@ -210,8 +210,8 @@ class Mage_Paypal_Model_Method_Agreement extends Mage_Sales_Model_Payment_Method
     /**
      * Refund capture
      *
-     * @param Mage_Sales_Model_Order_Payment $payment
-     * @param float $amount
+     * @param  Mage_Sales_Model_Order_Payment $payment
+     * @param  float                          $amount
      * @return $this
      */
     public function refund(Varien_Object $payment, $amount)
@@ -223,7 +223,7 @@ class Mage_Paypal_Model_Method_Agreement extends Mage_Sales_Model_Payment_Method
     /**
      * Cancel payment
      *
-     * @param Mage_Sales_Model_Order_Payment $payment
+     * @param  Mage_Sales_Model_Order_Payment $payment
      * @return $this
      */
     public function cancel(Varien_Object $payment)
@@ -235,7 +235,7 @@ class Mage_Paypal_Model_Method_Agreement extends Mage_Sales_Model_Payment_Method
     /**
      * Whether payment can be reviewed
      *
-     * @param Mage_Sales_Model_Order_Payment $payment
+     * @param  Mage_Sales_Model_Order_Payment $payment
      * @return bool
      */
     public function canReviewPayment(Mage_Payment_Model_Info $payment)
@@ -246,7 +246,7 @@ class Mage_Paypal_Model_Method_Agreement extends Mage_Sales_Model_Payment_Method
     /**
      * Attempt to accept a pending payment
      *
-     * @param Mage_Sales_Model_Order_Payment $payment
+     * @param  Mage_Sales_Model_Order_Payment $payment
      * @return bool
      */
     public function acceptPayment(Mage_Payment_Model_Info $payment)
@@ -258,7 +258,7 @@ class Mage_Paypal_Model_Method_Agreement extends Mage_Sales_Model_Payment_Method
     /**
      * Attempt to deny a pending payment
      *
-     * @param Mage_Sales_Model_Order_Payment $payment
+     * @param  Mage_Sales_Model_Order_Payment $payment
      * @return bool
      */
     public function denyPayment(Mage_Payment_Model_Info $payment)
@@ -270,7 +270,7 @@ class Mage_Paypal_Model_Method_Agreement extends Mage_Sales_Model_Payment_Method
     /**
      * Fetch transaction details info
      *
-     * @param string $transactionId
+     * @param  string $transactionId
      * @return array
      */
     public function fetchTransactionInfo(Mage_Payment_Model_Info $payment, $transactionId)
@@ -281,7 +281,7 @@ class Mage_Paypal_Model_Method_Agreement extends Mage_Sales_Model_Payment_Method
     /**
      * Place an order with authorization or capture action
      *
-     * @param float $amount
+     * @param  float $amount
      * @return $this
      */
     protected function _placeOrder(Mage_Sales_Model_Order_Payment $payment, $amount)

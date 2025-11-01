@@ -14,30 +14,31 @@
  *
  * @method Mage_Newsletter_Model_Resource_Template _getResource()
  * @method Mage_Newsletter_Model_Resource_Template getResource()
+ *
  * @method string getTemplateCode()
- * @method $this setTemplateCode(string $value)
- * @method $this setTemplateText(string $value)
- * @method $this setTemplateTextPreprocessed(string $value)
+ * @method $this  setTemplateCode(string $value)
+ * @method $this  setTemplateText(string $value)
+ * @method $this  setTemplateTextPreprocessed(string $value)
  * @method string getTemplateStyles()
- * @method $this setTemplateStyles(string $value)
- * @method int getTemplateType()
- * @method $this setTemplateType(int $value)
+ * @method $this  setTemplateStyles(string $value)
+ * @method int    getTemplateType()
+ * @method $this  setTemplateType(int $value)
  * @method string getTemplateSubject()
- * @method $this setTemplateSubject(string $value)
+ * @method $this  setTemplateSubject(string $value)
  * @method string getTemplateSenderName()
- * @method $this setTemplateSenderName(string $value)
+ * @method $this  setTemplateSenderName(string $value)
  * @method string getTemplateSenderEmail()
- * @method $this setTemplateSenderEmail(string $value)
- * @method bool hasTemplateActual()
- * @method int getTemplateActual()
- * @method $this setTemplateActual(int $value)
- * @method bool hasAddedAt()
+ * @method $this  setTemplateSenderEmail(string $value)
+ * @method bool   hasTemplateActual()
+ * @method int    getTemplateActual()
+ * @method $this  setTemplateActual(int $value)
+ * @method bool   hasAddedAt()
  * @method string getAddedAt()
- * @method $this setAddedAt(string $value)
+ * @method $this  setAddedAt(string $value)
  * @method string getModifiedAt()
- * @method $this setModifiedAt(string $value)
- * @method bool getIsSystem()
- * @method $this setInlineCssFile(bool|string $value)
+ * @method $this  setModifiedAt(string $value)
+ * @method bool   getIsSystem()
+ * @method $this  setInlineCssFile(bool|string $value)
  */
 class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abstract
 {
@@ -113,7 +114,7 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
     /**
      * Load template by code
      *
-     * @param string $templateCode
+     * @param  string $templateCode
      * @return $this
      */
     public function loadByCode($templateCode)
@@ -173,7 +174,7 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
     /**
      * Retrieve processed template
      *
-     * @param bool $usePreprocess
+     * @param  bool   $usePreprocess
      * @return string
      */
     public function getProcessedTemplate(array $variables = [], $usePreprocess = false)
@@ -217,8 +218,8 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
     /**
      * Makes additional text preparations for HTML templates
      *
-     * @param bool $usePreprocess Use Preprocessed text or original text
-     * @param string|null $html
+     * @param  bool        $usePreprocess Use Preprocessed text or original text
+     * @param  string|null $html
      * @return string
      */
     public function getPreparedTemplateText($usePreprocess = false, $html = null)
@@ -241,7 +242,7 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
     /**
      * Retrieve included template
      *
-     * @param string $templateCode
+     * @param  string $templateCode
      * @return string
      */
     public function getInclude($templateCode, array $variables)
@@ -269,10 +270,10 @@ class Mage_Newsletter_Model_Template extends Mage_Core_Model_Email_Template_Abst
     /**
      * Send mail to subscriber
      *
-     * @param   Mage_Newsletter_Model_Subscriber|string   $subscriber   subscriber Model or E-mail
-     * @param   array                                     $variables    template variables
-     * @param   string|null                               $name         receiver name (if subscriber model not specified)
-     * @param   Mage_Newsletter_Model_Queue|null          $queue        queue model, used for problems reporting.
+     * @param  Mage_Newsletter_Model_Subscriber|string $subscriber subscriber Model or E-mail
+     * @param  array                                   $variables  template variables
+     * @param  string|null                             $name       receiver name (if subscriber model not specified)
+     * @param  Mage_Newsletter_Model_Queue|null        $queue      queue model, used for problems reporting.
      * @return bool
      * @deprecated since 1.4.0.1
      **/

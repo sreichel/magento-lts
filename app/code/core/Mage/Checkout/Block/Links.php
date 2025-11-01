@@ -12,7 +12,7 @@
  *
  * @package    Mage_Checkout
  *
- * @method int getSummaryQty()
+ * @method int                            getSummaryQty()
  * @method Mage_Page_Block_Template_Links getParentBlock()
  */
 class Mage_Checkout_Block_Links extends Mage_Core_Block_Template

@@ -36,8 +36,8 @@ class Mage_Tag_Model_Resource_Tag extends Mage_Core_Model_Resource_Db_Abstract
     /**
      * Loading tag by name
      *
-     * @param Mage_Tag_Model_Tag $model
-     * @param string $name
+     * @param  Mage_Tag_Model_Tag $model
+     * @param  string             $name
      * @return false|void
      */
     public function loadByName($model, $name)
@@ -113,7 +113,7 @@ class Mage_Tag_Model_Resource_Tag extends Mage_Core_Model_Resource_Db_Abstract
      *
      * @deprecated after 1.4.0.0
      *
-     * @param int $tagId
+     * @param  int   $tagId
      * @return array
      */
     protected function _getExistingBasePopularity($tagId)
@@ -135,7 +135,7 @@ class Mage_Tag_Model_Resource_Tag extends Mage_Core_Model_Resource_Db_Abstract
      *
      * @deprecated after 1.4.0.0
      *
-     * @param int $tagId
+     * @param  int   $tagId
      * @return array
      */
     protected function _getAggregationPerStoreView($tagId)
@@ -206,7 +206,7 @@ class Mage_Tag_Model_Resource_Tag extends Mage_Core_Model_Resource_Db_Abstract
      *
      * @deprecated after 1.4.0.0
      *
-     * @param int $tagId
+     * @param  int   $tagId
      * @return array
      */
     protected function _getGlobalAggregation($tagId)
@@ -269,7 +269,7 @@ class Mage_Tag_Model_Resource_Tag extends Mage_Core_Model_Resource_Db_Abstract
      *
      * @deprecated after 1.4.0.0
      *
-     * @param Mage_Tag_Model_Tag $object
+     * @param  Mage_Tag_Model_Tag $object
      * @return Mage_Tag_Model_Tag
      */
     public function aggregate($object)
@@ -346,7 +346,7 @@ class Mage_Tag_Model_Resource_Tag extends Mage_Core_Model_Resource_Db_Abstract
      *
      * @deprecated after 1.4.0.0
      *
-     * @param Mage_Tag_Model_Tag $object
+     * @param  Mage_Tag_Model_Tag $object
      * @return Mage_Tag_Model_Tag
      */
     public function addSummary($object)
@@ -382,9 +382,9 @@ class Mage_Tag_Model_Resource_Tag extends Mage_Core_Model_Resource_Db_Abstract
      * Retrieve select object for load object data
      * Redeclare parent method just for adding tag's base popularity if flag exists
      *
-     * @param string $field
-     * @param mixed $value
-     * @param Mage_Core_Model_Abstract|Mage_Tag_Model_Tag $object
+     * @param  string                                      $field
+     * @param  mixed                                       $value
+     * @param  Mage_Core_Model_Abstract|Mage_Tag_Model_Tag $object
      * @return Zend_Db_Select
      */
     protected function _getLoadSelect($field, $value, $object)

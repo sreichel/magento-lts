@@ -72,8 +72,8 @@ class Varien_Data_Tree_Dbp extends Varien_Data_Tree
      * )
      *
      * @param Zend_Db_Adapter_Abstract $connection
-     * @param string $table
-     * @param array $fields
+     * @param string                   $table
+     * @param array                    $fields
      */
     public function __construct($connection, $table, $fields)
     {
@@ -128,8 +128,8 @@ class Varien_Data_Tree_Dbp extends Varien_Data_Tree
     /**
      * Load tree
      *
-     * @param int|Varien_Data_Tree_Node $parentNode
-     * @param int $recursionLevel
+     * @param  int|Varien_Data_Tree_Node $parentNode
+     * @param  int                       $recursionLevel
      * @return Varien_Data_Tree_Dbp
      */
     public function load($parentNode = null, $recursionLevel = 0)
@@ -190,9 +190,9 @@ class Varien_Data_Tree_Dbp extends Varien_Data_Tree
 
     /**
      * @param Varien_Data_Tree_Node|array $children
-     * @param string $path
-     * @param Varien_Data_Tree_Node|null $parentNode
-     * @param int $level
+     * @param string                      $path
+     * @param Varien_Data_Tree_Node|null  $parentNode
+     * @param int                         $level
      */
     public function addChildNodes($children, $path, $parentNode, $level = 0)
     {
@@ -225,7 +225,7 @@ class Varien_Data_Tree_Dbp extends Varien_Data_Tree
     }
 
     /**
-     * @param int|string $nodeId
+     * @param  int|string            $nodeId
      * @return Varien_Data_Tree_Node
      */
     public function loadNode($nodeId)
@@ -245,9 +245,9 @@ class Varien_Data_Tree_Dbp extends Varien_Data_Tree
     }
 
     /**
-     * @param Varien_Data_Tree_Node $node
-     * @param bool $recursive
-     * @param array $result
+     * @param  Varien_Data_Tree_Node $node
+     * @param  bool                  $recursive
+     * @param  array                 $result
      * @return array
      */
     public function getChildren($node, $recursive = true, $result = [])
@@ -278,8 +278,8 @@ class Varien_Data_Tree_Dbp extends Varien_Data_Tree
      *
      * @todo Use adapter for generate conditions
      * @param Varien_Data_Tree_Node|Varien_Object $node
-     * @param Varien_Data_Tree_Node $newParent
-     * @param Varien_Data_Tree_Node $prevNode
+     * @param Varien_Data_Tree_Node               $newParent
+     * @param Varien_Data_Tree_Node               $prevNode
      */
     public function move($node, $newParent, $prevNode = null)
     {
@@ -334,7 +334,7 @@ class Varien_Data_Tree_Dbp extends Varien_Data_Tree
 
     /**
      * @param Mage_Catalog_Model_Category $category
-     * @param Varien_Data_Tree_Node $rootNode
+     * @param Varien_Data_Tree_Node       $rootNode
      */
     public function loadEnsuredNodes($category, $rootNode)
     {
@@ -372,10 +372,10 @@ class Varien_Data_Tree_Dbp extends Varien_Data_Tree
 
     /**
      * @param Varien_Data_Tree_Node|array $children
-     * @param string $path
-     * @param Varien_Data_Tree_Node $parentNode
-     * @param bool $withChildren
-     * @param int $level
+     * @param string                      $path
+     * @param Varien_Data_Tree_Node       $parentNode
+     * @param bool                        $withChildren
+     * @param int                         $level
      */
     protected function _addChildNodes($children, $path, $parentNode, $withChildren = false, $level = 0)
     {

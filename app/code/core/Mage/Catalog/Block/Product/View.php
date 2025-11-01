@@ -12,11 +12,11 @@
  *
  * @package    Mage_Catalog
  *
- * @method int getProductId()
- * @method $this setCustomAddToCartUrl(string $value)
- * @method bool hasCustomAddToCartUrl()
+ * @method int    getProductId()
+ * @method $this  setCustomAddToCartUrl(string $value)
+ * @method bool   hasCustomAddToCartUrl()
  * @method string getCustomAddToCartUrl()
- * @method bool hasCustomAddToCartPostUrl()
+ * @method bool   hasCustomAddToCartPostUrl()
  * @method string getCustomAddToCartPostUrl()
  */
 class Mage_Catalog_Block_Product_View extends Mage_Catalog_Block_Product_Abstract
@@ -102,8 +102,8 @@ class Mage_Catalog_Block_Product_View extends Mage_Catalog_Block_Product_Abstrac
     /**
      * Retrieve url for direct adding product to cart
      *
-     * @param Mage_Catalog_Model_Product $product
-     * @param array $additional
+     * @param  Mage_Catalog_Model_Product $product
+     * @param  array                      $additional
      * @return string
      * @throws Exception
      */
@@ -190,7 +190,7 @@ class Mage_Catalog_Block_Product_View extends Mage_Catalog_Block_Product_Abstrac
      * Get default qty - either as preconfigured, or as 1.
      * Also restricts it by minimal qty.
      *
-     * @param null|Mage_Catalog_Model_Product $product
+     * @param  null|Mage_Catalog_Model_Product $product
      * @return int|float
      * @throws Mage_Core_Exception
      */
@@ -217,9 +217,9 @@ class Mage_Catalog_Block_Product_View extends Mage_Catalog_Block_Product_Abstrac
     /**
      * Retrieve url for direct adding product to cart with or without Form Key
      *
-     * @param Mage_Catalog_Model_Product $product
-     * @param array $additional
-     * @param bool $addFormKey
+     * @param  Mage_Catalog_Model_Product $product
+     * @param  array                      $additional
+     * @param  bool                       $addFormKey
      * @return string
      * @throws Exception
      */

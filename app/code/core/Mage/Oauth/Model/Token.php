@@ -12,33 +12,34 @@
  *
  * @package    Mage_Oauth
  *
- * @method string getName() Consumer name (joined from consumer table)
  * @method Mage_Oauth_Model_Resource_Token_Collection getCollection()
  * @method Mage_Oauth_Model_Resource_Token_Collection getResourceCollection()
- * @method Mage_Oauth_Model_Resource_Token getResource()
- * @method Mage_Oauth_Model_Resource_Token _getResource()
- * @method int getConsumerId()
- * @method $this setConsumerId(int $consumerId)
- * @method int getAdminId()
- * @method $this setAdminId(int $adminId)
- * @method int getCustomerId()
- * @method $this setCustomerId(int $customerId)
+ * @method Mage_Oauth_Model_Resource_Token            getResource()
+ * @method Mage_Oauth_Model_Resource_Token            _getResource()
+ *
+ * @method string getName() Consumer name (joined from consumer table)
+ * @method int    getConsumerId()
+ * @method $this  setConsumerId(int $consumerId)
+ * @method int    getAdminId()
+ * @method $this  setAdminId(int $adminId)
+ * @method int    getCustomerId()
+ * @method $this  setCustomerId(int $customerId)
  * @method string getType()
- * @method $this setType(string $type)
+ * @method $this  setType(string $type)
  * @method string getVerifier()
- * @method $this setVerifier(string $verifier)
+ * @method $this  setVerifier(string $verifier)
  * @method string getCallbackUrl()
- * @method $this setCallbackUrl(string $callbackUrl)
+ * @method $this  setCallbackUrl(string $callbackUrl)
  * @method string getCreatedAt()
- * @method $this setCreatedAt(string $createdAt)
+ * @method $this  setCreatedAt(string $createdAt)
  * @method string getToken()
- * @method $this setToken(string $token)
+ * @method $this  setToken(string $token)
  * @method string getSecret()
- * @method $this setSecret(string $tokenSecret)
- * @method int getRevoked()
- * @method $this setRevoked(int $revoked)
- * @method int getAuthorized()
- * @method $this setAuthorized(int $authorized)
+ * @method $this  setSecret(string $tokenSecret)
+ * @method int    getRevoked()
+ * @method $this  setRevoked(int $revoked)
+ * @method int    getAuthorized()
+ * @method $this  setAuthorized(int $authorized)
  */
 class Mage_Oauth_Model_Token extends Mage_Core_Model_Abstract
 {
@@ -95,8 +96,8 @@ class Mage_Oauth_Model_Token extends Mage_Core_Model_Abstract
     /**
      * Authorize token
      *
-     * @param int $userId Authorization user identifier
-     * @param string $userType Authorization user type
+     * @param  int    $userId   Authorization user identifier
+     * @param  string $userType Authorization user type
      * @return $this
      */
     public function authorize($userId, $userType)
@@ -154,8 +155,8 @@ class Mage_Oauth_Model_Token extends Mage_Core_Model_Abstract
     /**
      * Generate and save request token
      *
-     * @param int $consumerId Consumer identifier
-     * @param string $callbackUrl Callback URL
+     * @param  int    $consumerId  Consumer identifier
+     * @param  string $callbackUrl Callback URL
      * @return $this
      */
     public function createRequestToken($consumerId, $callbackUrl)
@@ -195,7 +196,7 @@ class Mage_Oauth_Model_Token extends Mage_Core_Model_Abstract
     /**
      * Get string representation of token
      *
-     * @param string $format
+     * @param  string $format
      * @return string
      */
     public function toString($format = '')

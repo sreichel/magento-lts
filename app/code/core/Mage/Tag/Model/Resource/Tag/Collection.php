@@ -51,8 +51,8 @@ class Mage_Tag_Model_Resource_Tag_Collection extends Mage_Core_Model_Resource_Db
     /**
      * Loads collection
      *
-     * @param bool $printQuery
-     * @param bool $logQuery
+     * @param  bool  $printQuery
+     * @param  bool  $logQuery
      * @return $this
      */
     public function load($printQuery = false, $logQuery = false)
@@ -75,7 +75,7 @@ class Mage_Tag_Model_Resource_Tag_Collection extends Mage_Core_Model_Resource_Db
      *
      * @deprecated after 1.3.2.3
      *
-     * @param string $table
+     * @param  string $table
      * @return $this
      */
     public function setJoinFlag($table)
@@ -90,7 +90,7 @@ class Mage_Tag_Model_Resource_Tag_Collection extends Mage_Core_Model_Resource_Db
      *
      * @deprecated after 1.3.2.3
      *
-     * @param string $table
+     * @param  string $table
      * @return bool
      */
     public function getJoinFlag($table)
@@ -104,7 +104,7 @@ class Mage_Tag_Model_Resource_Tag_Collection extends Mage_Core_Model_Resource_Db
      *
      * @deprecated after 1.3.2.3
      *
-     * @param string $table
+     * @param  string $table
      * @return $this
      */
     public function unsetJoinFlag($table = null)
@@ -116,7 +116,7 @@ class Mage_Tag_Model_Resource_Tag_Collection extends Mage_Core_Model_Resource_Db
     /**
      * Sett
      *
-     * @param int $limit
+     * @param  int   $limit
      * @return $this
      */
     public function limit($limit)
@@ -128,7 +128,7 @@ class Mage_Tag_Model_Resource_Tag_Collection extends Mage_Core_Model_Resource_Db
     /**
      * Replacing popularity by sum of popularity and base_popularity
      *
-     * @param int $limit
+     * @param  int   $limit
      * @return $this
      */
     public function addPopularity($limit = null)
@@ -165,7 +165,7 @@ class Mage_Tag_Model_Resource_Tag_Collection extends Mage_Core_Model_Resource_Db
     /**
      * Adds summary
      *
-     * @param int $storeId
+     * @param  int   $storeId
      * @return $this
      */
     public function addSummary($storeId)
@@ -244,8 +244,8 @@ class Mage_Tag_Model_Resource_Tag_Collection extends Mage_Core_Model_Resource_Db
     /**
      * Adds field to filter
      *
-     * @param string $field
-     * @param array $condition
+     * @param  string $field
+     * @param  array  $condition
      * @return $this
      */
     public function addFieldToFilter($field, $condition = null)
@@ -285,8 +285,8 @@ class Mage_Tag_Model_Resource_Tag_Collection extends Mage_Core_Model_Resource_Db
     /**
      * Add filter by store
      *
-     * @param array | int $storeId
-     * @param bool $allFilter
+     * @param  array | int $storeId
+     * @param  bool        $allFilter
      * @return $this
      */
     public function addStoreFilter($storeId, $allFilter = true)
@@ -340,7 +340,7 @@ class Mage_Tag_Model_Resource_Tag_Collection extends Mage_Core_Model_Resource_Db
     /**
      * Adds filter by status
      *
-     * @param int $status
+     * @param  int   $status
      * @return $this
      */
     public function addStatusFilter($status)
@@ -352,7 +352,7 @@ class Mage_Tag_Model_Resource_Tag_Collection extends Mage_Core_Model_Resource_Db
     /**
      * Adds filter by product id
      *
-     * @param int $productId
+     * @param  int   $productId
      * @return $this
      */
     public function addProductFilter($productId)
@@ -368,7 +368,7 @@ class Mage_Tag_Model_Resource_Tag_Collection extends Mage_Core_Model_Resource_Db
     /**
      * Adds filter by customer id
      *
-     * @param int $customerId
+     * @param  int   $customerId
      * @return $this
      */
     public function addCustomerFilter($customerId)

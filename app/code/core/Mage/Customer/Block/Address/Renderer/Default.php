@@ -64,7 +64,7 @@ class Mage_Customer_Block_Address_Renderer_Default extends Mage_Core_Block_Abstr
     /**
      * Render address
      *
-     * @param string|null $format
+     * @param  string|null $format
      * @return string
      * @throws Exception
      */
@@ -121,7 +121,7 @@ class Mage_Customer_Block_Address_Renderer_Default extends Mage_Core_Block_Abstr
 
     /**
      * Get address template data without url and js code
-     * @param string $data
+     * @param  string $data
      * @return string
      */
     protected function _prepareAddressTemplateData($data)

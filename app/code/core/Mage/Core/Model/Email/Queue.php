@@ -12,24 +12,25 @@
  *
  * @package    Mage_Core
  *
- * @method Mage_Core_Model_Resource_Email_Queue _getResource()
+ * @method Mage_Core_Model_Resource_Email_Queue            _getResource()
  * @method Mage_Core_Model_Resource_Email_Queue_Collection getCollection()
- * @method $this setCreatedAt(string $value)
- * @method int getEntityId()
- * @method $this setEntityId(int $value)
+ *
+ * @method $this  setCreatedAt(string $value)
+ * @method int    getEntityId()
+ * @method $this  setEntityId(int $value)
  * @method string getEntityType()
- * @method $this setEntityType(string $value)
+ * @method $this  setEntityType(string $value)
  * @method string getEventType()
- * @method $this setEventType(string $value)
- * @method int getIsForceCheck()
- * @method $this setIsForceCheck(int $value)
+ * @method $this  setEventType(string $value)
+ * @method int    getIsForceCheck()
+ * @method $this  setIsForceCheck(int $value)
  * @method string getMessageBodyHash()
  * @method string getMessageBody()
- * @method $this setMessageBody(string $value)
- * @method $this setMessageBodyHash(string $value)
+ * @method $this  setMessageBody(string $value)
+ * @method $this  setMessageBodyHash(string $value)
  * @method string getMessageParameters()
- * @method $this setMessageParameters(string $value)
- * @method $this setProcessedAt(string $value)
+ * @method $this  setMessageParameters(string $value)
+ * @method $this  setProcessedAt(string $value)
  */
 class Mage_Core_Model_Email_Queue extends Mage_Core_Model_Abstract
 {
@@ -112,9 +113,9 @@ class Mage_Core_Model_Email_Queue extends Mage_Core_Model_Abstract
     /**
      * Add message recipients by email type
      *
-     * @param array|string $emails
-     * @param array|string|null $names
-     * @param int $type
+     * @param  array|string      $emails
+     * @param  array|string|null $names
+     * @param  int               $type
      * @return $this
      * @SuppressWarnings("PHPMD.CamelCaseVariableName")
      */

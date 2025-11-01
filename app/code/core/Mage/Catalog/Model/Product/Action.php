@@ -25,9 +25,9 @@ class Mage_Catalog_Model_Product_Action extends Mage_Core_Model_Abstract
     /**
      * Update attribute values for entity list per store
      *
-     * @param array $productIds
-     * @param array $attrData
-     * @param int $storeId
+     * @param  array $productIds
+     * @param  array $attrData
+     * @param  int   $storeId
      * @return $this
      */
     public function updateAttributes($productIds, $attrData, $storeId)
@@ -66,8 +66,8 @@ class Mage_Catalog_Model_Product_Action extends Mage_Core_Model_Abstract
      * - add
      * - remove
      *
-     * @param array $productIds
-     * @param array $websiteIds
+     * @param array  $productIds
+     * @param array  $websiteIds
      * @param string $type
      */
     public function updateWebsites($productIds, $websiteIds, $type)

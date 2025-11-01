@@ -25,8 +25,8 @@ class Mage_SalesRule_Model_Observer
      * Get quote item validator/processor object
      *
      * @deprecated
-     * @param   Varien_Event $event
-     * @return  Mage_SalesRule_Model_Validator
+     * @param  Varien_Event                   $event
+     * @return Mage_SalesRule_Model_Validator
      */
     public function getValidator($event)
     {
@@ -55,7 +55,7 @@ class Mage_SalesRule_Model_Observer
     /**
      * Registered callback: called after an order is placed
      *
-     * @param Varien_Event_Observer $observer
+     * @param  Varien_Event_Observer $observer
      * @return $this
      * @throws Throwable
      * @SuppressWarnings("PHPMD.CamelCaseMethodName")
@@ -174,7 +174,7 @@ class Mage_SalesRule_Model_Observer
     /**
      * Refresh sales coupons report statistics for last day
      *
-     * @param Mage_Cron_Model_Schedule $schedule
+     * @param  Mage_Cron_Model_Schedule $schedule
      * @return $this
      */
     public function aggregateSalesReportCouponsData($schedule)
@@ -191,7 +191,7 @@ class Mage_SalesRule_Model_Observer
      * Check rules that contains affected attribute
      * If rules were found they will be set to inactive and notice will be add to admin session
      *
-     * @param string $attributeCode
+     * @param  string $attributeCode
      * @return $this
      */
     protected function _checkSalesRulesAvailability($attributeCode)
@@ -226,7 +226,7 @@ class Mage_SalesRule_Model_Observer
      * Remove catalog attribute condition by attribute code from rule conditions
      *
      * @param Mage_Rule_Model_Condition_Combine $combine
-     * @param string $attributeCode
+     * @param string                            $attributeCode
      */
     protected function _removeAttributeFromConditions($combine, $attributeCode)
     {
@@ -306,7 +306,7 @@ class Mage_SalesRule_Model_Observer
     /**
      * Add coupon's rule name to order data
      *
-     * @param Varien_Event_Observer $observer
+     * @param  Varien_Event_Observer $observer
      * @return $this
      */
     public function addSalesRuleNameToOrder($observer)

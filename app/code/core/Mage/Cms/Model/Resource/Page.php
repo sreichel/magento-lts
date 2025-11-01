@@ -184,9 +184,9 @@ class Mage_Cms_Model_Resource_Page extends Mage_Core_Model_Resource_Db_Abstract
     /**
      * Retrieve select object for load object data
      *
-     * @param string $field
-     * @param mixed $value
-     * @param Mage_Cms_Model_Page $object
+     * @param  string              $field
+     * @param  mixed               $value
+     * @param  Mage_Cms_Model_Page $object
      * @return Zend_Db_Select
      * @throws Exception
      */
@@ -213,9 +213,9 @@ class Mage_Cms_Model_Resource_Page extends Mage_Core_Model_Resource_Db_Abstract
     /**
      * Retrieve load select with filter by identifier, store and activity
      *
-     * @param string $identifier
-     * @param int|array $store
-     * @param int $isActive
+     * @param  string           $identifier
+     * @param  int|array        $store
+     * @param  int              $isActive
      * @return Varien_Db_Select
      */
     protected function _getLoadByIdentifierSelect($identifier, $store, $isActive = null)
@@ -240,7 +240,7 @@ class Mage_Cms_Model_Resource_Page extends Mage_Core_Model_Resource_Db_Abstract
     /**
      * Check for unique of identifier of page to selected store(s).
      *
-     * @param Mage_Cms_Model_Page $object
+     * @param  Mage_Cms_Model_Page $object
      * @return bool
      */
     public function getIsUniquePageToStores(Mage_Core_Model_Abstract $object)
@@ -278,7 +278,7 @@ class Mage_Cms_Model_Resource_Page extends Mage_Core_Model_Resource_Db_Abstract
      *  Check whether page identifier is valid
      *
      *
-     * @return   int|false
+     * @return int|false
      */
     protected function isValidPageIdentifier(Mage_Core_Model_Abstract $object)
     {
@@ -312,8 +312,8 @@ class Mage_Cms_Model_Resource_Page extends Mage_Core_Model_Resource_Db_Abstract
      * Check if page identifier exist for specific store
      * return page id if page exists
      *
-     * @param string $identifier
-     * @param int $storeId
+     * @param  string $identifier
+     * @param  int    $storeId
      * @return string
      */
     public function checkIdentifier($identifier, $storeId)
@@ -331,7 +331,7 @@ class Mage_Cms_Model_Resource_Page extends Mage_Core_Model_Resource_Db_Abstract
     /**
      * Retrieves cms page title from DB by passed identifier.
      *
-     * @param string|int $identifier
+     * @param  string|int                      $identifier
      * @return string
      * @throws Mage_Core_Model_Store_Exception
      */
@@ -354,7 +354,7 @@ class Mage_Cms_Model_Resource_Page extends Mage_Core_Model_Resource_Db_Abstract
     /**
      * Retrieves cms page title from DB by passed id.
      *
-     * @param string|int $id
+     * @param  string|int $id
      * @return string
      */
     public function getCmsPageTitleById($id)
@@ -375,7 +375,7 @@ class Mage_Cms_Model_Resource_Page extends Mage_Core_Model_Resource_Db_Abstract
     /**
      * Retrieves cms page identifier from DB by passed id.
      *
-     * @param string $id
+     * @param  string       $id
      * @return string|false
      */
     public function getCmsPageIdentifierById($id)
@@ -396,7 +396,7 @@ class Mage_Cms_Model_Resource_Page extends Mage_Core_Model_Resource_Db_Abstract
     /**
      * Get store ids to which specified item is assigned
      *
-     * @param string $pageId
+     * @param  string $pageId
      * @return array
      */
     public function lookupStoreIds($pageId)
@@ -413,7 +413,7 @@ class Mage_Cms_Model_Resource_Page extends Mage_Core_Model_Resource_Db_Abstract
     /**
      * Set store model
      *
-     * @param Mage_Core_Model_Store $store
+     * @param  Mage_Core_Model_Store $store
      * @return $this
      */
     public function setStore($store)

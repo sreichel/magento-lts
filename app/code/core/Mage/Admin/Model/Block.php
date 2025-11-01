@@ -12,8 +12,8 @@
  *
  * @package    Mage_Adminhtml
  *
- * @method Mage_Admin_Model_Resource_Block _getResource()
- * @method Mage_Admin_Model_Resource_Block getResource()
+ * @method Mage_Admin_Model_Resource_Block            _getResource()
+ * @method Mage_Admin_Model_Resource_Block            getResource()
  * @method Mage_Admin_Model_Resource_Block_Collection getCollection()
  *
  * @method string getBlockName()
@@ -65,7 +65,7 @@ class Mage_Admin_Model_Block extends Mage_Core_Model_Abstract
     /**
      * Check is block with such type allowed for parsing via blockDirective method
      *
-     * @param string $type
+     * @param  string $type
      * @return bool
      */
     public function isTypeAllowed($type)

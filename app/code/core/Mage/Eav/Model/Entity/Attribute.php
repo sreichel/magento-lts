@@ -12,14 +12,14 @@
  *
  * @package    Mage_Eav
  *
- * @method Mage_Eav_Model_Resource_Entity_Attribute _getResource()
- * @method Mage_Eav_Model_Resource_Entity_Attribute getResource()
+ * @method Mage_Eav_Model_Resource_Entity_Attribute            _getResource()
+ * @method Mage_Eav_Model_Resource_Entity_Attribute            getResource()
  * @method Mage_Eav_Model_Resource_Entity_Attribute_Collection getCollection()
  * @method Mage_Eav_Model_Resource_Entity_Attribute_Collection getResourceCollection()
  *
- * @method int getAttributeGroupId()
+ * @method int   getAttributeGroupId()
  * @method $this setDefaultValue(int $value)
- * @method int getEntityAttributeId()
+ * @method int   getEntityAttributeId()
  * @method $this setEntityAttributeId(int $value)
  * @method $this setIsFilterable(int $value)
  * @method array getFilterOptions()
@@ -205,7 +205,7 @@ class Mage_Eav_Model_Entity_Attribute extends Mage_Eav_Model_Entity_Attribute_Ab
      * Detect backend storage type using frontend input type
      *
      * @return string backend_type field value
-     * @param string $type frontend_input field value
+     * @param  string $type frontend_input field value
      */
     public function getBackendTypeByInput($type)
     {
@@ -225,7 +225,7 @@ class Mage_Eav_Model_Entity_Attribute extends Mage_Eav_Model_Entity_Attribute_Ab
      * Detect default value using frontend input type
      *
      * @return string default_value field value
-     * @param string $type frontend_input field name
+     * @param  string $type frontend_input field name
      */
     public function getDefaultValueByInput($type)
     {
@@ -265,7 +265,7 @@ class Mage_Eav_Model_Entity_Attribute extends Mage_Eav_Model_Entity_Attribute_Ab
     /**
      * Retrieve attribute codes by frontend type
      *
-     * @param string $type
+     * @param  string $type
      * @return array
      */
     public function getAttributeCodesByFrontendType($type)
@@ -291,7 +291,7 @@ class Mage_Eav_Model_Entity_Attribute extends Mage_Eav_Model_Entity_Attribute_Ab
     /**
      * Return store label of attribute
      *
-     * @param int $storeId
+     * @param  int                             $storeId
      * @return string
      * @throws Mage_Core_Model_Store_Exception
      */

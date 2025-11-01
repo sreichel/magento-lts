@@ -12,19 +12,20 @@
  *
  * @package    Mage_Eav
  *
- * @method Mage_Eav_Model_Resource_Form_Type _getResource()
- * @method Mage_Eav_Model_Resource_Form_Type getResource()
+ * @method Mage_Eav_Model_Resource_Form_Type            _getResource()
+ * @method Mage_Eav_Model_Resource_Form_Type            getResource()
  * @method Mage_Eav_Model_Resource_Form_Type_Collection getCollection()
+ *
  * @method string getCode()
- * @method $this setCode(string $value)
+ * @method $this  setCode(string $value)
  * @method string getLabel()
- * @method $this setLabel(string $value)
- * @method int getIsSystem()
- * @method $this setIsSystem(int $value)
+ * @method $this  setLabel(string $value)
+ * @method int    getIsSystem()
+ * @method $this  setIsSystem(int $value)
  * @method string getTheme()
- * @method $this setTheme(string $value)
- * @method int getStoreId()
- * @method $this setStoreId(int $value)
+ * @method $this  setTheme(string $value)
+ * @method int    getStoreId()
+ * @method $this  setStoreId(int $value)
  */
 class Mage_Eav_Model_Form_Type extends Mage_Core_Model_Abstract
 {
@@ -71,7 +72,7 @@ class Mage_Eav_Model_Form_Type extends Mage_Core_Model_Abstract
     /**
      * Assign Entity Type to Form Type
      *
-     * @param int $entityTypeId
+     * @param  int   $entityTypeId
      * @return $this
      */
     public function addEntityType($entityTypeId)

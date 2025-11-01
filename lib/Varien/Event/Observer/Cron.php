@@ -13,8 +13,8 @@
  * @package    Varien_Event
  *
  * @method string getCronExpr()
- * @method bool hasNow()
- * @method $this setNow(int $time)
+ * @method bool   hasNow()
+ * @method $this  setNow(int $time)
  */
 class Varien_Event_Observer_Cron extends Varien_Event_Observer
 {
@@ -54,8 +54,8 @@ class Varien_Event_Observer_Cron extends Varien_Event_Observer
     }
 
     /**
-     * @param string $expr
-     * @param int $num
+     * @param  string $expr
+     * @param  int    $num
      * @return bool
      */
     public function matchCronExpression($expr, $num)
@@ -112,7 +112,7 @@ class Varien_Event_Observer_Cron extends Varien_Event_Observer
     }
 
     /**
-     * @param string|int $value
+     * @param  string|int       $value
      * @return string|int|false
      */
     public function getNumeric($value)

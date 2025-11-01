@@ -22,8 +22,8 @@ class Mage_Core_Model_Resource_Translate extends Mage_Core_Model_Resource_Db_Abs
     /**
      * Retrieve translation array for store / locale code
      *
-     * @param int $storeId
-     * @param string|Zend_Locale $locale
+     * @param  int                $storeId
+     * @param  string|Zend_Locale $locale
      * @return array
      */
     public function getTranslationArray($storeId = null, $locale = null)
@@ -58,7 +58,7 @@ class Mage_Core_Model_Resource_Translate extends Mage_Core_Model_Resource_Db_Abs
     /**
      * Retrieve translations array by strings
      *
-     * @param int $storeId
+     * @param  int   $storeId
      * @return array
      */
     public function getTranslationArrayByStrings(array $strings, $storeId = null)

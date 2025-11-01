@@ -38,7 +38,7 @@ class Mage_Core_Model_Cookie
     /**
      * Set Store object
      *
-     * @param bool|int|Mage_Core_Model_Store|null|string $store
+     * @param  bool|int|Mage_Core_Model_Store|null|string $store
      * @return $this
      */
     public function setStore($store)
@@ -144,7 +144,7 @@ class Mage_Core_Model_Cookie
     /**
      * Set cookie lifetime
      *
-     * @param int $lifetime
+     * @param  int   $lifetime
      * @return $this
      */
     public function setLifetime($lifetime)
@@ -205,14 +205,14 @@ class Mage_Core_Model_Cookie
     /**
      * Set cookie
      *
-     * @param string $name The cookie name
-     * @param string $value The cookie value
-     * @param int|bool $period Lifetime period
-     * @param string $path
-     * @param string $domain
-     * @param int|bool $secure
-     * @param bool $httponly
-     * @param string $sameSite
+     * @param  string                             $name     The cookie name
+     * @param  string                             $value    The cookie value
+     * @param  int|bool                           $period   Lifetime period
+     * @param  string                             $path
+     * @param  string                             $domain
+     * @param  int|bool                           $secure
+     * @param  bool                               $httponly
+     * @param  string                             $sameSite
      * @return $this
      * @throws Zend_Controller_Response_Exception
      * @throws Mage_Core_Exception
@@ -282,13 +282,13 @@ class Mage_Core_Model_Cookie
     /**
      * Postpone cookie expiration time if cookie value defined
      *
-     * @param string $name The cookie name
-     * @param int $period Lifetime period
-     * @param string $path
-     * @param string $domain
-     * @param int|bool $secure
-     * @param bool $httponly
-     * @param string $sameSite
+     * @param  string                             $name     The cookie name
+     * @param  int                                $period   Lifetime period
+     * @param  string                             $path
+     * @param  string                             $domain
+     * @param  int|bool                           $secure
+     * @param  bool                               $httponly
+     * @param  string                             $sameSite
      * @return $this
      * @throws Zend_Controller_Response_Exception
      * @throws Mage_Core_Exception
@@ -310,7 +310,7 @@ class Mage_Core_Model_Cookie
     /**
      * Retrieve cookie or false if not exists
      *
-     * @param string $name The cookie name
+     * @param  string      $name The cookie name
      * @return mixed|false
      */
     public function get($name = null)
@@ -321,12 +321,12 @@ class Mage_Core_Model_Cookie
     /**
      * Delete cookie
      *
-     * @param string $name
-     * @param string $path
-     * @param string $domain
-     * @param int|bool $secure
-     * @param int|bool $httponly
-     * @param string $sameSite
+     * @param  string                             $name
+     * @param  string                             $path
+     * @param  string                             $domain
+     * @param  int|bool                           $secure
+     * @param  int|bool                           $httponly
+     * @param  string                             $sameSite
      * @return $this
      * @throws Zend_Controller_Response_Exception
      * @throws Mage_Core_Exception

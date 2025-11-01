@@ -55,7 +55,7 @@ class Mage_CatalogInventory_Model_Resource_Indexer_Stock extends Mage_Catalog_Mo
     /**
      * Refresh stock index for specific product ids
      *
-     * @param array $productIds
+     * @param  array $productIds
      * @return $this
      */
     public function reindexProducts($productIds)
@@ -260,7 +260,7 @@ class Mage_CatalogInventory_Model_Resource_Indexer_Stock extends Mage_Catalog_Mo
     /**
      * Retrieve Stock indexer by Product Type
      *
-     * @param string $productTypeId
+     * @param  string                                                       $productTypeId
      * @return Mage_CatalogInventory_Model_Resource_Indexer_Stock_Interface
      */
     protected function _getIndexer($productTypeId)
@@ -277,7 +277,7 @@ class Mage_CatalogInventory_Model_Resource_Indexer_Stock extends Mage_Catalog_Mo
      * Retrieve parent ids and types by child id
      * Return array with key product_id and value as product type id
      *
-     * @param int $childId
+     * @param  int   $childId
      * @return array
      */
     public function getProductParentsByChild($childId)
@@ -297,7 +297,7 @@ class Mage_CatalogInventory_Model_Resource_Indexer_Stock extends Mage_Catalog_Mo
     /**
      * Retrieve temporary index table name
      *
-     * @param string $table
+     * @param  string $table
      * @return string
      */
     public function getIdxTable($table = null)

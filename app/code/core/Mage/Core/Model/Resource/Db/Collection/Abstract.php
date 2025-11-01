@@ -139,7 +139,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
     /**
      * Set main collection table
      *
-     * @param string $table
+     * @param  string $table
      * @return $this
      */
     public function setMainTable($table)
@@ -278,8 +278,8 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
     /**
      * Add field to select
      *
-     * @param string|array $field
-     * @param string|null $alias
+     * @param  string|array $field
+     * @param  string|null  $alias
      * @return $this
      */
     public function addFieldToSelect($field, $alias = null)
@@ -322,9 +322,9 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
      * Example: ('sub_total', 'SUM({{revenue}})', 'revenue')
      * For some functions like SUM use groupByAttribute.
      *
-     * @param string $alias
-     * @param string $expression
-     * @param array|string $fields
+     * @param  string       $alias
+     * @param  string       $expression
+     * @param  array|string $fields
      * @return $this
      */
     public function addExpressionFieldToSelect($alias, $expression, $fields)
@@ -347,8 +347,8 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
     /**
      * Removes field from select
      *
-     * @param string|null $field
-     * @param bool $isAlias Alias identifier
+     * @param  string|null $field
+     * @param  bool        $isAlias Alias identifier
      * @return $this
      */
     public function removeFieldFromSelect($field, $isAlias = false)
@@ -385,8 +385,8 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
     /**
      * Standard resource collection initialization
      *
-     * @param string $model
-     * @param Mage_Core_Model_Resource_Db_Abstract $resourceModel
+     * @param  string                               $model
+     * @param  Mage_Core_Model_Resource_Db_Abstract $resourceModel
      * @return $this
      */
     protected function _init($model, $resourceModel = null)
@@ -403,7 +403,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
     /**
      * Set model name for collection items
      *
-     * @param string $model
+     * @param  string $model
      * @return $this
      */
     public function setModel($model)
@@ -419,7 +419,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
     /**
      * Get model instance
      *
-     * @param array $args
+     * @param  array  $args
      * @return string
      */
     public function getModelName($args = [])
@@ -464,7 +464,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
     /**
      * Retrieve table name
      *
-     * @param string $table
+     * @param  string $table
      * @return string
      */
     public function getTable($table)
@@ -537,8 +537,8 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
      * Join table to collection select
      *
      * @param  array|string|Zend_Db_Expr $table Table name
-     * @param  string $cond Join on this condition
-     * @param  array|string $cols The columns to select from the joined table
+     * @param  string                    $cond  Join on this condition
+     * @param  array|string              $cols  The columns to select from the joined table
      * @return $this
      */
     public function join($table, $cond, $cols = '*')
@@ -586,7 +586,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
     /**
      * Set reset items data changed flag
      *
-     * @param bool $flag
+     * @param  bool  $flag
      * @return $this
      */
     public function setResetItemsDataChanged($flag)
@@ -663,7 +663,7 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
     /**
      * Load cached data for select
      *
-     * @param Zend_Db_Select $select
+     * @param  Zend_Db_Select $select
      * @return string | false
      */
     protected function _loadCache($select)
@@ -674,8 +674,8 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
     /**
      * Save collection data to cache
      *
-     * @param array $data
-     * @param Zend_Db_Select $select
+     * @param  array          $data
+     * @param  Zend_Db_Select $select
      * @return $this
      */
     protected function _saveCache($data, $select)
@@ -699,8 +699,8 @@ abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Da
     /**
      * Format Date to internal database date format
      *
-     * @param int|string|Zend_Date $date
-     * @param bool $includeTime
+     * @param  int|string|Zend_Date $date
+     * @param  bool                 $includeTime
      * @return string
      */
     public function formatDate($date, $includeTime = true)

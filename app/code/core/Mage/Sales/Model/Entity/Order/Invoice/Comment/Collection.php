@@ -20,7 +20,7 @@ class Mage_Sales_Model_Entity_Order_Invoice_Comment_Collection extends Mage_Eav_
     }
 
     /**
-     * @param int $invoiceId
+     * @param  int   $invoiceId
      * @return $this
      */
     public function setInvoiceFilter($invoiceId)
@@ -30,7 +30,7 @@ class Mage_Sales_Model_Entity_Order_Invoice_Comment_Collection extends Mage_Eav_
     }
 
     /**
-     * @param string $order
+     * @param  string $order
      * @return $this
      */
     public function setCreatedAtOrder($order = 'desc')

@@ -408,7 +408,7 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl extends Mage_Usa_Model_Shipping_Carrie
     /**
      * Set free method request
      *
-     * @param  $freeMethod
+     * @param $freeMethod
      */
     protected function _setFreeMethodRequest($freeMethod)
     {
@@ -563,8 +563,8 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl extends Mage_Usa_Model_Shipping_Carrie
     /**
      * Create shipment xml
      *
-     * @param  $shipment
-     * @param  $shipKey
+     * @param $shipment
+     * @param $shipKey
      */
     protected function _createShipmentXml($shipment, $shipKey)
     {
@@ -745,7 +745,7 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl extends Mage_Usa_Model_Shipping_Carrie
     /**
      * Parse xml response and return result
      *
-     * @param string $response
+     * @param  string                                        $response
      * @return Mage_Shipping_Model_Rate_Result|Varien_Object
      */
     protected function _parseXmlResponse($response)
@@ -850,7 +850,7 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl extends Mage_Usa_Model_Shipping_Carrie
     /**
      * Parse xml object
      *
-     * @param mixed $shipXml
+     * @param  mixed $shipXml
      * @return $this
      */
     protected function _parseXmlObject($shipXml)
@@ -883,8 +883,8 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl extends Mage_Usa_Model_Shipping_Carrie
     /**
      * Get configuration data of carrier
      *
-     * @param string $type
-     * @param string $code
+     * @param  string     $type
+     * @param  string     $code
      * @return array|bool
      */
     public function getCode($type, $code = '')
@@ -971,7 +971,7 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl extends Mage_Usa_Model_Shipping_Carrie
     /**
      * Get tracking
      *
-     * @param mixed $trackings
+     * @param  mixed                                $trackings
      * @return Mage_Shipping_Model_Rate_Result|null
      */
     public function getTracking($trackings)
@@ -1061,7 +1061,7 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl extends Mage_Usa_Model_Shipping_Carrie
     /**
      * Parse xml tracking response
      *
-     * @param array $trackings
+     * @param array  $trackings
      * @param string $response
      */
     protected function _parseXmlTrackingResponse($trackings, $response)

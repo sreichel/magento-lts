@@ -116,8 +116,8 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_History extends Mage_Adminhtml_B
     /**
      * Status history date/datetime getter
      *
-     * @param string $dateType
-     * @param string $format
+     * @param  string $dateType
+     * @param  string $format
      * @return string
      */
     public function getItemCreatedAt(array $item, $dateType = 'date', $format = 'medium')
@@ -146,7 +146,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_History extends Mage_Adminhtml_B
     /**
      * Check whether status history comment is with customer notification
      *
-     * @param bool $isSimpleCheck
+     * @param  bool $isSimpleCheck
      * @return bool
      */
     public function isItemNotified(array $item, $isSimpleCheck = true)
@@ -179,10 +179,10 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_History extends Mage_Adminhtml_B
     /**
      * Map history items as array
      *
-     * @param string $label
-     * @param bool $notified
-     * @param Zend_Date $created
-     * @param string $comment
+     * @param  string    $label
+     * @param  bool      $notified
+     * @param  Zend_Date $created
+     * @param  string    $comment
      * @return array
      */
     protected function _prepareHistoryItem($label, $notified, $created, $comment = '')
@@ -268,7 +268,7 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_History extends Mage_Adminhtml_B
     /**
      * Customer Notification Applicable check method
      *
-     * @param array $historyItem
+     * @param  array $historyItem
      * @return bool
      */
     public function isCustomerNotificationNotApplicable($historyItem)
@@ -279,8 +279,8 @@ class Mage_Adminhtml_Block_Sales_Order_View_Tab_History extends Mage_Adminhtml_B
     /**
      * Comparison For Sorting History By Timestamp
      *
-     * @param mixed $a
-     * @param mixed $b
+     * @param  mixed $a
+     * @param  mixed $b
      * @return int
      */
     // phpcs:ignore Ecg.PHP.PrivateClassMember.PrivateClassMemberError

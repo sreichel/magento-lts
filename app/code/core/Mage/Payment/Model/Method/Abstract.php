@@ -13,16 +13,16 @@
  * @package    Mage_Payment
  *
  * @method string getCheckoutRedirectUrl()
- * @method $this setInfoInstance(Mage_Payment_Model_Info $value)
+ * @method $this  setInfoInstance(Mage_Payment_Model_Info $value)
  * @method string getInstructions()
  * @method string getOrderPlaceRedirectUrl()
- * @method int getStore()
- * @method $this setStore(int $value)
- * @method $this initBillingAgreementToken(Mage_Sales_Model_Billing_Agreement $value)
- * @method array getBillingAgreementTokenInfo(Mage_Sales_Model_Billing_Agreement $value)
- * @method $this placeBillingAgreement(Mage_Sales_Model_Billing_Agreement $value)
- * @method $this updateBillingAgreementStatus(Mage_Sales_Model_Billing_Agreement $value)
- * @method $this validateRecurringProfile(Mage_Payment_Model_Recurring_Profile $value)
+ * @method int    getStore()
+ * @method $this  setStore(int $value)
+ * @method $this  initBillingAgreementToken(Mage_Sales_Model_Billing_Agreement $value)
+ * @method array  getBillingAgreementTokenInfo(Mage_Sales_Model_Billing_Agreement $value)
+ * @method $this  placeBillingAgreement(Mage_Sales_Model_Billing_Agreement $value)
+ * @method $this  updateBillingAgreementStatus(Mage_Sales_Model_Billing_Agreement $value)
+ * @method $this  validateRecurringProfile(Mage_Payment_Model_Recurring_Profile $value)
  */
 abstract class Mage_Payment_Model_Method_Abstract extends Varien_Object
 {
@@ -197,7 +197,7 @@ abstract class Mage_Payment_Model_Method_Abstract extends Varien_Object
     /**
      * Check void availability
      *
-     * @return  bool
+     * @return bool
      */
     public function canVoid(Varien_Object $payment)
     {
@@ -268,7 +268,7 @@ abstract class Mage_Payment_Model_Method_Abstract extends Varien_Object
     /**
      * Fetch transaction info
      *
-     * @param string $transactionId
+     * @param  string $transactionId
      * @return array
      */
     public function fetchTransactionInfo(Mage_Payment_Model_Info $payment, $transactionId)
@@ -299,7 +299,7 @@ abstract class Mage_Payment_Model_Method_Abstract extends Varien_Object
     /**
      * To check billing country is allowed for the payment method
      *
-     * @param string $country
+     * @param  string $country
      * @return bool
      */
     public function canUseForCountry($country)
@@ -320,7 +320,7 @@ abstract class Mage_Payment_Model_Method_Abstract extends Varien_Object
     /**
      * Check method for processing with base currency
      *
-     * @param string $currencyCode
+     * @param  string $currencyCode
      * @return bool
      */
     public function canUseForCurrency($currencyCode)
@@ -434,7 +434,7 @@ abstract class Mage_Payment_Model_Method_Abstract extends Varien_Object
     /**
      * Order payment abstract method
      *
-     * @param float $amount
+     * @param  float $amount
      * @return $this
      */
     public function order(Varien_Object $payment, $amount)
@@ -449,7 +449,7 @@ abstract class Mage_Payment_Model_Method_Abstract extends Varien_Object
     /**
      * Authorize payment abstract method
      *
-     * @param float $amount
+     * @param  float $amount
      * @return $this
      */
     public function authorize(Varien_Object $payment, $amount)
@@ -464,7 +464,7 @@ abstract class Mage_Payment_Model_Method_Abstract extends Varien_Object
     /**
      * Capture payment abstract method
      *
-     * @param float $amount
+     * @param  float $amount
      * @return $this
      */
     public function capture(Varien_Object $payment, $amount)
@@ -478,8 +478,8 @@ abstract class Mage_Payment_Model_Method_Abstract extends Varien_Object
 
     /**
      * Set capture transaction ID to invoice for informational purposes
-     * @param Mage_Sales_Model_Order_Invoice $invoice
-     * @param Mage_Sales_Model_Order_Payment $payment
+     * @param  Mage_Sales_Model_Order_Invoice     $invoice
+     * @param  Mage_Sales_Model_Order_Payment     $payment
      * @return Mage_Payment_Model_Method_Abstract
      */
     public function processInvoice($invoice, $payment)
@@ -493,8 +493,8 @@ abstract class Mage_Payment_Model_Method_Abstract extends Varien_Object
      * Candidate to be deprecated:
      * there can be multiple refunds per payment, thus payment.refund_transaction_id doesn't make big sense
      *
-     * @param Mage_Sales_Model_Order_Invoice $invoice
-     * @param Mage_Sales_Model_Order_Payment $payment
+     * @param  Mage_Sales_Model_Order_Invoice     $invoice
+     * @param  Mage_Sales_Model_Order_Payment     $payment
      * @return Mage_Payment_Model_Method_Abstract
      */
     public function processBeforeRefund($invoice, $payment)
@@ -506,7 +506,7 @@ abstract class Mage_Payment_Model_Method_Abstract extends Varien_Object
     /**
      * Refund specified amount for payment
      *
-     * @param float $amount
+     * @param  float $amount
      * @return $this
      */
     public function refund(Varien_Object $payment, $amount)
@@ -520,8 +520,8 @@ abstract class Mage_Payment_Model_Method_Abstract extends Varien_Object
 
     /**
      * Set transaction ID into creditmemo for informational purposes
-     * @param Mage_Sales_Model_Order_Creditmemo $creditmemo
-     * @param Mage_Sales_Model_Order_Payment $payment
+     * @param  Mage_Sales_Model_Order_Creditmemo  $creditmemo
+     * @param  Mage_Sales_Model_Order_Payment     $payment
      * @return Mage_Payment_Model_Method_Abstract
      */
     public function processCreditmemo($creditmemo, $payment)
@@ -545,8 +545,8 @@ abstract class Mage_Payment_Model_Method_Abstract extends Varien_Object
      * @deprecated after 1.4.0.0-alpha3
      * this method doesn't make sense, because invoice must not void entire authorization
      * there should be method for invoice cancellation
-     * @param Mage_Sales_Model_Order_Invoice $invoice
-     * @param Mage_Sales_Model_Order_Payment $payment
+     * @param  Mage_Sales_Model_Order_Invoice     $invoice
+     * @param  Mage_Sales_Model_Order_Payment     $payment
      * @return Mage_Payment_Model_Method_Abstract
      */
     public function processBeforeVoid($invoice, $payment)
@@ -624,7 +624,7 @@ abstract class Mage_Payment_Model_Method_Abstract extends Varien_Object
     /**
      * Retrieve information from payment configuration
      *
-     * @param string $field
+     * @param string                                $field
      * @param int|string|null|Mage_Core_Model_Store $storeId
      *
      * @return mixed
@@ -642,8 +642,8 @@ abstract class Mage_Payment_Model_Method_Abstract extends Varien_Object
     /**
      * Assign data to info model instance
      *
-     * @param   mixed $data
-     * @return  $this
+     * @param  mixed $data
+     * @return $this
      */
     public function assignData($data)
     {
@@ -698,8 +698,8 @@ abstract class Mage_Payment_Model_Method_Abstract extends Varien_Object
      * Check whether payment method is applicable to quote
      * Purposed to allow use in controllers some logic that was implemented in blocks only before
      *
-     * @param Mage_Sales_Model_Quote $quote
-     * @param int|null $checksBitMask
+     * @param  Mage_Sales_Model_Quote $quote
+     * @param  int|null               $checksBitMask
      * @return bool
      */
     public function isApplicableToQuote($quote, $checksBitMask)

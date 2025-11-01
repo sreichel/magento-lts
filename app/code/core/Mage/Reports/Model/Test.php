@@ -23,7 +23,7 @@ class Mage_Reports_Model_Test extends Varien_Object
     }
 
     /**
-     * @param int $countryId
+     * @param  int    $countryId
      * @return string
      */
     public function getUsersCities($countryId)
@@ -111,8 +111,8 @@ class Mage_Reports_Model_Test extends Varien_Object
     }
 
     /**
-     * @param array $array
-     * @param int $reset
+     * @param  array  $array
+     * @param  int    $reset
      * @return string
      */
     private function returnAsDataSource(&$array, $reset = 0)

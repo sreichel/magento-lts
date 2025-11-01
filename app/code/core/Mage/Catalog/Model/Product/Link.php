@@ -14,12 +14,12 @@
  *
  * @method Mage_Catalog_Model_Resource_Product_Link _getResource()
  * @method Mage_Catalog_Model_Resource_Product_Link getResource()
- * @method int getProductId()
- * @method $this setProductId(int $value)
- * @method int getLinkedProductId()
- * @method $this setLinkedProductId(int $value)
- * @method int getLinkTypeId()
- * @method $this setLinkTypeId(int $value)
+ * @method int                                      getProductId()
+ * @method $this                                    setProductId(int $value)
+ * @method int                                      getLinkedProductId()
+ * @method $this                                    setLinkedProductId(int $value)
+ * @method int                                      getLinkTypeId()
+ * @method $this                                    setLinkTypeId(int $value)
  */
 class Mage_Catalog_Model_Product_Link extends Mage_Core_Model_Abstract
 {
@@ -80,8 +80,8 @@ class Mage_Catalog_Model_Product_Link extends Mage_Core_Model_Abstract
     /**
      * Retrieve table name for attribute type
      *
-     * @param   string $type
-     * @return  string
+     * @param  string $type
+     * @return string
      */
     public function getAttributeTypeTable($type)
     {
@@ -109,7 +109,7 @@ class Mage_Catalog_Model_Product_Link extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param int|null $type
+     * @param  int|null $type
      * @return array
      */
     public function getAttributes($type = null)
@@ -124,8 +124,8 @@ class Mage_Catalog_Model_Product_Link extends Mage_Core_Model_Abstract
     /**
      * Save data for product relations
      *
-     * @param   Mage_Catalog_Model_Product $product
-     * @return  Mage_Catalog_Model_Product_Link
+     * @param  Mage_Catalog_Model_Product      $product
+     * @return Mage_Catalog_Model_Product_Link
      */
     public function saveProductRelations($product)
     {
@@ -150,7 +150,7 @@ class Mage_Catalog_Model_Product_Link extends Mage_Core_Model_Abstract
     /**
      * Save grouped product relation links
      *
-     * @param Mage_Catalog_Model_Product $product
+     * @param  Mage_Catalog_Model_Product $product
      * @return $this
      */
     public function saveGroupedLinks($product)

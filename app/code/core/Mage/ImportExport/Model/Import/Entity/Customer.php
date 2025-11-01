@@ -256,7 +256,7 @@ class Mage_ImportExport_Model_Import_Entity_Customer extends Mage_ImportExport_M
      * Save customer data to DB.
      *
      * @throws Exception
-     * @return bool Result of operation.
+     * @return bool      Result of operation.
      */
     protected function _importData()
     {
@@ -516,8 +516,8 @@ class Mage_ImportExport_Model_Import_Entity_Customer extends Mage_ImportExport_M
     /**
      * Update and insert data in entity table.
      *
-     * @param array $entityRowsIn Row for insert
-     * @param array $entityRowsUp Row for update
+     * @param  array $entityRowsIn Row for insert
+     * @param  array $entityRowsUp Row for update
      * @return $this
      */
     protected function _saveCustomerEntity(array $entityRowsIn, array $entityRowsUp)
@@ -540,8 +540,8 @@ class Mage_ImportExport_Model_Import_Entity_Customer extends Mage_ImportExport_M
     /**
      * Get customer ID. Method tries to find ID from old and new customers. If it fails - it returns NULL.
      *
-     * @param string $email
-     * @param string $websiteCode
+     * @param  string      $email
+     * @param  string      $websiteCode
      * @return string|null
      */
     public function getCustomerId($email, $websiteCode)
@@ -595,7 +595,7 @@ class Mage_ImportExport_Model_Import_Entity_Customer extends Mage_ImportExport_M
     /**
      * Is attribute contains particular data (not plain entity attribute).
      *
-     * @param string $attrCode
+     * @param  string $attrCode
      * @return bool
      */
     public function isAttributeParticular($attrCode)
@@ -606,7 +606,7 @@ class Mage_ImportExport_Model_Import_Entity_Customer extends Mage_ImportExport_M
     /**
      * Validate data row.
      *
-     * @param int $rowNum
+     * @param  int  $rowNum
      * @return bool
      */
     public function validateRow(array $rowData, $rowNum)

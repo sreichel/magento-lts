@@ -56,7 +56,7 @@ class Mage_CatalogInventory_Model_Resource_Indexer_Stock_Default extends Mage_Ca
     /**
      * Reindex stock data for defined product ids
      *
-     * @param int|array $entityIds
+     * @param  int|array $entityIds
      * @return $this
      */
     public function reindexEntity($entityIds)
@@ -68,7 +68,7 @@ class Mage_CatalogInventory_Model_Resource_Indexer_Stock_Default extends Mage_Ca
     /**
      * Set active Product Type Id
      *
-     * @param string $typeId
+     * @param  string $typeId
      * @return $this
      */
     public function setTypeId($typeId)
@@ -96,7 +96,7 @@ class Mage_CatalogInventory_Model_Resource_Indexer_Stock_Default extends Mage_Ca
     /**
      * Set Product Type Composite flag
      *
-     * @param bool $flag
+     * @param  bool  $flag
      * @return $this
      */
     public function setIsComposite($flag)
@@ -128,8 +128,8 @@ class Mage_CatalogInventory_Model_Resource_Indexer_Stock_Default extends Mage_Ca
     /**
      * Get the select object for get stock status by product ids
      *
-     * @param int|array $entityIds
-     * @param bool $usePrimaryTable use primary or temporary index table
+     * @param  int|array        $entityIds
+     * @param  bool             $usePrimaryTable use primary or temporary index table
      * @return Varien_Db_Select
      */
     protected function _getStockStatusSelect($entityIds = null, $usePrimaryTable = false)
@@ -188,7 +188,7 @@ class Mage_CatalogInventory_Model_Resource_Indexer_Stock_Default extends Mage_Ca
     /**
      * Prepare stock status data in temporary index table
      *
-     * @param int|array $entityIds  the product limitation
+     * @param  int|array $entityIds the product limitation
      * @return $this
      */
     protected function _prepareIndexTable($entityIds = null)
@@ -204,7 +204,7 @@ class Mage_CatalogInventory_Model_Resource_Indexer_Stock_Default extends Mage_Ca
     /**
      * Update Stock status index by product ids
      *
-     * @param array|int $entityIds
+     * @param  array|int $entityIds
      * @return $this
      */
     protected function _updateIndex($entityIds)
@@ -238,7 +238,7 @@ class Mage_CatalogInventory_Model_Resource_Indexer_Stock_Default extends Mage_Ca
     /**
      * Update stock status index table (INSERT ... ON DUPLICATE KEY UPDATE ...)
      *
-     * @param array $data
+     * @param  array $data
      * @return $this
      */
     protected function _updateIndexTable($data)
@@ -256,7 +256,7 @@ class Mage_CatalogInventory_Model_Resource_Indexer_Stock_Default extends Mage_Ca
     /**
      * Retrieve temporary index table name
      *
-     * @param string $table
+     * @param  string $table
      * @return string
      */
     public function getIdxTable($table = null)

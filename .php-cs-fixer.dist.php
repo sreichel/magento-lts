@@ -16,6 +16,8 @@ return $config
         'nullable_type_declaration_for_default_null_value' => true,
         // Calls to PHPUnit\Framework\TestCase static methods must all be of the same type, either $this->, self:: or static::
         'php_unit_test_case_static_method_calls' => ['call_type' => 'self'],
+        // All items of the given PHPDoc tags must be either left-aligned or (by default) aligned vertically.
+        'phpdoc_align' => true,
         // Docblocks should have the same indentation as the documented subject.
         'phpdoc_indent' => true,
         // Convert double quotes to single quotes for simple strings.

@@ -12,7 +12,7 @@
  *
  * @package    Mage_Core
  *
- * @method $this setQueue(Mage_Core_Model_Abstract $value)
+ * @method $this                       setQueue(Mage_Core_Model_Abstract $value)
  * @method Mage_Core_Model_Email_Queue getQueue()
  */
 class Mage_Core_Model_Email_Template_Mailer extends Varien_Object
@@ -70,7 +70,7 @@ class Mage_Core_Model_Email_Template_Mailer extends Varien_Object
     /**
      * Set email sender
      *
-     * @param string|array $sender
+     * @param  string|array $sender
      * @return $this
      */
     public function setSender($sender)
@@ -91,7 +91,7 @@ class Mage_Core_Model_Email_Template_Mailer extends Varien_Object
     /**
      * Set store id
      *
-     * @param int $storeId
+     * @param  int   $storeId
      * @return $this
      */
     public function setStoreId($storeId)
@@ -112,7 +112,7 @@ class Mage_Core_Model_Email_Template_Mailer extends Varien_Object
     /**
      * Set template id
      *
-     * @param int $templateId
+     * @param  int   $templateId
      * @return $this
      */
     public function setTemplateId($templateId)

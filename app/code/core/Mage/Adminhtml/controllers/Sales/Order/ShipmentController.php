@@ -93,7 +93,7 @@ class Mage_Adminhtml_Sales_Order_ShipmentController extends Mage_Adminhtml_Contr
     /**
      * Save shipment and order in one transaction
      *
-     * @param Mage_Sales_Model_Order_Shipment $shipment
+     * @param  Mage_Sales_Model_Order_Shipment $shipment
      * @return $this
      * @throws Exception
      */
@@ -461,8 +461,8 @@ class Mage_Adminhtml_Sales_Order_ShipmentController extends Mage_Adminhtml_Contr
      * children are not in process
      *
      * @deprecated after 1.4, Mage_Sales_Model_Service_Order used
-     * @param Mage_Sales_Model_Order_Item $item
-     * @param array $qtys
+     * @param  Mage_Sales_Model_Order_Item $item
+     * @param  array                       $qtys
      * @return bool
      */
     protected function _needToAddDummy($item, $qtys)
@@ -726,7 +726,7 @@ class Mage_Adminhtml_Sales_Order_ShipmentController extends Mage_Adminhtml_Contr
     /**
      * Create Zend_Pdf_Page instance with image from $imageString. Supports JPEG, PNG, GIF, WBMP, and GD2 formats.
      *
-     * @param string $imageString
+     * @param  string             $imageString
      * @return Zend_Pdf_Page|bool
      */
     protected function _createPdfPageFromImageString($imageString)

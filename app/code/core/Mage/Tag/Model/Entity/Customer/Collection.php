@@ -27,7 +27,7 @@ class Mage_Tag_Model_Entity_Customer_Collection extends Mage_Customer_Model_Enti
     }
 
     /**
-     * @param int $tagId
+     * @param  int                 $tagId
      * @return $this
      * @throws Mage_Core_Exception
      */
@@ -39,7 +39,7 @@ class Mage_Tag_Model_Entity_Customer_Collection extends Mage_Customer_Model_Enti
     }
 
     /**
-     * @param int $productId
+     * @param  int                 $productId
      * @return $this
      * @throws Mage_Core_Exception
      */
@@ -51,8 +51,8 @@ class Mage_Tag_Model_Entity_Customer_Collection extends Mage_Customer_Model_Enti
     }
 
     /**
-     * @param bool $printQuery
-     * @param bool $logQuery
+     * @param  bool                                            $printQuery
+     * @param  bool                                            $logQuery
      * @return $this|Mage_Eav_Model_Entity_Collection_Abstract
      */
     public function load($printQuery = false, $logQuery = false)
@@ -63,8 +63,8 @@ class Mage_Tag_Model_Entity_Customer_Collection extends Mage_Customer_Model_Enti
     }
 
     /**
-     * @param bool $printQuery
-     * @param bool $logQuery
+     * @param  bool  $printQuery
+     * @param  bool  $logQuery
      * @return $this
      */
     protected function _loadTags($printQuery = false, $logQuery = false)

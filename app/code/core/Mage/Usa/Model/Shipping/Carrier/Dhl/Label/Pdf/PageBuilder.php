@@ -68,7 +68,7 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_Label_Pdf_PageBuilder
     /**
      * Calculate x coordinate with indentation
      *
-     * @param int|float $pt
+     * @param  int|float $pt
      * @return int
      * @SuppressWarnings("PHPMD.ShortMethodName")
      */
@@ -80,7 +80,7 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_Label_Pdf_PageBuilder
     /**
      * Calculate y coordinate with indentation
      *
-     * @param int|float $pt
+     * @param  int|float $pt
      * @return int
      * @SuppressWarnings("PHPMD.ShortMethodName")
      */
@@ -146,7 +146,7 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_Label_Pdf_PageBuilder
     /**
      * Add Product Name
      *
-     * @param string $name
+     * @param  string                   $name
      * @return $this
      * @throws InvalidArgumentException
      */
@@ -166,7 +166,7 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_Label_Pdf_PageBuilder
     /**
      * Add Product Content Code
      *
-     * @param string $code
+     * @param  string                   $code
      * @return $this
      * @throws InvalidArgumentException
      */
@@ -206,7 +206,7 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_Label_Pdf_PageBuilder
     /**
      * Add Unit Id
      *
-     * @param int $id
+     * @param  int   $id
      * @return $this
      */
     public function addUnitId($id)
@@ -222,7 +222,7 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_Label_Pdf_PageBuilder
     /**
      * Add Reference Data
      *
-     * @param $data
+     * @param        $data
      * @return $this
      */
     public function addReferenceData($data)
@@ -285,7 +285,7 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_Label_Pdf_PageBuilder
     /**
      * Draw Sender Address
      *
-     * @param string $phoneNumber
+     * @param  string $phoneNumber
      * @return float
      */
     protected function _drawSenderAddress(SimpleXMLElement $addressLines, $phoneNumber)
@@ -316,7 +316,7 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_Label_Pdf_PageBuilder
     /**
      * Add Origin Info
      *
-     * @param string $serviceAreaCode
+     * @param  string                   $serviceAreaCode
      * @return $this
      * @throws InvalidArgumentException
      */
@@ -384,9 +384,9 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_Label_Pdf_PageBuilder
     /**
      * Add Destination Facility Code
      *
-     * @param string $countryCode
-     * @param string $serviceAreaCode
-     * @param string $facilityCode
+     * @param  string                   $countryCode
+     * @param  string                   $serviceAreaCode
+     * @param  string                   $facilityCode
      * @return $this
      * @throws InvalidArgumentException
      */
@@ -454,7 +454,7 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_Label_Pdf_PageBuilder
     /**
      * Add Shipment Information
      *
-     * @param Mage_Sales_Model_Order_Shipment $data
+     * @param  Mage_Sales_Model_Order_Shipment $data
      * @return $this
      * @throws InvalidArgumentException
      */
@@ -479,7 +479,7 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_Label_Pdf_PageBuilder
 
     /**
      * Add Date Info
-     * @param string $date
+     * @param  string $date
      * @return $this
      */
     public function addDateInfo($date)
@@ -497,8 +497,8 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_Label_Pdf_PageBuilder
     /**
      * Add Weight Info
      *
-     * @param string $weight
-     * @param string $unit
+     * @param  string                   $weight
+     * @param  string                   $unit
      * @return $this
      * @throws InvalidArgumentException
      */
@@ -525,7 +525,7 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_Label_Pdf_PageBuilder
     /**
      * Add Content: Shipment Description
      *
-     * @param array $package
+     * @param  array                    $package
      * @return $this
      * @throws InvalidArgumentException
      */
@@ -556,8 +556,8 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_Label_Pdf_PageBuilder
     /**
      * Add Waybill Barcode
      *
-     * @param string $number
-     * @param string $barCode
+     * @param  string                   $number
+     * @param  string                   $barCode
      * @return $this
      * @throws InvalidArgumentException
      */
@@ -584,9 +584,9 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_Label_Pdf_PageBuilder
     /**
      * Add Routing Barcode
      *
-     * @param string $routingCode
-     * @param string $id
-     * @param string $barCode
+     * @param  string                   $routingCode
+     * @param  string                   $id
+     * @param  string                   $barCode
      * @return $this
      * @throws InvalidArgumentException
      */
@@ -613,9 +613,9 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_Label_Pdf_PageBuilder
     /**
      * Add Piece Id Barcode
      *
-     * @param string $dataIdentifier
-     * @param string $licensePlate
-     * @param string $barCode
+     * @param  string                   $dataIdentifier
+     * @param  string                   $licensePlate
+     * @param  string                   $barCode
      * @return $this
      * @throws InvalidArgumentException
      */
@@ -648,8 +648,8 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_Label_Pdf_PageBuilder
     /**
      * Add Piece Number
      *
-     * @param int $pieceNumber
-     * @param int $piecesTotal
+     * @param  int                      $pieceNumber
+     * @param  int                      $piecesTotal
      * @return $this
      * @throws InvalidArgumentException
      */

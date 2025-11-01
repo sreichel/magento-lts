@@ -10,14 +10,14 @@
 /**
  * @package    Mage_Rule
  *
- * @method $this setActions(array $value)
+ * @method $this  setActions(array $value)
  * @method string getAggregator()
- * @method $this setAggregator(string $value)
+ * @method $this  setAggregator(string $value)
  * @method string getAggregatorOption()
- * @method array getAggregatorOptions()
- * @method $this setAggregatorOption(array $value)
+ * @method array  getAggregatorOptions()
+ * @method $this  setAggregatorOption(array $value)
  * @method string getPrefix()
- * @method $this setValueOption(array $value)
+ * @method $this  setValueOption(array $value)
  */
 class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstract
 {
@@ -55,7 +55,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
      *
      * It's made by performance reasons to avoid initialization of same models each time when rules are being processed.
      *
-     * @param  string $modelClass
+     * @param  string                                  $modelClass
      * @return Mage_Rule_Model_Condition_Abstract|bool
      */
     protected function _getNewConditionModelInstance($modelClass)
@@ -172,7 +172,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
     }
 
     /**
-     * @param Mage_Rule_Model_Condition_Abstract $condition
+     * @param  Mage_Rule_Model_Condition_Abstract $condition
      * @return $this
      */
     public function addCondition($condition)
@@ -230,8 +230,8 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
     }
 
     /**
-     * @param string $containerKey
-     * @param string $itemKey
+     * @param  string $containerKey
+     * @param  string $itemKey
      * @return string
      */
     public function asXml($containerKey = 'conditions', $itemKey = 'condition')
@@ -247,8 +247,8 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
     }
 
     /**
-     * @param array $arr
-     * @param string $key
+     * @param  array  $arr
+     * @param  string $key
      * @return $this
      */
     public function loadArray($arr, $key = 'conditions')
@@ -274,7 +274,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
     }
 
     /**
-     * @param string|SimpleXMLElement $xml
+     * @param  string|SimpleXMLElement $xml
      * @return $this
      */
     public function loadXml($xml)
@@ -339,7 +339,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
     }
 
     /**
-     * @param string $format
+     * @param  string $format
      * @return string
      */
     public function asString($format = '')
@@ -348,7 +348,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
     }
 
     /**
-     * @param int $level
+     * @param  int    $level
      * @return string
      */
     public function asStringRecursive($level = 0)
@@ -387,7 +387,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
     }
 
     /**
-     * @param string $form
+     * @param  string $form
      * @return $this
      */
     public function setJsFormObject($form)
@@ -414,7 +414,7 @@ class Mage_Rule_Model_Condition_Combine extends Mage_Rule_Model_Condition_Abstra
     /**
      * Set conditions, if current prefix is undefined use 'conditions' key
      *
-     * @param array $conditions
+     * @param  array $conditions
      * @return $this
      */
     public function setConditions($conditions)

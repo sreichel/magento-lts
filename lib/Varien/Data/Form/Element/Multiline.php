@@ -11,7 +11,7 @@
  * Form multiline text elements
  *
  *
- * @method int getLineCount()
+ * @method int   getLineCount()
  * @method $this setLineCount(int $value)
  */
 class Varien_Data_Form_Element_Multiline extends Varien_Data_Form_Element_Abstract
@@ -36,7 +36,7 @@ class Varien_Data_Form_Element_Multiline extends Varien_Data_Form_Element_Abstra
     }
 
     /**
-     * @param int $suffix
+     * @param  int    $suffix
      * @return string
      */
     public function getLabelHtml($suffix = 0)

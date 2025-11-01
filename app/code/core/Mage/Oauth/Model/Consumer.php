@@ -12,24 +12,25 @@
  *
  * @package    Mage_Oauth
  *
- * @method Mage_Oauth_Model_Resource_Consumer _getResource()
- * @method Mage_Oauth_Model_Resource_Consumer getResource()
+ * @method Mage_Oauth_Model_Resource_Consumer            _getResource()
+ * @method Mage_Oauth_Model_Resource_Consumer            getResource()
  * @method Mage_Oauth_Model_Resource_Consumer_Collection getCollection()
  * @method Mage_Oauth_Model_Resource_Consumer_Collection getResourceCollection()
+ *
  * @method string getName()
- * @method $this setName() setName(string $name)
+ * @method $this  setName() setName(string $name)
  * @method string getKey()
- * @method $this setKey() setKey(string $key)
+ * @method $this  setKey() setKey(string $key)
  * @method string getSecret()
- * @method $this setSecret() setSecret(string $secret)
+ * @method $this  setSecret() setSecret(string $secret)
  * @method string getCallbackUrl()
- * @method $this setCallbackUrl() setCallbackUrl(string $url)
+ * @method $this  setCallbackUrl() setCallbackUrl(string $url)
  * @method string getCreatedAt()
- * @method $this setCreatedAt() setCreatedAt(string $date)
+ * @method $this  setCreatedAt() setCreatedAt(string $date)
  * @method string getUpdatedAt()
- * @method $this setUpdatedAt() setUpdatedAt(string $date)
+ * @method $this  setUpdatedAt() setUpdatedAt(string $date)
  * @method string getRejectedCallbackUrl()
- * @method $this setRejectedCallbackUrl() setRejectedCallbackUrl(string $rejectedCallbackUrl)
+ * @method $this  setRejectedCallbackUrl() setRejectedCallbackUrl(string $rejectedCallbackUrl)
  */
 class Mage_Oauth_Model_Consumer extends Mage_Core_Model_Abstract
 {

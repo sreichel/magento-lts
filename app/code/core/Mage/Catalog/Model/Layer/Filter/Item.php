@@ -12,13 +12,13 @@
  *
  * @package    Mage_Catalog
  *
- * @method int getCount()
- * @method $this setCount(int $value)
+ * @method int    getCount()
+ * @method $this  setCount(int $value)
  * @method string getLabel()
- * @method $this setLabel(string $value)
+ * @method $this  setLabel(string $value)
  * @method string getValue()
- * @method $this setValue(string $value)
- * @method $this setFilter(Mage_Catalog_Model_Layer_Filter_Abstract $value)
+ * @method $this  setValue(string $value)
+ * @method $this  setFilter(Mage_Catalog_Model_Layer_Filter_Abstract $value)
  */
 class Mage_Catalog_Model_Layer_Filter_Item extends Varien_Object
 {

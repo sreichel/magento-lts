@@ -13,25 +13,25 @@
  *
  * @package    Mage_Payment
  *
- * @method float getBillingAmount()
+ * @method float  getBillingAmount()
  * @method string getCurrencyCode()
- * @method bool getStartDateIsEditable()
- * @method $this setImportedStartDatetime(string $value)
- * @method int getInternalReferenceId()
+ * @method bool   getStartDateIsEditable()
+ * @method $this  setImportedStartDatetime(string $value)
+ * @method int    getInternalReferenceId()
  * @method string getMethodCode()
- * @method $this setMethodCode(string $value)
- * @method int getPeriodUnit()
- * @method int getPeriodFrequency()
- * @method bool hasScheduleDescription()
+ * @method $this  setMethodCode(string $value)
+ * @method int    getPeriodUnit()
+ * @method int    getPeriodFrequency()
+ * @method bool   hasScheduleDescription()
  * @method string getScheduleDescription()
  * @method string setScheduleDescription(string $value)
  * @method string getStartDatetime()
- * @method $this setStartDatetime(string $value)
- * @method int getStoreId()
- * @method float getTrialBillingAmount()
- * @method int getTrialPeriodFrequency()
- * @method int getTrialPeriodMaxCycles()
- * @method int getTrialPeriodUnit()
+ * @method $this  setStartDatetime(string $value)
+ * @method int    getStoreId()
+ * @method float  getTrialBillingAmount()
+ * @method int    getTrialPeriodFrequency()
+ * @method int    getTrialPeriodMaxCycles()
+ * @method int    getTrialPeriodUnit()
  */
 class Mage_Payment_Model_Recurring_Profile extends Mage_Core_Model_Abstract
 {
@@ -178,8 +178,8 @@ class Mage_Payment_Model_Recurring_Profile extends Mage_Core_Model_Abstract
     /**
      * Getter for errors that may appear after validation
      *
-     * @param bool $isGrouped
-     * @param bool $asMessage
+     * @param  bool                $isGrouped
+     * @param  bool                $asMessage
      * @return array
      * @throws Mage_Core_Exception
      */
@@ -326,7 +326,7 @@ class Mage_Payment_Model_Recurring_Profile extends Mage_Core_Model_Abstract
     /**
      * Convert the start datetime (if set) to proper locale/timezone and return
      *
-     * @param bool $asString
+     * @param  bool             $asString
      * @return Zend_Date|string
      */
     public function exportStartDatetime($asString = true)
@@ -369,7 +369,7 @@ class Mage_Payment_Model_Recurring_Profile extends Mage_Core_Model_Abstract
     /**
      * Getter for available period units
      *
-     * @param bool $withLabels
+     * @param  bool  $withLabels
      * @return array
      */
     public function getAllPeriodUnits($withLabels = true)
@@ -397,7 +397,7 @@ class Mage_Payment_Model_Recurring_Profile extends Mage_Core_Model_Abstract
     /**
      * Render label for specified period unit
      *
-     * @param string $unit
+     * @param  string $unit
      * @return string
      */
     public function getPeriodUnitLabel($unit)
@@ -415,7 +415,7 @@ class Mage_Payment_Model_Recurring_Profile extends Mage_Core_Model_Abstract
     /**
      * Getter for field label
      *
-     * @param string $field
+     * @param  string      $field
      * @return string|null
      */
     public function getFieldLabel($field)
@@ -449,7 +449,7 @@ class Mage_Payment_Model_Recurring_Profile extends Mage_Core_Model_Abstract
     /**
      * Getter for field comments
      *
-     * @param string $field
+     * @param  string      $field
      * @return string|null
      */
     public function getFieldComment($field)
@@ -472,7 +472,7 @@ class Mage_Payment_Model_Recurring_Profile extends Mage_Core_Model_Abstract
     /**
      * Transform some specific data for output
      *
-     * @param string $key
+     * @param  string $key
      * @return mixed
      */
     public function renderData($key)
@@ -576,8 +576,8 @@ class Mage_Payment_Model_Recurring_Profile extends Mage_Core_Model_Abstract
     /**
      * Check accordance of the unit and frequency
      *
-     * @param string $unitKey
-     * @param string $frequencyKey
+     * @param  string $unitKey
+     * @param  string $frequencyKey
      * @return bool
      */
     protected function _validatePeriodFrequency($unitKey, $frequencyKey)
@@ -623,9 +623,9 @@ class Mage_Payment_Model_Recurring_Profile extends Mage_Core_Model_Abstract
      *
      * TODO: utilize Zend_Translate_Plural or similar stuff to render proper declensions with numerals.
      *
-     * @param string $periodKey
-     * @param string $frequencyKey
-     * @param string $cyclesKey
+     * @param  string $periodKey
+     * @param  string $frequencyKey
+     * @param  string $cyclesKey
      * @return array
      */
     protected function _renderSchedule($periodKey, $frequencyKey, $cyclesKey)

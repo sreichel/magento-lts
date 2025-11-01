@@ -96,7 +96,7 @@ class Mage_Tax_Model_Resource_Setup extends Mage_Sales_Model_Resource_Setup
     /**
      * Load Tax Table Data
      *
-     * @param string $table
+     * @param  string $table
      * @return array
      */
     protected function _loadTableData($table)
@@ -111,7 +111,7 @@ class Mage_Tax_Model_Resource_Setup extends Mage_Sales_Model_Resource_Setup
      * Load Old Rate Data
      * @deprecated since 1.5.0.0
      *
-     * @param array $oldRateTypes
+     * @param  array $oldRateTypes
      * @return array
      */
     protected function _loadOldRates($oldRateTypes)

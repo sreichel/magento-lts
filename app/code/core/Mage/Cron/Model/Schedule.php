@@ -12,27 +12,28 @@
  *
  * @package    Mage_Cron
  *
- * @method Mage_Cron_Model_Resource_Schedule _getResource()
- * @method Mage_Cron_Model_Resource_Schedule getResource()
+ * @method Mage_Cron_Model_Resource_Schedule            _getResource()
+ * @method Mage_Cron_Model_Resource_Schedule            getResource()
  * @method Mage_Cron_Model_Resource_Schedule_Collection getCollection()
- * @method $this setIsError(bool $value)
- * @method string getJobCode()
- * @method $this setJobCode(string $value)
- * @method string getStatus()
- * @method $this setStatus(string $value)
- * @method string getMessages()
- * @method $this setMessages(string $value)
- * @method string getCreatedAt()
- * @method $this setCreatedAt(string $value)
- * @method string getScheduledAt()
- * @method $this setScheduledAt(string $value)
- * @method string getExecutedAt()
- * @method $this setExecutedAt(string $value)
- * @method string getFinishedAt()
- * @method $this setFinishedAt(string $value)
- * @method $this unsScheduleId()
+ *
+ * @method $this                  setIsError(bool $value)
+ * @method string                 getJobCode()
+ * @method $this                  setJobCode(string $value)
+ * @method string                 getStatus()
+ * @method $this                  setStatus(string $value)
+ * @method string                 getMessages()
+ * @method $this                  setMessages(string $value)
+ * @method string                 getCreatedAt()
+ * @method $this                  setCreatedAt(string $value)
+ * @method string                 getScheduledAt()
+ * @method $this                  setScheduledAt(string $value)
+ * @method string                 getExecutedAt()
+ * @method $this                  setExecutedAt(string $value)
+ * @method string                 getFinishedAt()
+ * @method $this                  setFinishedAt(string $value)
+ * @method $this                  unsScheduleId()
  * @method array[]|false|string[] getCronExprArr()
- * @method $this setCronExprArr(array[]|false|string[] $value)
+ * @method $this                  setCronExprArr(array[]|false|string[] $value)
  */
 class Mage_Cron_Model_Schedule extends Mage_Core_Model_Abstract
 {
@@ -57,7 +58,7 @@ class Mage_Cron_Model_Schedule extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param string $expr
+     * @param  string              $expr
      * @return $this
      * @throws Mage_Core_Exception
      */
@@ -77,7 +78,7 @@ class Mage_Cron_Model_Schedule extends Mage_Core_Model_Abstract
      *
      * Supports $this->setCronExpr('* 0-5,10-59/5 2-10,15-25 january-june/2 mon-fri')
      *
-     * @param string|int $time
+     * @param  string|int $time
      * @return bool
      */
     public function trySchedule($time)
@@ -112,8 +113,8 @@ class Mage_Cron_Model_Schedule extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param string $expr
-     * @param int $num
+     * @param  string              $expr
+     * @param  int                 $num
      * @return bool
      * @throws Mage_Core_Exception
      */
@@ -177,7 +178,7 @@ class Mage_Cron_Model_Schedule extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param int|string $value
+     * @param  int|string       $value
      * @return int|string|false
      */
     public function getNumeric($value)
@@ -224,7 +225,7 @@ class Mage_Cron_Model_Schedule extends Mage_Core_Model_Abstract
      * Returns true if status was changed and false otherwise.
      *
      * @param string $oldStatus
-     * This is used to implement locking for cron jobs.
+     *                          This is used to implement locking for cron jobs.
      *
      * @return bool
      */

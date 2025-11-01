@@ -122,7 +122,7 @@ class Mage_Api_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstract
     /**
      * Load data by username
      *
-     * @param string $username
+     * @param  string $username
      * @return array
      */
     public function loadByUsername($username)
@@ -136,7 +136,7 @@ class Mage_Api_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstract
     /**
      * load by session id
      *
-     * @param string $sessId
+     * @param  string $sessId
      * @return array
      */
     public function loadBySessId($sessId)
@@ -161,7 +161,7 @@ class Mage_Api_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstract
     /**
      * Clear by session
      *
-     * @param string $sessid
+     * @param  string $sessid
      * @return $this
      */
     public function clearBySessId($sessid)
@@ -176,7 +176,7 @@ class Mage_Api_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstract
     /**
      * Retrieve api user role data if it was assigned to role
      *
-     * @param int | Mage_Api_Model_User $user
+     * @param  int | Mage_Api_Model_User $user
      * @return null | array
      */
     public function hasAssigned2Role($user)

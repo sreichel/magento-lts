@@ -154,8 +154,8 @@ class Mage_Core_Model_Resource_Session implements SessionHandlerInterface
     /**
      * Open session
      *
-     * @param string $savePath ignored
-     * @param string $sessName ignored
+     * @param  string $savePath ignored
+     * @param  string $sessName ignored
      * @return bool
      */
     #[\ReturnTypeWillChange]
@@ -180,7 +180,7 @@ class Mage_Core_Model_Resource_Session implements SessionHandlerInterface
     /**
      * Fetch session data
      *
-     * @param string $sessId
+     * @param  string $sessId
      * @return string
      */
     #[\ReturnTypeWillChange]
@@ -203,8 +203,8 @@ class Mage_Core_Model_Resource_Session implements SessionHandlerInterface
     /**
      * Update session
      *
-     * @param string $sessId
-     * @param string $sessData
+     * @param  string $sessId
+     * @param  string $sessData
      * @return bool
      */
     #[\ReturnTypeWillChange]
@@ -238,7 +238,7 @@ class Mage_Core_Model_Resource_Session implements SessionHandlerInterface
     /**
      * Destroy session
      *
-     * @param string $sessId
+     * @param  string $sessId
      * @return bool
      */
     #[\ReturnTypeWillChange]
@@ -252,7 +252,7 @@ class Mage_Core_Model_Resource_Session implements SessionHandlerInterface
     /**
      * Garbage collection
      *
-     * @param int $sessMaxLifeTime ignored
+     * @param  int  $sessMaxLifeTime ignored
      * @return bool
      * @SuppressWarnings("PHPMD.ShortMethodName")
      */

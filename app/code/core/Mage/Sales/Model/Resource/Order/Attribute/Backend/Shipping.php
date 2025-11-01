@@ -17,7 +17,7 @@ class Mage_Sales_Model_Resource_Order_Attribute_Backend_Shipping extends Mage_Ea
     /**
      * Perform operation before save
      *
-     * @param Varien_Object|Mage_Sales_Model_Order $object
+     * @param  Varien_Object|Mage_Sales_Model_Order $object
      * @return $this
      */
     public function beforeSave($object)
@@ -33,7 +33,7 @@ class Mage_Sales_Model_Resource_Order_Attribute_Backend_Shipping extends Mage_Ea
     /**
      * Perform operation after save
      *
-     * @param Varien_Object|Mage_Sales_Model_Order $object
+     * @param  Varien_Object|Mage_Sales_Model_Order $object
      * @return $this
      */
     public function afterSave($object)

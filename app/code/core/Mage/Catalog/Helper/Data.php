@@ -69,7 +69,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Set a specified store ID value
      *
-     * @param int $store
+     * @param  int   $store
      * @return $this
      */
     public function setStoreId($store)
@@ -118,7 +118,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Check is category link
      *
-     * @param int $categoryId
+     * @param  int  $categoryId
      * @return bool
      */
     protected function _isCategoryLink($categoryId)
@@ -186,8 +186,8 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
      * Split SKU of an item by dashes and spaces
      * Words will not be broken, unless thir length is greater than $length
      *
-     * @param string $sku
-     * @param int $length
+     * @param  string $sku
+     * @param  int    $length
      * @return array
      */
     public function splitSku($sku, $length = 30)
@@ -246,7 +246,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Indicate whether to save URL Rewrite History or not (create redirects to old URLs)
      *
-     * @param null|string|bool|int|Mage_Core_Model_Store $storeId Store View
+     * @param  null|string|bool|int|Mage_Core_Model_Store $storeId Store View
      * @return bool
      */
     public function shouldSaveUrlRewritesHistory($storeId = null)
@@ -362,9 +362,9 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
      * Check if can apply Minimum Advertise price to product
      * in specific visibility
      *
-     * @param int|Mage_Catalog_Model_Product $product
-     * @param int $visibility Check displaying price in concrete place (by default generally)
-     * @param bool $checkAssociatedItems
+     * @param  int|Mage_Catalog_Model_Product $product
+     * @param  int                            $visibility           Check displaying price in concrete place (by default generally)
+     * @param  bool                           $checkAssociatedItems
      * @return bool
      */
     public function canApplyMsrp($product, $visibility = null, $checkAssociatedItems = true)
@@ -417,7 +417,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Check whether MAP applied to product Product Type
      *
-     * @param Mage_Catalog_Model_Product $product
+     * @param  Mage_Catalog_Model_Product $product
      * @return bool
      */
     public function canApplyMsrpToProductType($product)
@@ -435,7 +435,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Get MAP message for price
      *
-     * @param Mage_Catalog_Model_Product $product
+     * @param  Mage_Catalog_Model_Product $product
      * @return string
      */
     public function getMsrpPriceMessage($product)
@@ -453,7 +453,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Check is product need gesture to show price
      *
-     * @param Mage_Catalog_Model_Product $product
+     * @param  Mage_Catalog_Model_Product $product
      * @return bool
      */
     public function isShowPriceOnGesture($product)
@@ -466,7 +466,7 @@ class Mage_Catalog_Helper_Data extends Mage_Core_Helper_Abstract
 
     /**
      * Whether to display items count for each filter option
-     * @param int $storeId Store view ID
+     * @param  int  $storeId Store view ID
      * @return bool
      */
     public function shouldDisplayProductCountOnLayer($storeId = null)

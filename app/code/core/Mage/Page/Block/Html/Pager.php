@@ -110,7 +110,7 @@ class Mage_Page_Block_Html_Pager extends Mage_Core_Block_Template
     /**
      * Setter for limit items per page
      *
-     * @param int $limit
+     * @param  int   $limit
      * @return $this
      */
     public function setLimit($limit)
@@ -148,7 +148,7 @@ class Mage_Page_Block_Html_Pager extends Mage_Core_Block_Template
     }
 
     /**
-     * @param string $varName
+     * @param  string $varName
      * @return $this
      */
     public function setPageVarName($varName)
@@ -166,7 +166,7 @@ class Mage_Page_Block_Html_Pager extends Mage_Core_Block_Template
     }
 
     /**
-     * @param bool $varName
+     * @param  bool  $varName
      * @return $this
      */
     public function setShowPerPage($varName)
@@ -188,7 +188,7 @@ class Mage_Page_Block_Html_Pager extends Mage_Core_Block_Template
     }
 
     /**
-     * @param string $varName
+     * @param  string $varName
      * @return $this
      */
     public function setLimitVarName($varName)
@@ -269,7 +269,7 @@ class Mage_Page_Block_Html_Pager extends Mage_Core_Block_Template
     }
 
     /**
-     * @param int $limit
+     * @param  int  $limit
      * @return bool
      */
     public function isLimitCurrent($limit)
@@ -278,7 +278,7 @@ class Mage_Page_Block_Html_Pager extends Mage_Core_Block_Template
     }
 
     /**
-     * @param int $page
+     * @param  int  $page
      * @return bool
      */
     public function isPageCurrent($page)
@@ -352,7 +352,7 @@ class Mage_Page_Block_Html_Pager extends Mage_Core_Block_Template
     }
 
     /**
-     * @param int $page
+     * @param  int    $page
      * @return string
      */
     public function getPageUrl($page)
@@ -361,7 +361,7 @@ class Mage_Page_Block_Html_Pager extends Mage_Core_Block_Template
     }
 
     /**
-     * @param int $limit
+     * @param  int    $limit
      * @return string
      */
     public function getLimitUrl($limit)
@@ -370,7 +370,7 @@ class Mage_Page_Block_Html_Pager extends Mage_Core_Block_Template
     }
 
     /**
-     * @param array $params
+     * @param  array  $params
      * @return string
      */
     public function getPagerUrl($params = [])
@@ -498,7 +498,7 @@ class Mage_Page_Block_Html_Pager extends Mage_Core_Block_Template
     /**
      * Setter for $_frameLength
      *
-     * @param int $frame
+     * @param  int   $frame
      * @return $this
      */
     public function setFrameLength($frame)
@@ -519,7 +519,7 @@ class Mage_Page_Block_Html_Pager extends Mage_Core_Block_Template
     /**
      * Setter for $_jump
      *
-     * @param int $jump
+     * @param  int   $jump
      * @return $this
      */
     public function setJump($jump)
@@ -616,7 +616,7 @@ class Mage_Page_Block_Html_Pager extends Mage_Core_Block_Template
     /**
      * Setter for flag _frameInitialized
      *
-     * @param bool $flag
+     * @param  bool  $flag
      * @return $this
      */
     protected function _setFrameInitialized($flag)
@@ -658,7 +658,7 @@ class Mage_Page_Block_Html_Pager extends Mage_Core_Block_Template
     /**
      * Set whether output of the pager is mandatory
      *
-     * @param bool $isRequired
+     * @param  bool  $isRequired
      * @return $this
      */
     public function setIsOutputRequired($isRequired)
