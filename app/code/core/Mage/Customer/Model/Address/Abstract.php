@@ -128,9 +128,8 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
     /**
      * get address street
      *
-     * @param int $line address line index
-     *
-     * @return string|array
+     * @param  int          $line address line index
+     * @return array|string
      */
     public function getStreet($line = 0)
     {
@@ -190,8 +189,7 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param string $street
-     *
+     * @param  string                               $street
      * @return Mage_Customer_Model_Address_Abstract
      */
     public function setStreetFull($street)
@@ -202,8 +200,7 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
     /**
      * set address street
      *
-     * @param array|string $street
-     *
+     * @param  array|string $street
      * @return $this
      */
     public function setStreet($street)
@@ -220,7 +217,6 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
      * Create fields street1, street2, etc.
      *
      * To be used in controllers for views data
-     *
      */
     public function explodeStreetAddress()
     {
@@ -276,7 +272,6 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
 
     /**
      * Return 2 letter state code if available, otherwise full region name
-     *
      */
     public function getRegionCode()
     {
@@ -352,8 +347,7 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
     /**
      * Retrieve country model
      *
-     * @param int|null $region
-     *
+     * @param  null|int                     $region
      * @return Mage_Directory_Model_Country
      * @SuppressWarnings("PHPMD.CamelCaseVariableName")
      */
@@ -379,8 +373,7 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param bool $html
-     *
+     * @param  bool   $html
      * @return string
      * @deprecated for public function format
      */
@@ -391,9 +384,8 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param string $type
-     *
-     * @return string|null
+     * @param  string      $type
+     * @return null|string
      */
     public function format($type)
     {
@@ -430,7 +422,7 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
     /**
      * Validate address attribute values
      *
-     * @return array | bool
+     * @return array|bool
      */
     public function validate()
     {
@@ -500,8 +492,7 @@ class Mage_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
     /**
      * Add error
      *
-     * @param string $error
-     *
+     * @param  string $error
      * @return $this
      */
     public function addError($error)

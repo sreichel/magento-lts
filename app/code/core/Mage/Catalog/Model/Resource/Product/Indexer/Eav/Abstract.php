@@ -17,7 +17,6 @@ abstract class Mage_Catalog_Model_Resource_Product_Indexer_Eav_Abstract extends 
     /**
      * Rebuild all index data
      *
-     *
      * @return Mage_Catalog_Model_Resource_Product_Indexer_Eav_Abstract
      */
     public function reindexAll()
@@ -43,12 +42,9 @@ abstract class Mage_Catalog_Model_Resource_Product_Indexer_Eav_Abstract extends 
     /**
      * Rebuild index data by entities
      *
-     *
-     * @param int|array $processIds
-     *
-     * @return Mage_Catalog_Model_Resource_Product_Indexer_Eav_Abstract
-     *
+     * @param  array|int                                                $processIds
      * @throws Exception
+     * @return Mage_Catalog_Model_Resource_Product_Indexer_Eav_Abstract
      */
     public function reindexEntities($processIds)
     {
@@ -96,10 +92,8 @@ abstract class Mage_Catalog_Model_Resource_Product_Indexer_Eav_Abstract extends 
      * Rebuild index data by attribute id
      * If attribute is not indexable remove data by attribute
      *
-     *
-     * @param int  $attributeId
-     * @param bool $isIndexable
-     *
+     * @param  int                                                      $attributeId
+     * @param  bool                                                     $isIndexable
      * @return Mage_Catalog_Model_Resource_Product_Indexer_Eav_Abstract
      */
     public function reindexAttribute($attributeId, $isIndexable = true)
@@ -158,8 +152,7 @@ abstract class Mage_Catalog_Model_Resource_Product_Indexer_Eav_Abstract extends 
     /**
      * Prepare data index for product relations
      *
-     * @param array $parentIds the parent entity ids limitation
-     *
+     * @param  array                                                    $parentIds the parent entity ids limitation
      * @return Mage_Catalog_Model_Resource_Product_Indexer_Eav_Abstract
      */
     protected function _prepareRelationIndex($parentIds = null)
@@ -222,8 +215,7 @@ abstract class Mage_Catalog_Model_Resource_Product_Indexer_Eav_Abstract extends 
     /**
      * Remove index data from index by attribute id
      *
-     * @param int $attributeId
-     *
+     * @param  int                                                      $attributeId
      * @return Mage_Catalog_Model_Resource_Product_Indexer_Eav_Abstract
      */
     protected function _removeAttributeIndexData($attributeId)
@@ -245,11 +237,9 @@ abstract class Mage_Catalog_Model_Resource_Product_Indexer_Eav_Abstract extends 
     /**
      * Synchronize temporary index table with index table by attribute id
      *
-     * @param int $attributeId
-     *
-     * @return Mage_Catalog_Model_Resource_Product_Indexer_Eav_Abstract
-     *
+     * @param  int                                                      $attributeId
      * @throws Exception
+     * @return Mage_Catalog_Model_Resource_Product_Indexer_Eav_Abstract
      */
     protected function _synchronizeAttributeIndexData($attributeId)
     {

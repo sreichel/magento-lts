@@ -23,7 +23,6 @@ class Mage_CatalogSearch_Model_Resource_Query_Collection extends Mage_Core_Model
 
     /**
      * Init model for collection
-     *
      */
     protected function _construct()
     {
@@ -33,8 +32,7 @@ class Mage_CatalogSearch_Model_Resource_Query_Collection extends Mage_Core_Model
     /**
      * Set Store ID for filter
      *
-     * @param mixed $store
-     *
+     * @param  mixed $store
      * @return $this
      */
     public function setStoreId($store)
@@ -50,7 +48,7 @@ class Mage_CatalogSearch_Model_Resource_Query_Collection extends Mage_Core_Model
     /**
      * Retrieve Store ID Filter
      *
-     * @return int|null
+     * @return null|int
      */
     public function getStoreId()
     {
@@ -60,8 +58,7 @@ class Mage_CatalogSearch_Model_Resource_Query_Collection extends Mage_Core_Model
     /**
      * Set search query text to filter
      *
-     * @param string $query
-     *
+     * @param  string $query
      * @return $this
      */
     public function setQueryFilter($query)
@@ -92,8 +89,7 @@ class Mage_CatalogSearch_Model_Resource_Query_Collection extends Mage_Core_Model
     /**
      * Set Popular Search Query Filter
      *
-     * @param int|array $storeIds
-     *
+     * @param  array|int $storeIds
      * @return $this
      */
     public function setPopularQueryFilter($storeIds = null)
@@ -136,8 +132,7 @@ class Mage_CatalogSearch_Model_Resource_Query_Collection extends Mage_Core_Model
     /**
      * Filter collection by specified store ids
      *
-     * @param array|int $storeIds
-     *
+     * @param  array|int $storeIds
      * @return $this
      */
     public function addStoreFilter($storeIds)

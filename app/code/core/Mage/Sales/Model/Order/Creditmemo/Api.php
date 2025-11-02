@@ -29,8 +29,7 @@ class Mage_Sales_Model_Order_Creditmemo_Api extends Mage_Sales_Model_Api_Resourc
     /**
      * Retrieve credit memos list. Filtration could be applied
      *
-     * @param null|object|array $filters
-     *
+     * @param  null|array|object $filters
      * @return array
      */
     public function items($filters = null)
@@ -57,9 +56,8 @@ class Mage_Sales_Model_Order_Creditmemo_Api extends Mage_Sales_Model_Api_Resourc
      * Make filter of appropriate format for list method
      *
      * @deprecated since 1.7.0.1
-     * @param array|null $filter
-     *
-     * @return array|null
+     * @param  null|array $filter
+     * @return null|array
      */
     protected function _prepareListFilter($filter = null)
     {
@@ -79,8 +77,7 @@ class Mage_Sales_Model_Order_Creditmemo_Api extends Mage_Sales_Model_Api_Resourc
     /**
      * Retrieve credit memo information
      *
-     * @param string $creditmemoIncrementId
-     *
+     * @param  string $creditmemoIncrementId
      * @return array
      */
     public function info($creditmemoIncrementId)
@@ -107,15 +104,14 @@ class Mage_Sales_Model_Order_Creditmemo_Api extends Mage_Sales_Model_Api_Resourc
     /**
      * Create new credit memo for order
      *
-     * @param string      $orderIncrementId
-     * @param array       $creditmemoData            array('qtys' => array('sku1' => qty1, ... , 'skuN' => qtyN),
-     *                                               'shipping_amount' => value, 'adjustment_positive' => value, 'adjustment_negative' => value)
-     * @param string|null $comment
-     * @param bool        $notifyCustomer
-     * @param bool        $includeComment
-     * @param string      $refundToStoreCreditAmount
-     *
-     * @return string $creditmemoIncrementId
+     * @param  string      $orderIncrementId
+     * @param  array       $creditmemoData            array('qtys' => array('sku1' => qty1, ... , 'skuN' => qtyN),
+     *                                                'shipping_amount' => value, 'adjustment_positive' => value, 'adjustment_negative' => value)
+     * @param  null|string $comment
+     * @param  bool        $notifyCustomer
+     * @param  bool        $includeComment
+     * @param  string      $refundToStoreCreditAmount
+     * @return string      $creditmemoIncrementId
      */
     public function create(
         $orderIncrementId,
@@ -188,11 +184,10 @@ class Mage_Sales_Model_Order_Creditmemo_Api extends Mage_Sales_Model_Api_Resourc
     /**
      * Add comment to credit memo
      *
-     * @param string $creditmemoIncrementId
-     * @param string $comment
-     * @param bool   $notifyCustomer
-     * @param bool   $includeComment
-     *
+     * @param  string $creditmemoIncrementId
+     * @param  string $comment
+     * @param  bool   $notifyCustomer
+     * @param  bool   $includeComment
      * @return bool
      */
     public function addComment($creditmemoIncrementId, $comment, $notifyCustomer = false, $includeComment = false)
@@ -212,8 +207,7 @@ class Mage_Sales_Model_Order_Creditmemo_Api extends Mage_Sales_Model_Api_Resourc
     /**
      * Cancel credit memo
      *
-     * @param string $creditmemoIncrementId
-     *
+     * @param  string $creditmemoIncrementId
      * @return bool
      */
     public function cancel($creditmemoIncrementId)
@@ -236,8 +230,7 @@ class Mage_Sales_Model_Order_Creditmemo_Api extends Mage_Sales_Model_Api_Resourc
     /**
      * Hook method, could be replaced in derived classes
      *
-     * @param array|null $data
-     *
+     * @param  null|array $data
      * @return array
      */
     protected function _prepareCreateData($data)
@@ -266,8 +259,7 @@ class Mage_Sales_Model_Order_Creditmemo_Api extends Mage_Sales_Model_Api_Resourc
     /**
      * Load CreditMemo by IncrementId
      *
-     * @param mixed $incrementId
-     *
+     * @param  mixed                             $incrementId
      * @return Mage_Sales_Model_Order_Creditmemo
      */
     protected function _getCreditmemo($incrementId)

@@ -18,7 +18,6 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Search_Grid extends Mage_Adminhtml
 {
     /**
      * Mage_Adminhtml_Block_Sales_Order_Create_Search_Grid constructor.
-     *
      * @throws Exception
      */
     public function __construct()
@@ -37,7 +36,6 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Search_Grid extends Mage_Adminhtml
 
     /**
      * Retrieve quote store object
-     *
      * @return Mage_Core_Model_Store
      */
     public function getStore()
@@ -47,7 +45,6 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Search_Grid extends Mage_Adminhtml
 
     /**
      * Retrieve quote object
-     *
      * @return Mage_Sales_Model_Quote
      */
     public function getQuote()
@@ -56,11 +53,9 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Search_Grid extends Mage_Adminhtml
     }
 
     /**
-     * @param Mage_Adminhtml_Block_Widget_Grid_Column $column
-     *
-     * @return $this
-     *
+     * @param  Mage_Adminhtml_Block_Widget_Grid_Column $column
      * @throws Exception
+     * @return $this
      */
     protected function _addColumnFilterToCollection($column)
     {
@@ -175,9 +170,8 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Search_Grid extends Mage_Adminhtml
     }
 
     /**
-     * @return array
-     *
      * @throws Exception
+     * @return array
      */
     protected function _getSelectedProducts()
     {
@@ -188,7 +182,6 @@ class Mage_Adminhtml_Block_Sales_Order_Create_Search_Grid extends Mage_Adminhtml
      * Retrieve gift message save model
      *
      * @deprecated after 1.4.2.0
-     *
      * @return Mage_Adminhtml_Model_Giftmessage_Save
      */
     protected function _getGiftmessageSaveModel()

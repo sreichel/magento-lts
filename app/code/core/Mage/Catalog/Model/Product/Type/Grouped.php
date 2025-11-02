@@ -67,8 +67,7 @@ class Mage_Catalog_Model_Product_Type_Grouped extends Mage_Catalog_Model_Product
     }
 
     /**
-     * @param string|string[] $attribute
-     *
+     * @param  string|string[] $attribute
      * @return $this
      */
     public function setAttributesUsedInAssociatedProducts($attribute)
@@ -98,9 +97,8 @@ class Mage_Catalog_Model_Product_Type_Grouped extends Mage_Catalog_Model_Product
      *   group => array(ids)
      * )
      *
-     * @param int  $parentId
-     * @param bool $required
-     *
+     * @param  int   $parentId
+     * @param  bool  $required
      * @return array
      */
     public function getChildrenIds($parentId, $required = true)
@@ -115,8 +113,7 @@ class Mage_Catalog_Model_Product_Type_Grouped extends Mage_Catalog_Model_Product
     /**
      * Retrieve parent ids array by requered child
      *
-     * @param int|array $childId
-     *
+     * @param  array|int $childId
      * @return array
      */
     public function getParentIdsByChild($childId)
@@ -131,8 +128,7 @@ class Mage_Catalog_Model_Product_Type_Grouped extends Mage_Catalog_Model_Product
     /**
      * Retrieve array of associated products
      *
-     * @param Mage_Catalog_Model_Product $product
-     *
+     * @param  Mage_Catalog_Model_Product $product
      * @return array
      */
     public function getAssociatedProducts($product = null)
@@ -164,9 +160,8 @@ class Mage_Catalog_Model_Product_Type_Grouped extends Mage_Catalog_Model_Product
     /**
      * Add status filter to collection
      *
-     * @param int                        $status
-     * @param Mage_Catalog_Model_Product $product
-     *
+     * @param  int                        $status
+     * @param  Mage_Catalog_Model_Product $product
      * @return $this
      */
     public function addStatusFilter($status, $product = null)
@@ -185,8 +180,7 @@ class Mage_Catalog_Model_Product_Type_Grouped extends Mage_Catalog_Model_Product
     /**
      * Set only saleable filter
      *
-     * @param Mage_Catalog_Model_Product $product
-     *
+     * @param  Mage_Catalog_Model_Product $product
      * @return $this
      */
     public function setSaleableStatus($product = null)
@@ -201,8 +195,7 @@ class Mage_Catalog_Model_Product_Type_Grouped extends Mage_Catalog_Model_Product
     /**
      * Return all assigned status filters
      *
-     * @param Mage_Catalog_Model_Product $product
-     *
+     * @param  Mage_Catalog_Model_Product $product
      * @return array
      */
     public function getStatusFilters($product = null)
@@ -220,8 +213,7 @@ class Mage_Catalog_Model_Product_Type_Grouped extends Mage_Catalog_Model_Product
     /**
      * Retrieve related products identifiers
      *
-     * @param Mage_Catalog_Model_Product $product
-     *
+     * @param  Mage_Catalog_Model_Product $product
      * @return array
      */
     public function getAssociatedProductIds($product = null)
@@ -241,8 +233,7 @@ class Mage_Catalog_Model_Product_Type_Grouped extends Mage_Catalog_Model_Product
     /**
      * Retrieve collection of associated products
      *
-     * @param Mage_Catalog_Model_Product $product
-     *
+     * @param  Mage_Catalog_Model_Product                                  $product
      * @return Mage_Catalog_Model_Resource_Product_Link_Product_Collection
      */
     public function getAssociatedProductCollection($product = null)
@@ -259,8 +250,7 @@ class Mage_Catalog_Model_Product_Type_Grouped extends Mage_Catalog_Model_Product
     /**
      * Check is product available for sale
      *
-     * @param Mage_Catalog_Model_Product $product
-     *
+     * @param  Mage_Catalog_Model_Product $product
      * @return bool
      */
     public function isSalable($product = null)
@@ -281,8 +271,7 @@ class Mage_Catalog_Model_Product_Type_Grouped extends Mage_Catalog_Model_Product
     /**
      * Save type related data
      *
-     * @param Mage_Catalog_Model_Product $product
-     *
+     * @param  Mage_Catalog_Model_Product $product
      * @return $this
      */
     public function save($product = null)
@@ -296,9 +285,8 @@ class Mage_Catalog_Model_Product_Type_Grouped extends Mage_Catalog_Model_Product
      * Prepare product and its configuration to be added to some products list.
      * Perform standard preparation process and add logic specific to Grouped product type.
      *
-     * @param Mage_Catalog_Model_Product $product
-     * @param string                     $processMode
-     *
+     * @param  Mage_Catalog_Model_Product $product
+     * @param  string                     $processMode
      * @return array|string
      */
     protected function _prepareProduct(Varien_Object $buyRequest, $product, $processMode)
@@ -368,8 +356,7 @@ class Mage_Catalog_Model_Product_Type_Grouped extends Mage_Catalog_Model_Product
      * Retrieve products divided into groups required to purchase
      * At least one product in each group has to be purchased
      *
-     * @param Mage_Catalog_Model_Product $product
-     *
+     * @param  Mage_Catalog_Model_Product $product
      * @return array
      */
     public function getProductsToPurchaseByReqGroups($product = null)
@@ -381,9 +368,8 @@ class Mage_Catalog_Model_Product_Type_Grouped extends Mage_Catalog_Model_Product
     /**
      * Prepare selected qty for grouped product's options
      *
-     * @param Mage_Catalog_Model_Product $product
-     * @param Varien_Object              $buyRequest
-     *
+     * @param  Mage_Catalog_Model_Product $product
+     * @param  Varien_Object              $buyRequest
      * @return array
      */
     public function processBuyRequest($product, $buyRequest)

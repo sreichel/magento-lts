@@ -51,7 +51,6 @@ class Mage_Adminhtml_Block_Dashboard_Searches_Top extends Mage_Adminhtml_Block_D
     }
 
     /**
-     *
      * @throws Exception
      */
     protected function _prepareColumns()

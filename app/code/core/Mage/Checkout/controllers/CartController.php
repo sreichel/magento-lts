@@ -54,9 +54,8 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
     /**
      * Set back redirect url to response
      *
-     * @return $this
-     *
      * @throws Mage_Core_Exception
+     * @return $this
      */
     protected function _goBack()
     {
@@ -89,7 +88,7 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
     /**
      * Initialize product instance from request data
      *
-     * @return Mage_Catalog_Model_Product|false
+     * @return false|Mage_Catalog_Model_Product
      */
     protected function _initProduct()
     {
@@ -190,7 +189,6 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
 
     /**
      * Add product to shopping cart action
-     *
      *
      * @throws Mage_Core_Exception
      */

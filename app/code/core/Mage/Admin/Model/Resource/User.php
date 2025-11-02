@@ -63,9 +63,8 @@ class Mage_Admin_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstrac
     /**
      * Load data by specified username
      *
-     * @param string $username
-     *
-     * @return false|array
+     * @param  string      $username
+     * @return array|false
      */
     public function loadByUsername($username)
     {
@@ -85,8 +84,7 @@ class Mage_Admin_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstrac
     /**
      * Check if user is assigned to any role
      *
-     * @param int|Mage_Core_Model_Abstract|Mage_Admin_Model_User $user
-     *
+     * @param  int|Mage_Admin_Model_User|Mage_Core_Model_Abstract $user
      * @return null|array
      */
     public function hasAssigned2Role($user)
@@ -159,9 +157,8 @@ class Mage_Admin_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstrac
     /**
      * Delete user role record with user
      *
-     * @return $this
-     *
      * @throws Exception
+     * @return $this
      */
     public function delete(Mage_Core_Model_Abstract $user)
     {
@@ -401,9 +398,8 @@ class Mage_Admin_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstrac
     /**
      * Save user extra data
      *
-     * @param Mage_Core_Model_Abstract $object
-     * @param string                   $data
-     *
+     * @param  Mage_Core_Model_Abstract $object
+     * @param  string                   $data
      * @return $this
      */
     public function saveExtra($object, $data)
@@ -422,9 +418,8 @@ class Mage_Admin_Model_Resource_User extends Mage_Core_Model_Resource_Db_Abstrac
     /**
      * Set reload ACL flag
      *
-     * @param Mage_Core_Model_Abstract $object
-     * @param int                      $flag
-     *
+     * @param  Mage_Core_Model_Abstract $object
+     * @param  int                      $flag
      * @return $this
      */
     public function saveReloadAclFlag($object, $flag)

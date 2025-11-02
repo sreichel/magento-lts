@@ -17,7 +17,6 @@ class Mage_Adminhtml_Model_System_Config_Backend_Passwordlength extends Mage_Cor
     /**
      * Before save processing
      *
-     *
      * @throws Mage_Core_Exception
      *
      * @return Mage_Adminhtml_Model_System_Config_Backend_Passwordlength

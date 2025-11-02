@@ -32,7 +32,6 @@ class Mage_Log_Model_Log extends Mage_Core_Model_Abstract
 
     /**
      * Init Resource Model
-     *
      */
     protected function _construct()
     {

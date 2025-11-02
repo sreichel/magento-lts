@@ -43,7 +43,7 @@ class Mage_Tax_Block_Adminhtml_Notifications extends Mage_Adminhtml_Block_Templa
      * Return list of store names which have not compatible tax calculation type and price display settings.
      * Return true if settings are wrong for default store.
      *
-     * @return bool|array
+     * @return array|bool
      */
     public function getStoresWithWrongDisplaySettings()
     {
@@ -108,8 +108,7 @@ class Mage_Tax_Block_Adminhtml_Notifications extends Mage_Adminhtml_Block_Templa
     /**
      * Check if tax calculation type and price display settings are compatible
      *
-     * @param mixed $store
-     *
+     * @param  mixed $store
      * @return bool
      */
     public function checkDisplaySettings($store = null)
@@ -123,7 +122,7 @@ class Mage_Tax_Block_Adminhtml_Notifications extends Mage_Adminhtml_Block_Templa
      * Return list of store names where tax discount settings are compatible.
      * Return true if settings are wrong for default store.
      *
-     * @return bool|array
+     * @return array|bool
      */
     public function getWebsitesWithWrongDiscountSettings()
     {
@@ -151,8 +150,7 @@ class Mage_Tax_Block_Adminhtml_Notifications extends Mage_Adminhtml_Block_Templa
     /**
      * Get URL to ignore tax notifications
      *
-     * @param string $section
-     *
+     * @param  string $section
      * @return string
      */
     public function getIgnoreTaxNotificationUrl($section)
@@ -163,9 +161,8 @@ class Mage_Tax_Block_Adminhtml_Notifications extends Mage_Adminhtml_Block_Templa
     /**
      * Get tax management url
      *
-     * @return string
-     *
      * @throws Mage_Core_Model_Store_Exception
+     * @return string
      */
     public function getInfoUrl()
     {

@@ -12,8 +12,10 @@
  *
  * @package    Mage_Catalog
  *
- * @method Mage_Catalog_Model_Resource_Product_Compare_Item _getResource()
- * @method Mage_Catalog_Model_Resource_Product_Compare_Item getResource()
+ * @method Mage_Catalog_Model_Resource_Product_Compare_Item            _getResource()
+ * @method Mage_Catalog_Model_Resource_Product_Compare_Item            getResource()
+ * @method Mage_Catalog_Model_Resource_Product_Compare_Item_Collection getCollection()
+ * @method Mage_Catalog_Model_Resource_Product_Compare_Item_Collection getResourceCollection()
  *
  * @method $this setVisitorId(int $value)
  * @method $this setCustomerId(int $value)

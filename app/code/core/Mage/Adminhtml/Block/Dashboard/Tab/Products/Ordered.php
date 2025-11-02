@@ -47,7 +47,6 @@ class Mage_Adminhtml_Block_Dashboard_Tab_Products_Ordered extends Mage_Adminhtml
     }
 
     /**
-     *
      * @throws Mage_Core_Model_Store_Exception
      */
     protected function _prepareColumns()
@@ -85,11 +84,9 @@ class Mage_Adminhtml_Block_Dashboard_Tab_Products_Ordered extends Mage_Adminhtml
      * Returns row url to show in admin dashboard
      * $row is bestseller row wrapped in Product model
      *
-     * @param Mage_Catalog_Model_Product $row
-     *
-     * @return string
-     *
+     * @param  Mage_Catalog_Model_Product $row
      * @throws Exception
+     * @return string
      */
     public function getRowUrl($row)
     {

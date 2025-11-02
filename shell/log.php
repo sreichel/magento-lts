@@ -19,7 +19,7 @@ class Mage_Shell_Log extends Mage_Shell_Abstract
     /**
      * Log instance
      *
-     * @var Mage_Log_Model_Log|null
+     * @var null|Mage_Log_Model_Log
      */
     protected $_log;
 
@@ -87,7 +87,6 @@ class Mage_Shell_Log extends Mage_Shell_Abstract
 
     /**
      * Run script
-     *
      */
     public function run()
     {
@@ -163,7 +162,6 @@ class Mage_Shell_Log extends Mage_Shell_Abstract
 
     /**
      * Retrieve Usage Help Message
-     *
      */
     public function usageHelp()
     {

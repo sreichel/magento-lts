@@ -31,9 +31,8 @@ class Mage_Adminhtml_Block_Newsletter_Subscriber_Grid extends Mage_Adminhtml_Blo
     /**
      * Prepare collection for grid
      *
-     * @return Mage_Adminhtml_Block_Widget_Grid
-     *
      * @throws Exception
+     * @return Mage_Adminhtml_Block_Widget_Grid
      */
     protected function _prepareCollection()
     {
@@ -56,7 +55,6 @@ class Mage_Adminhtml_Block_Newsletter_Subscriber_Grid extends Mage_Adminhtml_Blo
 
     /**
      * @inheritDoc
-     *
      * @throws Exception
      */
     protected function _prepareColumns()
@@ -140,8 +138,7 @@ class Mage_Adminhtml_Block_Newsletter_Subscriber_Grid extends Mage_Adminhtml_Blo
     /**
      * Convert OptionsValue array to Options array
      *
-     * @param array $optionsArray
-     *
+     * @param  array $optionsArray
      * @return array
      */
     protected function _getOptions($optionsArray)

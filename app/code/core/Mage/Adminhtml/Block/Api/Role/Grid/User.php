@@ -27,11 +27,9 @@ class Mage_Adminhtml_Block_Api_Role_Grid_User extends Mage_Adminhtml_Block_Widge
     }
 
     /**
-     * @param Mage_Adminhtml_Block_Widget_Grid_Column $column
-     *
-     * @return $this
-     *
+     * @param  Mage_Adminhtml_Block_Widget_Grid_Column $column
      * @throws Exception
+     * @return $this
      */
     protected function _addColumnFilterToCollection($column)
     {
@@ -55,7 +53,6 @@ class Mage_Adminhtml_Block_Api_Role_Grid_User extends Mage_Adminhtml_Block_Widge
 
     /**
      * @inheritDoc
-     *
      * @throws Mage_Core_Exception
      */
     protected function _prepareCollection()
@@ -69,7 +66,6 @@ class Mage_Adminhtml_Block_Api_Role_Grid_User extends Mage_Adminhtml_Block_Widge
 
     /**
      * @inheritDoc
-     *
      * @throws Exception
      */
     protected function _prepareColumns()
@@ -127,9 +123,8 @@ class Mage_Adminhtml_Block_Api_Role_Grid_User extends Mage_Adminhtml_Block_Widge
     }
 
     /**
-     * @return string
-     *
      * @throws Exception
+     * @return string
      */
     public function getGridUrl()
     {
@@ -138,11 +133,9 @@ class Mage_Adminhtml_Block_Api_Role_Grid_User extends Mage_Adminhtml_Block_Widge
     }
 
     /**
-     * @param bool $json
-     *
-     * @return array|int|string
-     *
+     * @param  bool             $json
      * @throws Exception
+     * @return array|int|string
      */
     protected function _getUsers($json = false)
     {

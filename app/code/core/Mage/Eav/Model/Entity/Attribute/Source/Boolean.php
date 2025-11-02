@@ -70,9 +70,8 @@ class Mage_Eav_Model_Entity_Attribute_Source_Boolean extends Mage_Eav_Model_Enti
     /**
      * Get a text for option value
      *
-     * @param string|int $value
-     *
-     * @return string|false
+     * @param  int|string   $value
+     * @return false|string
      */
     public function getOptionText($value)
     {
@@ -134,9 +133,8 @@ class Mage_Eav_Model_Entity_Attribute_Source_Boolean extends Mage_Eav_Model_Enti
     /**
      * Retrieve Select For Flat Attribute update
      *
-     * @param int $store
-     *
-     * @return Varien_Db_Select|null
+     * @param  int                   $store
+     * @return null|Varien_Db_Select
      */
     public function getFlatUpdateSelect($store)
     {
@@ -147,9 +145,8 @@ class Mage_Eav_Model_Entity_Attribute_Source_Boolean extends Mage_Eav_Model_Enti
     /**
      * Get a text for index option value
      *
-     * @param string|int $value
-     *
-     * @return string|bool
+     * @param  int|string  $value
+     * @return bool|string
      */
     public function getIndexOptionText($value)
     {

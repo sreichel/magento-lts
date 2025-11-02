@@ -187,8 +187,7 @@ class Mage_Admin_Model_User extends Mage_Core_Model_Abstract
     /**
      * Save admin user extra data (like configuration sections state)
      *
-     * @param array|string $data
-     *
+     * @param  array|string $data
      * @return $this
      */
     public function saveExtra($data)
@@ -204,9 +203,8 @@ class Mage_Admin_Model_User extends Mage_Core_Model_Abstract
     /**
      * Save user roles
      *
-     * @return $this
-     *
      * @throws Mage_Core_Exception
+     * @return $this
      */
     public function saveRelations()
     {
@@ -336,8 +334,7 @@ class Mage_Admin_Model_User extends Mage_Core_Model_Abstract
     /**
      * Retrieve user name
      *
-     * @param string $separator
-     *
+     * @param  string $separator
      * @return string
      */
     public function getName($separator = ' ')
@@ -368,12 +365,10 @@ class Mage_Admin_Model_User extends Mage_Core_Model_Abstract
     /**
      * Authenticate username and password and save loaded record
      *
-     * @param string $username
-     * @param string $password
-     *
-     * @return bool
-     *
+     * @param  string              $username
+     * @param  string              $password
      * @throws Mage_Core_Exception
+     * @return bool
      */
     public function authenticate($username, $password)
     {
@@ -429,12 +424,10 @@ class Mage_Admin_Model_User extends Mage_Core_Model_Abstract
     /**
      * Login user
      *
-     * @param string $username
-     * @param string $password
-     *
-     * @return $this
-     *
+     * @param  string              $username
+     * @param  string              $password
      * @throws Mage_Core_Exception
+     * @return $this
      */
     public function login($username, $password)
     {
@@ -473,8 +466,7 @@ class Mage_Admin_Model_User extends Mage_Core_Model_Abstract
     /**
      * Load user by its username
      *
-     * @param string $username
-     *
+     * @param  string $username
      * @return $this
      */
     public function loadByUsername($username)
@@ -486,9 +478,8 @@ class Mage_Admin_Model_User extends Mage_Core_Model_Abstract
     /**
      * Check if user is assigned to any role
      *
-     * @param int|Mage_Admin_Model_User $user
-     *
-     * @return array|null
+     * @param  int|Mage_Admin_Model_User $user
+     * @return null|array
      */
     public function hasAssigned2Role($user)
     {
@@ -498,8 +489,7 @@ class Mage_Admin_Model_User extends Mage_Core_Model_Abstract
     /**
      * Retrieve encoded password
      *
-     * @param string $password
-     *
+     * @param  string $password
      * @return string
      */
     protected function _getEncodedPassword($password)
@@ -510,8 +500,7 @@ class Mage_Admin_Model_User extends Mage_Core_Model_Abstract
     /**
      * Returns helper instance
      *
-     * @param string $helperName
-     *
+     * @param  string                    $helperName
      * @return Mage_Core_Helper_Abstract
      */
     protected function _getHelper($helperName)
@@ -522,10 +511,9 @@ class Mage_Admin_Model_User extends Mage_Core_Model_Abstract
     /**
      * Find first menu item that user is able to access
      *
-     * @param Mage_Core_Model_Config_Element|Varien_Simplexml_Element $parent
-     * @param string                                                  $path
-     * @param int                                                     $level
-     *
+     * @param  Mage_Core_Model_Config_Element|Varien_Simplexml_Element $parent
+     * @param  string                                                  $path
+     * @param  int                                                     $level
      * @return string
      */
     public function findFirstAvailableMenu($parent = null, $path = '', $level = 0)
@@ -565,7 +553,6 @@ class Mage_Admin_Model_User extends Mage_Core_Model_Abstract
      *
      * @deprecated Please use getStartupPageUrl() method instead
      * @see getStartupPageUrl()
-     *
      * @return string
      */
     public function getStatrupPageUrl()
@@ -597,9 +584,8 @@ class Mage_Admin_Model_User extends Mage_Core_Model_Abstract
      * Validate user attribute values.
      * Returns TRUE or array of errors.
      *
-     * @return array|true
-     *
      * @throws Zend_Validate_Exception
+     * @return array|true
      */
     public function validate()
     {
@@ -664,11 +650,9 @@ class Mage_Admin_Model_User extends Mage_Core_Model_Abstract
      * Validate password against current user password
      * Returns true or array of errors.
      *
-     * @param string $password
-     *
-     * @return array|true
-     *
+     * @param  string                  $password
      * @throws Zend_Validate_Exception
+     * @return array|true
      */
     public function validateCurrentPassword($password)
     {
@@ -692,11 +676,9 @@ class Mage_Admin_Model_User extends Mage_Core_Model_Abstract
      *
      * Stores new reset password link token and its creation time
      *
-     * @param string $newResetPasswordLinkToken
-     *
-     * @return $this
-     *
+     * @param  string              $newResetPasswordLinkToken
      * @throws Mage_Core_Exception
+     * @return $this
      */
     public function changeResetPasswordLinkToken($newResetPasswordLinkToken)
     {
@@ -759,8 +741,7 @@ class Mage_Admin_Model_User extends Mage_Core_Model_Abstract
     /**
      * Simple sql format date
      *
-     * @param string|bool $dayOnly
-     *
+     * @param  bool|string $dayOnly
      * @return string
      */
     protected function _getDateNow($dayOnly = false)
@@ -772,8 +753,7 @@ class Mage_Admin_Model_User extends Mage_Core_Model_Abstract
      * Send notification to general Contact and additional emails when new admin user created.
      * You can declare additional emails in Mage_Core general/additional_notification_emails/admin_user_create node.
      *
-     * @param Mage_Admin_Model_User $user
-     *
+     * @param  Mage_Admin_Model_User $user
      * @return $this
      */
     public function sendAdminNotification($user)

@@ -19,7 +19,6 @@ class Mage_Directory_Block_Data extends Mage_Core_Block_Template
 {
     /**
      * @codeCoverageIgnore
-     *
      * @return string
      * @deprecated
      */
@@ -44,14 +43,12 @@ class Mage_Directory_Block_Data extends Mage_Core_Block_Template
     }
 
     /**
-     * @param string|null $defValue
-     * @param string      $name
-     * @param string      $id
-     * @param string      $title
-     *
-     * @return string
-     *
+     * @param  null|string                     $defValue
+     * @param  string                          $name
+     * @param  string                          $id
+     * @param  string                          $title
      * @throws Mage_Core_Model_Store_Exception
+     * @return string
      */
     public function getCountryHtmlSelect($defValue = null, $name = 'country_id', $id = 'country', $title = 'Country')
     {
@@ -101,9 +98,8 @@ class Mage_Directory_Block_Data extends Mage_Core_Block_Template
     }
 
     /**
-     * @return string
-     *
      * @throws Mage_Core_Model_Store_Exception
+     * @return string
      */
     public function getRegionHtmlSelect()
     {
@@ -181,8 +177,7 @@ class Mage_Directory_Block_Data extends Mage_Core_Block_Template
 
     /**
      * @template T of Option[]
-     * @param T $countryOptions
-     *
+     * @param  T                                                                                           $countryOptions
      * @return array{0: array{label: string, value: Option[]}, 1: array{label: string, value: Option[]}}|T
      */
     private function sortCountryOptions(array $countryOptions): array

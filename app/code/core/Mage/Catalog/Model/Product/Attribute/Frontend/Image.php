@@ -15,14 +15,11 @@
 class Mage_Catalog_Model_Product_Attribute_Frontend_Image extends Mage_Eav_Model_Entity_Attribute_Frontend_Abstract
 {
     /**
-     * @param Varien_Object $object
-     * @param string        $size
-     *
-     * @return false|string
-     *
+     * @param  Varien_Object                   $object
+     * @param  string                          $size
      * @throws Mage_Core_Exception
-     *
      * @throws Mage_Core_Model_Store_Exception
+     * @return false|string
      */
     public function getUrl($object, $size = null)
     {

@@ -66,8 +66,7 @@ class Mage_Wishlist_Block_Links extends Mage_Page_Block_Template_Links_Block
     /**
      * Create button label based on wishlist item quantity
      *
-     * @param int $count
-     *
+     * @param  int    $count
      * @return string
      */
     protected function _createLabel($count)
@@ -97,9 +96,8 @@ class Mage_Wishlist_Block_Links extends Mage_Page_Block_Template_Links_Block
     /**
      * Retrieve block cache tags
      *
-     * @return array
-     *
      * @throws Mage_Core_Model_Store_Exception
+     * @return array
      */
     public function getCacheTags()
     {

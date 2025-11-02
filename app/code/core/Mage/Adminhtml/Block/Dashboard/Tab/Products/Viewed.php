@@ -44,7 +44,6 @@ class Mage_Adminhtml_Block_Dashboard_Tab_Products_Viewed extends Mage_Adminhtml_
     }
 
     /**
-     *
      * @throws Mage_Core_Model_Store_Exception
      */
     protected function _prepareColumns()
@@ -76,11 +75,9 @@ class Mage_Adminhtml_Block_Dashboard_Tab_Products_Viewed extends Mage_Adminhtml_
     }
 
     /**
-     * @param Mage_Catalog_Model_Product $row
-     *
-     * @return string
-     *
+     * @param  Mage_Catalog_Model_Product $row
      * @throws Exception
+     * @return string
      */
     public function getRowUrl($row)
     {

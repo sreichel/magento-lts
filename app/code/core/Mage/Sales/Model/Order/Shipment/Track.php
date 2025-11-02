@@ -15,6 +15,7 @@
  * @method Mage_Sales_Model_Resource_Order_Shipment_Track            _getResource()
  * @method Mage_Sales_Model_Resource_Order_Shipment_Track            getResource()
  * @method Mage_Sales_Model_Resource_Order_Shipment_Track_Collection getCollection()
+ * @method Mage_Sales_Model_Resource_Order_Shipment_Track_Collection getResourceCollection()
  *
  * @method string getCarrierCode()
  * @method $this  setCarrierCode(string $value)
@@ -125,7 +126,7 @@ class Mage_Sales_Model_Order_Shipment_Track extends Mage_Sales_Model_Abstract
     /**
      * Retrieve detail for shipment track
      *
-     * @return string|array
+     * @return array|string
      */
     public function getNumberDetail()
     {

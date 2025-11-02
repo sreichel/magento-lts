@@ -14,6 +14,7 @@
  *
  * @method Mage_Admin_Model_Resource_Roles            _getResource()
  * @method Mage_Admin_Model_Resource_Roles            getResource()
+ * @method Mage_Admin_Model_Resource_Roles_Collection getCollection()
  * @method Mage_Admin_Model_Resource_Roles_Collection getResourceCollection()
  *
  * @method int    getParentId()
@@ -67,7 +68,7 @@ class Mage_Admin_Model_Roles extends Mage_Core_Model_Abstract
     /**
      * Return tree of acl resources
      *
-     * @return Varien_Simplexml_Element|array
+     * @return array|Varien_Simplexml_Element
      */
     public function getResourcesTree()
     {
@@ -77,7 +78,7 @@ class Mage_Admin_Model_Roles extends Mage_Core_Model_Abstract
     /**
      * Return list of acl resources
      *
-     * @return Varien_Simplexml_Element|array
+     * @return array|Varien_Simplexml_Element
      */
     public function getResourcesList()
     {
@@ -87,7 +88,7 @@ class Mage_Admin_Model_Roles extends Mage_Core_Model_Abstract
     /**
      * Return list of acl resources in 2D format
      *
-     * @return Varien_Simplexml_Element|array
+     * @return array|Varien_Simplexml_Element
      */
     public function getResourcesList2D()
     {
@@ -107,13 +108,12 @@ class Mage_Admin_Model_Roles extends Mage_Core_Model_Abstract
     /**
      * Build resources array process
      *
-     * @param null|string $parentName
-     * @param null|int    $level
-     * @param null|mixed  $represent2Darray
-     * @param bool        $rawNodes
-     * @param string      $module
-     *
-     * @return Varien_Simplexml_Element|false|array
+     * @param  null|string                          $parentName
+     * @param  null|int                             $level
+     * @param  null|mixed                           $represent2Darray
+     * @param  bool                                 $rawNodes
+     * @param  string                               $module
+     * @return array|false|Varien_Simplexml_Element
      */
     protected function _buildResourcesArray(
         ?Varien_Simplexml_Element $resource = null,

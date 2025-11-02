@@ -161,7 +161,6 @@ class Mage_ImportExport_Model_Export_Entity_Product extends Mage_ImportExport_Mo
     /**
      * Initialize product type models.
      *
-     *
      * @throws Exception
      *
      * @return $this

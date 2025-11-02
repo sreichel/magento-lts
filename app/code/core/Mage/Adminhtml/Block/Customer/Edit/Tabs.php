@@ -23,9 +23,8 @@ class Mage_Adminhtml_Block_Customer_Edit_Tabs extends Mage_Adminhtml_Block_Widge
     }
 
     /**
-     * @return Mage_Adminhtml_Block_Widget_Tabs
-     *
      * @throws Exception
+     * @return Mage_Adminhtml_Block_Widget_Tabs
      */
     protected function _beforeToHtml()
     {
@@ -105,7 +104,6 @@ class Mage_Adminhtml_Block_Customer_Edit_Tabs extends Mage_Adminhtml_Block_Widge
     }
 
     /**
-     *
      * @throws Exception
      */
     protected function _updateActiveTab()

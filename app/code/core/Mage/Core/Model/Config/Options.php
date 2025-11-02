@@ -55,11 +55,9 @@ class Mage_Core_Model_Config_Options extends Varien_Object
     }
 
     /**
-     * @param string $type
-     *
-     * @return mixed
-     *
+     * @param  string              $type
      * @throws Mage_Core_Exception
+     * @return mixed
      */
     public function getDir($type)
     {
@@ -162,9 +160,8 @@ class Mage_Core_Model_Config_Options extends Varien_Object
     }
 
     /**
-     * @return string
-     *
      * @throws Mage_Core_Exception
+     * @return string
      */
     public function getVarDir()
     {
@@ -181,9 +178,8 @@ class Mage_Core_Model_Config_Options extends Varien_Object
     }
 
     /**
-     * @return string
-     *
      * @throws Mage_Core_Exception
+     * @return string
      */
     public function getTmpDir()
     {
@@ -255,8 +251,7 @@ class Mage_Core_Model_Config_Options extends Varien_Object
     }
 
     /**
-     * @param string $dir
-     *
+     * @param  string $dir
      * @return bool
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")

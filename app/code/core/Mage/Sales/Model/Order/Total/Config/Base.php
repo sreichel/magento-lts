@@ -38,13 +38,11 @@ class Mage_Sales_Model_Order_Total_Config_Base extends Mage_Sales_Model_Config_O
     /**
      * Init model class by configuration
      *
-     * @param string $class
-     * @param string $totalCode
-     * @param array  $totalConfig
-     *
-     * @return Mage_Sales_Model_Order_Total_Abstract
-     *
+     * @param  string                                $class
+     * @param  string                                $totalCode
+     * @param  array                                 $totalConfig
      * @throws Mage_Core_Exception
+     * @return Mage_Sales_Model_Order_Total_Abstract
      */
     protected function _initModelInstance($class, $totalCode, $totalConfig)
     {

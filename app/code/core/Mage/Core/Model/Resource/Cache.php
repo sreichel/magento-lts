@@ -22,7 +22,7 @@ class Mage_Core_Model_Resource_Cache extends Mage_Core_Model_Resource_Db_Abstrac
     /**
      * Get all cache options
      *
-     * @return array | false
+     * @return array|false
      */
     public function getAllOptions()
     {
@@ -44,11 +44,9 @@ class Mage_Core_Model_Resource_Cache extends Mage_Core_Model_Resource_Db_Abstrac
     /**
      * Save all options to option table
      *
-     * @param array $options
-     *
-     * @return $this
-     *
+     * @param  array     $options
      * @throws Exception
+     * @return $this
      */
     public function saveAllOptions($options)
     {

@@ -147,9 +147,8 @@ class Mage_Checkout_Model_Type_Multishipping extends Mage_Checkout_Model_Type_Ab
     /**
      * Remove item from address
      *
-     * @param int $addressId
-     * @param int $itemId
-     *
+     * @param  int   $addressId
+     * @param  int   $itemId
      * @return $this
      */
     public function removeAddressItem($addressId, $itemId)
@@ -201,8 +200,7 @@ class Mage_Checkout_Model_Type_Multishipping extends Mage_Checkout_Model_Type_Ab
      *      )
      * )
      *
-     * @param array $info
-     *
+     * @param  array $info
      * @return $this
      */
     public function setShippingItemsInformation($info)
@@ -281,9 +279,8 @@ class Mage_Checkout_Model_Type_Multishipping extends Mage_Checkout_Model_Type_Ab
     /**
      * Add quote item to specific shipping address based on customer address id
      *
-     * @param int   $quoteItemId
-     * @param array $data        array('qty'=>$qty, 'address'=>$customerAddressId)
-     *
+     * @param  int   $quoteItemId
+     * @param  array $data        array('qty'=>$qty, 'address'=>$customerAddressId)
      * @return $this
      */
     protected function _addShippingItem($quoteItemId, $data)
@@ -333,8 +330,7 @@ class Mage_Checkout_Model_Type_Multishipping extends Mage_Checkout_Model_Type_Ab
     /**
      * Reimport customer address info to quote shipping address
      *
-     * @param int $addressId customer address id
-     *
+     * @param  int   $addressId customer address id
      * @return $this
      */
     public function updateQuoteCustomerShippingAddress($addressId)
@@ -353,8 +349,7 @@ class Mage_Checkout_Model_Type_Multishipping extends Mage_Checkout_Model_Type_Ab
     /**
      * Reimport customer billing address to quote
      *
-     * @param int $addressId customer address id
-     *
+     * @param  int   $addressId customer address id
      * @return $this
      */
     public function setQuoteCustomerBillingAddress($addressId)
@@ -372,8 +367,7 @@ class Mage_Checkout_Model_Type_Multishipping extends Mage_Checkout_Model_Type_Ab
     /**
      * Assign shipping methods to addresses
      *
-     * @param array $methods
-     *
+     * @param  array $methods
      * @return $this
      */
     public function setShippingMethods($methods)
@@ -394,8 +388,7 @@ class Mage_Checkout_Model_Type_Multishipping extends Mage_Checkout_Model_Type_Ab
     /**
      * Set payment method info to quote payment
      *
-     * @param array $payment
-     *
+     * @param  array $payment
      * @return $this
      */
     public function setPaymentMethod($payment)
@@ -419,9 +412,8 @@ class Mage_Checkout_Model_Type_Multishipping extends Mage_Checkout_Model_Type_Ab
     /**
      * Prepare order based on quote address
      *
-     * @return Mage_Sales_Model_Order
-     *
      * @throws Mage_Checkout_Exception
+     * @return Mage_Sales_Model_Order
      */
     protected function _prepareOrder(Mage_Sales_Model_Quote_Address $address)
     {
@@ -641,8 +633,7 @@ class Mage_Checkout_Model_Type_Multishipping extends Mage_Checkout_Model_Type_Ab
     /**
      * Get order IDs created during checkout
      *
-     * @param bool $asAssoc
-     *
+     * @param  bool  $asAssoc
      * @return array
      */
     public function getOrderIds($asAssoc = false)

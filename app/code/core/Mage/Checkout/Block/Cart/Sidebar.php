@@ -46,8 +46,7 @@ class Mage_Checkout_Block_Cart_Sidebar extends Mage_Checkout_Block_Cart_Minicart
     /**
      * Get array of last added items
      *
-     * @param int|null $count
-     *
+     * @param  null|int $count
      * @return array
      */
     public function getRecentItems($count = null)
@@ -68,8 +67,7 @@ class Mage_Checkout_Block_Cart_Sidebar extends Mage_Checkout_Block_Cart_Minicart
      *
      * It will include tax, if required by config settings.
      *
-     * @param bool $skipTax flag for getting price with tax or not. Ignored when we display just subtotal incl.tax
-     *
+     * @param  bool  $skipTax flag for getting price with tax or not. Ignored when we display just subtotal incl.tax
      * @return float
      */
     public function getSubtotal($skipTax = true)
@@ -126,8 +124,7 @@ class Mage_Checkout_Block_Cart_Sidebar extends Mage_Checkout_Block_Cart_Minicart
     /**
      * Get incl/excl tax label
      *
-     * @param bool $flag
-     *
+     * @param  bool   $flag
      * @return string
      */
     public function getIncExcTax($flag)
@@ -163,9 +160,8 @@ class Mage_Checkout_Block_Cart_Sidebar extends Mage_Checkout_Block_Cart_Minicart
     /**
      * Define if Shopping Cart Sidebar enabled
      *
-     * @return bool
-     *
      * @throws Mage_Core_Model_Store_Exception
+     * @return bool
      */
     public function getIsNeedToDisplaySideBar()
     {
@@ -231,8 +227,7 @@ class Mage_Checkout_Block_Cart_Sidebar extends Mage_Checkout_Block_Cart_Minicart
     /**
      * Deserialize renders from string
      *
-     * @param string $renders
-     *
+     * @param  string $renders
      * @return $this
      */
     public function deserializeRenders($renders)
@@ -281,8 +276,7 @@ class Mage_Checkout_Block_Cart_Sidebar extends Mage_Checkout_Block_Cart_Minicart
     /**
      * Processing block html after rendering
      *
-     * @param string $html
-     *
+     * @param  string $html
      * @return string
      */
     protected function _afterToHtml($html)

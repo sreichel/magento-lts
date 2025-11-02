@@ -57,8 +57,7 @@ abstract class Varien_Data_Form_Element_Abstract extends Varien_Data_Form_Abstra
     /**
      * Add form element
      *
-     * @param string|false $after
-     *
+     * @param  false|string $after
      * @return $this
      */
     public function addElement(Varien_Data_Form_Element_Abstract $element, $after = false)
@@ -97,8 +96,7 @@ abstract class Varien_Data_Form_Element_Abstract extends Varien_Data_Form_Abstra
     }
 
     /**
-     * @param string $id
-     *
+     * @param  string $id
      * @return $this
      */
     public function setId($id)
@@ -130,8 +128,7 @@ abstract class Varien_Data_Form_Element_Abstract extends Varien_Data_Form_Abstra
     }
 
     /**
-     * @param string $type
-     *
+     * @param  string $type
      * @return $this
      */
     public function setType($type)
@@ -142,8 +139,7 @@ abstract class Varien_Data_Form_Element_Abstract extends Varien_Data_Form_Abstra
     }
 
     /**
-     * @param Varien_Data_Form_Abstract $form
-     *
+     * @param  Varien_Data_Form_Abstract $form
      * @return $this
      */
     public function setForm($form)
@@ -170,8 +166,7 @@ abstract class Varien_Data_Form_Element_Abstract extends Varien_Data_Form_Abstra
     }
 
     /**
-     * @param string $class
-     *
+     * @param  string $class
      * @return $this
      */
     public function addClass($class)
@@ -184,8 +179,7 @@ abstract class Varien_Data_Form_Element_Abstract extends Varien_Data_Form_Abstra
     /**
      * Remove CSS class
      *
-     * @param string $class
-     *
+     * @param  string $class
      * @return $this
      */
     public function removeClass($class)
@@ -200,8 +194,7 @@ abstract class Varien_Data_Form_Element_Abstract extends Varien_Data_Form_Abstra
     }
 
     /**
-     * @param string $string
-     *
+     * @param  string $string
      * @return string
      */
     protected function _escape($string)
@@ -210,8 +203,7 @@ abstract class Varien_Data_Form_Element_Abstract extends Varien_Data_Form_Abstra
     }
 
     /**
-     * @param string|null $index
-     *
+     * @param  null|string $index
      * @return string
      */
     public function getEscapedValue($index = null)
@@ -263,8 +255,7 @@ abstract class Varien_Data_Form_Element_Abstract extends Varien_Data_Form_Abstra
     /**
      * Render HTML for element's label
      *
-     * @param string $idSuffix
-     *
+     * @param  string $idSuffix
      * @return string
      */
     public function getLabelHtml($idSuffix = '')
@@ -370,9 +361,8 @@ abstract class Varien_Data_Form_Element_Abstract extends Varien_Data_Form_Abstra
     /**
      * Add specified values to element values
      *
-     * @param string|int|array $values
-     * @param bool             $overwrite
-     *
+     * @param  array|int|string $values
+     * @param  bool             $overwrite
      * @return $this
      */
     public function addElementValues($values, $overwrite = false)

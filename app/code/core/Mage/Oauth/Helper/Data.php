@@ -70,8 +70,7 @@ class Mage_Oauth_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Generate random string for token or secret or verifier
      *
-     * @param int $length String length
-     *
+     * @param  int    $length String length
      * @return string
      */
     protected function _generateRandomString($length)
@@ -147,9 +146,8 @@ class Mage_Oauth_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Return complete callback URL or boolean FALSE if no callback provided
      *
-     * @param Mage_Oauth_Model_Token $token    Token object
-     * @param bool                   $rejected OPTIONAL Add user reject sign
-     *
+     * @param  Mage_Oauth_Model_Token $token    Token object
+     * @param  bool                   $rejected OPTIONAL Add user reject sign
      * @return bool|string
      */
     public function getFullCallbackUrl(Mage_Oauth_Model_Token $token, $rejected = false)
@@ -180,11 +178,9 @@ class Mage_Oauth_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Retrieve URL of specified endpoint.
      *
-     * @param string $type Endpoint type (one of ENDPOINT_ constants)
-     *
-     * @return string
-     *
+     * @param  string    $type Endpoint type (one of ENDPOINT_ constants)
      * @throws Exception Exception when endpoint not found
+     * @return string
      */
     public function getProtocolEndpointUrl($type)
     {
@@ -266,8 +262,7 @@ class Mage_Oauth_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Get authorize endpoint url
      *
-     * @param string $userType
-     *
+     * @param  string $userType
      * @return string
      */
     public function getAuthorizeUrl($userType)
@@ -296,7 +291,7 @@ class Mage_Oauth_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Retrieve oauth_token param from request
      *
-     * @return string|null
+     * @return null|string
      */
     public function getOauthToken()
     {

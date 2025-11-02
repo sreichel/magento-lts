@@ -151,8 +151,7 @@ class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract
     /**
      * Return list of available checkout methods
      *
-     * @param string $nameInLayout Container block alias in layout
-     *
+     * @param  string $nameInLayout Container block alias in layout
      * @return array
      */
     public function getMethods($nameInLayout)
@@ -167,11 +166,9 @@ class Mage_Checkout_Block_Cart extends Mage_Checkout_Block_Cart_Abstract
     /**
      * Return HTML of checkout method (link, button etc.)
      *
-     * @param string $name Block name in layout
-     *
-     * @return string
-     *
+     * @param  string              $name Block name in layout
      * @throws Mage_Core_Exception
+     * @return string
      */
     public function getMethodHtml($name)
     {

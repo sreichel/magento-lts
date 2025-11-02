@@ -17,14 +17,13 @@ class Mage_Tag_Block_Product_List extends Mage_Core_Block_Template
     /**
      * Unique Html Id
      *
-     * @var string|null
+     * @var null|string
      */
     protected $_uniqueHtmlId = null;
 
     /**
-     * @return int
-     *
      * @throws Mage_Core_Model_Store_Exception
+     * @return int
      */
     public function getCount()
     {
@@ -32,9 +31,8 @@ class Mage_Tag_Block_Product_List extends Mage_Core_Block_Template
     }
 
     /**
-     * @return mixed
-     *
      * @throws Mage_Core_Model_Store_Exception
+     * @return mixed
      */
     public function getTags()
     {
@@ -54,9 +52,8 @@ class Mage_Tag_Block_Product_List extends Mage_Core_Block_Template
     }
 
     /**
-     * @return mixed
-     *
      * @throws Mage_Core_Model_Store_Exception
+     * @return mixed
      */
     protected function _getCollection()
     {
@@ -102,12 +99,10 @@ class Mage_Tag_Block_Product_List extends Mage_Core_Block_Template
     /**
      * Render tags by specified pattern and implode them by specified 'glue' string
      *
-     * @param string $pattern
-     * @param string $glue
-     *
-     * @return string
-     *
+     * @param  string                          $pattern
+     * @param  string                          $glue
      * @throws Mage_Core_Model_Store_Exception
+     * @return string
      */
     public function renderTags($pattern, $glue = ' ')
     {
@@ -127,8 +122,7 @@ class Mage_Tag_Block_Product_List extends Mage_Core_Block_Template
     /**
      * Generate unique html id
      *
-     * @param string $prefix
-     *
+     * @param  string $prefix
      * @return string
      */
     public function getUniqueHtmlId($prefix = '')

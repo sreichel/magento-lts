@@ -22,8 +22,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Group extends Mage_Core_Model_Res
     /**
      * Checks if attribute group exists
      *
-     * @param Mage_Eav_Model_Entity_Attribute_Group $object
-     *
+     * @param  Mage_Eav_Model_Entity_Attribute_Group $object
      * @return bool
      */
     public function itemExists($object)
@@ -75,9 +74,8 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Group extends Mage_Core_Model_Res
     /**
      * Retrieve max sort order
      *
-     * @param Mage_Core_Model_Abstract|Mage_Eav_Model_Entity_Attribute_Group $object
-     *
-     * @return false|string|null
+     * @param  Mage_Core_Model_Abstract|Mage_Eav_Model_Entity_Attribute_Group $object
+     * @return null|false|string
      */
     protected function _getMaxSortOrder($object)
     {
@@ -93,8 +91,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Group extends Mage_Core_Model_Res
     /**
      * Set any group default if old one was removed
      *
-     * @param int $attributeSetId
-     *
+     * @param  int   $attributeSetId
      * @return $this
      */
     public function updateDefaultGroup($attributeSetId)

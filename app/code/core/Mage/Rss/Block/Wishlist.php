@@ -17,7 +17,7 @@ class Mage_Rss_Block_Wishlist extends Mage_Wishlist_Block_Abstract
     /**
      * Customer instance
      *
-     * @var Mage_Customer_Model_Customer|null
+     * @var null|Mage_Customer_Model_Customer
      */
     protected $_customer;
 
@@ -31,9 +31,8 @@ class Mage_Rss_Block_Wishlist extends Mage_Wishlist_Block_Abstract
     /**
      * Retrieve Wishlist model
      *
-     * @return Mage_Wishlist_Model_Wishlist
-     *
      * @throws Exception
+     * @return Mage_Wishlist_Model_Wishlist
      */
     protected function _getWishlist()
     {
@@ -56,9 +55,8 @@ class Mage_Rss_Block_Wishlist extends Mage_Wishlist_Block_Abstract
     /**
      * Retrieve Customer instance
      *
-     * @return Mage_Customer_Model_Customer
-     *
      * @throws Exception
+     * @return Mage_Customer_Model_Customer
      */
     protected function _getCustomer()
     {
@@ -79,9 +77,8 @@ class Mage_Rss_Block_Wishlist extends Mage_Wishlist_Block_Abstract
     /**
      * Build wishlist rss feed title
      *
-     * @return string
-     *
      * @throws Exception
+     * @return string
      */
     protected function _getTitle()
     {
@@ -91,11 +88,9 @@ class Mage_Rss_Block_Wishlist extends Mage_Wishlist_Block_Abstract
     /**
      * Render block HTML
      *
-     * @return string
-     *
      * @throws Mage_Core_Exception
-     *
      * @throws Exception
+     * @return string
      */
     protected function _toHtml()
     {
@@ -179,9 +174,8 @@ class Mage_Rss_Block_Wishlist extends Mage_Wishlist_Block_Abstract
     /**
      * Retrieve Product View URL
      *
-     * @param Mage_Catalog_Model_Product $product
-     * @param array                      $additional
-     *
+     * @param  Mage_Catalog_Model_Product $product
+     * @param  array                      $additional
      * @return string
      */
     public function getProductUrl($product, $additional = [])

@@ -80,7 +80,6 @@ class Mage_Adminhtml_Block_Dashboard_Graph extends Mage_Adminhtml_Block_Dashboar
 
     /**
      * Initialize object
-     *
      * @throws Exception
      */
     public function __construct()
@@ -133,8 +132,7 @@ class Mage_Adminhtml_Block_Dashboard_Graph extends Mage_Adminhtml_Block_Dashboar
     /**
      * Get series
      *
-     * @param string $seriesId
-     *
+     * @param  string $seriesId
      * @return mixed
      */
     public function getSeries($seriesId)
@@ -161,9 +159,7 @@ class Mage_Adminhtml_Block_Dashboard_Graph extends Mage_Adminhtml_Block_Dashboar
     }
 
     /**
-     *
      * @throws Mage_Core_Model_Store_Exception
-     *
      * @throws Zend_Date_Exception
      */
     public function generateChart(): array
@@ -241,7 +237,6 @@ class Mage_Adminhtml_Block_Dashboard_Graph extends Mage_Adminhtml_Block_Dashboar
     }
 
     /**
-     *
      * @throws Mage_Core_Model_Store_Exception
      */
     private function getChartDatasAndDates(): array
@@ -396,9 +391,8 @@ class Mage_Adminhtml_Block_Dashboard_Graph extends Mage_Adminhtml_Block_Dashboar
     /**
      * Get rows data
      *
-     * @param array $attributes
-     * @param bool  $single
-     *
+     * @param  array $attributes
+     * @param  bool  $single
      * @return array
      */
     protected function getRowsData($attributes, $single = false)
@@ -452,8 +446,7 @@ class Mage_Adminhtml_Block_Dashboard_Graph extends Mage_Adminhtml_Block_Dashboar
     /**
      * Return pow
      *
-     * @param int $number
-     *
+     * @param  int $number
      * @return int
      */
     protected function _getPow($number)
@@ -490,9 +483,8 @@ class Mage_Adminhtml_Block_Dashboard_Graph extends Mage_Adminhtml_Block_Dashboar
     /**
      * Prepare chart data
      *
-     * @return void
-     *
      * @throws Exception
+     * @return void
      */
     protected function _prepareData()
     {

@@ -15,6 +15,7 @@
  * @method Mage_Cms_Model_Resource_Page            _getResource()
  * @method Mage_Cms_Model_Resource_Page            getResource()
  * @method Mage_Cms_Model_Resource_Page_Collection getCollection()
+ * @method Mage_Cms_Model_Resource_Page_Collection getResourceCollection()
  *
  * @method string getContentHeading()
  * @method $this  setContentHeading(string $value)
@@ -132,7 +133,7 @@ class Mage_Cms_Model_Page extends Mage_Core_Model_Abstract
     /**
      * Retrieves cms page title from DB by passed id.
      *
-     * @param string|int $id
+     * @param int|string $id
      */
     public function getCmsPageTitleById($id): string
     {
@@ -142,7 +143,7 @@ class Mage_Cms_Model_Page extends Mage_Core_Model_Abstract
     /**
      * Retrieves cms page identifier from DB by passed id.
      *
-     * @param string|int $id
+     * @param int|string $id
      */
     public function getCmsPageIdentifierById($id): string
     {

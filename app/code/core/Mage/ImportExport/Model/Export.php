@@ -53,7 +53,6 @@ class Mage_ImportExport_Model_Export extends Mage_ImportExport_Model_Abstract
     /**
      * Create instance of entity adapter and returns it.
      *
-     *
      * @throws Exception
      *
      * @return Mage_ImportExport_Model_Export_Entity_Abstract
@@ -100,7 +99,6 @@ class Mage_ImportExport_Model_Export extends Mage_ImportExport_Model_Abstract
     /**
      * Get writer object.
      *
-     *
      * @throws Mage_Core_Exception
      *
      * @return Mage_ImportExport_Model_Export_Adapter_Abstract
@@ -139,7 +137,6 @@ class Mage_ImportExport_Model_Export extends Mage_ImportExport_Model_Abstract
      * Export data and return contents of temporary file.
      *
      * @deprecated after ver 1.9.2.4 use $this->exportFile() instead
-     *
      *
      * @throws Mage_Core_Exception
      *
@@ -184,7 +181,6 @@ class Mage_ImportExport_Model_Export extends Mage_ImportExport_Model_Abstract
      *     'value' => path to created file,
      *     'type'  => 'file'
      * )
-     *
      *
      * @throws Mage_Core_Exception
      *

@@ -15,7 +15,6 @@
 class Mage_Adminhtml_Model_System_Config_Backend_Color extends Mage_Core_Model_Config_Data
 {
     /**
-     *
      * @throws Mage_Core_Exception
      *
      * @return $this

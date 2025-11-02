@@ -238,8 +238,7 @@ abstract class Mage_Paypal_Model_Api_Abstract extends Varien_Object
     /**
      * Import $this public data to specified object or array
      *
-     * @param array|Varien_Object $to
-     *
+     * @param  array|Varien_Object $to
      * @return array|Varien_Object
      */
     public function &import($to, array $publicMap = [])
@@ -250,8 +249,7 @@ abstract class Mage_Paypal_Model_Api_Abstract extends Varien_Object
     /**
      * Export $this public data from specified object or array
      *
-     * @param array|Varien_Object $from
-     *
+     * @param  array|Varien_Object            $from
      * @return Mage_Paypal_Model_Api_Abstract
      */
     public function export($from, array $publicMap = [])
@@ -273,7 +271,6 @@ abstract class Mage_Paypal_Model_Api_Abstract extends Varien_Object
 
     /**
      * Config instance setter
-     *
      * @return Mage_Paypal_Model_Api_Abstract
      */
     public function setConfigObject(Mage_Paypal_Model_Config $config)
@@ -366,8 +363,7 @@ abstract class Mage_Paypal_Model_Api_Abstract extends Varien_Object
      *
      * Returns true if there were line items added
      *
-     * @param int $i
-     *
+     * @param  int  $i
      * @return bool
      */
     protected function _exportLineItems(array &$request, $i = 0)
@@ -419,8 +415,7 @@ abstract class Mage_Paypal_Model_Api_Abstract extends Varien_Object
      * Prepare shipping options request
      * Returns false if there are no shipping options
      *
-     * @param int $i
-     *
+     * @param  int  $i
      * @return bool
      */
     protected function _exportShippingOptions(array &$request, $i = 0)
@@ -452,8 +447,7 @@ abstract class Mage_Paypal_Model_Api_Abstract extends Varien_Object
 
     /**
      * Filter amounts in API calls
-     * @param float|string $value
-     *
+     * @param  float|string $value
      * @return string
      */
     protected function _filterAmount($value)
@@ -464,8 +458,7 @@ abstract class Mage_Paypal_Model_Api_Abstract extends Varien_Object
     /**
      * Filter boolean values in API calls
      *
-     * @param mixed $value
-     *
+     * @param  mixed  $value
      * @return string
      */
     protected function _filterBool($value)
@@ -476,8 +469,7 @@ abstract class Mage_Paypal_Model_Api_Abstract extends Varien_Object
     /**
      * Filter int values in API calls
      *
-     * @param mixed $value
-     *
+     * @param  mixed $value
      * @return int
      */
     protected function _filterInt($value)
@@ -488,9 +480,8 @@ abstract class Mage_Paypal_Model_Api_Abstract extends Varien_Object
     /**
      * Unified getter that looks in data or falls back to config
      *
-     * @param string $key
-     * @param mixed  $default
-     *
+     * @param  string $key
+     * @param  mixed  $default
      * @return mixed
      */
     protected function _getDataOrConfig($key, $default = null)
@@ -546,8 +537,7 @@ abstract class Mage_Paypal_Model_Api_Abstract extends Varien_Object
     /**
      * Build query string from request
      *
-     * @param array $request
-     *
+     * @param  array  $request
      * @return string
      */
     protected function _buildQuery($request)
@@ -559,8 +549,7 @@ abstract class Mage_Paypal_Model_Api_Abstract extends Varien_Object
      * Filter qty in API calls
      * Paypal note: The value for quantity must be a positive integer. Null, zero, or negative numbers are not allowed.
      *
-     * @param float|string|int $value
-     *
+     * @param  float|int|string $value
      * @return int
      */
     protected function _filterQty($value)

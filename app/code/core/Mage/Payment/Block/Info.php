@@ -19,7 +19,7 @@ class Mage_Payment_Block_Info extends Mage_Core_Block_Template
     /**
      * Payment rendered specific information
      *
-     * @var Varien_Object|null
+     * @var null|Varien_Object
      */
     protected $_paymentSpecificInformation = null;
 
@@ -56,7 +56,6 @@ class Mage_Payment_Block_Info extends Mage_Core_Block_Template
 
     /**
      * Render as PDF
-     *
      * @return string
      */
     public function toPdf()
@@ -70,7 +69,6 @@ class Mage_Payment_Block_Info extends Mage_Core_Block_Template
      *
      * Children must have toPdf() callable
      * Known issue: not sorted
-     *
      * @return array
      */
     public function getChildPdfAsArray()
@@ -98,9 +96,8 @@ class Mage_Payment_Block_Info extends Mage_Core_Block_Template
     /**
      * Render the value as an array
      *
-     * @param mixed $value
-     * @param bool  $escapeHtml
-     *
+     * @param  mixed $value
+     * @param  bool  $escapeHtml
      * @return array $array
      */
     public function getValueAsArray($value, $escapeHtml = false)
@@ -149,8 +146,7 @@ class Mage_Payment_Block_Info extends Mage_Core_Block_Template
     /**
      * Prepare information specific to current payment method
      *
-     * @param Varien_Object|array $transport
-     *
+     * @param  array|Varien_Object $transport
      * @return Varien_Object
      */
     protected function _prepareSpecificInformation($transport = null)

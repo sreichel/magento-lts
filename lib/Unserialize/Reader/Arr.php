@@ -18,12 +18,12 @@ class Unserialize_Reader_Arr
     protected $_result = null;
 
     /**
-     * @var string|int
+     * @var int|string
      */
     protected $_length = '';
 
     /**
-     * @var int|null
+     * @var null|int
      */
     protected $_status = null;
 
@@ -43,12 +43,10 @@ class Unserialize_Reader_Arr
     public const FINISHED_ARR = 5;
 
     /**
-     * @param $char
-     * @param $prevChar
-     *
-     * @return array|null
-     *
+     * @param             $char
+     * @param             $prevChar
      * @throws Exception
+     * @return null|array
      */
     public function read($char, $prevChar)
     {

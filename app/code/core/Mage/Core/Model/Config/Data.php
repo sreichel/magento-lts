@@ -15,6 +15,7 @@
  * @method Mage_Core_Model_Resource_Config_Data            _getResource()
  * @method Mage_Core_Model_Resource_Config_Data            getResource()
  * @method Mage_Core_Model_Resource_Config_Data_Collection getCollection()
+ * @method Mage_Core_Model_Resource_Config_Data_Collection getResourceCollection()
  *
  * @method $this                                           setConfigId(string $value)
  * @method $this                                           unsConfigId()
@@ -70,7 +71,6 @@ class Mage_Core_Model_Config_Data extends Mage_Core_Model_Abstract
 
     /**
      * Add availability call after load as public
-     *
      * @return $this
      */
     public function afterLoad()
@@ -114,8 +114,7 @@ class Mage_Core_Model_Config_Data extends Mage_Core_Model_Abstract
     /**
      * Get value by key for new user data from <section>/groups/<group>/fields/<field>
      *
-     * @param string $key
-     *
+     * @param  string $key
      * @return string
      */
     public function getFieldsetDataValue($key)

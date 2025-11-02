@@ -15,6 +15,7 @@
  * @method Mage_Sales_Model_Resource_Order_Shipment            _getResource()
  * @method Mage_Sales_Model_Resource_Order_Shipment            getResource()
  * @method Mage_Sales_Model_Resource_Order_Shipment_Collection getCollection()
+ * @method Mage_Sales_Model_Resource_Order_Shipment_Collection getResourceCollection()
  *
  * @method string getBackUrl()
  * @method int    getBillingAddressId()
@@ -97,7 +98,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
     protected $_order;
 
     /**
-     * @var Mage_Sales_Model_Resource_Order_Shipment_Comment_Collection|null
+     * @var null|Mage_Sales_Model_Resource_Order_Shipment_Comment_Collection
      */
     protected $_comments;
 
@@ -126,8 +127,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
     /**
      * Load shipment by increment id
      *
-     * @param string $incrementId
-     *
+     * @param  string $incrementId
      * @return $this
      */
     public function loadByIncrementId($incrementId)
@@ -206,9 +206,8 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
      *
      * Apply to order, order items etc.
      *
-     * @return $this
-     *
      * @throws Mage_Core_Exception
+     * @return $this
      */
     public function register()
     {
@@ -270,8 +269,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
     }
 
     /**
-     * @param int $itemId
-     *
+     * @param  int  $itemId
      * @return bool
      */
     public function getItemById($itemId)
@@ -286,9 +284,8 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
     }
 
     /**
-     * @return $this
-     *
      * @throws Exception
+     * @return $this
      */
     public function addItem(Mage_Sales_Model_Order_Shipment_Item $item)
     {
@@ -337,9 +334,8 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
     }
 
     /**
-     * @param int $trackId
-     *
-     * @return Mage_Sales_Model_Order_Shipment_Track|false
+     * @param  int                                         $trackId
+     * @return false|Mage_Sales_Model_Order_Shipment_Track
      */
     public function getTrackById($trackId)
     {
@@ -353,9 +349,8 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
     }
 
     /**
-     * @return $this
-     *
      * @throws Exception
+     * @return $this
      */
     public function addTrack(Mage_Sales_Model_Order_Shipment_Track $track)
     {
@@ -384,9 +379,8 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
      * @param bool                                           $notify
      * @param bool                                           $visibleOnFront
      *
-     * @return $this
-     *
      * @throws Exception
+     * @return $this
      */
     public function addComment($comment, $notify = false, $visibleOnFront = false)
     {
@@ -409,8 +403,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
     }
 
     /**
-     * @param bool $reload
-     *
+     * @param  bool                                                        $reload
      * @return Mage_Sales_Model_Resource_Order_Shipment_Comment_Collection
      */
     public function getCommentsCollection($reload = false)
@@ -439,9 +432,8 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
     /**
      * Send email with shipment data
      *
-     * @param bool   $notifyCustomer
-     * @param string $comment
-     *
+     * @param  bool   $notifyCustomer
+     * @param  string $comment
      * @return $this
      */
     public function sendEmail($notifyCustomer = true, $comment = '')
@@ -538,9 +530,8 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
     /**
      * Send email with shipment update information
      *
-     * @param bool   $notifyCustomer
-     * @param string $comment
-     *
+     * @param  bool   $notifyCustomer
+     * @param  string $comment
      * @return $this
      */
     public function sendUpdateEmail($notifyCustomer = true, $comment = '')
@@ -608,8 +599,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
     }
 
     /**
-     * @param string $configPath
-     *
+     * @param  string      $configPath
      * @return array|false
      */
     protected function _getEmails($configPath)
@@ -649,7 +639,6 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
 
     /**
      * @inheritDoc
-     *
      * @throws Mage_Core_Exception
      */
     protected function _beforeDelete()
@@ -699,8 +688,7 @@ class Mage_Sales_Model_Order_Shipment extends Mage_Sales_Model_Abstract
     /**
      * Set shipping label
      *
-     * @param string $label label representation (image or pdf file)
-     *
+     * @param  string $label label representation (image or pdf file)
      * @return $this
      */
     public function setShippingLabel($label)

@@ -19,8 +19,7 @@ abstract class Mage_Eav_Model_Convert_Parser_Abstract extends Mage_Dataflow_Mode
     protected $_attributeSetsByName;
 
     /**
-     * @param array $stores
-     *
+     * @param  array       $stores
      * @return array|false
      */
     public function getStoreIds($stores)
@@ -47,11 +46,9 @@ abstract class Mage_Eav_Model_Convert_Parser_Abstract extends Mage_Dataflow_Mode
     }
 
     /**
-     * @param int $storeId
-     *
-     * @return string
-     *
+     * @param  int                             $storeId
      * @throws Mage_Core_Model_Store_Exception
+     * @return string
      */
     public function getStoreCode($storeId)
     {
@@ -59,8 +56,7 @@ abstract class Mage_Eav_Model_Convert_Parser_Abstract extends Mage_Dataflow_Mode
     }
 
     /**
-     * @param int $entityTypeId
-     *
+     * @param  int   $entityTypeId
      * @return $this
      */
     public function loadAttributeSets($entityTypeId)
@@ -84,9 +80,8 @@ abstract class Mage_Eav_Model_Convert_Parser_Abstract extends Mage_Dataflow_Mode
     }
 
     /**
-     * @param int $entityTypeId
-     * @param int $id
-     *
+     * @param  int  $entityTypeId
+     * @param  int  $id
      * @return bool
      */
     public function getAttributeSetName($entityTypeId, $id)
@@ -99,9 +94,8 @@ abstract class Mage_Eav_Model_Convert_Parser_Abstract extends Mage_Dataflow_Mode
     }
 
     /**
-     * @param int    $entityTypeId
-     * @param string $name
-     *
+     * @param  int    $entityTypeId
+     * @param  string $name
      * @return bool
      */
     public function getAttributeSetId($entityTypeId, $name)
@@ -114,9 +108,8 @@ abstract class Mage_Eav_Model_Convert_Parser_Abstract extends Mage_Dataflow_Mode
     }
 
     /**
-     * @param string $value
-     *
-     * @return string|null
+     * @param  string      $value
+     * @return null|string
      */
     public function getSourceOptionId(Mage_Eav_Model_Entity_Attribute_Source_Interface $source, $value)
     {

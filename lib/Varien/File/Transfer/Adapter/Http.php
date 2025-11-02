@@ -9,7 +9,6 @@
 
 /**
  * Csv parse
- *
  */
 class Varien_File_Transfer_Adapter_Http
 {
@@ -62,8 +61,7 @@ class Varien_File_Transfer_Adapter_Http
     /**
      * Send the file to the client (Download)
      *
-     * @param string|array $options Options for the file(s) to send
-     *
+     * @param  array|string $options Options for the file(s) to send
      * @throws Exception
      */
     public function send($options = null)
@@ -95,9 +93,8 @@ class Varien_File_Transfer_Adapter_Http
     /**
      * Internal method to detect the mime type of a file
      *
-     * @param array $value File infos
-     *
-     * @return string|null Mime type of given file
+     * @param  array       $value File infos
+     * @return null|string Mime type of given file
      */
     protected function _detectMimeType($value)
     {

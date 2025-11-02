@@ -27,7 +27,6 @@ class Mage_Directory_Model_Observer
     public const XML_PATH_ERROR_RECIPIENT = 'currency/import/error_email';
 
     /**
-     *
      * @throws Mage_Core_Exception
      */
     public function scheduledUpdateCurrencyRates()

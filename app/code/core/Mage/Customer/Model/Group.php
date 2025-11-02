@@ -17,7 +17,7 @@
  * @method Mage_Customer_Model_Resource_Group_Collection getCollection()
  * @method Mage_Customer_Model_Resource_Group_Collection getResourceCollection()
  *
- * @method string|null getCustomerGroupCode()
+ * @method null|string getCustomerGroupCode()
  * @method $this       setCustomerGroupCode(string $value)
  * @method $this       setTaxClassId(int $value)
  */
@@ -62,8 +62,7 @@ class Mage_Customer_Model_Group extends Mage_Core_Model_Abstract
     /**
      * Alias for setCustomerGroupCode
      *
-     * @param string $value
-     *
+     * @param  string $value
      * @return $this
      */
     public function setCode($value)
@@ -82,8 +81,7 @@ class Mage_Customer_Model_Group extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param int|null $groupId
-     *
+     * @param  null|int $groupId
      * @return int
      * @SuppressWarnings("PHPMD.CamelCaseVariableName")
      */

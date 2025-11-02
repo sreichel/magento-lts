@@ -50,10 +50,9 @@ class Mage_Downloadable_Helper_File extends Mage_Core_Helper_Abstract
     /**
      * Checking file for moving and move it
      *
-     * @param string $baseTmpPath
-     * @param string $basePath
-     * @param array  $file
-     *
+     * @param  string $baseTmpPath
+     * @param  string $basePath
+     * @param  array  $file
      * @return string
      */
     public function moveFileFromTmp($baseTmpPath, $basePath, $file)
@@ -81,10 +80,9 @@ class Mage_Downloadable_Helper_File extends Mage_Core_Helper_Abstract
     /**
      * Move file from tmp path to base path
      *
-     * @param string $baseTmpPath
-     * @param string $basePath
-     * @param string $file
-     *
+     * @param  string $baseTmpPath
+     * @param  string $basePath
+     * @param  string $file
      * @return string
      */
     protected function _moveFileFromTmp($baseTmpPath, $basePath, $file)
@@ -120,9 +118,8 @@ class Mage_Downloadable_Helper_File extends Mage_Core_Helper_Abstract
     /**
      * Return full path to file
      *
-     * @param string      $path
-     * @param string|null $file
-     *
+     * @param  string      $path
+     * @param  null|string $file
      * @return string
      */
     public function getFilePath($path, $file)
@@ -143,8 +140,7 @@ class Mage_Downloadable_Helper_File extends Mage_Core_Helper_Abstract
     /**
      * Replace slashes with directory separator
      *
-     * @param string $file
-     *
+     * @param  string $file
      * @return string
      */
     protected function _prepareFileForPath($file)
@@ -155,8 +151,7 @@ class Mage_Downloadable_Helper_File extends Mage_Core_Helper_Abstract
     /**
      * Return file name form file path
      *
-     * @param string $pathFile
-     *
+     * @param  string $pathFile
      * @return string
      */
     public function getFileFromPathFile($pathFile)
@@ -169,8 +164,7 @@ class Mage_Downloadable_Helper_File extends Mage_Core_Helper_Abstract
     /**
      * Get MIME type for $filePath
      *
-     * @param string $filePath
-     *
+     * @param  string $filePath
      * @return string
      */
     public function getFileType($filePath)
@@ -182,8 +176,7 @@ class Mage_Downloadable_Helper_File extends Mage_Core_Helper_Abstract
     /**
      * Get MIME type by file extension
      *
-     * @param string $ext
-     *
+     * @param  string $ext
      * @return string
      * @deprecated
      */

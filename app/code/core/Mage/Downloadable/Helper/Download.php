@@ -39,7 +39,7 @@ class Mage_Downloadable_Helper_Download extends Mage_Core_Helper_Abstract
     /**
      * Resource open handle
      *
-     * @var resource|Varien_Io_File|null
+     * @var null|resource|Varien_Io_File
      */
     protected $_handle          = null;
 
@@ -192,9 +192,8 @@ class Mage_Downloadable_Helper_Download extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * @return array|string
-     *
      * @throws Exception
+     * @return array|string
      */
     public function getContentType()
     {
@@ -216,9 +215,8 @@ class Mage_Downloadable_Helper_Download extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * @return bool|mixed|string
-     *
      * @throws Exception
+     * @return bool|mixed|string
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
      */
     public function getFilename()
@@ -245,9 +243,8 @@ class Mage_Downloadable_Helper_Download extends Mage_Core_Helper_Abstract
     /**
      * Set resource file for download
      *
-     * @param string $resourceFile
-     * @param string $linkType
-     *
+     * @param  string $resourceFile
+     * @param  string $linkType
      * @return $this
      */
     public function setResource($resourceFile, $linkType = self::LINK_TYPE_FILE)
@@ -302,8 +299,7 @@ class Mage_Downloadable_Helper_Download extends Mage_Core_Helper_Abstract
     /**
      * Use Content-Disposition: attachment
      *
-     * @param mixed $store
-     *
+     * @param  mixed $store
      * @return bool
      */
     public function getContentDisposition($store = null)

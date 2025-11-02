@@ -17,9 +17,8 @@ class Mage_Catalog_Model_Product_Option_Value_Api_V2 extends Mage_Catalog_Model_
     /**
      * Retrieve values from specified option
      *
-     * @param string          $optionId
-     * @param int|string|null $store
-     *
+     * @param  string          $optionId
+     * @param  null|int|string $store
      * @return array
      */
     public function items($optionId, $store = null)
@@ -35,9 +34,8 @@ class Mage_Catalog_Model_Product_Option_Value_Api_V2 extends Mage_Catalog_Model_
     /**
      * Retrieve specified option value info
      *
-     * @param string          $valueId
-     * @param int|string|null $store
-     *
+     * @param  string          $valueId
+     * @param  null|int|string $store
      * @return array
      */
     public function info($valueId, $store = null)
@@ -50,10 +48,9 @@ class Mage_Catalog_Model_Product_Option_Value_Api_V2 extends Mage_Catalog_Model_
     /**
      * Add new values to select option
      *
-     * @param string          $optionId
-     * @param array           $data
-     * @param int|string|null $store
-     *
+     * @param  string          $optionId
+     * @param  array           $data
+     * @param  null|int|string $store
      * @return bool
      */
     public function add($optionId, $data, $store = null)
@@ -65,10 +62,9 @@ class Mage_Catalog_Model_Product_Option_Value_Api_V2 extends Mage_Catalog_Model_
     /**
      * Update value to select option
      *
-     * @param string          $valueId
-     * @param array           $data
-     * @param int|string|null $store
-     *
+     * @param  string          $valueId
+     * @param  array           $data
+     * @param  null|int|string $store
      * @return bool
      */
     public function update($valueId, $data, $store = null)
@@ -80,8 +76,7 @@ class Mage_Catalog_Model_Product_Option_Value_Api_V2 extends Mage_Catalog_Model_
     /**
      * Delete value from select option
      *
-     * @param int $valueId
-     *
+     * @param  int  $valueId
      * @return bool
      */
     public function remove($valueId)

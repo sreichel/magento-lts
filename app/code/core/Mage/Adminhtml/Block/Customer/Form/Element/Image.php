@@ -16,7 +16,6 @@ class Mage_Adminhtml_Block_Customer_Form_Element_Image extends Mage_Adminhtml_Bl
 {
     /**
      * Return Delete CheckBox Label
-     *
      * @return string
      */
     protected function _getDeleteCheckboxLabel()
@@ -26,7 +25,6 @@ class Mage_Adminhtml_Block_Customer_Form_Element_Image extends Mage_Adminhtml_Bl
 
     /**
      * Return Delete CheckBox SPAN Class name
-     *
      * @return string
      */
     protected function _getDeleteCheckboxSpanClass()
@@ -36,7 +34,6 @@ class Mage_Adminhtml_Block_Customer_Form_Element_Image extends Mage_Adminhtml_Bl
 
     /**
      * Return File preview link HTML
-     *
      * @return string
      */
     protected function _getPreviewHtml()
@@ -71,8 +68,7 @@ class Mage_Adminhtml_Block_Customer_Form_Element_Image extends Mage_Adminhtml_Bl
 
     /**
      * Return Image URL
-     *
-     * @return string|false
+     * @return false|string
      */
     protected function _getPreviewUrl()
     {

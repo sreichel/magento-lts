@@ -125,7 +125,6 @@ final class CustomerTest extends OpenMageTest
     //        }
     //    }
     /**
-     *
      * @throws Throwable
      * @group Model
      */

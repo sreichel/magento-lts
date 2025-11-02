@@ -15,6 +15,7 @@
  * @method Mage_Sales_Model_Resource_Order_Shipment_Item            _getResource()
  * @method Mage_Sales_Model_Resource_Order_Shipment_Item            getResource()
  * @method Mage_Sales_Model_Resource_Order_Shipment_Item_Collection getCollection()
+ * @method Mage_Sales_Model_Resource_Order_Shipment_Item_Collection getResourceCollection()
  *
  * @method string getAdditionalData()
  * @method $this  setAdditionalData(string $value)
@@ -112,11 +113,9 @@ class Mage_Sales_Model_Order_Shipment_Item extends Mage_Core_Model_Abstract
     /**
      * Declare qty
      *
-     * @param float $qty
-     *
-     * @return $this
-     *
+     * @param  float               $qty
      * @throws Mage_Core_Exception
+     * @return $this
      */
     public function setQty($qty)
     {

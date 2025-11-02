@@ -17,7 +17,7 @@ class Mage_Core_Model_Resource_File_Storage_File
     /**
      * Prefix of model events names
      *
-     * @var string|null
+     * @var null|string
      */
     protected $_mediaBaseDirectory = null;
 
@@ -28,7 +28,7 @@ class Mage_Core_Model_Resource_File_Storage_File
     protected $_ignoredFiles;
 
     /**
-     * @var resource|null
+     * @var null|resource
      */
     protected $filePointer;
 
@@ -54,8 +54,7 @@ class Mage_Core_Model_Resource_File_Storage_File
     /**
      * Collect files and directories recursively
      *
-     * @param string $dir
-     *
+     * @param  string $dir
      * @return array
      */
     public function getStorageData($dir = '')
@@ -99,8 +98,7 @@ class Mage_Core_Model_Resource_File_Storage_File
     /**
      * Clear files and directories in storage
      *
-     * @param string $dir
-     *
+     * @param  string $dir
      * @return $this
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
@@ -136,7 +134,6 @@ class Mage_Core_Model_Resource_File_Storage_File
 
     /**
      * Returns list of files/directories that should be ignored when cleaning and reading files from the filesystem
-     *
      * @return array
      */
     protected function _getIgnoredFiles()
@@ -153,8 +150,7 @@ class Mage_Core_Model_Resource_File_Storage_File
     /**
      * Save directory to storage
      *
-     * @param array $dir
-     *
+     * @param  array $dir
      * @return bool
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
@@ -184,13 +180,11 @@ class Mage_Core_Model_Resource_File_Storage_File
     /**
      * Save file to storage
      *
-     * @param string $filePath
-     * @param string $content
-     * @param bool   $overwrite
-     *
-     * @return bool true if file written, otherwise false
-     *
+     * @param  string              $filePath
+     * @param  string              $content
+     * @param  bool                $overwrite
      * @throws Mage_Core_Exception
+     * @return bool                true if file written, otherwise false
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
      */
@@ -236,8 +230,7 @@ class Mage_Core_Model_Resource_File_Storage_File
     /**
      * Create a new file already locked by this process and save the handle for later writing by saveFile method.
      *
-     * @param string $filePath
-     *
+     * @param  string $filePath
      * @return bool
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")

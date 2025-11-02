@@ -17,14 +17,12 @@ class Mage_Rss_Block_Catalog_Special extends Mage_Rss_Block_Catalog_Abstract
     /**
      * Zend_Date object for date comparisons
      *
-     * @var Zend_Date|null
+     * @var null|Zend_Date
      */
     protected static $_currentDate = null;
 
     /**
-     *
      * @throws Mage_Core_Model_Store_Exception
-     *
      * @throws Exception
      */
     protected function _construct()
@@ -37,11 +35,9 @@ class Mage_Rss_Block_Catalog_Special extends Mage_Rss_Block_Catalog_Abstract
     }
 
     /**
-     * @return string
-     *
      * @throws Mage_Core_Model_Store_Exception
-     *
      * @throws Exception
+     * @return string
      */
     protected function _toHtml()
     {
@@ -156,8 +152,7 @@ class Mage_Rss_Block_Catalog_Special extends Mage_Rss_Block_Catalog_Abstract
     /**
      * Preparing data and adding to rss object
      *
-     * @param array $args
-     *
+     * @param  array               $args
      * @throws Zend_Date_Exception
      */
     public function addSpecialXmlCallback($args)
@@ -193,9 +188,8 @@ class Mage_Rss_Block_Catalog_Special extends Mage_Rss_Block_Catalog_Abstract
     /**
      * Function for comparing two items in collection
      *
-     * @param Varien_Object $a
-     * @param Varien_Object $b
-     *
+     * @param  Varien_Object $a
+     * @param  Varien_Object $b
      * @return int
      */
     public function sortByStartDate($a, $b)

@@ -17,10 +17,9 @@ class Mage_Catalog_Model_Category_Api_V2 extends Mage_Catalog_Model_Category_Api
     /**
      * Retrieve category data
      *
-     * @param int        $categoryId
-     * @param string|int $store
-     * @param array      $attributes
-     *
+     * @param  int        $categoryId
+     * @param  int|string $store
+     * @param  array      $attributes
      * @return array
      */
     public function info($categoryId, $store = null, $attributes = null)
@@ -51,17 +50,13 @@ class Mage_Catalog_Model_Category_Api_V2 extends Mage_Catalog_Model_Category_Api
     /**
      * Create new category
      *
-     * @param int             $parentId
-     * @param array           $categoryData
-     * @param int|string|null $store
-     *
-     * @return int
-     *
+     * @param  int                                       $parentId
+     * @param  array                                     $categoryData
+     * @param  null|int|string                           $store
      * @throws Mage_Api_Exception
-     *
      * @throws Mage_Eav_Model_Entity_Attribute_Exception
-     *
      * @throws Mage_Core_Exception
+     * @return int
      */
     public function create($parentId, $categoryData, $store = null)
     {
@@ -111,13 +106,11 @@ class Mage_Catalog_Model_Category_Api_V2 extends Mage_Catalog_Model_Category_Api
     /**
      * Update category data
      *
-     * @param int        $categoryId
-     * @param array      $categoryData
-     * @param string|int $store
-     *
-     * @return bool
-     *
+     * @param  int                 $categoryId
+     * @param  array               $categoryData
+     * @param  int|string          $store
      * @throws Mage_Core_Exception
+     * @return bool
      */
     public function update($categoryId, $categoryData, $store = null)
     {

@@ -14,8 +14,9 @@
  *
  * @method Mage_CatalogInventory_Model_Resource_Stock _getResource()
  * @method Mage_CatalogInventory_Model_Resource_Stock getResource()
- * @method string                                     getStockName()
- * @method $this                                      setStockName(string $value)
+ *
+ * @method string getStockName()
+ * @method $this  setStockName(string $value)
  */
 class Mage_CatalogInventory_Model_Stock extends Mage_Core_Model_Abstract
 {
@@ -54,8 +55,7 @@ class Mage_CatalogInventory_Model_Stock extends Mage_Core_Model_Abstract
     /**
      * Add stock item objects to products
      *
-     * @param Mage_Catalog_Model_Resource_Product_Collection $productCollection
-     *
+     * @param  Mage_Catalog_Model_Resource_Product_Collection $productCollection
      * @return Mage_CatalogInventory_Model_Stock
      */
     public function addItemsToProducts($productCollection)
@@ -94,8 +94,7 @@ class Mage_CatalogInventory_Model_Stock extends Mage_Core_Model_Abstract
     /**
      * Prepare array($productId=>$qty) based on array($productId => array('qty'=>$qty, 'item'=>$stockItem))
      *
-     * @param array $items
-     *
+     * @param  array $items
      * @return array
      */
     protected function _prepareProductQtys($items)
@@ -121,8 +120,7 @@ class Mage_CatalogInventory_Model_Stock extends Mage_Core_Model_Abstract
      * Subtract product qtys from stock.
      * Return array of items that require full save
      *
-     * @param array $items
-     *
+     * @param  array $items
      * @return array
      */
     public function registerProductsSale($items)
@@ -156,9 +154,7 @@ class Mage_CatalogInventory_Model_Stock extends Mage_Core_Model_Abstract
     }
 
     /**
-     *
-     * @param array $items
-     *
+     * @param  array                             $items
      * @return Mage_CatalogInventory_Model_Stock
      */
     public function revertProductsSale($items)
@@ -198,9 +194,8 @@ class Mage_CatalogInventory_Model_Stock extends Mage_Core_Model_Abstract
     /**
      * Get back to stock (when order is canceled or whatever else)
      *
-     * @param int   $productId
-     * @param float $qty
-     *
+     * @param  int   $productId
+     * @param  float $qty
      * @return $this
      */
     public function backItemQty($productId, $qty)
@@ -222,8 +217,7 @@ class Mage_CatalogInventory_Model_Stock extends Mage_Core_Model_Abstract
     /**
      * Lock stock items for product ids array
      *
-     * @param array $productIds
-     *
+     * @param  array                             $productIds
      * @return Mage_CatalogInventory_Model_Stock
      */
     public function lockProductItems($productIds)
@@ -235,9 +229,8 @@ class Mage_CatalogInventory_Model_Stock extends Mage_Core_Model_Abstract
     /**
      * Adds filtering for collection to return only in stock products
      *
-     * @param Mage_Catalog_Model_Resource_Product_Link_Product_Collection $collection
-     *
-     * @return $this $this
+     * @param  Mage_Catalog_Model_Resource_Product_Link_Product_Collection $collection
+     * @return $this                                                       $this
      */
     public function addInStockFilterToCollection($collection)
     {

@@ -26,9 +26,8 @@ class Mage_Adminhtml_Sales_Order_InvoiceController extends Mage_Adminhtml_Contro
     /**
      * Initialize invoice model instance
      *
-     * @return Mage_Sales_Model_Order_Invoice|false
-     *
      * @throws Mage_Core_Exception
+     * @return false|Mage_Sales_Model_Order_Invoice
      */
     protected function _initInvoice($update = false)
     {
@@ -76,11 +75,9 @@ class Mage_Adminhtml_Sales_Order_InvoiceController extends Mage_Adminhtml_Contro
     /**
      * Save data for invoice and related order
      *
-     * @param Mage_Sales_Model_Order_Invoice $invoice
-     *
-     * @return Mage_Adminhtml_Sales_Order_InvoiceController
-     *
+     * @param  Mage_Sales_Model_Order_Invoice               $invoice
      * @throws Exception
+     * @return Mage_Adminhtml_Sales_Order_InvoiceController
      */
     protected function _saveInvoice($invoice)
     {
@@ -96,11 +93,9 @@ class Mage_Adminhtml_Sales_Order_InvoiceController extends Mage_Adminhtml_Contro
     /**
      * Prepare shipment
      *
-     * @param Mage_Sales_Model_Order_Invoice $invoice
-     *
-     * @return Mage_Sales_Model_Order_Shipment|false
-     *
+     * @param  Mage_Sales_Model_Order_Invoice        $invoice
      * @throws Mage_Core_Exception
+     * @return false|Mage_Sales_Model_Order_Shipment
      */
     protected function _prepareShipment($invoice)
     {
@@ -416,9 +411,8 @@ class Mage_Adminhtml_Sales_Order_InvoiceController extends Mage_Adminhtml_Contro
      * children are not in process
      *
      * @deprecated after 1.4, Mage_Sales_Model_Service_Order used
-     * @param Mage_Sales_Model_Order_Item $item
-     * @param array                       $qtys
-     *
+     * @param  Mage_Sales_Model_Order_Item $item
+     * @param  array                       $qtys
      * @return bool
      */
     protected function _needToAddDummy($item, $qtys)
@@ -450,9 +444,8 @@ class Mage_Adminhtml_Sales_Order_InvoiceController extends Mage_Adminhtml_Contro
      * children are not in process
      *
      * @deprecated after 1.4, Mage_Sales_Model_Service_Order used
-     * @param Mage_Sales_Model_Order_Item $item
-     * @param array                       $qtys
-     *
+     * @param  Mage_Sales_Model_Order_Item $item
+     * @param  array                       $qtys
      * @return bool
      */
     protected function _needToAddDummyForShipment($item, $qtys)

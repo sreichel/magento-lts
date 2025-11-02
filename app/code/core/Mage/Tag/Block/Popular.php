@@ -21,9 +21,8 @@ class Mage_Tag_Block_Popular extends Mage_Core_Block_Template
     protected $_maxPopularity;
 
     /**
-     * @return $this
-     *
      * @throws Mage_Core_Model_Store_Exception
+     * @return $this
      */
     protected function _loadTags()
     {
@@ -58,9 +57,8 @@ class Mage_Tag_Block_Popular extends Mage_Core_Block_Template
     }
 
     /**
-     * @return Mage_Tag_Model_Tag[]
-     *
      * @throws Mage_Core_Model_Store_Exception
+     * @return Mage_Tag_Model_Tag[]
      */
     public function getTags()
     {
@@ -85,9 +83,8 @@ class Mage_Tag_Block_Popular extends Mage_Core_Block_Template
     }
 
     /**
-     * @return string
-     *
      * @throws Mage_Core_Model_Store_Exception
+     * @return string
      */
     protected function _toHtml()
     {

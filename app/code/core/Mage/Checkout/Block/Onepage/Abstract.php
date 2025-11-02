@@ -115,8 +115,7 @@ abstract class Mage_Checkout_Block_Onepage_Abstract extends Mage_Core_Block_Temp
 
     /* */
     /**
-     * @param string $type
-     *
+     * @param  string $type
      * @return string
      */
     public function getAddressesHtmlSelect($type)
@@ -160,11 +159,9 @@ abstract class Mage_Checkout_Block_Onepage_Abstract extends Mage_Core_Block_Temp
     }
 
     /**
-     * @param string $type
-     *
-     * @return string
-     *
+     * @param  string                          $type
      * @throws Mage_Core_Model_Store_Exception
+     * @return string
      */
     public function getCountryHtmlSelect($type)
     {
@@ -177,8 +174,7 @@ abstract class Mage_Checkout_Block_Onepage_Abstract extends Mage_Core_Block_Temp
     }
 
     /**
-     * @param string $type
-     *
+     * @param  string $type
      * @return string
      */
     public function getRegionHtmlSelect($type)
@@ -196,10 +192,8 @@ abstract class Mage_Checkout_Block_Onepage_Abstract extends Mage_Core_Block_Temp
 
     /**
      * @deprecated
-     *
-     * @return bool|mixed
-     *
      * @throws Mage_Core_Model_Store_Exception
+     * @return bool|mixed
      */
     public function getCountryOptions()
     {

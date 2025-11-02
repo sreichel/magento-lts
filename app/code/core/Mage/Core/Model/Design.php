@@ -10,8 +10,10 @@
 /**
  * @package    Mage_Core
  *
- * @method Mage_Core_Model_Resource_Design _getResource()
- * @method Mage_Core_Model_Resource_Design getResource()
+ * @method Mage_Core_Model_Resource_Design            _getResource()
+ * @method Mage_Core_Model_Resource_Design            getResource()
+ * @method Mage_Core_Model_Resource_Design_Collection getCollection()
+ * @method Mage_Core_Model_Resource_Design_Collection getResourceCollection()
  *
  * @method int    getStoreId()
  * @method $this  setStoreId(int $value)
@@ -41,9 +43,8 @@ class Mage_Core_Model_Design extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param int         $storeId
-     * @param string|null $date
-     *
+     * @param  int         $storeId
+     * @param  null|string $date
      * @return $this
      */
     public function loadChange($storeId, $date = null)

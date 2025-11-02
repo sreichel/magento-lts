@@ -74,10 +74,9 @@ class Mage_Core_Model_File_Storage extends Mage_Core_Model_Abstract
      *  init        => bool     - force initialization process for storage model
      * )
      *
-     * @param int|null $storage
-     * @param array    $params
-     *
-     * @return Mage_Core_Model_File_Storage_File|Mage_Core_Model_File_Storage_Database|false
+     * @param  null|int                                                                      $storage
+     * @param  array                                                                         $params
+     * @return false|Mage_Core_Model_File_Storage_Database|Mage_Core_Model_File_Storage_File
      */
     public function getStorageModel($storage = null, $params = [])
     {
@@ -111,8 +110,7 @@ class Mage_Core_Model_File_Storage extends Mage_Core_Model_Abstract
      *  connection  => string
      * )
      *
-     * @param array $storage
-     *
+     * @param  array $storage
      * @return $this
      */
     public function synchronize($storage)

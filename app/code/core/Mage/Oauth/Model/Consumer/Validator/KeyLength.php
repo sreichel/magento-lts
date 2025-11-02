@@ -24,7 +24,7 @@ class Mage_Oauth_Model_Consumer_Validator_KeyLength extends Zend_Validate_String
     /**
      * Sets validator options
      *
-     * @param int|array|Zend_Config $options
+     * @param array|int|Zend_Config $options
      */
     public function __construct($options = [])
     {
@@ -80,8 +80,7 @@ class Mage_Oauth_Model_Consumer_Validator_KeyLength extends Zend_Validate_String
     /**
      * Set length
      *
-     * @param int $length
-     *
+     * @param  int   $length
      * @return $this
      */
     public function setLength($length)
@@ -107,8 +106,7 @@ class Mage_Oauth_Model_Consumer_Validator_KeyLength extends Zend_Validate_String
      * Returns true if and only if the string length of $value is at least the min option and
      * no greater than the max option (when the max option is not null).
      *
-     * @param string $value
-     *
+     * @param  string $value
      * @return bool
      */
     public function isValid($value)
@@ -124,8 +122,7 @@ class Mage_Oauth_Model_Consumer_Validator_KeyLength extends Zend_Validate_String
     /**
      * Set key name
      *
-     * @param string $name
-     *
+     * @param  string $name
      * @return $this
      */
     public function setName($name)

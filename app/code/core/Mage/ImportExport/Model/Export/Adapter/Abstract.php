@@ -132,7 +132,6 @@ abstract class Mage_ImportExport_Model_Export_Adapter_Abstract
     /**
      * Set column names.
      *
-     *
      * @throws Exception
      *
      * @return Mage_ImportExport_Model_Export_Adapter_Abstract

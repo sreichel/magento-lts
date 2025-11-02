@@ -195,7 +195,7 @@ class Mage_Catalog_Model_Observer
     /**
      * Recursively adds categories to top menu
      *
-     * @param Varien_Data_Tree_Node_Collection|array $categories
+     * @param array|Varien_Data_Tree_Node_Collection $categories
      * @param Varien_Data_Tree_Node                  $parentCategoryNode
      * @param Mage_Page_Block_Html_Topmenu           $menuBlock
      * @param bool                                   $addTags
@@ -239,8 +239,7 @@ class Mage_Catalog_Model_Observer
     /**
      * Checks whether category belongs to active category's path
      *
-     * @param Varien_Data_Tree_Node $category
-     *
+     * @param  Varien_Data_Tree_Node $category
      * @return bool
      */
     protected function _isActiveMenuCategory($category)
@@ -261,7 +260,6 @@ class Mage_Catalog_Model_Observer
 
     /**
      * Checks whether attribute_code by current module is reserved
-     *
      *
      * @throws Mage_Core_Exception
      */

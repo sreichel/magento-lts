@@ -35,8 +35,7 @@ class Mage_Sales_Model_Entity_Quote_Item_Collection extends Mage_Eav_Model_Entit
     }
 
     /**
-     * @param Mage_Sales_Model_Quote $quote
-     *
+     * @param  Mage_Sales_Model_Quote $quote
      * @return $this
      */
     public function setQuote($quote)
@@ -103,9 +102,8 @@ class Mage_Sales_Model_Entity_Quote_Item_Collection extends Mage_Eav_Model_Entit
     }
 
     /**
-     * @return false|Mage_Catalog_Model_Resource_Product_Collection
-     *
      * @throws Mage_Core_Exception
+     * @return false|Mage_Catalog_Model_Resource_Product_Collection
      */
     protected function _getProductCollection()
     {

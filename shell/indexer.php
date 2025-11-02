@@ -65,7 +65,6 @@ class Mage_Shell_Indexer extends Mage_Shell_Abstract
 
     /**
      * Run script
-     *
      */
     public function run()
     {
@@ -174,7 +173,6 @@ class Mage_Shell_Indexer extends Mage_Shell_Abstract
 
     /**
      * Retrieve Usage Help Message
-     *
      */
     public function usageHelp()
     {

@@ -26,21 +26,21 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
     /**
      * Quote customer wishlist model object
      *
-     * @var Mage_Wishlist_Model_Wishlist|false|null
+     * @var null|false|Mage_Wishlist_Model_Wishlist
      */
     protected $_wishlist;
 
     /**
      * Sales Quote instance
      *
-     * @var Mage_Sales_Model_Quote|null
+     * @var null|Mage_Sales_Model_Quote
      */
     protected $_cart;
 
     /**
      * Catalog Compare List instance
      *
-     * @var Mage_Catalog_Model_Product_Compare_List|false|null
+     * @var null|false|Mage_Catalog_Model_Product_Compare_List
      */
     protected $_compareList;
 
@@ -75,14 +75,14 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
     /**
      * Customer Address Form instance
      *
-     * @var Mage_Customer_Model_Form|null
+     * @var null|Mage_Customer_Model_Form
      */
     protected $_customerAddressForm;
 
     /**
      * Customer Form instance
      *
-     * @var Mage_Customer_Model_Form|null
+     * @var null|Mage_Customer_Model_Form
      */
     protected $_customerForm;
 
@@ -108,8 +108,7 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
     /**
      * Set validate data in import data flag
      *
-     * @param bool $flag
-     *
+     * @param  bool  $flag
      * @return $this
      */
     public function setIsValidate($flag)
@@ -131,9 +130,8 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
     /**
      * Retrieve quote item
      *
-     * @param int|Mage_Sales_Model_Quote_Item $item
-     *
-     * @return Mage_Sales_Model_Quote_Item|false
+     * @param  int|Mage_Sales_Model_Quote_Item   $item
+     * @return false|Mage_Sales_Model_Quote_Item
      */
     protected function _getQuoteItem($item)
     {
@@ -164,8 +162,7 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
     /**
      * Set collect totals flag for quote
      *
-     * @param bool $flag
-     *
+     * @param  bool                                    $flag
      * @return Mage_Adminhtml_Model_Sales_Order_Create
      */
     public function setRecollect($flag)
@@ -405,9 +402,8 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
     /**
      * Initialize creation data from existing order Item
      *
-     * @param int $qty
-     *
-     * @return Mage_Sales_Model_Quote_Item|string|$this
+     * @param  int                                      $qty
+     * @return $this|Mage_Sales_Model_Quote_Item|string
      */
     public function initFromOrderItem(Mage_Sales_Model_Order_Item $orderItem, $qty = null)
     {
@@ -455,7 +451,6 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
      * Retrieve customer wishlist model object
      *
      * @params bool $cacheReload pass cached wishlist object and get new one
-     *
      * @return Mage_Wishlist_Model_Wishlist
      */
     public function getCustomerWishlist($cacheReload = false)
@@ -536,10 +531,9 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
     /**
      * Move quote item to another items list
      *
-     * @param int|Mage_Sales_Model_Quote_Item $item
-     * @param string                          $moveTo
-     * @param int                             $qty
-     *
+     * @param  int|Mage_Sales_Model_Quote_Item         $item
+     * @param  string                                  $moveTo
+     * @param  int                                     $qty
      * @return Mage_Adminhtml_Model_Sales_Order_Create
      */
     public function moveQuoteItem($item, $moveTo, $qty)
@@ -660,8 +654,7 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
     /**
      * Handle data sent from sidebar
      *
-     * @param array $data
-     *
+     * @param  array $data
      * @return $this
      */
     public function applySidebarData($data)
@@ -720,9 +713,8 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
     /**
      * Remove item from some of customer items storage (shopping cart, wishlist etc.)
      *
-     * @param int    $itemId
-     * @param string $from
-     *
+     * @param  int                                     $itemId
+     * @param  string                                  $from
      * @return Mage_Adminhtml_Model_Sales_Order_Create
      */
     public function removeItem($itemId, $from)
@@ -759,8 +751,7 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
     /**
      * Remove quote item
      *
-     * @param int $item
-     *
+     * @param  int                                     $item
      * @return Mage_Adminhtml_Model_Sales_Order_Create
      */
     public function removeQuoteItem($item)
@@ -775,9 +766,8 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
      * $product can be either product id or product model
      * $config can be either buyRequest config, or just qty
      *
-     * @param int|Mage_Catalog_Model_Product $product
-     * @param float|array|Varien_Object      $config
-     *
+     * @param  int|Mage_Catalog_Model_Product          $product
+     * @param  array|float|Varien_Object               $config
      * @return Mage_Adminhtml_Model_Sales_Order_Create
      */
     public function addProduct($product, $config = 1)
@@ -837,7 +827,7 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
     /**
      * Add multiple products to current order quote
      *
-     * @return Mage_Adminhtml_Model_Sales_Order_Create|Exception
+     * @return Exception|Mage_Adminhtml_Model_Sales_Order_Create
      */
     public function addProducts(array $products)
     {
@@ -858,8 +848,7 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
     /**
      * Update quantity of order quote items
      *
-     * @param array $data
-     *
+     * @param  array                                   $data
      * @return Mage_Adminhtml_Model_Sales_Order_Create
      */
     public function updateQuoteItems($data)
@@ -924,8 +913,7 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
     /**
      * Parse additional options and sync them with product options
      *
-     * @param string $additionalOptions
-     *
+     * @param  string $additionalOptions
      * @return array
      */
     protected function _parseOptions(Mage_Sales_Model_Quote_Item $item, $additionalOptions)
@@ -993,8 +981,7 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
     /**
      * Assign options to item
      *
-     * @param array $options
-     *
+     * @param  array $options
      * @return $this
      */
     protected function _assignOptionsToItem(Mage_Sales_Model_Quote_Item $item, $options)
@@ -1048,8 +1035,7 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
     /**
      * Prepare options array for info buy request
      *
-     * @param Mage_Sales_Model_Quote_Item $item
-     *
+     * @param  Mage_Sales_Model_Quote_Item $item
      * @return array
      */
     protected function _prepareOptionsForRequest($item)
@@ -1169,8 +1155,7 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
     }
 
     /**
-     * @param array|Mage_Sales_Model_Quote_Address $address
-     *
+     * @param  array|Mage_Sales_Model_Quote_Address $address
      * @return $this
      */
     public function setShippingAddress($address)
@@ -1225,8 +1210,7 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
     }
 
     /**
-     * @param array|Mage_Sales_Model_Quote_Address $address
-     *
+     * @param  array|Mage_Sales_Model_Quote_Address $address
      * @return $this
      */
     public function setBillingAddress($address)
@@ -1341,8 +1325,7 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
     /**
      * Parse data retrieved from request
      *
-     * @param array $data
-     *
+     * @param  array                                   $data
      * @return Mage_Adminhtml_Model_Sales_Order_Create
      */
     public function importPostData($data)
@@ -1392,8 +1375,7 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
     /**
      * Check whether we need to create new customer (for another website) during order creation
      *
-     * @param Mage_Core_Model_Store $store
-     *
+     * @param  Mage_Core_Model_Store $store
      * @return bool
      */
     protected function _customerIsInStore($store)
@@ -1713,8 +1695,7 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
     /**
      * Retrieve new customer email
      *
-     * @param Mage_Customer_Model_Customer $customer
-     *
+     * @param  Mage_Customer_Model_Customer $customer
      * @return string
      */
     protected function _getNewCustomerEmail($customer)
@@ -1834,7 +1815,6 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
 
     /**
      * @deprecated after 1.1.7
-     *
      * @return $this
      */
     protected function _saveCustomer()

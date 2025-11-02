@@ -49,7 +49,7 @@ class Mage_Admin_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * Whether it is the first page after successful login
      *
-     * @var bool|null
+     * @var null|bool
      */
     protected $_isFirstPageAfterLogin;
 
@@ -95,9 +95,8 @@ class Mage_Admin_Model_Session extends Mage_Core_Model_Session_Abstract
      * Since the session is used as a singleton, the value will be in $_isFirstPageAfterLogin until the end of request,
      * unless it is reset intentionally from somewhere
      *
-     * @param string $namespace
-     * @param string $sessionName
-     *
+     * @param  string $namespace
+     * @param  string $sessionName
      * @return $this
      * @see self::login()
      */
@@ -130,11 +129,10 @@ class Mage_Admin_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * Try to login user in admin
      *
-     * @param string                            $username
-     * @param string                            $password
-     * @param Mage_Core_Controller_Request_Http $request
-     *
-     * @return Mage_Admin_Model_User|null
+     * @param  string                            $username
+     * @param  string                            $password
+     * @param  Mage_Core_Controller_Request_Http $request
+     * @return null|Mage_Admin_Model_User
      */
     public function login($username, $password, $request = null)
     {
@@ -190,8 +188,7 @@ class Mage_Admin_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * Refresh ACL resources stored in session
      *
-     * @param Mage_Admin_Model_User $user
-     *
+     * @param  Mage_Admin_Model_User $user
      * @return $this
      */
     public function refreshAcl($user = null)
@@ -221,9 +218,8 @@ class Mage_Admin_Model_Session extends Mage_Core_Model_Session_Abstract
      * Mage::getSingleton('admin/session')->isAllowed('admin/catalog')
      * Mage::getSingleton('admin/session')->isAllowed('catalog')
      *
-     * @param string $resource
-     * @param string $privilege
-     *
+     * @param  string $resource
+     * @param  string $privilege
      * @return bool
      */
     public function isAllowed($resource, $privilege = null)
@@ -278,8 +274,7 @@ class Mage_Admin_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * Setter whether the current/next page should be treated as first page after login
      *
-     * @param bool $value
-     *
+     * @param  bool  $value
      * @return $this
      */
     public function setIsFirstPageAfterLogin($value)
@@ -291,9 +286,8 @@ class Mage_Admin_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * Custom REQUEST_URI logic
      *
-     * @param Mage_Core_Controller_Request_Http $request
-     *
-     * @return string|null
+     * @param  Mage_Core_Controller_Request_Http $request
+     * @return null|string
      */
     protected function _getRequestUri($request = null)
     {
@@ -310,9 +304,9 @@ class Mage_Admin_Model_Session extends Mage_Core_Model_Session_Abstract
      * Login failed process
      *
      * @param Exception                              $e
+     * @param null|Mage_Core_Controller_Request_Http $request
      * @param string                                 $username
      * @param string                                 $message
-     * @param Mage_Core_Controller_Request_Http|null $request
      */
     protected function _loginFailed($e, $request, $username, $message)
     {

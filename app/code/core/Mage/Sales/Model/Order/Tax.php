@@ -10,8 +10,10 @@
 /**
  * @package    Mage_Sales
  *
- * @method Mage_Sales_Model_Resource_Order_Tax _getResource()
- * @method Mage_Sales_Model_Resource_Order_Tax getResource()
+ * @method Mage_Sales_Model_Resource_Order_Tax            _getResource()
+ * @method Mage_Sales_Model_Resource_Order_Tax            getResource()
+ * @method Mage_Sales_Model_Resource_Order_Tax_Collection getCollection()
+ * @method Mage_Sales_Model_Resource_Order_Tax_Collection getResourceCollection()
  *
  * @method int    getOrderId()
  * @method $this  setOrderId(int $value)

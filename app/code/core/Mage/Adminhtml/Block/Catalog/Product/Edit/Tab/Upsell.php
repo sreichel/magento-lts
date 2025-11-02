@@ -18,7 +18,6 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Upsell extends Mage_Adminhtm
 {
     /**
      * Set grid params
-     *
      */
     public function __construct()
     {
@@ -37,7 +36,6 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Upsell extends Mage_Adminhtm
 
     /**
      * Retrieve currently edited product model
-     *
      *
      * @return Mage_Catalog_Model_Product
      */
@@ -77,7 +75,6 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Upsell extends Mage_Adminhtm
     /**
      * Checks when this block is readonly
      *
-     *
      * @return bool
      */
     public function isReadonly()
@@ -87,7 +84,6 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Upsell extends Mage_Adminhtm
 
     /**
      * Prepare collection
-     *
      *
      * @return Mage_Adminhtml_Block_Widget_Grid
      */
@@ -113,7 +109,6 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Upsell extends Mage_Adminhtm
 
     /**
      * Add columns to grid
-     *
      *
      * @return Mage_Adminhtml_Block_Widget_Grid
      */
@@ -205,7 +200,6 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Upsell extends Mage_Adminhtm
     /**
      * Rerieve grid URL
      *
-     *
      * @return string
      */
     public function getGridUrl()
@@ -215,7 +209,6 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Upsell extends Mage_Adminhtm
 
     /**
      * Retrieve selected upsell products
-     *
      *
      * @return array
      */
@@ -231,7 +224,6 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Upsell extends Mage_Adminhtm
 
     /**
      * Retrieve upsell products
-     *
      *
      * @return array
      */

@@ -97,8 +97,7 @@ class Mage_Tag_Model_Tag extends Mage_Core_Model_Abstract
     /**
      * Setter for addBasePopularity flag
      *
-     * @param bool $flag
-     *
+     * @param  bool  $flag
      * @return $this
      */
     public function setAddBasePopularity($flag = true)
@@ -164,8 +163,7 @@ class Mage_Tag_Model_Tag extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param int $ratio
-     *
+     * @param  int   $ratio
      * @return $this
      */
     public function setRatio($ratio)
@@ -175,8 +173,7 @@ class Mage_Tag_Model_Tag extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param string $name
-     *
+     * @param  string $name
      * @return $this
      */
     public function loadByName($name)
@@ -195,8 +192,7 @@ class Mage_Tag_Model_Tag extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param Varien_Event_Observer $observer
-     *
+     * @param  Varien_Event_Observer $observer
      * @return $this
      */
     public function productEventAggregate($observer)
@@ -208,8 +204,7 @@ class Mage_Tag_Model_Tag extends Mage_Core_Model_Abstract
     /**
      * Product delete event action
      *
-     * @param Varien_Event_Observer $observer
-     *
+     * @param  Varien_Event_Observer $observer
      * @return $this
      */
     public function productDeleteEventAction($observer)
@@ -222,8 +217,7 @@ class Mage_Tag_Model_Tag extends Mage_Core_Model_Abstract
      * Add summary data to current object
      *
      * @deprecated after 1.4.0.0
-     * @param int $storeId
-     *
+     * @param  int   $storeId
      * @return $this
      */
     public function addSummary($storeId)
@@ -331,8 +325,7 @@ class Mage_Tag_Model_Tag extends Mage_Core_Model_Abstract
     /**
      * Checks is available current tag in specified store
      *
-     * @param int $storeId
-     *
+     * @param  int  $storeId
      * @return bool
      */
     public function isAvailableInStore($storeId = null)
@@ -342,9 +335,8 @@ class Mage_Tag_Model_Tag extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @return Mage_Core_Model_Abstract
-     *
      * @throws Mage_Core_Exception
+     * @return Mage_Core_Model_Abstract
      */
     protected function _beforeDelete()
     {
@@ -355,10 +347,9 @@ class Mage_Tag_Model_Tag extends Mage_Core_Model_Abstract
     /**
      * Save tag relation with product, customer and store
      *
-     * @param int $productId
-     * @param int $customerId
-     * @param int $storeId
-     *
+     * @param  int    $productId
+     * @param  int    $customerId
+     * @param  int    $storeId
      * @return string - relation add status
      */
     public function saveRelation($productId, $customerId, $storeId)
@@ -430,8 +421,7 @@ class Mage_Tag_Model_Tag extends Mage_Core_Model_Abstract
     /**
      * Check whether product is already marked in store with tag
      *
-     * @param Mage_Tag_Model_Tag_Relation $relationModel
-     *
+     * @param  Mage_Tag_Model_Tag_Relation $relationModel
      * @return bool
      */
     protected function _checkLinkBetweenTagProduct($relationModel)
@@ -446,8 +436,7 @@ class Mage_Tag_Model_Tag extends Mage_Core_Model_Abstract
     /**
      * Check whether product is already marked in store with tag by customer
      *
-     * @param Mage_Tag_Model_Tag_Relation $relationModel
-     *
+     * @param  Mage_Tag_Model_Tag_Relation $relationModel
      * @return bool
      */
     protected function _checkLinkBetweenTagCustomerProduct($relationModel)
@@ -458,8 +447,7 @@ class Mage_Tag_Model_Tag extends Mage_Core_Model_Abstract
     /**
      * Get relation model for product marked in store with tag by customer
      *
-     * @param Mage_Tag_Model_Tag_Relation $relationModel
-     *
+     * @param  Mage_Tag_Model_Tag_Relation $relationModel
      * @return Mage_Tag_Model_Tag_Relation
      */
     protected function _getLinkBetweenTagCustomerProduct($relationModel)

@@ -32,11 +32,9 @@ class Mage_Cms_Block_Block extends Mage_Core_Block_Abstract
     /**
      * Prepare Content HTML
      *
-     * @return string
-     *
      * @throws Mage_Core_Model_Store_Exception
-     *
      * @throws Exception
+     * @return string
      */
     protected function _toHtml()
     {
@@ -61,9 +59,8 @@ class Mage_Cms_Block_Block extends Mage_Core_Block_Abstract
     /**
      * Retrieve values of properties that unambiguously identify unique content
      *
-     * @return array
-     *
      * @throws Mage_Core_Model_Store_Exception
+     * @return array
      */
     public function getCacheKeyInfo()
     {

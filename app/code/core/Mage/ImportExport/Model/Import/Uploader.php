@@ -30,7 +30,7 @@ class Mage_ImportExport_Model_Import_Uploader extends Mage_Core_Model_File_Uploa
 
     /**
      * Mage_ImportExport_Model_Import_Uploader constructor.
-     * @param string|null $filePath
+     * @param null|string $filePath
      */
     public function __construct($filePath = null)
     {
@@ -64,11 +64,9 @@ class Mage_ImportExport_Model_Import_Uploader extends Mage_Core_Model_File_Uploa
     /**
      * Proceed moving a file from TMP to destination folder
      *
-     * @param string $fileName
-     *
-     * @return array
-     *
+     * @param  string    $fileName
      * @throws Exception
+     * @return array
      */
     public function move($fileName)
     {
@@ -98,8 +96,7 @@ class Mage_ImportExport_Model_Import_Uploader extends Mage_Core_Model_File_Uploa
     /**
      * Reads file info
      *
-     * @param string $filePath
-     *
+     * @param  string $filePath
      * @return array
      */
     protected function _readFileInfo($filePath)
@@ -143,8 +140,7 @@ class Mage_ImportExport_Model_Import_Uploader extends Mage_Core_Model_File_Uploa
     /**
      * Returns file MIME type by extension
      *
-     * @param string $ext
-     *
+     * @param  string $ext
      * @return string
      */
     protected function _getMimeTypeByExt($ext)
@@ -169,8 +165,7 @@ class Mage_ImportExport_Model_Import_Uploader extends Mage_Core_Model_File_Uploa
     /**
      * Set TMP file path prefix
      *
-     * @param string $path
-     *
+     * @param  string $path
      * @return bool
      */
     public function setTmpDir($path)
@@ -196,8 +191,7 @@ class Mage_ImportExport_Model_Import_Uploader extends Mage_Core_Model_File_Uploa
     /**
      * Set destination file path prefix
      *
-     * @param string $path
-     *
+     * @param  string $path
      * @return bool
      */
     public function setDestDir($path)
@@ -213,9 +207,8 @@ class Mage_ImportExport_Model_Import_Uploader extends Mage_Core_Model_File_Uploa
     /**
      * Move files from TMP folder into destination folder
      *
-     * @param string $tmpPath
-     * @param string $destPath
-     *
+     * @param  string $tmpPath
+     * @param  string $destPath
      * @return bool
      */
     protected function _moveFile($tmpPath, $destPath)

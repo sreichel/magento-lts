@@ -43,8 +43,7 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * @param float $price
-     *
+     * @param  float  $price
      * @return string
      */
     public function formatPrice($price)
@@ -53,9 +52,8 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * @param float $price
-     * @param bool  $format
-     *
+     * @param  float $price
+     * @param  bool  $format
      * @return float
      */
     public function convertPrice($price, $format = true)
@@ -64,9 +62,8 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * @return array|null
-     *
      * @throws Mage_Core_Model_Store_Exception
+     * @return null|array
      */
     public function getRequiredAgreementIds()
     {
@@ -98,8 +95,7 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
      * Get sales item (quote item, order item etc) price including tax based on row total and tax amount
      * excluding weee tax
      *
-     * @param Mage_Core_Model_Abstract|Varien_Object $item
-     *
+     * @param  Mage_Core_Model_Abstract|Varien_Object $item
      * @return float
      */
     public function getPriceInclTax($item)
@@ -117,8 +113,7 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Get sales item (quote item, order item etc) row total price including tax
      *
-     * @param Mage_Core_Model_Abstract|Varien_Object $item
-     *
+     * @param  Mage_Core_Model_Abstract|Varien_Object $item
      * @return float
      */
     public function getSubtotalInclTax($item)
@@ -147,8 +142,7 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Get the base price of the item including tax , excluding weee
      *
-     * @param Mage_Core_Model_Abstract|Varien_Object $item
-     *
+     * @param  Mage_Core_Model_Abstract|Varien_Object $item
      * @return float
      */
     public function getBasePriceInclTax($item)
@@ -161,8 +155,7 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Get sales item (quote item, order item etc) row total price including tax excluding wee
      *
-     * @param Mage_Core_Model_Abstract|Varien_Object $item
-     *
+     * @param  Mage_Core_Model_Abstract|Varien_Object $item
      * @return float
      */
     public function getBaseSubtotalInclTax($item)
@@ -175,10 +168,9 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Send email id payment was failed
      *
-     * @param Mage_Sales_Model_Quote $checkout
-     * @param string                 $message
-     * @param string                 $checkoutType
-     *
+     * @param  Mage_Sales_Model_Quote $checkout
+     * @param  string                 $message
+     * @param  string                 $checkoutType
      * @return $this
      */
     public function sendPaymentFailedEmail($checkout, $message, $checkoutType = 'onepage')
@@ -265,9 +257,8 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * @param string $configPath
-     * @param int    $storeId
-     *
+     * @param  string      $configPath
+     * @param  int         $storeId
      * @return array|false
      */
     protected function _getEmails($configPath, $storeId)
@@ -308,8 +299,7 @@ class Mage_Checkout_Helper_Data extends Mage_Core_Helper_Abstract
      * Check is allowed Guest Checkout
      * Use config settings and observer
      *
-     * @param int|Mage_Core_Model_Store $store
-     *
+     * @param  int|Mage_Core_Model_Store $store
      * @return bool
      */
     public function isAllowedGuestCheckout(Mage_Sales_Model_Quote $quote, $store = null)

@@ -24,9 +24,8 @@ class Mage_Adminhtml_Block_Catalog_Product_Attribute_New_Product_Created extends
     }
 
     /**
-     * @return $this
-     *
      * @throws Exception
+     * @return $this
      */
     protected function _prepareLayout()
     {
@@ -48,9 +47,8 @@ class Mage_Adminhtml_Block_Catalog_Product_Attribute_New_Product_Created extends
     }
 
     /**
-     * @return array
-     *
      * @throws Exception
+     * @return array
      */
     protected function _getGroupAttributes()
     {
@@ -76,9 +74,8 @@ class Mage_Adminhtml_Block_Catalog_Product_Attribute_New_Product_Created extends
     }
 
     /**
-     * @return string
-     *
      * @throws Exception
+     * @return string
      */
     public function getAttributesBlockJson()
     {

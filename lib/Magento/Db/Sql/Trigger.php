@@ -94,9 +94,8 @@ class Magento_Db_Sql_Trigger
     /**
      * Validate where all trigger parts set?
      *
-     * @return Magento_Db_Sql_Trigger
-     *
      * @throws Exception
+     * @return Magento_Db_Sql_Trigger
      */
     protected function _validateIsComplete()
     {
@@ -112,12 +111,10 @@ class Magento_Db_Sql_Trigger
     /**
      * Set trigger part
      *
-     * @param $part
-     * @param $value
-     *
-     * @return Magento_Db_Sql_Trigger
-     *
+     * @param                           $part
+     * @param                           $value
      * @throws InvalidArgumentException
+     * @return Magento_Db_Sql_Trigger
      */
     protected function _setPart($part, $value)
     {
@@ -133,11 +130,9 @@ class Magento_Db_Sql_Trigger
     /**
      * Set trigger part
      *
-     * @param $part
-     *
-     * @return string|array
-     *
+     * @param               $part
      * @throws Exception
+     * @return array|string
      */
     protected function _getPart($part)
     {
@@ -151,12 +146,10 @@ class Magento_Db_Sql_Trigger
     /**
      * Set body part to trigger
      *
-     * @param $part
-     * @param $value
-     *
-     * @return Magento_Db_Sql_Trigger
-     *
+     * @param                           $part
+     * @param                           $value
      * @throws InvalidArgumentException
+     * @return Magento_Db_Sql_Trigger
      */
     public function setBodyPart($part, $value)
     {
@@ -172,11 +165,9 @@ class Magento_Db_Sql_Trigger
     /**
      * Set body part to trigger
      *
-     * @param string $part
-     *
-     * @return string
-     *
+     * @param  string    $part
      * @throws Exception
+     * @return string
      */
     public function getBodyPart($part)
     {
@@ -201,11 +192,9 @@ class Magento_Db_Sql_Trigger
 
     /**
      * Set trigger time {BEFORE/AFTER}
-     * @param $time
-     *
-     * @return Magento_Db_Sql_Trigger
-     *
+     * @param                           $time
      * @throws InvalidArgumentException
+     * @return Magento_Db_Sql_Trigger
      */
     public function setTime($time)
     {
@@ -221,11 +210,9 @@ class Magento_Db_Sql_Trigger
     /**
      * Set trigger event {INSERT/UPDATE/DELETE}
      *
-     * @param $event
-     *
-     * @return Magento_Db_Sql_Trigger
-     *
+     * @param                           $event
      * @throws InvalidArgumentException
+     * @return Magento_Db_Sql_Trigger
      */
     public function setEvent($event)
     {
@@ -241,8 +228,7 @@ class Magento_Db_Sql_Trigger
     /**
      * Set trigger target, table name
      *
-     * @param $target
-     *
+     * @param                         $target
      * @return Magento_Db_Sql_Trigger
      */
     public function setTarget($target)
@@ -254,8 +240,7 @@ class Magento_Db_Sql_Trigger
     /**
      * Set trigger name
      *
-     * @param $name
-     *
+     * @param                         $name
      * @return Magento_Db_Sql_Trigger
      */
     public function setName($name)
@@ -282,8 +267,7 @@ class Magento_Db_Sql_Trigger
     /**
      * Set trigger body
      *
-     * @param array|string $body
-     *
+     * @param  array|string           $body
      * @return Magento_Db_Sql_Trigger
      */
     public function setBody($body)

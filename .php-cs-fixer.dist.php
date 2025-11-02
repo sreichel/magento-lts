@@ -20,6 +20,18 @@ return $config
         'phpdoc_align' => true,
         // Docblocks should have the same indentation as the documented subject.
         'phpdoc_indent' => true,
+        // Annotations in PHPDoc should be ordered in defined sequence.
+        'phpdoc_order' => true,
+        // Orders all @param annotations in DocBlocks according to method signature.
+        'phpdoc_param_order' => true,
+        // PHPDoc should start and end with content, excluding the very first and last line of the docblocks.
+        'phpdoc_trim' => true,
+        // Removes extra blank lines after summary and after description in PHPDoc.
+        'phpdoc_trim_consecutive_blank_line_separation' => true,
+        // Single line @var PHPDoc should have proper spacing.
+        'phpdoc_single_line_var_spacing' => true,
+        // Sorts PHPDoc types.
+        'phpdoc_types_order' => true,
         // Convert double quotes to single quotes for simple strings.
         'single_quote' => true,
         // Arguments lists, array destructuring lists, arrays that are multi-line, match-lines and parameters lists must have a trailing comma.

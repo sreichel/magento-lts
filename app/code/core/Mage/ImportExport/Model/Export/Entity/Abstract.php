@@ -45,7 +45,7 @@ abstract class Mage_ImportExport_Model_Export_Entity_Abstract
     /**
      * Entity type id.
      *
-     * @var int|null
+     * @var null|int
      */
     protected $_entityTypeId;
 
@@ -370,7 +370,6 @@ abstract class Mage_ImportExport_Model_Export_Entity_Abstract
      *     'type'  => 'file'
      * )
      *
-     *
      * @throws Mage_Core_Exception
      *
      * @return array
@@ -447,7 +446,7 @@ abstract class Mage_ImportExport_Model_Export_Entity_Abstract
     /**
      * Entity type ID getter.
      *
-     * @return int|null
+     * @return null|int
      */
     public function getEntityTypeId()
     {
@@ -514,7 +513,6 @@ abstract class Mage_ImportExport_Model_Export_Entity_Abstract
 
     /**
      * Inner writer object getter.
-     *
      *
      * @throws Exception
      *

@@ -24,19 +24,18 @@ class Mage_Paypal_Model_Ipn
     /**
      * Store order instance
      *
-     * @var Mage_Sales_Model_Order|null
+     * @var null|Mage_Sales_Model_Order
      */
     protected $_order = null;
 
     /**
      * Recurring profile instance
      *
-     * @var Mage_Sales_Model_Recurring_Profile|null
+     * @var null|Mage_Sales_Model_Recurring_Profile
      */
     protected $_recurringProfile = null;
 
     /**
-     *
      * @var Mage_Paypal_Model_Config
      */
     protected $_config = null;
@@ -64,8 +63,7 @@ class Mage_Paypal_Model_Ipn
     /**
      * IPN request data getter
      *
-     * @param string $key
-     *
+     * @param  string       $key
      * @return array|string
      */
     public function getRequestData($key = null)
@@ -79,7 +77,6 @@ class Mage_Paypal_Model_Ipn
 
     /**
      * Get ipn data, send verification to PayPal, run corresponding handler
-     *
      *
      * @throws Mage_Core_Exception
      */
@@ -116,7 +113,6 @@ class Mage_Paypal_Model_Ipn
 
     /**
      * Post back to PayPal to check whether this request is a valid one
-     *
      *
      * @throws Exception
      */
@@ -169,10 +165,8 @@ class Mage_Paypal_Model_Ipn
     /**
      * Load and validate order, instantiate proper configuration
      *
-     *
-     * @return Mage_Sales_Model_Order
-     *
      * @throws Exception
+     * @return Mage_Sales_Model_Order
      * @SuppressWarnings("PHPMD.ExitExpression")
      */
     protected function _getOrder()
@@ -206,9 +200,8 @@ class Mage_Paypal_Model_Ipn
     /**
      * Load recurring profile
      *
-     * @return Mage_Sales_Model_Recurring_Profile
-     *
      * @throws Exception
+     * @return Mage_Sales_Model_Recurring_Profile
      */
     protected function _getRecurringProfile()
     {
@@ -239,7 +232,6 @@ class Mage_Paypal_Model_Ipn
 
     /**
      * Validate incoming request data, as PayPal recommends
-     *
      *
      * @throws Exception
      * @link https://cms.paypal.com/cgi-bin/marketingweb?cmd=_render-content&content_ID=developer/e_howto_admin_IPNIntro
@@ -570,7 +562,6 @@ class Mage_Paypal_Model_Ipn
     /**
      * Process payment pending notification
      *
-     *
      * @throws Exception
      */
     public function _registerPaymentPending()
@@ -657,10 +648,9 @@ class Mage_Paypal_Model_Ipn
      * Generate an "IPN" comment with additional explanation.
      * Returns the generated comment or order status history object
      *
-     * @param string $comment
-     * @param bool   $addToHistory
-     *
-     * @return string|Mage_Sales_Model_Order_Status_History
+     * @param  string                                       $comment
+     * @param  bool                                         $addToHistory
+     * @return Mage_Sales_Model_Order_Status_History|string
      */
     protected function _createIpnComment($comment = '', $addToHistory = false)
     {
@@ -751,8 +741,7 @@ class Mage_Paypal_Model_Ipn
     /**
      * Filter payment status from NVP into paypal/info format
      *
-     * @param string $ipnPaymentStatus
-     *
+     * @param  string $ipnPaymentStatus
      * @return string
      */
     protected function _filterPaymentStatus($ipnPaymentStatus)

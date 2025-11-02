@@ -12,8 +12,9 @@
  *
  * @package    Mage_Api
  *
- * @method Mage_Api_Model_Resource_User _getResource()
- * @method Mage_Api_Model_Resource_User getResource()
+ * @method Mage_Api_Model_Resource_User            _getResource()
+ * @method Mage_Api_Model_Resource_User            getResource()
+ * @method Mage_Api_Model_Resource_User_Collection getResourceCollection()
  *
  * @method string getFirstname()
  * @method $this  setFirstname(string $value)
@@ -47,9 +48,8 @@
  * @method int    getRoleId()
  * @method array  getRoleIds()
  * @method $this  setLogdate(string $value)
- *
- * @method $this setRoleIds(array $value)
- * @method $this setRoleUserId(int $value)
+ * @method $this  setRoleIds(array $value)
+ * @method $this  setRoleUserId(int $value)
  */
 class Mage_Api_Model_User extends Mage_Core_Model_Abstract
 {
@@ -105,9 +105,8 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
     /**
      * Delete user
      *
-     * @return $this|Mage_Core_Model_Abstract
-     *
      * @throws Mage_Core_Exception
+     * @return $this|Mage_Core_Model_Abstract
      */
     public function delete()
     {
@@ -120,9 +119,8 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
     /**
      * Save relations for users
      *
-     * @return $this
-     *
      * @throws Mage_Core_Exception
+     * @return $this
      */
     public function saveRelations()
     {
@@ -187,7 +185,7 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
     /**
      * Get collection of users
      *
-     * @return Object|Mage_Api_Model_Resource_User_Collection
+     * @return Mage_Api_Model_Resource_User_Collection|Object
      */
     public function getCollection()
     {
@@ -197,8 +195,7 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
     /**
      * Get user's name
      *
-     * @param string $separator
-     *
+     * @param  string $separator
      * @return string
      */
     public function getName($separator = ' ')
@@ -229,12 +226,10 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
     /**
      * Authenticate user name and api key and save loaded record
      *
-     * @param string $username
-     * @param string $apiKey
-     *
-     * @return bool
-     *
+     * @param  string    $username
+     * @param  string    $apiKey
      * @throws Exception
+     * @return bool
      */
     public function authenticate($username, $apiKey)
     {
@@ -255,12 +250,10 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
     /**
      * Login user
      *
-     * @param string $username
-     * @param string $apiKey
-     *
-     * @return Mage_Api_Model_User
-     *
+     * @param  string              $username
+     * @param  string              $apiKey
      * @throws Exception
+     * @return Mage_Api_Model_User
      */
     public function login($username, $apiKey)
     {
@@ -296,8 +289,7 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
     /**
      * Load user by username
      *
-     * @param string $username
-     *
+     * @param  string $username
      * @return $this
      */
     public function loadByUsername($username)
@@ -309,8 +301,7 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
     /**
      * Load user by session id
      *
-     * @param string $sessId
-     *
+     * @param  string $sessId
      * @return $this
      */
     public function loadBySessId($sessId)
@@ -322,8 +313,7 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
     /**
      * Logout user by session id
      *
-     * @param string $sessid
-     *
+     * @param  string $sessid
      * @return $this
      */
     public function logoutBySessId($sessid)
@@ -335,8 +325,7 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
     /**
      * Check if user is assigned to role
      *
-     * @param int|Mage_Core_Model_Abstract $user
-     *
+     * @param  int|Mage_Core_Model_Abstract $user
      * @return array
      */
     public function hasAssigned2Role($user)
@@ -347,8 +336,7 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
     /**
      * Retrieve encoded api key
      *
-     * @param string $apiKey
-     *
+     * @param  string $apiKey
      * @return string
      */
     protected function _getEncodedApiKey($apiKey)
@@ -359,8 +347,7 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
     /**
      * Get helper instance
      *
-     * @param string $helperName
-     *
+     * @param  string                    $helperName
      * @return Mage_Core_Helper_Abstract
      */
     protected function _getHelper($helperName)
@@ -371,9 +358,8 @@ class Mage_Api_Model_User extends Mage_Core_Model_Abstract
     /**
      * Validate user attribute values.
      *
-     * @return array|true
-     *
      * @throws Zend_Validate_Exception
+     * @return array|true
      */
     public function validate()
     {

@@ -15,7 +15,7 @@ class Mage_Eav_Model_Convert_Adapter_Entity extends Mage_Dataflow_Model_Convert_
     /**
      * Current store model
      *
-     * @var Mage_Core_Model_Store|null
+     * @var null|Mage_Core_Model_Store
      */
     protected $_store;
 
@@ -67,14 +67,12 @@ class Mage_Eav_Model_Convert_Adapter_Entity extends Mage_Dataflow_Model_Convert_
     }
 
     /**
-     * @param array  $attrFilterArray
-     * @param array  $attrToDb
-     * @param string $bind
-     * @param string $joinType
-     *
-     * @return $this
-     *
+     * @param  array     $attrFilterArray
+     * @param  array     $attrToDb
+     * @param  string    $bind
+     * @param  string    $joinType
      * @throws Exception
+     * @return $this
      */
     public function setFilter($attrFilterArray, $attrToDb = null, $bind = null, $joinType = null)
     {
@@ -191,9 +189,8 @@ class Mage_Eav_Model_Convert_Adapter_Entity extends Mage_Dataflow_Model_Convert_
     }
 
     /**
-     * @param array  $fields
-     * @param string $name
-     *
+     * @param  array      $fields
+     * @param  string     $name
      * @return array|bool
      */
     protected function getFieldValue($fields = [], $name = '')
@@ -216,8 +213,7 @@ class Mage_Eav_Model_Convert_Adapter_Entity extends Mage_Dataflow_Model_Convert_
     }
 
     /**
-     * @param array $joinAttr
-     *
+     * @param  array     $joinAttr
      * @throws Exception
      */
     public function setJoinAttr($joinAttr)
@@ -260,9 +256,8 @@ class Mage_Eav_Model_Convert_Adapter_Entity extends Mage_Dataflow_Model_Convert_
     }
 
     /**
-     * @return $this
-     *
      * @throws Varien_Convert_Exception
+     * @return $this
      */
     public function load()
     {
@@ -333,9 +328,8 @@ class Mage_Eav_Model_Convert_Adapter_Entity extends Mage_Dataflow_Model_Convert_
     /**
      * Retrieve collection for load
      *
-     * @param string $entityType
-     *
-     * @return Mage_Eav_Model_Entity_Collection|false
+     * @param  string                                 $entityType
+     * @return false|Mage_Eav_Model_Entity_Collection
      */
     protected function _getCollectionForLoad($entityType)
     {
@@ -343,9 +337,8 @@ class Mage_Eav_Model_Convert_Adapter_Entity extends Mage_Dataflow_Model_Convert_
     }
 
     /**
-     * @return $this
-     *
      * @throws Varien_Convert_Exception
+     * @return $this
      */
     public function save()
     {

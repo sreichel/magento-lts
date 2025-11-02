@@ -213,7 +213,7 @@ class Mage_Core_Model_Resource_Config extends Mage_Core_Model_Resource_Db_Abstra
     /**
      * Get config value
      *
-     * @return string|false
+     * @return false|string
      */
     public function getConfig(string $path, string $scope, int $scopeId)
     {

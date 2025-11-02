@@ -23,7 +23,6 @@ class Mage_Core_Model_Date
 
     /**
      * Init offset
-     *
      */
     public function __construct()
     {
@@ -43,9 +42,8 @@ class Mage_Core_Model_Date
     /**
      * Calculates timezone offset
      *
-     * @param string $timezone
-     *
-     * @return int offset between timezone and gmt
+     * @param  string $timezone
+     * @return int    offset between timezone and gmt
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
      */
@@ -73,9 +71,8 @@ class Mage_Core_Model_Date
     /**
      * Forms GMT date
      *
-     * @param string     $format
-     * @param int|string $input  date in current timezone
-     *
+     * @param  string       $format
+     * @param  int|string   $input  date in current timezone
      * @return false|string
      */
     public function gmtDate($format = null, $input = null)
@@ -97,9 +94,8 @@ class Mage_Core_Model_Date
      * Converts input date into date with timezone offset
      * Input date must be in GMT timezone
      *
-     * @param string     $format
-     * @param int|string $input  date in GMT timezone
-     *
+     * @param  string     $format
+     * @param  int|string $input  date in GMT timezone
      * @return string
      */
     public function date($format = null, $input = null)
@@ -114,9 +110,8 @@ class Mage_Core_Model_Date
     /**
      * Forms GMT timestamp
      *
-     * @param int|string $input date in current timezone
-     *
-     * @return string|false|int
+     * @param  int|string       $input date in current timezone
+     * @return false|int|string
      */
     public function gmtTimestamp($input = null)
     {
@@ -144,8 +139,7 @@ class Mage_Core_Model_Date
      * Converts input date into timestamp with timezone offset
      * Input date must be in GMT timezone
      *
-     * @param int|string $input date in GMT timezone
-     *
+     * @param  int|string $input date in GMT timezone
      * @return int
      */
     public function timestamp($input = null)
@@ -168,8 +162,7 @@ class Mage_Core_Model_Date
     /**
      * Get current timezone offset in seconds/minutes/hours
      *
-     * @param string $type
-     *
+     * @param  string $type
      * @return int
      */
     public function getGmtOffset($type = 'seconds')
@@ -193,13 +186,12 @@ class Mage_Core_Model_Date
     }
 
     /**
-     * @param int $year
-     * @param int $month
-     * @param int $day
-     * @param int $hour
-     * @param int $minute
-     * @param int $second
-     *
+     * @param  int  $year
+     * @param  int  $month
+     * @param  int  $day
+     * @param  int  $hour
+     * @param  int  $minute
+     * @param  int  $second
      * @return bool
      * @deprecated since 1.1.7
      */
@@ -220,12 +212,10 @@ class Mage_Core_Model_Date
     }
 
     /**
-     * @param string $dateTimeString
-     * @param string $dateTimeFormat
-     *
-     * @return array
-     *
+     * @param  string              $dateTimeString
+     * @param  string              $dateTimeFormat
      * @throws Mage_Core_Exception
+     * @return array
      * @deprecated since 1.1.7
      */
     public function parseDateTime($dateTimeString, $dateTimeFormat)

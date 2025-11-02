@@ -23,8 +23,10 @@
  *
  * @package    Mage_Adminhtml
  *
- * @method Mage_Core_Model_Resource_Email_Template _getResource()
- * @method Mage_Core_Model_Resource_Email_Template getResource()
+ * @method Mage_Core_Model_Resource_Email_Template            _getResource()
+ * @method Mage_Core_Model_Resource_Email_Template            getResource()
+ * @method Mage_Core_Model_Resource_Email_Template_Collection getCollection()
+ * @method Mage_Core_Model_Resource_Email_Template_Collection getResourceCollection()
  *
  * @method string                      getTemplateCode()
  * @method $this                       setTemplateCode(string $value)
@@ -88,7 +90,6 @@ class Mage_Core_Model_Email_Template extends Mage_Core_Model_Email_Template_Abst
 
     /**
      * Initialize email template model
-     *
      */
     protected function _construct()
     {
@@ -139,8 +140,7 @@ class Mage_Core_Model_Email_Template extends Mage_Core_Model_Email_Template_Abst
     /**
      * Load template by code
      *
-     * @param string $templateCode
-     *
+     * @param  string $templateCode
      * @return $this
      */
     public function loadByCode($templateCode)
@@ -152,9 +152,8 @@ class Mage_Core_Model_Email_Template extends Mage_Core_Model_Email_Template_Abst
     /**
      * Load default email template from locale translate
      *
-     * @param string $templateId
-     * @param string $locale
-     *
+     * @param  string $templateId
+     * @param  string $locale
      * @return $this
      */
     public function loadDefault($templateId, $locale = null)
@@ -254,8 +253,7 @@ class Mage_Core_Model_Email_Template extends Mage_Core_Model_Email_Template_Abst
 
     /**
      * Set id of template
-     * @param int $value
-     *
+     * @param  int   $value
      * @return $this
      */
     public function setId($value)
@@ -338,8 +336,7 @@ class Mage_Core_Model_Email_Template extends Mage_Core_Model_Email_Template_Abst
      * @return string
      */
     /**
-     * @param string|null $html
-     *
+     * @param  null|string $html
      * @return string
      */
     public function getPreparedTemplateText($html = null)
@@ -356,8 +353,7 @@ class Mage_Core_Model_Email_Template extends Mage_Core_Model_Email_Template_Abst
     /**
      * Get template code for include directive
      *
-     * @param string $template
-     *
+     * @param  string $template
      * @return string
      */
     public function getInclude($template, array $variables)
@@ -373,10 +369,9 @@ class Mage_Core_Model_Email_Template extends Mage_Core_Model_Email_Template_Abst
     /**
      * Send mail to recipient
      *
-     * @param array|string      $email     E-mail(s)
-     * @param array|string|null $name      receiver name(s)
-     * @param array             $variables template variables
-     *
+     * @param  array|string      $email     E-mail(s)
+     * @param  null|array|string $name      receiver name(s)
+     * @param  array             $variables template variables
      * @return bool
      **/
     public function send($email, $name = null, array $variables = [])
@@ -491,13 +486,12 @@ class Mage_Core_Model_Email_Template extends Mage_Core_Model_Email_Template_Abst
     /**
      * Send transactional email to recipient
      *
-     * @param string|int        $templateId
+     * @param int|string        $templateId
      * @param array|string      $sender     sender information, can be declared as part of config path
      * @param string            $email      recipient email
-     * @param array|string|null $name       recipient name
+     * @param null|array|string $name       recipient name
      * @param array             $vars       variables which can be used in template
-     * @param int|null          $storeId
-     *
+     * @param null|int          $storeId
      *
      * @throws Mage_Core_Exception
      *
@@ -567,8 +561,7 @@ class Mage_Core_Model_Email_Template extends Mage_Core_Model_Email_Template_Abst
     }
 
     /**
-     * @param array|string $bcc
-     *
+     * @param  array|string $bcc
      * @return $this
      */
     public function addBcc($bcc)
@@ -589,8 +582,7 @@ class Mage_Core_Model_Email_Template extends Mage_Core_Model_Email_Template_Abst
     /**
      * Set Return Path
      *
-     * @param string $email
-     *
+     * @param  string $email
      * @return $this
      */
     public function setReturnPath($email)
@@ -602,8 +594,7 @@ class Mage_Core_Model_Email_Template extends Mage_Core_Model_Email_Template_Abst
     /**
      * Add Reply-To header
      *
-     * @param string $email
-     *
+     * @param  string $email
      * @return $this
      */
     public function setReplyTo($email)
@@ -615,8 +606,7 @@ class Mage_Core_Model_Email_Template extends Mage_Core_Model_Email_Template_Abst
     /**
      * Parse variables string into array of variables
      *
-     * @param string $variablesString
-     *
+     * @param  string $variablesString
      * @return array
      */
     protected function _parseVariablesString($variablesString)
@@ -633,8 +623,7 @@ class Mage_Core_Model_Email_Template extends Mage_Core_Model_Email_Template_Abst
     /**
      * Retrieve option array of variables
      *
-     * @param bool $withGroup if true wrap variable options in group
-     *
+     * @param  bool  $withGroup if true wrap variable options in group
      * @return array
      */
     public function getVariablesOptionArray($withGroup = false)

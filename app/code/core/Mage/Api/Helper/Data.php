@@ -71,8 +71,7 @@ class Mage_Api_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Go through an object parameters and unpack associative object to array.
      *
-     * @param Object|array $obj - Link to Object
-     *
+     * @param  array|Object $obj - Link to Object
      * @return bool
      */
     public function v2AssociativeArrayUnpacker(&$obj)
@@ -152,8 +151,7 @@ class Mage_Api_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Corrects data representation.
      *
-     * @param Object $obj - Link to Object
-     *
+     * @param  Object   $obj - Link to Object
      * @return string[]
      */
     public function clearWsiFootprints(&$obj)
@@ -180,8 +178,7 @@ class Mage_Api_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * For the WSI, generates an response object.
      *
-     * @param mixed $mixed - Link to Object
-     *
+     * @param  mixed $mixed - Link to Object
      * @return mixed
      */
     public function wsiArrayPacker($mixed)
@@ -215,8 +212,7 @@ class Mage_Api_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * For response to the WSI, generates an object from array.
      *
-     * @param array $arr - Link to Object
-     *
+     * @param  array    $arr - Link to Object
      * @return stdClass
      */
     public function packArrayToObject(array $arr)
@@ -250,9 +246,8 @@ class Mage_Api_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Parse filters and format them to be applicable for collection filtration
      *
-     * @param null|object|array $filters
-     * @param array             $fieldsMap Map of field names in format: array('field_name_in_filter' => 'field_name_in_db')
-     *
+     * @param  null|array|object $filters
+     * @param  array             $fieldsMap Map of field names in format: array('field_name_in_filter' => 'field_name_in_db')
      * @return array
      */
     public function parseFilters($filters, $fieldsMap = null)
@@ -302,8 +297,7 @@ class Mage_Api_Helper_Data extends Mage_Core_Helper_Abstract
      * Parses complex filter, which may contain several nodes, e.g. when user want to fetch orders which were updated
      * between two dates.
      *
-     * @param array $complexFilter
-     *
+     * @param  array $complexFilter
      * @return array
      */
     protected function _parseComplexFilter($complexFilter)
@@ -338,7 +332,7 @@ class Mage_Api_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @param string $conditionOperator
      * @param string $conditionValue
-     * @param-out string|array $conditionValue
+     * @param-out array|string $conditionValue
      */
     public function formatFilterConditionValue($conditionOperator, &$conditionValue)
     {
@@ -363,13 +357,11 @@ class Mage_Api_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Get service url
      *
-     * @param string|null $routePath
-     * @param array|null  $routeParams
-     * @param bool        $htmlSpecialChars
-     *
-     * @return string
-     *
+     * @param  null|string        $routePath
+     * @param  null|array         $routeParams
+     * @param  bool               $htmlSpecialChars
      * @throws Zend_Uri_Exception
+     * @return string
      */
     public function getServiceUrl($routePath = null, $routeParams = null, $htmlSpecialChars = false)
     {

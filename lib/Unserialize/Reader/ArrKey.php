@@ -35,12 +35,10 @@ class Unserialize_Reader_ArrKey
     }
 
     /**
-     * @param string $char
-     * @param string $prevChar
-     *
-     * @return mixed|null
-     *
+     * @param  string     $char
+     * @param  string     $prevChar
      * @throws Exception
+     * @return null|mixed
      */
     public function read($char, $prevChar)
     {

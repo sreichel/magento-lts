@@ -34,14 +34,14 @@ class Mage_Core_Model_Design_Package
     /**
      * Current Store for generation ofr base_dir and base_url
      *
-     * @var string|int|Mage_Core_Model_Store
+     * @var int|Mage_Core_Model_Store|string
      */
     protected $_store = null;
 
     /**
      * Package area
      *
-     * @var string|null
+     * @var null|string
      */
     protected $_area;
 
@@ -74,12 +74,12 @@ class Mage_Core_Model_Design_Package
     protected $_callbackFileDir;
 
     /**
-     * @var Mage_Core_Model_Design_Config|null
+     * @var null|Mage_Core_Model_Design_Config
      */
     protected $_config = null;
 
     /**
-     * @var Mage_Core_Model_Design_Fallback|null
+     * @var null|Mage_Core_Model_Design_Fallback
      */
     protected $_fallback = null;
 
@@ -106,8 +106,7 @@ class Mage_Core_Model_Design_Package
     /**
      * Set store
      *
-     * @param string|int|Mage_Core_Model_Store $store
-     *
+     * @param  int|Mage_Core_Model_Store|string $store
      * @return $this
      */
     public function setStore($store)
@@ -123,7 +122,7 @@ class Mage_Core_Model_Design_Package
     /**
      * Retrieve store
      *
-     * @return string|int|Mage_Core_Model_Store
+     * @return int|Mage_Core_Model_Store|string
      */
     public function getStore()
     {
@@ -133,8 +132,7 @@ class Mage_Core_Model_Design_Package
     /**
      * Set package area
      *
-     * @param string $area
-     *
+     * @param  string $area
      * @return $this
      */
     public function setArea($area)
@@ -161,8 +159,7 @@ class Mage_Core_Model_Design_Package
      * Set package name
      * In case of any problem, the default will be set.
      *
-     * @param string $name
-     *
+     * @param  string $name
      * @return $this
      */
     public function setPackageName($name = '')
@@ -193,8 +190,7 @@ class Mage_Core_Model_Design_Package
      * $storePackageArea must be assoc array. The keys may be:
      * 'store', 'package', 'area'
      *
-     * @param array $storePackageArea
-     *
+     * @param  array $storePackageArea
      * @return array
      */
     public function setAllGetOld($storePackageArea)
@@ -233,9 +229,8 @@ class Mage_Core_Model_Design_Package
     }
 
     /**
-     * @param string $packageName
-     * @param string $area
-     *
+     * @param  string $packageName
+     * @param  string $area
      * @return bool
      */
     public function designPackageExists($packageName, $area = self::DEFAULT_AREA)
@@ -273,8 +268,7 @@ class Mage_Core_Model_Design_Package
     }
 
     /**
-     * @param string $type
-     *
+     * @param  string $type
      * @return string
      */
     public function getTheme($type)
@@ -392,9 +386,8 @@ class Mage_Core_Model_Design_Package
      * - _file: path relative to theme root
      *
      * @see Mage_Core_Model_Config::getBaseDir
-     * @param string $file
-     *
-     * @return string|false
+     * @param  string       $file
+     * @return false|string
      */
     public function validateFile($file, array $params)
     {
@@ -410,8 +403,7 @@ class Mage_Core_Model_Design_Package
     /**
      * Get filename by specified theme parameters
      *
-     * @param string $file
-     *
+     * @param  string $file
      * @return string
      */
     protected function _renderFilename($file, array $params)
@@ -431,8 +423,7 @@ class Mage_Core_Model_Design_Package
      *   regardless of found or not.
      * If disabled, the lookup won't be performed to spare filesystem calls.
      *
-     * @param string $file
-     *
+     * @param  string $file
      * @return string
      */
     protected function _fallback($file, array &$params, array $fallbackScheme = [[]])
@@ -458,11 +449,9 @@ class Mage_Core_Model_Design_Package
      *
      * $params['_type'] is required
      *
-     * @param string $file
-     *
-     * @return string
-     *
+     * @param  string    $file
      * @throws Exception
+     * @return string
      */
     public function getFilename($file, array $params)
     {
@@ -489,8 +478,7 @@ class Mage_Core_Model_Design_Package
     }
 
     /**
-     * @param string $file
-     *
+     * @param  string $file
      * @return string
      */
     public function getLayoutFilename($file, array $params = [])
@@ -500,8 +488,7 @@ class Mage_Core_Model_Design_Package
     }
 
     /**
-     * @param string $file
-     *
+     * @param  string $file
      * @return string
      */
     public function getTemplateFilename($file, array $params = [])
@@ -511,8 +498,7 @@ class Mage_Core_Model_Design_Package
     }
 
     /**
-     * @param string $file
-     *
+     * @param  string $file
      * @return string
      */
     public function getLocaleFileName($file, array $params = [])
@@ -524,11 +510,9 @@ class Mage_Core_Model_Design_Package
     /**
      * Get skin file url
      *
-     * @param string|null $file
-     *
-     * @return string
-     *
+     * @param  null|string $file
      * @throws Exception
+     * @return string
      */
     public function getSkinUrl($file = null, array $params = [])
     {
@@ -569,7 +553,6 @@ class Mage_Core_Model_Design_Package
 
     /**
      * Design packages list getter
-     *
      * @return array
      */
     public function getPackageList()
@@ -580,8 +563,7 @@ class Mage_Core_Model_Design_Package
 
     /**
      * Design package (optional) themes list getter
-     * @param string $package
-     *
+     * @param  string $package
      * @return array
      */
     public function getThemeList($package = null)
@@ -603,9 +585,8 @@ class Mage_Core_Model_Design_Package
     /**
      * Directories lister utility method
      *
-     * @param string      $path
-     * @param string|bool $fullPath
-     *
+     * @param  string      $path
+     * @param  bool|string $fullPath
      * @return array
      */
     // phpcs:ignore Ecg.PHP.PrivateClassMember.PrivateClassMemberError
@@ -639,8 +620,7 @@ class Mage_Core_Model_Design_Package
      * Rules must be stored in config as a serialized array(['regexp']=>'...', ['value'] => '...')
      * Will return false or found string.
      *
-     * @param string $regexpsConfigPath
-     *
+     * @param  string       $regexpsConfigPath
      * @return false|string
      *
      * @SuppressWarnings("PHPMD.CamelCaseVariableName"))
@@ -678,9 +658,8 @@ class Mage_Core_Model_Design_Package
     /**
      * Return package name based on design exception rules
      *
-     * @param array  $rules             - design exception rules
-     * @param string $regexpsConfigPath
-     *
+     * @param  array       $rules             - design exception rules
+     * @param  string      $regexpsConfigPath
      * @return bool|string
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
@@ -711,8 +690,7 @@ class Mage_Core_Model_Design_Package
     /**
      * Merge specified javascript files and return URL to the merged file on success
      *
-     * @param array $files
-     *
+     * @param  array  $files
      * @return string
      */
     public function getMergedJsUrl($files)
@@ -741,8 +719,7 @@ class Mage_Core_Model_Design_Package
     /**
      * Merge specified css files and return URL to the merged file on success
      *
-     * @param array $files
-     *
+     * @param  array  $files
      * @return string
      */
     public function getMergedCssUrl($files)
@@ -791,11 +768,10 @@ class Mage_Core_Model_Design_Package
      * Merges files into one and saves it into DB (if DB file storage is on)
      *
      * @see Mage_Core_Helper_Data::mergeFiles()
-     * @param string|bool  $targetFile          - file path to be written
-     * @param bool         $mustMerge
-     * @param callable     $beforeMergeCallback
-     * @param array|string $extensionsFilter
-     *
+     * @param  bool|string  $targetFile          - file path to be written
+     * @param  bool         $mustMerge
+     * @param  callable     $beforeMergeCallback
+     * @param  array|string $extensionsFilter
      * @return bool|string
      */
     protected function _mergeFiles(
@@ -855,9 +831,8 @@ class Mage_Core_Model_Design_Package
      * Make sure merger dir exists and writeable
      * Also can clean it up
      *
-     * @param string $dirRelativeName
-     * @param bool   $cleanup
-     *
+     * @param  string $dirRelativeName
+     * @param  bool   $cleanup
      * @return bool
      */
     protected function _initMergerDir($dirRelativeName, $cleanup = false)
@@ -884,9 +859,8 @@ class Mage_Core_Model_Design_Package
     /**
      * Before merge css callback function
      *
-     * @param string $file
-     * @param string $contents
-     *
+     * @param  string $file
+     * @param  string $contents
      * @return string
      */
     public function beforeMergeCss($file, $contents)
@@ -915,8 +889,7 @@ class Mage_Core_Model_Design_Package
     /**
      * Callback function replaces relative links for @import matches in css file
      *
-     * @param array $match
-     *
+     * @param  array  $match
      * @return string
      */
     protected function _cssMergerImportCallback($match)
@@ -930,8 +903,7 @@ class Mage_Core_Model_Design_Package
     /**
      * Callback function replaces relative links for url() matches in css file
      *
-     * @param array $match
-     *
+     * @param  array  $match
      * @return string
      */
     protected function _cssMergerUrlCallback($match)
@@ -946,8 +918,7 @@ class Mage_Core_Model_Design_Package
     /**
      * Prepare url for css replacement
      *
-     * @param string $uri
-     *
+     * @param  string $uri
      * @return string
      */
     protected function _prepareUrl($uri)
@@ -1000,7 +971,6 @@ class Mage_Core_Model_Design_Package
 
     /**
      * Default theme getter
-     *
      * @return string
      * @deprecated since 1.8.2.0
      */

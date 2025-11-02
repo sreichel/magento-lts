@@ -14,13 +14,14 @@
  *
  * @method Mage_CatalogIndex_Model_Resource_Attribute _getResource()
  * @method Mage_CatalogIndex_Model_Resource_Attribute getResource()
- * @method $this                                      setEntityId(int $value)
- * @method int                                        getAttributeId()
- * @method $this                                      setAttributeId(int $value)
- * @method int                                        getStoreId()
- * @method $this                                      setStoreId(int $value)
- * @method int                                        getValue()
- * @method $this                                      setValue(int $value)
+ *
+ * @method $this setEntityId(int $value)
+ * @method int   getAttributeId()
+ * @method $this setAttributeId(int $value)
+ * @method int   getStoreId()
+ * @method $this setStoreId(int $value)
+ * @method int   getValue()
+ * @method $this setValue(int $value)
  */
 class Mage_CatalogIndex_Model_Attribute extends Mage_Core_Model_Abstract
 {
@@ -31,10 +32,9 @@ class Mage_CatalogIndex_Model_Attribute extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param Mage_Eav_Model_Entity_Attribute $attribute
-     * @param string                          $filter
-     * @param int|array                       $entityFilter
-     *
+     * @param  Mage_Eav_Model_Entity_Attribute $attribute
+     * @param  string                          $filter
+     * @param  array|int                       $entityFilter
      * @return array
      */
     public function getFilteredEntities($attribute, $filter, $entityFilter)
@@ -43,9 +43,8 @@ class Mage_CatalogIndex_Model_Attribute extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param Mage_Eav_Model_Entity_Attribute $attribute
-     * @param Zend_Db_Select                  $entityFilter
-     *
+     * @param  Mage_Eav_Model_Entity_Attribute $attribute
+     * @param  Zend_Db_Select                  $entityFilter
      * @return array
      */
     public function getCount($attribute, $entityFilter)
@@ -54,10 +53,9 @@ class Mage_CatalogIndex_Model_Attribute extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param array                           $optionIds
-     * @param Mage_Eav_Model_Entity_Attribute $attribute
-     * @param mixed                           $entityFilter
-     *
+     * @param  array                           $optionIds
+     * @param  Mage_Eav_Model_Entity_Attribute $attribute
+     * @param  mixed                           $entityFilter
      * @return mixed
      */
     public function checkCount($optionIds, $attribute, $entityFilter)
@@ -66,10 +64,9 @@ class Mage_CatalogIndex_Model_Attribute extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param Mage_Eav_Model_Resource_Entity_Attribute_Collection $collection
-     * @param Mage_Eav_Model_Entity_Attribute                     $attribute
-     * @param string                                              $value
-     *
+     * @param  Mage_Eav_Model_Resource_Entity_Attribute_Collection $collection
+     * @param  Mage_Eav_Model_Entity_Attribute                     $attribute
+     * @param  string                                              $value
      * @return $this
      */
     public function applyFilterToCollection($collection, $attribute, $value)

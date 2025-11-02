@@ -90,7 +90,6 @@ class Mage_Catalog_Model_Api2_Product_Rest_Admin_V1 extends Mage_Catalog_Model_A
     /**
      * Delete product by its ID
      *
-     *
      * @throws Mage_Api2_Exception
      */
     protected function _delete()

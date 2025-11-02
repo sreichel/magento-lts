@@ -117,7 +117,6 @@ class Mage_Paypal_Model_Cart
      * Getter for the current sales entity
      *
      * @return Mage_Sales_Model_Order
-     *
      * @return Mage_Sales_Model_Quote
      */
     public function getSalesEntity()
@@ -129,8 +128,7 @@ class Mage_Paypal_Model_Cart
      * Render and get line items
      * By default returns false if the items are invalid
      *
-     * @param bool $bypassValidation
-     *
+     * @param  bool        $bypassValidation
      * @return array|false
      */
     public function getItems($bypassValidation = false)
@@ -148,8 +146,7 @@ class Mage_Paypal_Model_Cart
      * If the totals are invalid for any reason, they will be merged into one amount (subtotal is utilized for it)
      * An option to subtract discount from the subtotal is available
      *
-     * @param bool $mergeDiscount
-     *
+     * @param  bool  $mergeDiscount
      * @return array
      */
     public function getTotals($mergeDiscount = false)
@@ -186,11 +183,10 @@ class Mage_Paypal_Model_Cart
     /**
      * Add a line item
      *
-     * @param string  $name
-     * @param numeric $qty
-     * @param float   $amount
-     * @param string  $identifier
-     *
+     * @param  string        $name
+     * @param  numeric       $qty
+     * @param  float         $amount
+     * @param  string        $identifier
      * @return Varien_Object
      */
     public function addItem($name, $qty, $amount, $identifier = null)
@@ -212,8 +208,7 @@ class Mage_Paypal_Model_Cart
     /**
      * Remove item from cart by identifier
      *
-     * @param string $identifier
-     *
+     * @param  string $identifier
      * @return bool
      */
     public function removeItem($identifier)
@@ -231,10 +226,9 @@ class Mage_Paypal_Model_Cart
     /**
      * Compound the specified amount with the specified total
      *
-     * @param string $code
-     * @param float  $amount
-     * @param string $lineItemDescription
-     *
+     * @param  string $code
+     * @param  float  $amount
+     * @param  string $lineItemDescription
      * @return $this
      */
     public function updateTotal($code, $amount, $lineItemDescription = null)
@@ -253,9 +247,8 @@ class Mage_Paypal_Model_Cart
     /**
      * Get/Set whether to render the discount total as a line item
      *
-     * @param bool $setValue
-     *
-     * @return bool|$this
+     * @param  bool       $setValue
+     * @return $this|bool
      */
     public function isDiscountAsItem($setValue = null)
     {
@@ -265,9 +258,8 @@ class Mage_Paypal_Model_Cart
     /**
      * Get/Set whether to render the discount total as a line item
      *
-     * @param bool $setValue
-     *
-     * @return bool|$this
+     * @param  bool       $setValue
+     * @return $this|bool
      */
     public function isShippingAsItem($setValue = null)
     {
@@ -366,11 +358,10 @@ class Mage_Paypal_Model_Cart
     /**
      * Merge multiple descriptions  by a total code into a string
      *
-     * @param string $code
-     * @param string $prepend
-     * @param string $append
-     * @param string $glue
-     *
+     * @param  string $code
+     * @param  string $prepend
+     * @param  string $append
+     * @param  string $glue
      * @return string
      */
     protected function _renderTotalLineItemDescriptions($code, $prepend = '', $append = '', $glue = '; ')
@@ -483,10 +474,9 @@ class Mage_Paypal_Model_Cart
      * Get/Set for the specified variable.
      * If the value changes, the re-rendering is commenced
      *
-     * @param string $var
-     * @param mixed  $setValue
-     *
-     * @return mixed|$this
+     * @param  string      $var
+     * @param  mixed       $setValue
+     * @return $this|mixed
      */
     private function _totalAsItem($var, $setValue = null)
     {

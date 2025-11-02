@@ -137,8 +137,7 @@ class Mage_Customer_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * Set customer id
      *
-     * @param int|null $id
-     *
+     * @param  null|int $id
      * @return $this
      */
     public function setCustomerId($id)
@@ -150,7 +149,7 @@ class Mage_Customer_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * Retrieve customer id from current session
      *
-     * @return int|null
+     * @return null|int
      */
     public function getCustomerId()
     {
@@ -164,8 +163,7 @@ class Mage_Customer_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * Set customer group id
      *
-     * @param int|null $id
-     *
+     * @param  null|int $id
      * @return $this
      */
     public function setCustomerGroupId($id)
@@ -206,8 +204,7 @@ class Mage_Customer_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * Check exists customer (light check)
      *
-     * @param int $customerId
-     *
+     * @param  int  $customerId
      * @return bool
      */
     public function checkCustomerId($customerId)
@@ -222,9 +219,8 @@ class Mage_Customer_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * Customer authorization
      *
-     * @param string $username
-     * @param string $password
-     *
+     * @param  string $username
+     * @param  string $password
      * @return bool
      */
     public function login($username, $password)
@@ -245,8 +241,7 @@ class Mage_Customer_Model_Session extends Mage_Core_Model_Session_Abstract
     }
 
     /**
-     * @param Mage_Customer_Model_Customer $customer
-     *
+     * @param  Mage_Customer_Model_Customer $customer
      * @return $this
      */
     public function setCustomerAsLoggedIn($customer)
@@ -261,8 +256,7 @@ class Mage_Customer_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * Authorization customer by identifier
      *
-     * @param int $customerId
-     *
+     * @param  int  $customerId
      * @return bool
      */
     public function loginById($customerId)
@@ -294,8 +288,7 @@ class Mage_Customer_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * Authenticate controller action by login customer
      *
-     * @param bool $loginUrl
-     *
+     * @param  bool $loginUrl
      * @return bool
      */
     public function authenticate(Mage_Core_Controller_Varien_Action $action, $loginUrl = null)
@@ -320,9 +313,8 @@ class Mage_Customer_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * Set auth url
      *
-     * @param string $key
-     * @param string $url
-     *
+     * @param  string $key
+     * @param  string $url
      * @return $this
      */
     protected function _setAuthUrl($key, $url)
@@ -351,8 +343,7 @@ class Mage_Customer_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * Set Before auth url
      *
-     * @param string $url
-     *
+     * @param  string $url
      * @return $this
      */
     public function setBeforeAuthUrl($url)
@@ -363,8 +354,7 @@ class Mage_Customer_Model_Session extends Mage_Core_Model_Session_Abstract
     /**
      * Set After auth url
      *
-     * @param string $url
-     *
+     * @param  string $url
      * @return $this
      */
     public function setAfterAuthUrl($url)

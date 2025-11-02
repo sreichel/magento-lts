@@ -30,7 +30,6 @@ class Mage_Page_Block_Template_Links extends Mage_Core_Block_Template
 
     /**
      * Set default template
-     *
      */
     protected function _construct()
     {
@@ -50,17 +49,16 @@ class Mage_Page_Block_Template_Links extends Mage_Core_Block_Template
     /**
      * Add link to the list
      *
-     * @param string       $label
-     * @param string       $url
-     * @param string       $title
-     * @param bool         $prepare
-     * @param array        $urlParams
-     * @param int          $position
-     * @param string|array $liParams
-     * @param string|array $aParams
-     * @param string       $beforeText
-     * @param string       $afterText
-     *
+     * @param  string       $label
+     * @param  string       $url
+     * @param  string       $title
+     * @param  bool         $prepare
+     * @param  array        $urlParams
+     * @param  int          $position
+     * @param  array|string $liParams
+     * @param  array|string $aParams
+     * @param  string       $beforeText
+     * @param  string       $afterText
      * @return $this
      * @SuppressWarnings("PHPMD.ExcessiveParameterList")
      */
@@ -98,9 +96,8 @@ class Mage_Page_Block_Template_Links extends Mage_Core_Block_Template
     /**
      * Add link into collection
      *
-     * @param Varien_Object $link
-     * @param int           $position
-     *
+     * @param  Varien_Object $link
+     * @param  int           $position
      * @return $this
      */
     protected function _addIntoPosition($link, $position)
@@ -117,8 +114,7 @@ class Mage_Page_Block_Template_Links extends Mage_Core_Block_Template
     /**
      * Add block to link list
      *
-     * @param string $blockName
-     *
+     * @param  string $blockName
      * @return $this
      */
     public function addLinkBlock($blockName)
@@ -135,8 +131,7 @@ class Mage_Page_Block_Template_Links extends Mage_Core_Block_Template
     /**
      * Remove Link block by blockName
      *
-     * @param string $blockName
-     *
+     * @param  string $blockName
      * @return $this
      */
     public function removeLinkBlock($blockName)
@@ -153,8 +148,7 @@ class Mage_Page_Block_Template_Links extends Mage_Core_Block_Template
     /**
      * Removes link by url
      *
-     * @param string $url
-     *
+     * @param  string $url
      * @return $this
      */
     public function removeLinkByUrl($url)
@@ -196,8 +190,7 @@ class Mage_Page_Block_Template_Links extends Mage_Core_Block_Template
     /**
      * Prepare tag attributes
      *
-     * @param string|array $params
-     *
+     * @param  array|string $params
      * @return string
      */
     protected function _prepareParams($params)
@@ -234,8 +227,7 @@ class Mage_Page_Block_Template_Links extends Mage_Core_Block_Template
     /**
      * Return new link position in list
      *
-     * @param int $position
-     *
+     * @param  int $position
      * @return int
      */
     protected function _getNewPosition($position = 0)

@@ -12,7 +12,6 @@ class Varien_Exception extends Exception
     /**
      * Check PCRE PREG error and throw exception
      *
-     *
      * @throws Varien_Exception
      */
     public static function processPcreError()

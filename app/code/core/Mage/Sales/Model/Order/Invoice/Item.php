@@ -10,8 +10,10 @@
 /**
  * @package    Mage_Sales
  *
- * @method Mage_Sales_Model_Resource_Order_Invoice_Item _getResource()
- * @method Mage_Sales_Model_Resource_Order_Invoice_Item getResource()
+ * @method Mage_Sales_Model_Resource_Order_Invoice_Item            _getResource()
+ * @method Mage_Sales_Model_Resource_Order_Invoice_Item            getResource()
+ * @method Mage_Sales_Model_Resource_Order_Invoice_Item_Collection getCollection()
+ * @method Mage_Sales_Model_Resource_Order_Invoice_Item_Collection getResourceCollection()
  *
  * @method int    getParentId()
  * @method $this  setParentId(int $value)
@@ -90,7 +92,7 @@ class Mage_Sales_Model_Order_Invoice_Item extends Mage_Core_Model_Abstract
     protected $_invoice = null;
 
     /**
-     * @var Mage_Sales_Model_Order_Item|null
+     * @var null|Mage_Sales_Model_Order_Item
      */
     protected $_orderItem = null;
 
@@ -172,8 +174,7 @@ class Mage_Sales_Model_Order_Invoice_Item extends Mage_Core_Model_Abstract
     /**
      * Declare qty
      *
-     * @param float $qty
-     *
+     * @param  float $qty
      * @return $this
      */
     public function setQty($qty)

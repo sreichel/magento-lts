@@ -27,9 +27,8 @@ class Mage_Core_Block_Text_Tag extends Mage_Core_Block_Text
     }
 
     /**
-     * @param string|array $param
-     * @param string|null  $value
-     *
+     * @param  array|string $param
+     * @param  null|string  $value
      * @return $this
      */
     public function setTagParam($param, $value = null)
@@ -48,8 +47,7 @@ class Mage_Core_Block_Text_Tag extends Mage_Core_Block_Text
     }
 
     /**
-     * @param string $text
-     *
+     * @param  string $text
      * @return $this
      */
     public function setContents($text)

@@ -46,7 +46,6 @@ class Mage_Adminhtml_System_ConfigController extends Mage_Adminhtml_Controller_A
 
     /**
      * Index action
-     *
      */
     public function indexAction()
     {
@@ -228,7 +227,6 @@ class Mage_Adminhtml_System_ConfigController extends Mage_Adminhtml_Controller_A
 
     /**
      * Save fieldset state through AJAX
-     *
      */
     public function stateAction()
     {
@@ -246,7 +244,6 @@ class Mage_Adminhtml_System_ConfigController extends Mage_Adminhtml_Controller_A
 
     /**
      * Export shipping table rates in csv format
-     *
      *
      * @throws Mage_Core_Exception
      *

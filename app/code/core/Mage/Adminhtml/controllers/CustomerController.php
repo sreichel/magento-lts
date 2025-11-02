@@ -32,11 +32,9 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
     }
 
     /**
-     * @param string $idFieldName
-     *
-     * @return $this
-     *
+     * @param  string              $idFieldName
      * @throws Mage_Core_Exception
+     * @return $this
      */
     protected function _initCustomer($idFieldName = 'id')
     {
@@ -867,8 +865,7 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
     /**
      * Filtering posted data. Converting localized data if needed
      *
-     * @param array $data
-     *
+     * @param  array $data
      * @return array
      */
     protected function _filterPostData($data)

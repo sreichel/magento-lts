@@ -72,14 +72,14 @@ class Mage_Usa_Model_Shipping_Carrier_Usps extends Mage_Usa_Model_Shipping_Carri
     /**
      * Rate request data
      *
-     * @var Mage_Shipping_Model_Rate_Request|null
+     * @var null|Mage_Shipping_Model_Rate_Request
      */
     protected $_request = null;
 
     /**
      * Raw rate request data
      *
-     * @var Varien_Object|null
+     * @var null|Varien_Object
      */
     protected $_rawRequest = null;
 
@@ -87,14 +87,14 @@ class Mage_Usa_Model_Shipping_Carrier_Usps extends Mage_Usa_Model_Shipping_Carri
     /**
      * Raw rate tracking request data
      *
-     * @var Varien_Object|null
+     * @var null|Varien_Object
      */
     protected $_rawTrackRequest = null;
 
     /**
      * Rate result data
      *
-     * @var Mage_Shipping_Model_Rate_Result|Mage_Shipping_Model_Tracking_Result|null
+     * @var null|Mage_Shipping_Model_Rate_Result|Mage_Shipping_Model_Tracking_Result
      */
     protected $_result = null;
 
@@ -115,7 +115,7 @@ class Mage_Usa_Model_Shipping_Carrier_Usps extends Mage_Usa_Model_Shipping_Carri
     /**
      * Collect and get rates
      *
-     * @return Mage_Shipping_Model_Rate_Result|bool|null
+     * @return null|bool|Mage_Shipping_Model_Rate_Result
      */
     public function collectRates(Mage_Shipping_Model_Rate_Request $request)
     {
@@ -267,7 +267,7 @@ class Mage_Usa_Model_Shipping_Carrier_Usps extends Mage_Usa_Model_Shipping_Carri
     /**
      * Get result of request
      *
-     * @return Mage_Shipping_Model_Rate_Result|null
+     * @return null|Mage_Shipping_Model_Rate_Result
      */
     public function getResult()
     {
@@ -312,7 +312,6 @@ class Mage_Usa_Model_Shipping_Carrier_Usps extends Mage_Usa_Model_Shipping_Carri
      * Build RateV3 request, send it to USPS gateway and retrieve quotes in XML format
      *
      * @link http://www.usps.com/webtools/htm/Rate-Calculators-v2-3.htm
-     *
      * @return Mage_Shipping_Model_Rate_Result
      */
     protected function _getXmlQuotes()
@@ -447,8 +446,7 @@ class Mage_Usa_Model_Shipping_Carrier_Usps extends Mage_Usa_Model_Shipping_Carri
      * Parse calculated rates
      *
      * @link http://www.usps.com/webtools/htm/Rate-Calculators-v2-3.htm
-     * @param string $response
-     *
+     * @param  string                               $response
      * @return Mage_Shipping_Model_Rate_Result|void
      */
     protected function _parseXmlResponse($response)
@@ -544,9 +542,8 @@ class Mage_Usa_Model_Shipping_Carrier_Usps extends Mage_Usa_Model_Shipping_Carri
     /**
      * Get configuration data of carrier
      *
-     * @param string $type
-     * @param string $code
-     *
+     * @param  string     $type
+     * @param  string     $code
      * @return array|bool
      */
     public function getCode($type, $code = '')
@@ -913,9 +910,8 @@ class Mage_Usa_Model_Shipping_Carrier_Usps extends Mage_Usa_Model_Shipping_Carri
     /**
      * Get tracking
      *
-     * @param mixed $trackingData
-     *
-     * @return Mage_Shipping_Model_Rate_Result|null
+     * @param  mixed                                $trackingData
+     * @return null|Mage_Shipping_Model_Rate_Result
      */
     public function getTracking($trackingData)
     {
@@ -992,9 +988,8 @@ class Mage_Usa_Model_Shipping_Carrier_Usps extends Mage_Usa_Model_Shipping_Carri
     /**
      * Parse xml tracking response
      *
-     * @param array  $trackingValue
-     * @param string $response
-     *
+     * @param  array  $trackingValue
+     * @param  string $response
      * @return void
      */
     protected function _parseXmlTrackingResponse($trackingValue, $response)
@@ -1094,9 +1089,8 @@ class Mage_Usa_Model_Shipping_Carrier_Usps extends Mage_Usa_Model_Shipping_Carri
      * Return USPS county name by country ISO 3166-1-alpha-2 code
      * Return false for unknown countries
      *
-     * @param string $countryId
-     *
-     * @return string|false
+     * @param  string       $countryId
+     * @return false|string
      */
     protected function _getCountryName($countryId)
     {
@@ -1331,8 +1325,7 @@ class Mage_Usa_Model_Shipping_Carrier_Usps extends Mage_Usa_Model_Shipping_Carri
     /**
      * Clean service name from unsupported strings and characters
      *
-     * @param string $name
-     *
+     * @param  string $name
      * @return string
      */
     protected function _filterServiceName($name)
@@ -1416,9 +1409,7 @@ class Mage_Usa_Model_Shipping_Carrier_Usps extends Mage_Usa_Model_Shipping_Carri
      *
      * @param string $serviceType
      *
-     *
      * @throws Exception
-     *
      * @return string
      */
     protected function _formUsSignatureConfirmationShipmentRequest(Varien_Object $request, $serviceType)
@@ -1482,8 +1473,7 @@ class Mage_Usa_Model_Shipping_Carrier_Usps extends Mage_Usa_Model_Shipping_Carri
     /**
      * Convert decimal weight into pound-ounces format
      *
-     * @param float $weightInPounds
-     *
+     * @param  float $weightInPounds
      * @return array
      */
     protected function _convertPoundOunces($weightInPounds)
@@ -1872,8 +1862,7 @@ class Mage_Usa_Model_Shipping_Carrier_Usps extends Mage_Usa_Model_Shipping_Carri
     /**
      * Check whether girth is allowed for the USPS
      *
-     * @param null|string $countyDest
-     *
+     * @param  null|string $countyDest
      * @return bool
      */
     public function isGirthAllowed($countyDest = null)
@@ -1910,9 +1899,8 @@ class Mage_Usa_Model_Shipping_Carrier_Usps extends Mage_Usa_Model_Shipping_Carri
     /**
      * Parse zip from string to zip5-zip4
      *
-     * @param string $zipString
-     * @param bool   $returnFull
-     *
+     * @param  string $zipString
+     * @param  bool   $returnFull
      * @return array
      */
     protected function _parseZip($zipString, $returnFull = false)

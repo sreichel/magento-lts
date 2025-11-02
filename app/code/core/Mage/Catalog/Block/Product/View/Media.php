@@ -41,8 +41,7 @@ class Mage_Catalog_Block_Product_View_Media extends Mage_Catalog_Block_Product_V
     /**
      * Retrieve gallery url
      *
-     * @param null|Varien_Object $image
-     *
+     * @param  null|Varien_Object $image
      * @return string
      */
     public function getGalleryUrl($image = null)
@@ -58,9 +57,8 @@ class Mage_Catalog_Block_Product_View_Media extends Mage_Catalog_Block_Product_V
     /**
      * Retrieve gallery image url
      *
-     * @param null|Varien_Object $image
-     *
-     * @return string|null
+     * @param  null|Varien_Object $image
+     * @return null|string
      */
     public function getGalleryImageUrl($image)
     {
@@ -85,8 +83,7 @@ class Mage_Catalog_Block_Product_View_Media extends Mage_Catalog_Block_Product_V
     /**
      * Retrieve visibility of gallery image based on gallery filter where present
      *
-     * @param null|Varien_Object $image
-     *
+     * @param  null|Varien_Object $image
      * @return bool
      */
     public function isGalleryImageVisible($image)

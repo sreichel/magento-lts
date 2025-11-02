@@ -58,8 +58,7 @@ class Mage_Api_Model_Server_Adapter_Soap extends Varien_Object implements Mage_A
     /**
      * Set handler class name for webservice
      *
-     * @param string $handler
-     *
+     * @param  string $handler
      * @return $this
      */
     public function setHandler($handler)
@@ -112,9 +111,8 @@ class Mage_Api_Model_Server_Adapter_Soap extends Varien_Object implements Mage_A
     /**
      * Run webservice
      *
-     * @return $this
-     *
      * @throws SoapFault
+     * @return $this
      */
     public function run()
     {
@@ -199,12 +197,10 @@ class Mage_Api_Model_Server_Adapter_Soap extends Varien_Object implements Mage_A
     /**
      * Transform wsdl url if $_SERVER["PHP_AUTH_USER"] is set
      *
-     * @param array $params
-     * @param bool  $withAuth
-     *
-     * @return string
-     *
+     * @param  array              $params
+     * @param  bool               $withAuth
      * @throws Zend_Uri_Exception
+     * @return string
      */
     protected function getWsdlUrl($params = null, $withAuth = true)
     {
@@ -237,7 +233,6 @@ class Mage_Api_Model_Server_Adapter_Soap extends Varien_Object implements Mage_A
     /**
      * Try to instantiate Zend_Soap_Server
      * If schema import error is caught, it will retry in 1 second.
-     *
      *
      * @throws Zend_Soap_Server_Exception
      */

@@ -79,10 +79,9 @@ class Varien_Db_Select extends Zend_Db_Select
      * $db->fetchAll($select, array('id' => 5));
      * </code>
      *
-     * @param string                                                  $cond  The WHERE condition.
-     * @param Zend_Db_Select|Zend_Db_Expr|array|null|int|string|float $value OPTIONAL A single value to quote into the condition.
-     * @param null|string|int                                         $type  OPTIONAL The type of the given value e.g. Zend_Db::INT_TYPE, "INT"
-     *
+     * @param  string                                                  $cond  The WHERE condition.
+     * @param  null|array|float|int|string|Zend_Db_Expr|Zend_Db_Select $value OPTIONAL A single value to quote into the condition.
+     * @param  null|int|string                                         $type  OPTIONAL The type of the given value e.g. Zend_Db::INT_TYPE, "INT"
      * @return $this
      */
     public function where($cond, $value = null, $type = null)
@@ -204,9 +203,8 @@ class Varien_Db_Select extends Zend_Db_Select
     /**
      * Find table name in condition (where, column)
      *
-     * @param string $table
-     * @param string $cond
-     *
+     * @param  string $table
+     * @param  string $cond
      * @return bool
      */
     protected function _findTableInCond($table, $cond)
@@ -255,15 +253,13 @@ class Varien_Db_Select extends Zend_Db_Select
      * The $name and $cols parameters follow the same logic
      * as described in the from() method.
      *
-     * @param null|string               $type   Type of join; inner, left, and null are currently supported
-     * @param array|string|Zend_Db_Expr $name   Table name
-     * @param string                    $cond   Join on this condition
-     * @param array|string              $cols   The columns to select from the joined table
-     * @param string                    $schema The database name to specify, if any.
-     *
-     * @return Zend_Db_Select This Zend_Db_Select object
-     *
+     * @param  null|string               $type   Type of join; inner, left, and null are currently supported
+     * @param  array|string|Zend_Db_Expr $name   Table name
+     * @param  string                    $cond   Join on this condition
+     * @param  array|string              $cols   The columns to select from the joined table
+     * @param  string                    $schema The database name to specify, if any.
      * @throws Zend_Db_Select_Exception
+     * @return Zend_Db_Select            This Zend_Db_Select object
      */
     protected function _join($type, $name, $cond, $cols, $schema = null)
     {
@@ -277,9 +273,8 @@ class Varien_Db_Select extends Zend_Db_Select
     /**
      * Sets a limit count and offset to the query.
      *
-     * @param int $count  OPTIONAL The number of rows to return.
-     * @param int $offset OPTIONAL Start returning after this many rows.
-     *
+     * @param  int            $count  OPTIONAL The number of rows to return.
+     * @param  int            $offset OPTIONAL Start returning after this many rows.
      * @return Zend_Db_Select This Zend_Db_Select object.
      */
     public function limit($count = null, $offset = null)
@@ -302,8 +297,7 @@ class Varien_Db_Select extends Zend_Db_Select
     /**
      * Cross Table Update From Current select
      *
-     * @param string|array $table
-     *
+     * @param  array|string $table
      * @return string
      */
     public function crossUpdateFromSelect($table)
@@ -314,10 +308,9 @@ class Varien_Db_Select extends Zend_Db_Select
     /**
      * Insert to table from current select
      *
-     * @param string $tableName
-     * @param array  $fields
-     * @param bool   $onDuplicate
-     *
+     * @param  string $tableName
+     * @param  array  $fields
+     * @param  bool   $onDuplicate
      * @return string
      */
     public function insertFromSelect($tableName, $fields = [], $onDuplicate = true)
@@ -329,9 +322,8 @@ class Varien_Db_Select extends Zend_Db_Select
     /**
      * Generate INSERT IGNORE query to the table from current select
      *
-     * @param string $tableName
-     * @param array  $fields
-     *
+     * @param  string $tableName
+     * @param  array  $fields
      * @return string
      */
     public function insertIgnoreFromSelect($tableName, $fields = [])
@@ -343,8 +335,7 @@ class Varien_Db_Select extends Zend_Db_Select
     /**
      * Retrieve DELETE query from select
      *
-     * @param string $table The table name or alias
-     *
+     * @param  string $table The table name or alias
      * @return string
      */
     public function deleteFromSelect($table)
@@ -355,12 +346,10 @@ class Varien_Db_Select extends Zend_Db_Select
     /**
      * Modify (hack) part of the structured information for the current query
      *
-     * @param string $part
-     * @param mixed  $value
-     *
-     * @return $this
-     *
+     * @param  string                   $part
+     * @param  mixed                    $value
      * @throws Zend_Db_Select_Exception
+     * @return $this
      */
     public function setPart($part, $value)
     {
@@ -376,8 +365,7 @@ class Varien_Db_Select extends Zend_Db_Select
     /**
      * Use a STRAIGHT_JOIN for the SQL Select
      *
-     * @param bool $flag Whether or not the SELECT use STRAIGHT_JOIN (default true).
-     *
+     * @param  bool           $flag Whether or not the SELECT use STRAIGHT_JOIN (default true).
      * @return Zend_Db_Select This Zend_Db_Select object.
      */
     public function useStraightJoin($flag = true)
@@ -389,8 +377,7 @@ class Varien_Db_Select extends Zend_Db_Select
     /**
      * Render STRAIGHT_JOIN clause
      *
-     * @param string $sql SQL query
-     *
+     * @param  string $sql SQL query
      * @return string
      */
     protected function _renderStraightjoin($sql)
@@ -423,8 +410,7 @@ class Varien_Db_Select extends Zend_Db_Select
     /**
      * Adds the random order to query
      *
-     * @param string $field integer field name
-     *
+     * @param  string $field integer field name
      * @return $this
      */
     public function orderRand($field = null)
@@ -436,8 +422,7 @@ class Varien_Db_Select extends Zend_Db_Select
     /**
      * Render FOR UPDATE clause
      *
-     * @param string $sql SQL query
-     *
+     * @param  string $sql SQL query
      * @return string
      */
     protected function _renderForupdate($sql)
@@ -452,10 +437,9 @@ class Varien_Db_Select extends Zend_Db_Select
     /**
      * Add EXISTS clause
      *
-     * @param Varien_Db_Select $select
-     * @param string           $joinCondition
-     * @param bool             $isExists
-     *
+     * @param  Varien_Db_Select $select
+     * @param  string           $joinCondition
+     * @param  bool             $isExists
      * @return $this
      */
     public function exists($select, $joinCondition, $isExists = true)

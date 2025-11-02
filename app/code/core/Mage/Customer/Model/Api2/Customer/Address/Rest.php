@@ -17,7 +17,6 @@ abstract class Mage_Customer_Model_Api2_Customer_Address_Rest extends Mage_Custo
     /**
      * Create customer address
      *
-     *
      * @throws Mage_Api2_Exception
      *
      * @return string
@@ -59,7 +58,6 @@ abstract class Mage_Customer_Model_Api2_Customer_Address_Rest extends Mage_Custo
 
     /**
      * Retrieve information about specified customer address
-     *
      *
      * @throws Mage_Api2_Exception
      *
@@ -122,7 +120,6 @@ abstract class Mage_Customer_Model_Api2_Customer_Address_Rest extends Mage_Custo
 
     /**
      * Update specified stock item
-     *
      *
      * @throws Mage_Api2_Exception
      */

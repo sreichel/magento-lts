@@ -94,10 +94,9 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Convert and format price value for current application store
      *
-     * @param float $value
-     * @param bool  $format
-     * @param bool  $includeContainer
-     *
+     * @param  float $value
+     * @param  bool  $format
+     * @param  bool  $includeContainer
      * @return mixed
      */
     public static function currency($value, $format = true, $includeContainer = true)
@@ -108,11 +107,10 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Convert and format price value for specified store
      *
-     * @param float                     $value
-     * @param int|Mage_Core_Model_Store $store
-     * @param bool                      $format
-     * @param bool                      $includeContainer
-     *
+     * @param  float                     $value
+     * @param  int|Mage_Core_Model_Store $store
+     * @param  bool                      $format
+     * @param  bool                      $includeContainer
      * @return mixed
      */
     public static function currencyByStore($value, $store = null, $format = true, $includeContainer = true)
@@ -133,9 +131,8 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Format and convert currency using current store option
      *
-     * @param float $value
-     * @param bool  $includeContainer
-     *
+     * @param  float  $value
+     * @param  bool   $includeContainer
      * @return string
      */
     public function formatCurrency($value, $includeContainer = true)
@@ -146,9 +143,8 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Formats price
      *
-     * @param float $price
-     * @param bool  $includeContainer
-     *
+     * @param  float  $price
+     * @param  bool   $includeContainer
      * @return string
      */
     public function formatPrice($price, $includeContainer = true)
@@ -159,10 +155,9 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Format date using current locale options and time zone.
      *
-     * @param string|int|Zend_Date|null $date     If empty, return current datetime.
-     * @param string                    $format   See Mage_Core_Model_Locale::FORMAT_TYPE_* constants
-     * @param bool                      $showTime Whether to include time
-     *
+     * @param  null|int|string|Zend_Date $date     If empty, return current datetime.
+     * @param  string                    $format   See Mage_Core_Model_Locale::FORMAT_TYPE_* constants
+     * @param  bool                      $showTime Whether to include time
      * @return string
      */
     public function formatDate($date = null, $format = Mage_Core_Model_Locale::FORMAT_TYPE_SHORT, $showTime = false)
@@ -173,7 +168,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Format date using current locale options and time zone.
      *
-     * @param string|int|Zend_Date|null $date        If empty, return current locale datetime.
+     * @param null|int|string|Zend_Date $date        If empty, return current locale datetime.
      * @param string                    $format      See Mage_Core_Model_Locale::FORMAT_TYPE_* constants
      * @param bool                      $showTime    Whether to include time
      * @param bool                      $useTimezone Convert to local datetime?
@@ -208,10 +203,9 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Format time using current locale options
      *
-     * @param string|Zend_Date|null $time
-     * @param string                $format
-     * @param bool                  $showDate
-     *
+     * @param  null|string|Zend_Date $time
+     * @param  string                $format
+     * @param  bool                  $showDate
      * @return string
      */
     public function formatTime($time = null, $format = Mage_Core_Model_Locale::FORMAT_TYPE_SHORT, $showDate = false)
@@ -241,8 +235,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Encrypt data using application key
      *
-     * @param string $data
-     *
+     * @param  string $data
      * @return string
      */
     public function encrypt($data)
@@ -257,8 +250,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Decrypt data using application key
      *
-     * @param string $data
-     *
+     * @param  string $data
      * @return string
      */
     public function decrypt($data)
@@ -271,8 +263,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * @param string $key
-     *
+     * @param  string              $key
      * @return Varien_Crypt_Mcrypt
      */
     public function validateKey($key)
@@ -281,9 +272,8 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * @param int         $len
-     * @param string|null $chars
-     *
+     * @param  int         $len
+     * @param  null|string $chars
      * @return string
      */
     public function getRandomString($len, $chars = null)
@@ -302,9 +292,8 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Generate salted hash from password
      *
-     * @param string          $password
-     * @param string|int|bool $salt
-     *
+     * @param  string          $password
+     * @param  bool|int|string $salt
      * @return string
      */
     public function getHash($password, $salt = false)
@@ -315,9 +304,8 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Generate password hash for user
      *
-     * @param string $password
-     * @param mixed  $salt
-     *
+     * @param  string $password
+     * @param  mixed  $salt
      * @return string
      */
     public function getHashPassword($password, $salt = false)
@@ -332,12 +320,10 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * @param string $password
-     * @param string $hash
-     *
-     * @return bool
-     *
+     * @param  string    $password
+     * @param  string    $hash
      * @throws Exception
+     * @return bool
      */
     public function validateHash($password, $hash)
     {
@@ -359,8 +345,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Retrieve store identifier
      *
-     * @param bool|int|Mage_Core_Model_Store|null|string $store
-     *
+     * @param  null|bool|int|Mage_Core_Model_Store|string $store
      * @return int
      */
     public function getStoreId($store = null)
@@ -369,9 +354,8 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * @param string $string
-     * @param bool   $german
-     *
+     * @param  string       $string
+     * @param  bool         $german
      * @return false|string
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
@@ -431,8 +415,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * @param null|string|bool|int|Mage_Core_Model_Store $storeId
-     *
+     * @param  null|bool|int|Mage_Core_Model_Store|string $storeId
      * @return bool
      */
     public function isDevAllowed($storeId = null)
@@ -494,12 +477,11 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
      * Contents of $aspect are a field name in target object or array.
      * If '*' - will be used the same name as in the source object or array.
      *
-     * @param string              $fieldset
-     * @param string              $aspect
-     * @param array|Varien_Object $source
-     * @param array|Varien_Object $target
-     * @param string              $root
-     *
+     * @param  string              $fieldset
+     * @param  string              $aspect
+     * @param  array|Varien_Object $source
+     * @param  array|Varien_Object $target
+     * @param  string              $root
      * @return bool
      */
     public function copyFieldset($fieldset, $aspect, $source, $target, $root = 'global')
@@ -567,10 +549,9 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
      * $forceSetAll true will cause to set all possible values for all elements.
      * When false (default), only non-empty values will be set.
      *
-     * @param Varien_Object[] $array
-     * @param string          $prefix
-     * @param bool            $forceSetAll
-     *
+     * @param  Varien_Object[] $array
+     * @param  string          $prefix
+     * @param  bool            $forceSetAll
      * @return mixed
      */
     public function decorateArray($array, $prefix = 'decorated_', $forceSetAll = false)
@@ -642,11 +623,9 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
      * Transform an assoc array to SimpleXMLElement object
      * Array has some limitations. Appropriate exceptions will be thrown
      *
-     * @param string $rootName
-     *
-     * @return SimpleXMLElement
-     *
+     * @param  string           $rootName
      * @throws Exception
+     * @return SimpleXMLElement
      */
     public function assocToXml(array $array, $rootName = '_')
     {
@@ -671,11 +650,9 @@ XML;
     /**
      * Function, that actually recursively transforms array to xml
      *
-     * @param string $rootName
-     *
-     * @return SimpleXMLElement
-     *
+     * @param  string           $rootName
      * @throws Exception
+     * @return SimpleXMLElement
      */
     // phpcs:ignore Ecg.PHP.PrivateClassMember.PrivateClassMemberError
     private function _assocToXml(array $array, $rootName, SimpleXMLElement &$xml)
@@ -739,10 +716,9 @@ XML;
     /**
      * Encode the mixed $valueToEncode into the JSON format
      *
-     * @param mixed $valueToEncode
-     * @param bool  $cycleCheck    Optional; whether or not to check for object recursion; off by default
-     * @param array $options       Additional options used during encoding
-     *
+     * @param  mixed  $valueToEncode
+     * @param  bool   $cycleCheck    Optional; whether or not to check for object recursion; off by default
+     * @param  array  $options       Additional options used during encoding
      * @return string
      */
     public function jsonEncode($valueToEncode, $cycleCheck = false, $options = [])
@@ -765,12 +741,10 @@ XML;
      *
      * switch added to prevent exceptions in json_decode
      *
-     * @param string $encodedValue
-     * @param int    $objectDecodeType
-     *
-     * @return mixed
-     *
+     * @param  string              $encodedValue
+     * @param  int                 $objectDecodeType
      * @throws Zend_Json_Exception
+     * @return mixed
      */
     public function jsonDecode($encodedValue, $objectDecodeType = Zend_Json::TYPE_ARRAY)
     {
@@ -796,8 +770,7 @@ XML;
 
     /**
      * Generate a hash from unique ID
-     * @param string $prefix
-     *
+     * @param  string $prefix
      * @return string
      */
     public function uniqHash($prefix = '')
@@ -817,11 +790,10 @@ XML;
      * May filter files by specified extension(s)
      * Returns false on error
      *
-     * @param string|false $targetFile          - file path to be written
-     * @param bool         $mustMerge
-     * @param callable     $beforeMergeCallback
-     * @param array|string $extensionsFilter
-     *
+     * @param  false|string $targetFile          - file path to be written
+     * @param  bool         $mustMerge
+     * @param  callable     $beforeMergeCallback
+     * @param  array|string $extensionsFilter
      * @return bool|string
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
      */
@@ -916,8 +888,7 @@ XML;
     /**
      * Return default country code
      *
-     * @param Mage_Core_Model_Store|string|int $store
-     *
+     * @param  int|Mage_Core_Model_Store|string $store
      * @return string
      */
     public function getDefaultCountry($store = null)
@@ -928,8 +899,7 @@ XML;
     /**
      * Return list with protected file extensions
      *
-     * @param Mage_Core_Model_Store|string|int $store
-     *
+     * @param  int|Mage_Core_Model_Store|string $store
      * @return array
      */
     public function getProtectedFileExtensions($store = null)
@@ -950,10 +920,8 @@ XML;
     /**
      * Check LFI protection
      *
-     *
-     * @throws Mage_Core_Exception
      * @param  string              $name
-     *
+     * @throws Mage_Core_Exception
      * @return bool
      */
     public function checkLfiProtection($name)
@@ -981,8 +949,7 @@ XML;
     /**
      * Retrieve merchant country code
      *
-     * @param Mage_Core_Model_Store|string|int|null $store
-     *
+     * @param  null|int|Mage_Core_Model_Store|string $store
      * @return string
      */
     public function getMerchantCountryCode($store = null)
@@ -993,8 +960,7 @@ XML;
     /**
      * Retrieve merchant VAT number
      *
-     * @param Mage_Core_Model_Store|string|int|null $store
-     *
+     * @param  null|int|Mage_Core_Model_Store|string $store
      * @return string
      */
     public function getMerchantVatNumber($store = null)
@@ -1005,9 +971,8 @@ XML;
     /**
      * Check whether specified country is in EU countries list
      *
-     * @param string   $countryCode
-     * @param null|int $storeId
-     *
+     * @param  string   $countryCode
+     * @param  null|int $storeId
      * @return bool
      */
     public function isCountryInEU($countryCode, $storeId = null)
@@ -1019,9 +984,8 @@ XML;
     /**
      * Returns the floating point remainder (modulo) of the division of the arguments
      *
-     * @param float|int $dividend
-     * @param float|int $divisor
-     *
+     * @param  float|int $dividend
+     * @param  float|int $divisor
      * @return float|int
      */
     public function getExactDivision($dividend, $divisor)
@@ -1063,8 +1027,7 @@ XML;
     /**
      * UnEscapes CSV data
      *
-     * @param mixed $data
-     *
+     * @param  mixed $data
      * @return mixed array
      */
     public function unEscapeCSVData($data)
@@ -1084,8 +1047,7 @@ XML;
 
     /**
      * Returns true if the rate limit of the current client is exceeded
-     * @param bool $setErrorMessage Adds a predefined error message to the 'core/session' object
-     *
+     * @param  bool $setErrorMessage Adds a predefined error message to the 'core/session' object
      * @return bool is rate limit exceeded
      */
     public function isRateLimitExceeded(bool $setErrorMessage = true, bool $recordRateLimitHit = true): bool

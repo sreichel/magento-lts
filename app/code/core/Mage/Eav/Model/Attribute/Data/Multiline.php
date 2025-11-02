@@ -35,9 +35,8 @@ class Mage_Eav_Model_Attribute_Data_Multiline extends Mage_Eav_Model_Attribute_D
      * Validate data
      * Return true or array of errors
      *
-     * @param array|string $value
-     *
-     * @return bool|array
+     * @param  array|string $value
+     * @return array|bool
      */
     public function validateValue($value)
     {
@@ -99,8 +98,7 @@ class Mage_Eav_Model_Attribute_Data_Multiline extends Mage_Eav_Model_Attribute_D
     /**
      * Restore attribute value from SESSION to entity model
      *
-     * @param array|string $value
-     *
+     * @param  array|string                       $value
      * @return Mage_Eav_Model_Attribute_Data_Text
      */
     public function restoreValue($value)
@@ -111,11 +109,9 @@ class Mage_Eav_Model_Attribute_Data_Multiline extends Mage_Eav_Model_Attribute_D
     /**
      * Return formatted attribute value from entity model
      *
-     * @param string $format
-     *
-     * @return string|array
-     *
+     * @param  string              $format
      * @throws Mage_Core_Exception
+     * @return array|string
      */
     public function outputValue($format = Mage_Eav_Model_Attribute_Data::OUTPUT_FORMAT_TEXT)
     {

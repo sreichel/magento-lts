@@ -31,7 +31,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
     /**
      * Rates result
      *
-     * @var array|null
+     * @var null|array
      */
     protected $_rates;
 
@@ -87,23 +87,22 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
     /**
      * Raw rate request data
      *
-     * @var Varien_Object|null
+     * @var null|Varien_Object
      */
     protected $_rawRequest;
 
     /**
      * Rate result data
      *
-     * @var Mage_Shipping_Model_Rate_Result|Mage_Shipping_Model_Tracking_Result|null
+     * @var null|Mage_Shipping_Model_Rate_Result|Mage_Shipping_Model_Tracking_Result
      */
     protected $_result;
 
     /**
      * Retrieve information from carrier configuration
      *
-     * @param string $field
-     *
-     * @return string|false
+     * @param  string       $field
+     * @return false|string
      */
     public function getConfigData($field)
     {
@@ -118,8 +117,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
     /**
      * Retrieve config flag for store by field
      *
-     * @param string $field
-     *
+     * @param  string $field
      * @return bool
      */
     public function getConfigFlag($field)
@@ -136,8 +134,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      * Collect and get rates
      *
      * @abstract
-     *
-     * @return Mage_Shipping_Model_Rate_Result|bool|null
+     * @return null|bool|Mage_Shipping_Model_Rate_Result
      */
     abstract public function collectRates(Mage_Shipping_Model_Rate_Request $request);
 
@@ -156,8 +153,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
      * Do return of shipment
      * Implementation must be in overridden method
      *
-     * @param mixed $request
-     *
+     * @param  mixed         $request
      * @return Varien_Object
      */
     public function returnOfShipment($request)
@@ -417,9 +413,8 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
     /**
      * Calculate price considering free shipping and handling fee
      *
-     * @param float  $cost
-     * @param string $method
-     *
+     * @param  float        $cost
+     * @param  string       $method
      * @return float|string
      */
     public function getMethodPrice($cost, $method = '')
@@ -434,8 +429,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
     /**
      * Get the handling fee for the shipping + cost
      *
-     * @param float $cost
-     *
+     * @param  float $cost
      * @return float final price for shipping method
      */
     public function getFinalPriceWithHandlingFee($cost)
@@ -459,10 +453,9 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
     /**
      * Get final price for shipping method with handling fee per package
      *
-     * @param float  $cost
-     * @param string $handlingType
-     * @param float  $handlingFee
-     *
+     * @param  float  $cost
+     * @param  string $handlingType
+     * @param  float  $handlingFee
      * @return float
      */
     protected function _getPerpackagePrice($cost, $handlingType, $handlingFee)
@@ -477,10 +470,9 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
     /**
      * Get final price for shipping method with handling fee per order
      *
-     * @param float  $cost
-     * @param string $handlingType
-     * @param float  $handlingFee
-     *
+     * @param  float  $cost
+     * @param  string $handlingType
+     * @param  float  $handlingFee
      * @return float
      */
     protected function _getPerorderPrice($cost, $handlingType, $handlingFee)
@@ -495,8 +487,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
     /**
      *  Return weight in pounds
      *
-     * @param int $weight Weight in someone measure
-     *
+     * @param  int   $weight Weight in someone measure
      * @return float Weight in pounds
      */
     public function convertWeightToLbs($weight)
@@ -507,8 +498,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
     /**
      * set the number of boxes for shipping
      *
-     * @param int $weight
-     *
+     * @param  int   $weight
      * @return float
      */
     public function getTotalNumOfBoxes($weight)
@@ -550,8 +540,7 @@ abstract class Mage_Shipping_Model_Carrier_Abstract extends Varien_Object
     /**
      * Determine whether zip-code is required for the country of destination
      *
-     * @param string|null $countryId
-     *
+     * @param  null|string $countryId
      * @return false
      */
     public function isZipCodeRequired($countryId = null)

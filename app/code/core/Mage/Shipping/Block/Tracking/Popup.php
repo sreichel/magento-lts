@@ -94,7 +94,7 @@ class Mage_Shipping_Block_Tracking_Popup extends Mage_Core_Block_Template
      * @deprecated after 1.4.0.0-alpha3
      * Initialize order model instance
      *
-     * @return Mage_Sales_Model_Order|false
+     * @return false|Mage_Sales_Model_Order
      */
     protected function _initOrder()
     {
@@ -111,7 +111,7 @@ class Mage_Shipping_Block_Tracking_Popup extends Mage_Core_Block_Template
      * @deprecated after 1.4.0.0-alpha3
      * Initialize ship model instance
      *
-     * @return Mage_Sales_Model_Order_Shipment|false
+     * @return false|Mage_Sales_Model_Order_Shipment
      */
     protected function _initShipment()
     {

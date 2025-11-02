@@ -128,9 +128,8 @@ class Varien_Data_Tree_Dbp extends Varien_Data_Tree
     /**
      * Load tree
      *
-     * @param int|Varien_Data_Tree_Node $parentNode
-     * @param int                       $recursionLevel
-     *
+     * @param  int|Varien_Data_Tree_Node $parentNode
+     * @param  int                       $recursionLevel
      * @return Varien_Data_Tree_Dbp
      */
     public function load($parentNode = null, $recursionLevel = 0)
@@ -190,9 +189,9 @@ class Varien_Data_Tree_Dbp extends Varien_Data_Tree
     }
 
     /**
-     * @param Varien_Data_Tree_Node|array $children
+     * @param array|Varien_Data_Tree_Node $children
      * @param string                      $path
-     * @param Varien_Data_Tree_Node|null  $parentNode
+     * @param null|Varien_Data_Tree_Node  $parentNode
      * @param int                         $level
      */
     public function addChildNodes($children, $path, $parentNode, $level = 0)
@@ -226,8 +225,7 @@ class Varien_Data_Tree_Dbp extends Varien_Data_Tree
     }
 
     /**
-     * @param int|string $nodeId
-     *
+     * @param  int|string            $nodeId
      * @return Varien_Data_Tree_Node
      */
     public function loadNode($nodeId)
@@ -247,10 +245,9 @@ class Varien_Data_Tree_Dbp extends Varien_Data_Tree
     }
 
     /**
-     * @param Varien_Data_Tree_Node $node
-     * @param bool                  $recursive
-     * @param array                 $result
-     *
+     * @param  Varien_Data_Tree_Node $node
+     * @param  bool                  $recursive
+     * @param  array                 $result
      * @return array
      */
     public function getChildren($node, $recursive = true, $result = [])
@@ -374,7 +371,7 @@ class Varien_Data_Tree_Dbp extends Varien_Data_Tree
     }
 
     /**
-     * @param Varien_Data_Tree_Node|array $children
+     * @param array|Varien_Data_Tree_Node $children
      * @param string                      $path
      * @param Varien_Data_Tree_Node       $parentNode
      * @param bool                        $withChildren

@@ -16,12 +16,13 @@
  *
  * @method Mage_CatalogIndex_Model_Resource_Aggregation _getResource()
  * @method Mage_CatalogIndex_Model_Resource_Aggregation getResource()
- * @method int                                          getStoreId()
- * @method $this                                        setStoreId(int $value)
- * @method string                                       getCreatedAt()
- * @method $this                                        setCreatedAt(string $value)
- * @method string                                       getKey()
- * @method $this                                        setKey(string $value)
+ *
+ * @method int    getStoreId()
+ * @method $this  setStoreId(int $value)
+ * @method string getCreatedAt()
+ * @method $this  setCreatedAt(string $value)
+ * @method string getKey()
+ * @method $this  setKey(string $value)
  */
 class Mage_CatalogIndex_Model_Aggregation extends Mage_Core_Model_Abstract
 {
@@ -43,10 +44,9 @@ class Mage_CatalogIndex_Model_Aggregation extends Mage_Core_Model_Abstract
     /**
      * Get aggregated data by data key and store
      *
-     * @param string                                $key
-     * @param null|int|string|Mage_Core_Model_Store $store
-     *
-     * @return array|null
+     * @param  string                                $key
+     * @param  null|int|Mage_Core_Model_Store|string $store
+     * @return null|array
      */
     public function getCacheData($key, $store = null)
     {
@@ -67,11 +67,10 @@ class Mage_CatalogIndex_Model_Aggregation extends Mage_Core_Model_Abstract
     /**
      * Save aggregation data to cache
      *
-     * @param array                                 $data
-     * @param string                                $key
-     * @param array                                 $tags
-     * @param null|int|string|Mage_Core_Model_Store $store
-     *
+     * @param  array                                 $data
+     * @param  string                                $key
+     * @param  array                                 $tags
+     * @param  null|int|Mage_Core_Model_Store|string $store
      * @return Mage_CatalogIndex_Model_Aggregation
      */
     public function saveCacheData($data, $key, $tags, $store = null)
@@ -91,9 +90,8 @@ class Mage_CatalogIndex_Model_Aggregation extends Mage_Core_Model_Abstract
     /**
      * Delete cached aggregation data
      *
-     * @param array           $tags
-     * @param int|null|string $store
-     *
+     * @param  array                               $tags
+     * @param  null|int|string                     $store
      * @return Mage_CatalogIndex_Model_Aggregation
      */
     public function clearCacheData($tags = [], $store = null)
@@ -110,8 +108,7 @@ class Mage_CatalogIndex_Model_Aggregation extends Mage_Core_Model_Abstract
     /**
      * Clear all cache data related with products
      *
-     * @param array $productIds
-     *
+     * @param  array                               $productIds
      * @return Mage_CatalogIndex_Model_Aggregation
      */
     public function clearProductData($productIds)
@@ -132,8 +129,7 @@ class Mage_CatalogIndex_Model_Aggregation extends Mage_Core_Model_Abstract
     /**
      * Prepare data key
      *
-     * @param string $key
-     *
+     * @param  string $key
      * @return string
      */
     protected function _processKey($key)
@@ -147,8 +143,7 @@ class Mage_CatalogIndex_Model_Aggregation extends Mage_Core_Model_Abstract
      * this method split tags like "category:1,2,3" to four
      * different tags: category, category1, category2, category3
      *
-     * @param array $tags
-     *
+     * @param  array $tags
      * @return array
      */
     protected function _processTags($tags)

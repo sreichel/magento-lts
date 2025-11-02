@@ -15,75 +15,65 @@
  * @method Mage_Customer_Model_Resource_Customer            getResource()
  * @method Mage_Customer_Model_Resource_Customer            _getResource()
  * @method Mage_Customer_Model_Resource_Customer_Collection getCollection()
+ * @method Mage_Customer_Model_Resource_Customer_Collection getResourceCollection()
  *
- * @method $this  setChangePassword(int $value)
- * @method string getCompany()
- * @method bool   getConfirmation()
- * @method $this  setConfirmation(bool|null $value)
- * @method string getCreatedAt()
- * @method int    getCustomerId()
- * @method $this  setCustomerId(int|null $value)
- *
- * @method int|null getDefaultBilling()
- * @method $this    setDefaultBilling(int|null $value)
+ * @method $this    setChangePassword(int $value)
+ * @method string   getCompany()
+ * @method bool     getConfirmation()
+ * @method $this    setConfirmation(null|bool $value)
+ * @method string   getCreatedAt()
+ * @method int      getCustomerId()
+ * @method $this    setCustomerId(null|int $value)
+ * @method null|int getDefaultBilling()
+ * @method $this    setDefaultBilling(null|int $value)
  * @method $this    unsetDefaultBilling()
- * @method int|null getDefaultShipping()
- * @method $this    setDefaultShipping(int|null $value)
+ * @method null|int getDefaultShipping()
+ * @method $this    setDefaultShipping(null|int $value)
  * @method $this    unsetDefaultShipping()
  * @method int      getDisableAutoGroupChange()
  * @method string   getDob()
  * @method $this    setDob(string  $value)
- *
- * @method string getEmail()
- * @method $this  setEmail(string $value)
- *
- * @method string getFirstname()
- * @method $this  setFirstname(string $value)
- * @method bool   getForceConfirmed()
- * @method $this  setForceConfirmed(bool $value)
- *
- * @method string getGender()
- * @method $this  setGroupId(int $value)
- *
- * @method bool  getImportMode()
- * @method $this setImportMode(bool $value)
- * @method int   getIncrementId()
- * @method bool  getIsChangeEmail()
- * @method $this setIsChangeEmail(bool $value)
- * @method bool  getIsChangePassword()
- * @method $this setIsChangePassword(bool $value)
- * @method bool  getIsJustConfirmed()
- * @method $this setIsJustConfirmed(bool $value)
- * @method bool  hasIsSubscribed()
- * @method bool  getIsSubscribed()
- * @method $this setIsSubscribed(bool $value)
- * @method $this setItems(int $value)
- *
- * @method string getLastname()
- * @method $this  setLastname(string $value)
- *
- * @method string getMiddlename()
- * @method string getMode()
- * @method $this  setMode(bool $value)
- *
- * @method string getOldEmail()
- * @method $this  setOldEmail(string $value)
- *
- * @method string getPasswordConfirm()
- * @method string getPasswordConfirmation()
- * @method $this  setPasswordConfirmation(string $value)
- * @method int    getPasswordCreatedAt()
- * @method string getPasswordHash()
- * @method $this  setPasswordHash(string $value)
- * @method string getPrefix()
- *
- * @method $this  setRpCustomerId(string $value)
- * @method string getRpToken()
- * @method $this  setRpToken(string $value)
- * @method string getRpTokenCreatedAt()
- * @method $this  setRpTokenCreatedAt(string $value)
- *
- * @method string getSendemailStoreId()
+ * @method string   getEmail()
+ * @method $this    setEmail(string $value)
+ * @method string   getFirstname()
+ * @method $this    setFirstname(string $value)
+ * @method bool     getForceConfirmed()
+ * @method $this    setForceConfirmed(bool $value)
+ * @method string   getGender()
+ * @method $this    setGroupId(int $value)
+ * @method bool     getImportMode()
+ * @method $this    setImportMode(bool $value)
+ * @method int      getIncrementId()
+ * @method bool     getIsChangeEmail()
+ * @method $this    setIsChangeEmail(bool $value)
+ * @method bool     getIsChangePassword()
+ * @method $this    setIsChangePassword(bool $value)
+ * @method bool     getIsJustConfirmed()
+ * @method $this    setIsJustConfirmed(bool $value)
+ * @method bool     hasIsSubscribed()
+ * @method bool     getIsSubscribed()
+ * @method $this    setIsSubscribed(bool $value)
+ * @method $this    setItems(int $value)
+ * @method string   getLastname()
+ * @method $this    setLastname(string $value)
+ * @method string   getMiddlename()
+ * @method string   getMode()
+ * @method $this    setMode(bool $value)
+ * @method string   getOldEmail()
+ * @method $this    setOldEmail(string $value)
+ * @method string   getPasswordConfirm()
+ * @method string   getPasswordConfirmation()
+ * @method $this    setPasswordConfirmation(string $value)
+ * @method int      getPasswordCreatedAt()
+ * @method string   getPasswordHash()
+ * @method $this    setPasswordHash(string $value)
+ * @method string   getPrefix()
+ * @method $this    setRpCustomerId(string $value)
+ * @method string   getRpToken()
+ * @method $this    setRpToken(string $value)
+ * @method string   getRpTokenCreatedAt()
+ * @method $this    setRpTokenCreatedAt(string $value)
+ * @method string   getSendemailStoreId()
  * @method setSendemailStoreId(string $value)
  * @method bool   hasSkipConfirmationIfEmail()
  * @method string getSkipConfirmationIfEmail()
@@ -91,14 +81,12 @@
  * @method int    getStoreId()
  * @method $this  setStoreId(int $value)
  * @method string getSuffix()
- *
  * @method int    getTagId()
  * @method $this  setTaxClassId(bool $value)
  * @method string getTaxvat()
  * @method $this  setTotal(float $value)
- *
- * @method int   getWebsiteId()
- * @method $this setWebsiteId(int $value)
+ * @method int    getWebsiteId()
+ * @method $this  setWebsiteId(int $value)
  */
 class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
 {
@@ -197,14 +185,14 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Assoc array of customer attributes
      *
-     * @var array|null
+     * @var null|array
      */
     protected $_attributes;
 
     /**
      * Customer addresses array
      *
-     * @var Mage_Customer_Model_Address[]|null
+     * @var null|Mage_Customer_Model_Address[]
      * @deprecated after 1.4.0.0-rc1
      */
     protected $_addresses = null;
@@ -212,7 +200,7 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Customer addresses collection
      *
-     * @var Mage_Customer_Model_Resource_Address_Collection|null
+     * @var null|Mage_Customer_Model_Resource_Address_Collection
      */
     protected $_addressesCollection;
 
@@ -266,11 +254,9 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Authenticate customer
      *
-     * @param string $login
-     * @param string $password
-     *
+     * @param  string              $login
+     * @param  string              $password
      * @throws Mage_Core_Exception
-     *
      * @return true
      */
     public function authenticate($login, $password)
@@ -303,11 +289,9 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Load customer by email
      *
-     * @param string $customerEmail
-     *
-     * @return $this
-     *
+     * @param  string              $customerEmail
      * @throws Mage_Core_Exception
+     * @return $this
      */
     public function loadByEmail($customerEmail)
     {
@@ -318,9 +302,8 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Processing object before save data
      *
-     * @return $this
-     *
      * @throws Mage_Core_Model_Store_Exception
+     * @return $this
      */
     protected function _beforeSave()
     {
@@ -338,8 +321,7 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Change customer password
      *
-     * @param string $newPassword
-     *
+     * @param  string $newPassword
      * @return $this
      */
     public function changePassword($newPassword)
@@ -351,8 +333,7 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Set time when password was changed to invalidate other sessions
      *
-     * @param int $time
-     *
+     * @param  int   $time
      * @return $this
      */
     public function setPasswordCreatedAt($time)
@@ -394,9 +375,8 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Add address to address collection
      *
-     * @return $this
-     *
      * @throws Mage_Core_Exception
+     * @return $this
      */
     public function addAddress(Mage_Customer_Model_Address $address)
     {
@@ -409,8 +389,7 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Retrieve customer address by address id
      *
-     * @param int|null $addressId
-     *
+     * @param  null|int                    $addressId
      * @return Mage_Customer_Model_Address
      */
     public function getAddressById($addressId)
@@ -426,11 +405,9 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Getting customer address object from collection by identifier
      *
-     * @param int $addressId
-     *
-     * @return Mage_Customer_Model_Address
-     *
+     * @param  int                         $addressId
      * @throws Mage_Core_Exception
+     * @return Mage_Customer_Model_Address
      */
     public function getAddressItemById($addressId)
     {
@@ -450,9 +427,8 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Customer addresses collection
      *
-     * @return Mage_Customer_Model_Resource_Address_Collection
-     *
      * @throws Mage_Core_Exception
+     * @return Mage_Customer_Model_Resource_Address_Collection
      */
     public function getAddressesCollection()
     {
@@ -473,9 +449,8 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Retrieve customer address array
      *
-     * @return Mage_Customer_Model_Address[]
-     *
      * @throws Mage_Core_Exception
+     * @return Mage_Customer_Model_Address[]
      */
     public function getAddresses()
     {
@@ -486,9 +461,8 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Retrieve all customer attributes
      *
-     * @return array
-     *
      * @throws Mage_Core_Exception
+     * @return array
      */
     public function getAttributes()
     {
@@ -504,11 +478,9 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Get customer attribute model object
      *
-     * @param string $attributeCode
-     *
-     * @return Mage_Customer_Model_Customer|null
-     *
+     * @param  string                            $attributeCode
      * @throws Mage_Core_Exception
+     * @return null|Mage_Customer_Model_Customer
      */
     public function getAttribute($attributeCode)
     {
@@ -524,8 +496,7 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Set plain and hashed password
      *
-     * @param string $password
-     *
+     * @param  string $password
      * @return $this
      */
     public function setPassword($password)
@@ -539,9 +510,8 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Hash customer password
      *
-     * @param string $password
-     * @param int    $salt
-     *
+     * @param  string $password
+     * @param  int    $salt
      * @return string
      */
     public function hashPassword($password, $salt = null)
@@ -554,8 +524,7 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Get helper instance
      *
-     * @param string $helperName
-     *
+     * @param  string                    $helperName
      * @return Mage_Core_Helper_Abstract
      */
     protected function _getHelper($helperName)
@@ -566,8 +535,7 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Retrieve random password
      *
-     * @param int $length
-     *
+     * @param  int    $length
      * @return string
      */
     public function generatePassword($length = 8)
@@ -587,11 +555,9 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Validate password with salted hash
      *
-     * @param string $password
-     *
-     * @return bool
-     *
+     * @param  string    $password
      * @throws Exception
+     * @return bool
      */
     public function validatePassword($password)
     {
@@ -606,8 +572,7 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Encrypt password
      *
-     * @param string $password
-     *
+     * @param  string $password
      * @return string
      */
     public function encryptPassword($password)
@@ -618,8 +583,7 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Decrypt password
      *
-     * @param string $password
-     *
+     * @param  string $password
      * @return string
      */
     public function decryptPassword($password)
@@ -630,11 +594,9 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Retrieve default address by type(attribute)
      *
-     * @param string $attributeCode address type attribute code
-     *
-     * @return Mage_Customer_Model_Address|false
-     *
+     * @param  string                            $attributeCode address type attribute code
      * @throws Mage_Core_Exception
+     * @return false|Mage_Customer_Model_Address
      */
     public function getPrimaryAddress($attributeCode)
     {
@@ -646,9 +608,8 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Get customer default billing address
      *
-     * @return Mage_Customer_Model_Address
-     *
      * @throws Mage_Core_Exception
+     * @return Mage_Customer_Model_Address
      */
     public function getPrimaryBillingAddress()
     {
@@ -658,9 +619,8 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Get customer default billing address
      *
-     * @return Mage_Customer_Model_Address
-     *
      * @throws Mage_Core_Exception
+     * @return Mage_Customer_Model_Address
      */
     public function getDefaultBillingAddress()
     {
@@ -670,9 +630,8 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Get default customer shipping address
      *
-     * @return Mage_Customer_Model_Address
-     *
      * @throws Mage_Core_Exception
+     * @return Mage_Customer_Model_Address
      */
     public function getPrimaryShippingAddress()
     {
@@ -682,9 +641,8 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Get default customer shipping address
      *
-     * @return Mage_Customer_Model_Address
-     *
      * @throws Mage_Core_Exception
+     * @return Mage_Customer_Model_Address
      */
     public function getDefaultShippingAddress()
     {
@@ -713,9 +671,8 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Retrieve all customer default addresses
      *
-     * @return Mage_Customer_Model_Address[]
-     *
      * @throws Mage_Core_Exception
+     * @return Mage_Customer_Model_Address[]
      */
     public function getPrimaryAddresses()
     {
@@ -742,9 +699,8 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Retrieve not default addresses
      *
-     * @return Mage_Customer_Model_Address[]
-     *
      * @throws Mage_Core_Exception
+     * @return Mage_Customer_Model_Address[]
      */
     public function getAdditionalAddresses()
     {
@@ -776,13 +732,11 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Send email with new account related information
      *
-     * @param string     $type
-     * @param string     $backUrl
-     * @param string|int $storeId
-     * @param string     $password
-     *
+     * @param  string              $type
+     * @param  string              $backUrl
+     * @param  int|string          $storeId
+     * @param  string              $password
      * @throws Mage_Core_Exception
-     *
      * @return $this
      */
     public function sendNewAccountEmail($type = 'registered', $backUrl = '', $storeId = '0', $password = null)
@@ -847,9 +801,8 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Send email with new customer password
      *
-     * @return $this
-     *
      * @throws Mage_Core_Exception
+     * @return $this
      */
     public function sendPasswordReminderEmail()
     {
@@ -871,9 +824,8 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Send info email about changed password or email
      *
-     * @return $this
-     *
      * @throws Mage_Core_Exception
+     * @return $this
      */
     public function sendChangedPasswordOrEmail()
     {
@@ -896,12 +848,11 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Send corresponding email template
      *
-     * @param string      $template       configuration path of email template
-     * @param string      $sender         configuration path of email identity
-     * @param array       $templateParams
-     * @param int|null    $storeId
-     * @param string|null $customerEmail
-     *
+     * @param  string      $template       configuration path of email template
+     * @param  string      $sender         configuration path of email identity
+     * @param  array       $templateParams
+     * @param  null|int    $storeId
+     * @param  null|string $customerEmail
      * @return $this
      */
     protected function _sendEmailTemplate($template, $sender, $templateParams = [], $storeId = null, $customerEmail = null)
@@ -926,11 +877,9 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Send email with reset password confirmation link
      *
-     * @return $this
-     *
      * @throws Mage_Core_Exception
-     *
      * @throws Mage_Core_Model_Store_Exception
+     * @return $this
      */
     public function sendPasswordResetConfirmationEmail()
     {
@@ -953,7 +902,6 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
      * Send email with link to set password
      *
      * @bool $isNew Send welcome email?
-     *
      * @return $this
      */
     public function sendPasswordLinkEmail(bool $isNew = false)
@@ -987,9 +935,8 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Retrieve customer group identifier
      *
-     * @return int
-     *
      * @throws Mage_Core_Model_Store_Exception
+     * @return int
      */
     public function getGroupId()
     {
@@ -1005,9 +952,8 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Retrieve customer tax class identifier
      *
-     * @return int
-     *
      * @throws Mage_Core_Model_Store_Exception
+     * @return int
      */
     public function getTaxClassId()
     {
@@ -1021,11 +967,9 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Check store availability for customer
      *
-     * @param Mage_Core_Model_Store|int $store
-     *
-     * @return bool
-     *
+     * @param  int|Mage_Core_Model_Store $store
      * @throws Mage_Core_Exception
+     * @return bool
      */
     public function isInStore($store)
     {
@@ -1042,9 +986,8 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Retrieve store where customer was created
      *
-     * @return Mage_Core_Model_Store
-     *
      * @throws Mage_Core_Model_Store_Exception
+     * @return Mage_Core_Model_Store
      */
     public function getStore()
     {
@@ -1054,9 +997,8 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Retrieve shared store ids
      *
-     * @return array
-     *
      * @throws Mage_Core_Exception
+     * @return array
      */
     public function getSharedStoreIds()
     {
@@ -1118,11 +1060,9 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
      * For existing customer password + confirmation will be validated
      * only when password is set (i.e. its change is requested)
      *
-     * @return array|true
-     *
      * @throws Mage_Core_Exception
-     *
      * @throws Zend_Validate_Exception
+     * @return array|true
      */
     public function validate()
     {
@@ -1185,10 +1125,8 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
 
     /**
      * Validate customer password on reset
-     *
-     * @return array|true
-     *
      * @throws Zend_Validate_Exception
+     * @return array|true
      */
     public function validateResetPassword()
     {
@@ -1224,11 +1162,9 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Import customer data from text array
      *
-     * @return $this|null
-     *
      * @throws Mage_Core_Exception
-     *
      * @throws Mage_Core_Model_Store_Exception
+     * @return null|$this
      */
     public function importFromTextArray(array $row)
     {
@@ -1429,7 +1365,6 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
 
     /**
      * Clean all addresses
-     *
      */
     public function cleanAllAddresses()
     {
@@ -1440,8 +1375,7 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Add error
      *
-     * @param string $error
-     *
+     * @param  string $error
      * @return $this
      */
     public function addError($error)
@@ -1474,12 +1408,10 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Print error
      *
-     * @param null|string $error
-     * @param string      $line
-     *
-     * @return false|void
-     *
+     * @param  null|string $error
+     * @param  string      $line
      * @throws Exception
+     * @return false|void
      */
     public function printError($error, $line = null)
     {
@@ -1501,8 +1433,7 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Validate address
      *
-     * @param string $type
-     *
+     * @param  string $type
      * @return bool
      */
     public function validateAddress(array $data, $type = 'billing')
@@ -1552,7 +1483,7 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Get customer created at date timestamp
      *
-     * @return int|null
+     * @return null|int
      */
     public function getCreatedAtTimestamp()
     {
@@ -1591,8 +1522,7 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Set is deleteable flag
      *
-     * @param bool $value
-     *
+     * @param  bool  $value
      * @return $this
      */
     public function setIsDeleteable($value)
@@ -1614,8 +1544,7 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Set is readonly flag
      *
-     * @param bool $value
-     *
+     * @param  bool  $value
      * @return $this
      */
     public function setIsReadonly($value)
@@ -1652,9 +1581,8 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Return Entity Type instance
      *
-     * @return Mage_Eav_Model_Entity_Type
-     *
      * @throws Mage_Core_Exception
+     * @return Mage_Eav_Model_Entity_Type
      */
     public function getEntityType()
     {
@@ -1664,9 +1592,8 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Return Entity Type ID
      *
-     * @return int
-     *
      * @throws Mage_Core_Exception
+     * @return int
      */
     public function getEntityTypeId()
     {
@@ -1682,11 +1609,9 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
     /**
      * Get either first store ID from a set website or the provided as default
      *
-     * @param int|string|null $defaultStoreId
-     *
-     * @return int
-     *
+     * @param  null|int|string     $defaultStoreId
      * @throws Mage_Core_Exception
+     * @return int
      */
     protected function _getWebsiteStoreId($defaultStoreId = null)
     {
@@ -1704,11 +1629,9 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
      *
      * Stores new reset password link token
      *
-     * @param string $newResetPasswordLinkToken
-     *
-     * @return $this
-     *
+     * @param  string              $newResetPasswordLinkToken
      * @throws Mage_Core_Exception
+     * @return $this
      */
     public function changeResetPasswordLinkToken($newResetPasswordLinkToken)
     {
@@ -1729,11 +1652,9 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
      *
      * Stores new reset password link customer Id
      *
-     * @param string $newResetPasswordLinkCustomerId
-     *
-     * @return $this
-     *
+     * @param  string              $newResetPasswordLinkCustomerId
      * @throws Mage_Core_Exception
+     * @return $this
      */
     public function changeResetPasswordLinkCustomerId($newResetPasswordLinkCustomerId)
     {

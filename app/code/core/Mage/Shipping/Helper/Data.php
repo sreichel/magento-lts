@@ -72,7 +72,6 @@ class Mage_Shipping_Helper_Data extends Mage_Core_Helper_Abstract
      * @return string
      * @deprecated after 1.4.0.0-alpha3
      * Retrieve tracking pop up url by order id or object
-     *
      */
     public function getTrackingPopUpUrlByOrderId($order = '')
     {
@@ -89,7 +88,6 @@ class Mage_Shipping_Helper_Data extends Mage_Core_Helper_Abstract
      * @return string
      * @deprecated after 1.4.0.0-alpha3
      * Retrieve tracking pop up url by track id or object
-     *
      */
     public function getTrackingPopUpUrlByTrackId($track = '')
     {
@@ -106,7 +104,6 @@ class Mage_Shipping_Helper_Data extends Mage_Core_Helper_Abstract
      * @return string
      * @deprecated after 1.4.0.0-alpha3
      * Retrieve tracking pop up url by ship id or object
-     *
      */
     public function getTrackingPopUpUrlByShipId($ship = '')
     {

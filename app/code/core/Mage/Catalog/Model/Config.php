@@ -37,21 +37,21 @@ class Mage_Catalog_Model_Config extends Mage_Eav_Model_Config
     /**
      * Array of attributes codes needed for product load
      *
-     * @var array|null
+     * @var null|array
      */
     protected $_productAttributes;
 
     /**
      * Product Attributes used in product listing
      *
-     * @var array|null
+     * @var null|array
      */
     protected $_usedInProductListing;
 
     /**
      * Product Attributes For Sort By
      *
-     * @var array|null
+     * @var null|array
      */
     protected $_usedForSortBy;
 
@@ -65,8 +65,7 @@ class Mage_Catalog_Model_Config extends Mage_Eav_Model_Config
     }
 
     /**
-     * @param int $storeId
-     *
+     * @param  int   $storeId
      * @return $this
      */
     public function setStoreId($storeId)
@@ -110,9 +109,8 @@ class Mage_Catalog_Model_Config extends Mage_Eav_Model_Config
     }
 
     /**
-     * @param int $entityTypeId
-     * @param int $id
-     *
+     * @param  int  $entityTypeId
+     * @param  int  $id
      * @return bool
      */
     public function getAttributeSetName($entityTypeId, $id)
@@ -131,9 +129,8 @@ class Mage_Catalog_Model_Config extends Mage_Eav_Model_Config
     }
 
     /**
-     * @param int    $entityTypeId
-     * @param string $name
-     *
+     * @param  int         $entityTypeId
+     * @param  string      $name
      * @return bool|string
      */
     public function getAttributeSetId($entityTypeId, $name)
@@ -177,9 +174,8 @@ class Mage_Catalog_Model_Config extends Mage_Eav_Model_Config
     }
 
     /**
-     * @param int $attributeSetId
-     * @param int $id
-     *
+     * @param  int  $attributeSetId
+     * @param  int  $id
      * @return bool
      */
     public function getAttributeGroupName($attributeSetId, $id)
@@ -198,9 +194,8 @@ class Mage_Catalog_Model_Config extends Mage_Eav_Model_Config
     }
 
     /**
-     * @param int    $attributeSetId
-     * @param string $name
-     *
+     * @param  int         $attributeSetId
+     * @param  string      $name
      * @return bool|string
      */
     public function getAttributeGroupId($attributeSetId, $name)
@@ -248,8 +243,7 @@ class Mage_Catalog_Model_Config extends Mage_Eav_Model_Config
     }
 
     /**
-     * @param string $name
-     *
+     * @param  string      $name
      * @return bool|string
      */
     public function getProductTypeId($name)
@@ -265,9 +259,8 @@ class Mage_Catalog_Model_Config extends Mage_Eav_Model_Config
     }
 
     /**
-     * @param int|string $id
-     *
-     * @return string|false
+     * @param  int|string   $id
+     * @return false|string
      */
     public function getProductTypeName($id)
     {
@@ -281,10 +274,9 @@ class Mage_Catalog_Model_Config extends Mage_Eav_Model_Config
     }
 
     /**
-     * @param Mage_Eav_Model_Entity_Attribute_Source_Interface $source
-     * @param string                                           $value
-     *
-     * @return string|null
+     * @param  Mage_Eav_Model_Entity_Attribute_Source_Interface $source
+     * @param  string                                           $value
+     * @return null|string
      */
     public function getSourceOptionId($source, $value)
     {
@@ -399,8 +391,7 @@ class Mage_Catalog_Model_Config extends Mage_Eav_Model_Config
     /**
      * Retrieve Product List Default Sort By
      *
-     * @param mixed $store
-     *
+     * @param  mixed  $store
      * @return string
      */
     public function getProductListDefaultSortBy($store = null)

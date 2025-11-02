@@ -117,9 +117,8 @@ class Mage_Catalog_Model_Layer_Filter_Price_Algorithm
     /**
      * Set lower and upper limit for algorithm
      *
-     * @param null|float $lowerLimit
-     * @param null|float $upperLimit
-     *
+     * @param  null|float $lowerLimit
+     * @param  null|float $upperLimit
      * @return $this
      */
     public function setLimits($lowerLimit = null, $upperLimit = null)
@@ -133,9 +132,8 @@ class Mage_Catalog_Model_Layer_Filter_Price_Algorithm
      * Search first index of price, that satisfy conditions to be 'greater or equal' than $value
      * Returns -1 if index was not found
      *
-     * @param float      $value
-     * @param null|array $limits search [from, to]
-     *
+     * @param  float      $value
+     * @param  null|array $limits search [from, to]
      * @return int
      */
     protected function _binarySearch($value, $limits = null)
@@ -177,11 +175,10 @@ class Mage_Catalog_Model_Layer_Filter_Price_Algorithm
     /**
      * Set prices statistics
      *
-     * @param float $min
-     * @param float $max
-     * @param float $standardDeviation
-     * @param int   $count
-     *
+     * @param  float $min
+     * @param  float $max
+     * @param  float $standardDeviation
+     * @param  int   $count
      * @return $this
      */
     public function setStatistics($min, $max, $standardDeviation, $count)
@@ -211,8 +208,7 @@ class Mage_Catalog_Model_Layer_Filter_Price_Algorithm
     /**
      * Set prices model
      *
-     * @param Mage_Catalog_Model_Layer_Filter_Price $pricesModel
-     *
+     * @param  Mage_Catalog_Model_Layer_Filter_Price $pricesModel
      * @return $this
      */
     public function setPricesModel($pricesModel)
@@ -248,9 +244,8 @@ class Mage_Catalog_Model_Layer_Filter_Price_Algorithm
     /**
      * Get quantile
      *
-     * @param int $quantileNumber should be from 1 to n-1 where n is number of intervals
-     *
-     * @return float|null
+     * @param  int        $quantileNumber should be from 1 to n-1 where n is number of intervals
+     * @return null|float
      */
     protected function _getQuantile($quantileNumber)
     {
@@ -264,8 +259,7 @@ class Mage_Catalog_Model_Layer_Filter_Price_Algorithm
     /**
      * Get quantile interval
      *
-     * @param int $quantileNumber should be from 1 to n-1 where n is number of intervals
-     *
+     * @param  int        $quantileNumber should be from 1 to n-1 where n is number of intervals
      * @return null|array [floatMin,floatMax]
      */
     protected function _getQuantileInterval($quantileNumber)
@@ -318,9 +312,8 @@ class Mage_Catalog_Model_Layer_Filter_Price_Algorithm
     /**
      * Find price separator for the quantile
      *
-     * @param int $quantileNumber should be from 1 to n-1 where n is number of intervals
-     *
-     * @return array|null
+     * @param  int        $quantileNumber should be from 1 to n-1 where n is number of intervals
+     * @return null|array
      */
     protected function _findPriceSeparator($quantileNumber)
     {
@@ -439,12 +432,11 @@ class Mage_Catalog_Model_Layer_Filter_Price_Algorithm
     /**
      * Find max rounding factor with given price range
      *
-     * @param float      $lowerPrice
-     * @param float      $upperPrice
-     * @param bool       $returnEmpty    whether empty result is acceptable
-     * @param null|float $roundingFactor if given, checks for range to contain the factor
-     *
-     * @return false|array
+     * @param  float       $lowerPrice
+     * @param  float       $upperPrice
+     * @param  bool        $returnEmpty    whether empty result is acceptable
+     * @param  null|float  $roundingFactor if given, checks for range to contain the factor
+     * @return array|false
      */
     protected function _findRoundPrice($lowerPrice, $upperPrice, $returnEmpty = true, $roundingFactor = null)
     {
@@ -507,10 +499,9 @@ class Mage_Catalog_Model_Layer_Filter_Price_Algorithm
     /**
      * Get separator nearest to quantile among the separators
      *
-     * @param int   $quantileNumber
-     * @param array $separators
-     *
-     * @return bool|array [deflection, separatorPrice, $priceIndex]
+     * @param  int        $quantileNumber
+     * @param  array      $separators
+     * @return array|bool [deflection, separatorPrice, $priceIndex]
      */
     protected function _findBestSeparator($quantileNumber, $separators)
     {

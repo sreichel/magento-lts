@@ -22,8 +22,7 @@ class Mage_GoogleAnalytics_Block_Ga extends Mage_Core_Block_Template
      * Render regular page tracking javascript code
      * The custom "page name" may be set from layout or somewhere else. It must start from slash.
      *
-     * @param string $accountId
-     *
+     * @param  string $accountId
      * @return string
      */
     protected function _getPageTrackingCode($accountId)
@@ -41,8 +40,7 @@ class Mage_GoogleAnalytics_Block_Ga extends Mage_Core_Block_Template
      * Render regular page tracking javascript code
      *
      * @link https://developers.google.com/tag-platform/gtagjs/reference
-     * @param string $accountId
-     *
+     * @param  string $accountId
      * @return string
      */
     protected function _getPageTrackingCodeAnalytics4($accountId)
@@ -79,8 +77,7 @@ gtag('set', 'user_id', '{$customer->getId()}');
      * Render regular page tracking javascript code
      * The custom "page name" may be set from layout or somewhere else. It must start from slash.
      *
-     * @param string $accountId
-     *
+     * @param  string $accountId
      * @return string
      * @deprecated
      */
@@ -95,8 +92,7 @@ gtag('set', 'user_id', '{$customer->getId()}');
      *
      * @link http://code.google.com/apis/analytics/docs/gaJS/gaJSApiBasicConfiguration.html#_gat.GA_Tracker_._trackPageview
      * @link http://code.google.com/apis/analytics/docs/gaJS/gaJSApi_gaq.html
-     * @param string $accountId
-     *
+     * @param  string $accountId
      * @return string
      * @deprecated
      */
@@ -119,9 +115,8 @@ gtag('set', 'user_id', '{$customer->getId()}');
     /**
      * Render information about specified orders and their items
      *
-     * @return string
-     *
      * @throws JsonException
+     * @return string
      */
     protected function _getEnhancedEcommerceDataForAnalytics4()
     {

@@ -15,7 +15,7 @@
 class Varien_Image
 {
     /**
-     * @var Varien_Image_Adapter_Abstract|Varien_Image_Adapter_Gd2|null
+     * @var null|Varien_Image_Adapter_Abstract|Varien_Image_Adapter_Gd2
      */
     protected $_adapter;
 
@@ -29,9 +29,8 @@ class Varien_Image
     /**
      * Constructor
      *
-     * @param string $adapter  Default value is GD2
-     * @param string $fileName
-     *
+     * @param  string $fileName
+     * @param  string $adapter  Default value is GD2
      * @return void
      */
     public function __construct($fileName = null, $adapter = Varien_Image_Adapter::ADAPTER_GD2)
@@ -59,7 +58,6 @@ class Varien_Image
      * Opens an image and creates image handle
      *
      * @access public
-     *
      * @return void
      */
     public function open()
@@ -77,7 +75,6 @@ class Varien_Image
      * Display handled image in your browser
      *
      * @access public
-     *
      * @return void
      */
     public function display()
@@ -91,7 +88,6 @@ class Varien_Image
      * @param string $destination. Default value is NULL
      * @param string $newFileName. Default value is NULL
      * @access public
-     *
      * @return void
      */
     public function save($destination = null, $newFileName = null)
@@ -104,7 +100,6 @@ class Varien_Image
      *
      * @param int $angle
      * @access public
-     *
      * @return void
      */
     public function rotate($angle)
@@ -120,7 +115,6 @@ class Varien_Image
      * @param int $right.  Default value is 0
      * @param int $bottom. Default value is 0
      * @access public
-     *
      * @return void
      */
     public function crop($top = 0, $left = 0, $right = 0, $bottom = 0)
@@ -134,7 +128,6 @@ class Varien_Image
      * @param int $width
      * @param int $height
      * @access public
-     *
      * @return void
      */
     public function resize($width, $height = null)
@@ -170,8 +163,7 @@ class Varien_Image
     /**
      * Get/set quality, values in percentage from 0 to 100
      *
-     * @param int $value
-     *
+     * @param  int $value
      * @return int
      */
     public function quality($value)
@@ -188,7 +180,6 @@ class Varien_Image
      * @param int    $watermarkImageOpacity. Watermark image opacity.
      * @param bool   $repeat.                Enable or disable watermark brick.
      * @access public
-     *
      * @return void
      */
     public function watermark($watermarkImage, $positionX = 0, $positionY = 0, $watermarkImageOpacity = 30, $repeat = false)
@@ -204,7 +195,6 @@ class Varien_Image
      * Get mime type of handled image
      *
      * @access public
-     *
      * @return string
      */
     public function getMimeType()
@@ -216,7 +206,6 @@ class Varien_Image
      * process
      *
      * @access public
-     *
      * @return void
      */
     public function process() {}
@@ -225,7 +214,6 @@ class Varien_Image
      * instruction
      *
      * @access public
-     *
      * @return void
      */
     public function instruction() {}
@@ -235,7 +223,6 @@ class Varien_Image
      *
      * @param int $color
      * @access public
-     *
      * @return void
      */
     public function setImageBackgroundColor($color)
@@ -246,8 +233,7 @@ class Varien_Image
     /**
      * Set watermark position
      *
-     * @param string $position
-     *
+     * @param  string       $position
      * @return Varien_Image
      */
     public function setWatermarkPosition($position)
@@ -259,8 +245,7 @@ class Varien_Image
     /**
      * Set watermark image opacity
      *
-     * @param int $imageOpacity
-     *
+     * @param  int          $imageOpacity
      * @return Varien_Image
      */
     public function setWatermarkImageOpacity($imageOpacity)
@@ -272,8 +257,7 @@ class Varien_Image
     /**
      * Set watermark width
      *
-     * @param int $width
-     *
+     * @param  int          $width
      * @return Varien_Image
      */
     public function setWatermarkWidth($width)
@@ -285,8 +269,7 @@ class Varien_Image
     /**
      * Set watermark height
      *
-     * @param int $heigth
-     *
+     * @param  int          $heigth
      * @return Varien_Image
      */
     public function setWatermarkHeigth($heigth)
@@ -298,8 +281,7 @@ class Varien_Image
     /**
      * Retrieve image adapter object
      *
-     * @param string $adapter
-     *
+     * @param  string                        $adapter
      * @return Varien_Image_Adapter_Abstract
      */
     protected function _getAdapter($adapter = null)
@@ -314,7 +296,7 @@ class Varien_Image
     /**
      * Retrieve original image width
      *
-     * @return int|null
+     * @return null|int
      */
     public function getOriginalWidth()
     {
@@ -324,7 +306,7 @@ class Varien_Image
     /**
      * Retrieve original image height
      *
-     * @return int|null
+     * @return null|int
      */
     public function getOriginalHeight()
     {

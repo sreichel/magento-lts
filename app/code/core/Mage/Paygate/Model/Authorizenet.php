@@ -132,7 +132,7 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     protected $_allowCurrencyCode = ['USD'];
 
     /**
-     * @var Mage_Paygate_Model_Authorizenet_Cards|null
+     * @var null|Mage_Paygate_Model_Authorizenet_Cards
      */
     protected $_cardsStorage;
 
@@ -213,8 +213,7 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     /**
      * Check method for processing with base currency
      *
-     * @param string $currencyCode
-     *
+     * @param  string $currencyCode
      * @return bool
      */
     public function canUseForCurrency($currencyCode)
@@ -313,8 +312,7 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     /**
      * Set partial authorization last action state into session
      *
-     * @param string $state
-     *
+     * @param  string $state
      * @return $this
      */
     public function setPartialAuthorizationLastActionState($state)
@@ -347,9 +345,8 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     /**
      * Send authorize request to gateway
      *
-     * @param Mage_Sales_Model_Order_Payment $payment
-     * @param float                          $amount
-     *
+     * @param  Mage_Sales_Model_Order_Payment $payment
+     * @param  float                          $amount
      * @return $this
      */
     public function authorize(Varien_Object $payment, $amount)
@@ -374,9 +371,8 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     /**
      * Send capture request to gateway
      *
-     * @param Mage_Sales_Model_Order_Payment $payment
-     * @param float                          $amount
-     *
+     * @param  Mage_Sales_Model_Order_Payment $payment
+     * @param  float                          $amount
      * @return $this
      */
     public function capture(Varien_Object $payment, $amount)
@@ -401,8 +397,7 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     /**
      * Void the payment through gateway
      *
-     * @param Mage_Sales_Model_Order_Payment $payment
-     *
+     * @param  Mage_Sales_Model_Order_Payment $payment
      * @return $this
      */
     public function void(Varien_Object $payment)
@@ -437,8 +432,7 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     /**
      * Cancel the payment through gateway
      *
-     * @param Mage_Sales_Model_Order_Payment $payment
-     *
+     * @param  Mage_Sales_Model_Order_Payment $payment
      * @return $this
      */
     public function cancel(Varien_Object $payment)
@@ -449,12 +443,10 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     /**
      * Refund the amount with transaction id
      *
-     * @param Mage_Sales_Model_Order_Payment $payment
-     * @param float                          $requestedAmount
-     *
-     * @return $this
-     *
+     * @param  Mage_Sales_Model_Order_Payment $payment
+     * @param  float                          $requestedAmount
      * @throws Mage_Core_Exception
+     * @return $this
      */
     public function refund(Varien_Object $payment, $requestedAmount)
     {
@@ -537,13 +529,11 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     /**
      * Send request with new payment to gateway
      *
-     * @param Mage_Sales_Model_Order_Payment $payment
-     * @param float                          $amount
-     * @param self::REQUEST_TYPE_AUTH_*      $requestType
-     *
-     * @return $this
-     *
+     * @param  Mage_Sales_Model_Order_Payment $payment
+     * @param  float                          $amount
+     * @param  self::REQUEST_TYPE_AUTH_*      $requestType
      * @throws Mage_Core_Exception
+     * @return $this
      */
     protected function _place($payment, $amount, $requestType)
     {
@@ -643,10 +633,9 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     /**
      * Send request with new payment to gateway during partial authorization process
      *
-     * @param Mage_Sales_Model_Order_Payment $payment
-     * @param float                          $amount
-     * @param self::REQUEST_TYPE_AUTH_*      $requestType
-     *
+     * @param  Mage_Sales_Model_Order_Payment $payment
+     * @param  float                          $amount
+     * @param  self::REQUEST_TYPE_AUTH_*      $requestType
      * @return $this
      */
     protected function _partialAuthorization($payment, $amount, $requestType)
@@ -720,8 +709,7 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     /**
      * Return true if there are authorized transactions
      *
-     * @param Mage_Payment_Model_Info $payment
-     *
+     * @param  Mage_Payment_Model_Info $payment
      * @return bool
      */
     protected function _isPreauthorizeCapture($payment)
@@ -745,9 +733,8 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     /**
      * Send capture request to gateway for capture authorized transactions
      *
-     * @param Mage_Sales_Model_Order_Payment $payment
-     * @param float                          $requestedAmount
-     *
+     * @param  Mage_Sales_Model_Order_Payment $payment
+     * @param  float                          $requestedAmount
      * @return $this
      */
     protected function _preauthorizeCapture($payment, $requestedAmount)
@@ -803,10 +790,9 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     /**
      * Send capture request to gateway for capture authorized transactions of card
      *
-     * @param Mage_Sales_Model_Order_Payment $payment
-     * @param float                          $amount
-     * @param Varien_Object                  $card
-     *
+     * @param  Mage_Sales_Model_Order_Payment             $payment
+     * @param  float                                      $amount
+     * @param  Varien_Object                              $card
      * @return Mage_Sales_Model_Order_Payment_Transaction
      */
     protected function _preauthorizeCaptureCardTransaction($payment, $amount, $card)
@@ -872,9 +858,8 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     /**
      * Void the card transaction through gateway
      *
-     * @param Mage_Sales_Model_Order_Payment $payment
-     * @param Varien_Object                  $card
-     *
+     * @param  Mage_Sales_Model_Order_Payment             $payment
+     * @param  Varien_Object                              $card
      * @return Mage_Sales_Model_Order_Payment_Transaction
      */
     protected function _voidCardTransaction($payment, $card)
@@ -964,8 +949,7 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     /**
      * Check if transaction is expired
      *
-     * @param string $realAuthTransactionId
-     *
+     * @param  string $realAuthTransactionId
      * @return bool
      */
     protected function _isTransactionExpired($realAuthTransactionId)
@@ -977,9 +961,8 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     /**
      * Refund the card transaction through gateway
      *
-     * @param Mage_Sales_Model_Order_Payment $payment
-     * @param Varien_Object                  $card
-     *
+     * @param  Mage_Sales_Model_Order_Payment             $payment
+     * @param  Varien_Object                              $card
      * @return Mage_Sales_Model_Order_Payment_Transaction
      */
     protected function _refundCardTransaction($payment, $amount, $card)
@@ -1070,8 +1053,7 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     /**
      * Return cards storage model
      *
-     * @param Mage_Payment_Model_Info $payment
-     *
+     * @param  Mage_Payment_Model_Info               $payment
      * @return Mage_Paygate_Model_Authorizenet_Cards
      */
     public function getCardsStorage($payment = null)
@@ -1090,8 +1072,7 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     /**
      * If partial authorization is started method will return true
      *
-     * @param Mage_Payment_Model_Info $payment
-     *
+     * @param  Mage_Payment_Model_Info $payment
      * @return bool
      */
     public function isPartialAuthorization($payment = null)
@@ -1106,9 +1087,8 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     /**
      * Mock capture transaction id in invoice
      *
-     * @param Mage_Sales_Model_Order_Invoice $invoice
-     * @param Mage_Sales_Model_Order_Payment $payment
-     *
+     * @param  Mage_Sales_Model_Order_Invoice     $invoice
+     * @param  Mage_Sales_Model_Order_Payment     $payment
      * @return Mage_Payment_Model_Method_Abstract
      */
     public function processInvoice($invoice, $payment)
@@ -1119,9 +1099,8 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
 
     /**
      * Set transaction ID into creditmemo for informational purposes
-     * @param Mage_Sales_Model_Order_Creditmemo $creditmemo
-     * @param Mage_Sales_Model_Order_Payment    $payment
-     *
+     * @param  Mage_Sales_Model_Order_Creditmemo  $creditmemo
+     * @param  Mage_Sales_Model_Order_Payment     $payment
      * @return Mage_Payment_Model_Method_Abstract
      */
     public function processCreditmemo($creditmemo, $payment)
@@ -1135,8 +1114,7 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
      *
      * Update transaction info if there is one placing transaction only
      *
-     * @param string $transactionId
-     *
+     * @param  string $transactionId
      * @return array
      */
     public function fetchTransactionInfo(Mage_Payment_Model_Info $payment, $transactionId)
@@ -1186,9 +1164,8 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     /**
      * Set split_tender_id to quote payment if needed
      *
-     * @param Mage_Paygate_Model_Authorizenet_Result $response
-     * @param Mage_Sales_Model_Order_Payment         $orderPayment
-     *
+     * @param  Mage_Paygate_Model_Authorizenet_Result $response
+     * @param  Mage_Sales_Model_Order_Payment         $orderPayment
      * @return bool
      */
     protected function _processPartialAuthorizationResponse($response, $orderPayment)
@@ -1269,8 +1246,7 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
      * Prepare request to gateway
      *
      * @link http://www.authorize.net/support/AIM_guide.pdf
-     * @param Mage_Payment_Model_Info $payment
-     *
+     * @param  Mage_Payment_Model_Info                 $payment
      * @return Mage_Paygate_Model_Authorizenet_Request
      */
     protected function _buildRequest(Varien_Object $payment)
@@ -1381,8 +1357,7 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     /**
      * Post request to gateway and return response
      *
-     * @param Mage_Paygate_Model_Authorizenet_Request $request)
-     *
+     * @param  Mage_Paygate_Model_Authorizenet_Request $request)
      * @return Mage_Paygate_Model_Authorizenet_Result
      */
     protected function _postRequest(Varien_Object $request)
@@ -1465,8 +1440,7 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     /**
      * Gateway response wrapper
      *
-     * @param string $text
-     *
+     * @param  string $text
      * @return string
      */
     protected function _wrapGatewayError($text)
@@ -1491,8 +1465,7 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     /**
      * It sets card`s data into additional information of payment model
      *
-     * @param Mage_Paygate_Model_Authorizenet_Result $response
-     *
+     * @param  Mage_Paygate_Model_Authorizenet_Result $response
      * @return Varien_Object
      */
     protected function _registerCard(Varien_Object $response, Mage_Sales_Model_Order_Payment $payment)
@@ -1521,8 +1494,7 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     /**
      * Reset assigned data in payment info model
      *
-     * @param Mage_Payment_Model_Info $payment
-     *
+     * @param  Mage_Payment_Model_Info $payment
      * @return $this
      */
     private function _clearAssignedData($payment)
@@ -1544,9 +1516,8 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     /**
      * Add payment transaction
      *
-     * @param string $transactionId
-     * @param string $transactionType
-     *
+     * @param  string                                          $transactionId
+     * @param  string                                          $transactionType
      * @return null|Mage_Sales_Model_Order_Payment_Transaction
      */
     protected function _addTransaction(
@@ -1585,10 +1556,9 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     /**
      * Round up and cast specified amount to float or string
      *
-     * @param string|float $amount
-     * @param bool         $asFloat
-     *
-     * @return string|float
+     * @param  float|string $amount
+     * @param  bool         $asFloat
+     * @return float|string
      */
     protected function _formatAmount($amount, $asFloat = false)
     {
@@ -1599,8 +1569,7 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     /**
      * If gateway actions are locked return true
      *
-     * @param Mage_Payment_Model_Info $payment
-     *
+     * @param  Mage_Payment_Model_Info $payment
      * @return bool
      */
     protected function _isGatewayActionsLocked($payment)
@@ -1641,8 +1610,7 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     /**
      * Generate checksum for object
      *
-     * @param array $checkSumDataKeys
-     *
+     * @param  array  $checkSumDataKeys
      * @return string
      */
     protected function _generateChecksum(Varien_Object $object, $checkSumDataKeys = [])
@@ -1661,8 +1629,7 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
      *
      * @link http://www.authorize.net/support/ReportingGuide_XML.pdf
      * @link http://developer.authorize.net/api/transaction_details/
-     * @param string $transactionId
-     *
+     * @param  string        $transactionId
      * @return Varien_Object
      */
     protected function _getTransactionDetails($transactionId)
@@ -1717,8 +1684,7 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
     /**
      * Parses xml response object with full transaction details to Varien_Object
      *
-     * @param Varien_Simplexml_Element $responseXmlDocument - xml object with full transaction details for a specified transaction ID
-     *
+     * @param  Varien_Simplexml_Element $responseXmlDocument - xml object with full transaction details for a specified transaction ID
      * @return Varien_Object
      */
     protected function _parseTransactionDetailsXmlResponseToVarienObject(Varien_Simplexml_Element $responseXmlDocument)

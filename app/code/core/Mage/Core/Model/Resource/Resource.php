@@ -17,14 +17,14 @@ class Mage_Core_Model_Resource_Resource extends Mage_Core_Model_Resource_Db_Abst
     /**
      * Database versions
      *
-     * @var array|null
+     * @var null|array
      */
     protected static $_versions        = null;
 
     /**
      * Resource data versions cache array
      *
-     * @var array|null
+     * @var null|array
      */
     protected static $_dataVersions    = null;
 
@@ -40,8 +40,7 @@ class Mage_Core_Model_Resource_Resource extends Mage_Core_Model_Resource_Db_Abst
      * information on main purpose of calling this routine, and even when 'data' column is absent - it won't require
      * reissuing new sql just to get 'db' version of module.
      *
-     * @param string $needType Can be 'db' or 'data'
-     *
+     * @param  string $needType Can be 'db' or 'data'
      * @return $this
      * @SuppressWarnings("PHPMD.CamelCaseVariableName")
      */
@@ -77,9 +76,8 @@ class Mage_Core_Model_Resource_Resource extends Mage_Core_Model_Resource_Db_Abst
     /**
      * Get Module version from DB
      *
-     * @param string $resName
-     *
-     * @return string|false
+     * @param  string       $resName
+     * @return false|string
      * @SuppressWarnings("PHPMD.CamelCaseVariableName")
      */
     public function getDbVersion($resName)
@@ -95,9 +93,8 @@ class Mage_Core_Model_Resource_Resource extends Mage_Core_Model_Resource_Db_Abst
     /**
      * Set module version into DB
      *
-     * @param string $resName
-     * @param string $version
-     *
+     * @param  string $resName
+     * @param  string $version
      * @return int
      * @SuppressWarnings("PHPMD.CamelCaseVariableName")
      */
@@ -124,9 +121,8 @@ class Mage_Core_Model_Resource_Resource extends Mage_Core_Model_Resource_Db_Abst
     /**
      * Get resource data version
      *
-     * @param string $resName
-     *
-     * @return string|false
+     * @param  string       $resName
+     * @return false|string
      * @SuppressWarnings("PHPMD.CamelCaseVariableName")
      */
     public function getDataVersion($resName)
@@ -143,9 +139,8 @@ class Mage_Core_Model_Resource_Resource extends Mage_Core_Model_Resource_Db_Abst
     /**
      * Specify resource data version
      *
-     * @param string $resName
-     * @param string $version
-     *
+     * @param  string $resName
+     * @param  string $version
      * @return $this
      * @SuppressWarnings("PHPMD.CamelCaseVariableName")
      */

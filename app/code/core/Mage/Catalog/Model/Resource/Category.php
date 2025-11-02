@@ -44,7 +44,6 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
 
     /**
      * Class constructor
-     *
      */
     public function __construct()
     {
@@ -60,8 +59,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
     /**
      * Set store Id
      *
-     * @param int $storeId
-     *
+     * @param  int   $storeId
      * @return $this
      */
     public function setStoreId($storeId)
@@ -217,8 +215,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
     /**
      * Update path field
      *
-     * @param Mage_Catalog_Model_Category $object
-     *
+     * @param  Mage_Catalog_Model_Category $object
      * @return $this
      */
     protected function _savePath($object)
@@ -237,8 +234,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
     /**
      * Get maximum position of child categories by specific tree path
      *
-     * @param string $path
-     *
+     * @param  string $path
      * @return int
      */
     protected function _getMaxPosition($path)
@@ -266,8 +262,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
     /**
      * Save category products relation
      *
-     * @param Mage_Catalog_Model_Category $category
-     *
+     * @param  Mage_Catalog_Model_Category $category
      * @return $this
      */
     protected function _saveCategoryProducts($category)
@@ -366,8 +361,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
     /**
      * Get positions of associated to category products
      *
-     * @param Mage_Catalog_Model_Category $category
-     *
+     * @param  Mage_Catalog_Model_Category $category
      * @return array
      */
     public function getProductsPosition($category)
@@ -383,8 +377,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
     /**
      * Get children categories count
      *
-     * @param int $categoryId
-     *
+     * @param  int    $categoryId
      * @return string
      */
     public function getChildrenCount($categoryId)
@@ -400,8 +393,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
     /**
      * Check if category id exist
      *
-     * @param int $entityId
-     *
+     * @param  int    $entityId
      * @return string
      */
     public function checkId($entityId)
@@ -435,9 +427,8 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
     /**
      * Get count of active/not active children categories
      *
-     * @param Mage_Catalog_Model_Category $category
-     * @param bool                        $isActiveFlag
-     *
+     * @param  Mage_Catalog_Model_Category $category
+     * @param  bool                        $isActiveFlag
      * @return string
      */
     public function getChildrenAmount($category, $isActiveFlag = true)
@@ -496,10 +487,9 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
     /**
      * Return entities where attribute value is
      *
-     * @param array|int                       $entityIdsFilter
-     * @param Mage_Eav_Model_Entity_Attribute $attribute
-     * @param mixed                           $expectedValue
-     *
+     * @param  array|int                       $entityIdsFilter
+     * @param  Mage_Eav_Model_Entity_Attribute $attribute
+     * @param  mixed                           $expectedValue
      * @return array
      */
     public function findWhereAttributeIs($entityIdsFilter, $attribute, $expectedValue)
@@ -520,8 +510,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
     /**
      * Get products count in category
      *
-     * @param Mage_Catalog_Model_Category $category
-     *
+     * @param  Mage_Catalog_Model_Category $category
      * @return int
      */
     public function getProductCount($category)
@@ -544,13 +533,12 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
     /**
      * Retrieve categories
      *
-     * @param int         $parent
-     * @param int         $recursionLevel
-     * @param bool|string $sorted
-     * @param bool        $asCollection
-     * @param bool        $toLoad
-     *
-     * @return Varien_Data_Tree_Node_Collection|Mage_Catalog_Model_Resource_Category_Collection
+     * @param  int                                                                              $parent
+     * @param  int                                                                              $recursionLevel
+     * @param  bool|string                                                                      $sorted
+     * @param  bool                                                                             $asCollection
+     * @param  bool                                                                             $toLoad
+     * @return Mage_Catalog_Model_Resource_Category_Collection|Varien_Data_Tree_Node_Collection
      */
     public function getCategories($parent, $recursionLevel = 0, $sorted = false, $asCollection = false, $toLoad = true)
     {
@@ -572,8 +560,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
     /**
      * Return parent categories of category
      *
-     * @param Mage_Catalog_Model_Category $category
-     *
+     * @param  Mage_Catalog_Model_Category   $category
      * @return Mage_Catalog_Model_Category[]
      */
     public function getParentCategories($category)
@@ -592,8 +579,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
     /**
      * Return parent category of current category with own custom design settings
      *
-     * @param Mage_Catalog_Model_Category $category
-     *
+     * @param  Mage_Catalog_Model_Category $category
      * @return Mage_Catalog_Model_Category
      */
     public function getParentDesignCategory($category)
@@ -618,8 +604,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
     /**
      * Prepare base collection setup for get categories list
      *
-     * @param Mage_Catalog_Model_Category $category
-     *
+     * @param  Mage_Catalog_Model_Category                     $category
      * @return Mage_Catalog_Model_Resource_Category_Collection
      */
     protected function _getChildrenCategoriesBase($category)
@@ -638,8 +623,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
     /**
      * Return child categories
      *
-     * @param Mage_Catalog_Model_Category $category
-     *
+     * @param  Mage_Catalog_Model_Category                     $category
      * @return Mage_Catalog_Model_Resource_Category_Collection
      */
     public function getChildrenCategories($category)
@@ -655,8 +639,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
     /**
      * Return children categories lists with inactive
      *
-     * @param Mage_Catalog_Model_Category $category
-     *
+     * @param  Mage_Catalog_Model_Category                     $category
      * @return Mage_Catalog_Model_Resource_Category_Collection
      */
     public function getChildrenCategoriesWithInactive($category)
@@ -670,9 +653,8 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
     /**
      * Returns select for category's children.
      *
-     * @param Mage_Catalog_Model_Category $category
-     * @param bool                        $recursive
-     *
+     * @param  Mage_Catalog_Model_Category $category
+     * @param  bool                        $recursive
      * @return Varien_Db_Select
      */
     protected function _getChildrenIdSelect($category, $recursive = true)
@@ -692,9 +674,8 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
     /**
      * Return children ids of category
      *
-     * @param Mage_Catalog_Model_Category $category
-     * @param bool                        $recursive
-     *
+     * @param  Mage_Catalog_Model_Category $category
+     * @param  bool                        $recursive
      * @return array
      */
     public function getChildren($category, $recursive = true)
@@ -729,9 +710,8 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
     /**
      * Return IDs of category's children along with inactive categories.
      *
-     * @param Mage_Catalog_Model_Category $category
-     * @param bool                        $recursive
-     *
+     * @param  Mage_Catalog_Model_Category $category
+     * @param  bool                        $recursive
      * @return array
      */
     public function getChildrenIds($category, $recursive = true)
@@ -743,8 +723,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
     /**
      * Return all children ids of category (with category id)
      *
-     * @param Mage_Catalog_Model_Category $category
-     *
+     * @param  Mage_Catalog_Model_Category $category
      * @return array
      */
     public function getAllChildren($category)
@@ -758,8 +737,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
     /**
      * Check is category in list of store categories
      *
-     * @param Mage_Catalog_Model_Category $category
-     *
+     * @param  Mage_Catalog_Model_Category $category
      * @return bool
      */
     public function isInRootCategoryList($category)
@@ -773,8 +751,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
      * Check category is forbidden to delete.
      * If category is root and assigned to store group return false
      *
-     * @param int $categoryId
-     *
+     * @param  int  $categoryId
      * @return bool
      */
     public function isForbiddenToDelete($categoryId)
@@ -794,8 +771,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
     /**
      * Get category path value by its id
      *
-     * @param int $categoryId
-     *
+     * @param  int    $categoryId
      * @return string
      */
     public function getCategoryPathById($categoryId)
@@ -811,8 +787,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
     /**
      * Move category to another parent node
      *
-     * @param null|int $afterCategoryId
-     *
+     * @param  null|int $afterCategoryId
      * @return $this
      */
     public function changeParent(
@@ -883,10 +858,9 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
      * Process positions of old parent category children and new parent category children.
      * Get position for moved category
      *
-     * @param Mage_Catalog_Model_Category $category
-     * @param Mage_Catalog_Model_Category $newParent
-     * @param null|int                    $afterCategoryId
-     *
+     * @param  Mage_Catalog_Model_Category $category
+     * @param  Mage_Catalog_Model_Category $newParent
+     * @param  null|int                    $afterCategoryId
      * @return int
      */
     protected function _processPositions($category, $newParent, $afterCategoryId)

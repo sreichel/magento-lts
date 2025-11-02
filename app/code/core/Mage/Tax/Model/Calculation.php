@@ -15,6 +15,7 @@
  * @method Mage_Tax_Model_Resource_Calculation            _getResource()
  * @method Mage_Tax_Model_Resource_Calculation            getResource()
  * @method Mage_Tax_Model_Resource_Calculation_Collection getCollection()
+ * @method Mage_Tax_Model_Resource_Calculation_Collection getResourceCollection()
  *
  * @method $this  setCalculationProcess(array $value)
  * @method array  getCalculationProcess()
@@ -98,7 +99,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
     /**
      * Hold the customer
      *
-     * @var Mage_Customer_Model_Customer|false
+     * @var false|Mage_Customer_Model_Customer
      */
     protected $_customer = null;
 
@@ -144,8 +145,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
     /**
      * Get the customer default customer class
      *
-     * @param null|Mage_Core_Model_Store $store
-     *
+     * @param  null|Mage_Core_Model_Store $store
      * @return string
      */
     public function getDefaultCustomerTaxClass($store = null)
@@ -161,7 +161,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
     /**
      * Get customer object
      *
-     * @return Mage_Customer_Model_Customer|false
+     * @return false|Mage_Customer_Model_Customer
      */
     public function getCustomer()
     {
@@ -182,8 +182,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
     /**
      * Delete calculation settings by rule id
      *
-     * @param int $ruleId
-     *
+     * @param  int                        $ruleId
      * @return Mage_Tax_Model_Calculation
      */
     public function deleteByRuleId($ruleId)
@@ -195,8 +194,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
     /**
      * Get calculation rates by rule id
      *
-     * @param int $ruleId
-     *
+     * @param  int   $ruleId
      * @return array
      */
     public function getRates($ruleId)
@@ -211,8 +209,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
     /**
      * Get allowed customer tax classes by rule id
      *
-     * @param int $ruleId
-     *
+     * @param  int   $ruleId
      * @return array
      */
     public function getCustomerTaxClasses($ruleId)
@@ -227,8 +224,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
     /**
      * Get allowed product tax classes by rule id
      *
-     * @param int $ruleId
-     *
+     * @param  int   $ruleId
      * @return array
      */
     public function getProductTaxClasses($ruleId)
@@ -265,8 +261,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
     /**
      * Get calculation tax rate by specific request
      *
-     * @param Varien_Object $request
-     *
+     * @param  Varien_Object $request
      * @return float
      */
     public function getRate($request)
@@ -300,8 +295,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
     /**
      * Get cache key value for specific tax rate request
      *
-     * @param Varien_Object $request
-     *
+     * @param  Varien_Object $request
      * @return string
      */
     protected function _getRequestCacheKey($request)
@@ -316,9 +310,8 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * This rate can be used for conversion store price including tax to
      * store price excluding tax
      *
-     * @param Varien_Object              $request
-     * @param Mage_Core_Model_Store|null $store
-     *
+     * @param  Varien_Object              $request
+     * @param  null|Mage_Core_Model_Store $store
      * @return float
      */
     public function getStoreRate($request, $store = null)
@@ -333,9 +326,8 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * This rate can be used for conversion store price including tax to
      * store price excluding tax
      *
-     * @param Mage_Sales_Model_Quote_Item_Abstract $item
-     * @param null|Mage_Core_Model_Store           $store
-     *
+     * @param  Mage_Sales_Model_Quote_Item_Abstract $item
+     * @param  null|Mage_Core_Model_Store           $store
      * @return float
      */
     public function getStoreRateForItem($item, $store = null)
@@ -348,8 +340,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
     /**
      * Get request object for getting tax rate based on store shippig original address
      *
-     * @param null|string|bool|int|Mage_Core_Model_Store $store
-     *
+     * @param  null|bool|int|Mage_Core_Model_Store|string $store
      * @return Varien_Object
      */
     public function getRateOriginRequest($store = null)
@@ -366,8 +357,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
     /**
      * Return the default rate request. It can be either based on store address or customer address
      *
-     * @param null|string|bool|int|Mage_Core_Model_Store $store
-     *
+     * @param  null|bool|int|Mage_Core_Model_Store|string $store
      * @return Varien_Object
      */
     public function getDefaultRateRequest($store = null)
@@ -389,11 +379,10 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      *  customer_class_id (->getCustomerClassId())
      *  store (->getStore())
      *
-     * @param null|false|Mage_Sales_Model_Quote_Address  $shippingAddress
-     * @param null|false|Mage_Sales_Model_Quote_Address  $billingAddress
-     * @param null|int                                   $customerTaxClass
-     * @param null|string|bool|int|Mage_Core_Model_Store $store
-     *
+     * @param  null|false|Mage_Sales_Model_Quote_Address  $shippingAddress
+     * @param  null|false|Mage_Sales_Model_Quote_Address  $billingAddress
+     * @param  null|int                                   $customerTaxClass
+     * @param  null|bool|int|Mage_Core_Model_Store|string $store
      * @return Varien_Object
      */
     public function getRateRequest(
@@ -483,9 +472,8 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * a) productClassId MUST be identical for both requests, because we intend to check selling SAME products to DIFFERENT locations
      * b) due to optimization productClassId can be array of ids, not only single id
      *
-     * @param Varien_Object $first
-     * @param Varien_Object $second
-     *
+     * @param  Varien_Object $first
+     * @param  Varien_Object $second
      * @return bool
      */
     public function compareRequests($first, $second)
@@ -541,10 +529,9 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
     /**
      * Gets the tax rates by type
      *
-     * @param Varien_Object $request
-     * @param string        $fieldName
-     * @param string        $type
-     *
+     * @param  Varien_Object $request
+     * @param  string        $fieldName
+     * @param  string        $type
      * @return array
      */
     protected function _getRates($request, $fieldName, $type)
@@ -565,8 +552,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
     /**
      * Gets rates for all the product tax classes
      *
-     * @param Varien_Object $request
-     *
+     * @param  Varien_Object $request
      * @return array
      */
     public function getRatesForAllProductTaxClasses($request)
@@ -577,8 +563,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
     /**
      * Gets rates for all the customer tax classes
      *
-     * @param Varien_Object $request
-     *
+     * @param  Varien_Object $request
      * @return array
      */
     public function getRatesForAllCustomerTaxClasses($request)
@@ -589,8 +574,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
     /**
      * Get information about tax rates applied to request
      *
-     * @param Varien_Object $request
-     *
+     * @param  Varien_Object $request
      * @return array
      */
     public function getAppliedRates($request)
@@ -610,8 +594,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
     /**
      * Get rate ids applicable for some address
      *
-     * @param Varien_Object $request
-     *
+     * @param  Varien_Object $request
      * @return array
      */
     public function getApplicableRateIds($request)
@@ -622,8 +605,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
     /**
      * Get the calculation process
      *
-     * @param array $rates
-     *
+     * @param  array $rates
      * @return array
      */
     public function reproduceProcess($rates)
@@ -634,8 +616,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
     /**
      * Get rates by customer tax class
      *
-     * @param int $customerTaxClass
-     *
+     * @param  int   $customerTaxClass
      * @return array
      */
     public function getRatesByCustomerTaxClass($customerTaxClass)
@@ -646,9 +627,8 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
     /**
      * Get rates by customer and product classes
      *
-     * @param int $customerTaxClass
-     * @param int $productTaxClass
-     *
+     * @param  int   $customerTaxClass
+     * @param  int   $productTaxClass
      * @return array
      */
     public function getRatesByCustomerAndProductTaxClasses($customerTaxClass, $productTaxClass)
@@ -660,11 +640,10 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
      * Calculate rated tax abount based on price and tax rate.
      * If you are using price including tax $priceIncludeTax should be true.
      *
-     * @param float $price
-     * @param float $taxRate
-     * @param bool  $priceIncludeTax
-     * @param bool  $round
-     *
+     * @param  float $price
+     * @param  float $taxRate
+     * @param  bool  $priceIncludeTax
+     * @param  bool  $round
      * @return float
      */
     public function calcTaxAmount($price, $taxRate, $priceIncludeTax = false, $round = true)
@@ -687,9 +666,8 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
     /**
      * Truncate number to specified precision
      *
-     * @param float $price
-     * @param int   $precision
-     *
+     * @param  float $price
+     * @param  int   $precision
      * @return float
      */
     public function truncate($price, $precision = 4)
@@ -701,8 +679,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
     /**
      * Round tax amount
      *
-     * @param float $price
-     *
+     * @param  float $price
      * @return float
      */
     public function round($price)
@@ -713,8 +690,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
     /**
      * Round price up
      *
-     * @param float $price
-     *
+     * @param  float $price
      * @return float
      */
     public function roundUp($price)
@@ -725,8 +701,7 @@ class Mage_Tax_Model_Calculation extends Mage_Core_Model_Abstract
     /**
      * Round price down
      *
-     * @param float $price
-     *
+     * @param  float $price
      * @return float
      */
     public function roundDown($price)

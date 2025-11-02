@@ -41,7 +41,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
     /**
      * Original data that was loaded
      *
-     * @var array|null
+     * @var null|array
      */
     protected $_origData;
 
@@ -104,8 +104,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
     /**
      * Get object loaded data (original data)
      *
-     * @param string $key
-     *
+     * @param  string $key
      * @return mixed
      */
     public function getOrigData($key = null)
@@ -120,9 +119,8 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
     /**
      * Initialize object original data
      *
-     * @param string $key
-     * @param mixed  $data
-     *
+     * @param  string $key
+     * @param  mixed  $data
      * @return $this
      */
     public function setOrigData($key = null, $data = null)
@@ -139,8 +137,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
     /**
      * Compare object data with original data
      *
-     * @param string $field
-     *
+     * @param  string $field
      * @return bool
      */
     public function dataHasChangedFor($field)
@@ -157,7 +154,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
      * If collection name is omitted, resource name will be used with _collection appended
      *
      * @param string      $resourceName
-     * @param string|null $resourceCollectionName
+     * @param null|string $resourceCollectionName
      */
     protected function _setResourceModel($resourceName, $resourceCollectionName = null)
     {
@@ -206,7 +203,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
     /**
      * Retrieve model object identifier
      *
-     * @return int|string|null
+     * @return null|int|string
      */
     public function getId()
     {
@@ -221,8 +218,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
     /**
      * Declare model object identifier value
      *
-     * @param mixed $id
-     *
+     * @param  mixed $id
      * @return $this
      */
     public function setId($id)
@@ -249,9 +245,8 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
     /**
      * Get collection instance
      *
-     * @return Mage_Core_Model_Resource_Db_Collection_Abstract
-     *
      * @throws Mage_Core_Exception
+     * @return Mage_Core_Model_Resource_Db_Collection_Abstract
      */
     public function getResourceCollection()
     {
@@ -268,9 +263,8 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
     }
 
     /**
-     * @return Mage_Core_Model_Resource_Db_Collection_Abstract|false
-     *
      * @throws Mage_Core_Exception
+     * @return false|Mage_Core_Model_Resource_Db_Collection_Abstract
      */
     public function getCollection()
     {
@@ -280,9 +274,8 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
     /**
      * Load object data
      *
-     * @param string|null|int $id
-     * @param string|null     $field
-     *
+     * @param  null|int|string $id
+     * @param  null|string     $field
      * @return $this
      */
     public function load($id, $field = null)
@@ -311,9 +304,8 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
     /**
      * Processing object before load data
      *
-     * @param int         $id
-     * @param string|null $field
-     *
+     * @param  int         $id
+     * @param  null|string $field
      * @return $this
      */
     protected function _beforeLoad($id, $field = null)
@@ -364,9 +356,8 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
     /**
      * Save object data
      *
-     * @return $this
-     *
      * @throws Throwable
+     * @return $this
      */
     public function save()
     {
@@ -421,8 +412,7 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
      * problem is what in after save object has id and we can't detect what object was
      * created in this transaction
      *
-     * @param bool $flag
-     *
+     * @param  bool $flag
      * @return bool
      */
     public function isObjectNew($flag = null)
@@ -531,9 +521,8 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
     /**
      * Delete object from database
      *
-     * @return $this
-     *
      * @throws Throwable
+     * @return $this
      */
     public function delete()
     {
@@ -568,7 +557,6 @@ abstract class Mage_Core_Model_Abstract extends Varien_Object
 
     /**
      * Safeguard func that will check, if we are in admin area
-     *
      *
      * @throws Mage_Core_Exception
      */

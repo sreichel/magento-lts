@@ -76,7 +76,7 @@ abstract class Varien_Image_Adapter_Abstract
      * original image, but after resize() it's already a scaled version.
      *
      * @see Varien_Image_Adapter_Gd2::open()
-     * @var resource|GdImage
+     * @var GdImage|resource
      */
     protected $_imageHandler = null;
 
@@ -84,7 +84,7 @@ abstract class Varien_Image_Adapter_Abstract
      * Width of the image stored in $_imageHandler
      *
      * @see getMimeType
-     * @var string|int
+     * @var int|string
      */
     protected $_imageSrcWidth = null;
 
@@ -92,7 +92,7 @@ abstract class Varien_Image_Adapter_Abstract
      * Height of the image stored in $_imageHandler
      *
      * @see getMimeType
-     * @var string|int
+     * @var int|string
      */
     protected $_imageSrcHeight = null;
 
@@ -171,7 +171,7 @@ abstract class Varien_Image_Adapter_Abstract
     /**
      * Retrieve Original Image Width
      *
-     * @return int|null
+     * @return null|int
      */
     public function getOriginalWidth()
     {
@@ -182,7 +182,7 @@ abstract class Varien_Image_Adapter_Abstract
     /**
      * Retrieve Original Image Height
      *
-     * @return int|null
+     * @return null|int
      */
     public function getOriginalHeight()
     {
@@ -237,8 +237,7 @@ abstract class Varien_Image_Adapter_Abstract
     /**
      * Get/set keepAspectRatio
      *
-     * @param bool $value
-     *
+     * @param  bool $value
      * @return bool
      */
     public function keepAspectRatio($value = null)
@@ -253,8 +252,7 @@ abstract class Varien_Image_Adapter_Abstract
     /**
      * Get/set keepFrame
      *
-     * @param bool $value
-     *
+     * @param  bool $value
      * @return bool
      */
     public function keepFrame($value = null)
@@ -269,8 +267,7 @@ abstract class Varien_Image_Adapter_Abstract
     /**
      * Get/set keepTransparency
      *
-     * @param bool $value
-     *
+     * @param  bool $value
      * @return bool
      */
     public function keepTransparency($value = null)
@@ -285,8 +282,7 @@ abstract class Varien_Image_Adapter_Abstract
     /**
      * Get/set constrainOnly
      *
-     * @param bool $value
-     *
+     * @param  bool $value
      * @return bool
      */
     public function constrainOnly($value = null)
@@ -301,9 +297,8 @@ abstract class Varien_Image_Adapter_Abstract
     /**
      * Get/set quality, values in percentage from 0 to 100
      *
-     * @param int $value
-     *
-     * @return int|null
+     * @param  int      $value
+     * @return null|int
      */
     public function quality($value = null)
     {
@@ -317,8 +312,7 @@ abstract class Varien_Image_Adapter_Abstract
     /**
      * Get/set keepBackgroundColor
      *
-     * @param array $value
-     *
+     * @param  array      $value
      * @return array|void
      */
     public function backgroundColor($value = null)

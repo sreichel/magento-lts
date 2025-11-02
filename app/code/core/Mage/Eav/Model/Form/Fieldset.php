@@ -15,6 +15,7 @@
  * @method Mage_Eav_Model_Resource_Form_Fieldset            _getResource()
  * @method Mage_Eav_Model_Resource_Form_Fieldset            getResource()
  * @method Mage_Eav_Model_Resource_Form_Fieldset_Collection getCollection()
+ * @method Mage_Eav_Model_Resource_Form_Fieldset_Collection getResourceCollection()
  *
  * @method int    getTypeId()
  * @method $this  setTypeId(int $value)
@@ -42,7 +43,6 @@ class Mage_Eav_Model_Form_Fieldset extends Mage_Core_Model_Abstract
 
     /**
      * Validate data before save data
-     *
      *
      * @throws Mage_Core_Exception
      * @inheritDoc
@@ -88,9 +88,8 @@ class Mage_Eav_Model_Form_Fieldset extends Mage_Core_Model_Abstract
     /**
      * Set fieldset store label
      *
-     * @param int    $storeId
-     * @param string $label
-     *
+     * @param  int    $storeId
+     * @param  string $label
      * @return $this
      */
     public function setStoreLabel($storeId, $label)

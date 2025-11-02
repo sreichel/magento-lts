@@ -17,10 +17,9 @@ class Mage_Core_Model_Resource_Iterator extends Varien_Object
     /**
      * Walk over records fetched from query one by one using callback function
      *
-     * @param Zend_Db_Statement_Interface|Zend_Db_Select|string $query
-     * @param array|string                                      $callbacks
-     * @param Varien_Db_Adapter_Interface                       $adapter
-     *
+     * @param  string|Zend_Db_Select|Zend_Db_Statement_Interface $query
+     * @param  array|string                                      $callbacks
+     * @param  Varien_Db_Adapter_Interface                       $adapter
      * @return $this
      */
     public function walk($query, array $callbacks, array $args = [], $adapter = null)
@@ -45,12 +44,10 @@ class Mage_Core_Model_Resource_Iterator extends Varien_Object
     /**
      * Fetch Zend statement instance
      *
-     * @param Zend_Db_Statement_Interface|Zend_Db_Select|string $query
-     * @param Zend_Db_Adapter_Abstract                          $conn
-     *
-     * @return Zend_Db_Statement_Interface
-     *
+     * @param  string|Zend_Db_Select|Zend_Db_Statement_Interface $query
+     * @param  Zend_Db_Adapter_Abstract                          $conn
      * @throws Mage_Core_Exception
+     * @return Zend_Db_Statement_Interface
      */
     protected function _getStatement($query, $conn = null)
     {

@@ -52,13 +52,11 @@ class Mage_Reports_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Retrieve array of intervals
      *
-     * @param string                     $from
-     * @param string                     $to
-     * @param self::REPORT_PERIOD_TYPE_* $period
-     *
-     * @return array
-     *
+     * @param  string                     $from
+     * @param  string                     $to
+     * @param  self::REPORT_PERIOD_TYPE_* $period
      * @throws Zend_Date_Exception
+     * @return array
      */
     public function getIntervals($from, $to, $period = self::REPORT_PERIOD_TYPE_DAY)
     {

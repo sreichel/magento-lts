@@ -421,7 +421,6 @@ class Mage_CatalogSearch_Model_Indexer_Fulltext extends Mage_Index_Model_Indexer
 
     /**
      * Rebuild all index data
-     *
      */
     public function reindexAll()
     {

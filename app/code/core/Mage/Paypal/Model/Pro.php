@@ -34,7 +34,7 @@ class Mage_Paypal_Model_Pro
     /**
      * API instance
      *
-     * @var Mage_Paypal_Model_Api_Nvp|false|null
+     * @var null|false|Mage_Paypal_Model_Api_Nvp
      */
     protected $_api = null;
 
@@ -62,9 +62,8 @@ class Mage_Paypal_Model_Pro
     /**
      * Payment method code setter. Also instantiates/updates config
      *
-     * @param string   $code
-     * @param int|null $storeId
-     *
+     * @param  string   $code
+     * @param  null|int $storeId
      * @return $this
      */
     public function setMethod($code, $storeId = null)
@@ -91,8 +90,7 @@ class Mage_Paypal_Model_Pro
     /**
      * Config instance setter
      *
-     * @param int $storeId
-     *
+     * @param  int   $storeId
      * @return $this
      */
     public function setConfig(Mage_Paypal_Model_Config $instace, $storeId = null)
@@ -160,8 +158,7 @@ class Mage_Paypal_Model_Pro
     /**
      * Transfer transaction/payment information from API instance to order payment
      *
-     * @param Mage_Paypal_Model_Api_Abstract $from
-     *
+     * @param  Mage_Paypal_Model_Api_Abstract $from
      * @return $this
      */
     public function importPaymentInfo(Varien_Object $from, Mage_Payment_Model_Info $to)
@@ -208,9 +205,8 @@ class Mage_Paypal_Model_Pro
      * Attempt to capture payment
      * Will return false if the payment is not supposed to be captured
      *
-     * @param float $amount
-     *
-     * @return false|null
+     * @param  float      $amount
+     * @return null|false
      */
     public function capture(Varien_Object $payment, $amount)
     {
@@ -271,9 +267,7 @@ class Mage_Paypal_Model_Pro
     }
 
     /**
-     *
-     * @param Mage_Sales_Model_Order_Payment $payment
-     *
+     * @param  Mage_Sales_Model_Order_Payment $payment
      * @return bool
      */
     public function canReviewPayment(Mage_Payment_Model_Info $payment)
@@ -284,8 +278,7 @@ class Mage_Paypal_Model_Pro
     /**
      * Perform the payment review
      *
-     * @param string $action
-     *
+     * @param  string $action
      * @return bool
      */
     public function reviewPayment(Mage_Payment_Model_Info $payment, $action)
@@ -309,8 +302,7 @@ class Mage_Paypal_Model_Pro
     /**
      * Fetch transaction details info
      *
-     * @param string $transactionId
-     *
+     * @param  string $transactionId
      * @return array
      */
     public function fetchTransactionInfo(Mage_Payment_Model_Info $payment, $transactionId)
@@ -326,7 +318,6 @@ class Mage_Paypal_Model_Pro
 
     /**
      * Validate RP data
-     *
      *
      * @throws Mage_Core_Exception
      */
@@ -354,7 +345,6 @@ class Mage_Paypal_Model_Pro
 
     /**
      * Submit RP to the gateway
-     *
      *
      * @throws Mage_Core_Exception
      */

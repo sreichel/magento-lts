@@ -15,9 +15,8 @@
 class Mage_Catalog_Block_Category_View extends Mage_Core_Block_Template
 {
     /**
-     * @return $this|Mage_Core_Block_Template
-     *
      * @throws Mage_Core_Model_Store_Exception
+     * @return $this|Mage_Core_Block_Template
      */
     protected function _prepareLayout()
     {
@@ -76,9 +75,8 @@ class Mage_Catalog_Block_Category_View extends Mage_Core_Block_Template
     }
 
     /**
-     * @return string
-     *
      * @throws Mage_Core_Model_Store_Exception
+     * @return string
      */
     public function getRssLink()
     {
@@ -130,7 +128,6 @@ class Mage_Catalog_Block_Category_View extends Mage_Core_Block_Template
 
     /**
      * Check if category display mode is "Products Only"
-     *
      * @return bool
      */
     public function isProductMode()
@@ -140,7 +137,6 @@ class Mage_Catalog_Block_Category_View extends Mage_Core_Block_Template
 
     /**
      * Check if category display mode is "Static Block and Products"
-     *
      * @return bool
      */
     public function isMixedMode()

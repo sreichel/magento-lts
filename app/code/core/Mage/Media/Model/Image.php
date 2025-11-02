@@ -25,13 +25,13 @@ class Mage_Media_Model_Image extends Mage_Core_Model_Abstract
 
     /**
      * Image resource
-     * @var resource|null
+     * @var null|resource
      */
     protected $_image;
 
     /**
      * Tmp image resource
-     * @var resource|null
+     * @var null|resource
      */
     protected $_tmpImage;
 
@@ -48,7 +48,6 @@ class Mage_Media_Model_Image extends Mage_Core_Model_Abstract
 
     /**
      * Set media image config instance
-     *
      * @return Mage_Media_Model_Image
      */
     public function setConfig(Mage_Media_Model_Image_Config_Interface $config)
@@ -59,7 +58,6 @@ class Mage_Media_Model_Image extends Mage_Core_Model_Abstract
 
     /**
      * Retrieve media image config instance
-     *
      * @return Mage_Media_Model_Image_Config_Interface
      */
     public function getConfig()
@@ -128,8 +126,7 @@ class Mage_Media_Model_Image extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param bool $useParams
-     *
+     * @param  bool   $useParams
      * @return string
      */
     public function getFilePath($useParams = false)
@@ -145,8 +142,7 @@ class Mage_Media_Model_Image extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param bool $useParams
-     *
+     * @param  bool   $useParams
      * @return string
      */
     public function getFileUrl($useParams = false)
@@ -170,9 +166,8 @@ class Mage_Media_Model_Image extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param array|string $param
-     * @param string       $value
-     *
+     * @param  array|string $param
+     * @param  string       $value
      * @return $this
      */
     public function addParam($param, $value = null)
@@ -187,9 +182,8 @@ class Mage_Media_Model_Image extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param array|string $param
-     * @param string       $value
-     *
+     * @param  array|string $param
+     * @param  string       $value
      * @return $this
      */
     public function setParam($param, $value = null)
@@ -204,9 +198,8 @@ class Mage_Media_Model_Image extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param string $param
-     *
-     * @return string|null
+     * @param  string      $param
+     * @return null|string
      */
     public function getParam($param)
     {
@@ -232,11 +225,10 @@ class Mage_Media_Model_Image extends Mage_Core_Model_Abstract
     /**
      * Return special link (with creating image if not exists)
      *
-     * @param string $file
-     * @param string $size
-     * @param string $extension
-     * @param string $watermark
-     *
+     * @param  string $file
+     * @param  string $size
+     * @param  string $extension
+     * @param  string $watermark
      * @return string
      */
     public function getSpecialLink($file, $size, $extension = null, $watermark = null)

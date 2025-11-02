@@ -18,11 +18,9 @@ class Mage_Catalog_Model_Attribute_Backend_Customlayoutupdate extends Mage_Eav_M
      * Product custom layout update attribute validate function.
      * In case invalid data throws exception.
      *
-     * @param Varien_Object $object
-     *
-     * @return bool
-     *
+     * @param  Varien_Object                             $object
      * @throws Mage_Eav_Model_Entity_Attribute_Exception
+     * @return bool
      */
     public function validate($object)
     {

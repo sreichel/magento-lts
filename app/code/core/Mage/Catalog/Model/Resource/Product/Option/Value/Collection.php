@@ -22,8 +22,7 @@ class Mage_Catalog_Model_Resource_Product_Option_Value_Collection extends Mage_C
     /**
      * Add price, title to result
      *
-     * @param int $storeId
-     *
+     * @param  int   $storeId
      * @return $this
      */
     public function getValues($storeId)
@@ -37,8 +36,7 @@ class Mage_Catalog_Model_Resource_Product_Option_Value_Collection extends Mage_C
     /**
      * Add titles to result
      *
-     * @param int $storeId
-     *
+     * @param  int   $storeId
      * @return $this
      */
     public function addTitlesToResult($storeId)
@@ -106,8 +104,7 @@ class Mage_Catalog_Model_Resource_Product_Option_Value_Collection extends Mage_C
     /**
      * Add title result
      *
-     * @param int $storeId
-     *
+     * @param  int   $storeId
      * @return $this
      */
     public function addTitleToResult($storeId)
@@ -140,8 +137,7 @@ class Mage_Catalog_Model_Resource_Product_Option_Value_Collection extends Mage_C
     /**
      * Add price to result
      *
-     * @param int $storeId
-     *
+     * @param  int   $storeId
      * @return $this
      */
     public function addPriceToResult($storeId)
@@ -186,9 +182,8 @@ class Mage_Catalog_Model_Resource_Product_Option_Value_Collection extends Mage_C
     /**
      * Add option filter
      *
-     * @param array $optionIds
-     * @param int   $storeId
-     *
+     * @param  array $optionIds
+     * @param  int   $storeId
      * @return $this
      */
     public function getValuesByOption($optionIds, $storeId = null)
@@ -203,8 +198,7 @@ class Mage_Catalog_Model_Resource_Product_Option_Value_Collection extends Mage_C
     /**
      * Add option to filter
      *
-     * @param array|Mage_Catalog_Model_Product_Option|int $option
-     *
+     * @param  array|int|Mage_Catalog_Model_Product_Option $option
      * @return $this
      */
     public function addOptionToFilter($option)

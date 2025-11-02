@@ -17,14 +17,14 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
     /**
      * Shopping cart items summary quantity(s)
      *
-     * @var int|null
+     * @var null|int
      */
     protected $_summaryQty;
 
     /**
      * List of product ids in shopping cart
      *
-     * @var array|null
+     * @var null|array
      */
     protected $_productIds;
 
@@ -61,7 +61,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
     /**
      * List of shopping cart items
      *
-     * @return Mage_Sales_Model_Resource_Quote_Item_Collection|array
+     * @return array|Mage_Sales_Model_Resource_Quote_Item_Collection
      */
     public function getItems()
     {
@@ -143,9 +143,8 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
     /**
      * Convert order item to quote item
      *
-     * @param Mage_Sales_Model_Order_Item $orderItem
-     * @param mixed                       $qtyFlag   if is null set product qty like in order
-     *
+     * @param  Mage_Sales_Model_Order_Item $orderItem
+     * @param  mixed                       $qtyFlag   if is null set product qty like in order
      * @return $this
      */
     public function addOrderItem($orderItem, $qtyFlag = null)
@@ -175,8 +174,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
     /**
      * Get product object based on requested product information
      *
-     * @param mixed $productInfo
-     *
+     * @param  mixed                      $productInfo
      * @return Mage_Catalog_Model_Product
      */
     protected function _getProduct($productInfo)
@@ -205,8 +203,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
     /**
      * Get request for product add to cart procedure
      *
-     * @param mixed $requestInfo
-     *
+     * @param  mixed         $requestInfo
      * @return Varien_Object
      */
     protected function _getProductRequest($requestInfo)
@@ -225,9 +222,8 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
     /**
      * Add product to shopping cart (quote)
      *
-     * @param int|Mage_Catalog_Model_Product $productInfo
-     * @param mixed                          $requestInfo
-     *
+     * @param  int|Mage_Catalog_Model_Product $productInfo
+     * @param  mixed                          $requestInfo
      * @return Mage_Checkout_Model_Cart
      */
     public function addProduct($productInfo, $requestInfo = null)
@@ -293,8 +289,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
     /**
      * Adding products to cart by ids
      *
-     * @param array $productIds
-     *
+     * @param  array                    $productIds
      * @return Mage_Checkout_Model_Cart
      */
     public function addProductsByIds($productIds)
@@ -344,8 +339,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      *
      * $data is an array of ($quoteItemId => (item info array with 'qty' key), ...)
      *
-     * @param array $data
-     *
+     * @param  array $data
      * @return array
      */
     public function suggestItemsQty($data)
@@ -385,8 +379,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
     /**
      * Update cart items information
      *
-     * @param array $data
-     *
+     * @param  array                    $data
      * @return Mage_Checkout_Model_Cart
      */
     public function updateItems($data)
@@ -438,8 +431,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
     /**
      * Remove item from cart
      *
-     * @param int $itemId
-     *
+     * @param  int                      $itemId
      * @return Mage_Checkout_Model_Cart
      */
     public function removeItem($itemId)
@@ -490,7 +482,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
     }
 
     /**
-     * @return array|null
+     * @return null|array
      */
     public function getProductIds()
     {
@@ -512,7 +504,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
     /**
      * Get shopping cart items summary (includes config settings)
      *
-     * @return int|float
+     * @return float|int
      */
     public function getSummaryQty()
     {
@@ -550,7 +542,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
     /**
      * Get shopping cart summary qty
      *
-     * @return int|float
+     * @return float|int
      */
     public function getItemsQty()
     {
@@ -562,10 +554,9 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
      * $requestInfo - either qty (int) or buyRequest in form of array or Varien_Object
      * $updatingParams - information on how to perform update, passed to Quote->updateItem() method
      *
-     * @param int                      $itemId
-     * @param int|array|Varien_Object  $requestInfo
-     * @param null|array|Varien_Object $updatingParams
-     *
+     * @param  int                                $itemId
+     * @param  array|int|Varien_Object            $requestInfo
+     * @param  null|array|Varien_Object           $updatingParams
      * @return Mage_Sales_Model_Quote_Item|string
      *
      * @see Mage_Sales_Model_Quote::updateItem()

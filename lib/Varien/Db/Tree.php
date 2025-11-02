@@ -10,7 +10,6 @@
 /**
  * Varien Library
  *
- *
  * @package    Varien_Db
  */
 
@@ -209,7 +208,6 @@ class Varien_Db_Tree
 
     /**
      * Clear table and add root element
-     *
      */
     public function clear($data = [])
     {

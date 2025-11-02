@@ -15,6 +15,7 @@
  * @method Mage_Sales_Model_Resource_Order_Item            _getResource()
  * @method Mage_Sales_Model_Resource_Order_Item            getResource()
  * @method Mage_Sales_Model_Resource_Order_Item_Collection getCollection()
+ * @method Mage_Sales_Model_Resource_Order_Item_Collection getResourceCollection()
  *
  * @method int         getOrderId()
  * @method $this       setOrderId(int $value)
@@ -42,7 +43,7 @@
  * @method $this       setName(string $value)
  * @method string      getDescription()
  * @method $this       setDescription(string $value)
- * @method string|null getAppliedRuleIds()
+ * @method null|string getAppliedRuleIds()
  * @method $this       setAppliedRuleIds(string $value)
  * @method string      getAdditionalData()
  * @method $this       setAdditionalData(string $value)
@@ -217,7 +218,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
     /**
      * Order instance
      *
-     * @var Mage_Sales_Model_Order|null
+     * @var null|Mage_Sales_Model_Order
      */
     protected $_order       = null;
 
@@ -270,8 +271,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
     /**
      * Set parent item
      *
-     * @param Mage_Sales_Model_Order_Item $item
-     *
+     * @param  Mage_Sales_Model_Order_Item $item
      * @return $this
      */
     public function setParentItem($item)
@@ -288,7 +288,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
     /**
      * Get parent item
      *
-     * @return $this|null
+     * @return null|$this
      */
     public function getParentItem()
     {
@@ -522,7 +522,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
     /**
      * Retrieve backordered qty of children items
      *
-     * @return float|null
+     * @return null|float
      */
     protected function _getQtyChildrenBackordered()
     {
@@ -547,8 +547,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
     /**
      * Retrieve status name
      *
-     * @param int $statusId
-     *
+     * @param  int    $statusId
      * @return string
      */
     public static function getStatusName($statusId)
@@ -651,9 +650,8 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      * Get product options array by code.
      * If code is null return all options
      *
-     * @param string $code
-     *
-     * @return array|string|null
+     * @param  string            $code
+     * @return null|array|string
      */
     public function getProductOptionByCode($code = null)
     {
@@ -668,7 +666,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
     /**
      * Return real product type of item or NULL if item is not composite
      *
-     * @return array|null
+     * @return null|array
      */
     public function getRealProductType()
     {
@@ -770,8 +768,7 @@ class Mage_Sales_Model_Order_Item extends Mage_Core_Model_Abstract
      * if $shipment is true then we checking this for shipping situation if not
      * then we checking this for calculation
      *
-     * @param bool $shipment
-     *
+     * @param  bool $shipment
      * @return bool
      */
     public function isDummy($shipment = false)

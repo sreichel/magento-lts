@@ -196,7 +196,6 @@ class Mage_Checkout_Model_Type_Onepage
      * Get quote checkout method
      *
      * @deprecated since 1.4.0.1
-     *
      * @return string
      */
     public function getCheckoutMehod()
@@ -207,8 +206,7 @@ class Mage_Checkout_Model_Type_Onepage
     /**
      * Specify checkout method
      *
-     * @param string $method
-     *
+     * @param  string $method
      * @return array
      */
     public function saveCheckoutMethod($method)
@@ -225,8 +223,7 @@ class Mage_Checkout_Model_Type_Onepage
     /**
      * Get customer address by identifier
      *
-     * @param int $addressId
-     *
+     * @param  int                         $addressId
      * @return Mage_Customer_Model_Address
      */
     public function getAddress($addressId)
@@ -244,12 +241,10 @@ class Mage_Checkout_Model_Type_Onepage
      * Save billing address information to quote
      * This method is called by One Page Checkout JS (AJAX) while saving the billing information.
      *
-     * @param array $data
-     * @param int   $customerAddressId
-     *
-     * @return array|true
-     *
+     * @param  array               $data
+     * @param  int                 $customerAddressId
      * @throws Mage_Core_Exception
+     * @return array|true
      */
     public function saveBilling($data, $customerAddressId)
     {
@@ -384,7 +379,7 @@ class Mage_Checkout_Model_Type_Onepage
      * Validate customer data and set some its data for further usage in quote
      * Will return either true or array with error messages
      *
-     * @return true|array
+     * @return array|true
      */
     protected function _validateCustomerData(array $data)
     {
@@ -461,8 +456,7 @@ class Mage_Checkout_Model_Type_Onepage
      * Will return either true or array with error messages
      *
      * @deprecated since 1.4.0.1
-     *
-     * @return true|array
+     * @return array|true
      */
     protected function _processValidateCustomer(Mage_Sales_Model_Quote_Address $address)
     {
@@ -530,9 +524,8 @@ class Mage_Checkout_Model_Type_Onepage
     /**
      * Save checkout shipping address
      *
-     * @param array $data
-     * @param int   $customerAddressId
-     *
+     * @param  array $data
+     * @param  int   $customerAddressId
      * @return array
      */
     public function saveShipping($data, $customerAddressId)
@@ -609,8 +602,7 @@ class Mage_Checkout_Model_Type_Onepage
     /**
      * Specify quote shipping method
      *
-     * @param string $shippingMethod
-     *
+     * @param  string $shippingMethod
      * @return array
      */
     public function saveShippingMethod($shippingMethod)
@@ -637,8 +629,7 @@ class Mage_Checkout_Model_Type_Onepage
     /**
      * Specify quote payment method
      *
-     * @param array $data
-     *
+     * @param  array $data
      * @return array
      */
     public function savePayment($data)
@@ -895,7 +886,6 @@ class Mage_Checkout_Model_Type_Onepage
     /**
      * Validate quote state to be able submitted from one page checkout page
      *
-     *
      * @throws Mage_Core_Exception
      * @deprecated after 1.4 - service model doing quote validation
      */
@@ -932,9 +922,8 @@ class Mage_Checkout_Model_Type_Onepage
     /**
      * Check if customer email exists
      *
-     * @param string $email
-     * @param int    $websiteId
-     *
+     * @param  string                             $email
+     * @param  int                                $websiteId
      * @return false|Mage_Customer_Model_Customer
      */
     protected function _customerEmailExists($email, $websiteId = null)

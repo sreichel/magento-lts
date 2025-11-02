@@ -51,8 +51,7 @@ class Mage_Bundle_Model_Option extends Mage_Core_Model_Abstract
     /**
      * Add selection to option
      *
-     * @param Mage_Bundle_Model_Selection $selection
-     *
+     * @param  Mage_Bundle_Model_Selection $selection
      * @return $this|false
      */
     public function addSelection($selection)
@@ -108,22 +107,6 @@ class Mage_Bundle_Model_Option extends Mage_Core_Model_Abstract
         }
 
         return $this->_defaultSelection;
-        /**
-         *         if (!$this->_defaultSelection && $this->getSelections()) {
-            $_selections = array();
-            foreach ($this->getSelections() as $selection) {
-                if ($selection->getIsDefault()) {
-                    $_selections[] = $selection;
-                }
-            }
-            if (!empty($_selections)) {
-                $this->_defaultSelection = $_selections;
-            } else {
-                return null;
-            }
-        }
-        return $this->_defaultSelection;
-         */
     }
 
     /**
@@ -143,9 +126,8 @@ class Mage_Bundle_Model_Option extends Mage_Core_Model_Abstract
     /**
      * Retrieve options searchable data
      *
-     * @param int $productId
-     * @param int $storeId
-     *
+     * @param  int   $productId
+     * @param  int   $storeId
      * @return array
      */
     public function getSearchableData($productId, $storeId)
@@ -157,9 +139,8 @@ class Mage_Bundle_Model_Option extends Mage_Core_Model_Abstract
     /**
      * Return selection by it's id
      *
-     * @param int $selectionId
-     *
-     * @return Mage_Catalog_Model_Product|false
+     * @param  int                              $selectionId
+     * @return false|Mage_Catalog_Model_Product
      */
     public function getSelectionById($selectionId)
     {

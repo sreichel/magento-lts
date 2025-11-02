@@ -16,7 +16,6 @@ abstract class Mage_Sales_Model_Payment_Method_Billing_AgreementAbstract extends
 {
     /**
      * Transport billing agreement id
-     *
      */
     public const TRANSPORT_BILLING_AGREEMENT_ID = 'ba_agreement_id';
 
@@ -36,8 +35,7 @@ abstract class Mage_Sales_Model_Payment_Method_Billing_AgreementAbstract extends
     /**
      * Check whether method is available
      *
-     * @param Mage_Sales_Model_Quote $quote
-     *
+     * @param  Mage_Sales_Model_Quote $quote
      * @return bool
      */
     public function isAvailable($quote = null)
@@ -63,11 +61,9 @@ abstract class Mage_Sales_Model_Payment_Method_Billing_AgreementAbstract extends
     /**
      * Assign data to info model instance
      *
-     * @param mixed $data
-     *
-     * @return Mage_Payment_Model_Method_Abstract
-     *
+     * @param  mixed                              $data
      * @throws Mage_Core_Exception
+     * @return Mage_Payment_Model_Method_Abstract
      */
     public function assignData($data)
     {
@@ -94,8 +90,6 @@ abstract class Mage_Sales_Model_Payment_Method_Billing_AgreementAbstract extends
     }
 
     /**
-     *
-     *
      * @param Mage_Sales_Model_Quote $quote
      */
     abstract protected function _isAvailable($quote);

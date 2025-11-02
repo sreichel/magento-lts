@@ -21,7 +21,6 @@ class Mage_Adminhtml_Block_Dashboard_Sales extends Mage_Adminhtml_Block_Dashboar
     }
 
     /**
-     *
      * @throws Mage_Core_Exception
      */
     protected function _prepareLayout()

@@ -16,7 +16,6 @@ abstract class Mage_ImportExport_Model_Import_Entity_Abstract
 {
     /**
      * Database constants
-     *
      */
     public const DB_MAX_PACKET_COEFFICIENT = 900000;
 
@@ -50,7 +49,7 @@ abstract class Mage_ImportExport_Model_Import_Entity_Abstract
     /**
      * Entity type id.
      *
-     * @var int|null
+     * @var null|int
      */
     protected $_entityTypeId;
 
@@ -410,7 +409,7 @@ abstract class Mage_ImportExport_Model_Import_Entity_Abstract
     /**
      * Entity type ID getter.
      *
-     * @return int|null
+     * @return null|int
      */
     public function getEntityTypeId()
     {
@@ -503,7 +502,6 @@ abstract class Mage_ImportExport_Model_Import_Entity_Abstract
 
     /**
      * Source object getter.
-     *
      *
      * @throws Exception
      *
@@ -665,7 +663,6 @@ abstract class Mage_ImportExport_Model_Import_Entity_Abstract
 
     /**
      * Validate data.
-     *
      *
      * @throws Exception
      *

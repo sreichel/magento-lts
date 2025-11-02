@@ -15,6 +15,7 @@
  * @method Mage_Eav_Model_Resource_Form_Type            _getResource()
  * @method Mage_Eav_Model_Resource_Form_Type            getResource()
  * @method Mage_Eav_Model_Resource_Form_Type_Collection getCollection()
+ * @method Mage_Eav_Model_Resource_Form_Type_Collection getResourceCollection()
  *
  * @method string getCode()
  * @method $this  setCode(string $value)
@@ -72,8 +73,7 @@ class Mage_Eav_Model_Form_Type extends Mage_Core_Model_Abstract
     /**
      * Assign Entity Type to Form Type
      *
-     * @param int $entityTypeId
-     *
+     * @param  int   $entityTypeId
      * @return $this
      */
     public function addEntityType($entityTypeId)

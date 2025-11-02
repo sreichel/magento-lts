@@ -17,7 +17,6 @@ interface Mage_Payment_Model_Recurring_Profile_MethodInterface
     /**
      * Validate data
      *
-     *
      * @throws Mage_Core_Exception
      */
     public function validateRecurringProfile(Mage_Payment_Model_Recurring_Profile $profile);

@@ -118,7 +118,7 @@ class Mage_Payment_Block_Form_Container extends Mage_Core_Block_Template
     /**
      * Retrieve code of current payment method
      *
-     * @return string|false
+     * @return false|string
      */
     public function getSelectedMethodCode()
     {

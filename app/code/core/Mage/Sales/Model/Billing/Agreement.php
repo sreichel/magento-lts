@@ -15,6 +15,7 @@
  * @method Mage_Sales_Model_Resource_Billing_Agreement            _getResource()
  * @method Mage_Sales_Model_Resource_Billing_Agreement            getResource()
  * @method Mage_Sales_Model_Resource_Billing_Agreement_Collection getCollection()
+ * @method Mage_Sales_Model_Resource_Billing_Agreement_Collection getResourceCollection()
  *
  * @method int                          getAgreementId()
  * @method string                       getAgreementLabel()
@@ -35,12 +36,11 @@
  * @method $this                        setStoreId(int $value)
  * @method string                       getUpdatedAt()
  * @method $this                        setUpdatedAt(string $value)
- *
- * @method $this  setCancelUrl(string $value)
- * @method string getRedirectUrl()
- * @method $this  setReturnUrl(string $value)
- * @method $this  setToken(string $value)
- * @method int    getBillingAgreementId()
+ * @method $this                        setCancelUrl(string $value)
+ * @method string                       getRedirectUrl()
+ * @method $this                        setReturnUrl(string $value)
+ * @method $this                        setToken(string $value)
+ * @method int                          getBillingAgreementId()
  */
 class Mage_Sales_Model_Billing_Agreement extends Mage_Payment_Model_Billing_AgreementAbstract
 {
@@ -136,8 +136,7 @@ class Mage_Sales_Model_Billing_Agreement extends Mage_Payment_Model_Billing_Agre
     /**
      * Check for permissions
      *
-     * @param int $customerIdSession
-     *
+     * @param  int  $customerIdSession
      * @return bool
      */
     public function canPerformAction($customerIdSession)
@@ -251,8 +250,7 @@ class Mage_Sales_Model_Billing_Agreement extends Mage_Payment_Model_Billing_Agre
     /**
      * Retrieve available customer Billing Agreements
      *
-     * @param int $customerId
-     *
+     * @param  int                                                    $customerId
      * @return Mage_Sales_Model_Resource_Billing_Agreement_Collection
      */
     public function getAvailableCustomerBillingAgreements($customerId)
@@ -267,8 +265,7 @@ class Mage_Sales_Model_Billing_Agreement extends Mage_Payment_Model_Billing_Agre
     /**
      * Check whether need to create billing agreement for customer
      *
-     * @param int $customerId
-     *
+     * @param  int  $customerId
      * @return bool
      */
     public function needToCreateForCustomer($customerId)
@@ -279,8 +276,7 @@ class Mage_Sales_Model_Billing_Agreement extends Mage_Payment_Model_Billing_Agre
     /**
      * Add order relation to current billing agreement
      *
-     * @param int|Mage_Sales_Model_Order $orderId
-     *
+     * @param  int|Mage_Sales_Model_Order $orderId
      * @return $this
      */
     public function addOrderRelation($orderId)

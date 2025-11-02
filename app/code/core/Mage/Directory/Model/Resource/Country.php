@@ -24,7 +24,6 @@ class Mage_Directory_Model_Resource_Country extends Mage_Core_Model_Resource_Db_
      *
      * @param string $code
      *
-     *
      * @throws Mage_Core_Exception
      *
      * @return $this

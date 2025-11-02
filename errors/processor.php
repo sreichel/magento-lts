@@ -9,7 +9,6 @@
 
 /**
  * Error processor
- *
  */
 class Error_Processor
 {
@@ -274,9 +273,8 @@ class Error_Processor
     /**
      * Load xml file
      *
-     * @param string $xmlFile file name
-     *
-     * @return SimpleXMLElement|null
+     * @param  string                $xmlFile file name
+     * @return null|SimpleXMLElement
      */
     protected function _loadXml(string $xmlFile)
     {
@@ -313,9 +311,8 @@ class Error_Processor
     /**
      * Find file path
      *
-     * @param array|null $directories
-     *
-     * @return string|null
+     * @param  null|array  $directories
+     * @return null|string
      */
     protected function _getFilePath(string $file, $directories = null)
     {
@@ -341,7 +338,7 @@ class Error_Processor
     /**
      * Find template path
      *
-     * @return string|null
+     * @return null|string
      */
     protected function _getTemplatePath(string $template)
     {
@@ -381,7 +378,6 @@ class Error_Processor
     }
 
     /**
-     *
      * @throws Exception
      */
     public function saveReport(array $reportData)
@@ -414,7 +410,7 @@ class Error_Processor
     }
 
     /**
-     * @return void|no-return
+     * @return no-return|void
      */
     public function loadReport(int $reportId)
     {
@@ -522,7 +518,6 @@ class Error_Processor
 
     /**
      * Set current report URL from current params
-     *
      * @return void
      */
     protected function _setReportUrl()

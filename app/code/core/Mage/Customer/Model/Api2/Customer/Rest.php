@@ -52,7 +52,6 @@ abstract class Mage_Customer_Model_Api2_Customer_Rest extends Mage_Customer_Mode
     /**
      * Retrieve information about customer
      *
-     *
      * @throws Mage_Api2_Exception
      *
      * @return array
@@ -76,7 +75,6 @@ abstract class Mage_Customer_Model_Api2_Customer_Rest extends Mage_Customer_Mode
 
     /**
      * Update customer
-     *
      *
      * @throws Mage_Api2_Exception
      */

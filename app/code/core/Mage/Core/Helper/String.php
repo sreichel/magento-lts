@@ -27,12 +27,11 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
      * Truncate a string to a certain length if necessary, appending the $etc string.
      * $remainder will contain the string that has been replaced with $etc.
      *
-     * @param string|null $string
-     * @param int         $length
-     * @param string      $etc
-     * @param string      &$remainder
-     * @param bool        $breakWords
-     *
+     * @param  null|string $string
+     * @param  int         $length
+     * @param  string      $etc
+     * @param  string      &$remainder
+     * @param  bool        $breakWords
      * @return string
      */
     public function truncate($string, $length = 80, $etc = '...', &$remainder = '', $breakWords = true)
@@ -66,8 +65,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
     /**
      * Retrieve string length using default charset
      *
-     * @param string $string
-     *
+     * @param  string $string
      * @return int
      */
     public function strlen($string)
@@ -78,10 +76,9 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
     /**
      * Passthrough to iconv_substr()
      *
-     * @param string $string
-     * @param int    $offset
-     * @param int    $length
-     *
+     * @param  string $string
+     * @param  int    $offset
+     * @param  int    $length
      * @return string
      */
     public function substr($string, $offset, $length = null)
@@ -101,11 +98,10 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
     /**
      * Split string and appending $insert string after $needle
      *
-     * @param string $str
-     * @param int    $length
-     * @param string $needle
-     * @param string $insert
-     *
+     * @param  string $str
+     * @param  int    $length
+     * @param  string $needle
+     * @param  string $insert
      * @return string
      */
     public function splitInjection($str, $length = 50, $needle = '-', $insert = ' ')
@@ -129,8 +125,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
     /**
      * Binary-safe strrev()
      *
-     * @param string $str
-     *
+     * @param  string $str
      * @return string
      */
     public function strrev($str)
@@ -154,12 +149,11 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
      * + option to trim spaces (between each word)
      * + option to set character(s) (pcre pattern) to be considered as words separator
      *
-     * @param string $str
-     * @param int    $length
-     * @param bool   $keepWords
-     * @param bool   $trim
-     * @param string $wordSeparatorRegex
-     *
+     * @param  string $str
+     * @param  int    $length
+     * @param  bool   $keepWords
+     * @param  bool   $trim
+     * @param  string $wordSeparatorRegex
      * @return array
      * @SuppressWarnings("PHPMD.CamelCaseMethodName")
      */
@@ -255,11 +249,10 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
     /**
      * Split words
      *
-     * @param string|null $str                 The source string
-     * @param bool        $uniqueOnly          Unique words only
-     * @param int         $maxWordLength       Limit words count
-     * @param string      $wordSeparatorRegexp
-     *
+     * @param  null|string $str                 The source string
+     * @param  bool        $uniqueOnly          Unique words only
+     * @param  int         $maxWordLength       Limit words count
+     * @param  string      $wordSeparatorRegexp
      * @return array
      */
     public function splitWords($str, $uniqueOnly = false, $maxWordLength = 0, $wordSeparatorRegexp = '\s')
@@ -288,8 +281,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
     /**
      * Clean non UTF-8 characters
      *
-     * @param string $string
-     *
+     * @param  string $string
      * @return string
      */
     public function cleanString($string)
@@ -306,11 +298,10 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
     /**
      * Find position of first occurrence of a string
      *
-     * @param string $haystack
-     * @param string $needle
-     * @param int    $offset
-     *
-     * @return int|false
+     * @param  string    $haystack
+     * @param  string    $needle
+     * @param  int       $offset
+     * @return false|int
      */
     public function strpos($haystack, $needle, $offset = 0)
     {
@@ -341,8 +332,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
     /**
      * Parse query string to array
      *
-     * @param string $str
-     *
+     * @param  string $str
      * @return array
      */
     public function parseQueryStr($str)
@@ -369,8 +359,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
     /**
      * Validate query pair string
      *
-     * @param string $str
-     *
+     * @param  string $str
      * @return bool
      */
     protected function _validateQueryStr($str)
@@ -385,8 +374,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
     /**
      * Prepare param
      *
-     * @param string $str
-     *
+     * @param  string $str
      * @return array
      */
     protected function _explodeAndDecodeParam($str)
@@ -450,9 +438,8 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
     /**
      * Remove subkey part from key
      *
-     * @param string $key
-     * @param string $subKeyBrackets
-     *
+     * @param  string $key
+     * @param  string $subKeyBrackets
      * @return string
      */
     protected function _removeSubkeyPartFromKey($key, $subKeyBrackets)
@@ -463,9 +450,8 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
     /**
      * Get last part key from query array
      *
-     * @param string $key
-     * @param bool   $withBrackets
-     *
+     * @param  string $key
+     * @param  bool   $withBrackets
      * @return string
      */
     protected function _getLastSubkey($key, $withBrackets = true)
@@ -494,8 +480,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
     /**
      * Set array helper
      *
-     * @param Mage_Core_Helper_Array $helper
-     *
+     * @param  Mage_Core_Helper_Array $helper
      * @return $this
      */
     public function setArrayHelper(Mage_Core_Helper_Abstract $helper)
@@ -521,8 +506,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
     /**
      * Unicode compatible ord() method
      *
-     * @param string $c char to get value from
-     *
+     * @param  string $c char to get value from
      * @return int
      */
     public function uniOrd($c)
@@ -548,11 +532,9 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
 
     /**
      * UnSerialize string
-     * @param string|null $str
-     *
-     * @return null|void
-     *
+     * @param  null|string $str
      * @throws Exception
+     * @return null|void
      */
     public function unserialize($str)
     {
@@ -578,8 +560,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
     /**
      * Detect serialization of data Array or Object
      *
-     * @param mixed $data
-     *
+     * @param  mixed $data
      * @return bool
      */
     public function isSerializedArrayOrObject($data)
@@ -592,8 +573,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
     /**
      * Validate is Serialized Data Object in string
      *
-     * @param string $str
-     *
+     * @param  string $str
      * @return bool
      */
     public function validateSerializedObject($str)

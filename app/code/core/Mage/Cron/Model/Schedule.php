@@ -15,6 +15,7 @@
  * @method Mage_Cron_Model_Resource_Schedule            _getResource()
  * @method Mage_Cron_Model_Resource_Schedule            getResource()
  * @method Mage_Cron_Model_Resource_Schedule_Collection getCollection()
+ * @method Mage_Cron_Model_Resource_Schedule_Collection getResourceCollection()
  *
  * @method $this                  setIsError(bool $value)
  * @method string                 getJobCode()
@@ -58,11 +59,9 @@ class Mage_Cron_Model_Schedule extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param string $expr
-     *
-     * @return $this
-     *
+     * @param  string              $expr
      * @throws Mage_Core_Exception
+     * @return $this
      */
     public function setCronExpr($expr)
     {
@@ -80,8 +79,7 @@ class Mage_Cron_Model_Schedule extends Mage_Core_Model_Abstract
      *
      * Supports $this->setCronExpr('* 0-5,10-59/5 2-10,15-25 january-june/2 mon-fri')
      *
-     * @param string|int $time
-     *
+     * @param  int|string $time
      * @return bool
      */
     public function trySchedule($time)
@@ -116,12 +114,10 @@ class Mage_Cron_Model_Schedule extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param string $expr
-     * @param int    $num
-     *
-     * @return bool
-     *
+     * @param  string              $expr
+     * @param  int                 $num
      * @throws Mage_Core_Exception
+     * @return bool
      */
     public function matchCronExpression($expr, $num)
     {
@@ -183,9 +179,8 @@ class Mage_Cron_Model_Schedule extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param int|string $value
-     *
-     * @return int|string|false
+     * @param  int|string       $value
+     * @return false|int|string
      */
     public function getNumeric($value)
     {

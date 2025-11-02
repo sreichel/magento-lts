@@ -12,14 +12,16 @@
  *
  * @package    Mage_Persistent
  *
+ * @method Mage_Persistent_Model_Resource_Session _getResource()
  * @method Mage_Persistent_Model_Resource_Session getResource()
- * @method int                                    getCustomerId()
- * @method $this                                  setCustomerId(int $value)
- * @method string                                 getInfo()
- * @method $this                                  setInfo(string $value)
- * @method string                                 getKey()
- * @method $this                                  setKey(string $value)
- * @method $this                                  setWebsiteId(int|string|null $value)
+ *
+ * @method int    getCustomerId()
+ * @method $this  setCustomerId(int $value)
+ * @method string getInfo()
+ * @method $this  setInfo(string $value)
+ * @method string getKey()
+ * @method $this  setKey(string $value)
+ * @method $this  setWebsiteId(null|int|string $value)
  */
 class Mage_Persistent_Model_Session extends Mage_Core_Model_Abstract
 {
@@ -52,8 +54,7 @@ class Mage_Persistent_Model_Session extends Mage_Core_Model_Abstract
     /**
      * Set if load expired persistent session
      *
-     * @param bool $loadExpired
-     *
+     * @param  bool  $loadExpired
      * @return $this
      */
     public function setLoadExpired($loadExpired = true)
@@ -75,8 +76,7 @@ class Mage_Persistent_Model_Session extends Mage_Core_Model_Abstract
     /**
      * Get date-time before which persistent session is expired
      *
-     * @param int|string|Mage_Core_Model_Store $store
-     *
+     * @param  int|Mage_Core_Model_Store|string $store
      * @return string
      */
     public function getExpiredBefore($store = null)
@@ -139,8 +139,7 @@ class Mage_Persistent_Model_Session extends Mage_Core_Model_Abstract
     /**
      * Get persistent session by cookie key
      *
-     * @param string $key
-     *
+     * @param  string $key
      * @return $this
      */
     public function loadByCookieKey($key = null)
@@ -159,8 +158,7 @@ class Mage_Persistent_Model_Session extends Mage_Core_Model_Abstract
     /**
      * Load session model by specified customer id
      *
-     * @param int $id
-     *
+     * @param  int                      $id
      * @return Mage_Core_Model_Abstract
      */
     public function loadByCustomerId($id)
@@ -171,9 +169,8 @@ class Mage_Persistent_Model_Session extends Mage_Core_Model_Abstract
     /**
      * Delete customer persistent session by customer id
      *
-     * @param int  $customerId
-     * @param bool $clearCookie
-     *
+     * @param  int   $customerId
+     * @param  bool  $clearCookie
      * @return $this
      */
     public function deleteByCustomerId($customerId, $clearCookie = true)
@@ -200,8 +197,7 @@ class Mage_Persistent_Model_Session extends Mage_Core_Model_Abstract
     /**
      * Delete expired persistent sessions for the website
      *
-     * @param int|null $websiteId
-     *
+     * @param  null|int $websiteId
      * @return $this
      */
     public function deleteExpired($websiteId = null)

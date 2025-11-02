@@ -22,8 +22,7 @@ class Mage_Customer_Model_Customer_Api extends Mage_Customer_Model_Api_Resource
      * Prepare data to insert/update.
      * Creating array for stdClass Object
      *
-     * @param array $data
-     *
+     * @param  array $data
      * @return array
      */
     protected function _prepareData($data)
@@ -41,8 +40,7 @@ class Mage_Customer_Model_Customer_Api extends Mage_Customer_Model_Api_Resource
     /**
      * Create new customer
      *
-     * @param array $customerData
-     *
+     * @param  array $customerData
      * @return int
      */
     public function create($customerData)
@@ -63,9 +61,8 @@ class Mage_Customer_Model_Customer_Api extends Mage_Customer_Model_Api_Resource
     /**
      * Retrieve customer data
      *
-     * @param int   $customerId
-     * @param array $attributes
-     *
+     * @param  int   $customerId
+     * @param  array $attributes
      * @return array
      */
     public function info($customerId, $attributes = null)
@@ -96,8 +93,7 @@ class Mage_Customer_Model_Customer_Api extends Mage_Customer_Model_Api_Resource
     /**
      * Retrieve customers data
      *
-     * @param object|array $filters
-     *
+     * @param  array|object $filters
      * @return array
      */
     public function items($filters)
@@ -138,9 +134,8 @@ class Mage_Customer_Model_Customer_Api extends Mage_Customer_Model_Api_Resource
     /**
      * Update customer data
      *
-     * @param int   $customerId
-     * @param array $customerData
-     *
+     * @param  int   $customerId
+     * @param  array $customerData
      * @return bool
      */
     public function update($customerId, $customerData)
@@ -166,8 +161,7 @@ class Mage_Customer_Model_Customer_Api extends Mage_Customer_Model_Api_Resource
     /**
      * Delete customer
      *
-     * @param int $customerId
-     *
+     * @param  int  $customerId
      * @return bool
      */
     public function delete($customerId)

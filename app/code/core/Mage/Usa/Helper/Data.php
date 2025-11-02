@@ -17,11 +17,10 @@ class Mage_Usa_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Convert weight in different measure types
      *
-     * @param mixed  $value
-     * @param string $sourceWeightMeasure
-     * @param string $toWeightMeasure
-     *
-     * @return int|null|string
+     * @param  mixed           $value
+     * @param  string          $sourceWeightMeasure
+     * @param  string          $toWeightMeasure
+     * @return null|int|string
      */
     public function convertMeasureWeight($value, $sourceWeightMeasure, $toWeightMeasure)
     {
@@ -38,11 +37,10 @@ class Mage_Usa_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Convert dimensions in different measure types
      *
-     * @param mixed  $value
-     * @param string $sourceDimensionMeasure
-     * @param string $toDimensionMeasure
-     *
-     * @return int|null|string
+     * @param  mixed           $value
+     * @param  string          $sourceDimensionMeasure
+     * @param  string          $toDimensionMeasure
+     * @return null|int|string
      */
     public function convertMeasureDimension($value, $sourceDimensionMeasure, $toDimensionMeasure)
     {
@@ -59,8 +57,7 @@ class Mage_Usa_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Get name of measure by its type
      *
-     * @param $key
-     *
+     * @param         $key
      * @return string
      */
     public function getMeasureWeightName($key)
@@ -77,8 +74,7 @@ class Mage_Usa_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Get name of measure by its type
      *
-     * @param $key
-     *
+     * @param         $key
      * @return string
      */
     public function getMeasureDimensionName($key)
@@ -95,8 +91,7 @@ class Mage_Usa_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Define if we need girth parameter in the package window
      *
-     * @param string $shippingMethod
-     *
+     * @param  string $shippingMethod
      * @return bool
      */
     public function displayGirthValue($shippingMethod)

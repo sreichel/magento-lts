@@ -15,7 +15,7 @@
 class Mage_ImportExport_Model_Resource_Import_Data extends Mage_Core_Model_Resource_Db_Abstract implements IteratorAggregate
 {
     /**
-     * @var IteratorIterator|null
+     * @var null|IteratorIterator
      */
     protected $_iterator = null;
 
@@ -63,7 +63,6 @@ class Mage_ImportExport_Model_Resource_Import_Data extends Mage_Core_Model_Resou
     /**
      * Return behavior from import data table.
      *
-     *
      * @throws Exception
      *
      * @return string
@@ -84,7 +83,6 @@ class Mage_ImportExport_Model_Resource_Import_Data extends Mage_Core_Model_Resou
 
     /**
      * Return entity type code from import data table.
-     *
      *
      * @throws Exception
      *
@@ -107,7 +105,7 @@ class Mage_ImportExport_Model_Resource_Import_Data extends Mage_Core_Model_Resou
     /**
      * Get next bunch of validated rows.
      *
-     * @return array|null
+     * @return null|array
      */
     public function getNextBunch()
     {

@@ -81,8 +81,7 @@ class Magento_Profiler
     /**
      * Retrieve unique identifier among all timers
      *
-     * @param string|null $timerName Timer name
-     *
+     * @param  null|string $timerName Timer name
      * @return string
      */
     private static function _getTimerId($timerName = null)
@@ -121,7 +120,7 @@ class Magento_Profiler
     /**
      * Reset collected statistics for specified timer or for whole profiler if timer name is omitted
      *
-     * @param string|null $timerName
+     * @param null|string $timerName
      */
     public static function reset($timerName = null)
     {
@@ -144,8 +143,7 @@ class Magento_Profiler
     /**
      * Start collecting statistics for specified timer
      *
-     * @param string $timerName
-     *
+     * @param  string           $timerName
      * @throws Varien_Exception
      */
     public static function start($timerName)
@@ -178,8 +176,7 @@ class Magento_Profiler
      * Call with no arguments to stop the recently started timer.
      * Only the latest started timer can be stopped.
      *
-     * @param string|null $timerName
-     *
+     * @param  null|string      $timerName
      * @throws Varien_Exception
      */
     public static function stop($timerName = null)
@@ -218,12 +215,10 @@ class Magento_Profiler
     /**
      * Retrieve statistics on specified timer
      *
-     * @param string $timerId
-     * @param string $key     Information to return
-     *
-     * @return int|float
-     *
+     * @param  string           $timerId
+     * @param  string           $key     Information to return
      * @throws Varien_Exception
+     * @return float|int
      */
     public static function fetch($timerId, $key = self::FETCH_TIME)
     {

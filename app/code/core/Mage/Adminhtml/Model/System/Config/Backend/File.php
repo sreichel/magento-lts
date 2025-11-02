@@ -84,9 +84,8 @@ class Mage_Adminhtml_Model_System_Config_Backend_File extends Mage_Core_Model_Co
     /**
      * Delete file after a file is uploaded
      *
-     * @return $this
-     *
      * @throws Mage_Core_Exception
+     * @return $this
      */
     protected function _afterSave()
     {
@@ -161,8 +160,7 @@ class Mage_Adminhtml_Model_System_Config_Backend_File extends Mage_Core_Model_Co
     /**
      * Validation callback for checking max file size
      *
-     * @param string $filePath Path to temporary uploaded file
-     *
+     * @param  string              $filePath Path to temporary uploaded file
      * @throws Mage_Core_Exception
      */
     public function validateMaxSize($filePath)
@@ -224,8 +222,7 @@ class Mage_Adminhtml_Model_System_Config_Backend_File extends Mage_Core_Model_Co
     /**
      * Return the root part of directory path for uploading
      *
-     * @param string $token
-     *
+     * @param  string $token
      * @return string
      */
     protected function _getUploadRoot($token)
@@ -245,8 +242,7 @@ class Mage_Adminhtml_Model_System_Config_Backend_File extends Mage_Core_Model_Co
      *
      * E.g. 'stores/2/path' , 'websites/3/path', 'default/path'
      *
-     * @param string $path
-     *
+     * @param  string $path
      * @return string
      */
     protected function _prependScopeInfo($path)
@@ -264,8 +260,7 @@ class Mage_Adminhtml_Model_System_Config_Backend_File extends Mage_Core_Model_Co
      *
      * E.g. 'path/stores/2' , 'path/websites/3', 'path/default'
      *
-     * @param string $path
-     *
+     * @param  string $path
      * @return string
      */
     protected function _appendScopeInfo($path)

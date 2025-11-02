@@ -49,7 +49,6 @@ class Mage_Adminhtml_Block_Dashboard_Searches_Last extends Mage_Adminhtml_Block_
     }
 
     /**
-     *
      * @throws Exception
      */
     protected function _prepareColumns()

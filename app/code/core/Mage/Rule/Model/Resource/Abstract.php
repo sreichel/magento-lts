@@ -39,7 +39,6 @@ abstract class Mage_Rule_Model_Resource_Abstract extends Mage_Core_Model_Resourc
     /**
      * Prepare rule's active "from" and "to" dates
      *
-     *
      * @return Mage_Rule_Model_Resource_Abstract
      */
     public function _beforeSave(Mage_Core_Model_Abstract $object)
@@ -102,7 +101,6 @@ abstract class Mage_Rule_Model_Resource_Abstract extends Mage_Core_Model_Resourc
      * @param array|int|string $entityIds
      * @param string           $entityType
      * @param bool             $deleteOldResults
-     *
      *
      * @throws Exception
      *

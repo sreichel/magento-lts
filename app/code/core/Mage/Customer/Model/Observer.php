@@ -213,7 +213,6 @@ class Mage_Customer_Model_Observer
 
     /**
      * Clear customer flow password table
-     *
      */
     public function deleteCustomerFlowPassword()
     {

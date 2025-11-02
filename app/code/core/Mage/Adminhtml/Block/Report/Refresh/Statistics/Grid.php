@@ -25,11 +25,9 @@ class Mage_Adminhtml_Block_Report_Refresh_Statistics_Grid extends Mage_Adminhtml
     }
 
     /**
-     * @param string $reportCode
-     *
-     * @return string
-     *
+     * @param  string              $reportCode
      * @throws Zend_Date_Exception
+     * @return string
      */
     protected function _getUpdatedAt($reportCode)
     {

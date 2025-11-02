@@ -15,11 +15,9 @@
 class Mage_Core_Helper_UnserializeArray
 {
     /**
-     * @param string $str
-     *
-     * @return array
-     *
+     * @param  string    $str
      * @throws Exception
+     * @return array
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
      */
     public function unserialize($str)

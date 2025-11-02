@@ -34,9 +34,8 @@ class Mage_Core_Block_Store_Switcher extends Mage_Core_Block_Template
     }
 
     /**
-     * @return $this
-     *
      * @throws Mage_Core_Model_Store_Exception
+     * @return $this
      */
     protected function _loadData()
     {
@@ -102,9 +101,8 @@ class Mage_Core_Block_Store_Switcher extends Mage_Core_Block_Template
     }
 
     /**
-     * @return int
-     *
      * @throws Mage_Core_Model_Store_Exception
+     * @return int
      */
     public function getLanguageCount()
     {
@@ -119,9 +117,8 @@ class Mage_Core_Block_Store_Switcher extends Mage_Core_Block_Template
     }
 
     /**
-     * @return int
-     *
      * @throws Mage_Core_Model_Store_Exception
+     * @return int
      */
     public function getCurrentStoreId()
     {
@@ -129,9 +126,8 @@ class Mage_Core_Block_Store_Switcher extends Mage_Core_Block_Template
     }
 
     /**
-     * @return string
-     *
      * @throws Mage_Core_Model_Store_Exception
+     * @return string
      */
     public function getCurrentStoreCode()
     {

@@ -37,7 +37,6 @@ class Mage_ImportExport_Model_Import extends Mage_ImportExport_Model_Abstract
 
     /**
      * Import constants
-     *
      */
     public const DEFAULT_SIZE      = 50;
 
@@ -66,7 +65,6 @@ class Mage_ImportExport_Model_Import extends Mage_ImportExport_Model_Abstract
 
     /**
      * Create instance of entity adapter and returns it.
-     *
      *
      * @throws Mage_Core_Exception
      *
@@ -391,7 +389,6 @@ class Mage_ImportExport_Model_Import extends Mage_ImportExport_Model_Abstract
 
     /**
      * Move uploaded file and create source adapter instance.
-     *
      *
      * @throws Mage_Core_Exception
      *

@@ -119,13 +119,10 @@ class Mage_Install_Model_Installer_Config extends Mage_Install_Model_Installer_A
     }
 
     /**
-     * @param array $data
-     *
-     * @return $this
-     *
+     * @param  array                      $data
      * @throws Mage_Core_Exception
-     *
      * @throws Zend_Http_Client_Exception
+     * @return $this
      */
     protected function _checkHostsInfo($data)
     {
@@ -140,14 +137,11 @@ class Mage_Install_Model_Installer_Config extends Mage_Install_Model_Installer_A
     }
 
     /**
-     * @param string $url
-     * @param bool   $secure
-     *
-     * @return $this
-     *
+     * @param  string                     $url
+     * @param  bool                       $secure
      * @throws Mage_Core_Exception
-     *
      * @throws Zend_Http_Client_Exception
+     * @return $this
      */
     protected function _checkUrl($url, $secure = false)
     {
@@ -182,8 +176,7 @@ class Mage_Install_Model_Installer_Config extends Mage_Install_Model_Installer_A
     }
 
     /**
-     * @param string|null $key
-     *
+     * @param  null|string $key
      * @return $this
      */
     public function replaceTmpEncryptKey($key = null)

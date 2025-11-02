@@ -17,9 +17,7 @@ class Mage_Catalog_Model_Api2_Product_Image_Rest_Admin_V1 extends Mage_Catalog_M
     /**
      * Product image add
      *
-     *
      * @throws Mage_Api2_Exception
-     *
      * @return string|void
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
      */
@@ -89,10 +87,8 @@ class Mage_Catalog_Model_Api2_Product_Image_Rest_Admin_V1 extends Mage_Catalog_M
     /**
      * Get added image ID
      *
-     *
-     * @throws Mage_Api2_Exception
      * @param  string              $imageFileUri
-     *
+     * @throws Mage_Api2_Exception
      * @return int
      */
     protected function _getCreatedImageId($imageFileUri)
@@ -118,9 +114,7 @@ class Mage_Catalog_Model_Api2_Product_Image_Rest_Admin_V1 extends Mage_Catalog_M
     /**
      * Retrieve product images data
      *
-     *
      * @throws Mage_Api2_Exception
-     *
      * @return array
      */
     protected function _retrieve()
@@ -148,7 +142,6 @@ class Mage_Catalog_Model_Api2_Product_Image_Rest_Admin_V1 extends Mage_Catalog_M
 
     /**
      * Update product image
-     *
      *
      * @throws Mage_Api2_Exception
      */
@@ -180,7 +173,6 @@ class Mage_Catalog_Model_Api2_Product_Image_Rest_Admin_V1 extends Mage_Catalog_M
 
     /**
      * Product image delete
-     *
      *
      * @throws Mage_Api2_Exception
      */
@@ -221,8 +213,7 @@ class Mage_Catalog_Model_Api2_Product_Image_Rest_Admin_V1 extends Mage_Catalog_M
     /**
      * Get image resource location
      *
-     * @param int $imageId
-     *
+     * @param  int    $imageId
      * @return string URL
      */
     protected function _getImageLocation($imageId)

@@ -123,7 +123,6 @@ class Mage_Api2_Model_Server
     /**
      * Make internal call to api
      *
-     *
      * @throws Mage_Api2_Exception
      */
     public function internalCall(Mage_Api2_Model_Request $request, Mage_Api2_Model_Response $response)
@@ -137,9 +136,7 @@ class Mage_Api2_Model_Server
     /**
      * Authenticate user
      *
-     *
      * @throws Exception
-     *
      * @return Mage_Api2_Model_Auth_User_Abstract
      */
     protected function _authenticate(Mage_Api2_Model_Request $request)
@@ -165,9 +162,7 @@ class Mage_Api2_Model_Server
     /**
      * Retrieve existing auth user
      *
-     *
      * @throws Exception
-     *
      * @return Mage_Api2_Model_Auth_User_Abstract
      */
     protected function _getAuthUser()
@@ -201,9 +196,8 @@ class Mage_Api2_Model_Server
     /**
      * Global ACL processing
      *
-     * @return $this
-     *
      * @throws Mage_Api2_Exception
+     * @return $this
      */
     protected function _allow(Mage_Api2_Model_Request $request, Mage_Api2_Model_Auth_User_Abstract $apiUser)
     {

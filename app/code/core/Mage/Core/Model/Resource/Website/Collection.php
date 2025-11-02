@@ -31,7 +31,6 @@ class Mage_Core_Model_Resource_Website_Collection extends Mage_Core_Model_Resour
 
     /**
      * Define resource model
-     *
      */
     protected function _construct()
     {
@@ -42,8 +41,7 @@ class Mage_Core_Model_Resource_Website_Collection extends Mage_Core_Model_Resour
     /**
      * Set flag for load default (admin) website
      *
-     * @param bool $loadDefault
-     *
+     * @param  bool  $loadDefault
      * @return $this
      */
     public function setLoadDefault($loadDefault)
@@ -85,8 +83,7 @@ class Mage_Core_Model_Resource_Website_Collection extends Mage_Core_Model_Resour
     /**
      * Add website filter to collection
      *
-     * @param int $ids|array
-     *
+     * @param  int   $ids|array
      * @return $this
      */
     public function addIdFilter($ids)
@@ -156,8 +153,7 @@ class Mage_Core_Model_Resource_Website_Collection extends Mage_Core_Model_Resour
      * Adding filter by group id or array of ids but only if
      * tables with appropriate information were joined before.
      *
-     * @param int|array $groupIds
-     *
+     * @param  array|int $groupIds
      * @return $this
      */
     public function addFilterByGroupIds($groupIds)

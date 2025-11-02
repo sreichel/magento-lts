@@ -30,7 +30,6 @@ class Mage_Directory_Model_Resource_Currency extends Mage_Core_Model_Resource_Db
 
     /**
      * Define main and currency rate tables
-     *
      */
     protected function _construct()
     {
@@ -41,9 +40,8 @@ class Mage_Directory_Model_Resource_Currency extends Mage_Core_Model_Resource_Db
     /**
      * Retrieve currency rate (only base=>allowed)
      *
-     * @param Mage_Directory_Model_Currency|string $currencyFrom
-     * @param Mage_Directory_Model_Currency|string $currencyTo
-     *
+     * @param  Mage_Directory_Model_Currency|string $currencyFrom
+     * @param  Mage_Directory_Model_Currency|string $currencyTo
      * @return float|int
      */
     public function getRate($currencyFrom, $currencyTo)
@@ -80,9 +78,8 @@ class Mage_Directory_Model_Resource_Currency extends Mage_Core_Model_Resource_Db
     /**
      * Retrieve currency rate (base=>allowed or allowed=>base)
      *
-     * @param Mage_Directory_Model_Currency|string $currencyFrom
-     * @param Mage_Directory_Model_Currency|string $currencyTo
-     *
+     * @param  Mage_Directory_Model_Currency|string $currencyFrom
+     * @param  Mage_Directory_Model_Currency|string $currencyTo
      * @return float
      */
     public function getAnyRate($currencyFrom, $currencyTo)
@@ -192,7 +189,7 @@ class Mage_Directory_Model_Resource_Currency extends Mage_Core_Model_Resource_Db
     /**
      * Return currency rates
      *
-     * @param string|array $currency
+     * @param array|string $currency
      * @param array        $toCurrencies
      *
      * @return array
@@ -214,9 +211,8 @@ class Mage_Directory_Model_Resource_Currency extends Mage_Core_Model_Resource_Db
     /**
      * Protected method used by getCurrencyRates() method
      *
-     * @param string $code
-     * @param array  $toCurrencies
-     *
+     * @param  string $code
+     * @param  array  $toCurrencies
      * @return array
      */
     protected function _getRatesByCode($code, $toCurrencies = null)

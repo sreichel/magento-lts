@@ -57,9 +57,8 @@ class Mage_Review_Block_Form extends Mage_Core_Block_Template
     }
 
     /**
-     * @return false|Mage_Catalog_Model_Product|Mage_Core_Model_Abstract
-     *
      * @throws Exception
+     * @return false|Mage_Catalog_Model_Product|Mage_Core_Model_Abstract
      */
     public function getProductInfo()
     {
@@ -82,9 +81,8 @@ class Mage_Review_Block_Form extends Mage_Core_Block_Template
     }
 
     /**
-     * @return Mage_Rating_Model_Resource_Rating_Collection
-     *
      * @throws Mage_Core_Model_Store_Exception
+     * @return Mage_Rating_Model_Resource_Rating_Collection
      */
     public function getRatings()
     {

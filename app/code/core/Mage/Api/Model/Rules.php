@@ -10,8 +10,9 @@
 /**
  * @package    Mage_Api
  *
- * @method Mage_Api_Model_Resource_Rules _getResource()
- * @method Mage_Api_Model_Resource_Rules getResource()
+ * @method Mage_Api_Model_Resource_Rules            _getResource()
+ * @method Mage_Api_Model_Resource_Rules            getResource()
+ * @method Mage_Api_Model_Resource_Rules_Collection getResourceCollection()
  *
  * @method int    getRoleId()
  * @method $this  setRoleId(int $value)
@@ -51,9 +52,8 @@ class Mage_Api_Model_Rules extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @return $this
-     *
      * @throws Mage_Core_Exception
+     * @return $this
      */
     public function saveRel()
     {

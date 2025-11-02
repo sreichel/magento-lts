@@ -15,6 +15,7 @@
  * @method Mage_Newsletter_Model_Resource_Queue            _getResource()
  * @method Mage_Newsletter_Model_Resource_Queue            getResource()
  * @method Mage_Newsletter_Model_Resource_Queue_Collection getCollection()
+ * @method Mage_Newsletter_Model_Resource_Queue_Collection getResourceCollection()
  *
  * @method int    getTemplateId()
  * @method $this  setTemplateId(int $value)
@@ -42,13 +43,13 @@ class Mage_Newsletter_Model_Queue extends Mage_Core_Model_Template
     /**
      * Newsletter Template object
      *
-     * @var Mage_Newsletter_Model_Template|null
+     * @var null|Mage_Newsletter_Model_Template
      */
     protected $_template;
 
     /**
      * Subscribers collection
-     * @var Mage_Newsletter_Model_Resource_Subscriber_Collection|null
+     * @var null|Mage_Newsletter_Model_Resource_Subscriber_Collection
      */
     protected $_subscribersCollection = null;
 
@@ -117,8 +118,7 @@ class Mage_Newsletter_Model_Queue extends Mage_Core_Model_Template
     /**
      * Add template data to queue.
      *
-     * @param Varien_Object $data
-     *
+     * @param  Varien_Object $data
      * @return $this
      * @deprecated since 1.4.0.1
      */
@@ -135,8 +135,7 @@ class Mage_Newsletter_Model_Queue extends Mage_Core_Model_Template
     /**
      * Set $_data['queue_start'] based on string from backend, which based on locale.
      *
-     * @param string|null $startAt start date of the mailing queue
-     *
+     * @param  null|string $startAt start date of the mailing queue
      * @return $this
      */
     public function setQueueStartAtByString($startAt)
@@ -156,8 +155,7 @@ class Mage_Newsletter_Model_Queue extends Mage_Core_Model_Template
     /**
      * Send messages to subscribers for this queue
      *
-     * @param int $count
-     *
+     * @param  int   $count
      * @return $this
      */
     public function sendPerSubscriber($count = 20, array $additionalVariables = [])
@@ -261,8 +259,7 @@ class Mage_Newsletter_Model_Queue extends Mage_Core_Model_Template
     /**
      * Setter for save template flag.
      *
-     * @param bool|int|string $value
-     *
+     * @param  bool|int|string $value
      * @return $this
      * @deprecated since 1.4.0.1
      */
@@ -286,8 +283,7 @@ class Mage_Newsletter_Model_Queue extends Mage_Core_Model_Template
     /**
      * Setter for save stores flag.
      *
-     * @param bool|int|string $value
-     *
+     * @param  bool|int|string $value
      * @return $this
      */
     public function setSaveStoresFlag($value)

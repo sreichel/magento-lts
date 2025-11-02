@@ -430,7 +430,7 @@ class Mage_Page_Block_Html_Pager extends Mage_Core_Block_Template
     /**
      * Return page number of Previous jump
      *
-     * @return int|null
+     * @return null|int
      */
     public function getPreviousJumpPage()
     {
@@ -459,7 +459,7 @@ class Mage_Page_Block_Html_Pager extends Mage_Core_Block_Template
     /**
      * Return page number of Next jump
      *
-     * @return int|null
+     * @return null|int
      */
     public function getNextJumpPage()
     {

@@ -49,7 +49,6 @@ class Mage_Adminhtml_Block_Api_User_Edit_Tab_Roles extends Mage_Adminhtml_Block_
 
     /**
      * @inheritDoc
-     *
      * @throws Exception
      */
     protected function _prepareCollection()
@@ -62,7 +61,6 @@ class Mage_Adminhtml_Block_Api_User_Edit_Tab_Roles extends Mage_Adminhtml_Block_
 
     /**
      * @inheritDoc
-     *
      * @throws Exception
      */
     protected function _prepareColumns()
@@ -94,11 +92,9 @@ class Mage_Adminhtml_Block_Api_User_Edit_Tab_Roles extends Mage_Adminhtml_Block_
     }
 
     /**
-     * @param bool $json
-     *
-     * @return string
-     *
+     * @param  bool      $json
      * @throws Exception
+     * @return string
      */
     protected function _getSelectedRoles($json = false)
     {

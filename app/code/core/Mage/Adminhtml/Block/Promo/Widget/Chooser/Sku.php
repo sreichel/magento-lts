@@ -18,8 +18,7 @@ class Mage_Adminhtml_Block_Promo_Widget_Chooser_Sku extends Mage_Adminhtml_Block
 {
     /**
      * Mage_Adminhtml_Block_Promo_Widget_Chooser_Sku constructor.
-     * @param array $arguments
-     *
+     * @param  array     $arguments
      * @throws Exception
      */
     public function __construct($arguments = [])
@@ -45,7 +44,6 @@ class Mage_Adminhtml_Block_Promo_Widget_Chooser_Sku extends Mage_Adminhtml_Block
 
     /**
      * Retrieve quote store object
-     *
      * @return Mage_Core_Model_Store
      */
     public function getStore()
@@ -54,8 +52,7 @@ class Mage_Adminhtml_Block_Promo_Widget_Chooser_Sku extends Mage_Adminhtml_Block
     }
 
     /**
-     * @param Mage_Adminhtml_Block_Widget_Grid_Column $column
-     *
+     * @param  Mage_Adminhtml_Block_Widget_Grid_Column $column
      * @return $this
      */
     protected function _addColumnFilterToCollection($column)
@@ -172,9 +169,8 @@ class Mage_Adminhtml_Block_Promo_Widget_Chooser_Sku extends Mage_Adminhtml_Block
     }
 
     /**
-     * @return array
-     *
      * @throws Exception
+     * @return array
      */
     protected function _getSelectedProducts()
     {

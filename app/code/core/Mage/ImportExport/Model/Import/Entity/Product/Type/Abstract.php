@@ -76,7 +76,6 @@ abstract class Mage_ImportExport_Model_Import_Entity_Product_Type_Abstract
     /**
      * Object constructor.
      *
-     *
      * @throws Exception
      */
     final public function __construct(array $params)

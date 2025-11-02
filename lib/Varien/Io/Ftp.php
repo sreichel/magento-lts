@@ -38,7 +38,7 @@ class Varien_Io_Ftp extends Varien_Io_Abstract
     /**
      * An FTP connection
      *
-     * @var FTP\Connection|false
+     * @var false|FTP\Connection
      */
     protected $_conn;
 
@@ -150,10 +150,9 @@ class Varien_Io_Ftp extends Varien_Io_Abstract
      * Create a directory
      *
      * @todo implement $mode and $recursive
-     * @param string $dir
-     * @param int    $mode
-     * @param bool   $recursive
-     *
+     * @param  string $dir
+     * @param  int    $mode
+     * @param  bool   $recursive
      * @return bool
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
@@ -166,8 +165,7 @@ class Varien_Io_Ftp extends Varien_Io_Abstract
     /**
      * Delete a directory
      *
-     * @param string $dir
-     *
+     * @param  string $dir
      * @return bool
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
@@ -192,8 +190,7 @@ class Varien_Io_Ftp extends Varien_Io_Abstract
     /**
      * Change current working directory
      *
-     * @param string $dir
-     *
+     * @param  string $dir
      * @return bool
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
@@ -206,9 +203,8 @@ class Varien_Io_Ftp extends Varien_Io_Abstract
     /**
      * Read a file to result, file or stream
      *
-     * @param string               $filename
-     * @param string|resource|null $dest     destination file name, stream, or if null will return file contents
-     *
+     * @param  string               $filename
+     * @param  null|resource|string $dest     destination file name, stream, or if null will return file contents
      * @return bool|string
      */
     public function read($filename, $dest = null)
@@ -242,10 +238,9 @@ class Varien_Io_Ftp extends Varien_Io_Abstract
     /**
      * Write a file from string, file or stream
      *
-     * @param string          $filename
-     * @param string|resource $src      filename, string data or source stream
-     *
-     * @return int|bool
+     * @param  string          $filename
+     * @param  resource|string $src      filename, string data or source stream
+     * @return bool|int
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
      */
@@ -277,8 +272,7 @@ class Varien_Io_Ftp extends Varien_Io_Abstract
     /**
      * Delete a file
      *
-     * @param string $filename
-     *
+     * @param  string $filename
      * @return bool
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
@@ -291,9 +285,8 @@ class Varien_Io_Ftp extends Varien_Io_Abstract
     /**
      * Rename or move a directory or a file
      *
-     * @param string $src
-     * @param string $dest
-     *
+     * @param  string $src
+     * @param  string $dest
      * @return bool
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")
@@ -306,9 +299,8 @@ class Varien_Io_Ftp extends Varien_Io_Abstract
     /**
      * Change mode of a directory or a file
      *
-     * @param string $filename
-     * @param int    $mode
-     *
+     * @param  string $filename
+     * @param  int    $mode
      * @return bool
      *
      * @SuppressWarnings("PHPMD.ErrorControlOperator")

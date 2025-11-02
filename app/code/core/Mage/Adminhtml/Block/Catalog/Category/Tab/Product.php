@@ -58,7 +58,6 @@ class Mage_Adminhtml_Block_Catalog_Category_Tab_Product extends Mage_Adminhtml_B
 
     /**
      * @inheritDoc
-     *
      * @throws Mage_Core_Exception
      */
     protected function _prepareCollection()
@@ -98,7 +97,6 @@ class Mage_Adminhtml_Block_Catalog_Category_Tab_Product extends Mage_Adminhtml_B
 
     /**
      * @inheritDoc
-     *
      * @throws Exception
      */
     protected function _prepareColumns()
@@ -213,9 +211,8 @@ class Mage_Adminhtml_Block_Catalog_Category_Tab_Product extends Mage_Adminhtml_B
     }
 
     /**
-     * @return array
-     *
      * @throws Exception
+     * @return array
      */
     protected function _getSelectedProducts()
     {

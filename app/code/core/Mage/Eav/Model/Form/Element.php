@@ -15,6 +15,7 @@
  * @method Mage_Eav_Model_Resource_Form_Element            _getResource()
  * @method Mage_Eav_Model_Resource_Form_Element            getResource()
  * @method Mage_Eav_Model_Resource_Form_Element_Collection getCollection()
+ * @method Mage_Eav_Model_Resource_Form_Element_Collection getResourceCollection()
  *
  * @method int   getTypeId()
  * @method $this setTypeId(int $value)
@@ -42,7 +43,6 @@ class Mage_Eav_Model_Form_Element extends Mage_Core_Model_Abstract
 
     /**
      * Validate data before save data
-     *
      *
      * @throws Mage_Core_Exception
      * @inheritDoc

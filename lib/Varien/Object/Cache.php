@@ -11,14 +11,13 @@
  * Object Cache
  *
  * Stores objects for reuse, cleanup and to avoid circular references
- *
  */
 class Varien_Object_Cache
 {
     /**
      * Singleton instance
      *
-     * @var Varien_Object_Cache|null
+     * @var null|Varien_Object_Cache
      */
     protected static $_instance;
 
@@ -107,9 +106,8 @@ class Varien_Object_Cache
     /**
      * Load an object from registry
      *
-     * @param string|object $idx
-     * @param object        $default
-     *
+     * @param  object|string $idx
+     * @param  object        $default
      * @return object
      */
     public function load($idx, $default = null)
@@ -124,11 +122,10 @@ class Varien_Object_Cache
     /**
      * Save an object entry
      *
-     * @param object       $object
-     * @param string       $idx
-     * @param array|string $tags
-     *
-     * @return string|false
+     * @param  object       $object
+     * @param  string       $idx
+     * @param  array|string $tags
+     * @return false|string
      */
     public function save($object, $idx = null, $tags = null)
     {
@@ -182,9 +179,8 @@ class Varien_Object_Cache
     /**
      * Add a reference to an object
      *
-     * @param string|array $refName
-     * @param string       $idx
-     *
+     * @param  array|string $refName
+     * @param  string       $idx
      * @return bool
      */
     public function reference($refName, $idx)
@@ -210,8 +206,7 @@ class Varien_Object_Cache
     /**
      * Delete an object from registry
      *
-     * @param string|object $idx
-     *
+     * @param  object|string $idx
      * @return bool
      */
     public function delete($idx)
@@ -294,8 +289,7 @@ class Varien_Object_Cache
     /**
      * Check whether object id exists in registry
      *
-     * @param string $idx
-     *
+     * @param  string $idx
      * @return bool
      */
     public function has($idx)
@@ -306,9 +300,8 @@ class Varien_Object_Cache
     /**
      * Find an object id
      *
-     * @param object $object
-     *
-     * @return string|bool
+     * @param  object      $object
+     * @return bool|string
      */
     public function find($object)
     {
@@ -341,8 +334,7 @@ class Varien_Object_Cache
     /**
      * Find objects by tags
      *
-     * @param array|string $tags
-     *
+     * @param  array|string $tags
      * @return array
      */
     public function findByTags($tags)
@@ -400,8 +392,7 @@ class Varien_Object_Cache
     /**
      * Return debug information by ids
      *
-     * @param array|integer $ids
-     *
+     * @param  array|integer $ids
      * @return array
      */
     public function debugByIds($ids)
