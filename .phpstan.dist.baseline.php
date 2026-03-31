@@ -6625,12 +6625,6 @@ $ignoreErrors[] = [
 	'path' => __DIR__ . '/app/code/core/Mage/Sales/Model/Service/Quote.php',
 ];
 $ignoreErrors[] = [
-	'rawMessage' => 'Negated boolean expression is always false.',
-	'identifier' => 'booleanNot.alwaysFalse',
-	'count' => 1,
-	'path' => __DIR__ . '/app/code/core/Mage/Sales/Model/Status/List.php',
-];
-$ignoreErrors[] = [
 	'rawMessage' => 'Construct empty() is not allowed. Use more strict comparison.',
 	'identifier' => 'empty.notAllowed',
 	'count' => 5,
