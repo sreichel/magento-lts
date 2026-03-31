@@ -14,7 +14,7 @@
  *
  * @package    Mage_Sales
  *
- *
+ * @phpstan-type Item array{origin: null|string, code: null|int, message: null|string, additionalData: null|Varien_Object}
  */
 class Mage_Sales_Model_Status_List
 {
@@ -48,7 +48,7 @@ class Mage_Sales_Model_Status_List
     /**
      * Retrieves all items
      *
-     * @return Item
+     * @return Item[]
      */
     public function getItems()
     {
