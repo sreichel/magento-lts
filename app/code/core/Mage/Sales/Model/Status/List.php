@@ -13,13 +13,15 @@
  * to owner object of this model.
  *
  * @package    Mage_Sales
+ *
+ *
  */
 class Mage_Sales_Model_Status_List
 {
     /**
      * Status information entities
      *
-     * @var array
+     * @var Item[]
      */
     protected $_items = [];
 
@@ -46,7 +48,7 @@ class Mage_Sales_Model_Status_List
     /**
      * Retrieves all items
      *
-     * @return array
+     * @return Item
      */
     public function getItems()
     {
@@ -101,16 +103,16 @@ class Mage_Sales_Model_Status_List
      */
     public function removeItems($indexes)
     {
-        if (![$indexes]) {
+        if (!is_array($indexes)) {
             $indexes = [$indexes];
         }
 
-        if (!$indexes) {
+        if ($indexes === []) {
             return [];
         }
 
         $items = $this->getItems();
-        if (!$items) {
+        if ($items === []) {
             return [];
         }
 
