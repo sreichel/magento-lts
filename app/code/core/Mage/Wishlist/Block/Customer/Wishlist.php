@@ -27,7 +27,7 @@ class Mage_Wishlist_Block_Customer_Wishlist extends Mage_Wishlist_Block_Abstract
      */
     protected function _prepareCollection($collection)
     {
-        $collection->setInStockFilter(true)->setOrder('added_at', 'ASC');
+        $collection->setInStockFilter(true)->setOrder('added_at', Varien_Data_Collection::SORT_ORDER_ASC);
         return $this;
     }
 

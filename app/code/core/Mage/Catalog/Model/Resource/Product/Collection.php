@@ -2147,7 +2147,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
      * @return $this
      * @throws Mage_Core_Exception
      */
-    public function setOrder($attribute, $dir = 'desc')
+    public function setOrder($attribute, $dir = Varien_Data_Collection::SORT_ORDER_DESC)
     {
         if ($attribute == 'price') {
             $this->addAttributeToSort($attribute, $dir);
