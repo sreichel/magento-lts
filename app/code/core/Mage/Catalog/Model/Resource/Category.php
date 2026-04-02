@@ -626,7 +626,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
             ->addFieldToFilter('entity_id', ['in' => $pathIds])
             ->addAttributeToFilter('custom_use_parent_settings', [['eq' => 0], ['null' => 0]], 'left')
             ->addFieldToFilter('level', ['neq' => 0])
-            ->setOrder('level', 'DESC')
+            ->setOrder('level', Varien_Data_Collection::SORT_ORDER_DESC)
             ->load();
         return $collection->getFirstItem();
     }
@@ -645,7 +645,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
             ->addAttributeToSelect('name')
             ->addAttributeToSelect('all_children')
             ->addAttributeToSelect('is_anchor')
-            ->setOrder('position', Varien_Db_Select::SQL_ASC)
+            ->setOrder('position', Varien_Data_Collection::SORT_ORDER_ASC)
             ->joinUrlRewrite();
 
         return $collection;

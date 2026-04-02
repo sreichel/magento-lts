@@ -444,7 +444,7 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
             $this->_addressesCollection = $this->getAddressCollection()
                 ->setCustomerFilter($this)
                 ->addAttributeToSelect('*')
-                ->setOrder('entity_id', 'desc');
+                ->setOrder('entity_id', Varien_Data_Collection::SORT_ORDER_DESC);
             foreach ($this->_addressesCollection as $address) {
                 $address->setCustomer($this);
                 $address->setDataChanges(false);

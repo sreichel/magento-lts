@@ -21,7 +21,7 @@ class Mage_Catalog_Model_Category_Attribute_Source_Page extends Mage_Eav_Model_E
     {
         if (!$this->_options) {
             $this->_options = Mage::getResourceModel('cms/block_collection')
-                ->setOrder('title', 'ASC')
+                ->setOrder('title', Varien_Data_Collection::SORT_ORDER_ASC)
                 ->load()
                 ->toOptionArray();
             array_unshift($this->_options, ['value' => '', 'label' => Mage::helper('catalog')->__('Please select a static block ...')]);
