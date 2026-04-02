@@ -22,10 +22,6 @@ final class Collection
     public static function replaceArgumentDefaultValue(): array
     {
         return [
-            new ReplaceArgumentDefaultValue(Varien_Data_Collection::class, 'addOrder', 1, 'asc', 'Varien_Data_Collection::SORT_ORDER_ASC'),
-            new ReplaceArgumentDefaultValue(Varien_Data_Collection::class, 'addOrder', 1, 'desc', 'Varien_Data_Collection::SORT_ORDER_DESC'),
-            new ReplaceArgumentDefaultValue(Varien_Data_Collection::class, 'addOrder', 1, 'ASC', 'Varien_Data_Collection::SORT_ORDER_ASC'),
-            new ReplaceArgumentDefaultValue(Varien_Data_Collection::class, 'addOrder', 1, 'DESC', 'Varien_Data_Collection::SORT_ORDER_DESC'),
             new ReplaceArgumentDefaultValue(Varien_Data_Collection::class, 'setOrder', 1, 'asc', 'Varien_Data_Collection::SORT_ORDER_ASC'),
             new ReplaceArgumentDefaultValue(Varien_Data_Collection::class, 'setOrder', 1, 'desc', 'Varien_Data_Collection::SORT_ORDER_DESC'),
             new ReplaceArgumentDefaultValue(Varien_Data_Collection::class, 'setOrder', 1, 'ASC', 'Varien_Data_Collection::SORT_ORDER_ASC'),
