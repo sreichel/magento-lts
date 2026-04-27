@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-// total 12 errors
+// total 13 errors
 
 $ignoreErrors = [];
 $ignoreErrors[] = [
@@ -57,6 +57,11 @@ $ignoreErrors[] = [
     'rawMessage' => 'Method Mage_Rule_Model_Condition_Product_Abstract::getAttributeObject() should return Mage_Catalog_Model_Resource_Eav_Attribute but returns Mage_Eav_Model_Entity_Attribute_Abstract|Varien_Object|false.',
     'count' => 1,
     'path' => __DIR__ . '/../app/code/core/Mage/Rule/Model/Condition/Product/Abstract.php',
+];
+$ignoreErrors[] = [
+    'rawMessage' => 'Method Magento_Db_Object_Trigger::describe() should return array<string> but returns array<array<mixed>>.',
+    'count' => 1,
+    'path' => __DIR__ . '/../lib/Magento/Db/Object/Trigger.php',
 ];
 $ignoreErrors[] = [
     'rawMessage' => 'Method Varien_Simplexml_Config::getXpath() should return array<Varien_Simplexml_Element>|false but returns non-empty-array<SimpleXMLElement>.',

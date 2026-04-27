@@ -207,13 +207,13 @@ class Mage_Persistent_Model_Session extends Mage_Core_Model_Abstract
             $websiteId = Mage::app()->getStore()->getWebsiteId();
         }
 
-        $lifetime = Mage::getConfig()->getNode(
+        $lifetime = (int) Mage::getConfig()->getNode(
             Mage_Persistent_Helper_Data::XML_PATH_LIFE_TIME,
             'website',
             (int) $websiteId,
         );
 
-        if ($lifetime) {
+        if ($lifetime > 0) {
             $this->getResource()->deleteExpired(
                 $websiteId,
                 gmdate(Varien_Date::DATETIME_PHP_FORMAT, Mage::helper('core/clock')->getTimestamp() - $lifetime),

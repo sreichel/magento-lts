@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-// total 1653 errors
+// total 1651 errors
 
 $ignoreErrors = [];
 $ignoreErrors[] = [
@@ -1095,7 +1095,7 @@ $ignoreErrors[] = [
 ];
 $ignoreErrors[] = [
     'rawMessage' => 'Construct empty() is not allowed. Use more strict comparison.',
-    'count' => 4,
+    'count' => 2,
     'path' => __DIR__ . '/../app/code/core/Mage/Catalog/Model/Resource/Product.php',
 ];
 $ignoreErrors[] = [

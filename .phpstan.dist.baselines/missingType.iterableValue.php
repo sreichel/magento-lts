@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-// total 5720 errors
+// total 5715 errors
 
 $ignoreErrors = [];
 $ignoreErrors[] = [
@@ -26004,29 +26004,9 @@ $ignoreErrors[] = [
     'path' => __DIR__ . '/../lib/Magento/Db/Adapter/Pdo/Mysql.php',
 ];
 $ignoreErrors[] = [
-    'rawMessage' => 'Method Magento_Db_Object_Interface::describe() return type has no value type specified in iterable type array.',
-    'count' => 1,
-    'path' => __DIR__ . '/../lib/Magento/Db/Object/Interface.php',
-];
-$ignoreErrors[] = [
-    'rawMessage' => 'Method Magento_Db_Object_Table::describe() return type has no value type specified in iterable type array.',
-    'count' => 1,
-    'path' => __DIR__ . '/../lib/Magento/Db/Object/Table.php',
-];
-$ignoreErrors[] = [
-    'rawMessage' => 'Method Magento_Db_Object_Trigger::describe() return type has no value type specified in iterable type array.',
-    'count' => 1,
-    'path' => __DIR__ . '/../lib/Magento/Db/Object/Trigger.php',
-];
-$ignoreErrors[] = [
     'rawMessage' => 'Property Magento_Db_Object_Trigger::$_data type has no value type specified in iterable type array.',
     'count' => 1,
     'path' => __DIR__ . '/../lib/Magento/Db/Object/Trigger.php',
-];
-$ignoreErrors[] = [
-    'rawMessage' => 'Method Magento_Db_Object_View::describe() return type has no value type specified in iterable type array.',
-    'count' => 1,
-    'path' => __DIR__ . '/../lib/Magento/Db/Object/View.php',
 ];
 $ignoreErrors[] = [
     'rawMessage' => 'Method Magento_Db_Sql_Trigger::_getPart() return type has no value type specified in iterable type array.',
@@ -27090,11 +27070,6 @@ $ignoreErrors[] = [
 ];
 $ignoreErrors[] = [
     'rawMessage' => 'Method Varien_Db_Adapter_Interface::selectsByRange() return type has no value type specified in iterable type array.',
-    'count' => 1,
-    'path' => __DIR__ . '/../lib/Varien/Db/Adapter/Interface.php',
-];
-$ignoreErrors[] = [
-    'rawMessage' => 'Method Varien_Db_Adapter_Interface::showTableStatus() return type has no value type specified in iterable type array.',
     'count' => 1,
     'path' => __DIR__ . '/../lib/Varien/Db/Adapter/Interface.php',
 ];

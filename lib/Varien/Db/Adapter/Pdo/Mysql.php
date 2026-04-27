@@ -463,7 +463,7 @@ class Varien_Db_Adapter_Pdo_Mysql extends Zend_Db_Adapter_Pdo_Mysql implements V
      *
      * @param  string                      $sql
      * @param  int|string                  $field
-     * @return bool
+     * @return array|mixed
      * @throws Throwable
      * @throws Zend_Db_Statement_Exception
      */
@@ -1139,9 +1139,7 @@ class Varien_Db_Adapter_Pdo_Mysql extends Zend_Db_Adapter_Pdo_Mysql implements V
     /**
      * Show table status
      *
-     * @param  string                      $tableName
-     * @param  string                      $schemaName
-     * @return bool
+     * @inheritDoc
      * @throws Throwable
      * @throws Zend_Db_Statement_Exception
      */

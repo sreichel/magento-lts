@@ -39,9 +39,7 @@ class Magento_Db_Object_View extends Magento_Db_Object implements Magento_Db_Obj
     }
 
     /**
-     * Describe Table
-     *
-     * @return array
+     * @inheritDoc
      */
     public function describe()
     {
@@ -49,9 +47,7 @@ class Magento_Db_Object_View extends Magento_Db_Object implements Magento_Db_Obj
     }
 
     /**
-     * Check is object exists
-     *
-     * @return bool
+     * @inheritDoc
      */
     public function isExists()
     {

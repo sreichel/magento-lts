@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-// total 2779 errors
+// total 2778 errors
 
 $ignoreErrors = [];
 $ignoreErrors[] = [
@@ -4117,11 +4117,6 @@ $ignoreErrors[] = [
     'rawMessage' => 'Loose comparison via "==" between string and string is not allowed.',
     'count' => 1,
     'path' => __DIR__ . '/../app/code/core/Mage/Log/Model/Resource/Customer.php',
-];
-$ignoreErrors[] = [
-    'rawMessage' => 'Loose comparison via "==" between mixed and string is not allowed.',
-    'count' => 1,
-    'path' => __DIR__ . '/../app/code/core/Mage/Log/Model/Resource/Log.php',
 ];
 $ignoreErrors[] = [
     'rawMessage' => 'Loose comparison via "==" between array|string and string is not allowed.',

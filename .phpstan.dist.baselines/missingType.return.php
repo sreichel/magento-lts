@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-// total 1978 errors
+// total 1977 errors
 
 $ignoreErrors = [];
 $ignoreErrors[] = [
@@ -8315,11 +8315,6 @@ $ignoreErrors[] = [
 ];
 $ignoreErrors[] = [
     'rawMessage' => 'Method Magento_Db_Object_Interface::drop() has no return type specified.',
-    'count' => 1,
-    'path' => __DIR__ . '/../lib/Magento/Db/Object/Interface.php',
-];
-$ignoreErrors[] = [
-    'rawMessage' => 'Method Magento_Db_Object_Interface::isExists() has no return type specified.',
     'count' => 1,
     'path' => __DIR__ . '/../lib/Magento/Db/Object/Interface.php',
 ];

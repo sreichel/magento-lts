@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-// total 9 errors
+// total 10 errors
 
 $ignoreErrors = [];
 $ignoreErrors[] = [
@@ -47,6 +47,11 @@ $ignoreErrors[] = [
     'rawMessage' => 'Property DOMNode::$nodeValue (string|null) does not accept int<min, -1>|int<1, max>.',
     'count' => 1,
     'path' => __DIR__ . '/../app/code/core/Mage/Reports/Model/Test.php',
+];
+$ignoreErrors[] = [
+    'rawMessage' => 'Static property OpenMage\\Tests\\Unit\\Mage\\ImportExport\\Model\\Resource\\Helper\\Mysql4Test::$subject (Mage_ImportExport_Model_Resource_Helper_Mysql4) does not accept Mage_Core_Model_Resource_Helper_Abstract.',
+    'count' => 1,
+    'path' => __DIR__ . '/../tests/unit/Mage/ImportExport/Model/Resource/Helper/Mysql4Test.php',
 ];
 
 return ['parameters' => ['ignoreErrors' => $ignoreErrors]];

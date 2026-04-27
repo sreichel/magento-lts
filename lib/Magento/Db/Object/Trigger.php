@@ -25,7 +25,7 @@ class Magento_Db_Object_Trigger extends Magento_Db_Object implements Magento_Db_
     protected $_data = [];
 
     /**
-     * @return bool
+     * @inheritDoc
      */
     public function isExists()
     {
@@ -36,6 +36,9 @@ class Magento_Db_Object_Trigger extends Magento_Db_Object implements Magento_Db_
         return isset($this->_data['triggers'][$this->_schemaName][$this->_objectName]);
     }
 
+    /**
+     * @inheritDoc
+     */
     public function describe()
     {
         $columns = [

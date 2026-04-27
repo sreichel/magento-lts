@@ -19,7 +19,7 @@ interface Magento_Db_Object_Interface
     /**
      * Describe database object
      *
-     * @return array
+     * @return string[]
      */
     public function describe();
 
@@ -30,6 +30,8 @@ interface Magento_Db_Object_Interface
 
     /**
      * Check that database object is exist
+     *
+     * @return bool
      */
     public function isExists();
 }

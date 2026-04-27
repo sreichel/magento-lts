@@ -111,7 +111,7 @@ class Mage_Log_Model_Resource_Log extends Mage_Core_Model_Resource_Db_Abstract
         $timeLimit = $this->formatDate(Mage::getModel('core/date')->gmtTimestamp() - $time);
 
         // retrieve last active customer log id
-        $lastLogId = $readAdapter->fetchOne(
+        $lastLogId = (int) $readAdapter->fetchOne(
             $readAdapter->select()
                 ->from($this->getTable('log/customer'), 'log_id')
                 ->where('login_at < ?', $timeLimit)
@@ -119,7 +119,7 @@ class Mage_Log_Model_Resource_Log extends Mage_Core_Model_Resource_Db_Abstract
                 ->limit(1),
         );
 
-        if (!$lastLogId) {
+        if ($lastLogId <= 0) {
             return $this;
         }
 
@@ -161,8 +161,9 @@ class Mage_Log_Model_Resource_Log extends Mage_Core_Model_Resource_Db_Abstract
             $count = 0;
             while ($row = $query->fetch()) {
                 $count++;
-                $customerLogId = $row['log_id'];
-                if (!isset($needLogIds[$row['log_id']])) {
+                $rowLogId = (int) $row['log_id'];
+                $customerLogId = $rowLogId;
+                if (!isset($needLogIds[$rowLogId])) {
                     $visitorIds[] = $row['visitor_id'];
                 }
             }
@@ -190,7 +191,7 @@ class Mage_Log_Model_Resource_Log extends Mage_Core_Model_Resource_Db_Abstract
                 $writeAdapter->delete($this->getTable('log/customer'), $condition);
             }
 
-            if ($customerLogId == $lastLogId) {
+            if ($customerLogId === $lastLogId) {
                 break;
             }
         }

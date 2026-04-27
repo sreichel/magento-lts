@@ -3694,13 +3694,13 @@ $ignoreErrors[] = [
     'path' => __DIR__ . '/../app/code/core/Mage/ImportExport/Model/Import/Entity/Customer/Address.php',
 ];
 $ignoreErrors[] = [
-    'rawMessage' => 'Only booleans are allowed in a negated boolean, int<0, max> given.',
-    'count' => 7,
+    'rawMessage' => 'Only booleans are allowed in a negated boolean, float|int|string|null given.',
+    'count' => 1,
     'path' => __DIR__ . '/../app/code/core/Mage/ImportExport/Model/Import/Entity/Product.php',
 ];
 $ignoreErrors[] = [
-    'rawMessage' => 'Only booleans are allowed in a negated boolean, int|string|null given.',
-    'count' => 1,
+    'rawMessage' => 'Only booleans are allowed in a negated boolean, int<0, max> given.',
+    'count' => 7,
     'path' => __DIR__ . '/../app/code/core/Mage/ImportExport/Model/Import/Entity/Product.php',
 ];
 $ignoreErrors[] = [

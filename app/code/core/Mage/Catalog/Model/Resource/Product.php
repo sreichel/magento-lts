@@ -666,11 +666,11 @@ class Mage_Catalog_Model_Resource_Product extends Mage_Catalog_Model_Resource_Ab
      */
     public function getProductEntitiesInfo($columns = null)
     {
-        if (!empty($columns) && is_string($columns)) {
+        if (is_string($columns) && $columns !== '') {
             $columns = [$columns];
         }
 
-        if (empty($columns) || !is_array($columns)) {
+        if (!is_array($columns) || $columns === []) {
             $columns = $this->_getDefaultAttributes();
         }
 

@@ -20,9 +20,7 @@ class Magento_Db_Object_Table extends Magento_Db_Object implements Magento_Db_Ob
     protected $_dbType  = 'TABLE';
 
     /**
-     * Check is object exists
-     *
-     * @return bool
+     * @inheritDoc
      */
     public function isExists()
     {
@@ -32,7 +30,6 @@ class Magento_Db_Object_Table extends Magento_Db_Object implements Magento_Db_Ob
     /**
      * Create a new table from source
      *
-     * @param        $source Zend_Db_Select
      * @return $this
      */
     public function createFromSource(Zend_Db_Select $source)
@@ -44,9 +41,7 @@ class Magento_Db_Object_Table extends Magento_Db_Object implements Magento_Db_Ob
     }
 
     /**
-     * Describe Table
-     *
-     * @return array
+     * @inheritDoc
      */
     public function describe()
     {

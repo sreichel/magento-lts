@@ -11,8 +11,8 @@ declare(strict_types=1);
 
 namespace OpenMage\Tests\Unit\Mage\ImportExport\Model\Resource\Helper;
 
-// use Mage;
-// use Mage_ImportExport_Model_Resource_Helper_Mysql4 as Subject;
+use Mage;
+use Mage_ImportExport_Model_Resource_Helper_Mysql4 as Subject;
 use Override;
 use OpenMage\Tests\Unit\OpenMageTest;
 use OpenMage\Tests\Unit\Traits\DataProvider\Mage\ImportExport\Model\Resource\Helper\Mysql4Trait;
@@ -21,13 +21,23 @@ final class Mysql4Test extends OpenMageTest
 {
     use Mysql4Trait;
 
-    // private static Subject $subject;
+    private static Subject $subject;
 
     #[Override]
     public static function setUpBeforeClass(): void
     {
         parent::setUpBeforeClass();
-        // self::$subject = Mage::getModel('importexport/resource_helper_mysql4');
-        self::markTestSkipped('');
+        self::$subject = Mage::getResourceHelper('importexport');
+    }
+
+    /**
+     * @group Model
+     */
+    public function testGetNextAutoincrement(): void
+    {
+        $resource  = Mage::getResourceModel('catalog/product_link');
+        $mainTable = $resource->getMainTable();
+
+        self::assertIsString(self::$subject->getNextAutoincrement($mainTable));
     }
 }

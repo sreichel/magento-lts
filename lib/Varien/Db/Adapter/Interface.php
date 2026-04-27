@@ -146,9 +146,9 @@ interface Varien_Db_Adapter_Interface
     /**
      * Returns short table status array
      *
-     * @param  string      $tableName
-     * @param  string      $schemaName
-     * @return array|false
+     * @param  string         $tableName
+     * @param  string         $schemaName
+     * @return false|string[]
      */
     public function showTableStatus($tableName, $schemaName = null);
 
