@@ -261,7 +261,7 @@ class Mage_Core_Model_Url_Rewrite_Request
         $requestPath = trim($pathInfo, '/');
         $origSlash = (str_ends_with($pathInfo, '/')) ? '/' : '';
         // If there were final slash - add nothing to less priority paths. And vice versa.
-        $altSlash = $origSlash !== '' && $origSlash !== '0' ? '' : '/';
+        $altSlash = $origSlash !== '' ? '' : '/';
 
         $requestCases = [];
         // Query params in request, matching "path + query" has more priority

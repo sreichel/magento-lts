@@ -246,7 +246,7 @@ class Mage_Core_Model_Url_Rewrite extends Mage_Core_Model_Abstract implements Ma
         $targetUrl = '';
 
         // If there were final slash - add nothing to less priority paths. And vice versa.
-        $altSlash = $origSlash !== '' && $origSlash !== '0' ? '' : '/';
+        $altSlash = $origSlash !== '' ? '' : '/';
 
         $queryString = $this->_getQueryString(); // Query params in request, matching "path + query" has more priority
         if ($queryString) {

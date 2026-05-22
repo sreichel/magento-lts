@@ -28,7 +28,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Number extends Mage_Admin
         if (is_numeric($data)) {
             $value = $data * 1;
             $sign = (bool) (int) $this->getColumn()->getShowNumberSign() && ($value > 0) ? '+' : '';
-            if ($sign !== '' && $sign !== '0') {
+            if ($sign !== '') {
                 $value = $sign . $value;
             }
 
