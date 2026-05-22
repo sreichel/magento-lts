@@ -93,7 +93,7 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
     protected function _initProduct()
     {
         $productId = (int) $this->getRequest()->getParam('product');
-        if ($productId) {
+        if ($productId !== 0) {
             $product = Mage::getModel('catalog/product')
                 ->setStoreId(Mage::app()->getStore()->getId())
                 ->load($productId);
@@ -323,7 +323,7 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
         $id = (int) $this->getRequest()->getParam('id');
         $quoteItem = null;
         $cart = $this->_getCart();
-        if ($id) {
+        if ($id !== 0) {
             $quoteItem = $cart->getQuote()->getItemById($id);
         }
 
@@ -515,7 +515,7 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
     {
         if ($this->_validateFormKey()) {
             $id = (int) $this->getRequest()->getParam('id');
-            if ($id) {
+            if ($id !== 0) {
                 try {
                     $this->_getCart()->removeItem($id)
                         ->save();
@@ -618,7 +618,7 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
                 ->collectTotals()
                 ->save();
 
-            if ($codeLength) {
+            if ($codeLength !== 0) {
                 if ($isCodeLengthValid && $couponCode == $this->_getQuote()->getCouponCode()) {
                     $this->_getSession()->addSuccess(
                         $this->__('Coupon code "%s" was applied.', Mage::helper('core')->escapeHtml($couponCode)),
@@ -655,7 +655,7 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
 
         $id = (int) $this->getRequest()->getParam('id');
         $result = [];
-        if ($id) {
+        if ($id !== 0) {
             try {
                 $this->_getCart()->removeItem($id)->save();
 
@@ -690,7 +690,7 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
         $id = (int) $this->getRequest()->getParam('id');
         $qty = $this->getRequest()->getParam('qty');
         $result = [];
-        if ($id) {
+        if ($id !== 0) {
             try {
                 $cart = $this->_getCart();
                 if (isset($qty)) {

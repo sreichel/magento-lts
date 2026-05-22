@@ -18,7 +18,7 @@
     <div class="sub-btn-set"><?php echo $this->getAddNewButtonHtml() ?></div>
     <ul id="address_list">
     <?php $_iterator = 0; ?>
-    <?php if(count($addressCollection)): ?>
+    <?php if(count($addressCollection) > 0): ?>
         <?php foreach ($addressCollection as $_address): ?>
         <li id="address_item_<?php echo $_address->getId() ?>">
             <?php if (!$this->isReadonly()): ?>
@@ -86,7 +86,7 @@
 
 <!-- Addresses forms -->
     <div class="entry-edit" id="address_form_container">
-        <?php if(count($addressCollection)): ?>
+        <?php if(count($addressCollection) > 0): ?>
             <?php foreach ($addressCollection as $_address): ?>
             <div id="form_address_item_<?php echo $_address->getId() ?>" style="display:none">
             <?php
@@ -131,7 +131,7 @@ addressesModel.prototype = {
         this.loader = new varienLoader(true);
         this.regionsUrl = '<?php echo $this->getRegionsUrl() ?>';
         this.requiredStateForCountries = <?php echo $this->helper('directory')->getCountriesWithStatesRequired(true) ?>;
-        this.showAllRegions = <?php echo (string)$this->helper('directory')->getShowNonRequiredState() ? 1 : 0; ?>;
+        this.showAllRegions = <?php echo (string)$this->helper('directory')->getShowNonRequiredState() !== '' && (string)$this->helper('directory')->getShowNonRequiredState() !== '0' ? 1 : 0; ?>;
 
         this.reloadItemList(1);
 

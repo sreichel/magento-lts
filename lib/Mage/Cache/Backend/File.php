@@ -717,7 +717,7 @@ class Mage_Cache_Backend_File extends Zend_Cache_Backend_File
         }
 
         $ids = trim(substr($ids, 0, strrpos($ids, "\n")));
-        return $ids ? explode("\n", $ids) : [];
+        return $ids !== '' && $ids !== '0' ? explode("\n", $ids) : [];
     }
 
     /**

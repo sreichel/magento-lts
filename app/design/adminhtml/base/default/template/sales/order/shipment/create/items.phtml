@@ -37,7 +37,7 @@ if ($_item->getOrderItem()->getParentItem()) {
     continue;
 }
 $_i++ ?>
-        <tbody class="<?php echo $_i%2?'odd':'even' ?>">
+        <tbody class="<?php echo $_i % 2 !== 0?'odd':'even' ?>">
             <?php echo $this->getItemHtml($_item) ?>
             <?php echo $this->getItemExtraInfoHtml($_item->getOrderItem()) ?>
         </tbody>

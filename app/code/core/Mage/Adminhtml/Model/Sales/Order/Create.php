@@ -925,7 +925,7 @@ class Mage_Adminhtml_Model_Sales_Order_Create extends Varien_Object implements M
         $newAdditionalOptions = [];
 
         foreach (explode("\n", $additionalOptions) as $additionalOption) {
-            if (strlen(trim($additionalOption))) {
+            if (strlen(trim($additionalOption)) !== 0) {
                 try {
                     if (!str_contains($additionalOption, ':')) {
                         Mage::throwException(

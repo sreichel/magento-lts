@@ -139,7 +139,7 @@ class Mage_Adminhtml_Block_Report_Grid extends Mage_Adminhtml_Block_Widget_Grid
             $this->_setFilterValues($data);
         } elseif ($filter && is_array($filter)) {
             $this->_setFilterValues($filter);
-        } elseif (count($this->_defaultFilter)) {
+        } elseif (count($this->_defaultFilter) > 0) {
             $this->_setFilterValues($this->_defaultFilter);
         }
 

@@ -170,7 +170,7 @@ class Mage_Adminhtml_Model_Config extends Varien_Simplexml_Config
                 $showTab = true;
             }
         } elseif (isset($node->show_in_default)) {
-            if ((int) $node->show_in_default) {
+            if ((int) $node->show_in_default !== 0) {
                 $showTab = true;
             }
         }

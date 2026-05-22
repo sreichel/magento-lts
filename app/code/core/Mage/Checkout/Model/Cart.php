@@ -307,7 +307,7 @@ class Mage_Checkout_Model_Cart extends Varien_Object implements Mage_Checkout_Mo
         if (!empty($productIds)) {
             foreach ($productIds as $productId) {
                 $productId = (int) $productId;
-                if (!$productId) {
+                if ($productId === 0) {
                     continue;
                 }
 

@@ -23,7 +23,7 @@
             </dt>
             <dd>
                 <?php $_votes = $_review->getRatingVotes(); ?>
-                <?php if (count($_votes)): ?>
+                <?php if (count($_votes) > 0): ?>
                 <table class="ratings-table">
                     <col width="1" />
                     <col />

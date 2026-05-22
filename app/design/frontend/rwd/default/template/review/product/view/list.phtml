@@ -34,7 +34,7 @@
                 <?php echo nl2br($this->escapeHtml($_review->getDetail())) ?>
 
 
-                <?php if (count($_votes)): ?>
+                <?php if (count($_votes) > 0): ?>
                 <table class="ratings-table">
                     <colgroup>
                         <col class="review-label" />

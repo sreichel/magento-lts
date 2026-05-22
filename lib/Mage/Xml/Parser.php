@@ -80,7 +80,7 @@ class Mage_Xml_Parser
 
                     break;
                 case XML_TEXT_NODE:
-                    if (trim($node->nodeValue)) {
+                    if (trim($node->nodeValue) !== '' && trim($node->nodeValue) !== '0') {
                         $content = $node->nodeValue;
                     }
 

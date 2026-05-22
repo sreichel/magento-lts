@@ -163,7 +163,7 @@
                         <td><?php echo Mage::helper('sales')->__('Ordered') ?></td>
                         <td><strong><?php echo $_item->getOrderItem()->getQtyOrdered()*1 ?></strong></td>
                     </tr>
-                    <?php if ((float) $_item->getOrderItem()->getQtyInvoiced()): ?>
+                    <?php if ((float) $_item->getOrderItem()->getQtyInvoiced() !== 0.0): ?>
                     <tr>
                         <td><?php echo Mage::helper('sales')->__('Invoiced') ?></td>
                         <td><strong><?php echo $_item->getOrderItem()->getQtyInvoiced()*1 ?></strong></td>
@@ -175,13 +175,13 @@
                         <td><strong><?php echo $_item->getOrderItem()->getQtyShipped()*1 ?></strong></td>
                     </tr>
                     <?php endif ?>
-                    <?php if ((float) $_item->getOrderItem()->getQtyRefunded()): ?>
+                    <?php if ((float) $_item->getOrderItem()->getQtyRefunded() !== 0.0): ?>
                     <tr>
                         <td><?php echo Mage::helper('sales')->__('Refunded') ?></td>
                         <td><strong><?php echo $_item->getOrderItem()->getQtyRefunded()*1 ?></strong></td>
                     </tr>
                     <?php endif ?>
-                    <?php if ((float) $_item->getOrderItem()->getQtyCanceled()): ?>
+                    <?php if ((float) $_item->getOrderItem()->getQtyCanceled() !== 0.0): ?>
                     <tr>
                         <td><?php echo Mage::helper('sales')->__('Canceled') ?></td>
                         <td><strong><?php echo $_item->getOrderItem()->getQtyCanceled()*1 ?></strong></td>
@@ -194,7 +194,7 @@
                         <td><?php echo Mage::helper('sales')->__('Ordered') ?></td>
                         <td><strong><?php echo $_item->getOrderItem()->getQtyOrdered()*1 ?></strong></td>
                     </tr>
-                    <?php if ((float) $_item->getOrderItem()->getQtyShipped()): ?>
+                    <?php if ((float) $_item->getOrderItem()->getQtyShipped() !== 0.0): ?>
                     <tr>
                         <td><?php echo Mage::helper('sales')->__('Shipped') ?></td>
                         <td><strong><?php echo $_item->getOrderItem()->getQtyShipped()*1 ?></strong></td>

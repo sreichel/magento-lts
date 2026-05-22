@@ -38,7 +38,7 @@ class Mage_Adminhtml_Block_Review_Product_Grid extends Mage_Adminhtml_Block_Cata
             'index'     => 'name',
         ]);
 
-        if ((int) $this->getRequest()->getParam('store', 0)) {
+        if ((int) $this->getRequest()->getParam('store', 0) !== 0) {
             $this->addColumn('custom_name', [
                 'header'    => Mage::helper('review')->__('Name in Store'),
                 'index'     => 'custom_name',

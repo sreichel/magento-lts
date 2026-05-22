@@ -508,7 +508,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
         if (!$this->hasBaseCalculationPrice()) {
             if ($this->hasCustomPrice()) {
                 $price = (float) $this->getCustomPrice();
-                if ($price) {
+                if ($price !== 0.0) {
                     $rate = $this->getStore()->convertPrice($price) / $price;
                     $price /= $rate;
                 }
@@ -532,7 +532,7 @@ abstract class Mage_Sales_Model_Quote_Item_Abstract extends Mage_Core_Model_Abst
         if (!$this->hasBaseCalculationPrice()) {
             if ($this->hasOriginalCustomPrice()) {
                 $price = (float) $this->getOriginalCustomPrice();
-                if ($price) {
+                if ($price !== 0.0) {
                     $rate = $this->getStore()->convertPrice($price) / $price;
                     $price /= $rate;
                 }

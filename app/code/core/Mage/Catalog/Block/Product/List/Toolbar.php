@@ -212,7 +212,7 @@ class Mage_Catalog_Block_Product_List_Toolbar extends Mage_Core_Block_Template
 
         // we need to set pagination only if passed value integer and more that 0
         $limit = (int) $this->getLimit();
-        if ($limit) {
+        if ($limit !== 0) {
             $this->_collection->setPageSize($limit);
         }
 
@@ -291,7 +291,7 @@ class Mage_Catalog_Block_Product_List_Toolbar extends Mage_Core_Block_Template
      */
     public function getCurrentPage()
     {
-        if ($page = (int) $this->getRequest()->getParam($this->getPageVarName())) {
+        if (($page = (int) $this->getRequest()->getParam($this->getPageVarName())) !== 0) {
             return $page;
         }
 

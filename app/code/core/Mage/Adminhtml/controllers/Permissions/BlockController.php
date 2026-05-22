@@ -74,7 +74,7 @@ class Mage_Adminhtml_Permissions_BlockController extends Mage_Adminhtml_Controll
         $id = (int) $this->getRequest()->getParam('block_id');
         $model = Mage::getModel('admin/block');
 
-        if ($id) {
+        if ($id !== 0) {
             $model->load($id);
             if (!$model->getId()) {
                 Mage::getSingleton('adminhtml/session')->addError($this->__('This block no longer exists.'));
@@ -93,7 +93,7 @@ class Mage_Adminhtml_Permissions_BlockController extends Mage_Adminhtml_Controll
 
         Mage::register('permissions_block', $model);
 
-        $breadcrumb = $id ? $this->__('Edit Block') : $this->__('New Block');
+        $breadcrumb = $id !== 0 ? $this->__('Edit Block') : $this->__('New Block');
 
         $this->_initAction()
             ->_addBreadcrumb($breadcrumb, $breadcrumb);
@@ -122,7 +122,7 @@ class Mage_Adminhtml_Permissions_BlockController extends Mage_Adminhtml_Controll
             }
 
             $model->setData($data);
-            if ($id) {
+            if ($id !== 0) {
                 $model->setId($id);
             }
 
@@ -168,7 +168,7 @@ class Mage_Adminhtml_Permissions_BlockController extends Mage_Adminhtml_Controll
     public function deleteAction()
     {
         $id = (int) $this->getRequest()->getParam('block_id');
-        if ($id) {
+        if ($id !== 0) {
             try {
                 $model = Mage::getModel('admin/block');
                 $model->setId($id);

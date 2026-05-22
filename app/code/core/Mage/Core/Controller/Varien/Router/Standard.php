@@ -37,7 +37,7 @@ class Mage_Core_Controller_Varien_Router_Standard extends Mage_Core_Controller_V
                 if ($routerConfig->args->modules) {
                     /** @var Varien_Simplexml_Element $customModule */
                     foreach ($routerConfig->args->modules->children() as $customModule) {
-                        if ((string) $customModule) {
+                        if ((string) $customModule !== '' && (string) $customModule !== '0') {
                             if ($before = $customModule->getAttribute('before')) {
                                 $position = array_search($before, $modules);
                                 if ($position === false) {
@@ -113,7 +113,7 @@ class Mage_Core_Controller_Varien_Router_Standard extends Mage_Core_Controller_V
         $front = $this->getFront();
         $path = trim($request->getPathInfo(), '/');
 
-        $pathArray = $path ? explode('/', $path) : explode('/', $this->_getDefaultPath());
+        $pathArray = $path !== '' && $path !== '0' ? explode('/', $path) : explode('/', $this->_getDefaultPath());
 
         // get module name
         if ($request->getModuleName()) {

@@ -65,8 +65,8 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
         $product    = Mage::getModel('catalog/product')
             ->setStoreId($this->getRequest()->getParam('store', 0));
 
-        if (!$productId) {
-            if ($setId = (int) $this->getRequest()->getParam('set')) {
+        if ($productId === 0) {
+            if (($setId = (int) $this->getRequest()->getParam('set')) !== 0) {
                 $product->setAttributeSetId($setId);
             }
 
@@ -76,7 +76,7 @@ class Mage_Adminhtml_Catalog_ProductController extends Mage_Adminhtml_Controller
         }
 
         $product->setData('_edit_mode', true);
-        if ($productId) {
+        if ($productId !== 0) {
             try {
                 $product->load($productId);
             } catch (Exception $exception) {

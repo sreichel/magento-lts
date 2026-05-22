@@ -393,6 +393,6 @@ class Mage_Core_Helper_EnvironmentConfigLoader extends Mage_Core_Helper_Abstract
      */
     protected function buildNodePath(string $scope, string $path, string $storeCode = ''): string
     {
-        return strtolower($scope) . ($storeCode ? '/' . strtolower($storeCode) : '') . '/' . $path;
+        return strtolower($scope) . ($storeCode !== '' && $storeCode !== '0' ? '/' . strtolower($storeCode) : '') . '/' . $path;
     }
 }

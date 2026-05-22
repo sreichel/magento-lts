@@ -266,7 +266,7 @@ class Mage_CurrencySymbol_Model_System_Currencysymbol
     {
         $result = [];
         $configData = (string) Mage::getStoreConfig($configPath, $storeId);
-        if ($configData) {
+        if ($configData !== '' && $configData !== '0') {
             try {
                 $result = Mage::helper('core/unserializeArray')->unserialize($configData);
             } catch (Exception $exception) {

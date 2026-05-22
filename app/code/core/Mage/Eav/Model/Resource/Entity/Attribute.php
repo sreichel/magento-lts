@@ -197,7 +197,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute extends Mage_Core_Model_Resource_
                     continue;
                 }
 
-                if (!strlen($label)) {
+                if ((string) $label === '') {
                     continue;
                 }
 
@@ -300,7 +300,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute extends Mage_Core_Model_Resource_
                 foreach ($option['value'] as $optionId => $values) {
                     $intOptionId = (int) $optionId;
                     if (!empty($option['delete'][$optionId])) {
-                        if ($intOptionId) {
+                        if ($intOptionId !== 0) {
                             $adapter->delete($optionTable, ['option_id = ?' => $intOptionId]);
                             $adapter->delete($optionSwatchTable, ['option_id = ?' => $intOptionId]);
                         }
@@ -309,7 +309,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute extends Mage_Core_Model_Resource_
                     }
 
                     $sortOrder = empty($option['order'][$optionId]) ? 0 : $option['order'][$optionId];
-                    if (!$intOptionId) {
+                    if ($intOptionId === 0) {
                         $data = [
                             'attribute_id'  => $object->getId(),
                             'sort_order'    => $sortOrder,

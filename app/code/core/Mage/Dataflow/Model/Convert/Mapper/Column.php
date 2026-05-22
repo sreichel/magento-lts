@@ -112,7 +112,7 @@ class Mage_Dataflow_Model_Convert_Mapper_Column extends Mage_Dataflow_Model_Conv
 
         $attributesToSelect = $this->getVar('map') && is_array($this->getVar('map')) ? $this->getVar('map') : [];
 
-        if (!$attributesToSelect) {
+        if ($attributesToSelect === []) {
             $this->getBatchExportModel()
                 ->setBatchId($this->getBatchModel()->getId())
                 ->deleteCollection();

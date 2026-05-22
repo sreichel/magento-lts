@@ -41,11 +41,11 @@ class Mage_Usa_Adminhtml_UspsController extends Mage_Adminhtml_Controller_Action
 
     protected function _getConfig(string $path, string $websiteCode, string $storeCode): ?string
     {
-        if ($storeCode) {
+        if ($storeCode !== '' && $storeCode !== '0') {
             return Mage::getStoreConfig($path, $storeCode);
         }
 
-        if ($websiteCode) {
+        if ($websiteCode !== '' && $websiteCode !== '0') {
             return Mage::app()->getWebsite($websiteCode)->getConfig($path);
         }
 

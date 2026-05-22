@@ -338,7 +338,7 @@ class Mage_Core_Controller_Varien_Front extends Varien_Object
         }
 
         $redirectCode = Mage::getStoreConfigAsInt('web/url/redirect_to_base');
-        if (!$redirectCode) {
+        if ($redirectCode === 0) {
             return;
         }
 

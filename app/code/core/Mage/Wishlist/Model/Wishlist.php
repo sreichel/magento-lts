@@ -102,7 +102,7 @@ class Mage_Wishlist_Model_Wishlist extends Mage_Core_Model_Abstract
     public function getName()
     {
         $name = $this->_getData('name');
-        if (!strlen($name)) {
+        if ((string) $name === '') {
             return Mage::helper('wishlist')->getDefaultWishlistName();
         }
 

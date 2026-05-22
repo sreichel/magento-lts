@@ -18,7 +18,7 @@
 </div>
 <?php echo $this->getMessagesBlock()->toHtml() ?>
 <?php echo $this->getChildHtml('pager'); ?>
-<?php if(count($_items)): ?>
+<?php if(count($_items) > 0): ?>
     <table class="data-table linearize-table-large" id="my-downloadable-products-table">
         <col width="1" />
         <col width="1" />

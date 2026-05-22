@@ -242,23 +242,28 @@ class Error_Processor
         }
 
         if ($local !== null) {
-            if ($action = (string) $local->report->action) {
+            $action = (string) $local->report->action;
+            if ($action !== '' && $action !== '0') {
                 $config->action = $action;
             }
 
-            if ($subject = (string) $local->report->subject) {
+            $subject = (string) $local->report->subject;
+            if ($subject !== '' && $subject !== '0') {
                 $config->subject = $subject;
             }
 
-            if ($emailAddress = (string) $local->report->email_address) {
+            $emailAddress = (string) $local->report->email_address;
+            if ($emailAddress !== '' && $emailAddress !== '0') {
                 $config->email_address = $emailAddress;
             }
 
-            if ($trash = (string) $local->report->trash) {
+            $trash = (string) $local->report->trash;
+            if ($trash !== '' && $trash !== '0') {
                 $config->trash = $trash;
             }
 
-            if ($localSkin = (string) $local->skin) {
+            $localSkin = (string) $local->skin;
+            if ($localSkin !== '' && $localSkin !== '0') {
                 $this->_setSkin($localSkin, $config);
             }
         }
@@ -458,7 +463,7 @@ class Error_Processor
                     $msg .= "Telephone: {$this->postData['telephone']}\n";
                 }
 
-                if ($this->postData['comment']) {
+                if ($this->postData['comment'] !== '' && $this->postData['comment'] !== '0') {
                     $msg .= "Comment: {$this->postData['comment']}\n";
                 }
 

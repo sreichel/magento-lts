@@ -168,7 +168,7 @@ class Mage_Dataflow_Model_Profile extends Mage_Core_Model_Abstract
             ->save();
         $csvParser = new Varien_File_Csv();
         $delimiter = trim($this->getData('gui_data/parse/delimiter') ?? '');
-        if ($delimiter) {
+        if ($delimiter !== '' && $delimiter !== '0') {
             $csvParser->setDelimiter($delimiter);
         }
 
@@ -223,7 +223,7 @@ class Mage_Dataflow_Model_Profile extends Mage_Core_Model_Abstract
                     }
 
                     $colsAbsent = array_diff($attributes, $fileData);
-                    if ($colsAbsent) {
+                    if ($colsAbsent !== []) {
                         foreach ($newUploadedFilenames as $newUploadedFilename) {
                             unlink($path . $newUploadedFilename);
                         }
@@ -401,7 +401,7 @@ class Mage_Dataflow_Model_Profile extends Mage_Core_Model_Abstract
 
         $mapXml .= '<action type="dataflow/convert_mapper_column" method="map">' . $newLine;
         $map = $data['map'][$this->getEntityType()];
-        if (count($map['db'])) {
+        if (count($map['db']) > 0) {
             $importFrom = $map[$import ? 'file' : 'db'];
             $importTo   = $map[$import ? 'db' : 'file'];
             $mapXml .= '    <var name="map">' . $newLine;

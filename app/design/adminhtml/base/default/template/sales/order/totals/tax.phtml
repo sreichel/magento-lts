@@ -31,7 +31,7 @@ $taxIter++;
             ?>
 
             <?php foreach ($rates as $rate): ?>
-                <tr class="summary-details<?php if ($isTop): echo ' summary-details-first'; endif; ?>"
+                <tr class="summary-details<?php if ($isTop !== 0): echo ' summary-details-first'; endif; ?>"
                     style="display:none;">
                     <?php if (!is_null($rate['percent'])): ?>
                         <td class="label"><?php echo $rate['title']; ?> (<?php echo (float)$rate['percent']; ?>%)<br/>
@@ -39,7 +39,7 @@ $taxIter++;
                     <?php else: ?>
                         <td class="label"><?php echo $rate['title']; ?><br/></td>
                     <?php endif ?>
-                    <?php if ($isFirst): ?>
+                    <?php if ($isFirst !== 0): ?>
                         <td rowspan="<?php echo count($rates); ?>"><?php echo $this->displayAmount($amount, $baseAmount); ?></td>
                     <?php endif ?>
                 </tr>
@@ -58,7 +58,7 @@ $taxIter++;
             $isFirst = 1;
             ?>
 
-            <tr class="summary-details<?php if ($isTop): echo ' summary-details-first'; endif; ?>"
+            <tr class="summary-details<?php if ($isTop !== 0): echo ' summary-details-first'; endif; ?>"
                 style="display:none;">
                 <?php if (!is_null($info['percent'])): ?>
                     <td class="label"><?php echo $this->escapeHtml($info['title']); ?>
@@ -75,7 +75,7 @@ $taxIter++;
         <?php endforeach ?>
     <?php endif ?>
     <?php foreach ($_weees as $weeeTitle => $weeeAmount): ?>
-        <tr class="summary-details-<?php echo $taxIter; ?> summary-details<?php if ($isTop): echo ' summary-details-first'; endif; ?>"
+        <tr class="summary-details-<?php echo $taxIter; ?> summary-details<?php if ($isTop !== 0): echo ' summary-details-first'; endif; ?>"
             style="display:none;">
             <td class="a-right" colspan="1">
                 <?php echo $this->escapeHtml($weeeTitle); ?>

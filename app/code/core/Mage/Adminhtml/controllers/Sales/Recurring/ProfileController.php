@@ -181,7 +181,7 @@ class Mage_Adminhtml_Sales_Recurring_ProfileController extends Mage_Adminhtml_Co
         $customerId = (int) $this->getRequest()->getParam('id');
         $customer = Mage::getModel('customer/customer');
 
-        if ($customerId) {
+        if ($customerId !== 0) {
             $customer->load($customerId);
         }
 

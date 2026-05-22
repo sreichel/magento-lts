@@ -757,7 +757,7 @@ class Mage_Eav_Model_Entity_Setup extends Mage_Core_Model_Resource_Setup
             foreach ($option['value'] as $optionId => $values) {
                 $intOptionId = (int) $optionId;
                 if (!empty($option['delete'][$optionId])) {
-                    if ($intOptionId) {
+                    if ($intOptionId !== 0) {
                         $condition = ['option_id =?' => $intOptionId];
                         $this->_conn->delete($optionTable, $condition);
                     }
@@ -765,7 +765,7 @@ class Mage_Eav_Model_Entity_Setup extends Mage_Core_Model_Resource_Setup
                     continue;
                 }
 
-                if (!$intOptionId) {
+                if ($intOptionId === 0) {
                     $data = [
                         'attribute_id'  => $option['attribute_id'],
                         'sort_order'    => $option['order'][$optionId] ?? 0,
@@ -864,7 +864,7 @@ class Mage_Eav_Model_Entity_Setup extends Mage_Core_Model_Resource_Setup
                 }
             }
 
-            if (!$bind) {
+            if ($bind === []) {
                 return $this;
             }
 
@@ -914,7 +914,7 @@ class Mage_Eav_Model_Entity_Setup extends Mage_Core_Model_Resource_Setup
                     }
                 }
 
-                if (!$bind) {
+                if ($bind === []) {
                     return $this;
                 }
 
@@ -1522,7 +1522,7 @@ class Mage_Eav_Model_Entity_Setup extends Mage_Core_Model_Resource_Setup
             }
         }
 
-        if (!$bind) {
+        if ($bind === []) {
             return $this;
         }
 
@@ -1561,7 +1561,7 @@ class Mage_Eav_Model_Entity_Setup extends Mage_Core_Model_Resource_Setup
                 }
             }
 
-            if (!$bind) {
+            if ($bind === []) {
                 return $this;
             }
 

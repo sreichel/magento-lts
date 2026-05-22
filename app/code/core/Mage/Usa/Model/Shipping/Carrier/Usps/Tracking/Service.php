@@ -148,7 +148,7 @@ class Mage_Usa_Model_Shipping_Carrier_Usps_Tracking_Service
         $resultArr = [];
         $packageProgress = [];
 
-        if (!$jsonResponse) {
+        if ($jsonResponse === '' || $jsonResponse === '0') {
             $this->_setTrackingError($trackingValue, $errorTitle);
             return;
         }
@@ -316,6 +316,6 @@ class Mage_Usa_Model_Shipping_Carrier_Usps_Tracking_Service
             }
         }
 
-        return $statuses ? $statuses : (string) Mage::helper('usa')->__('Empty response');
+        return $statuses !== '' && $statuses !== '0' ? $statuses : (string) Mage::helper('usa')->__('Empty response');
     }
 }

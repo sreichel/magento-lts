@@ -377,7 +377,7 @@ class Mage_ImportExport_Model_Export_Entity_Customer extends Mage_ImportExport_M
                 $innerOptions = is_array($option['value']) ? $option['value'] : [$option];
                 foreach ($innerOptions as $innerOption) {
                     // skip ' -- Please Select -- ' option
-                    if (strlen($innerOption['value'])) {
+                    if (strlen($innerOption['value']) !== 0) {
                         $options[$innerOption['value']] = $innerOption['label'];
                     }
                 }
@@ -406,7 +406,7 @@ class Mage_ImportExport_Model_Export_Entity_Customer extends Mage_ImportExport_M
 
             if ($attribute && $attribute->getFrontendInput() == 'multiselect') {
                 $optionText = (array) $attribute->getSource()->getOptionText($attrValue);
-                if ($optionText) {
+                if ($optionText !== []) {
                     $attributeMultiSelect[$attrCode] = $optionText;
                     $attrValue                       = null;
                 }

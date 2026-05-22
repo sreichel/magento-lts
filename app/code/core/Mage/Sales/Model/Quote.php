@@ -1978,7 +1978,7 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
             $this->getBillingAddress();
         }
 
-        if ($quote->getCouponCode()) {
+        if ($quote->getCouponCode() !== '' && $quote->getCouponCode() !== '0') {
             $this->setCouponCode($quote->getCouponCode());
         }
 
@@ -2085,7 +2085,7 @@ class Mage_Sales_Model_Quote extends Mage_Core_Model_Abstract
     protected function _validateCouponCode()
     {
         $code = $this->getCouponCode();
-        if (strlen($code)) {
+        if (strlen($code) !== 0) {
             $addressHasCoupon = false;
             $addresses = $this->getAllAddresses();
             if (count($addresses) > 0) {

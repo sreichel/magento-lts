@@ -87,11 +87,6 @@ $ignoreErrors[] = [
     'path' => __DIR__ . '/../app/code/core/Mage/Adminhtml/Block/Rating/Edit/Tab/Form.php',
 ];
 $ignoreErrors[] = [
-    'rawMessage' => 'Only booleans are allowed in an elseif condition, int<0, max> given.',
-    'count' => 1,
-    'path' => __DIR__ . '/../app/code/core/Mage/Adminhtml/Block/Report/Grid.php',
-];
-$ignoreErrors[] = [
     'rawMessage' => 'Only booleans are allowed in an elseif condition, mixed given.',
     'count' => 4,
     'path' => __DIR__ . '/../app/code/core/Mage/Adminhtml/Block/Report/Grid.php',
@@ -170,11 +165,6 @@ $ignoreErrors[] = [
     'rawMessage' => 'Only booleans are allowed in an elseif condition, int given.',
     'count' => 3,
     'path' => __DIR__ . '/../app/code/core/Mage/Adminhtml/Block/Urlrewrite/Edit.php',
-];
-$ignoreErrors[] = [
-    'rawMessage' => 'Only booleans are allowed in an elseif condition, int<0, max> given.',
-    'count' => 1,
-    'path' => __DIR__ . '/../app/code/core/Mage/Adminhtml/Block/Widget/Grid.php',
 ];
 $ignoreErrors[] = [
     'rawMessage' => 'Only booleans are allowed in an elseif condition, int|false given.',
@@ -282,11 +272,6 @@ $ignoreErrors[] = [
     'path' => __DIR__ . '/../app/code/core/Mage/Catalog/Model/Product/Attribute/Frontend/Image.php',
 ];
 $ignoreErrors[] = [
-    'rawMessage' => 'Only booleans are allowed in an elseif condition, int given.',
-    'count' => 1,
-    'path' => __DIR__ . '/../app/code/core/Mage/Catalog/Model/Product/Compare/Item.php',
-];
-$ignoreErrors[] = [
     'rawMessage' => 'Only booleans are allowed in an elseif condition, array given.',
     'count' => 1,
     'path' => __DIR__ . '/../app/code/core/Mage/Catalog/Model/Product/Option/Type/File.php',
@@ -387,11 +372,6 @@ $ignoreErrors[] = [
     'path' => __DIR__ . '/../app/code/core/Mage/Core/Model/Resource/Setup.php',
 ];
 $ignoreErrors[] = [
-    'rawMessage' => 'Only booleans are allowed in an elseif condition, string given.',
-    'count' => 2,
-    'path' => __DIR__ . '/../app/code/core/Mage/Core/Model/Resource/Setup.php',
-];
-$ignoreErrors[] = [
     'rawMessage' => 'Only booleans are allowed in an elseif condition, Mage_Directory_Model_Currency given.',
     'count' => 1,
     'path' => __DIR__ . '/../app/code/core/Mage/Core/Model/Store.php',
@@ -442,19 +422,9 @@ $ignoreErrors[] = [
     'path' => __DIR__ . '/../app/code/core/Mage/ImportExport/Model/Export/Entity/Customer.php',
 ];
 $ignoreErrors[] = [
-    'rawMessage' => 'Only booleans are allowed in an elseif condition, int<0, max> given.',
-    'count' => 1,
-    'path' => __DIR__ . '/../app/code/core/Mage/ImportExport/Model/Import/Entity/Customer.php',
-];
-$ignoreErrors[] = [
     'rawMessage' => 'Only booleans are allowed in an elseif condition, mixed given.',
     'count' => 1,
     'path' => __DIR__ . '/../app/code/core/Mage/ImportExport/Model/Import/Entity/Customer.php',
-];
-$ignoreErrors[] = [
-    'rawMessage' => 'Only booleans are allowed in an elseif condition, int<0, max> given.',
-    'count' => 1,
-    'path' => __DIR__ . '/../app/code/core/Mage/ImportExport/Model/Import/Entity/Customer/Address.php',
 ];
 $ignoreErrors[] = [
     'rawMessage' => 'Only booleans are allowed in an elseif condition, mixed given.',
@@ -465,11 +435,6 @@ $ignoreErrors[] = [
     'rawMessage' => 'Only booleans are allowed in an elseif condition, string|null given.',
     'count' => 1,
     'path' => __DIR__ . '/../app/code/core/Mage/Newsletter/Model/Template.php',
-];
-$ignoreErrors[] = [
-    'rawMessage' => 'Only booleans are allowed in an elseif condition, string given.',
-    'count' => 1,
-    'path' => __DIR__ . '/../app/code/core/Mage/Oauth/Model/Server.php',
 ];
 $ignoreErrors[] = [
     'rawMessage' => 'Only booleans are allowed in an elseif condition, Mage_Sales_Model_Quote_Address|null given.',
@@ -528,11 +493,6 @@ $ignoreErrors[] = [
 ];
 $ignoreErrors[] = [
     'rawMessage' => 'Only booleans are allowed in an elseif condition, Mage_Sales_Model_Quote_Address|null given.',
-    'count' => 1,
-    'path' => __DIR__ . '/../app/code/core/Mage/SalesRule/Model/Validator.php',
-];
-$ignoreErrors[] = [
-    'rawMessage' => 'Only booleans are allowed in an elseif condition, int<0, max> given.',
     'count' => 1,
     'path' => __DIR__ . '/../app/code/core/Mage/SalesRule/Model/Validator.php',
 ];
@@ -865,36 +825,6 @@ $ignoreErrors[] = [
     'rawMessage' => 'Only booleans are allowed in an elseif condition, int|false given.',
     'count' => 1,
     'path' => __DIR__ . '/../lib/Varien/File/Uploader.php',
-];
-$ignoreErrors[] = [
-    'rawMessage' => 'Only booleans are allowed in an elseif condition, int<0, 16384> given.',
-    'count' => 1,
-    'path' => __DIR__ . '/../lib/Varien/Io/File.php',
-];
-$ignoreErrors[] = [
-    'rawMessage' => 'Only booleans are allowed in an elseif condition, int<0, 24576> given.',
-    'count' => 1,
-    'path' => __DIR__ . '/../lib/Varien/Io/File.php',
-];
-$ignoreErrors[] = [
-    'rawMessage' => 'Only booleans are allowed in an elseif condition, int<0, 32768> given.',
-    'count' => 1,
-    'path' => __DIR__ . '/../lib/Varien/Io/File.php',
-];
-$ignoreErrors[] = [
-    'rawMessage' => 'Only booleans are allowed in an elseif condition, int<0, 40960> given.',
-    'count' => 1,
-    'path' => __DIR__ . '/../lib/Varien/Io/File.php',
-];
-$ignoreErrors[] = [
-    'rawMessage' => 'Only booleans are allowed in an elseif condition, int<0, 49152> given.',
-    'count' => 1,
-    'path' => __DIR__ . '/../lib/Varien/Io/File.php',
-];
-$ignoreErrors[] = [
-    'rawMessage' => 'Only booleans are allowed in an elseif condition, int<0, 8192> given.',
-    'count' => 1,
-    'path' => __DIR__ . '/../lib/Varien/Io/File.php',
 ];
 $ignoreErrors[] = [
     'rawMessage' => 'Only booleans are allowed in an elseif condition, int|false given.',

@@ -32,7 +32,7 @@ foreach ($multiSelectAttributeCodes as $attributeCode) {
                     // 1,2,,,3,5 --> 1,2,3,5
                     $row['value'] = preg_replace('/,{2,}/', ',', $row['value'], -1, $replaceCnt);
 
-                    if ($replaceCnt) {
+                    if ($replaceCnt !== 0) {
                         $installer->getConnection()
                             ->update($attributeTable, ['value' => $row['value']], 'value_id=' . $row['value_id']);
                     }

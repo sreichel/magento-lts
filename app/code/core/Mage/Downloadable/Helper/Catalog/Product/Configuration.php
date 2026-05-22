@@ -49,7 +49,7 @@ class Mage_Downloadable_Helper_Catalog_Product_Configuration extends Mage_Core_H
     public function getLinksTitle($product)
     {
         $title = $product->getLinksTitle();
-        if (strlen($title)) {
+        if (strlen($title) !== 0) {
             return $title;
         }
 

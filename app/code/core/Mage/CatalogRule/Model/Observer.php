@@ -313,7 +313,7 @@ class Mage_CatalogRule_Model_Observer
             $disabledRulesCount++;
         }
 
-        if ($disabledRulesCount) {
+        if ($disabledRulesCount !== 0) {
             Mage::getModel('catalogrule/rule')->applyAll();
             Mage::getSingleton('adminhtml/session')->addWarning(
                 Mage::helper('catalogrule')->__('%d Catalog Price Rules based on "%s" attribute have been disabled.', $disabledRulesCount, $attributeCode),
@@ -417,7 +417,7 @@ class Mage_CatalogRule_Model_Observer
             }
         }
 
-        if ($productIds) {
+        if ($productIds !== []) {
             $rulePrices = Mage::getResourceModel('catalogrule/rule')
                 ->getRulePrices($date, $websiteId, $groupId, $productIds);
             foreach ($productIds as $productId) {

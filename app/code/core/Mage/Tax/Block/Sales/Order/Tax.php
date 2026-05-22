@@ -167,13 +167,13 @@ class Mage_Tax_Block_Sales_Order_Tax extends Mage_Core_Block_Template
             $subtotalIncl   = (float) $this->_source->getSubtotalInclTax();
             $baseSubtotalIncl = (float) $this->_source->getBaseSubtotalInclTax();
 
-            if (!$subtotalIncl) {
+            if ($subtotalIncl === 0.0) {
                 $subtotalIncl = $this->_source->getSubtotal()
                     + $this->_source->getTaxAmount()
                     - $this->_source->getShippingTaxAmount();
             }
 
-            if (!$baseSubtotalIncl) {
+            if ($baseSubtotalIncl === 0.0) {
                 $baseSubtotalIncl = $this->_source->getBaseSubtotal()
                     + $this->_source->getBaseTaxAmount()
                     - $this->_source->getBaseShippingTaxAmount();
@@ -205,12 +205,12 @@ class Mage_Tax_Block_Sales_Order_Tax extends Mage_Core_Block_Template
             $shipping           = (float) $this->_source->getShippingAmount();
             $baseShipping       = (float) $this->_source->getBaseShippingAmount();
             $shippingIncl       = (float) $this->_source->getShippingInclTax();
-            if (!$shippingIncl) {
+            if ($shippingIncl === 0.0) {
                 $shippingIncl   = $shipping + (float) $this->_source->getShippingTaxAmount();
             }
 
             $baseShippingIncl   = (float) $this->_source->getBaseShippingInclTax();
-            if (!$baseShippingIncl) {
+            if ($baseShippingIncl === 0.0) {
                 $baseShippingIncl = $baseShipping + (float) $this->_source->getBaseShippingTaxAmount();
             }
 

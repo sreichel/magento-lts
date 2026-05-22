@@ -69,7 +69,7 @@ class Mage_Checkout_Model_Cart_Coupon_Api extends Mage_Checkout_Model_Api_Resour
 
         try {
             $quote->getShippingAddress()->setCollectShippingRates(true);
-            $quote->setCouponCode(strlen($couponCode) ? $couponCode : '')
+            $quote->setCouponCode(strlen($couponCode) !== 0 ? $couponCode : '')
                 ->collectTotals()
                 ->save();
         } catch (Exception $exception) {

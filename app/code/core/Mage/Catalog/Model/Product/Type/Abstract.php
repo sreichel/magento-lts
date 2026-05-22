@@ -322,7 +322,7 @@ abstract class Mage_Catalog_Model_Product_Type_Abstract
             && !empty($superProductConfig['product_type'])
         ) {
             $superProductId = (int) $superProductConfig['product_id'];
-            if ($superProductId) {
+            if ($superProductId !== 0) {
                 if (!$superProduct = Mage::registry('used_super_product_' . $superProductId)) {
                     $superProduct = Mage::getModel('catalog/product')->load($superProductId);
                     Mage::register('used_super_product_' . $superProductId, $superProduct);

@@ -414,11 +414,11 @@ class Varien_Io_File extends Varien_Io_Abstract
         if ($recursive) {
             if (is_dir($dir)) {
                 foreach (scandir($dir) as $item) {
-                    if (!strcmp($item, '.')) {
+                    if (strcmp($item, '.') === 0) {
                         continue;
                     }
 
-                    if (!strcmp($item, '..')) {
+                    if (strcmp($item, '..') === 0) {
                         continue;
                     }
 
@@ -905,45 +905,45 @@ class Varien_Io_File extends Varien_Io_Abstract
      */
     protected function _parsePermissions($mode)
     {
-        if ($mode & 0x1000) {
+        if (($mode & 0x1000) !== 0) {
             $type = 'p';
-        } elseif ($mode & 0x2000) { /* FIFO pipe */
+        } elseif (($mode & 0x2000) !== 0) { /* FIFO pipe */
             $type = 'c';
-        } elseif ($mode & 0x4000) { /* Character special */
+        } elseif (($mode & 0x4000) !== 0) { /* Character special */
             $type = 'd';
-        } elseif ($mode & 0x6000) { /* Directory */
+        } elseif (($mode & 0x6000) !== 0) { /* Directory */
             $type = 'b';
-        } elseif ($mode & 0x8000) { /* Block special */
+        } elseif (($mode & 0x8000) !== 0) { /* Block special */
             $type = '-';
-        } elseif ($mode & 0xA000) { /* Regular */
+        } elseif (($mode & 0xA000) !== 0) { /* Regular */
             $type = 'l';
-        } elseif ($mode & 0xC000) { /* Symbolic Link */
+        } elseif (($mode & 0xC000) !== 0) { /* Symbolic Link */
             $type = 's';
         } else { /* Socket */
             $type = 'u';
         } /* UNKNOWN */
 
         /* Determine permissions */
-        $owner['read'] = ($mode & 00400) ? 'r' : '-';
-        $owner['write'] = ($mode & 00200) ? 'w' : '-';
-        $owner['execute'] = ($mode & 00100) ? 'x' : '-';
-        $group['read'] = ($mode & 00040) ? 'r' : '-';
-        $group['write'] = ($mode & 00020) ? 'w' : '-';
-        $group['execute'] = ($mode & 00010) ? 'x' : '-';
-        $world['read'] = ($mode & 00004) ? 'r' : '-';
-        $world['write'] = ($mode & 00002) ? 'w' : '-';
-        $world['execute'] = ($mode & 00001) ? 'x' : '-';
+        $owner['read'] = (($mode & 00400) !== 0) ? 'r' : '-';
+        $owner['write'] = (($mode & 00200) !== 0) ? 'w' : '-';
+        $owner['execute'] = (($mode & 00100) !== 0) ? 'x' : '-';
+        $group['read'] = (($mode & 00040) !== 0) ? 'r' : '-';
+        $group['write'] = (($mode & 00020) !== 0) ? 'w' : '-';
+        $group['execute'] = (($mode & 00010) !== 0) ? 'x' : '-';
+        $world['read'] = (($mode & 00004) !== 0) ? 'r' : '-';
+        $world['write'] = (($mode & 00002) !== 0) ? 'w' : '-';
+        $world['execute'] = (($mode & 00001) !== 0) ? 'x' : '-';
 
         /* Adjust for SUID, SGID and sticky bit */
-        if ($mode & 0x800) {
+        if (($mode & 0x800) !== 0) {
             $owner['execute'] = ($owner['execute'] == 'x') ? 's' : 'S';
         }
 
-        if ($mode & 0x400) {
+        if (($mode & 0x400) !== 0) {
             $group['execute'] = ($group['execute'] == 'x') ? 's' : 'S';
         }
 
-        if ($mode & 0x200) {
+        if (($mode & 0x200) !== 0) {
             $world['execute'] = ($world['execute'] == 'x') ? 't' : 'T';
         }
 

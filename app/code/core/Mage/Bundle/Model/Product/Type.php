@@ -641,7 +641,7 @@ class Mage_Bundle_Model_Product_Type extends Mage_Catalog_Model_Product_Type_Abs
                 if ($selection->getSelectionCanChangeQty() && isset($qtys[$selection->getOptionId()])) {
                     $qty = (float) $qtys[$selection->getOptionId()] > 0 ? $qtys[$selection->getOptionId()] : 1;
                 } else {
-                    $qty = (float) $selection->getSelectionQty() ? $selection->getSelectionQty() : 1;
+                    $qty = (float) $selection->getSelectionQty() !== 0.0 ? $selection->getSelectionQty() : 1;
                 }
 
                 $qty = (float) $qty;

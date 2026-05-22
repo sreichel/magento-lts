@@ -455,7 +455,7 @@ class Mage_Paypal_Model_Cart
 
         // workaround in case if item subtotal precision is not compatible with PayPal (.2)
         $subAggregatedLabel = '';
-        if ($amount - round($amount, 2)) {
+        if ($amount - round($amount, 2) !== 0.0) {
             $amount *= $qty;
             $subAggregatedLabel = ' x' . $qty;
             $qty = 1;

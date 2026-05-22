@@ -283,7 +283,7 @@ class Mage_Core_Model_Resource_Setup
             if ($status == self::VERSION_COMPARE_GREATER) {
                 $this->_upgradeData($dataVer, $configVer);
             }
-        } elseif ($configVer) {
+        } elseif ($configVer !== '' && $configVer !== '0') {
             $this->_installData($configVer);
         }
 
@@ -321,7 +321,7 @@ class Mage_Core_Model_Resource_Setup
                 default:
                     return true;
             }
-        } elseif ($configVer) {
+        } elseif ($configVer !== '' && $configVer !== '0') {
             $this->_installResourceDb($configVer);
         }
 

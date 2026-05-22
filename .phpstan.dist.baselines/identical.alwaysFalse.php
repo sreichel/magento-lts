@@ -12,6 +12,11 @@ $ignoreErrors[] = [
     'path' => __DIR__ . '/../app/code/core/Mage/Tax/Model/Resource/Setup.php',
 ];
 $ignoreErrors[] = [
+    'rawMessage' => 'Strict comparison using === between \' disabled="disabled…\' and \'0\' will always evaluate to false.',
+    'count' => 1,
+    'path' => __DIR__ . '/../app/design/adminhtml/base/default/template/catalog/product/tab/inventory.phtml',
+];
+$ignoreErrors[] = [
     'rawMessage' => 'Strict comparison using === between mixed and false will always evaluate to false.',
     'count' => 1,
     'path' => __DIR__ . '/../lib/Varien/Simplexml/Config.php',

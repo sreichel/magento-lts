@@ -206,7 +206,7 @@ class Mage_Admin_Model_Session extends Mage_Core_Model_Session_Abstract
             $this->setAcl(Mage::getResourceModel('admin/acl')->loadAcl());
         }
 
-        if ($user->getReloadAclFlag()) {
+        if ($user->getReloadAclFlag() !== 0) {
             $user->getResource()->saveReloadAclFlag($user, 0);
         }
 

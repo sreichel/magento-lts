@@ -995,7 +995,7 @@ abstract class Mage_Core_Controller_Varien_Action
             if ($titleBlock) {
                 if (!$this->_removeDefaultTitle) {
                     $title = trim($titleBlock->getTitle());
-                    if ($title) {
+                    if ($title !== '' && $title !== '0') {
                         array_unshift($this->_titles, $title);
                     }
                 }

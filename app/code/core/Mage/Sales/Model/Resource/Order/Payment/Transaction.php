@@ -156,7 +156,7 @@ class Mage_Sales_Model_Resource_Order_Payment_Transaction extends Mage_Sales_Mod
             }
 
             $parentId = (int) $this->_lookupByTxnId($orderId, $paymentId, $parentTxnId, $idFieldName);
-            if ($parentId) {
+            if ($parentId !== 0) {
                 $transaction->setData('parent_id', $parentId);
             }
         }
@@ -164,7 +164,7 @@ class Mage_Sales_Model_Resource_Order_Payment_Transaction extends Mage_Sales_Mod
         // make sure unique key won't cause trouble
         if ($transaction->isFailsafe()) {
             $autoincrementId = (int) $this->_lookupByTxnId($orderId, $paymentId, $txnId, $idFieldName);
-            if ($autoincrementId) {
+            if ($autoincrementId !== 0) {
                 $transaction->setData($idFieldName, $autoincrementId)->isObjectNew(false);
             }
         }

@@ -270,7 +270,7 @@ class Varien_Simplexml_Element extends SimpleXMLElement
             $out .= $pad . '</' . $this->getName() . '>' . $eol;
         } else {
             $value = (string) $this;
-            if (strlen($value)) {
+            if (strlen($value) !== 0) {
                 $out .= '>' . $this->xmlentities($value) . '</' . $this->getName() . '>' . $eol;
             } else {
                 $out .= '/>' . $eol;

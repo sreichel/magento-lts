@@ -73,7 +73,7 @@ class Mage_Adminhtml_Permissions_VariableController extends Mage_Adminhtml_Contr
         $id = (int) $this->getRequest()->getParam('variable_id');
         $model = Mage::getModel('admin/variable');
 
-        if ($id) {
+        if ($id !== 0) {
             $model->load($id);
             if (!$model->getId()) {
                 Mage::getSingleton('adminhtml/session')->addError($this->__('This variable no longer exists.'));
@@ -92,7 +92,7 @@ class Mage_Adminhtml_Permissions_VariableController extends Mage_Adminhtml_Contr
 
         Mage::register('permissions_variable', $model);
 
-        $breadcrumb = $id ? $this->__('Edit Variable') : $this->__('New Variable');
+        $breadcrumb = $id !== 0 ? $this->__('Edit Variable') : $this->__('New Variable');
 
         $this->_initAction()
             ->_addBreadcrumb($breadcrumb, $breadcrumb);
@@ -121,7 +121,7 @@ class Mage_Adminhtml_Permissions_VariableController extends Mage_Adminhtml_Contr
             }
 
             $model->setData($data);
-            if ($id) {
+            if ($id !== 0) {
                 $model->setId($id);
             }
 
@@ -167,7 +167,7 @@ class Mage_Adminhtml_Permissions_VariableController extends Mage_Adminhtml_Contr
     public function deleteAction()
     {
         $id = (int) $this->getRequest()->getParam('variable_id');
-        if ($id) {
+        if ($id !== 0) {
             try {
                 $model = Mage::getModel('admin/variable');
                 $model->setId($id);

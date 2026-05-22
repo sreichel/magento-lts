@@ -67,7 +67,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Helper_Form_Gallery extends Varien_Da
         // catalog_product_entity_media_gallery_value database table
         if ($attributeCode == 'label' || $attributeCode == 'position') {
             $mediaGallery = $this->getDataObject()->getMediaGallery();
-            if (!count($mediaGallery['images'])) {
+            if (count($mediaGallery['images']) === 0) {
                 return true;
             }
 

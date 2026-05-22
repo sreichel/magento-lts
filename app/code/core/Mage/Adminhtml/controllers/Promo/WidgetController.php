@@ -77,7 +77,7 @@ class Mage_Adminhtml_Promo_WidgetController extends Mage_Adminhtml_Controller_Ac
      */
     public function categoriesJsonAction()
     {
-        if ($categoryId = (int) $this->getRequest()->getPost('id')) {
+        if (($categoryId = (int) $this->getRequest()->getPost('id')) !== 0) {
             $this->getRequest()->setParam('id', $categoryId);
 
             if (!$category = $this->_initCategory()) {
@@ -104,9 +104,9 @@ class Mage_Adminhtml_Promo_WidgetController extends Mage_Adminhtml_Controller_Ac
         $category   = Mage::getModel('catalog/category');
         $category->setStoreId($storeId);
 
-        if ($categoryId) {
+        if ($categoryId !== 0) {
             $category->load($categoryId);
-            if ($storeId) {
+            if ($storeId !== 0) {
                 $rootId = Mage::app()->getStore($storeId)->getRootCategoryId();
                 if (!in_array($rootId, $category->getPathIds())) {
                     $this->_redirect('*/*/', ['_current' => true, 'id' => null]);

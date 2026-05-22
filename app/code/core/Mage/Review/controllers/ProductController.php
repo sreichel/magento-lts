@@ -66,7 +66,7 @@ class Mage_Review_ProductController extends Mage_Core_Controller_Front_Action
             return false;
         }
 
-        if ($categoryId) {
+        if ($categoryId !== 0) {
             $category = Mage::getModel('catalog/category')->load($categoryId);
             Mage::register('current_category', $category);
         }

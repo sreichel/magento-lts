@@ -13,7 +13,7 @@
 ?>
 
 <?php $_childHtml = trim($this->getChildHtml('', false)); ?>
-<?php if ($_childHtml): ?>
+<?php if ($_childHtml !== '' && $_childHtml !== '0'): ?>
 <?php $_item = $this->getItem() ?>
 <tr class="border">
     <td>

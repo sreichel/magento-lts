@@ -75,7 +75,7 @@ class Mage_Sales_GuestController extends Mage_Sales_Controller_Abstract
         }
 
         $invoiceId = (int) $this->getRequest()->getParam('invoice_id');
-        if ($invoiceId) {
+        if ($invoiceId !== 0) {
             $invoice = Mage::getModel('sales/order_invoice')->load($invoiceId);
             $order = $invoice->getOrder();
         } else {
@@ -102,7 +102,7 @@ class Mage_Sales_GuestController extends Mage_Sales_Controller_Abstract
         }
 
         $shipmentId = (int) $this->getRequest()->getParam('shipment_id');
-        if ($shipmentId) {
+        if ($shipmentId !== 0) {
             $shipment = Mage::getModel('sales/order_shipment')->load($shipmentId);
             $order = $shipment->getOrder();
         } else {
@@ -129,7 +129,7 @@ class Mage_Sales_GuestController extends Mage_Sales_Controller_Abstract
         }
 
         $creditmemoId = (int) $this->getRequest()->getParam('creditmemo_id');
-        if ($creditmemoId) {
+        if ($creditmemoId !== 0) {
             $creditmemo = Mage::getModel('sales/order_creditmemo')->load($creditmemoId);
             $order = $creditmemo->getOrder();
         } else {

@@ -137,7 +137,7 @@ abstract class Mage_Rule_Model_Resource_Rule_Collection_Abstract extends Mage_Co
     public function addIsActiveFilter($isActive = 1)
     {
         if (!$this->getFlag('is_active_filter')) {
-            $this->addFieldToFilter('is_active', (int) $isActive ? 1 : 0);
+            $this->addFieldToFilter('is_active', (int) $isActive !== 0 ? 1 : 0);
             $this->setFlag('is_active_filter', true);
         }
 

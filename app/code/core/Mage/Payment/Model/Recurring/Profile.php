@@ -646,7 +646,7 @@ class Mage_Payment_Model_Recurring_Profile extends Mage_Core_Model_Abstract
         $result[] = Mage::helper('payment')->__('%s %s cycle.', $frequency, $this->getPeriodUnitLabel($period));
 
         $cycles = (int) $this->_getData($cyclesKey);
-        if ($cycles) {
+        if ($cycles !== 0) {
             $result[] = Mage::helper('payment')->__('Repeats %s time(s).', $cycles);
         } else {
             $result[] = Mage::helper('payment')->__('Repeats until suspended or canceled.');

@@ -82,7 +82,7 @@ class Mage_Api2_Model_Resource_Validator_Fields extends Mage_Api2_Model_Resource
 
         foreach ($validationConfig as $field => $validatorsConfig) {
             $field = (string) $field;
-            if (count($validatorsConfig)) {
+            if (count($validatorsConfig) > 0) {
                 $chainForOneField = new ArrayObject();
                 foreach ($validatorsConfig as $validatorName => $validatorConfig) {
                     // it is required field

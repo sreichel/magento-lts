@@ -216,7 +216,7 @@ class Mage_Weee_Model_Tax extends Mage_Core_Model_Abstract
                 $attributeSelect->order($order);
                 $value = (float) $this->getResource()->getReadConnection()->fetchOne($attributeSelect);
 
-                if ($value) {
+                if ($value !== 0.0) {
                     if ($discountPercent) {
                         $value = Mage::app()->getStore()->roundPrice($value - ($value * $discountPercent / 100));
                     }

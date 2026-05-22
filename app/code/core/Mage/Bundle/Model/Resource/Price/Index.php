@@ -704,7 +704,7 @@ class Mage_Bundle_Model_Resource_Price_Index extends Mage_Core_Model_Resource_Db
                 Mage_Catalog_Model_Product_Option::OPTION_TYPE_CHECKBOX,
                 Mage_Catalog_Model_Product_Option::OPTION_TYPE_MULTIPLE,
             ];
-            if ($optionPrices) {
+            if ($optionPrices !== []) {
                 if (in_array($option['type'], $multiTypes)) {
                     $maxPrice += array_sum($optionPrices);
                 } else {
@@ -790,7 +790,7 @@ class Mage_Bundle_Model_Resource_Price_Index extends Mage_Core_Model_Resource_Db
                 $optionPrices[$selection['selection_id']] = $selectionPrice;
             }
 
-            if ($optionPrices) {
+            if ($optionPrices !== []) {
                 if ($option['required']) {
                     $minPrice += min($optionPrices);
                 } else {

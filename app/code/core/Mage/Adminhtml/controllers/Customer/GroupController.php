@@ -110,7 +110,7 @@ class Mage_Adminhtml_Customer_GroupController extends Mage_Adminhtml_Controller_
 
         $taxClass = (int) $this->getRequest()->getParam('tax_class');
 
-        if ($taxClass) {
+        if ($taxClass !== 0) {
             try {
                 $customerGroupCode = (string) $this->getRequest()->getParam('code');
 
@@ -140,7 +140,7 @@ class Mage_Adminhtml_Customer_GroupController extends Mage_Adminhtml_Controller_
     public function deleteAction()
     {
         $customerGroup = Mage::getModel('customer/group');
-        if ($id = (int) $this->getRequest()->getParam('id')) {
+        if (($id = (int) $this->getRequest()->getParam('id')) !== 0) {
             try {
                 $customerGroup->load($id);
                 $customerGroup->delete();

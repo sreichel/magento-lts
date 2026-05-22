@@ -412,7 +412,7 @@ class Mage_Catalog_Model_Layer_Filter_Price extends Mage_Catalog_Model_Layer_Fil
             }
         }
 
-        if ($priorFilters) {
+        if ($priorFilters !== []) {
             $this->setPriorIntervals($priorFilters);
         }
 

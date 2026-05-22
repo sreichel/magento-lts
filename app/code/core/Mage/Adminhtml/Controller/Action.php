@@ -160,7 +160,8 @@ class Mage_Adminhtml_Controller_Action extends Mage_Core_Controller_Varien_Actio
             ->setPackageName((string) $package)
             ->setTheme((string) Mage::getConfig()->getNode('stores/admin/design/theme/default'));
         foreach (['layout', 'template', 'skin', 'locale'] as $type) {
-            if ($value = (string) Mage::getConfig()->getNode("stores/admin/design/theme/{$type}")) {
+            $value = (string) Mage::getConfig()->getNode("stores/admin/design/theme/{$type}");
+            if ($value !== '' && $value !== '0') {
                 Mage::getDesign()->setTheme($type, $value);
             }
         }

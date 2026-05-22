@@ -15,7 +15,7 @@
 <?php $_item = $this->getItem() ?>
 <?php if ($_item): ?>
     <?php $_childHtml = trim($this->getChildHtml('', false));?>
-    <?php if ($_childHtml): ?>
+    <?php if ($_childHtml !== '' && $_childHtml !== '0'): ?>
         <tr class="border">
             <td class="first">
                 <div>

@@ -464,7 +464,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
                 }
             }
 
-            if ($idToDelete) {
+            if ($idToDelete !== []) {
                 $this->_connection->query(
                     $this->_connection->quoteInto(
                         "DELETE FROM `{$productEntityTable}` WHERE `entity_id` IN (?)",
@@ -1108,7 +1108,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
                 }
             }
 
-            if ($titleRows) {
+            if ($titleRows !== []) {
                 $this->_connection->insertOnDuplicate($titleTable, $titleRows, ['title']);
             }
 
@@ -1129,7 +1129,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
                 }
             }
 
-            if ($typeValueRows) {
+            if ($typeValueRows !== []) {
                 $this->_connection->insertMultiple($typeValueTable, $typeValueRows);
             }
 
@@ -1154,7 +1154,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
                 }
             }
 
-            if ($optionTypePriceRows) {
+            if ($optionTypePriceRows !== []) {
                 $this->_connection->insertOnDuplicate(
                     $typePriceTable,
                     $optionTypePriceRows,
@@ -1162,11 +1162,11 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
                 );
             }
 
-            if ($optionTypeTitleRows) {
+            if ($optionTypeTitleRows !== []) {
                 $this->_connection->insertOnDuplicate($typeTitleTable, $optionTypeTitleRows, ['title']);
             }
 
-            if ($productIds) { // update product entity table to show that product has options
+            if ($productIds !== []) { // update product entity table to show that product has options
                 $customOptionsProducts = $customOptions['product_id'];
 
                 foreach (array_keys($customOptionsProducts) as $key) {
@@ -1284,7 +1284,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
                 );
             }
 
-            if ($linkRows) {
+            if ($linkRows !== []) {
                 $adapter->insertOnDuplicate(
                     $mainTable,
                     $linkRows,
@@ -1293,7 +1293,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
                 $adapter->changeTableAutoIncrement($mainTable, (string) $nextLinkId);
             }
 
-            if ($positionRows) { // process linked product positions
+            if ($positionRows !== []) { // process linked product positions
                 $adapter->insertOnDuplicate(
                     $resource->getAttributeTypeTable('int'),
                     $positionRows,
@@ -1370,7 +1370,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
             $tableName = Mage::getModel('importexport/import_proxy_product_resource')->getProductCategoryTable();
         }
 
-        if ($categoriesData) {
+        if ($categoriesData !== []) {
             $categoriesIn = [];
             $delProductId = [];
 
@@ -1390,7 +1390,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
                 );
             }
 
-            if ($categoriesIn) {
+            if ($categoriesIn !== []) {
                 $this->_connection->insertOnDuplicate($tableName, $categoriesIn, ['position']);
             }
         }
@@ -1415,7 +1415,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
             $entityTable = Mage::getModel('importexport/import_proxy_product_resource')->getEntityTable();
         }
 
-        if ($entityRowsUp) {
+        if ($entityRowsUp !== []) {
             $this->_connection->insertOnDuplicate(
                 $entityTable,
                 $entityRowsUp,
@@ -1423,7 +1423,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
             );
         }
 
-        if ($entityRowsIn) {
+        if ($entityRowsIn !== []) {
             $this->_connection->insertMultiple($entityTable, $entityRowsIn);
 
             $newProducts = $this->_connection->fetchPairs($this->_connection->select()
@@ -1742,7 +1742,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
                     ->getTable('catalog/product_attribute_tier_price');
         }
 
-        if ($tierPriceData) {
+        if ($tierPriceData !== []) {
             $tierPriceIn  = [];
             $delProductId = [];
 
@@ -1763,7 +1763,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
                 );
             }
 
-            if ($tierPriceIn) {
+            if ($tierPriceIn !== []) {
                 $this->_connection->insertOnDuplicate($tableName, $tierPriceIn, ['value']);
             }
         }
@@ -1787,7 +1787,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
                 ->getTable('catalog/product_attribute_group_price');
         }
 
-        if ($groupPriceData) {
+        if ($groupPriceData !== []) {
             $groupPriceIn = [];
             $delProductId = [];
 
@@ -1808,7 +1808,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
                 );
             }
 
-            if ($groupPriceIn) {
+            if ($groupPriceIn !== []) {
                 $this->_connection->insertOnDuplicate($tableName, $groupPriceIn, ['value']);
             }
         }
@@ -1962,7 +1962,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
             $tableName = Mage::getModel('importexport/import_proxy_product_resource')->getProductWebsiteTable();
         }
 
-        if ($websiteData) {
+        if ($websiteData !== []) {
             $websitesData = [];
             $delProductId = [];
 
@@ -1985,7 +1985,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
                 );
             }
 
-            if ($websitesData) {
+            if ($websitesData !== []) {
                 $this->_connection->insertOnDuplicate($tableName, $websitesData);
             }
         }
@@ -2112,7 +2112,7 @@ class Mage_ImportExport_Model_Import_Entity_Product extends Mage_ImportExport_Mo
             }
 
             // Insert rows
-            if ($stockData) {
+            if ($stockData !== []) {
                 $this->_connection->insertOnDuplicate($entityTable, $stockData);
             }
         }

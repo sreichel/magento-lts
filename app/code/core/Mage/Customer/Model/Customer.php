@@ -1468,7 +1468,7 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
         $usca   = ['US', 'CA'];
         $prefix = $type ? $type . '_' : '';
 
-        if ($data) {
+        if ($data !== []) {
             foreach ($fields as $field) {
                 if (!isset($data[$prefix . $field])) {
                     return false;

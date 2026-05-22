@@ -20,7 +20,7 @@ class Mage_Adminhtml_Block_Newsletter_Queue_Preview extends Mage_Adminhtml_Block
         /** @var Mage_Newsletter_Model_Template $template */
         $template = Mage::getModel('newsletter/template');
 
-        if ($id = (int) $this->getRequest()->getParam('id')) {
+        if (($id = (int) $this->getRequest()->getParam('id')) !== 0) {
             $queue = Mage::getModel('newsletter/queue');
             $queue->load($id);
             $template->setTemplateType($queue->getNewsletterType());
@@ -40,7 +40,7 @@ class Mage_Adminhtml_Block_Newsletter_Queue_Preview extends Mage_Adminhtml_Block
         );
 
         $storeId = (int) $this->getRequest()->getParam('store_id');
-        if (!$storeId) {
+        if ($storeId === 0) {
             $storeId = Mage::app()->getAnyStoreView()->getId();
         }
 

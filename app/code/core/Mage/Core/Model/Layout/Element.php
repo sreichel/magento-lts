@@ -71,7 +71,7 @@ class Mage_Core_Model_Layout_Element extends Varien_Simplexml_Element
         $type = (string) $this['type'];
 
         $className = (string) $this['class'];
-        if (!$className) {
+        if ($className === '' || $className === '0') {
             $className = Mage::getConfig()->getBlockClassName($type);
             $this->addAttribute('class', $className);
         }

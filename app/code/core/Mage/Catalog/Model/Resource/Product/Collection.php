@@ -1076,7 +1076,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
                 ['collection' => $this],
             );
 
-            if ($isAnchor) {
+            if ($isAnchor !== []) {
                 $anchorStmt = clone $select;
                 $anchorStmt->limit(); //reset limits
                 $anchorStmt->where('count_table.category_id IN (?)', $isAnchor);
@@ -1084,7 +1084,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
                 $anchorStmt = null;
             }
 
-            if ($isNotAnchor) {
+            if ($isNotAnchor !== []) {
                 $notAnchorStmt = clone $select;
                 $notAnchorStmt->limit(); //reset limits
                 $notAnchorStmt->where('count_table.category_id IN (?)', $isNotAnchor);
@@ -2034,7 +2034,7 @@ class Mage_Catalog_Model_Resource_Product_Collection extends Mage_Catalog_Model_
             $tierPrices[$item->getId()] = [];
         }
 
-        if (!$productIds) {
+        if ($productIds === []) {
             return $this;
         }
 

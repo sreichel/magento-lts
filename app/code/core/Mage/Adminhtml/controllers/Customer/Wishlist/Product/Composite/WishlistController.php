@@ -42,7 +42,7 @@ class Mage_Adminhtml_Customer_Wishlist_Product_Composite_WishlistController exte
     protected function _initData()
     {
         $wishlistItemId = (int) $this->getRequest()->getParam('id');
-        if (!$wishlistItemId) {
+        if ($wishlistItemId === 0) {
             Mage::throwException($this->__('No wishlist item id defined.'));
         }
 

@@ -259,7 +259,7 @@ class Mage_Checkout_Model_Type_Multishipping extends Mage_Checkout_Model_Type_Ab
                 }
 
                 if (isset($itemsInfo[$item->getId()]['qty'])) {
-                    if ($qty = (int) $itemsInfo[$item->getId()]['qty']) {
+                    if (($qty = (int) $itemsInfo[$item->getId()]['qty']) !== 0) {
                         $item->setQty($qty);
                         $quote->getBillingAddress()->addItem($item);
                     } else {

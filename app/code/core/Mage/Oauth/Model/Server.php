@@ -732,11 +732,11 @@ class Mage_Oauth_Model_Server
 
             if (self::ERR_PARAMETER_ABSENT == $eCode) {
                 $errorMsg .= '&oauth_parameters_absent=' . $eMsg;
-            } elseif ($eMsg) {
+            } elseif ($eMsg !== '' && $eMsg !== '0') {
                 $errorMsg .= '&message=' . $eMsg;
             }
         } else {
-            $errorMsg = 'internal_error&message=' . ($eMsg ? $eMsg : 'empty_message');
+            $errorMsg = 'internal_error&message=' . ($eMsg !== '' && $eMsg !== '0' ? $eMsg : 'empty_message');
             $responseCode = self::HTTP_INTERNAL_ERROR;
         }
 

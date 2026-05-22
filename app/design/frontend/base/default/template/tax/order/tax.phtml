@@ -36,7 +36,7 @@ $hasItemsInTaxSection = 0;
             $isFirst    = 1;
             ?>
         <?php foreach ($rates as $rate): ?>
-        <tr class="summary-details-<?php echo $taxIter; ?> summary-details<?php if ($isTop): echo ' summary-details-first'; endif; ?>"<?php if (!$this->getIsPlaneMode()):?> style="display:none;"<?php endif ?>>
+        <tr class="summary-details-<?php echo $taxIter; ?> summary-details<?php if ($isTop !== 0): echo ' summary-details-first'; endif; ?>"<?php if (!$this->getIsPlaneMode()):?> style="display:none;"<?php endif ?>>
             <td <?php echo $this->getLabelProperties()?>>
                 <?php echo $this->escapeHtml($rate['title']); ?>
                 <?php if (!is_null($rate['percent'])): ?>
@@ -44,7 +44,7 @@ $hasItemsInTaxSection = 0;
                 <?php endif ?>
                 <br />
             </td>
-            <?php if ($isFirst): ?>
+            <?php if ($isFirst !== 0): ?>
                 <td <?php echo $this->getValueProperties()?> rowspan="<?php echo count($rates); ?>">
                     <?php echo $_order->formatPrice($amount); ?>
                 </td>
@@ -58,7 +58,7 @@ $hasItemsInTaxSection = 0;
     } ?>
 
     <?php foreach ($_weees as $weeeTitle => $weeeAmount): ?>
-        <tr class="summary-details-<?php echo $taxIter; ?> summary-details<?php if ($isTop): echo ' summary-details-first'; endif; ?>"<?php if (!$this->getIsPlaneMode()):?> style="display:none;"<?php endif ?>>
+        <tr class="summary-details-<?php echo $taxIter; ?> summary-details<?php if ($isTop !== 0): echo ' summary-details-first'; endif; ?>"<?php if (!$this->getIsPlaneMode()):?> style="display:none;"<?php endif ?>>
             <td <?php echo $this->getLabelProperties()?>>
                 <?php echo $this->escapeHtml($weeeTitle); ?>
                 <br/>

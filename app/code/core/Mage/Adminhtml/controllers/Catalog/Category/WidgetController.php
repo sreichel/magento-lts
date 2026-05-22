@@ -37,7 +37,7 @@ class Mage_Adminhtml_Catalog_Category_WidgetController extends Mage_Adminhtml_Co
      */
     public function categoriesJsonAction()
     {
-        if ($categoryId = (int) $this->getRequest()->getPost('id')) {
+        if (($categoryId = (int) $this->getRequest()->getPost('id')) !== 0) {
             $category = Mage::getModel('catalog/category')->load($categoryId);
             if ($category->getId()) {
                 Mage::register('category', $category);

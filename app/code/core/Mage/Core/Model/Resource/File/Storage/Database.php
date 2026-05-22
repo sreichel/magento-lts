@@ -286,7 +286,7 @@ class Mage_Core_Model_Resource_File_Storage_Database extends Mage_Core_Model_Res
     public function deleteFolder($folderName = '')
     {
         $folderName = rtrim($folderName, '/');
-        if (!strlen($folderName)) {
+        if ($folderName === '') {
             return;
         }
 

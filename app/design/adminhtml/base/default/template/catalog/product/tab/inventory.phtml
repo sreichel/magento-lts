@@ -40,7 +40,7 @@
         <tr>
             <td class="label"><label for="inventory_qty"><?php echo Mage::helper('catalog')->__('Qty') ?><span class="required">*</span></label></td>
             <td class="value">
-                <?php if (!$_readonly):?>
+                <?php if ($_readonly === '' || $_readonly === '0'):?>
                 <input type="hidden" id="original_inventory_qty" name="<?php echo $this->getFieldSuffix() ?>[stock_data][original_inventory_qty]" value="<?php echo $this->getFieldValueAsFloat('qty') ?>"/>
                 <?php endif ?>
                 <input type="text" class="input-text required-entry validate-number" id="inventory_qty" name="<?php echo $this->getFieldSuffix() ?>[stock_data][qty]" value="<?php echo $this->getFieldValueAsFloat('qty') ?>" <?php echo $_readonly;?>/>

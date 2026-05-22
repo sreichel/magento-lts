@@ -179,7 +179,7 @@ class Mage_Core_Model_File_Storage_Directory_Database extends Mage_Core_Model_Fi
                 continue;
             }
 
-            if (!strlen($dir['name'])) {
+            if ((string) $dir['name'] === '') {
                 continue;
             }
 

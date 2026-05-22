@@ -159,7 +159,7 @@ class Mage_Api2_Model_Config extends Varien_Simplexml_Config
                 }
 
                 $groupName = (string) $result[0];
-                if ($groupName) {
+                if ($groupName !== '' && $groupName !== '0') {
                     $result = $groups->xpath('.//' . $groupName);
                     if (!$result) {
                         continue;
@@ -233,7 +233,7 @@ class Mage_Api2_Model_Config extends Varien_Simplexml_Config
 
         if ($node) {
             foreach ($node->children() as $attribute => $status) {
-                if ((string) $status) {
+                if ((string) $status !== '' && (string) $status !== '0') {
                     $exclAttributes[] = $attribute;
                 }
             }
@@ -256,7 +256,7 @@ class Mage_Api2_Model_Config extends Varien_Simplexml_Config
 
         if ($node) {
             foreach ($node->children() as $attribute => $status) {
-                if ((string) $status) {
+                if ((string) $status !== '' && (string) $status !== '0') {
                     $forcedAttributes[] = $attribute;
                 }
             }
@@ -280,7 +280,7 @@ class Mage_Api2_Model_Config extends Varien_Simplexml_Config
 
         if ($node) {
             foreach ($node->children() as $attribute => $status) {
-                if ((string) $status) {
+                if ((string) $status !== '' && (string) $status !== '0') {
                     $inclAttributes[] = $attribute;
                 }
             }
@@ -305,7 +305,7 @@ class Mage_Api2_Model_Config extends Varien_Simplexml_Config
 
         if ($node) {
             foreach ($node->children() as $attribute => $status) {
-                if ((string) $status) {
+                if ((string) $status !== '' && (string) $status !== '0') {
                     $entityOnlyAttributes[] = $attribute;
                 }
             }

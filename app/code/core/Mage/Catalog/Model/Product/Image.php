@@ -259,12 +259,12 @@ class Mage_Catalog_Model_Product_Image extends Mage_Core_Model_Abstract
 
         if ($startsWithSeparator && !$endsWithSeparator) {
             $dimension = substr($size, 1);
-            $height = $dimension ? (int) $dimension : null;
+            $height = $dimension !== '' && $dimension !== '0' ? (int) $dimension : null;
         }
 
         if ($endsWithSeparator && !$startsWithSeparator) {
             $dimension = substr($size, 0, -1);
-            $width = $dimension ? (int) $dimension : null;
+            $width = $dimension !== '' && $dimension !== '0' ? (int) $dimension : null;
         }
 
         // determine width and height from string

@@ -271,7 +271,7 @@ class Mage_Api2_Model_Acl_Global_Rule_Tree extends Mage_Core_Helper_Abstract
 
         if ($level != 0) {
             $name = $node->getName();
-            if (!(int) $node->resource) {
+            if ((int) $node->resource === 0) {
                 if (self::NAME_RESOURCE_GROUPS != $name) {
                     $isGroup = true;
                     $item['id'] = self::NAME_GROUP . self::ID_SEPARATOR . $name;
@@ -315,7 +315,11 @@ class Mage_Api2_Model_Acl_Global_Rule_Tree extends Mage_Core_Helper_Abstract
         /** @var Varien_Simplexml_Element $child */
         foreach ($children as $child) {
             if ($child->getName() != 'title' && $child->getName() != 'sort_order') {
-                if (!(string) $child->title) {
+                if ((string) $child->title === '') {
+                    continue;
+                }
+
+                if ((string) $child->title === '0') {
                     continue;
                 }
 

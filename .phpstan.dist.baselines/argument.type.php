@@ -6957,11 +6957,6 @@ $ignoreErrors[] = [
     'path' => __DIR__ . '/../app/code/core/Mage/Usa/Model/Shipping/Carrier/Ups.php',
 ];
 $ignoreErrors[] = [
-    'rawMessage' => 'Parameter #1 $string of function strlen expects string, string|false given.',
-    'count' => 1,
-    'path' => __DIR__ . '/../app/code/core/Mage/Usa/Model/Shipping/Carrier/Ups.php',
-];
-$ignoreErrors[] = [
     'rawMessage' => 'Parameter #2 $clientSecret of method Mage_Usa_Model_Shipping_Carrier_UpsAuth::getAccessToken() expects string, string|false given.',
     'count' => 1,
     'path' => __DIR__ . '/../app/code/core/Mage/Usa/Model/Shipping/Carrier/Ups.php',
@@ -7992,19 +7987,9 @@ $ignoreErrors[] = [
     'path' => __DIR__ . '/../lib/Mage/DB/Mysqli.php',
 ];
 $ignoreErrors[] = [
-    'rawMessage' => 'Parameter #1 $string of function strlen expects string, string|null given.',
-    'count' => 2,
-    'path' => __DIR__ . '/../lib/Mage/HTTP/Client/Curl.php',
-];
-$ignoreErrors[] = [
     'rawMessage' => 'Parameter #1 $string of function trim expects string, string|null given.',
     'count' => 1,
     'path' => __DIR__ . '/../lib/Mage/HTTP/Client/Curl.php',
-];
-$ignoreErrors[] = [
-    'rawMessage' => 'Parameter #1 $string of function strlen expects string, string|null given.',
-    'count' => 2,
-    'path' => __DIR__ . '/../lib/Mage/HTTP/Client/Socket.php',
 ];
 $ignoreErrors[] = [
     'rawMessage' => 'Parameter #1 $string of function trim expects string, string|false given.',

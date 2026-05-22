@@ -132,7 +132,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
             unset($cookieParams['httponly']);
             if (!$cookieParams['secure']) {
                 unset($cookieParams['secure']);
-                if (!$cookieParams['domain']) {
+                if ($cookieParams['domain'] === '' || $cookieParams['domain'] === '0') {
                     unset($cookieParams['domain']);
                 }
             }

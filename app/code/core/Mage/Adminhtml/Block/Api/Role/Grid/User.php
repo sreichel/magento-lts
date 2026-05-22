@@ -150,7 +150,7 @@ class Mage_Adminhtml_Block_Api_Role_Grid_User extends Mage_Adminhtml_Block_Widge
 
         $roleId = ($this->getRequest()->getParam('rid') > 0) ? $this->getRequest()->getParam('rid') : Mage::registry('RID');
         $users  = Mage::getModel('api/roles')->setId($roleId)->getRoleUsers();
-        if (count($users)) {
+        if (count($users) > 0) {
             if ($json) {
                 $jsonUsers = [];
                 foreach ($users as $usrid) {

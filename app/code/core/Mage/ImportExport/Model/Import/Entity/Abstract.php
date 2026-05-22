@@ -368,7 +368,7 @@ abstract class Mage_ImportExport_Model_Import_Entity_Abstract
                 foreach ($attribute->getSource()->getAllOptions(false) as $option) {
                     $value = is_array($option['value']) ? $option['value'] : [$option];
                     foreach ($value as $innerOption) {
-                        if (strlen($innerOption['value'])) { // skip ' -- Please Select -- ' option
+                        if (strlen($innerOption['value']) !== 0) { // skip ' -- Please Select -- ' option
                             $options[strtolower($innerOption[$index])] = $innerOption['value'];
                         }
                     }
@@ -695,7 +695,7 @@ abstract class Mage_ImportExport_Model_Import_Entity_Abstract
                 }
             }
 
-            if ($invalidColumns) {
+            if ($invalidColumns !== []) {
                 Mage::throwException(
                     Mage::helper('importexport')->__('Column names: "%s" are invalid', implode('", "', $invalidColumns)),
                 );

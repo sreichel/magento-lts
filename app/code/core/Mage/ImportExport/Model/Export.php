@@ -146,7 +146,7 @@ class Mage_ImportExport_Model_Export extends Mage_ImportExport_Model_Abstract
                 ->setWriter($this->_getWriter())
                 ->export();
             $countRows = substr_count(trim($result), "\n");
-            if (!$countRows) {
+            if ($countRows === 0) {
                 Mage::throwException(
                     Mage::helper('importexport')->__('There is no data for export'),
                 );

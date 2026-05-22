@@ -23,7 +23,7 @@
 
     <tbody>
 <?php $i=0; foreach ($_order->getAllItems() as $_item): $i++ ?>
-        <tr <?php echo $i%2?'bgcolor="#eeeded"':'' ?>>
+        <tr <?php echo $i % 2 !== 0?'bgcolor="#eeeded"':'' ?>>
             <td align="left" valign="top" style="padding:3px 9px"><?php echo $_item->getName() ?></td>
             <td align="center" valign="top" style="padding:3px 9px"><?php echo sprintf('%s', $_item->getQtyOrdered()) ?></td>
             <td align="right" valign="top" style="padding:3px 9px">

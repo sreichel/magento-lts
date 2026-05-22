@@ -404,7 +404,7 @@ class Mage_ImportExport_Model_Import extends Mage_ImportExport_Model_Abstract
         $extension = pathinfo($result['file'], PATHINFO_EXTENSION);
 
         $uploadedFile = $result['path'] . $result['file'];
-        if (!$extension) {
+        if ($extension === '' || $extension === '0') {
             unlink($uploadedFile);
             Mage::throwException(Mage::helper('importexport')->__('Uploaded file has no extension'));
         }

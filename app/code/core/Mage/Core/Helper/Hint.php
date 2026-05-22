@@ -35,7 +35,7 @@ class Mage_Core_Helper_Hint extends Mage_Core_Helper_Abstract
             $config = Mage::getConfig()->getNode('default/hints');
             if ($config) {
                 foreach ($config->children() as $type => $node) {
-                    if ((string) $node->enabled) {
+                    if ((string) $node->enabled !== '' && (string) $node->enabled !== '0') {
                         $hints[$type] = (string) $node->url;
                     }
                 }

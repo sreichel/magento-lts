@@ -230,7 +230,7 @@ class Mage_Core_Model_Resource_Helper_Mysql4 extends Mage_Core_Model_Resource_He
      */
     public function prepareColumnsList(Varien_Db_Select $select, $groupByCondition = null)
     {
-        if (!count($select->getPart(Zend_Db_Select::FROM))) {
+        if (count($select->getPart(Zend_Db_Select::FROM)) === 0) {
             return $select->getPart(Zend_Db_Select::COLUMNS);
         }
 

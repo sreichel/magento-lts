@@ -46,7 +46,7 @@ class Mage_Adminhtml_CustomerController extends Mage_Adminhtml_Controller_Action
         $customerId = (int) $this->getRequest()->getParam($idFieldName);
         $customer = Mage::getModel('customer/customer');
 
-        if ($customerId) {
+        if ($customerId !== 0) {
             $customer->load($customerId);
         }
 

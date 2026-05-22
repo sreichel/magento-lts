@@ -246,7 +246,7 @@ class Mage_Adminhtml_System_Email_TemplateController extends Mage_Adminhtml_Cont
 
         $id = (int) $this->getRequest()->getParam($idFieldName);
         $model = Mage::getModel('adminhtml/email_template');
-        if ($id) {
+        if ($id !== 0) {
             $model->load($id);
         }
 

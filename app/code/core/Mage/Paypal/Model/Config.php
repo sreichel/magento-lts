@@ -652,7 +652,7 @@ class Mage_Paypal_Model_Config
         if ($params) {
             $method = array_shift($params);
             $this->setMethod($method);
-            if ($params) {
+            if ($params !== []) {
                 $storeId = array_shift($params);
                 $this->setStoreId($storeId);
             }
@@ -1099,7 +1099,7 @@ class Mage_Paypal_Model_Config
         return sprintf(
             'https://www.%spaypal.com/cgi-bin/webscr%s',
             $this->sandboxFlag ? 'sandbox.' : '',
-            $params ? '?' . http_build_query($params) : '',
+            $params !== [] ? '?' . http_build_query($params) : '',
         );
     }
 

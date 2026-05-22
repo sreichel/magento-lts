@@ -132,7 +132,7 @@ class Mage_Page_Block_Html_Pager extends Mage_Core_Block_Template
         $this->_collection = $collection
             ->setCurPage($this->getCurrentPage());
         // If not int - then not limit
-        if ((int) $this->getLimit()) {
+        if ((int) $this->getLimit() !== 0) {
             $this->_collection->setPageSize($this->getLimit());
         }
 

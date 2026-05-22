@@ -49,7 +49,7 @@ class Mage_Adminhtml_Customer_Cart_Product_Composite_CartController extends Mage
     protected function _initData()
     {
         $customerId = (int) $this->getRequest()->getParam('customer_id');
-        if (!$customerId) {
+        if ($customerId === 0) {
             Mage::throwException($this->__('No customer id defined.'));
         }
 

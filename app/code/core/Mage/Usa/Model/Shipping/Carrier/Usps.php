@@ -2007,7 +2007,7 @@ class Mage_Usa_Model_Shipping_Carrier_Usps extends Mage_Usa_Model_Shipping_Carri
         foreach ($mailClasses as $mailClass) {
             if (str_starts_with($methodCode, $mailClass)) {
                 $rateIndicator = substr($methodCode, strlen($mailClass) + 1);
-                return [$mailClass, $rateIndicator ? $rateIndicator : 'SP'];
+                return [$mailClass, $rateIndicator !== '' && $rateIndicator !== '0' ? $rateIndicator : 'SP'];
             }
         }
 

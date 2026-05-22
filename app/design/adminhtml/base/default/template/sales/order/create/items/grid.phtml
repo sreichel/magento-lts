@@ -84,7 +84,7 @@
             </tfoot>
                 <?php $i=0 ?>
                 <?php foreach ($_items as $_item):$i++ ?>
-                <tbody class="<?php echo ($i%2)?'even':'odd' ?>">
+                <tbody class="<?php echo ($i % 2 !== 0)?'even':'odd' ?>">
                     <tr>
                         <td class="first">
                             <h5 class="title"><span id="order_item_<?php echo $_item->getId() ?>_title"><?php echo $this->escapeHtml($_item->getName()) ?></span></h5>

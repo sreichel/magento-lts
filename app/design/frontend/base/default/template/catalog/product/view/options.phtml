@@ -10,7 +10,7 @@
 ?>
 
 <?php $_options = Mage::helper('core')->decorateArray($this->getOptions()) ?>
-<?php if (count($_options)):?>
+<?php if (count($_options) > 0):?>
     <script type="text/javascript">
     //<![CDATA[
     var optionFileUpload = {

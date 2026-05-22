@@ -374,15 +374,15 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
             }
         }
 
-        if ($countNonCancelOrder) {
-            if ($countCancelOrder) {
+        if ($countNonCancelOrder !== 0) {
+            if ($countCancelOrder !== 0) {
                 $this->_getSession()->addError($this->__('%s order(s) cannot be canceled', $countNonCancelOrder));
             } else {
                 $this->_getSession()->addError($this->__('The order(s) cannot be canceled'));
             }
         }
 
-        if ($countCancelOrder) {
+        if ($countCancelOrder !== 0) {
             $this->_getSession()->addSuccess($this->__('%s order(s) have been canceled.', $countCancelOrder));
         }
 
@@ -411,15 +411,15 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
 
         $countNonHoldOrder = count($orderIds) - $countHoldOrder;
 
-        if ($countNonHoldOrder) {
-            if ($countHoldOrder) {
+        if ($countNonHoldOrder !== 0) {
+            if ($countHoldOrder !== 0) {
                 $this->_getSession()->addError($this->__('%s order(s) were not put on hold.', $countNonHoldOrder));
             } else {
                 $this->_getSession()->addError($this->__('No order(s) were put on hold.'));
             }
         }
 
-        if ($countHoldOrder) {
+        if ($countHoldOrder !== 0) {
             $this->_getSession()->addSuccess($this->__('%s order(s) have been put on hold.', $countHoldOrder));
         }
 
@@ -449,15 +449,15 @@ class Mage_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Controller_Act
             }
         }
 
-        if ($countNonUnholdOrder) {
-            if ($countUnholdOrder) {
+        if ($countNonUnholdOrder !== 0) {
+            if ($countUnholdOrder !== 0) {
                 $this->_getSession()->addError($this->__('%s order(s) were not released from holding status.', $countNonUnholdOrder));
             } else {
                 $this->_getSession()->addError($this->__('No order(s) were released from holding status.'));
             }
         }
 
-        if ($countUnholdOrder) {
+        if ($countUnholdOrder !== 0) {
             $this->_getSession()->addSuccess($this->__('%s order(s) have been released from holding status.', $countUnholdOrder));
         }
 

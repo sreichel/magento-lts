@@ -47,8 +47,9 @@ class Mage_Core_Controller_Varien_Router_Admin extends Mage_Core_Controller_Vari
     #[Override]
     protected function _beforeModuleMatch()
     {
+        $adminUrl = Mage_Adminhtml_Helper_Data::getCustomAdminUrl();
         // Check if custom admin domain is configured
-        if ($adminUrl = Mage_Adminhtml_Helper_Data::getCustomAdminUrl()) {
+        if ($adminUrl !== '' && $adminUrl !== '0') {
             $adminHost = parse_url($adminUrl, PHP_URL_HOST);
             if (!$adminHost) {
                 // Should never happen - URL is validated when saved
@@ -138,7 +139,7 @@ class Mage_Core_Controller_Varien_Router_Admin extends Mage_Core_Controller_Vari
     #[Override]
     public function collectRoutes($configArea, $useRouterName)
     {
-        if ((string) Mage::getConfig()->getNode(Mage_Adminhtml_Helper_Data::XML_PATH_USE_CUSTOM_ADMIN_PATH)) {
+        if ((string) Mage::getConfig()->getNode(Mage_Adminhtml_Helper_Data::XML_PATH_USE_CUSTOM_ADMIN_PATH) !== '' && (string) Mage::getConfig()->getNode(Mage_Adminhtml_Helper_Data::XML_PATH_USE_CUSTOM_ADMIN_PATH) !== '0') {
             $customUrl = (string) Mage::getConfig()->getNode(Mage_Adminhtml_Helper_Data::XML_PATH_CUSTOM_ADMIN_PATH);
             $xmlPath = Mage_Adminhtml_Helper_Data::XML_PATH_ADMINHTML_ROUTER_FRONTNAME;
             if ((string) Mage::getConfig()->getNode($xmlPath) !== $customUrl) {

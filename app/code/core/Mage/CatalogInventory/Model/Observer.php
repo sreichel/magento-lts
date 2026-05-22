@@ -784,7 +784,7 @@ class Mage_CatalogInventory_Model_Observer
         $stockCollection->getSelect()->reset(Zend_Db_Select::COLUMNS)->columns(['product_id']);
         $productIds = $stockCollection->getColumnValues('product_id');
 
-        if (count($productIds)) {
+        if (count($productIds) > 0) {
             Mage::getResourceSingleton('cataloginventory/indexer_stock')->reindexProducts($productIds);
         }
 

@@ -114,7 +114,7 @@ class Mage_Catalog_Block_Product_View_Options_Type_Select extends Mage_Catalog_B
                 ]);
 
                 $htmlValue = $value->getOptionTypeId();
-                if ($arraySign) {
+                if ($arraySign !== '' && $arraySign !== '0') {
                     $checked = (is_array($configValue) && in_array($htmlValue, $configValue)) ? 'checked' : '';
                 } else {
                     $checked = $configValue == $htmlValue ? 'checked' : '';

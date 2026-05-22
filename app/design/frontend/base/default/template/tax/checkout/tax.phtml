@@ -26,7 +26,7 @@
         <?php $isFirst = 1; ?>
 
         <?php foreach ($rates as $rate): ?>
-        <tr class="summary-details-<?php echo $taxIter; ?> summary-details<?php if ($isTop): echo ' summary-details-first'; endif; ?>" style="display:none;">
+        <tr class="summary-details-<?php echo $taxIter; ?> summary-details<?php if ($isTop !== 0): echo ' summary-details-first'; endif; ?>" style="display:none;">
             <td class="a-right" style="<?php echo $_style ?>" colspan="<?php echo $this->getColspan(); ?>">
                 <?php echo $this->escapeHtml($rate['title']); ?>
                 <?php if (!is_null($rate['percent'])): ?>
@@ -34,7 +34,7 @@
                 <?php endif ?>
                 <br />
             </td>
-            <?php if ($isFirst): ?>
+            <?php if ($isFirst !== 0): ?>
                 <td style="<?php echo $_style ?>" class="a-right" rowspan="<?php echo count($rates); ?>">
                     <?php echo $this->helper('checkout')->formatPrice($amount); ?>
                 </td>
@@ -46,7 +46,7 @@
     <?php endforeach ?>
     <?php $weees = $this->getAllWeee(); ?>
     <?php foreach ($weees as $weeeTitle => $weeeAmount): ?>
-    <tr class="summary-details-<?php echo $taxIter; ?> summary-details<?php if ($isTop): echo ' summary-details-first'; endif; ?>" style="display:none;">
+    <tr class="summary-details-<?php echo $taxIter; ?> summary-details<?php if ($isTop !== 0): echo ' summary-details-first'; endif; ?>" style="display:none;">
         <td class="a-right" style="<?php echo $_style ?>" colspan="<?php echo $this->getColspan(); ?>">
             <?php echo $this->escapeHtml($weeeTitle); ?>
             <br />

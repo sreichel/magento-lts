@@ -189,7 +189,7 @@ class Mage_Wishlist_IndexController extends Mage_Wishlist_Controller_Abstract
         $session = Mage::getSingleton('customer/session');
 
         $productId = (int) $this->getRequest()->getParam('product');
-        if (!$productId) {
+        if ($productId === 0) {
             $this->_redirect('*/');
             return;
         }
@@ -316,7 +316,7 @@ class Mage_Wishlist_IndexController extends Mage_Wishlist_Controller_Abstract
     {
         $session = Mage::getSingleton('customer/session');
         $productId = (int) $this->getRequest()->getParam('product');
-        if (!$productId) {
+        if ($productId === 0) {
             $this->_redirect('*/');
             return;
         }
@@ -396,7 +396,7 @@ class Mage_Wishlist_IndexController extends Mage_Wishlist_Controller_Abstract
 
                 if ($description == Mage::helper('wishlist')->defaultCommentString()) {
                     $description = '';
-                } elseif (!strlen($description)) {
+                } elseif ($description === '') {
                     $description = $item->getDescription();
                 }
 
@@ -441,7 +441,7 @@ class Mage_Wishlist_IndexController extends Mage_Wishlist_Controller_Abstract
             }
 
             // save wishlist model for setting date of last update
-            if ($updatedItems) {
+            if ($updatedItems !== 0) {
                 try {
                     $wishlist->save();
                     Mage::helper('wishlist')->calculate();

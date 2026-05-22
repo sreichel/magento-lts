@@ -139,7 +139,7 @@ abstract class Magento_Profiler_OutputAbstract
                 $prevTimerId = preg_replace($patternLastTimerName, '', $prevTimerId, -1, $count);
                 /* Break the loop if no replacements was done. It is possible when we are */
                 /* working with top level (root) item */
-                if (!$count) {
+                if ($count === 0) {
                     break;
                 }
             }

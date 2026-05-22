@@ -189,7 +189,7 @@ class Mage_Core_Model_File_Storage_Database extends Mage_Core_Model_File_Storage
                 continue;
             }
 
-            if (!strlen($file['filename'])) {
+            if ((string) $file['filename'] === '') {
                 continue;
             }
 

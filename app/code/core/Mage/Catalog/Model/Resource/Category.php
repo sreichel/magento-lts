@@ -187,7 +187,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
             $path  = explode('/', $object->getPath());
             $level = count($path);
             $object->setLevel($level);
-            if ($level) {
+            if ($level !== 0) {
                 $object->setParentId($path[$level - 1]);
             }
 
@@ -270,12 +270,7 @@ class Mage_Catalog_Model_Resource_Category extends Mage_Catalog_Model_Resource_A
             ->where($adapter->quoteIdentifier('path') . ' LIKE :c_path')
             ->where($adapter->quoteIdentifier('level') . ' = :c_level');
 
-        $position = (int) $adapter->fetchOne($select, $bind);
-        if (!$position) {
-            return 0;
-        }
-
-        return $position;
+        return (int) $adapter->fetchOne($select, $bind);
     }
 
     /**

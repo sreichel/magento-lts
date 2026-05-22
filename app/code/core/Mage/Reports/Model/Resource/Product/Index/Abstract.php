@@ -186,7 +186,7 @@ abstract class Mage_Reports_Model_Resource_Product_Index_Abstract extends Mage_C
         $data = [];
         foreach ($productIds as $productId) {
             $productId = (int) $productId;
-            if ($productId) {
+            if ($productId !== 0) {
                 $row['product_id'] = $productId;
                 $row['added_at']   = Varien_Date::formatDate($addedAt);
                 $data[] = $row;

@@ -45,7 +45,7 @@ class Mage_Paypal_Model_Resource_Report_Settlement extends Mage_Core_Model_Resou
             $reportId = (int) $object->getId();
             $adapter->beginTransaction();
             try {
-                if ($reportId) {
+                if ($reportId !== 0) {
                     $adapter->delete($this->_rowsTable, ['report_id = ?' => $reportId]);
                 }
 

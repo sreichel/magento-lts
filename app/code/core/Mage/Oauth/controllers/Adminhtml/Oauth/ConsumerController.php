@@ -108,7 +108,7 @@ class Mage_Oauth_Adminhtml_Oauth_ConsumerController extends Mage_Adminhtml_Contr
     {
         $consumerId = (int) $this->getRequest()->getParam('id');
 
-        if (!$consumerId) {
+        if ($consumerId === 0) {
             $this->_getSession()->addError(Mage::helper('oauth')->__('Invalid ID parameter.'));
             $this->_redirect('*/*/index');
             return;
@@ -175,7 +175,7 @@ class Mage_Oauth_Adminhtml_Oauth_ConsumerController extends Mage_Adminhtml_Contr
         $model = Mage::getModel('oauth/consumer');
 
         if ($consumerId) {
-            if (!(int) $consumerId) {
+            if ((int) $consumerId === 0) {
                 $this->_getSession()->addError(
                     $this->__('Invalid ID parameter.'),
                 );
@@ -300,7 +300,7 @@ class Mage_Oauth_Adminhtml_Oauth_ConsumerController extends Mage_Adminhtml_Contr
             return;
         }
 
-        if ($consumerId) {
+        if ($consumerId !== 0) {
             try {
                 /** @var Mage_Oauth_Model_Consumer $consumer */
                 $consumer = Mage::getModel('oauth/consumer')->load($consumerId);

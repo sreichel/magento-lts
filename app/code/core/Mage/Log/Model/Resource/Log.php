@@ -167,11 +167,11 @@ class Mage_Log_Model_Resource_Log extends Mage_Core_Model_Resource_Db_Abstract
                 }
             }
 
-            if (!$count) {
+            if ($count === 0) {
                 break;
             }
 
-            if ($visitorIds) {
+            if ($visitorIds !== []) {
                 $condition = ['visitor_id IN (?)' => $visitorIds];
 
                 // remove visitors from log/quote

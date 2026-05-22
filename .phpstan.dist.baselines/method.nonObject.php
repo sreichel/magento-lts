@@ -3458,7 +3458,7 @@ $ignoreErrors[] = [
 ];
 $ignoreErrors[] = [
     'rawMessage' => 'Cannot call method getNode() on Mage_Core_Model_Config|null.',
-    'count' => 8,
+    'count' => 9,
     'path' => __DIR__ . '/../app/code/core/Mage/Core/Controller/Varien/Router/Admin.php',
 ];
 $ignoreErrors[] = [

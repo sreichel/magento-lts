@@ -68,7 +68,7 @@ class Mage_Adminhtml_Block_Cms_Wysiwyg_Images_Tree extends Mage_Adminhtml_Block_
             $path = str_replace($helper->getStorageRoot(), '', $path);
             $relative = '';
             foreach (explode(DS, $path) as $dirName) {
-                if ($dirName) {
+                if ($dirName !== '' && $dirName !== '0') {
                     $relative .= DS . $dirName;
                     $treePath .= '/' . $helper->idEncode($relative);
                 }

@@ -516,7 +516,7 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
 
             if ($attr && $attr->getFrontendInput() == 'multiselect') {
                 $value = $object->getData($attrCode);
-                $value = strlen($value) ? explode(',', $value) : [];
+                $value = strlen($value) !== 0 ? explode(',', $value) : [];
                 return $this->validateAttribute($value);
             }
 
@@ -532,13 +532,13 @@ abstract class Mage_Rule_Model_Condition_Product_Abstract extends Mage_Rule_Mode
             if ($attr && $attr->getBackendType() == 'datetime') {
                 $value = Carbon::parse($value)->getTimestamp();
             } elseif ($attr && $attr->getFrontendInput() == 'multiselect') {
-                $value = strlen($value) ? explode(',', $value) : [];
+                $value = strlen($value) !== 0 ? explode(',', $value) : [];
             }
 
             $object->setData($attrCode, $value);
             $result |= parent::validate($object);
 
-            if ($result) {
+            if ($result !== 0) {
                 break;
             }
         }

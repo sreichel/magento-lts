@@ -103,7 +103,7 @@ class Mage_Adminhtml_TagController extends Mage_Adminhtml_Controller_Action
         $this->_title($this->__('Catalog'))
              ->_title($this->__('Tags'));
 
-        if (!(int) $this->getRequest()->getParam('store')) {
+        if ((int) $this->getRequest()->getParam('store') === 0) {
             return $this->_redirect('*/*/*/', ['store' => Mage::app()->getAnyStoreView()->getId(), '_current' => true]);
         }
 

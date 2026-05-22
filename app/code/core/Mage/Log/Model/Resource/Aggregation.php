@@ -71,7 +71,7 @@ class Mage_Log_Model_Resource_Aggregation extends Mage_Core_Model_Resource_Db_Ab
             $select->where('store_id = ?', $store);
         }
 
-        if ($result['customers']) {
+        if ($result['customers'] !== 0) {
             $select->where('visitor_id NOT IN(?)', $customers);
         }
 

@@ -141,7 +141,7 @@ class Mage_Core_Model_Resource_File_Storage_File
         if ($this->_ignoredFiles === null) {
             $ignored = (string) Mage::app()->getConfig()
                 ->getNode(Mage_Core_Model_File_Storage::XML_PATH_MEDIA_RESOURCE_IGNORED);
-            $this->_ignoredFiles = $ignored ? explode(',', $ignored) : [];
+            $this->_ignoredFiles = $ignored !== '' && $ignored !== '0' ? explode(',', $ignored) : [];
         }
 
         return $this->_ignoredFiles;
@@ -163,7 +163,7 @@ class Mage_Core_Model_Resource_File_Storage_File
             return false;
         }
 
-        $path = (strlen($dir['path']))
+        $path = (strlen($dir['path']) !== 0)
             ? $dir['path'] . DS . $dir['name']
             : $dir['name'];
         $path = Mage::helper('core/file_storage_database')->getMediaBaseDir() . DS . str_replace('/', DS, $path);
@@ -247,7 +247,7 @@ class Mage_Core_Model_Resource_File_Storage_File
                 $parent = dirname($parent);
             }
 
-            if ($created) {
+            if ($created !== []) {
                 $this->_createdDirectories = $created;
             }
 

@@ -94,7 +94,7 @@ class Mage_Adminhtml_Helper_Data extends Mage_Adminhtml_Helper_Help_Mapping
 
         // Check if use custom admin URL is enabled
         $useCustom = (int) $config->getNode(self::XML_PATH_USE_CUSTOM_ADMIN_URL);
-        return $useCustom
+        return $useCustom !== 0
             ? (string) $config->getNode(self::XML_PATH_CUSTOM_ADMIN_URL)
             : '';
     }

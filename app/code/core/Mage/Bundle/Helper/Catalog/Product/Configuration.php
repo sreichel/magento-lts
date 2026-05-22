@@ -101,7 +101,7 @@ class Mage_Bundle_Helper_Catalog_Product_Configuration extends Mage_Core_Helper_
 
                         foreach ($bundleSelections as $bundleSelection) {
                             $qty = $this->getSelectionQty($product, $bundleSelection->getSelectionId()) * 1;
-                            if ($qty) {
+                            if ($qty !== 0.0) {
                                 $option['value'][] = $qty . ' x ' . $this->escapeHtml($bundleSelection->getName())
                                     . ' ' . Mage::helper('core')::currency(
                                         $this->getSelectionFinalPrice($item, $bundleSelection),

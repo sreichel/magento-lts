@@ -67,7 +67,7 @@ class Mage_Adminhtml_Block_Review_Rating_Detailed extends Mage_Adminhtml_Block_T
                     ->setPositionOrder()
                     ->load()
                     ->addOptionToItems();
-                if ((int) $this->getRequest()->getParam('id')) {
+                if ((int) $this->getRequest()->getParam('id') !== 0) {
                     $this->_voteCollection = Mage::getModel('rating/rating_option_vote')
                         ->getResourceCollection()
                         ->setReviewFilter((int) $this->getRequest()->getParam('id'))

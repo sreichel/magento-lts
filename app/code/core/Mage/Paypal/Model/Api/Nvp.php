@@ -1051,7 +1051,7 @@ class Mage_Paypal_Model_Api_Nvp extends Mage_Paypal_Model_Api_Abstract
         $errors = $this->_extractErrorsFromResponse($response);
         $errorsCount = count($errors);
 
-        if (!$errorsCount) {
+        if ($errorsCount === 0) {
             return;
         }
 

@@ -62,7 +62,7 @@ abstract class Mage_Eav_Model_Resource_Attribute extends Mage_Eav_Model_Resource
     {
         $select     = parent::_getLoadSelect($field, $value, $object);
         $websiteId  = (int) $object->getWebsite()->getId();
-        if ($websiteId) {
+        if ($websiteId !== 0) {
             $adapter    = $this->_getReadAdapter();
             $columns    = [];
             $scopeTable = $this->_getEavWebsiteTable();
@@ -109,7 +109,7 @@ abstract class Mage_Eav_Model_Resource_Attribute extends Mage_Eav_Model_Resource
                 ];
             }
 
-            if ($data) {
+            if ($data !== []) {
                 $adapter->insertMultiple($this->_getFormAttributeTable(), $data);
             }
         }
@@ -123,7 +123,7 @@ abstract class Mage_Eav_Model_Resource_Attribute extends Mage_Eav_Model_Resource
 
         // save scope attributes
         $websiteId = (int) $object->getWebsite()->getId();
-        if ($websiteId) {
+        if ($websiteId !== 0) {
             $table      = $this->_getEavWebsiteTable();
             $describe   = $this->_getReadAdapter()->describeTable($table);
             $data       = [];

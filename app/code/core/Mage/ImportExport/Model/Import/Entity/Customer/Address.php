@@ -374,7 +374,7 @@ class Mage_ImportExport_Model_Import_Entity_Customer_Address extends Mage_Import
      */
     protected function _saveAddressEntity(array $entityRows)
     {
-        if ($entityRows) {
+        if ($entityRows !== []) {
             if (Mage_ImportExport_Model_Import::BEHAVIOR_APPEND != $this->_customer->getBehavior()) {
                 $customersToClean = [];
 
@@ -519,9 +519,9 @@ class Mage_ImportExport_Model_Import_Entity_Customer_Address extends Mage_Import
      */
     protected function _getRowScope($rowData)
     {
-        if (strlen(trim($rowData[Mage_ImportExport_Model_Import_Entity_Customer::COL_EMAIL]))) {
+        if (strlen(trim($rowData[Mage_ImportExport_Model_Import_Entity_Customer::COL_EMAIL])) !== 0) {
             $scope = Mage_ImportExport_Model_Import_Entity_Customer::SCOPE_DEFAULT;
-        } elseif (strlen(trim($rowData[Mage_ImportExport_Model_Import_Entity_Customer::COL_POSTCODE]))) {
+        } elseif (strlen(trim($rowData[Mage_ImportExport_Model_Import_Entity_Customer::COL_POSTCODE])) !== 0) {
             $scope = Mage_ImportExport_Model_Import_Entity_Customer::SCOPE_ADDRESS;
         } else {
             $scope = Mage_ImportExport_Model_Import_Entity_Customer::SCOPE_OPTIONS;

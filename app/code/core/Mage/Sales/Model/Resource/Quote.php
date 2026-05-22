@@ -211,7 +211,7 @@ class Mage_Sales_Model_Resource_Quote extends Mage_Sales_Model_Resource_Abstract
     public function substractProductFromQuotes($product)
     {
         $productId = (int) $product->getId();
-        if (!$productId) {
+        if ($productId === 0) {
             return $this;
         }
 

@@ -38,7 +38,7 @@ class Varien_Db_Adapter_Mysqli extends Zend_Db_Adapter_Mysqli
         // Suppress connection warnings here.
         // Throw an exception instead.
         @$conn = new mysqli();
-        if (mysqli_connect_errno()) {
+        if (mysqli_connect_errno() !== 0) {
             throw new Zend_Db_Adapter_Mysqli_Exception(mysqli_connect_errno());
         }
 

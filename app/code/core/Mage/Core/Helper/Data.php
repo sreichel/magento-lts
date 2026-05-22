@@ -109,7 +109,7 @@ class Mage_Core_Helper_Data extends Mage_Core_Helper_Abstract
     {
         if ($this->_encryptor === null) {
             $encryptionModel = (string) Mage::getConfig()->getNode(self::XML_PATH_ENCRYPTION_MODEL);
-            $this->_encryptor = $encryptionModel ? new $encryptionModel() : Mage::getModel('core/encryption');
+            $this->_encryptor = $encryptionModel !== '' && $encryptionModel !== '0' ? new $encryptionModel() : Mage::getModel('core/encryption');
 
             $this->_encryptor->setHelper($this);
         }
@@ -885,7 +885,7 @@ XML;
                     $data .= $contents;
                 }
 
-                if (!$data) {
+                if ($data === '' || $data === '0') {
                     // no translation intentionally
                     throw new Exception(sprintf("No content found in files:\n%s", implode("\n", $srcFiles)));
                 }

@@ -835,7 +835,7 @@ XMLRequest;
                         //convert price with Origin country currency code to base currency code
                         $successConversion = true;
                         $responseCurrencyCode = (string) $shipElement->TotalCharges->CurrencyCode;
-                        if ($responseCurrencyCode) {
+                        if ($responseCurrencyCode !== '' && $responseCurrencyCode !== '0') {
                             if (in_array($responseCurrencyCode, $allowedCurrencies, true)) {
                                 $cost = (float) $cost * $this->_getBaseCurrencyRate($responseCurrencyCode);
                             } else {
@@ -1060,7 +1060,7 @@ XMLAuth;
                             $resultArr['deliverytime'] = implode(':', $timeArr);//HH:MM:SS
                             $resultArr['deliverylocation'] = (string) $activityTag->ActivityLocation->Description;
                             $resultArr['signedby'] = (string) $activityTag->ActivityLocation->SignedForByName;
-                            if ($addArr) {
+                            if ($addArr !== []) {
                                 $resultArr['deliveryto'] = implode(', ', $addArr);
                             }
                         } else {
@@ -1068,7 +1068,7 @@ XMLAuth;
                             $tempArr['activity'] = (string) $activityTag->Status->StatusType->Description;
                             $tempArr['deliverydate'] = implode('-', $dateArr);//YYYY-MM-DD
                             $tempArr['deliverytime'] = implode(':', $timeArr);//HH:MM:SS
-                            if ($addArr) {
+                            if ($addArr !== []) {
                                 $tempArr['deliverylocation'] = implode(', ', $addArr);
                             }
 
@@ -1205,7 +1205,7 @@ XMLAuth;
                             $resultArr['status'] = (string) $activityTag['status']['description'];
                             $resultArr['deliverydate'] = implode('-', $dateArr); //YYYY-MM-DD
                             $resultArr['deliverytime'] = implode(':', $timeArr); //HH:MM:SS
-                            if ($addressArr) {
+                            if ($addressArr !== []) {
                                 $resultArr['deliveryto'] = implode(', ', $addressArr);
                             }
                         } else {
@@ -1213,7 +1213,7 @@ XMLAuth;
                             $tempArr['activity'] = (string) $activityTag['status']['description'];
                             $tempArr['deliverydate'] = implode('-', $dateArr); //YYYY-MM-DD
                             $tempArr['deliverytime'] = implode(':', $timeArr); //HH:MM:SS
-                            if ($addressArr) {
+                            if ($addressArr !== []) {
                                 $tempArr['deliverylocation'] = implode(', ', $addressArr);
                             }
 
@@ -2369,7 +2369,7 @@ XMLAuth;
 
         foreach ($priceArr as $method => $price) {
             $shipmentDescription = $this->getShipmentByCode($method);
-            if (!strlen($shipmentDescription)) {
+            if ((string) $shipmentDescription === '') {
                 continue;
             }
 
@@ -2437,7 +2437,7 @@ XMLAuth;
 
             //convert price with Origin country currency code to base currency code
             $successConversion = true;
-            if ($responseCurrencyCode) {
+            if ($responseCurrencyCode !== '' && $responseCurrencyCode !== '0') {
                 if (in_array($responseCurrencyCode, $allowedCurrencies, true)) {
                     $cost = (float) $cost * $this->_getBaseCurrencyRate($responseCurrencyCode);
                 } else {

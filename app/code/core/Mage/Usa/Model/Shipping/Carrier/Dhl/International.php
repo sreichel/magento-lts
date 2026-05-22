@@ -1246,7 +1246,7 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_International extends Mage_Usa_Model_S
             Mage::getStoreConfig(Mage_Shipping_Model_Shipping::XML_PATH_STORE_COUNTRY_ID, $this->getStore()),
         )->region;
 
-        if (!$originRegion) {
+        if ($originRegion === '' || $originRegion === '0') {
             Mage::throwException(Mage::helper('usa')->__('Wrong Region.'));
         }
 
@@ -1259,7 +1259,7 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_International extends Mage_Usa_Model_S
             . ' xmlns:req="http://www.dhl.com"'
             . ' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"'
             . ' xsi:schemaLocation="http://www.dhl.com ship-val-req'
-            . ($originRegion ? '_' . $originRegion : '') . '.xsd" />';
+            . ($originRegion !== '' && $originRegion !== '0' ? '_' . $originRegion : '') . '.xsd" />';
         $xml = new SimpleXMLElement($xmlStr);
 
         $nodeRequest = $xml->addChild('Request', '', '');
@@ -1267,7 +1267,7 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_International extends Mage_Usa_Model_S
         $nodeServiceHeader->addChild('SiteID', (string) $this->getConfigData('id'));
         $nodeServiceHeader->addChild('Password', (string) $this->getConfigData('password'));
 
-        if (!$originRegion) {
+        if ($originRegion === '' || $originRegion === '0') {
             $xml->addChild('RequestedPickupTime', 'N', '');
         }
 

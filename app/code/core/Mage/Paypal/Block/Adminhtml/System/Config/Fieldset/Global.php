@@ -78,7 +78,7 @@ class Mage_Paypal_Block_Adminhtml_System_Config_Fieldset_Global extends Mage_Adm
     public function getElementHtml(Varien_Data_Form_Element_Abstract $element)
     {
         $configValue = (string) $element->getValue();
-        if ($configValue) {
+        if ($configValue !== '' && $configValue !== '0') {
             $element->setChecked(true);
         } else {
             $element->setValue('1');

@@ -238,7 +238,9 @@ class Mage_Downloadable_Helper_Download extends Mage_Core_Helper_Abstract
                 }
             }
 
-            if ($fileName = @pathinfo($this->_resourceFile, PATHINFO_BASENAME)) {
+            $fileName = @pathinfo($this->_resourceFile, PATHINFO_BASENAME);
+
+            if ($fileName !== '' && $fileName !== '0') {
                 return $fileName;
             }
         }

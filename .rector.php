@@ -131,8 +131,6 @@ try {
             CodeQuality\Catch_\ThrowWithPreviousExceptionRector::class => [
                 __DIR__ . '/app/code/core/Mage/Api2/Model/Auth/Adapter/Oauth.php',
             ],
-            # ... +300 occurrences
-            CodeQuality\If_\ExplicitBoolCompareRector::class,
             # ... review autoloading at all
             CodeQuality\Include_\AbsolutizeRequireAndIncludePathRector::class,
             # ... breaks loading website

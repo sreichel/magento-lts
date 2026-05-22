@@ -348,7 +348,7 @@ class Mage_Paypal_Model_Pro
             $errors[] = Mage::helper('paypal')->__('Schedule description is too long.');
         }
 
-        if ($errors) {
+        if ($errors !== []) {
             Mage::throwException(implode(' ', $errors));
         }
     }

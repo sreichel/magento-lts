@@ -78,6 +78,7 @@ return ['includes' => [
     __DIR__ . '/mul.rightNonNumeric.php',
     __DIR__ . '/notEqual.invalid.php',
     __DIR__ . '/notEqual.notAllowed.php',
+    __DIR__ . '/notIdentical.alwaysFalse.php',
     __DIR__ . '/notIdentical.alwaysTrue.php',
     __DIR__ . '/offsetAccess.invalidOffset.php',
     __DIR__ . '/offsetAccess.nonArray.php',

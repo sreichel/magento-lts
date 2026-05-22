@@ -57,7 +57,7 @@ class Mage_CatalogSearch_Model_Resource_Helper_Mysql4 extends Mage_Eav_Model_Res
         $isOpenBracket = 0;
         foreach ($matches[1] as $word) {
             $word = trim($word);
-            if (strlen($word)) {
+            if (strlen($word) !== 0) {
                 $word = str_replace('"', '', $word);
                 $isBool = in_array(strtoupper($word), $boolWords, true);
                 $isBracket = in_array($word, $brackets, true);

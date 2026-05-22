@@ -102,7 +102,7 @@ class Mage_Customer_Model_Address_Config extends Mage_Core_Model_Config_Base
                     ->setHtmlEscape($htmlEscape);
 
                 $renderer = (string) $typeConfig->renderer;
-                if (!$renderer) {
+                if ($renderer === '' || $renderer === '0') {
                     $renderer = self::DEFAULT_ADDRESS_RENDERER;
                 }
 

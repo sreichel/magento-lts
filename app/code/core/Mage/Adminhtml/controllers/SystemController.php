@@ -37,7 +37,7 @@ class Mage_Adminhtml_SystemController extends Mage_Adminhtml_Controller_Action
     public function setStoreAction()
     {
         $storeId = (int) $this->getRequest()->getParam('store');
-        if ($storeId) {
+        if ($storeId !== 0) {
             Mage::getSingleton('adminhtml/session')->setStoreId($storeId);
         }
 

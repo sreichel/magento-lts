@@ -240,7 +240,7 @@ class Mage_ImportExport_Model_Import_Entity_Customer extends Mage_ImportExport_M
                 }
             }
 
-            if ($idToDelete) {
+            if ($idToDelete !== []) {
                 $this->_connection->query(
                     $this->_connection->quoteInto(
                         "DELETE FROM `{$this->_entityTable}` WHERE `entity_id` IN (?)",
@@ -524,11 +524,11 @@ class Mage_ImportExport_Model_Import_Entity_Customer extends Mage_ImportExport_M
      */
     protected function _saveCustomerEntity(array $entityRowsIn, array $entityRowsUp)
     {
-        if ($entityRowsIn) {
+        if ($entityRowsIn !== []) {
             $this->_connection->insertMultiple($this->_entityTable, $entityRowsIn);
         }
 
-        if ($entityRowsUp) {
+        if ($entityRowsUp !== []) {
             $this->_connection->insertOnDuplicate(
                 $this->_entityTable,
                 $entityRowsUp,
@@ -577,11 +577,11 @@ class Mage_ImportExport_Model_Import_Entity_Customer extends Mage_ImportExport_M
         }
 
         $scope = self::SCOPE_OPTIONS;
-        if (strlen(trim($rowData[self::COL_EMAIL]))) {
+        if (strlen(trim($rowData[self::COL_EMAIL])) !== 0) {
             $scope = self::SCOPE_DEFAULT;
         } elseif ($foundOptions) {
             $scope = self::SCOPE_OPTIONS;
-        } elseif (strlen(trim($rowData[self::COL_POSTCODE]))) {
+        } elseif (strlen(trim($rowData[self::COL_POSTCODE])) !== 0) {
             $scope = self::SCOPE_ADDRESS;
         }
 

@@ -261,7 +261,7 @@ abstract class Mage_Wishlist_Block_Abstract extends Mage_Catalog_Block_Product_A
     public function getQty($item)
     {
         $qty = $item->getQty() * 1;
-        if (!$qty) {
+        if ($qty === 0.0) {
             return 1;
         }
 

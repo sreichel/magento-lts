@@ -173,7 +173,7 @@ class Mage_Api_Model_Session extends Mage_Core_Model_Session_Abstract
             $this->setAcl(Mage::getResourceModel('api/acl')->loadAcl());
         }
 
-        if ($user->getReloadAclFlag()) {
+        if ($user->getReloadAclFlag() !== 0) {
             $user->unsetData('api_key');
             $user->setReloadAclFlag('0')->save();
         }

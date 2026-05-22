@@ -129,7 +129,7 @@ class Mage_Adminhtml_Block_System_Config_Form_Fieldset extends Mage_Adminhtml_Bl
     protected function _getFieldsetCss($element = null)
     {
         $configCss = (string) $this->getGroup($element)->fieldset_css;
-        return 'config collapseable' . ($configCss ? ' ' . $configCss : '');
+        return 'config collapseable' . ($configCss !== '' && $configCss !== '0' ? ' ' . $configCss : '');
     }
 
     /**

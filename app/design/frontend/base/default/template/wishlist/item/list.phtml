@@ -23,7 +23,7 @@
         </tr>
     </thead>
     <tbody>
-        <?php if (count($this->getItems())): ?>
+        <?php if (count($this->getItems()) > 0): ?>
             <?php foreach ($this->getItems() as $item): ?>
                 <tr id="item_<?php echo $item->getId();?>">
                     <?php foreach ($columns as $column): ?>

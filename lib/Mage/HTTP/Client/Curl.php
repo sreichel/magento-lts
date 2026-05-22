@@ -248,7 +248,7 @@ class Mage_HTTP_Client_Curl implements Mage_HTTP_IClient
         foreach ($this->_responseHeaders['Set-Cookie'] as $row) {
             $values = explode('; ', $row);
             $count = count($values);
-            if (!$count) {
+            if ($count === 0) {
                 continue;
             }
 
@@ -257,7 +257,7 @@ class Mage_HTTP_Client_Curl implements Mage_HTTP_IClient
                 continue;
             }
 
-            if (!strlen($key)) {
+            if ((string) $key === '') {
                 continue;
             }
 
@@ -282,7 +282,7 @@ class Mage_HTTP_Client_Curl implements Mage_HTTP_IClient
         foreach ($this->_responseHeaders['Set-Cookie'] as $row) {
             $values = explode('; ', $row);
             $count = count($values);
-            if (!$count) {
+            if ($count === 0) {
                 continue;
             }
 
@@ -291,14 +291,14 @@ class Mage_HTTP_Client_Curl implements Mage_HTTP_IClient
                 continue;
             }
 
-            if (!strlen($key)) {
+            if ((string) $key === '') {
                 continue;
             }
 
             $out[$key] = ['value' => $val];
             array_shift($values);
             $count--;
-            if (!$count) {
+            if ($count === 0) {
                 continue;
             }
 
@@ -379,7 +379,7 @@ class Mage_HTTP_Client_Curl implements Mage_HTTP_IClient
         $this->_responseHeaders = [];
         $this->_responseBody = curl_exec($this->_ch);
         $err = curl_errno($this->_ch);
-        if ($err) {
+        if ($err !== 0) {
             $this->doError(curl_error($this->_ch));
         }
 

@@ -161,7 +161,7 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_Label_Pdf_PageBuilder
     {
         $this->_page->saveGS();
         $this->_page->setFont($this->_fontBold, 9);
-        if (!strlen($name)) {
+        if ((string) $name === '') {
             throw new InvalidArgumentException(Mage::helper('usa')->__('Product name is missing'));
         }
 
@@ -190,7 +190,7 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_Label_Pdf_PageBuilder
             throw new InvalidArgumentException(Mage::helper('usa')->__('Product content code is invalid'));
         }
 
-        if ($codes[$code]) {
+        if ($codes[$code] !== 0) {
             $this->_page->drawRectangle(
                 $this->_x(140),
                 $this->_y(0),
@@ -259,7 +259,7 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_Label_Pdf_PageBuilder
 
         $contactName = implode(' ', array_filter([(string) $sender->CompanyName,
             (string) $sender->Contact->PersonName]));
-        if (!$contactName) {
+        if ($contactName === '' || $contactName === '0') {
             throw new InvalidArgumentException(Mage::helper('usa')->__('Sender contact name is missing'));
         }
 
@@ -267,13 +267,13 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_Label_Pdf_PageBuilder
 
         $phoneNumber = implode(' ', array_filter([(string) $sender->Contact->PhoneNumber,
             (string) $sender->Contact->PhoneExtension]));
-        $phoneNumber = $phoneNumber ? 'Phone: ' . $phoneNumber : '';
+        $phoneNumber = $phoneNumber !== '' && $phoneNumber !== '0' ? 'Phone: ' . $phoneNumber : '';
 
         $pageY = $this->_drawSenderAddress($sender->AddressLine, $phoneNumber);
 
-        $divisionCode = (string) (strlen($sender->DivisionCode) ? $sender->DivisionCode . ' ' : null);
+        $divisionCode = (string) (strlen($sender->DivisionCode) !== 0 ? $sender->DivisionCode . ' ' : null);
         $cityInfo = implode(' ', array_filter([$sender->City, $divisionCode, $sender->PostalCode]));
-        if (!strlen($cityInfo)) {
+        if ($cityInfo === '') {
             throw new InvalidArgumentException(Mage::helper('usa')->__('Sender city info is missing'));
         }
 
@@ -282,7 +282,7 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_Label_Pdf_PageBuilder
         $this->_page->setFont($this->_fontBold, 6);
 
         $countryInfo = (string) (($sender->CountryName) ? $sender->CountryName : $sender->CountryCode);
-        if (!strlen($countryInfo)) {
+        if ($countryInfo === '') {
             throw new InvalidArgumentException(Mage::helper('usa')->__('Sender country info is missing'));
         }
 
@@ -333,7 +333,7 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_Label_Pdf_PageBuilder
      */
     public function addOriginInfo($serviceAreaCode)
     {
-        if (!strlen($serviceAreaCode)) {
+        if ((string) $serviceAreaCode === '') {
             throw new InvalidArgumentException(Mage::helper('usa')->__('Origin serviceAreaCode is missing'));
         }
 
@@ -410,7 +410,7 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_Label_Pdf_PageBuilder
 
         $code = implode('-', array_filter([$countryCode, $serviceAreaCode, $facilityCode]));
 
-        if (!strlen($code)) {
+        if ($code === '') {
             throw new InvalidArgumentException(Mage::helper('usa')->__('Destination facility code is empty'));
         }
 
@@ -645,7 +645,7 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl_Label_Pdf_PageBuilder
     {
         $this->_page->saveGS();
 
-        if (!strlen($barCode)) {
+        if ((string) $barCode === '') {
             throw new InvalidArgumentException(Mage::helper('usa')->__('Piece Id barcode is missing'));
         }
 

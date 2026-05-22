@@ -34,7 +34,7 @@ class Mage_Checkout_Block_Cart_Crosssell extends Mage_Catalog_Block_Product_Abst
             $ninProductIds = $this->_getCartProductIds();
             if ($ninProductIds) {
                 $lastAdded = (int) $this->_getLastAddedProductId();
-                if ($lastAdded) {
+                if ($lastAdded !== 0) {
                     $collection = $this->_getCollection()
                         ->addProductFilter($lastAdded)
                         ->addExcludeProductFilter($ninProductIds)

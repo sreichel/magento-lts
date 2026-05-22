@@ -203,7 +203,7 @@ class Mage_Adminhtml_Sales_Order_CreateController extends Mage_Adminhtml_Control
         /**
          * Adding product to quote from shopping cart, wishlist etc.
          */
-        if ($productId = (int) $this->getRequest()->getPost('add_product')) {
+        if (($productId = (int) $this->getRequest()->getPost('add_product')) !== 0) {
             $this->_getOrderCreateModel()->addProduct($productId, $this->getRequest()->getPost());
         }
 
@@ -590,7 +590,7 @@ class Mage_Adminhtml_Sales_Order_CreateController extends Mage_Adminhtml_Control
         $configureResult = new Varien_Object();
         try {
             $quoteItemId = (int) $this->getRequest()->getParam('id');
-            if (!$quoteItemId) {
+            if ($quoteItemId === 0) {
                 Mage::throwException($this->__('Quote item id is not received.'));
             }
 

@@ -41,7 +41,7 @@ class Mage_Adminhtml_Promo_QuoteController extends Mage_Adminhtml_Controller_Act
             $id = (int) $this->getRequest()->getParam('rule_id');
         }
 
-        if ($id) {
+        if ($id !== 0) {
             Mage::registry('current_promo_quote_rule')->load($id);
         }
     }
@@ -196,7 +196,7 @@ class Mage_Adminhtml_Promo_QuoteController extends Mage_Adminhtml_Controller_Act
             } catch (Mage_Core_Exception $mageCoreException) {
                 $this->_getSession()->addError($mageCoreException->getMessage());
                 $id = (int) $this->getRequest()->getParam('rule_id');
-                if ($id) {
+                if ($id !== 0) {
                     $this->_redirect('*/*/edit', ['id' => $id]);
                 } else {
                     $this->_redirect('*/*/new');

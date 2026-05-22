@@ -1462,7 +1462,7 @@ class Varien_Db_Adapter_Pdo_Mysql extends Zend_Db_Adapter_Pdo_Mysql implements V
             $where[] = $this->quoteInto($field . '=?', $ids[$index++]);
         }
 
-        if (!$where) {
+        if ($where === []) {
             return $this;
         }
 
@@ -2165,7 +2165,7 @@ class Varien_Db_Adapter_Pdo_Mysql extends Zend_Db_Adapter_Pdo_Mysql implements V
         }
 
         $insertSql = $this->_getInsertSqlQuery($table, $cols, $values);
-        if ($updateFields) {
+        if ($updateFields !== []) {
             $insertSql .= ' ON DUPLICATE KEY UPDATE ' . implode(', ', $updateFields);
         }
 
@@ -3689,7 +3689,7 @@ class Varien_Db_Adapter_Pdo_Mysql extends Zend_Db_Adapter_Pdo_Mysql implements V
         }
 
         $query = sprintf('%s INTO %s', $query, $this->quoteIdentifier($table));
-        if ($fields) {
+        if ($fields !== []) {
             $columns = array_map($this->quoteIdentifier(...), $fields);
             $query = sprintf('%s (%s)', $query, implode(', ', $columns));
         }
@@ -3697,7 +3697,7 @@ class Varien_Db_Adapter_Pdo_Mysql extends Zend_Db_Adapter_Pdo_Mysql implements V
         $query = sprintf('%s %s', $query, $select->assemble());
 
         if ($mode == self::INSERT_ON_DUPLICATE) {
-            if (!$fields) {
+            if ($fields === []) {
                 $describe = $this->describeTable($table);
                 foreach ($describe as $column) {
                     if ($column['PRIMARY'] === false) {
@@ -3730,7 +3730,7 @@ class Varien_Db_Adapter_Pdo_Mysql extends Zend_Db_Adapter_Pdo_Mysql implements V
                 }
             }
 
-            if ($update) {
+            if ($update !== []) {
                 $query = sprintf('%s ON DUPLICATE KEY UPDATE %s', $query, implode(', ', $update));
             }
         }
@@ -3866,7 +3866,7 @@ class Varien_Db_Adapter_Pdo_Mysql extends Zend_Db_Adapter_Pdo_Mysql implements V
             $joinConds[] = $join;
         }
 
-        if ($joinConds) {
+        if ($joinConds !== []) {
             $query = sprintf("%s\n%s", $query, implode("\n", $joinConds));
         }
 
@@ -3885,7 +3885,7 @@ class Varien_Db_Adapter_Pdo_Mysql extends Zend_Db_Adapter_Pdo_Mysql implements V
             $columns[] = sprintf('%s = %s', $this->quoteIdentifier([$tableAlias, $alias]), $column);
         }
 
-        if (!$columns) {
+        if ($columns === []) {
             throw new Varien_Db_Exception('The columns for UPDATE statement are not defined');
         }
 

@@ -749,7 +749,7 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
     public function forgotPasswordPostAction()
     {
         $email = (string) $this->getRequest()->getPost('email');
-        if ($email) {
+        if ($email !== '' && $email !== '0') {
             /** @var Mage_Core_Helper_Validate $validator */
             $validator = Mage::helper('core/validate');
             if ($validator->validateEmail($email)->count() > 0) {
@@ -1039,7 +1039,7 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
                     $newPass    = $this->getRequest()->getPost('password');
                     $confPass   = $this->getRequest()->getPost('confirmation');
 
-                    if (strlen($newPass)) {
+                    if (strlen($newPass) !== 0) {
                         /**
                          * Set entered password and its confirmation - they
                          * will be validated later to match each other and be of right length

@@ -137,7 +137,7 @@ class Mage_Adminhtml_Newsletter_TemplateController extends Mage_Adminhtml_Contro
 
         $template = Mage::getModel('newsletter/template');
 
-        if ($id = (int) $request->getParam('id')) {
+        if (($id = (int) $request->getParam('id')) !== 0) {
             $template->load($id);
         }
 

@@ -166,7 +166,7 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
          */
         if ($rule->getCouponType() != Mage_SalesRule_Model_Rule::COUPON_TYPE_NO_COUPON) {
             $couponCode = $address->getQuote()->getCouponCode();
-            if (strlen($couponCode)) {
+            if (strlen($couponCode) !== 0) {
                 $coupon = Mage::getModel('salesrule/coupon');
                 $coupon->load($couponCode, 'code');
                 if ($coupon->getId()) {
@@ -477,7 +477,7 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
              * Process "delta" rounding
              */
             $percentKey = (string) $item->getDiscountPercent();
-            if ($percentKey) {
+            if ($percentKey !== '0') {
                 $delta      = $this->_roundingDeltas[$percentKey] ?? 0;
                 $baseDelta  = $this->_baseRoundingDeltas[$percentKey] ?? 0;
                 $discountAmount += $delta;
@@ -980,11 +980,11 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
         $label = '';
         if ($ruleLabel) {
             $label = $ruleLabel;
-        } elseif (strlen($address->getCouponCode())) {
+        } elseif (strlen($address->getCouponCode()) !== 0) {
             $label = $address->getCouponCode();
         }
 
-        if (strlen($label)) {
+        if (strlen($label) !== 0) {
             $description[$rule->getId()] = $label;
         }
 

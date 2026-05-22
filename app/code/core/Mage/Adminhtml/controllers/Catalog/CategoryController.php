@@ -38,9 +38,9 @@ class Mage_Adminhtml_Catalog_CategoryController extends Mage_Adminhtml_Controlle
         $category = Mage::getModel('catalog/category');
         $category->setStoreId($storeId);
 
-        if ($categoryId) {
+        if ($categoryId !== 0) {
             $category->load($categoryId);
-            if ($storeId) {
+            if ($storeId !== 0) {
                 $rootId = Mage::app()->getStore($storeId)->getRootCategoryId();
                 if (!in_array($rootId, $category->getPathIds())) {
                     // load root category instead wrong one
@@ -54,7 +54,9 @@ class Mage_Adminhtml_Catalog_CategoryController extends Mage_Adminhtml_Controlle
             }
         }
 
-        if ($activeTabId = (string) $this->getRequest()->getParam('active_tab_id')) {
+        $activeTabId = (string) $this->getRequest()->getParam('active_tab_id');
+
+        if ($activeTabId !== '' && $activeTabId !== '0') {
             Mage::getSingleton('admin/session')->setActiveTabId($activeTabId);
         }
 
@@ -128,7 +130,7 @@ class Mage_Adminhtml_Catalog_CategoryController extends Mage_Adminhtml_Controlle
             return;
         }
 
-        $this->_title($categoryId ? $category->getName() : $this->__('New Category'));
+        $this->_title($categoryId !== 0 ? $category->getName() : $this->__('New Category'));
 
         /**
          * Check if we have data in session (if during category save was exception)
@@ -233,7 +235,7 @@ class Mage_Adminhtml_Catalog_CategoryController extends Mage_Adminhtml_Controlle
             Mage::getSingleton('admin/session')->setIsTreeWasExpanded(false);
         }
 
-        if ($categoryId = (int) $this->getRequest()->getPost('id')) {
+        if (($categoryId = (int) $this->getRequest()->getPost('id')) !== 0) {
             $this->getRequest()->setParam('id', $categoryId);
 
             if (!$category = $this->_initCategory()) {
@@ -392,7 +394,7 @@ class Mage_Adminhtml_Catalog_CategoryController extends Mage_Adminhtml_Controlle
      */
     public function deleteAction()
     {
-        if ($id = (int) $this->getRequest()->getParam('id')) {
+        if (($id = (int) $this->getRequest()->getParam('id')) !== 0) {
             try {
                 $category = Mage::getModel('catalog/category')->load($id);
                 Mage::dispatchEvent('catalog_controller_category_delete', ['category' => $category]);
@@ -473,7 +475,7 @@ class Mage_Adminhtml_Catalog_CategoryController extends Mage_Adminhtml_Controlle
      */
     public function refreshPathAction()
     {
-        if ($id = (int) $this->getRequest()->getParam('id')) {
+        if (($id = (int) $this->getRequest()->getParam('id')) !== 0) {
             $category = Mage::getModel('catalog/category')->load($id);
             $this->getResponse()->setBody(
                 Mage::helper('core')->jsonEncode([

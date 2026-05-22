@@ -32,7 +32,7 @@ class Mage_Adminhtml_System_Convert_ProfileController extends Mage_Adminhtml_Con
         $profileId = (int) $this->getRequest()->getParam($idFieldName);
         $profile = Mage::getModel('dataflow/profile');
 
-        if ($profileId) {
+        if ($profileId !== 0) {
             $profile->load($profileId);
             if (!$profile->getId()) {
                 Mage::getSingleton('adminhtml/session')->addError(

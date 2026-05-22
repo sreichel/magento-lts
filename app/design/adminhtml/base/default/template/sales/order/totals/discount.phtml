@@ -10,7 +10,7 @@
 <?php $_order   = $this->getOrder() ?>
 <?php $this->setPriceDataObject($_source) ?>
 
-<?php if ((float) $_source->getDiscountAmount()): ?>
+<?php if ((float) $_source->getDiscountAmount() !== 0.0): ?>
     <tr>
         <td class="label">
             <?php if ($_order->getCouponCode()): ?>

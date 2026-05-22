@@ -832,7 +832,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
                     }
                 }
 
-                if (${$rateVariable}) {
+                if (${$rateVariable} !== '') {
                     ${$rateVariable} = "CASE {$taxClassField} {${$rateVariable}} ELSE 0 END";
                 }
             }
@@ -841,7 +841,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
         $result = '';
 
         if ($this->priceIncludesTax()) {
-            if ($defaultTaxString) {
+            if ($defaultTaxString !== '') {
                 $result = "-({$priceField}/(1+({$defaultTaxString}))*{$defaultTaxString})";
             }
 
@@ -849,7 +849,7 @@ class Mage_Tax_Helper_Data extends Mage_Core_Helper_Abstract
                 $result .= "+(({$priceField}{$result})*{$currentTaxString})";
             }
         } elseif ($this->displayPriceIncludingTax()) {
-            if ($currentTaxString) {
+            if ($currentTaxString !== '') {
                 $result .= "+({$priceField}*{$currentTaxString})";
             }
         }

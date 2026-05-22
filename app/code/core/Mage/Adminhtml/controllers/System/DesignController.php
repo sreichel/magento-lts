@@ -73,7 +73,7 @@ class Mage_Adminhtml_System_DesignController extends Mage_Adminhtml_Controller_A
         $id  = (int) $this->getRequest()->getParam('id');
         $design    = Mage::getModel('core/design');
 
-        if ($id) {
+        if ($id !== 0) {
             $design->load($id);
         }
 
@@ -100,12 +100,12 @@ class Mage_Adminhtml_System_DesignController extends Mage_Adminhtml_Controller_A
             $id = (int) $this->getRequest()->getParam('id');
 
             $design = Mage::getModel('core/design');
-            if ($id) {
+            if ($id !== 0) {
                 $design->load($id);
             }
 
             $design->setData($data['design']);
-            if ($id) {
+            if ($id !== 0) {
                 $design->setId($id);
             }
 

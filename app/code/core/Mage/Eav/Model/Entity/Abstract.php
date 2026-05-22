@@ -832,7 +832,7 @@ abstract class Mage_Eav_Model_Entity_Abstract extends Mage_Core_Model_Resource_A
             }
         }
 
-        if (!$errors) {
+        if ($errors === []) {
             return true;
         }
 

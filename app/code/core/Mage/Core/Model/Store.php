@@ -1191,7 +1191,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
         return $storeParsedUrl['scheme'] . '://' . $storeParsedUrl['host']
             . (isset($storeParsedUrl['port']) ? ':' . $storeParsedUrl['port'] : '')
             . $storeParsedUrl['path'] . $requestString
-            . ($storeParsedQuery ? '?' . http_build_query($storeParsedQuery, '', '&amp;') : '');
+            . ($storeParsedQuery !== [] ? '?' . http_build_query($storeParsedQuery, '', '&amp;') : '');
     }
 
     /**

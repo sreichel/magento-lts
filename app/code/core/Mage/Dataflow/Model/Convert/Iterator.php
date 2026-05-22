@@ -111,7 +111,7 @@ function updateProgress(sessionId, idx, time, memory) {
             return false;
         }
 
-        if (!($method = $match[3] ? $match[3] : $defaultMethod)) {
+        if (!($method = $match[3] !== '' && $match[3] !== '0' ? $match[3] : $defaultMethod)) {
             return false;
         }
 

@@ -722,7 +722,7 @@ abstract class Mage_Payment_Model_Method_Abstract extends Varien_Object
             return false;
         }
 
-        if ($checksBitMask & self::CHECK_ORDER_TOTAL_MIN_MAX) {
+        if (($checksBitMask & self::CHECK_ORDER_TOTAL_MIN_MAX) !== 0) {
             $total = $quote->getBaseGrandTotal();
             $minTotal = $this->getConfigData('min_order_total');
             $maxTotal = $this->getConfigData('max_order_total');
@@ -735,7 +735,7 @@ abstract class Mage_Payment_Model_Method_Abstract extends Varien_Object
             return false;
         }
 
-        if ($checksBitMask & self::CHECK_ZERO_TOTAL) {
+        if (($checksBitMask & self::CHECK_ZERO_TOTAL) !== 0) {
             $total = $quote->getBaseSubtotal() + $quote->getShippingAddress()->getBaseShippingAmount();
             if ($total < 0.0001 && $this->getCode() != 'free'
                 && !($this->canManageRecurringProfiles() && $quote->hasRecurringItems())

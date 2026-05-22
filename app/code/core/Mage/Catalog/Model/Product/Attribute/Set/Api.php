@@ -85,7 +85,7 @@ class Mage_Catalog_Model_Product_Attribute_Set_Api extends Mage_Api_Model_Resour
             /** @var Mage_Catalog_Model_Resource_Product_Collection $catalogProductsCollection */
             $catalogProductsCollection = Mage::getModel('catalog/product')->getCollection()
                     ->addFieldToFilter('attribute_set_id', $attributeSetId);
-            if (count($catalogProductsCollection)) {
+            if (count($catalogProductsCollection) > 0) {
                 $this->_fault('attribute_set_has_related_products');
             }
         }

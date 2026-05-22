@@ -295,7 +295,7 @@ class Mage_ImportExport_Model_Import_Entity_Product_Type_Configurable extends Ma
      */
     protected function _processSuperData(array $superData, array &$superAttributes)
     {
-        if ($superData) {
+        if ($superData !== []) {
             $usedCombs = [];
             // is associated products applicable?
             foreach (array_keys($superData['assoc_ids']) as $assocId) {
@@ -492,7 +492,7 @@ class Mage_ImportExport_Model_Import_Entity_Product_Type_Configurable extends Ma
                 }
             }
 
-            if ($mainData) {
+            if ($mainData !== []) {
                 $connection->insertOnDuplicate($mainTable, $mainData);
             }
 

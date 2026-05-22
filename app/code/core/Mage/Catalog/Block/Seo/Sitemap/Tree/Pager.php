@@ -33,7 +33,7 @@ class Mage_Catalog_Block_Seo_Sitemap_Tree_Pager extends Mage_Page_Block_Html_Pag
     #[Override]
     public function getCurrentPage($displacement = 0)
     {
-        if ($page = (int) $this->getRequest()->getParam($this->getPageVarName()) + $displacement) {
+        if (($page = (int) $this->getRequest()->getParam($this->getPageVarName()) + $displacement) !== 0) {
             if ($page > $this->getLastPageNum()) {
                 return $this->getLastPageNum();
             }

@@ -26,7 +26,7 @@ class Mage_Sales_Model_Resource_Quote_Address_Attribute_Frontend_Discount extend
         if ($amount != 0) {
             $title = Mage::helper('sales')->__('Discount');
             $couponCode = $address->getQuote()->getCouponCode();
-            if (strlen($couponCode)) {
+            if (strlen($couponCode) !== 0) {
                 $title .= sprintf(' (%s)', $couponCode);
             }
 

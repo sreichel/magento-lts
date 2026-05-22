@@ -39,7 +39,7 @@ class Mage_ProductAlert_UnsubscribeController extends Mage_Core_Controller_Front
     {
         $productId  = (int) $this->getRequest()->getParam('product');
 
-        if (!$productId) {
+        if ($productId === 0) {
             $this->_redirect('');
             return;
         }
@@ -101,7 +101,7 @@ class Mage_ProductAlert_UnsubscribeController extends Mage_Core_Controller_Front
     {
         $productId  = (int) $this->getRequest()->getParam('product');
 
-        if (!$productId) {
+        if ($productId === 0) {
             $this->_redirect('');
             return;
         }

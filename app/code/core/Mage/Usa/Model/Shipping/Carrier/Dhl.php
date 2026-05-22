@@ -1092,7 +1092,7 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl extends Mage_Usa_Model_Shipping_Carrie
                                                     $addArr[] = (string) $thistory->Location->Country;
                                                 }
 
-                                                if ($addArr) {
+                                                if ($addArr !== []) {
                                                     $tempArr['deliverylocation'] = implode(', ', $addArr);
                                                 } elseif (isset($thistory['final_delivery'])
                                                           && (string) $thistory['final_delivery'] === 'true'
@@ -1126,7 +1126,7 @@ class Mage_Usa_Model_Shipping_Carrier_Dhl extends Mage_Usa_Model_Shipping_Carrie
                                         $resultArr[$tracknum] = $rArr;
                                     } else {
                                         $description = (string) $txml->Result->Desc;
-                                        if ($description) {
+                                        if ($description !== '' && $description !== '0') {
                                             $errorArr[$tracknum] = Mage::helper('usa')->__('Error #%s: %s', $code, $description);
                                         } else {
                                             $errorArr[$tracknum] = Mage::helper('usa')->__('Unable to retrieve tracking');

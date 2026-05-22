@@ -637,7 +637,7 @@ class Mage_Customer_Model_Convert_Adapter_Customer extends Mage_Eav_Model_Conver
                 }
             }
 
-            if ($street) {
+            if ($street !== []) {
                 $billingAddress->setDataUsingMethod('street', $street);
             }
 
@@ -692,7 +692,7 @@ class Mage_Customer_Model_Convert_Adapter_Customer extends Mage_Eav_Model_Conver
                 }
             }
 
-            if ($street) {
+            if ($street !== []) {
                 $shippingAddress->setDataUsingMethod('street', $street);
             }
 

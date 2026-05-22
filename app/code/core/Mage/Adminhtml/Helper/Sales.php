@@ -115,7 +115,7 @@ class Mage_Adminhtml_Helper_Sales extends Mage_Core_Helper_Abstract
                 $url = str_replace('%%', '%', $matches[2]);
                 $text = str_replace('%%', '%', $matches[3]);
                 //Check for a valid url
-                if ($url) {
+                if ($url !== '' && $url !== '0') {
                     $urlScheme = strtolower(parse_url($url, PHP_URL_SCHEME));
                     if ($urlScheme !== 'http' && $urlScheme !== 'https') {
                         $url = null;

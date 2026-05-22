@@ -285,7 +285,7 @@ class Mage_HTTP_Client_Socket implements Mage_HTTP_IClient
         foreach ($this->_responseHeaders['Set-Cookie'] as $row) {
             $values = explode('; ', $row);
             $count = count($values);
-            if (!$count) {
+            if ($count === 0) {
                 continue;
             }
 
@@ -294,7 +294,7 @@ class Mage_HTTP_Client_Socket implements Mage_HTTP_IClient
                 continue;
             }
 
-            if (!strlen($key)) {
+            if ((string) $key === '') {
                 continue;
             }
 
@@ -319,7 +319,7 @@ class Mage_HTTP_Client_Socket implements Mage_HTTP_IClient
         foreach ($this->_responseHeaders['Set-Cookie'] as $row) {
             $values = explode('; ', $row);
             $count = count($values);
-            if (!$count) {
+            if ($count === 0) {
                 continue;
             }
 
@@ -328,14 +328,14 @@ class Mage_HTTP_Client_Socket implements Mage_HTTP_IClient
                 continue;
             }
 
-            if (!strlen($key)) {
+            if ((string) $key === '') {
                 continue;
             }
 
             $out[$key] = ['value' => $val];
             array_shift($values);
             $count--;
-            if (!$count) {
+            if ($count === 0) {
                 continue;
             }
 

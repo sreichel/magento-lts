@@ -604,7 +604,7 @@ class Mage_Catalog_Model_Url extends Varien_Object
                 }
             }
 
-            if ($loadCategories) {
+            if ($loadCategories !== []) {
                 $categories = $this->getResource()->getCategories($loadCategories, $storeId) ?: [];
                 foreach ($categories as $category) {
                     $this->_categories[$category->getId()] = $category;

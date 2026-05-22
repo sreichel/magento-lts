@@ -71,7 +71,7 @@ class Mage_AdminNotification_Model_Feed extends Mage_Core_Model_Abstract
                 ];
             }
 
-            if ($feedData) {
+            if ($feedData !== []) {
                 Mage::getModel('adminnotification/inbox')->parse(array_reverse($feedData));
             }
         }

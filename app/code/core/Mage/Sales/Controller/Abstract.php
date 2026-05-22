@@ -166,7 +166,7 @@ abstract class Mage_Sales_Controller_Abstract extends Mage_Core_Controller_Front
     public function printInvoiceAction()
     {
         $invoiceId = (int) $this->getRequest()->getParam('invoice_id');
-        if ($invoiceId) {
+        if ($invoiceId !== 0) {
             $invoice = Mage::getModel('sales/order_invoice')->load($invoiceId);
             $order = $invoice->getOrder();
         } else {
@@ -195,7 +195,7 @@ abstract class Mage_Sales_Controller_Abstract extends Mage_Core_Controller_Front
     public function printShipmentAction()
     {
         $shipmentId = (int) $this->getRequest()->getParam('shipment_id');
-        if ($shipmentId) {
+        if ($shipmentId !== 0) {
             $shipment = Mage::getModel('sales/order_shipment')->load($shipmentId);
             $order = $shipment->getOrder();
         } else {
@@ -224,7 +224,7 @@ abstract class Mage_Sales_Controller_Abstract extends Mage_Core_Controller_Front
     public function printCreditmemoAction()
     {
         $creditmemoId = (int) $this->getRequest()->getParam('creditmemo_id');
-        if ($creditmemoId) {
+        if ($creditmemoId !== 0) {
             $creditmemo = Mage::getModel('sales/order_creditmemo')->load($creditmemoId);
             $order = $creditmemo->getOrder();
         } else {

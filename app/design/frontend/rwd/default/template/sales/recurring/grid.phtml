@@ -43,7 +43,7 @@ $linkText = $linkUrl ? ($linkAnchorText ? $linkAnchorText : $value) : '';
 $linkFormat = $linkUrl ? '<a href="%s">%s</a>' : '';
 ?>
                 <td<?php $this->getObjectData($row, 'is_amount') ? ' class="a-right"' : '' ?> data-rwd-label="<?php echo $this->getObjectData($column, 'title') ?>"><?php
-if ($linkFormat) {
+if ($linkFormat !== '' && $linkFormat !== '0') {
     echo sprintf($nobr, sprintf($linkFormat, $this->escapeHtml($linkUrl), $this->escapeHtml($linkText)));
 } else {
     echo sprintf($nobr, $this->escapeHtml($value));

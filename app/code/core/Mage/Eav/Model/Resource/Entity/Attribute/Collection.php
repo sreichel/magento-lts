@@ -160,7 +160,7 @@ class Mage_Eav_Model_Resource_Entity_Attribute_Collection extends Mage_Core_Mode
     {
         foreach ($setIds as $setId) {
             $setId = (int) $setId;
-            if (!$setId) {
+            if ($setId === 0) {
                 continue;
             }
 

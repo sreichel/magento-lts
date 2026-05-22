@@ -1400,7 +1400,7 @@ class Mage_Paygate_Model_Authorizenet extends Mage_Payment_Model_Method_Cc
         $responseBody       = $response->getBody();
         $responseBodyArray  = explode(self::RESPONSE_DELIM_CHAR, $responseBody);
 
-        if ($responseBodyArray) {
+        if ($responseBodyArray !== []) {
             $result->setResponseCode((int) str_replace('"', '', $responseBodyArray[0]))
                 ->setResponseSubcode((int) str_replace('"', '', $responseBodyArray[1]))
                 ->setResponseReasonCode((int) str_replace('"', '', $responseBodyArray[2]))

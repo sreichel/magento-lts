@@ -980,7 +980,7 @@ class Mage_Catalog_Model_Category extends Mage_Catalog_Model_Abstract
             }
         }
 
-        if (!$availableSortBy) {
+        if ($availableSortBy === []) {
             return $defaultSortBy;
         }
 

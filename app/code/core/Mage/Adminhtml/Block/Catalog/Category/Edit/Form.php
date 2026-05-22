@@ -71,7 +71,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Edit_Form extends Mage_Adminhtml_Blo
 
         // Reset button
         if (!$category->isReadonly()) {
-            $resetPath = $categoryId ? '*/*/edit' : '*/*/add';
+            $resetPath = $categoryId !== 0 ? '*/*/edit' : '*/*/add';
             $this->setChild(
                 'reset_button',
                 $this->getLayout()->createBlock('adminhtml/widget_button')
@@ -95,7 +95,7 @@ class Mage_Adminhtml_Block_Catalog_Category_Edit_Form extends Mage_Adminhtml_Blo
         $storeId = (int) $this->getRequest()->getParam('store');
         $params = [];
 
-        if ($storeId) {
+        if ($storeId !== 0) {
             $store = Mage::app()->getStore($storeId);
             $params['website'] = $store->getWebsite()->getCode();
             $params['store']   = $store->getCode();

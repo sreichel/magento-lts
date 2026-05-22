@@ -396,8 +396,8 @@ class Mage_Adminhtml_Model_System_Store extends Varien_Object
         } elseif (isset($this->_storeCollection[$storeId])) {
             $data = $this->_storeCollection[$storeId];
             $name .= $this->getWebsiteName($data->getWebsiteId());
-            $name .= ($name ? '/' : '') . $this->getGroupName($data->getGroupId());
-            $name .= ($name ? '/' : '') . $data->getName();
+            $name .= ($name !== '' && $name !== '0' ? '/' : '') . $this->getGroupName($data->getGroupId());
+            $name .= ($name !== '' && $name !== '0' ? '/' : '') . $data->getName();
         }
 
         return $name;
@@ -484,7 +484,7 @@ class Mage_Adminhtml_Model_System_Store extends Varien_Object
         } elseif (isset($this->_storeCollection[$storeId])) {
             $data = $this->_storeCollection[$storeId];
             $name .= $this->getWebsiteName($data->getWebsiteId());
-            $name .= ($name ? '/' : '') . $this->getGroupName($data->getGroupId());
+            $name .= ($name !== '' && $name !== '0' ? '/' : '') . $this->getGroupName($data->getGroupId());
         }
 
         return $name;

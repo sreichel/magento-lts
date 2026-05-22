@@ -290,7 +290,7 @@ class Mage_Page_Block_Html_Head extends Mage_Core_Block_Template
 
             // render elements
             $params = trim($params);
-            $params = $params ? ' ' . $params : '';
+            $params = $params !== '' && $params !== '0' ? ' ' . $params : '';
             if ($mergedUrl) {
                 $html .= sprintf($format, $mergedUrl, $params);
             } else {

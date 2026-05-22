@@ -21,7 +21,7 @@ class Mage_Tag_CustomerController extends Mage_Core_Controller_Front_Action
     protected function _getTagId()
     {
         $tagId = (int) $this->getRequest()->getParam('tagId');
-        if ($tagId) {
+        if ($tagId !== 0) {
             $customerId = Mage::getSingleton('customer/session')->getCustomerId();
             $model = Mage::getModel('tag/tag_relation');
             $model->loadByTagCustomer(null, $tagId, $customerId);

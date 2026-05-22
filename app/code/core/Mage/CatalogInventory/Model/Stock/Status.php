@@ -337,7 +337,7 @@ class Mage_CatalogInventory_Model_Stock_Status extends Mage_Core_Model_Abstract
             $parentIds = array_merge($parentIds, $typeInstance->getParentIdsByChild($productId));
         }
 
-        if (!$parentIds) {
+        if ($parentIds === []) {
             return $this;
         }
 

@@ -8,7 +8,7 @@
 ?>
 <?php /** @var Mage_Adminhtml_Block_Catalog_Product_Composite_Fieldset_Options $this */ ?>
 <?php $options = Mage::helper('core')->decorateArray($this->getOptions()); ?>
-<?php if (count($options)): ?>
+<?php if (count($options) > 0): ?>
 
 <?php echo $this->getChildHtml('options_js') ?>
 

@@ -144,7 +144,7 @@ class Mage_Core_Model_Layout extends Varien_Simplexml_Config
             foreach ($removeInstructions as $infoNode) {
                 $attributes = $infoNode->attributes();
                 $blockName = (string) $attributes->name;
-                if ($blockName) {
+                if ($blockName !== '' && $blockName !== '0') {
                     $ignoreNodes = $xml->xpath("//block[@name='" . $blockName . "']");
                     if (!is_array($ignoreNodes)) {
                         continue;

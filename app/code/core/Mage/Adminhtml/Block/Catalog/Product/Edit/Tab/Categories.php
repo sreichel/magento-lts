@@ -100,7 +100,7 @@ class Mage_Adminhtml_Block_Catalog_Product_Edit_Tab_Categories extends Mage_Admi
         if (is_null($root)) {
             $storeId = (int) $this->getRequest()->getParam('store');
 
-            if ($storeId) {
+            if ($storeId !== 0) {
                 $store = Mage::app()->getStore($storeId);
                 $rootId = $store->getRootCategoryId();
             } else {

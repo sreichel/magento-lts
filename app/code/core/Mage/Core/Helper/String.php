@@ -191,7 +191,7 @@ class Mage_Core_Helper_String extends Mage_Core_Helper_Abstract
             foreach ($split as $key => $part) {
                 if ($trim) {
                     // ignore spaces (even keys)
-                    if ($key % 2) {
+                    if ($key % 2 !== 0) {
                         continue;
                     }
 
